@@ -80,7 +80,10 @@ def main() -> None:
     universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
 
     promoted_elo_offset, n_events = compute_promoted_team_elo_offset(df_clean)
-    elo_run = run_elo(df_clean, promoted_offset=promoted_elo_offset)
+    elo_run = run_elo(
+        df_clean, promoted_offset=promoted_elo_offset,
+        k_factor=model_cfg["elo"]["k_factor"], home_advantage=model_cfg["elo"]["home_advantage_elo_points"],
+    )
     elo_final = elo_run.final_ratings
 
     promo_history = compute_promoted_team_history(df_clean)
@@ -97,6 +100,7 @@ def main() -> None:
     as_of_date = pd.Timestamp(now_utc_iso()[:10])
     fit = fit_dixon_coles_model(
         df_clean, universe, as_of_date, half_life_days=model_cfg["dixon_coles"]["time_decay_half_life_days"],
+        l2_reg=model_cfg["dixon_coles"].get("l2_reg", 0.03),
     )
     fit = apply_promoted_team_adjustment(fit, PROMOTED_TEAMS, dc_attack_offset, dc_defense_offset)
 

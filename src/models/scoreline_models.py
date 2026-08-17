@@ -155,6 +155,8 @@ def fit_dixon_coles_model(
     as_of_date,
     half_life_days: float = 425.0,
     warm_start: "DixonColesFit | None" = None,
+    l2_reg: float = L2_REG,
+    rho_init: float = RHO_INIT,
 ) -> DixonColesFit:
     team_index = {t: i for i, t in enumerate(teams_universe)}
     df = matches_df[matches_df["home_team"].isin(team_index) & matches_df["away_team"].isin(team_index)].copy()
@@ -171,7 +173,7 @@ def fit_dixon_coles_model(
     attack, defense, home_adv, rho, converged, ess, theta, param_se = fit_dixon_coles(
         dates, home_idx, away_idx, home_goals, away_goals,
         n_teams=len(teams_universe), as_of_date=as_of_date, half_life_days=half_life_days,
-        warm_start_theta=warm_theta,
+        l2_reg=l2_reg, rho_init=rho_init, warm_start_theta=warm_theta,
     )
     n = len(teams_universe)
     attack_se = param_se[2:2 + n]

@@ -1,6 +1,6 @@
 # EPL 2026-27 Data Audit
 
-Generated: 2026-08-17T23:11:24+00:00
+Generated: 2026-08-17T23:50:21+00:00
 
 This report accounts for every raw data file used by the pipeline: what is real and independently verifiable, and what is explicitly flagged as unavailable rather than fabricated. See `config/data_sources.yaml` for the full source registry.
 

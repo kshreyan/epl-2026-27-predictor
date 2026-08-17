@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-08-17T23:50:22+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 0,
+  "status": "not_yet_available",
+  "note": "No live odds feed is connected in Phase 1/2 (see config/data_sources.yaml) -- every 2026-27 prediction is model-only, so there is no market to disagree with yet.",
+  "data": []
+}

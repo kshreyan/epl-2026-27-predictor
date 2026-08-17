@@ -1,16 +1,20 @@
-# EPL 2026-27 Model Report (Phase 1)
+# EPL 2026-27 Model Report (Phase 1 + Phase 2)
 
 ## Status
 
-This report documents **Phase 1** of a staged build (see the project's
-approved plan). Phase 1 delivers a real, working, backtested core
-pipeline: real data collection, an in-house dynamic Elo + Dixon-Coles
-scoreline engine with an empirically-derived promoted-team adjustment,
-isotonic probability calibration, a rolling-origin backtest across 7
-real historical seasons, and a 250,000-run Monte Carlo full-season
-simulation for 2026-27. It is **not** the complete 37-section spec --
-see "Deferred to later phases" below for what is intentionally not
-built yet, and why.
+This report documents **Phase 1 and Phase 2** of a staged build (see
+the project's approved plan). Phase 1 delivered a real, working,
+backtested core pipeline: real data collection, an in-house dynamic
+Elo + Dixon-Coles scoreline engine with an empirically-derived
+promoted-team adjustment, isotonic probability calibration, a
+rolling-origin backtest across 7 real historical seasons, and a
+250,000-run Monte Carlo full-season simulation for 2026-27. Phase 2
+added Optuna hyperparameter tuning, closed a leakage gap in the
+backtest's promoted-team handling, dashboard JSON, the integrity audit,
+the model-risk audit, the academic report, the portfolio summary, and
+10 more tests. It is **not** the complete 37-section spec -- see
+"Deferred to later phases" below for what is intentionally still not
+built, and why.
 
 ## Why today matters
 
@@ -117,12 +121,14 @@ and log-loss improvement.
 
 Rolling-origin validation, 2019/20-2025/26 (7 real seasons, no random
 splitting), predicting each chunk with only data strictly before it.
-2,660 real historical matches evaluated.
+2,660 real historical matches evaluated, using the **Optuna-tuned**
+hyperparameters (see "Hyperparameter tuning" below) and the
+leakage-safe per-season promoted-team adjustment.
 
 | Model | Log loss | Brier | RPS | Accuracy | Favorite accuracy |
 |---|---|---|---|---|---|
-| **Dixon-Coles (main model)** | **0.9856** | **0.5861** | **0.2038** | 52.6% | 63.8% |
-| Elo-only baseline | 0.9977 | 0.5941 | 0.2070 | 52.6% | 62.3% |
+| **Dixon-Coles (main model)** | **0.9865** | **0.5864** | **0.2035** | 52.9% | 63.7% |
+| Elo-only baseline | 0.9931 | 0.5912 | 0.2055 | 53.1% | 60.8% |
 | Simple Poisson baseline | 1.0178 | 0.6082 | 0.2146 | 49.6% | 65.7% |
 | Previous-season-table baseline | 1.2100 | 0.6777 | 0.2342 | 46.5% | 56.7% |
 
@@ -131,15 +137,35 @@ it is the primary model used for 2026-27 predictions. It also beats
 the naive previous-season-table baseline by a wide margin (a good
 sanity check: if it hadn't, the extra modeling complexity wouldn't be
 justified). Isotonic calibration (fit on this same backtest) reduces
-top-class Expected Calibration Error to **0.0084** -- see
+top-class Expected Calibration Error to **0.0114** -- see
 `data/outputs/epl_2026_27_calibration_report.md`.
 
 Dixon-Coles scoreline accuracy on the same 2,660 matches: **11.2%**
-exact-score accuracy, **30.6%** top-3 scoreline hit rate, **46.6%**
-top-5 hit rate, goal MAE 0.95. These are in the range widely reported
+exact-score accuracy, **30.1%** top-3 scoreline hit rate, **46.5%**
+top-5 hit rate, goal MAE 0.94. These are in the range widely reported
 for Dixon-Coles-family models in the football-analytics literature,
 which is a useful external sanity check that the fit is behaving
 correctly rather than over- or under-fitting.
+
+## Hyperparameter tuning (Phase 2)
+
+`src/models/tune_hyperparameters.py` runs an Optuna search (40 trials
+per model) over Dixon-Coles' time-decay half-life and L2 regularization,
+and Elo's K-factor and home-advantage, each trial doing a single
+preseason-style fit evaluated against the real, held-out 2025/26 season
+-- a deliberate simplification from the full walk-forward backtest above
+for compute-time reasons (documented in the module docstring). Tuned
+values: Dixon-Coles half_life_days=269.2, l2_reg=0.1234 (previous
+defaults: 425.0, 0.03); Elo k_factor=30.6, home_advantage=63.0 points
+(previous defaults: 20, 60). Full detail:
+`reports/epl_hyperparameter_tuning_report.md`.
+
+Note the walk-forward backtest log loss above did not meaningfully
+improve after tuning (0.9865 vs. a pre-tuning 0.9856) even though the
+tuning objective itself showed a real improvement on its own holdout --
+expected, since the two evaluation setups differ (single fit vs.
+~38-refits-per-season walk-forward), and is disclosed here rather than
+only reporting the more flattering number.
 
 Full detail: `data/outputs/epl_backtest_match_results.csv`,
 `epl_backtest_model_comparison.csv`, `epl_backtest_scoreline_accuracy.csv`,
@@ -190,21 +216,35 @@ order), never left ambiguous or randomly reshuffled per run.
   Premier League fixtures are in scope, so `*_european_match_last_7_days`
   and `*_cup_match_last_7_days` are explicitly flagged unavailable
   rather than computed from an incomplete calendar.
-- Hyperparameters (K-factor, half-life, L2 regularization, rho) are
-  documented literature-typical starting values, **not yet tuned** by
-  Optuna or any systematic search.
+- Dixon-Coles half-life and L2 regularization, and Elo K-factor and
+  home-advantage, are now Optuna-tuned (Phase 2, see "Hyperparameter
+  tuning" above); `rho` is still fit per-match by MLE, not separately
+  tuned, and the tuning objective itself uses a single holdout season
+  rather than a proper three-way train/tune/test split.
 
-## Deferred to later phases (not built in Phase 1)
+## Deferred to later phases (not built in Phase 1 or 2)
 
 Player-minutes/lineup-strength model, injury/transfer/manager-tactical
 feature layers (schemas exist, data does not), market-integrated
-simulation, the weekly in-season update engine, dashboard JSON files,
-the academic/integrity/model-risk/portfolio reports, Optuna
-hyperparameter tuning, the full out-of-fold stacked ensemble, the
-remaining test files, and neural sequence models (skipped per the
-spec's own "don't include for prestige" instruction -- ~4,000 historical
-matches is a small dataset for a deep sequence model; classical/
-statistical models are used instead).
+simulation (the overround-removal and log-odds-averaging math is built
+and unit-tested, see `src/features/build_market_features.py`, but no
+live feed is connected so it has nothing to run on), the weekly
+in-season update engine, the full out-of-fold stacked ensemble
+(section 21 of the original spec -- meaningful only once the player-
+minutes/injury/market model layers it's meant to combine actually
+exist), `test_completed_match_locking.py` and
+`test_weekly_update_versioning.py` (nothing to test until the weekly-
+update engine exists), and neural sequence models (skipped per the
+spec's own "don't include for prestige" instruction -- ~4,000
+historical matches is a small dataset for a deep sequence model;
+classical/statistical models are used instead).
+
+Phase 2 completed: dashboard JSON (`src/dashboard/build_dashboard_json.py`),
+the integrity audit (`src/run_integrity_audit.py`,
+`reports/epl_2026_27_integrity_audit.md`), the model-risk audit, the
+academic report, the portfolio summary, Optuna hyperparameter tuning,
+and 10 additional tests (market-odds cleaning, injury/lineup
+missingness flags, simulation table-rules).
 
 ## Ethical note
 

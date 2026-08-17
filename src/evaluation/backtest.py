@@ -17,6 +17,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.models.baselines import (  # noqa: E402
@@ -25,7 +26,12 @@ from src.models.baselines import (  # noqa: E402
     simple_poisson_baseline,
 )
 from src.models.elo_model import compute_promoted_team_elo_offset, run_elo  # noqa: E402
+from src.models.promoted_team_adjustment import (  # noqa: E402
+    compute_promoted_team_history,
+    summarize_promoted_team_baseline,
+)
 from src.models.scoreline_models import (  # noqa: E402
+    apply_promoted_team_adjustment,
     fit_dixon_coles_model,
     match_lambdas,
     outcome_probabilities,
@@ -37,6 +43,7 @@ from src.utils.versioning import log_experiment, make_run_metadata, register_mod
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 HISTORICAL_PATH = REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv"
+MODEL_CONFIG_PATH = REPO_ROOT / "config" / "model_config.yaml"
 OUT_MATCH_RESULTS = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv"
 OUT_MODEL_COMPARISON = REPO_ROOT / "data" / "outputs" / "epl_backtest_model_comparison.csv"
 OUT_SCORELINE_ACCURACY = REPO_ROOT / "data" / "outputs" / "epl_backtest_scoreline_accuracy.csv"
@@ -47,7 +54,13 @@ VALIDATION_SEASONS = [
     "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25", "2025-26",
 ]
 CHUNK_SIZE = 10  # ~1 matchweek in a 20-team league
-HALF_LIFE_DAYS = 425.0
+
+with open(MODEL_CONFIG_PATH) as _f:
+    _MODEL_CFG = yaml.safe_load(_f)
+HALF_LIFE_DAYS = _MODEL_CFG["dixon_coles"]["time_decay_half_life_days"]
+L2_REG = _MODEL_CFG["dixon_coles"].get("l2_reg", 0.03)
+ELO_K_FACTOR = _MODEL_CFG["elo"]["k_factor"]
+ELO_HOME_ADVANTAGE = _MODEL_CFG["elo"]["home_advantage_elo_points"]
 
 RESULT_ORDER = ["away_win", "draw", "home_win"]  # ordinal scale for RPS
 
@@ -90,7 +103,7 @@ def main() -> None:
     universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
 
     promoted_elo_offset, n_events = compute_promoted_team_elo_offset(df)
-    elo_run = run_elo(df, promoted_offset=promoted_elo_offset)
+    elo_run = run_elo(df, promoted_offset=promoted_elo_offset, k_factor=ELO_K_FACTOR, home_advantage=ELO_HOME_ADVANTAGE)
     elo_hist = elo_run.history.copy()
     # NOTE: Series.astype(str) on a datetime64 column and str()/f-string on a
     # scalar Timestamp can format differently (date-only vs date+time) --
@@ -101,6 +114,12 @@ def main() -> None:
 
     league_avg_goals_overall = float(pd.concat([df["home_goals"], df["away_goals"]]).mean())
 
+    all_seasons_in_order = list(dict.fromkeys(df.sort_values("date")["season"]))
+    teams_by_season = {
+        s: set(df[df["season"] == s]["home_team"]) | set(df[df["season"] == s]["away_team"])
+        for s in all_seasons_in_order
+    }
+
     match_rows = []
     dc_fit = None
 
@@ -108,6 +127,24 @@ def main() -> None:
         season_matches = df[df["season"] == season].sort_values("date").reset_index(drop=True)
         if season_matches.empty:
             continue
+
+        # Promoted-team detection is season-membership metadata, known
+        # publicly before a ball is kicked -- not match-outcome data -- so
+        # using it here is not leakage. The *offset magnitude*, however, is
+        # computed only from promotion events in seasons strictly before
+        # this validation season (leakage-safe), unlike the single global
+        # constant used elsewhere in Phase 1 (see model report limitations).
+        season_idx = all_seasons_in_order.index(season)
+        prev_season = all_seasons_in_order[season_idx - 1] if season_idx > 0 else None
+        promoted_this_season = (
+            teams_by_season[season] - teams_by_season[prev_season] if prev_season else set()
+        )
+        history_before_season = df[df["date"] < season_matches["date"].iloc[0]]
+        promo_summary = summarize_promoted_team_baseline(compute_promoted_team_history(history_before_season))
+        shortfall = promo_summary["mean_points_below_league_avg"] or -15.0
+        season_attack_offset = shortfall / 100.0
+        season_defense_offset = shortfall / 100.0
+
         n_chunks = int(np.ceil(len(season_matches) / CHUNK_SIZE))
         for c in range(n_chunks):
             chunk = season_matches.iloc[c * CHUNK_SIZE:(c + 1) * CHUNK_SIZE]
@@ -118,7 +155,11 @@ def main() -> None:
             if train_pool.empty:
                 continue
 
-            dc_fit = fit_dixon_coles_model(train_pool, universe, as_of_date, HALF_LIFE_DAYS, warm_start=dc_fit)
+            dc_fit = fit_dixon_coles_model(train_pool, universe, as_of_date, HALF_LIFE_DAYS, warm_start=dc_fit, l2_reg=L2_REG)
+            dc_fit_for_predictions = (
+                apply_promoted_team_adjustment(dc_fit, list(promoted_this_season), season_attack_offset, season_defense_offset)
+                if promoted_this_season else dc_fit
+            )
 
             for _, m in chunk.iterrows():
                 home, away = m["home_team"], m["away_team"]
@@ -128,8 +169,8 @@ def main() -> None:
                 if home not in dc_fit.team_index or away not in dc_fit.team_index:
                     continue
 
-                lam, mu = match_lambdas(dc_fit, home, away)
-                matrix = score_matrix(lam, mu, dc_fit.rho)
+                lam, mu = match_lambdas(dc_fit_for_predictions, home, away)
+                matrix = score_matrix(lam, mu, dc_fit_for_predictions.rho)
                 dc_home, dc_draw, dc_away = outcome_probabilities(matrix)
                 dc_probs = {"home_win": dc_home, "draw": dc_draw, "away_win": dc_away}
                 dc_pred_score = max(
@@ -145,7 +186,7 @@ def main() -> None:
                         elo_home_pre, elo_away_pre = elo_home_pre.iloc[0], elo_away_pre.iloc[0]
                 else:
                     continue
-                eh, ed, ea = elo_only_probabilities(float(elo_home_pre), float(elo_away_pre))
+                eh, ed, ea = elo_only_probabilities(float(elo_home_pre), float(elo_away_pre), home_advantage=ELO_HOME_ADVANTAGE)
                 elo_probs = {"home_win": eh, "draw": ed, "away_win": ea}
 
                 pst_h, pst_d, pst_a = previous_season_table_baseline(train_pool, home, away, season)
@@ -261,7 +302,11 @@ def main() -> None:
                 "a snapshot fit before the chunk's first match rather than immediately before their own kickoff.\n"
                 "- Head-to-head tie-breaking is not implemented in the season simulation (see simulation config).\n"
                 "- No market-odds baseline is included in this comparison (no historical odds source with "
-                "sufficient coverage was integrated in Phase 1).\n")
+                "sufficient coverage was integrated in Phase 1).\n"
+                "- The Dixon-Coles promoted-team offset is now leakage-safe (computed per validation season "
+                "from only earlier real promotion events, and applied to that season's actual promoted clubs "
+                "during backtest prediction). The **Elo** promoted-team offset is still a single global "
+                "constant computed from the full historical dataset -- a smaller, documented remaining gap.\n")
     print(f"Wrote model selection report to {OUT_SELECTION_REPORT}")
 
     meta = make_run_metadata(

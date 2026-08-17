@@ -176,6 +176,7 @@ def main() -> None:
         half_life_days=model_cfg["dixon_coles"]["time_decay_half_life_days"],
         shrinkage_to_league_prior=model_cfg["dynamic_team_strength"]["shrinkage_to_league_prior"],
         promoted_extra_shrinkage=model_cfg["dynamic_team_strength"]["promoted_team_extra_shrinkage"],
+        l2_reg=model_cfg["dixon_coles"].get("l2_reg"),
     )
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     strength_df.to_csv(OUT_DIR / "epl_2026_27_dynamic_team_strength.csv", index=False)

@@ -1,14 +1,14 @@
 # EPL 2026-27 Calibration Report (Phase 1)
 
-Generated: 2026-08-17T23:08:40+00:00
+Generated: 2026-08-17T23:49:24+00:00
 
 Calibration method: **isotonic** (isotonic regression per outcome class, fit on 2660 real backtest matches; minimum 500 samples required per class).
 
 ## Headline numbers
 
-- Raw Dixon-Coles mean log loss: 0.9856
-- Calibrated mean log loss: 0.9729
-- Expected Calibration Error (top-class, 10 bins): 0.0084
+- Raw Dixon-Coles mean log loss: 0.9865
+- Calibrated mean log loss: 0.9700
+- Expected Calibration Error (top-class, 10 bins): 0.0114
 
 ## Reliability tables
 

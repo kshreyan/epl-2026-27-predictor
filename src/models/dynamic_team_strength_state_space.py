@@ -59,8 +59,9 @@ def compute_team_strength_state(
     shrinkage_to_league_prior: float = 0.20,
     promoted_extra_shrinkage: float = 0.35,
     matchweek: int = 0,
+    l2_reg: float | None = None,
 ):
-    fit = fit_dixon_coles_model(matches_df, teams_universe, as_of_date, half_life_days)
+    fit = fit_dixon_coles_model(matches_df, teams_universe, as_of_date, half_life_days, l2_reg=l2_reg if l2_reg is not None else 0.03)
     fit = apply_promoted_team_adjustment(fit, promoted_teams, promoted_attack_offset, promoted_defense_offset)
 
     promoted_idx = [fit.team_index[t] for t in promoted_teams]

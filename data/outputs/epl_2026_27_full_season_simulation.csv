@@ -1,2 +1,2 @@
 n_simulations,n_fixtures_per_simulation,season,simulation_mode,tie_break_order,random_seed,model_version,generated_at
-250000,380,2026-27,preseason_static_strength,"points, goal_difference, goals_for, alphabetical_fallback (no head-to-head)",20260818,0.1.0-phase1,2026-08-17T23:10:39+00:00
+250000,380,2026-27,preseason_static_strength,"points, goal_difference, goals_for, alphabetical_fallback (no head-to-head)",20260818,0.1.0-phase1,2026-08-17T23:49:59+00:00
