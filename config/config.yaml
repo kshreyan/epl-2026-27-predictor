@@ -1,0 +1,31 @@
+season: "2026-27"
+timezone: "Europe/London"
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  features: data/features
+  external: data/external
+  outputs: data/outputs
+  dashboard: data/outputs/dashboard
+
+historical_seasons:
+  - "2014-15"
+  - "2015-16"
+  - "2016-17"
+  - "2017-18"
+  - "2018-19"
+  - "2019-20"
+  - "2020-21"
+  - "2021-22"
+  - "2022-23"
+  - "2023-24"
+  - "2024-25"
+  - "2025-26"
+
+prediction_modes:
+  - preseason_mode
+  - early_week_mode
+  - pre_match_mode
+  - confirmed_lineup_mode
+  - post_match_update_mode

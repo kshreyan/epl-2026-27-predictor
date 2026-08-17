@@ -1,0 +1,19 @@
+[project]
+name = "premier-league-2026-27-predictor"
+version = "0.1.0"
+description = "Probabilistic forecasting system for the English Premier League 2026-27 season -- calibrated match, scoreline, and full-season simulation predictions. Not betting advice."
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=3.0",
+    "numpy>=2.5",
+    "scipy>=1.18",
+    "scikit-learn>=1.9",
+    "PyYAML>=6.0",
+    "requests>=2.34",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

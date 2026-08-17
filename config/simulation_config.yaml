@@ -1,0 +1,18 @@
+n_simulations: 250000
+random_seed: 20260818
+
+tie_breakers:
+  - points
+  - goal_difference
+  - goals_scored
+  # Head-to-head is NOT implemented in Phase 1 (needs full fixture-result
+  # graph reasoning across the season, deferred -- see model report
+  # "Limitations"). Any remaining tie after points/GD/GF is broken by a
+  # deterministic, documented rule: alphabetical team order. This is
+  # transparent and reproducible, not a claim of real PL tie-break rules.
+  - alphabetical_fallback
+
+relegation_zone_size: 3
+top4_size: 4
+top5_size: 5
+top_half_size: 10

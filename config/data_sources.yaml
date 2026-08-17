@@ -1,0 +1,45 @@
+# Registry of every data source this pipeline actually uses, and what
+# it does NOT have a connected source for. Kept in sync with
+# reports/epl_2026_27_data_audit.md -- update both when a source changes.
+
+connected_real_sources:
+  - name: football-data.co.uk
+    provides: "EPL historical match results 2014/15-2025/26: goals, shots, cards, referee, historical Bet365 1X2 odds"
+    url_pattern: "https://www.football-data.co.uk/mmz4281/{season_code}/E0.csv"
+    used_by: src/data_collection/collect_historical_results.py
+
+  - name: fixturedownload.com
+    provides: "2026-27 EPL fixture list: all 380 matches, dates, kickoff times, venues"
+    url: "https://fixturedownload.com/feed/json/epl-2026"
+    used_by: src/data_collection/collect_fixtures.py
+    cross_checked_against: "Wikipedia '2026-27 Premier League' article (club list, promoted teams, season dates)"
+
+not_connected_documented_gap:
+  - name: live_bookmaker_odds
+    reason: "requires a paid odds-API subscription; not available in this environment"
+    affected_files:
+      - data/raw/epl_2026_27_real_odds.csv
+      - data/raw/epl_2026_27_outright_odds.csv
+    mitigation: "model-only mode used throughout Phase 1; market_available=False on every row"
+
+  - name: current_injury_suspension_reports
+    reason: "requires a live, continuously-updated injury-news feed"
+    affected_files:
+      - data/raw/epl_2026_27_injury_suspension.csv
+    mitigation: "team-level availability_status=unknown sentinel rows; never treated as fully healthy"
+
+  - name: squad_transfer_market_data
+    reason: "requires a licensed per-player transfer/market-value data vendor"
+    affected_files:
+      - data/raw/epl_2026_27_squads_transfers.csv
+    mitigation: "sentinel rows only; transfer-impact features deferred to a later phase"
+
+  - name: advanced_match_stats
+    reason: "xG, PPDA, possession, big-chances, set-piece-xG are not published by football-data.co.uk"
+    affected_files:
+      - data/raw/epl_historical_matches.csv
+    mitigation: "left blank per-row with an explicit notes flag; goal/shot-based models used instead of xG-based ones"
+
+  - name: clubelo.com_api
+    reason: "unreachable from this environment (connection timeout) at collection time"
+    mitigation: "Elo ratings computed in-house from real football-data.co.uk historical results instead (src/models/elo_model.py), so no external dependency is required"

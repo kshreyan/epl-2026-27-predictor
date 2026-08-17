@@ -1,0 +1,21 @@
+team,title_probability,expected_points,median_points
+Manchester City,0.49903,80.17,80.0
+Arsenal,0.40741,79.01,79.0
+Liverpool,0.07338,69.97,70.0
+Chelsea,0.00524,59.77,60.0
+Manchester United,0.00386,59.04,59.0
+Newcastle United,0.00371,58.82,59.0
+Aston Villa,0.00286,57.96,58.0
+Brentford,0.00128,55.74,56.0
+Brighton & Hove Albion,0.00117,55.67,56.0
+AFC Bournemouth,0.00074,54.15,54.0
+Nottingham Forest,0.00042,52.53,52.0
+Tottenham Hotspur,0.00033,52.33,52.0
+Fulham,0.00019,51.04,51.0
+Everton,0.00012,49.0,49.0
+Sunderland,0.00011,49.43,49.0
+Crystal Palace,0.0001,49.15,49.0
+Leeds United,5e-05,47.61,48.0
+Coventry City,0.0,32.2,32.0
+Hull City,0.0,18.6,18.0
+Ipswich Town,0.0,17.57,17.0

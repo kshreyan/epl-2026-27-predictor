@@ -1,0 +1,31 @@
+# Phase-1 model hyperparameters. These are documented starting values,
+# not yet tuned by Optuna (hyperparameter tuning is a later phase --
+# see reports/epl_2026_27_model_report.md "Limitations").
+
+elo:
+  initial_rating: 1500
+  k_factor: 20
+  home_advantage_elo_points: 60
+  goal_diff_multiplier: true   # scale K by margin of victory (log of goal diff)
+
+dixon_coles:
+  time_decay_half_life_days: 425   # ~1 season of weighting half-life
+  rho_correlation: -0.10           # low-score correlation adjustment, literature-typical starting value
+  max_goals_grid: 8                # scoreline surface covers 0-0 .. 8-8 (spec requires 0-0..7-7 minimum)
+
+dynamic_team_strength:
+  reestimation: "after_each_matchweek"
+  shrinkage_to_league_prior: 0.20   # weight pulled back toward league-average strength each update
+  promoted_team_extra_shrinkage: 0.35
+  bootstrap_resamples_for_uncertainty: 200
+
+promoted_team_model:
+  historical_prior_seasons: 12
+
+calibration:
+  method: "isotonic"       # falls back to Platt/sigmoid if too few backtest samples
+  min_samples_for_isotonic: 500
+
+backtest:
+  rolling_origin_start_train_through: "2018-19"
+  rolling_origin_validate_through: "2025-26"
