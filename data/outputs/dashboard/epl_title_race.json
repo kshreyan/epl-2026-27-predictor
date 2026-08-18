@@ -1,128 +1,128 @@
 {
-  "generated_at": "2026-08-18T10:35:26+00:00",
+  "generated_at": "2026-08-18T12:31:31+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 20,
   "data": [
     {
       "team": "Arsenal",
-      "title_probability": 0.50304,
-      "expected_points": 78.98,
+      "title_probability": 0.43712,
+      "expected_points": 78.85,
       "median_points": 79.0
     },
     {
       "team": "Manchester City",
-      "title_probability": 0.43322,
-      "expected_points": 77.92,
+      "title_probability": 0.38572,
+      "expected_points": 77.79,
       "median_points": 78.0
     },
     {
       "team": "Liverpool",
-      "title_probability": 0.03982,
-      "expected_points": 65.78,
+      "title_probability": 0.06876,
+      "expected_points": 65.97,
       "median_points": 66.0
     },
     {
       "team": "Manchester United",
-      "title_probability": 0.00705,
-      "expected_points": 59.45,
-      "median_points": 59.0
+      "title_probability": 0.02124,
+      "expected_points": 59.73,
+      "median_points": 60.0
     },
     {
       "team": "Aston Villa",
-      "title_probability": 0.00347,
-      "expected_points": 57.13,
+      "title_probability": 0.01353,
+      "expected_points": 57.53,
+      "median_points": 58.0
+    },
+    {
+      "team": "Newcastle United",
+      "title_probability": 0.01278,
+      "expected_points": 57.05,
       "median_points": 57.0
     },
     {
       "team": "Chelsea",
-      "title_probability": 0.00323,
-      "expected_points": 56.8,
-      "median_points": 57.0
-    },
-    {
-      "team": "Newcastle United",
-      "title_probability": 0.00319,
-      "expected_points": 56.64,
+      "title_probability": 0.01277,
+      "expected_points": 57.2,
       "median_points": 57.0
     },
     {
       "team": "AFC Bournemouth",
-      "title_probability": 0.00191,
-      "expected_points": 55.25,
+      "title_probability": 0.00938,
+      "expected_points": 55.75,
+      "median_points": 56.0
+    },
+    {
+      "team": "Brentford",
+      "title_probability": 0.00867,
+      "expected_points": 55.33,
       "median_points": 55.0
     },
     {
       "team": "Brighton & Hove Albion",
-      "title_probability": 0.0017,
-      "expected_points": 55.06,
-      "median_points": 55.0
-    },
-    {
-      "team": "Brentford",
-      "title_probability": 0.00167,
-      "expected_points": 54.83,
+      "title_probability": 0.00859,
+      "expected_points": 55.56,
       "median_points": 55.0
     },
     {
       "team": "Nottingham Forest",
-      "title_probability": 0.00087,
-      "expected_points": 53.05,
-      "median_points": 53.0
+      "title_probability": 0.00569,
+      "expected_points": 53.6,
+      "median_points": 54.0
+    },
+    {
+      "team": "Sunderland",
+      "title_probability": 0.00394,
+      "expected_points": 48.74,
+      "median_points": 48.0
+    },
+    {
+      "team": "Leeds United",
+      "title_probability": 0.00389,
+      "expected_points": 49.46,
+      "median_points": 49.0
     },
     {
       "team": "Fulham",
-      "title_probability": 0.00024,
-      "expected_points": 49.89,
+      "title_probability": 0.0027,
+      "expected_points": 50.48,
       "median_points": 50.0
     },
     {
       "team": "Everton",
-      "title_probability": 0.00018,
-      "expected_points": 49.13,
-      "median_points": 49.0
-    },
-    {
-      "team": "Leeds United",
-      "title_probability": 0.00017,
-      "expected_points": 48.76,
-      "median_points": 49.0
+      "title_probability": 0.0022,
+      "expected_points": 49.76,
+      "median_points": 50.0
     },
     {
       "team": "Tottenham Hotspur",
-      "title_probability": 0.00011,
-      "expected_points": 47.74,
-      "median_points": 48.0
-    },
-    {
-      "team": "Sunderland",
-      "title_probability": 9e-05,
-      "expected_points": 48.01,
+      "title_probability": 0.00152,
+      "expected_points": 48.36,
       "median_points": 48.0
     },
     {
       "team": "Crystal Palace",
-      "title_probability": 4e-05,
-      "expected_points": 47.28,
-      "median_points": 47.0
+      "title_probability": 0.00151,
+      "expected_points": 47.92,
+      "median_points": 48.0
     },
     {
       "team": "Coventry City",
       "title_probability": 0.0,
-      "expected_points": 33.55,
-      "median_points": 33.0
+      "expected_points": 34.27,
+      "median_points": 34.0
     },
     {
       "team": "Hull City",
       "title_probability": 0.0,
-      "expected_points": 32.94,
+      "expected_points": 33.68,
       "median_points": 33.0
     },
     {
       "team": "Ipswich Town",
       "title_probability": 0.0,
-      "expected_points": 15.79,
-      "median_points": 15.0
+      "expected_points": 16.58,
+      "median_points": 16.0
     }
   ]
 }

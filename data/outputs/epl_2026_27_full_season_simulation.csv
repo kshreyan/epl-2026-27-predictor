@@ -1,2 +1,2 @@
-n_simulations,n_fixtures_per_simulation,season,simulation_mode,tie_break_order,random_seed,model_version,generated_at
-250000,380,2026-27,preseason_static_strength,"points, goal_difference, goals_for, alphabetical_fallback (no head-to-head)",20260818,0.1.0-phase1,2026-08-18T02:28:22+00:00
+n_simulations,n_fixtures_per_simulation,season,simulation_mode,scoreline_model,tie_break_order,random_seed,model_version,generated_at
+250000,380,2026-27,preseason_parameter_uncertainty_monte_carlo,independent_poisson_per_draw (Dixon-Coles low-score correlation dropped for season simulation only; still used for match-level predictions),"points, goal_difference, goals_for, alphabetical_fallback (no head-to-head)",20260818,0.1.0-phase1,2026-08-18T12:19:01+00:00

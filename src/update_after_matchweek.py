@@ -244,6 +244,7 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
 
     new_expected_table, new_position_dist = run_monte_carlo(
         remaining_fixtures, ctx["fit"], teams_2627, sim_cfg["n_simulations"], sim_cfg["random_seed"], sim_cfg,
+        ctx["promoted_se"],
         initial_points=initial_points, initial_goals_for=initial_gf, initial_goals_against=initial_ga,
         initial_wins=initial_wins, initial_draws=initial_draws, initial_losses=initial_losses,
     )

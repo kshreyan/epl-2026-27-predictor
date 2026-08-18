@@ -1,21 +1,21 @@
 team,relegation_probability,expected_points,expected_position
-Ipswich Town,0.99963,15.79,19.953
-Hull City,0.78641,32.94,18.036
-Coventry City,0.75722,33.55,17.91
-Crystal Palace,0.08279,47.28,13.189
-Tottenham Hotspur,0.07705,47.74,12.97
-Sunderland,0.06904,48.01,12.835
-Leeds United,0.05954,48.76,12.471
-Everton,0.05254,49.13,12.28
-Fulham,0.04395,49.89,11.901
-Nottingham Forest,0.01897,53.05,10.284
-Brentford,0.01136,54.83,9.364
-Brighton & Hove Albion,0.0104,55.06,9.248
-AFC Bournemouth,0.01013,55.25,9.16
-Newcastle United,0.00636,56.64,8.456
-Chelsea,0.00629,56.8,8.386
-Aston Villa,0.00562,57.13,8.225
-Manchester United,0.00254,59.45,7.122
-Liverpool,0.00016,65.78,4.619
-Manchester City,0.0,77.92,1.865
-Arsenal,0.0,78.98,1.725
+Ipswich Town,0.99276,16.58,19.85
+Hull City,0.62558,33.68,17.383
+Coventry City,0.59773,34.27,17.24
+Sunderland,0.12114,48.74,12.201
+Crystal Palace,0.10848,47.92,12.612
+Leeds United,0.10509,49.46,11.943
+Tottenham Hotspur,0.10328,48.36,12.445
+Everton,0.07927,49.76,11.858
+Fulham,0.07177,50.48,11.565
+Nottingham Forest,0.0408,53.6,10.273
+Brentford,0.02916,55.33,9.552
+Brighton & Hove Albion,0.02688,55.56,9.454
+AFC Bournemouth,0.02649,55.75,9.379
+Newcastle United,0.0205,57.05,8.847
+Chelsea,0.01956,57.2,8.779
+Aston Villa,0.0183,57.53,8.644
+Manchester United,0.01086,59.73,7.77
+Liverpool,0.00226,65.97,5.486
+Manchester City,4e-05,77.79,2.451
+Arsenal,2e-05,78.85,2.266

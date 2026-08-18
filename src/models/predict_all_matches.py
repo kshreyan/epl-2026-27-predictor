@@ -133,6 +133,13 @@ def build_model_context(df_clean: pd.DataFrame, universe: list[str], model_cfg: 
     # (weaker) direction for a below-average promoted team.
     dc_attack_offset = points_shortfall / 100.0
     dc_defense_offset = points_shortfall / 100.0
+    # Same /100 points-to-log-rate scaling applied to the empirical spread
+    # (not just the mean) of promoted-team outcomes -- see
+    # simulate_full_season.TeamStrengthUncertainty for why this replaces a
+    # promoted team's near-degenerate raw Laplace SE in the season
+    # simulation.
+    points_shortfall_std = promo_summary["std_points_below_league_avg"] or 12.5
+    promoted_se = points_shortfall_std / 100.0
 
     fit = fit_dixon_coles_model(
         df_clean, universe, as_of_date, half_life_days=model_cfg["dixon_coles"]["time_decay_half_life_days"],
@@ -169,6 +176,7 @@ def build_model_context(df_clean: pd.DataFrame, universe: list[str], model_cfg: 
 
     return {
         "fit": fit, "elo_ratings": elo_ratings, "promoted_elo_offset": promoted_elo_offset,
+        "promoted_se": promoted_se,
         "league_avg_goals_overall": league_avg_goals_overall,
         "calibrators": calibrators, "calibration_method": calibration_method,
         "ensemble_meta": ensemble_meta, "ensemble_beats_dc": ensemble_beats_dc, "ensemble_metrics": ensemble_metrics,

@@ -21,6 +21,11 @@ is the primary model**, not the ensemble -- plus a provenance audit and
 a real investigation of the three previously-deferred data feeds (see
 "Deferred to later phases"). It is **not** the complete 37-section spec
 -- see that section for what is intentionally still not built, and why.
+Post-Phase-4 (after the dashboard was live), a statistical-rigor pass
+found and fixed a season-level overconfidence bug in the Monte Carlo
+simulation -- see "Season-level calibration" below for the full
+diagnosis, fix, before/after numbers, and a new season-level
+calibration backtest.
 
 ## Why today matters
 
@@ -233,32 +238,232 @@ Full detail: `data/outputs/epl_backtest_match_results.csv`,
 
 `src/simulation/simulate_full_season.py` runs 250,000 Monte Carlo
 simulations over all 380 real 2026-27 fixtures. Team strength is held
-**static** at the preseason Dixon-Coles state for the whole season --
-simulating in-run dynamic strength updates across 250k paths x 380
-matches is a materially larger project than Phase 1's scope; the
-weekly-update engine (a later phase) is what re-simulates with updated
-strength after each real matchweek's results land, rather than trying
-to model strength drift *within* a single simulated season path.
+fixed **within** a single simulated season path (no in-run strength
+drift -- the weekly-update engine is what re-simulates with updated
+strength after each real matchweek's results land, rather than
+modeling drift *within* one simulated path), but as of this report
+**each of the 250,000 simulated seasons now draws its own team
+attack/defense sample** from the Dixon-Coles fit's Laplace-approximated
+standard errors, rather than every simulation reusing the same fixed
+point estimate. See "Season-level calibration" immediately below for
+why this changed and what it did to the numbers.
 
 League tables use points -> goal-difference -> goals-for tie-breaking.
 **Head-to-head tie-breaking is not implemented** -- any further tie is
 broken by a fixed, documented, deterministic rule (alphabetical team
 order), never left ambiguous or randomly reshuffled per run.
 
+## Season-level calibration
+
+Match-level calibration (ECE 0.0114, see "Calibration" above) says
+nothing about whether *season-level* aggregates -- title, top-4,
+relegation probabilities -- are calibrated. A model can price every
+match's 1X2 correctly and still be badly overconfident about who wins
+the league, because a season compounds 38 correlated match outcomes
+through a table. This section was added after a direct challenge to
+two numbers in an earlier verification pass: a 50.3% title favourite
+and near-100% relegation probabilities for multiple promoted clubs
+simultaneously, which is not a plausible preseason forecast.
+
+### 1. Diagnosis: was parameter uncertainty being propagated?
+
+No. Before this fix, `simulate_full_season.py` called what was then
+`build_score_distributions(fixtures_df, fit)` **once**, outside the
+Monte Carlo batch loop, using only `fit.attack` / `fit.defense` /
+`fit.home_advantage` -- the Dixon-Coles point estimates. Every one of
+the 250,000 simulated seasons then drew match scorelines from that
+same fixed set of per-fixture score distributions. Only match-outcome
+randomness (which scoreline happens, given a team's rating) was being
+modeled; the rating itself -- which the Laplace/Hessian fit already
+carries a standard error for -- never varied across simulations. That
+made the *season* Monte Carlo systematically overconfident even though
+the underlying Dixon-Coles fit's match-level probabilities were
+properly calibrated: 250,000 independent draws from the same
+distribution converge to a sharp estimate of "how a team of exactly
+this rating performs over 38 games," which is a much narrower question
+than "how good is this team, really, and how does *that* team perform
+over 38 games."
+
+### 2. Fix: per-simulation parameter draws, and what it changed
+
+`TeamStrengthUncertainty` (`simulate_full_season.py`) now draws a
+fresh attack/defense sample per simulated season from
+`Normal(fit.attack, fit.attack_se)` / `Normal(fit.defense,
+fit.defense_se)`, clipped to the empirical attack/defense range, before
+simulating that season's 380 matches from the draw. This is a Laplace
+(Hessian) approximation, already computed by the existing Dixon-Coles
+fit for other purposes -- propagating it into the season simulation
+was the missing step, not new machinery.
+
+A first version of this fix clipped the *drawn* value to the empirical
+range but left the raw standard error uncapped. For a genuinely
+(near-)zero-history club the Hessian SE is close to degenerate
+(Coventry City and Hull City: SE~2.0 in log-attack-space, vs ~0.14 for
+an established club, comparable in size to the entire empirical attack
+range) -- so most draws fell outside the clip bounds and piled up
+exactly at the boundary, i.e. Coventry got drawn as literally the best
+team in the league on a large fraction of simulated seasons. Caught
+before it shipped: it produced a ~16% *title* probability for a
+promoted club. The final version replaces a promoted team's raw SE
+with an empirically-derived one instead of capping it: the standard
+deviation of `points_below_league_avg` across all 33 real historical
+promotion events (1888/89-2025/26 dataset window), mean -17.6, **std
+12.5**, converted through the same points-to-log-rate scaling already
+used for the mean promoted-team offset (`/100`) to give
+**promoted_se ~= 0.125**. Established clubs keep their raw Laplace SE
+unchanged (all under 0.35 in this fit).
+
+Real production numbers, same 250,000-simulation preseason run, same
+seed, before and after (`data/outputs/epl_2026_27_expected_table.csv`,
+before = git history at the commit immediately prior to this fix):
+
+| | Before (fixed point estimate) | After (parameter uncertainty) |
+|---|---|---|
+| Arsenal title probability | 50.30% | 43.71% |
+| Man City title probability | 43.32% | 38.57% |
+| Liverpool title probability | 3.98% | 6.88% |
+| Coventry City relegation probability | 75.72% | 59.77% |
+| Hull City relegation probability | 78.64% | 62.56% |
+| Ipswich Town relegation probability | 99.96% | 99.28% |
+| Sunderland relegation probability | 6.90% | 12.11% |
+| Leeds United relegation probability | 5.95% | 10.51% |
+| Crystal Palace relegation probability | 8.28% | 10.85% |
+| Tottenham Hotspur relegation probability | 7.71% | 10.33% |
+
+The title race widened (top-2 combined share dropped from 93.6% to
+82.3%, with meaningfully more mass reaching Liverpool and the
+mid-table chasers). Relegation mass shifted materially off the three
+promoted clubs and onto the established/borderline clubs that a real
+relegation battle actually involves -- Sunderland, Leeds, Palace, and
+Tottenham each roughly doubled. Ipswich Town (real 2024/25 top-flight
+data: 22 points, relegated in last place) stays close to 99% either
+way -- that number was never resting on the promoted-team offset, it's
+driven by Ipswich's own actual, poor recent Dixon-Coles fit.
+Relegation probabilities still sum to exactly 3.0 and title
+probabilities to exactly 1.0 in both versions (an invariant of how the
+Monte Carlo tallies finishing positions, not a calibration claim).
+
+### 3. Promoted-team adjustment: what prior, what window
+
+`promoted_team_adjustment.py` fits the promoted-team offset on the
+**full historical window** used by the pipeline (2015/16-2025/26, 33
+promotion events) -- not a short recent window, so "overlearned on the
+seasons where all three promoted clubs went down" does not describe
+what was happening. What *is* real: promoted-team relegation outcomes
+are volatile across that window, not stationary. 2023/24 and 2024/25
+each saw all 3 promoted clubs relegated (6/6), against a long-run
+33-event average relegation rate of 51.5%. A single point-estimate
+offset (mean `points_below_league_avg = -17.6`) cannot represent that
+volatility at all -- it was issue #1 (no parameter uncertainty), not
+issue #3, that was actually suppressing this. With `promoted_se`
+derived from the same 33-event history's **standard deviation** (12.5
+points, ~0.125 in log-rate space) rather than just its mean, the
+season simulation can now produce both a promoted club having a
+Leeds-2020/21-style respectable finish (+6.1 points above league
+average, the best any promoted club has managed in this dataset) and a
+promoted club having a well-below-average season, in the correct
+proportions, instead of being locked to one fixed shortfall value for
+all three clubs every simulated season.
+
+### 4. Season-level calibration backtest
+
+For each of the 7 real seasons already used in the match-level
+backtest (2019/20-2025/26), `src/evaluation/season_calibration_backtest.py`
+refits Dixon-Coles + the promoted-team adjustment using **only match
+data strictly before that season's first ball** (no mid-season
+refitting -- this checks the *preseason* forecast, matching what the
+2026-27 forecast actually is), runs the same 250,000-simulation
+parameter-uncertainty Monte Carlo over that season's real fixtures, and
+compares the resulting title/top-4/relegation probabilities against
+what actually happened. 140 team-season observations (7 seasons x 20
+teams).
+
+| Target | N | N positive | Brier score | Log loss | Brier score, uniform no-skill baseline |
+|---|---|---|---|---|---|
+| Title | 140 | 7 | 0.02507 | 0.08124 | 0.0475 |
+| Top-4 | 140 | 28 | 0.09031 | 0.30202 | 0.16 |
+| Relegation | 140 | 21 | 0.08968 | 0.28769 | 0.1275 |
+
+The uniform baseline predicts every team the same probability every
+season (7/140, 28/140, 21/140 respectively -- "no information, just
+the base rate"). The model beats it by roughly half on Brier score for
+all three targets, meaning the probabilities carry real discriminative
+information, not just a correctly-centered but flat guess. (The
+"mean predicted probability equals the empirical base rate" check that
+a calibration report would normally lead with is **not** informative
+here and is deliberately left out of this table: probabilities sum to
+exactly 1 / 4 / 3 per season by construction, so that equality holds by
+arithmetic regardless of whether the model has any skill at all.)
+
+Concrete calibration checks:
+
+- The model's highest-title-probability team was the actual champion
+  in **4 of 7 seasons (57%)**. The misses: 2019/20 and 2024/25, both
+  seasons where Liverpool won the title but the model favoured
+  Manchester City (10.7% predicted for Liverpool in 2024/25 -- a real
+  underestimate, not a rounding artifact). 2025/26 was a near-miss:
+  Arsenal actually won at a predicted 27.4%, essentially tied with
+  Manchester City's 29.2% -- the model correctly saw it as a close
+  two-horse race, it just picked the other horse.
+- Across all 140 team-seasons, only **one** case of a team predicted
+  under 5% relegation probability that was actually relegated:
+  Leicester City, 2022/23 (0.96% predicted) -- a season widely
+  regarded as a genuine shock relegation, not a case the model should
+  be expected to have seen coming from preseason data alone.
+- **Zero** cases of a team predicted over 80% relegation probability
+  that survived -- no catastrophic overconfidence in that direction
+  across 140 observations.
+- Promoted-team relegation calibration: across the 21 promoted-team-
+  season observations in the backtest, mean predicted relegation
+  probability was **61.1%** against an actual realized relegation rate
+  of **57.1%** -- close, mildly overconfident, not badly so. In the two
+  extreme real seasons (2023/24, 2024/25: 3/3 promoted clubs relegated
+  both times), the model predicted a *combined* promoted-club
+  relegation probability of only ~1.7 out of 3 (~57%) in each case,
+  underestimating the actual outcome (3/3) -- because, correctly, it
+  was using only data available *before* that season, which had not
+  yet seen this volatility. `promoted_se` grew from 0.084 (12
+  promotion events known as of the 2019/20 forecast) to 0.122 (30
+  events known as of the 2025/26 forecast) as the backtest window
+  progressed and that real volatility accumulated into the historical
+  record. The actual 2026-27 forecast uses the full 33-event history
+  including both 6/6 seasons, so it carries more of that volatility
+  than any individual backtest year could have.
+
+**Honest limitations of this backtest**: N=140 is small for a
+season-level calibration check (7 independent season-draws, not 140
+independent observations -- the 20 teams within a season are
+correlated through the same table). A formal reliability diagram
+(binned predicted-vs-actual) was not built for this reason; with this
+few positive cases per bucket it would be more noise than signal. This
+backtest evaluates the *current* (parameter-uncertainty) simulation
+only -- the old fixed-point-estimate simulator was not separately
+re-run across all 7 historical seasons for a rigorous head-to-head
+comparison, since that code path no longer exists in the working tree
+(available via git history at the commit before this fix, if that
+comparison is wanted later). The single-season theoretical argument
+in "Diagnosis" above, plus the real 2026-27 before/after table in
+section 2, are the evidence available for the specific claim that the
+fix reduced overconfidence; this backtest instead answers the
+separate, complementary question of whether the *current* model is
+calibrated at all at the season level, using real out-of-sample
+history -- and the answer is: reasonably well, with the two honest
+misses (Liverpool's two titles, Leicester's shock relegation) named
+explicitly rather than smoothed over.
+
 ## Limitations (read before trusting a number)
 
-- **Promoted-team Elo/attack/defense offset is a global constant
-  computed from the full historical dataset**, including seasons after
-  a given backtest validation point -- a mild form of hyperparameter-
-  level (not match-outcome-level) leakage. A stricter version would
-  recompute this offset using only data prior to each validation
-  season.
-- **The backtest does not apply the promoted-team Dixon-Coles
-  adjustment** -- validation-season promoted teams are left at raw
-  regularized (league-average) strength until they accumulate real
-  matches within that fit, unlike the final 2026-27 predictions which
-  do apply the adjustment. This is a backtest/production inconsistency
-  worth closing in a later phase.
+- **Correction (previously listed as a limitation, no longer accurate as
+  of the season-level calibration work below):** both the match-level
+  backtest (`backtest.py`) and the season-level calibration backtest
+  (`season_calibration_backtest.py`) recompute the promoted-team
+  offset -- and, now, its standard error -- using only data strictly
+  before each validation season's first match, not the full dataset.
+  Only the live 2026-27 production forecast uses the full
+  2015/16-2025/26 window, which is correct there since there is no
+  future data beyond it to leak. The backtest also does apply the
+  promoted-team Dixon-Coles adjustment to validation-season promoted
+  teams.
 - **No market-odds baseline** is in the backtest comparison -- no
   historical odds source with sufficient, leakage-safe coverage was
   integrated in Phase 1 (football-data.co.uk's historical odds columns

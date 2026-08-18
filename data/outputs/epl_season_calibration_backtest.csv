@@ -1,0 +1,141 @@
+season,team,final_rank,is_promoted_team,title_probability,actual_champion,top_4_probability,actual_top4,relegation_probability,actual_relegated,promoted_se_used,n_prior_promotion_events
+2019-20,Manchester City,2,False,0.55716,False,0.98129,True,0.0,False,0.084,12
+2019-20,Liverpool,1,False,0.27354,True,0.93651,True,0.0,False,0.084,12
+2019-20,Tottenham Hotspur,6,False,0.03073,False,0.55936,False,0.00022,False,0.084,12
+2019-20,Chelsea,4,False,0.01177,False,0.3674,True,0.00103,False,0.084,12
+2019-20,Arsenal,8,False,0.00808,False,0.30192,False,0.00172,False,0.084,12
+2019-20,Manchester United,3,False,0.00509,False,0.22901,True,0.00313,False,0.084,12
+2019-20,Everton,12,False,0.00076,False,0.07517,False,0.01835,False,0.084,12
+2019-20,Leicester City,5,False,0.00038,False,0.04625,False,0.03176,False,0.084,12
+2019-20,Wolverhampton Wanderers,7,False,0.00087,False,0.06193,False,0.04556,False,0.084,12
+2019-20,Crystal Palace,14,False,0.00029,False,0.03352,False,0.04378,False,0.084,12
+2019-20,West Ham United,16,False,0.00011,False,0.02247,False,0.06311,False,0.084,12
+2019-20,Newcastle United,13,False,0.00016,False,0.02334,False,0.06498,False,0.084,12
+2019-20,Sheffield United,9,True,0.07981,False,0.20067,False,0.4172,False,0.084,12
+2019-20,AFC Bournemouth,18,False,1e-05,False,0.00742,False,0.14055,True,0.084,12
+2019-20,Watford,19,False,1e-05,False,0.00657,False,0.15218,True,0.084,12
+2019-20,Southampton,11,False,2e-05,False,0.00502,False,0.17388,False,0.084,12
+2019-20,Burnley,10,False,2e-05,False,0.00495,False,0.17724,False,0.084,12
+2019-20,Norwich City,20,True,0.02393,False,0.09694,False,0.55038,True,0.084,12
+2019-20,Brighton & Hove Albion,15,False,0.0,False,0.00082,False,0.41626,False,0.084,12
+2019-20,Aston Villa,17,True,0.00725,False,0.03946,False,0.69868,False,0.084,12
+2020-21,Manchester City,1,False,0.63704,True,0.98508,True,0.0,False,0.098,15
+2020-21,Liverpool,3,False,0.21203,False,0.9043,True,0.0,False,0.098,15
+2020-21,Manchester United,2,False,0.03146,False,0.54589,True,0.00026,False,0.098,15
+2020-21,Tottenham Hotspur,7,False,0.01336,False,0.36076,False,0.00102,False,0.098,15
+2020-21,Chelsea,4,False,0.00791,False,0.28116,True,0.00221,False,0.098,15
+2020-21,Arsenal,8,False,0.00542,False,0.22711,False,0.00349,False,0.098,15
+2020-21,Leicester City,5,False,0.00317,False,0.16452,False,0.00606,False,0.098,15
+2020-21,Wolverhampton Wanderers,13,False,0.00296,False,0.14529,False,0.00947,False,0.098,15
+2020-21,Sheffield United,20,False,0.00078,False,0.05074,False,0.05566,True,0.098,15
+2020-21,Everton,10,False,0.00022,False,0.02604,False,0.05438,False,0.098,15
+2020-21,Southampton,15,False,0.00018,False,0.02474,False,0.05922,False,0.098,15
+2020-21,West Ham United,6,False,0.00014,False,0.02184,False,0.06622,False,0.098,15
+2020-21,Burnley,17,False,9e-05,False,0.0164,False,0.08265,False,0.098,15
+2020-21,Leeds United,9,True,0.08348,False,0.20241,False,0.42116,False,0.098,15
+2020-21,Newcastle United,12,False,4e-05,False,0.00806,False,0.13096,False,0.098,15
+2020-21,Crystal Palace,14,False,4e-05,False,0.00594,False,0.15727,False,0.098,15
+2020-21,Brighton & Hove Albion,16,False,0.0,False,0.00299,False,0.2347,False,0.098,15
+2020-21,Aston Villa,11,False,0.0,False,0.00318,False,0.32314,False,0.098,15
+2020-21,West Bromwich Albion,19,True,0.00164,False,0.02272,False,0.5434,True,0.098,15
+2020-21,Fulham,18,True,1e-05,False,0.00082,False,0.84871,True,0.098,15
+2021-22,Manchester City,1,False,0.61772,True,0.9618,True,0.0,False,0.109,18
+2021-22,Liverpool,2,False,0.12132,False,0.70222,True,4e-05,False,0.109,18
+2021-22,Manchester United,6,False,0.06716,False,0.55615,False,0.00029,False,0.109,18
+2021-22,Tottenham Hotspur,4,False,0.02724,False,0.35933,True,0.00101,False,0.109,18
+2021-22,Chelsea,3,False,0.02482,False,0.33818,True,0.0011,False,0.109,18
+2021-22,Arsenal,5,False,0.01637,False,0.26464,False,0.00193,False,0.109,18
+2021-22,Leicester City,8,False,0.01056,False,0.2039,False,0.00356,False,0.109,18
+2021-22,Leeds United,17,False,0.01434,False,0.20628,False,0.00897,False,0.109,18
+2021-22,West Ham United,7,False,0.00353,False,0.10076,False,0.01124,False,0.109,18
+2021-22,Aston Villa,14,False,0.00122,False,0.04224,False,0.03698,False,0.109,18
+2021-22,Everton,16,False,0.00057,False,0.02694,False,0.0454,False,0.109,18
+2021-22,Wolverhampton Wanderers,10,False,0.0003,False,0.01572,False,0.07517,False,0.109,18
+2021-22,Brentford,13,True,0.09447,False,0.19146,False,0.4352,False,0.109,18
+2021-22,Brighton & Hove Albion,9,False,0.00016,False,0.01012,False,0.09932,False,0.109,18
+2021-22,Newcastle United,11,False,8e-05,False,0.00814,False,0.11882,False,0.109,18
+2021-22,Southampton,15,False,6e-05,False,0.00543,False,0.1486,False,0.109,18
+2021-22,Burnley,18,False,4e-05,False,0.00358,False,0.18076,True,0.109,18
+2021-22,Crystal Palace,12,False,3e-05,False,0.00198,False,0.24379,False,0.109,18
+2021-22,Watford,19,True,1e-05,False,0.00102,False,0.63916,True,0.109,18
+2021-22,Norwich City,20,True,0.0,False,0.00012,False,0.94867,True,0.109,18
+2022-23,Manchester City,1,False,0.57793,True,0.98495,True,0.0,False,0.113,21
+2022-23,Liverpool,5,False,0.27413,False,0.94354,False,0.0,False,0.113,21
+2022-23,Chelsea,12,False,0.03246,False,0.58884,False,0.0002,False,0.113,21
+2022-23,Tottenham Hotspur,8,False,0.02679,False,0.55397,False,0.00026,False,0.113,21
+2022-23,Arsenal,2,False,0.00436,False,0.21482,True,0.00372,False,0.113,21
+2022-23,Manchester United,3,False,0.00185,False,0.13557,True,0.00796,False,0.113,21
+2022-23,Leicester City,18,False,0.00158,False,0.12091,False,0.00964,True,0.113,21
+2022-23,West Ham United,14,False,0.00118,False,0.09725,False,0.01401,False,0.113,21
+2022-23,Aston Villa,7,False,0.00032,False,0.04056,False,0.03858,False,0.113,21
+2022-23,Brighton & Hove Albion,6,False,0.00015,False,0.02436,False,0.05588,False,0.113,21
+2022-23,Crystal Palace,11,False,9e-05,False,0.02088,False,0.06585,False,0.113,21
+2022-23,Brentford,9,False,0.00029,False,0.03172,False,0.09069,False,0.113,21
+2022-23,Wolverhampton Wanderers,13,False,5e-05,False,0.01483,False,0.08605,False,0.113,21
+2022-23,Nottingham Forest,16,True,0.07817,False,0.19443,False,0.43431,False,0.113,21
+2022-23,Newcastle United,4,False,4e-05,False,0.00828,True,0.12969,False,0.113,21
+2022-23,Everton,17,False,2e-05,False,0.00491,False,0.16909,False,0.113,21
+2022-23,Leeds United,19,False,1e-05,False,0.00364,False,0.24861,True,0.113,21
+2022-23,Southampton,20,False,0.0,False,0.00203,False,0.2757,True,0.113,21
+2022-23,AFC Bournemouth,15,True,0.00058,False,0.0133,False,0.60563,False,0.113,21
+2022-23,Fulham,10,True,2e-05,False,0.00122,False,0.76415,False,0.113,21
+2023-24,Manchester City,1,False,0.66704,True,0.9784,True,0.0,False,0.11,24
+2023-24,Liverpool,3,False,0.12401,False,0.76556,True,3e-05,False,0.11,24
+2023-24,Arsenal,2,False,0.06361,False,0.61666,True,0.00014,False,0.11,24
+2023-24,Newcastle United,7,False,0.01208,False,0.27399,False,0.00254,False,0.11,24
+2023-24,Manchester United,8,False,0.00905,False,0.2308,False,0.00327,False,0.11,24
+2023-24,Tottenham Hotspur,5,False,0.00933,False,0.23248,False,0.0037,False,0.11,24
+2023-24,Brighton & Hove Albion,11,False,0.00548,False,0.16692,False,0.00641,False,0.11,24
+2023-24,Brentford,16,False,0.00568,False,0.16123,False,0.00873,False,0.11,24
+2023-24,Aston Villa,4,False,0.0029,False,0.11354,True,0.01186,False,0.11,24
+2023-24,Chelsea,6,False,0.00259,False,0.10614,False,0.01216,False,0.11,24
+2023-24,Fulham,14,False,0.00168,False,0.06366,False,0.03769,False,0.11,24
+2023-24,West Ham United,9,False,0.00055,False,0.03644,False,0.04239,False,0.11,24
+2023-24,Crystal Palace,10,False,0.00028,False,0.02308,False,0.06066,False,0.11,24
+2023-24,Luton Town,18,True,0.09448,False,0.20542,False,0.41855,True,0.11,24
+2023-24,Everton,12,False,2e-05,False,0.00332,False,0.21499,False,0.11,24
+2023-24,Wolverhampton Wanderers,15,False,1e-05,False,0.00312,False,0.21802,False,0.11,24
+2023-24,Nottingham Forest,17,False,7e-05,False,0.00479,False,0.2927,False,0.11,24
+2023-24,AFC Bournemouth,13,False,1e-05,False,0.00164,False,0.40924,False,0.11,24
+2023-24,Burnley,19,True,4e-05,False,0.00204,False,0.54904,True,0.11,24
+2023-24,Sheffield United,20,True,0.0011,False,0.01075,False,0.70788,True,0.11,24
+2024-25,Manchester City,3,False,0.59168,False,0.98262,True,0.0,False,0.11599999999999999,27
+2024-25,Arsenal,2,False,0.27407,False,0.93364,True,1e-05,False,0.11599999999999999,27
+2024-25,Liverpool,1,False,0.10726,True,0.80578,True,6e-05,False,0.11599999999999999,27
+2024-25,Newcastle United,5,False,0.01125,False,0.34048,False,0.00289,False,0.11599999999999999,27
+2024-25,Chelsea,4,False,0.00454,False,0.20595,True,0.00773,False,0.11599999999999999,27
+2024-25,Tottenham Hotspur,17,False,0.0041,False,0.18982,False,0.00912,False,0.11599999999999999,27
+2024-25,Aston Villa,6,False,0.00284,False,0.15708,False,0.01247,False,0.11599999999999999,27
+2024-25,Manchester United,15,False,0.00169,False,0.11613,False,0.0191,False,0.11599999999999999,27
+2024-25,Crystal Palace,12,False,0.00084,False,0.06639,False,0.03683,False,0.11599999999999999,27
+2024-25,Brentford,10,False,0.00047,False,0.0503,False,0.0552,False,0.11599999999999999,27
+2024-25,Brighton & Hove Albion,8,False,0.00038,False,0.04762,False,0.05267,False,0.11599999999999999,27
+2024-25,Fulham,11,False,0.00053,False,0.04605,False,0.06296,False,0.11599999999999999,27
+2024-25,West Ham United,14,False,9e-05,False,0.01742,False,0.12329,False,0.11599999999999999,27
+2024-25,AFC Bournemouth,9,False,8e-05,False,0.01006,False,0.20239,False,0.11599999999999999,27
+2024-25,Everton,13,False,4e-05,False,0.00773,False,0.1946,False,0.11599999999999999,27
+2024-25,Wolverhampton Wanderers,16,False,2e-05,False,0.0055,False,0.24061,False,0.11599999999999999,27
+2024-25,Nottingham Forest,7,False,2e-05,False,0.00679,False,0.25675,False,0.11599999999999999,27
+2024-25,Leicester City,18,True,9e-05,False,0.00985,False,0.41806,True,0.11599999999999999,27
+2024-25,Ipswich Town,19,True,0.0,False,0.00033,False,0.48323,True,0.11599999999999999,27
+2024-25,Southampton,20,True,0.0,False,0.00045,False,0.82204,True,0.11599999999999999,27
+2025-26,Manchester City,2,False,0.29218,False,0.82908,True,5e-05,False,0.122,30
+2025-26,Arsenal,1,False,0.27365,True,0.81775,True,6e-05,False,0.122,30
+2025-26,Liverpool,5,False,0.23468,False,0.78231,False,0.00015,False,0.122,30
+2025-26,Newcastle United,12,False,0.04128,False,0.3644,False,0.00315,False,0.122,30
+2025-26,Chelsea,10,False,0.02493,False,0.27222,False,0.00602,False,0.122,30
+2025-26,Aston Villa,4,False,0.0105,False,0.15475,True,0.01588,False,0.122,30
+2025-26,Brentford,9,False,0.00616,False,0.10858,False,0.02707,False,0.122,30
+2025-26,Brighton & Hove Albion,8,False,0.00442,False,0.08975,False,0.0333,False,0.122,30
+2025-26,Crystal Palace,15,False,0.0031,False,0.07018,False,0.041,False,0.122,30
+2025-26,AFC Bournemouth,6,False,0.00346,False,0.06876,False,0.0454,False,0.122,30
+2025-26,Nottingham Forest,16,False,0.00295,False,0.06331,False,0.04952,False,0.122,30
+2025-26,Tottenham Hotspur,17,False,0.00258,False,0.05969,False,0.0523,False,0.122,30
+2025-26,Fulham,11,False,0.00203,False,0.04934,False,0.06268,False,0.122,30
+2025-26,Manchester United,3,False,0.00126,False,0.03531,True,0.07793,False,0.122,30
+2025-26,Everton,13,False,0.00092,False,0.02896,False,0.0861,False,0.122,30
+2025-26,Sunderland,7,True,0.09444,False,0.17577,False,0.50517,False,0.122,30
+2025-26,West Ham United,18,False,0.00028,False,0.01089,False,0.18159,True,0.122,30
+2025-26,Wolverhampton Wanderers,20,False,0.00025,False,0.0099,False,0.19118,True,0.122,30
+2025-26,Leeds United,14,True,0.0009,False,0.00819,False,0.77346,False,0.122,30
+2025-26,Burnley,19,True,4e-05,False,0.00086,False,0.84799,True,0.122,30

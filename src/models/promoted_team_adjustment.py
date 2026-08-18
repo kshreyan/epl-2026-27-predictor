@@ -86,6 +86,7 @@ def summarize_promoted_team_baseline(history: pd.DataFrame) -> dict:
             "n_promotion_events": 0,
             "mean_points": None,
             "mean_points_below_league_avg": None,
+            "std_points_below_league_avg": None,
             "mean_goal_difference": None,
             "relegation_rate": None,
         }
@@ -93,6 +94,7 @@ def summarize_promoted_team_baseline(history: pd.DataFrame) -> dict:
         "n_promotion_events": len(history),
         "mean_points": round(history["points"].mean(), 1),
         "mean_points_below_league_avg": round(history["points_below_league_avg"].mean(), 1),
+        "std_points_below_league_avg": round(history["points_below_league_avg"].std(), 1),
         "mean_goal_difference": round(history["goal_difference"].mean(), 1),
         "relegation_rate": round(history["relegated_same_season"].mean(), 3),
     }

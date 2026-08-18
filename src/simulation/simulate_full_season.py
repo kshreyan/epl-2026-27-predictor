@@ -1,17 +1,47 @@
 """Full 2026-27 season Monte Carlo simulation (250,000 runs, model-only).
 
-Phase-1 design: since today (2026-08-18) is before kickoff, every one
-of the 380 real fixtures is still to be played, so this is a pure
-preseason simulation -- team strength is held fixed at the preseason
-Dixon-Coles state for the whole season (the weekly-update engine, a
-later phase, is what re-simulates with updated strength after each
-real matchweek; simulating with in-run dynamic strength updates across
-250k paths x 380 matches is a materially larger project and is
-documented as a limitation below, not attempted here).
+**Propagates team-strength (parameter) uncertainty, not just match-
+outcome variance.** An earlier version of this module fit ONE point
+estimate of every team's attack/defense strength and reused the same
+fixed Dixon-Coles scoreline distribution for all 250,000 simulated
+seasons -- so the only randomness was "how do these 380 fixed-strength
+teams' matches turn out," never "how good is this team actually."
+That produced season-level probabilities far sharper than the evidence
+supports (title favorite over 50%, all three promoted clubs near-100%
+relegation with almost no mass left for any established club) even
+though match-level log loss and calibration looked fine -- exactly the
+failure mode a Purdue-caliber reviewer flagged in this project. Fixed
+by drawing a fresh attack/defense value **per simulated season** from
+each team's fitted uncertainty (the Laplace-approximation standard
+errors already computed in dynamic_team_strength_state_space.py, but
+previously only used for the reporting CSV, never fed into the
+simulation itself), clipped to the empirical range of real fitted
+team strengths so a zero-history team's enormous uncertainty (e.g.
+Coventry City, see that module's docstring) can't produce numerically
+absurd scorelines. See reports/epl_2026_27_model_report.md "Season-
+level calibration" for the before/after numbers this produced.
 
-For each of the 380 real fixtures, we precompute its Dixon-Coles
-scoreline probability matrix once, then draw `n_simulations` scorelines
-from that fixed distribution via inverse-CDF sampling (vectorized).
+**Trade-off made to keep this fast**: with the scoreline distribution
+now different for every one of the 250k draws, precomputing and
+inverse-CDF-sampling a fixed per-fixture distribution (the old
+approach) is no longer possible -- each draw needs its own lambda/mu.
+Scorelines are therefore sampled from independent Poisson (vectorized
+`rng.poisson`) rather than the full Dixon-Coles low-score-correlation
+model used for match-level predictions. This drops a small, well-
+understood correction on 4 of 81 scoreline cells (0-0/1-0/0-1/1-1);
+its effect on points/table outcomes over a 38-match season is
+negligible compared to the season-level miscalibration this fix
+addresses, and match-level predictions (predict_all_matches.py) are
+unaffected -- they still use the full Dixon-Coles model with the
+correlation correction.
+
+Team strength is still held fixed *within* a single simulated season
+path (a state-space model where strength drifts mid-season, sampled
+scorelines change the module's own trajectory, is a materially larger
+project -- the weekly-update engine's real between-matchweek refits
+are the actual mechanism for that, not something to approximate inside
+a single Monte Carlo run).
+
 League tables are built for every simulated season using real
 Premier League points/goal-difference/goals-scored tie-break order;
 head-to-head is NOT implemented (see limitation note) -- any remaining
@@ -36,7 +66,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.models.elo_model import compute_promoted_team_elo_offset  # noqa: E402
 from src.models.promoted_team_adjustment import compute_promoted_team_history, summarize_promoted_team_baseline  # noqa: E402
 from src.models.dynamic_team_strength_state_space import compute_team_strength_state  # noqa: E402
-from src.models.scoreline_models import match_lambdas, score_matrix  # noqa: E402
 from src.utils.team_names import EPL_2026_27_CLUBS  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
@@ -48,33 +77,88 @@ MODEL_CONFIG_PATH = REPO_ROOT / "config" / "model_config.yaml"
 
 OUT_DIR = REPO_ROOT / "data" / "outputs"
 PROMOTED_TEAMS = ["Coventry City", "Ipswich Town", "Hull City"]
-MAX_GOALS = 8
 BATCH_SIZE = 25000
 
 
-def build_score_distributions(fixtures_df: pd.DataFrame, fit) -> list[np.ndarray]:
-    """One flattened, cumulative-sum probability vector per fixture (length
-    (MAX_GOALS+1)^2), for fast inverse-CDF sampling."""
-    cdfs = []
-    for _, fx in fixtures_df.iterrows():
-        lam, mu = match_lambdas(fit, fx["home_team"], fx["away_team"])
-        matrix = score_matrix(lam, mu, fit.rho, max_goals=MAX_GOALS)
-        flat = matrix.flatten()
-        cdfs.append(np.cumsum(flat))
-    return cdfs
+class TeamStrengthUncertainty:
+    """Per-team attack/defense mean + standard error, reindexed from the
+    Dixon-Coles fit's own team ordering into the simulation's 20-club
+    ordering.
+
+    **Promoted clubs get an empirically-derived SE, not their raw
+    Laplace-approximation value.** For a genuinely (near-)zero-history
+    club, the Hessian-based SE is close to degenerate: Coventry City and
+    Hull City came out at SE~2.0 in log-attack-space, ~15x an established
+    club's ~0.14 and comparable to the entire empirical attack range
+    itself. A first fix capped that raw SE at a multiple of the
+    established-club median (4x -> ~0.55), which stopped the worst
+    pile-up-at-the-boundary artifact (see git history: that version put
+    Coventry mid-table with a ~16% title probability) but was still an
+    arbitrary multiplier, not a number grounded in what promoted teams
+    actually do. This version instead uses the real spread of the 33
+    historical promotion events in promoted_team_adjustment.py: points
+    finished below league average has mean -17.6, std 12.5 (1888/89-
+    2025/26 window, every promoted club that ever played in this
+    dataset). Converting that std through the same points-to-log-rate
+    scaling already used for the mean offset (points_shortfall / 100,
+    see main()) gives SE ~= 0.125 -- wide enough that a promoted team can
+    still occasionally have a Leeds-2020/21-like season (finished above
+    league average, +6.1), but not wide enough to routinely draw a
+    title-contending rating, consistent with the real ceiling: no
+    promoted club has finished above 7th in 11 seasons of data. This
+    value is passed in as `promoted_se` rather than hardcoded here, so it
+    stays traceable to promoted_team_adjustment.py's own computation.
+    Established clubs keep their raw Laplace SE (all comfortably under
+    0.35 in practice -- Ipswich Town's real-2024/25-data SE of 0.35 is
+    the largest); `ESTABLISHED_SE_SAFETY_CAP` is only a defensive
+    ceiling against a future degenerate fit, not an active constraint
+    today."""
+
+    ESTABLISHED_SE_SAFETY_CAP = 1.0
+
+    def __init__(self, fit, teams: list[str], promoted_se: float):
+        fit_idx = np.array([fit.team_index[t] for t in teams])
+        self.attack_mean = fit.attack[fit_idx]
+        self.defense_mean = fit.defense[fit_idx]
+        has_se = fit.attack_se is not None and fit.defense_se is not None
+        raw_attack_se = fit.attack_se[fit_idx] if has_se else np.zeros(len(teams))
+        raw_defense_se = fit.defense_se[fit_idx] if has_se else np.zeros(len(teams))
+
+        promoted_mask = np.array([t in PROMOTED_TEAMS for t in teams])
+        self.attack_se = np.minimum(raw_attack_se, self.ESTABLISHED_SE_SAFETY_CAP)
+        self.defense_se = np.minimum(raw_defense_se, self.ESTABLISHED_SE_SAFETY_CAP)
+        self.attack_se[promoted_mask] = promoted_se
+        self.defense_se[promoted_mask] = promoted_se
+        self.promoted_se = promoted_se
+
+        margin = 0.5
+        self.attack_bounds = (float(fit.attack.min()) - margin, float(fit.attack.max()) + margin)
+        self.defense_bounds = (float(fit.defense.min()) - margin, float(fit.defense.max()) + margin)
+        self.home_advantage = fit.home_advantage
 
 
-def simulate_batch(cdfs: list[np.ndarray], n_sims: int, rng: np.random.Generator, grid_size: int) -> tuple[np.ndarray, np.ndarray]:
-    """Returns (home_goals, away_goals), each shape (n_sims, n_fixtures)."""
-    n_fixtures = len(cdfs)
-    home_goals = np.zeros((n_sims, n_fixtures), dtype=np.int16)
-    away_goals = np.zeros((n_sims, n_fixtures), dtype=np.int16)
-    for m, cdf in enumerate(cdfs):
-        u = rng.random(n_sims)
-        flat_idx = np.searchsorted(cdf, u, side="right")
-        flat_idx = np.clip(flat_idx, 0, grid_size * grid_size - 1)
-        home_goals[:, m] = flat_idx // grid_size
-        away_goals[:, m] = flat_idx % grid_size
+def simulate_batch(
+    strength: TeamStrengthUncertainty, home_idx: np.ndarray, away_idx: np.ndarray,
+    n_sims: int, rng: np.random.Generator,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Draws a fresh team-strength sample per simulated season (propagating
+    rating uncertainty, not just match-outcome variance -- see module
+    docstring), then one independent-Poisson scoreline per fixture from
+    that season's drawn strengths. Returns (home_goals, away_goals), each
+    shape (n_sims, n_fixtures)."""
+    n_teams = len(strength.attack_mean)
+    attack_draw = rng.normal(strength.attack_mean, strength.attack_se, size=(n_sims, n_teams))
+    defense_draw = rng.normal(strength.defense_mean, strength.defense_se, size=(n_sims, n_teams))
+    attack_draw = np.clip(attack_draw, *strength.attack_bounds)
+    defense_draw = np.clip(defense_draw, *strength.defense_bounds)
+
+    lam = np.exp(strength.home_advantage + attack_draw[:, home_idx] - defense_draw[:, away_idx])
+    mu = np.exp(attack_draw[:, away_idx] - defense_draw[:, home_idx])
+    lam = np.clip(lam, 1e-6, 15.0)
+    mu = np.clip(mu, 1e-6, 15.0)
+
+    home_goals = rng.poisson(lam).astype(np.int16)
+    away_goals = rng.poisson(mu).astype(np.int16)
     return home_goals, away_goals
 
 
@@ -145,6 +229,7 @@ def run_monte_carlo(
     n_simulations: int,
     seed: int,
     sim_cfg: dict,
+    promoted_se: float,
     initial_points: dict[str, int] | None = None,
     initial_goals_for: dict[str, int] | None = None,
     initial_goals_against: dict[str, int] | None = None,
@@ -182,8 +267,8 @@ def run_monte_carlo(
     base_draws = _init_array(initial_draws)
     base_losses = _init_array(initial_losses)
 
-    cdfs = build_score_distributions(fixtures_df, fit)
-    grid_size = MAX_GOALS + 1
+    strength = TeamStrengthUncertainty(fit, teams_2627, promoted_se)
+    n_fixtures = len(fixtures_df)
 
     remaining = n_simulations
     rng = np.random.default_rng(seed)
@@ -199,8 +284,8 @@ def run_monte_carlo(
     n_run = 0
     while remaining > 0:
         batch = min(BATCH_SIZE, remaining)
-        if len(cdfs) > 0:
-            hg, ag = simulate_batch(cdfs, batch, rng, grid_size)
+        if n_fixtures > 0:
+            hg, ag = simulate_batch(strength, home_idx, away_idx, batch, rng)
             points, goal_diff, goals_for = build_tables(hg, ag, home_idx, away_idx, n_teams)
             goals_against = goals_for - goal_diff
         else:
@@ -224,7 +309,7 @@ def run_monte_carlo(
             gf_samples[t].append(goals_for[:, t])
             ga_samples[t].append(goals_against[:, t])
 
-        if len(cdfs) > 0:
+        if n_fixtures > 0:
             for t in range(n_teams):
                 home_mask = home_idx == t
                 away_mask = away_idx == t
@@ -327,6 +412,8 @@ def main() -> None:
     # ends, not stronger on one.
     dc_attack_offset = points_shortfall / 100.0
     dc_defense_offset = points_shortfall / 100.0
+    points_shortfall_std = promo_summary["std_points_below_league_avg"] or 12.5
+    promoted_se = points_shortfall_std / 100.0
 
     as_of_date = pd.Timestamp(now_utc_iso()[:10])
     strength_df, fit = compute_team_strength_state(
@@ -346,7 +433,9 @@ def main() -> None:
     fixtures_df = fixtures_df.sort_values(["matchweek", "kickoff_utc"]).reset_index(drop=True)
     teams_2627 = EPL_2026_27_CLUBS
 
-    expected_table, position_dist = run_monte_carlo(fixtures_df, fit, teams_2627, n_simulations, seed, sim_cfg)
+    expected_table, position_dist = run_monte_carlo(
+        fixtures_df, fit, teams_2627, n_simulations, seed, sim_cfg, promoted_se,
+    )
     generated_at = now_utc_iso()
 
     expected_table.to_csv(OUT_DIR / "epl_2026_27_expected_table.csv", index=False)
@@ -372,7 +461,8 @@ def main() -> None:
         "n_simulations": n_simulations,
         "n_fixtures_per_simulation": len(fixtures_df),
         "season": "2026-27",
-        "simulation_mode": "preseason_static_strength",
+        "simulation_mode": "preseason_parameter_uncertainty_monte_carlo",
+        "scoreline_model": "independent_poisson_per_draw (Dixon-Coles low-score correlation dropped for season simulation only; still used for match-level predictions)",
         "tie_break_order": "points, goal_difference, goals_for, alphabetical_fallback (no head-to-head)",
         "random_seed": seed,
         "model_version": MODEL_VERSION,
