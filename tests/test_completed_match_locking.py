@@ -17,6 +17,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 import src.utils.versioning as versioning  # noqa: E402
+from src.evaluation.prediction_ledger import append_to_ledger  # noqa: E402
 from src.update_after_matchweek import (  # noqa: E402
     WeeklyUpdatePaths,
     lock_completed_matches,
@@ -74,6 +75,12 @@ def tmp_paths(tmp_path) -> WeeklyUpdatePaths:
         expected_table=tmp_path / "expected_table.csv",
         position_distribution=tmp_path / "position_distribution.csv",
         weekly_dir=tmp_path / "weekly",
+        ledger=tmp_path / "ledger.csv",
+        weekly_scoring=tmp_path / "weekly_scoring.csv",
+        reliability_running=tmp_path / "reliability_running.csv",
+        season_probability_path=tmp_path / "season_probability_path.csv",
+        recalibration_decisions=tmp_path / "recalibration_decisions.csv",
+        active_calibrators=tmp_path / "active_calibrators.pkl",
     )
 
 
@@ -146,8 +153,34 @@ def test_lock_completed_matches_upserts_a_correction(tmp_paths, synthetic_matchw
     assert int(completed.loc[completed["match_id"] == corrected.iloc[0]["match_id"], "home_goals"].iloc[0]) == 9
 
 
+def _seed_ledger_pre_kickoff(tmp_paths, results_path):
+    """Writes a synthetic pre-kickoff ledger row for each match_id in
+    `results_path`, mimicking what the real preseason predict_all_matches.py
+    run would already have produced before this matchweek's own kickoff --
+    scoring now requires this to exist (see score_after_matchweek), the
+    same as it would in real production."""
+    results = pd.read_csv(results_path)
+    fixtures = pd.read_csv(REAL_FIXTURES_PATH)
+    mw_fixtures = fixtures[fixtures["match_id"].isin(results["match_id"])]
+    pred_rows = []
+    for _, fx in mw_fixtures.iterrows():
+        kickoff = pd.Timestamp(fx["kickoff_utc"])
+        generated_at = (kickoff - pd.Timedelta(days=7)).isoformat()
+        pred_rows.append({
+            "match_id": fx["match_id"], "matchweek": fx["matchweek"],
+            "home_team": fx["home_team"], "away_team": fx["away_team"], "kickoff_utc": fx["kickoff_utc"],
+            "home_win_prob_model_only": 0.4, "draw_prob_model_only": 0.3, "away_win_prob_model_only": 0.3,
+            "dc_raw_home_win_prob": 0.4, "dc_raw_draw_prob": 0.3, "dc_raw_away_win_prob": 0.3,
+            "home_win_prob_market_integrated": "", "draw_prob_market_integrated": "", "away_win_prob_market_integrated": "",
+            "market_available": False, "prediction_mode": "preseason_mode", "run_id": "seed_run",
+            "model_version": "test", "generated_at": generated_at,
+        })
+    append_to_ledger(pred_rows, tmp_paths.ledger)
+
+
 @pytest.mark.slow
 def test_run_update_end_to_end_locks_results_and_predicts_remaining(tmp_paths, synthetic_matchweek1_results):
+    _seed_ledger_pre_kickoff(tmp_paths, synthetic_matchweek1_results)
     result = run_update(matchweek=1, results_path=synthetic_matchweek1_results, paths=tmp_paths)
 
     locked_ids = set(pd.read_csv(synthetic_matchweek1_results)["match_id"])

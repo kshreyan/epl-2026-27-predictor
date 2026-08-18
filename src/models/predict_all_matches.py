@@ -49,6 +49,8 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.calibration.calibrate_probabilities import apply_calibration, fit_calibrators  # noqa: E402
 from src.evaluation.backtest import team_rolling_goal_avgs  # noqa: E402
+from src.evaluation.prediction_ledger import append_to_ledger  # noqa: E402
+from src.evaluation.recalibration_gate import load_active_calibrators  # noqa: E402
 from src.features.build_schedule_congestion_features import build_schedule_congestion_features  # noqa: E402
 from src.models.baselines import (  # noqa: E402
     elo_only_probabilities,
@@ -87,6 +89,8 @@ FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
 BACKTEST_PATH = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv"
 MODEL_CONFIG_PATH = REPO_ROOT / "config" / "model_config.yaml"
 OUT_PREDICTIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_predictions.csv"
+LEDGER_PATH = REPO_ROOT / "data" / "outputs" / "epl_2026_27_prediction_ledger.csv"
+ACTIVE_CALIBRATORS_PATH = REPO_ROOT / "model_registry" / "active_calibrators.pkl"
 OUT_EXPLANATIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_explanations.csv"
 
 PROMOTED_TEAMS = ["Coventry City", "Ipswich Town", "Hull City"]
@@ -99,6 +103,7 @@ PREDICTION_COLUMNS = [
     "predicted_score_model_only", "predicted_score_market_integrated",
     "predicted_result_model_only", "predicted_result_market_integrated",
     "home_win_prob_model_only", "draw_prob_model_only", "away_win_prob_model_only",
+    "dc_raw_home_win_prob", "dc_raw_draw_prob", "dc_raw_away_win_prob",
     "home_win_prob_market_integrated", "draw_prob_market_integrated", "away_win_prob_market_integrated",
     "top_10_scorelines_model_only_json", "top_10_scorelines_market_integrated_json",
     "market_available", "closing_market_available", "squad_data_available", "injury_data_available", "lineup_data_available",
@@ -122,7 +127,10 @@ def result_from_score(home_goals: int, away_goals: int) -> str:
     return "draw"
 
 
-def build_model_context(df_clean: pd.DataFrame, universe: list[str], model_cfg: dict, as_of_date: pd.Timestamp) -> dict:
+def build_model_context(
+    df_clean: pd.DataFrame, universe: list[str], model_cfg: dict, as_of_date: pd.Timestamp,
+    active_calibrators_path: Path | None = None,
+) -> dict:
     """Fits Dixon-Coles + Elo on `df_clean` (real historical data, optionally
     extended with locked-in real 2026-27 results for a weekly update) and,
     if a backtest exists, the isotonic calibrators and stacked ensemble.
@@ -167,6 +175,19 @@ def build_model_context(df_clean: pd.DataFrame, universe: list[str], model_cfg: 
         backtest_df = pd.read_csv(BACKTEST_PATH)
         calibrators = fit_calibrators(backtest_df)
         calibration_method = "isotonic" if all(c is not None for c in calibrators.values()) else "raw_fallback"
+
+        # A promoted challenger (recalibration_gate.py) replaces the
+        # static historical-only fit above -- but ONLY if it already beat
+        # the incumbent on held-out real 2026-27 matches; see that
+        # module's docstring. Below MIN_MATCHES_TO_ATTEMPT (60) real
+        # matches, no challenger is ever promoted, so this file simply
+        # doesn't exist yet and this is a no-op.
+        active_path = active_calibrators_path if active_calibrators_path is not None else ACTIVE_CALIBRATORS_PATH
+        active = load_active_calibrators(active_path)
+        if active is not None:
+            calibrators = active
+            calibration_method = "isotonic_promoted_challenger"
+
         ensemble_meta, ensemble_beats_dc, ensemble_metrics = fit_final_meta_learner(backtest_df)
         # ensemble_beats_dc requires a paired-bootstrap 95% CI that excludes
         # zero AND a season-majority win (see final_stacked_model.py) -- not
@@ -260,6 +281,15 @@ def predict_fixtures(
             "home_win_prob_model_only": round(calibrated["home_win"], 4),
             "draw_prob_model_only": round(calibrated["draw"], 4),
             "away_win_prob_model_only": round(calibrated["away_win"], 4),
+            # Raw (uncalibrated, pre-ensemble) Dixon-Coles probability,
+            # captured unconditionally at prediction time -- this is the
+            # baseline a later scoring pass compares the production
+            # prediction against. Storing it now means scoring never has
+            # to recompute it from a model that has since been refit on
+            # real results, which would leak.
+            "dc_raw_home_win_prob": round(raw_h, 4),
+            "dc_raw_draw_prob": round(raw_d, 4),
+            "dc_raw_away_win_prob": round(raw_a, 4),
             "home_win_prob_market_integrated": "", "draw_prob_market_integrated": "", "away_win_prob_market_integrated": "",
             "top_10_scorelines_model_only_json": json.dumps(top10),
             "top_10_scorelines_market_integrated_json": "",
@@ -330,6 +360,9 @@ def main() -> None:
     OUT_PREDICTIONS.parent.mkdir(parents=True, exist_ok=True)
     pred_df.to_csv(OUT_PREDICTIONS, index=False)
     print(f"Wrote {len(pred_df)} match predictions to {OUT_PREDICTIONS}")
+
+    append_to_ledger(pred_rows, LEDGER_PATH)
+    print(f"Appended {len(pred_rows)} pre-kickoff predictions to {LEDGER_PATH}")
 
     expl_df = pd.DataFrame(expl_rows)
     expl_df.to_csv(OUT_EXPLANATIONS, index=False)

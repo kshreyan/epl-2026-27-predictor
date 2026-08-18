@@ -220,15 +220,69 @@ A previously-completed match's original pre-match prediction is never
 overwritten -- only the real result is appended alongside it, so
 prediction-vs-outcome accuracy stays auditable.
 
-**This cannot be exercised against real data yet**: today (2026-08-18)
-is three days before kickoff (2026-08-21). It is verified instead
-against synthetic scores for real matchweek-1 fixtures, written only
-to a temporary directory via an injectable `WeeklyUpdatePaths` --
-never to the real project data files (`tests/test_completed_match_locking.py`,
-`tests/test_weekly_update_versioning.py`). The versioning test
-confirms two separate weekly-update runs produce two distinct run_ids
-that are both appended to the experiment log, never overwriting each
-other's timestamp -- spec section 33's explicit requirement.
+**Audited and extended, post-Phase-4**: an audit of this engine found
+it refit team strength correctly (a) but had no durable, provably-
+leak-free record of what was predicted before each kickoff (b), no
+scoring pass at all once results landed (c), and -- appropriately,
+since 10 matches/gameweek is too small a sample to recalibrate on --
+no automatic recalibration (d), though no *gated* version existed
+either. Three new pieces close (b), (c), and a properly-gated version
+of (d):
+
+- **`src/evaluation/prediction_ledger.py`**: every prediction this
+  pipeline ever generates for a match -- the initial preseason run and
+  every subsequent weekly refresh for a still-unplayed fixture -- gets
+  its own permanent row, written via a real file *append*
+  (`open(path, "a")`), never a read-modify-rewrite cycle, so an
+  existing row cannot be mutated even in principle (asserted directly
+  in `tests/test_prediction_ledger.py`, not just designed that way).
+  `select_pre_kickoff_predictions` picks, per match, the most recent
+  ledger row whose `generated_at` is strictly before that match's own
+  `kickoff_utc` -- and asserts this on every row it returns, raising
+  if a match has no such row rather than silently scoring a leaked or
+  missing prediction. Verified against the real 380-fixture preseason
+  ledger: all 380 rows pass the leak-check.
+- **`src/evaluation/score_weekly_results.py`**: runs automatically
+  inside `run_update()` right after a matchweek's results are locked.
+  Computes per-gameweek and cumulative log loss/Brier/RPS for the
+  production prediction, the raw (uncalibrated) Dixon-Coles baseline
+  captured at prediction time (so no baseline is ever reconstructed
+  from a since-refit model), and market odds (0 matches until a real
+  odds feed is connected -- reported honestly, never fabricated). Also
+  a running reliability table over real 2026-27 results scored so far,
+  a "most surprising results" list (matches ranked by how little
+  probability the model assigned to what actually happened), and an
+  append-only season-level title/top-4/relegation probability path (one
+  20-row block per matchweek, so the full season trajectory can be
+  reconstructed later).
+- **`src/evaluation/recalibration_gate.py`**: explicitly NOT an
+  automatic recalibration loop. Below 60 real completed matches
+  (`MIN_MATCHES_TO_ATTEMPT`) it is a documented no-op. Above it, a
+  challenger calibrator (static historical backtest + all real 2026-27
+  results except the most recent ~20 held out) is evaluated against the
+  incumbent (static-only) calibrator on that held-out slice, which
+  neither has seen. The challenger replaces production's calibrator
+  only if it strictly beats the incumbent's held-out log loss; every
+  attempt, promoted or not, is appended to
+  `epl_2026_27_recalibration_decisions.csv` with its exact numbers.
+  `tests/test_recalibration_gate.py` verifies all three cases with
+  synthetic data: a real no-op below the threshold, a genuine promotion
+  when real data carries exploitable signal the static backtest didn't
+  have, and a logged rejection when it doesn't.
+
+**This still cannot be exercised against real 2026-27 results**: today
+(2026-08-18) is three days before kickoff (2026-08-21). All of the
+above is verified against synthetic scores for real matchweek-1
+fixtures, written only to a temporary directory via an injectable
+`WeeklyUpdatePaths` (now covering the ledger, scoring, and
+recalibration paths too) -- never to the real project data files
+(`tests/test_completed_match_locking.py`,
+`tests/test_weekly_update_versioning.py`,
+`tests/test_prediction_ledger.py`, `tests/test_score_weekly_results.py`,
+`tests/test_recalibration_gate.py`). The versioning test confirms two
+separate weekly-update runs produce two distinct run_ids that are both
+appended to the experiment log, never overwriting each other's
+timestamp -- spec section 33's explicit requirement.
 
 Full detail: `data/outputs/epl_backtest_match_results.csv`,
 `epl_backtest_model_comparison.csv`, `epl_backtest_scoreline_accuracy.csv`,

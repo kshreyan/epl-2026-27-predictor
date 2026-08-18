@@ -36,6 +36,9 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
+from src.evaluation.prediction_ledger import append_to_ledger  # noqa: E402
+from src.evaluation.recalibration_gate import attempt_recalibration  # noqa: E402
+from src.evaluation.score_weekly_results import append_season_probability_path, score_after_matchweek  # noqa: E402
 from src.models.predict_all_matches import (  # noqa: E402
     PREDICTION_COLUMNS,
     build_model_context,
@@ -67,9 +70,15 @@ class WeeklyUpdatePaths:
     model_config: Path = field(default_factory=lambda: REPO_ROOT / "config" / "model_config.yaml")
     sim_config: Path = field(default_factory=lambda: REPO_ROOT / "config" / "simulation_config.yaml")
     predictions: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_predictions.csv")
+    ledger: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_prediction_ledger.csv")
     expected_table: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_expected_table.csv")
     position_distribution: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_position_distribution.csv")
     weekly_dir: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "weekly")
+    weekly_scoring: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_weekly_scoring.csv")
+    reliability_running: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_reliability_running.csv")
+    season_probability_path: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_season_probability_path.csv")
+    recalibration_decisions: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_recalibration_decisions.csv")
+    active_calibrators: Path = field(default_factory=lambda: REPO_ROOT / "model_registry" / "active_calibrators.pkl")
 
 
 DEFAULT_PATHS = WeeklyUpdatePaths()
@@ -193,7 +202,7 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     hist_teams = sorted(set(df_for_fit["home_team"]) | set(df_for_fit["away_team"]))
     universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
     as_of_date = pd.Timestamp(now_utc_iso()[:10])
-    ctx = build_model_context(df_for_fit, universe, model_cfg, as_of_date)
+    ctx = build_model_context(df_for_fit, universe, model_cfg, as_of_date, active_calibrators_path=paths.active_calibrators)
 
     remaining_fixtures = fixtures_df[fixtures_df["status"] != "completed"].copy()
     generated_at = now_utc_iso()
@@ -203,6 +212,8 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     )
     pred_rows, expl_rows = predict_fixtures(remaining_fixtures, ctx, df_for_fit, model_cfg, "early_week_mode", generated_at, meta.run_id)
     weekly_predictions = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS] if pred_rows else pd.DataFrame(columns=PREDICTION_COLUMNS)
+
+    append_to_ledger(pred_rows, paths.ledger)
 
     # Merge into the main predictions file: completed matches keep their
     # ORIGINAL pre-match prediction (never overwritten) with the real
@@ -250,6 +261,7 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     )
     new_expected_table.to_csv(paths.expected_table, index=False)
     new_position_dist.to_csv(paths.position_distribution, index=False)
+    append_season_probability_path(matchweek, new_expected_table, paths)
 
     paths.weekly_dir.mkdir(parents=True, exist_ok=True)
     weekly_predictions.to_csv(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_predictions.csv", index=False)
@@ -269,6 +281,16 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
         probability_changes = merged.sort_values("title_probability_change", ascending=False)
         probability_changes.to_csv(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_probability_changes.csv", index=False)
 
+    # Score the just-locked matchweek's real results against the
+    # pre-kickoff predictions actually made for them (leak-checked via
+    # the ledger -- see prediction_ledger.select_pre_kickoff_predictions).
+    scoring = score_after_matchweek(matchweek, paths)
+
+    # Gated challenger recalibration -- a documented no-op below 60 real
+    # matches, never silently swaps the production calibrator (see
+    # recalibration_gate.py docstring).
+    recalibration = attempt_recalibration(paths)
+
     with open(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_update_report.md", "w") as f:
         f.write(f"# EPL Matchweek {matchweek} Update Report\n\n")
         f.write(f"Generated: {generated_at}\n\n")
@@ -277,6 +299,42 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
             f.write("## Biggest title-probability movers\n\n")
             f.write(probability_changes[["team", "title_probability_change", "top_4_probability_change", "relegation_probability_change"]].head(10).to_markdown(index=False))
             f.write("\n\n")
+
+        f.write("## Scoring\n\n")
+        f.write(f"This matchweek ({len(scoring['gameweek_scored'])} scored match(es)):\n\n")
+        f.write(scoring["gameweek_metrics"][["model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
+        f.write(f"\n\nCumulative, all {len(scoring['cumulative_scored'])} real match(es) scored so far this season:\n\n")
+        f.write(scoring["cumulative_metrics"][["model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
+        f.write("\n\n'production' is what the pipeline actually predicted (calibrated Dixon-Coles, "
+                "or the ensemble on the seasons it's statistically justified); 'dc_raw' is the "
+                "uncalibrated Dixon-Coles baseline; 'market' is unavailable until a real odds feed "
+                "is connected (see 'Data-quality warnings' below) and will show 0 matches until then.\n\n")
+
+        if not scoring["surprising_results"].empty:
+            f.write("## Most surprising results\n\n"
+                    "Matches where the actual outcome sat furthest into the model's predicted tail "
+                    "(lowest probability assigned to what actually happened):\n\n")
+            f.write(scoring["surprising_results"][[
+                "home_team", "away_team", "actual_result", "predicted_probability_of_actual_outcome",
+            ]].to_markdown(index=False))
+            f.write("\n\n")
+
+        if recalibration is not None:
+            f.write("## Recalibration gate\n\n")
+            f.write(
+                f"Attempted (>= {60} real matches available): **{recalibration['decision']}**. "
+                f"Incumbent log loss on {recalibration['n_holdout']} held-out real matches: "
+                f"{recalibration['incumbent_log_loss_holdout']:.4f}; challenger: "
+                f"{recalibration['challenger_log_loss_holdout']:.4f}. "
+                f"See `{paths.recalibration_decisions.name}` for the full decision log.\n\n"
+            )
+        else:
+            f.write("## Recalibration gate\n\n"
+                    "Not attempted yet -- fewer than 60 real completed matches exist "
+                    "(recalibration_gate.py's MIN_MATCHES_TO_ATTEMPT). No automatic weekly "
+                    "recalibration runs; this gate only activates once there is enough real "
+                    "data to validate a challenger on a genuine held-out slice.\n\n")
+
         f.write("## Data-quality warnings\n\n"
                 "- Injury, lineup, and market-odds data remain unavailable (see config/data_sources.yaml) -- "
                 "this update only incorporates real completed-match results and team-strength re-fitting.\n")
@@ -290,6 +348,8 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
         "new_expected_table": new_expected_table,
         "new_position_dist": new_position_dist,
         "probability_changes": probability_changes,
+        "scoring": scoring,
+        "recalibration": recalibration,
         "run_id": meta.run_id,
     }
 

@@ -17,6 +17,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 import src.utils.versioning as versioning  # noqa: E402
+from src.evaluation.prediction_ledger import append_to_ledger  # noqa: E402
 from src.update_after_matchweek import WeeklyUpdatePaths, run_update  # noqa: E402
 
 REAL_FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
@@ -60,6 +61,12 @@ def tmp_paths(tmp_path) -> WeeklyUpdatePaths:
         expected_table=tmp_path / "expected_table.csv",
         position_distribution=tmp_path / "position_distribution.csv",
         weekly_dir=tmp_path / "weekly",
+        ledger=tmp_path / "ledger.csv",
+        weekly_scoring=tmp_path / "weekly_scoring.csv",
+        reliability_running=tmp_path / "reliability_running.csv",
+        season_probability_path=tmp_path / "season_probability_path.csv",
+        recalibration_decisions=tmp_path / "recalibration_decisions.csv",
+        active_calibrators=tmp_path / "active_calibrators.pkl",
     )
 
 
@@ -78,10 +85,34 @@ def _synthetic_results(tmp_path, home_goals) -> Path:
     return path
 
 
+def _seed_ledger_pre_kickoff(tmp_paths, results_path):
+    """Scoring now requires a real pre-kickoff ledger entry to exist for
+    any match being locked (see score_after_matchweek) -- mimic what the
+    real preseason predict_all_matches.py run would already have written."""
+    results = pd.read_csv(results_path)
+    fixtures = pd.read_csv(REAL_FIXTURES_PATH)
+    mw_fixtures = fixtures[fixtures["match_id"].isin(results["match_id"])]
+    pred_rows = []
+    for _, fx in mw_fixtures.iterrows():
+        kickoff = pd.Timestamp(fx["kickoff_utc"])
+        generated_at = (kickoff - pd.Timedelta(days=7)).isoformat()
+        pred_rows.append({
+            "match_id": fx["match_id"], "matchweek": fx["matchweek"],
+            "home_team": fx["home_team"], "away_team": fx["away_team"], "kickoff_utc": fx["kickoff_utc"],
+            "home_win_prob_model_only": 0.4, "draw_prob_model_only": 0.3, "away_win_prob_model_only": 0.3,
+            "dc_raw_home_win_prob": 0.4, "dc_raw_draw_prob": 0.3, "dc_raw_away_win_prob": 0.3,
+            "home_win_prob_market_integrated": "", "draw_prob_market_integrated": "", "away_win_prob_market_integrated": "",
+            "market_available": False, "prediction_mode": "preseason_mode", "run_id": "seed_run",
+            "model_version": "test", "generated_at": generated_at,
+        })
+    append_to_ledger(pred_rows, tmp_paths.ledger)
+
+
 def test_two_runs_produce_two_distinct_run_ids_and_both_are_logged(tmp_paths, tmp_path):
     log_len_before = len(pd.read_csv(versioning.EXPERIMENT_LOG)) if versioning.EXPERIMENT_LOG.exists() else 0
 
     results_v1 = _synthetic_results(tmp_path, [2, 0, 1])
+    _seed_ledger_pre_kickoff(tmp_paths, results_v1)
     r1 = run_update(matchweek=1, results_path=results_v1, paths=tmp_paths)
 
     results_v2 = _synthetic_results(tmp_path, [3, 0, 1])  # a correction, still matchweek 1
@@ -97,6 +128,7 @@ def test_two_runs_produce_two_distinct_run_ids_and_both_are_logged(tmp_paths, tm
 
 def test_weekly_report_files_are_not_deleted_between_runs(tmp_paths, tmp_path):
     results_v1 = _synthetic_results(tmp_path, [2, 0, 1])
+    _seed_ledger_pre_kickoff(tmp_paths, results_v1)
     run_update(matchweek=1, results_path=results_v1, paths=tmp_paths)
     report_path = tmp_paths.weekly_dir / "epl_matchweek_01_update_report.md"
     assert report_path.exists()
