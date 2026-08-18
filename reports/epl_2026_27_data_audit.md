@@ -52,11 +52,12 @@ No connected real source exists for current 2026-27 EPL injury/suspension data. 
 | epl_2026_27_squads_transfers.csv | yes | 20 | 0 | 20 | none_available |
 | epl_2026_27_injury_suspension.csv | yes | 20 | 0 | 20 | none_available |
 | epl_2026_27_real_odds.csv | yes | 380 | 0 | 380 | the-odds-api.com |
-| epl_2026_27_outright_odds.csv | yes | 140 | 0 | 140 | none_available |
+| epl_2026_27_outright_odds.csv | yes | 140 | 20 | 120 | none_available (120 rows); sportsbettingdime.com/DraftKings, manual one-time snapshot, 2026-08-06 (20 rows) |
 
 ## Reading this table
 
 - `epl_2026_27_fixtures.csv` and `epl_historical_matches.csv` should show **all rows real**, 0 flagged unavailable -- these are the two genuinely-connected real data sources.
-- `epl_2026_27_squads_transfers.csv`, `epl_2026_27_injury_suspension.csv`, and `epl_2026_27_outright_odds.csv` should show **0 real rows, all rows flagged unavailable** -- these are honest sentinel files, not fabricated data.
+- `epl_2026_27_squads_transfers.csv` and `epl_2026_27_injury_suspension.csv` should show **0 real rows, all rows flagged unavailable** -- these are honest sentinel files, not fabricated data.
+- `epl_2026_27_outright_odds.csv` shows **20 real rows** (2026-08-18): a single manually-entered, de-vigged snapshot of title-winner and relegation odds from sportsbettingdime.com (DraftKings-averaged, dated 2026-08-06), one row per team for the 10 shortest-priced teams in each of those two markets. This is a one-time snapshot, not a live feed -- `src/data_collection/collect_outright_odds.py` preserves these `data_status=real_snapshot` rows on every re-run rather than overwriting them back to sentinels. The remaining 120 rows (other market types, and teams not listed on the source page for title/relegation) stay honestly flagged unavailable. See `reports/epl_2026_27_model_report.md` "Market comparison" for the model-vs-market analysis this enables.
 - `epl_2026_27_real_odds.csv` shows 0 real rows **unless a real `ODDS_API_KEY` is configured** (see `.env.example`); the collector is built and tested against the real endpoint (both the no-key and invalid-key paths), but no key is available in this environment. If a key is ever added, expect real rows only for fixtures close enough to kickoff that a bookmaker has posted a market -- most of the 380 fixtures will still show unavailable at any given time.
 - Any prediction feature drawing on an unavailable file must set the corresponding `*_available=False` flag, which `src/models/predict_all_matches.py` does.

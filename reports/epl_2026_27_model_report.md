@@ -451,6 +451,93 @@ history -- and the answer is: reasonably well, with the two honest
 misses (Liverpool's two titles, Leicester's shock relegation) named
 explicitly rather than smoothed over.
 
+## Market comparison
+
+Every number above was checked against the model's own backtest, never
+against a real external market -- there was no benchmark that would
+have flagged a 50.3% preseason title favourite as implausible before a
+human did. `data/raw/epl_2026_27_outright_odds.csv` now carries one
+real, manually-entered, de-vigged snapshot: title-winner and relegation
+odds for the 10 shortest-priced teams in each market, from
+sportsbettingdime.com (DraftKings Sportsbook, multi-book-averaged),
+dated 2026-08-06 -- 15 days before kickoff. This is a one-time
+snapshot, not a live feed (see "Limitations" for the live-odds gap);
+`implied_probability_no_vig` is normalized *within the 10-team listed
+subset* (title to sum 1.0, relegation to sum 3.0), since the source
+page does not print all 20 teams for either market -- an approximation
+that treats the unlisted ~10 teams per market as having negligible
+probability, which is reasonable here since the truncation cutoff
+lines up with materiality (bottom-half teams omitted from title,
+top-half teams omitted from relegation) but is not a full 20-team
+book. Do not use these rows to influence match-level or season-level
+predictions -- they exist for comparison only.
+
+| Team | Model title probability | Market title probability (no-vig) |
+|---|---|---|
+| Arsenal | 43.7% | 34.3% |
+| Manchester City | 38.6% | 23.5% |
+| Liverpool | 6.9% | 13.7% |
+| Manchester United | 2.1% | 11.1% |
+| Chelsea | 1.3% | 9.9% |
+| Tottenham Hotspur | 0.2% | 4.2% |
+| Aston Villa | 1.4% | 1.8% |
+| Newcastle United | 1.3% | 0.6% |
+| Brighton & Hove Albion | 0.9% | 0.6% |
+| Leeds United | 0.4% | 0.4% |
+
+| Team | Model relegation probability | Market relegation probability (no-vig) |
+|---|---|---|
+| Hull City | 62.6% | 79.5% |
+| Ipswich Town | 99.3% | 59.4% |
+| Coventry City | 59.8% | 59.4% |
+| Sunderland | 12.1% | 25.4% |
+| Fulham | 7.2% | 15.9% |
+| Leeds United | 10.5% | 14.7% |
+| Crystal Palace | 10.8% | 13.6% |
+| Nottingham Forest | 4.1% | 11.9% |
+| Brentford | 2.9% | 10.6% |
+| Newcastle United | 2.1% | 9.5% |
+
+This is a genuinely mixed picture, reported as it came out rather than
+selectively:
+
+- **Arsenal and Manchester City's title odds validate the user's prior
+  going into this fix, and partially validate the fix itself but not
+  completely.** The market prices Arsenal at 34.3% -- comfortably
+  under the "high thirties" ceiling a preseason favourite rarely
+  exceeds -- while the pre-fix model said 50.3% and the post-fix model
+  now says 43.7%. The fix closed most of the gap to the market (50.3%
+  -> 43.7%, market at 34.3%) but did not fully close it. The remaining
+  ~9-point gap on Arsenal and a similar gap on Manchester City is a
+  real, named, unresolved discrepancy, not evidence the model is now
+  "fixed" in an absolute sense -- only that it moved substantially in
+  the right direction.
+- **Liverpool and Manchester United run the other way**: the model
+  underrates both relative to the market (Liverpool 6.9% vs 13.7%,
+  Man United 2.1% vs 11.1%). The market may be pricing squad/transfer
+  information this goals-only model has no access to (see
+  "Limitations"); this is a plausible, named explanation, not a
+  confirmed one.
+- **Ipswich Town is the single largest, most concerning divergence in
+  this whole comparison**: the model says 99.3% relegation, the market
+  says 59.4% -- a 40-point gap, far larger than Coventry or Hull's
+  near-exact agreement with the market (59.8% vs 59.4%, 62.6% vs
+  79.5%). Unlike Coventry and Hull, Ipswich has a full season of real,
+  poor 2024/25 top-flight Dixon-Coles data (relegated in last place, 22
+  points), so it does **not** get the empirically-derived
+  `promoted_se` treatment described in "Season-level calibration" --
+  it keeps its own real, comparatively tight Laplace SE, because the
+  model has genuinely observed a full season of Ipswich data and isn't
+  being asked to guess. That may be entirely correct (Ipswich really
+  might be much worse than the market thinks) or it may mean the model
+  is over-anchoring on one bad historical season without properly
+  discounting for squad turnover since then, which a market with
+  access to preseason form and transfer activity would price in. This
+  is flagged here as an open question, not resolved by this snapshot
+  alone -- a live, continuously-updated odds feed (see "Limitations")
+  would be needed to track whether this gap closes, widens, or is
+  actually explainable once the season starts producing real results.
+
 ## Limitations (read before trusting a number)
 
 - **Correction (previously listed as a limitation, no longer accurate as
