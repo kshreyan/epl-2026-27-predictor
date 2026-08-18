@@ -64,7 +64,11 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.models.elo_model import compute_promoted_team_elo_offset  # noqa: E402
-from src.models.promoted_team_adjustment import compute_promoted_team_history, summarize_promoted_team_baseline  # noqa: E402
+from src.models.promoted_team_adjustment import (  # noqa: E402
+    compute_promoted_team_history,
+    compute_promoted_team_rating_distribution,
+    summarize_promoted_team_baseline,
+)
 from src.models.dynamic_team_strength_state_space import compute_team_strength_state  # noqa: E402
 from src.utils.team_names import EPL_2026_27_CLUBS  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
@@ -85,38 +89,53 @@ class TeamStrengthUncertainty:
     Dixon-Coles fit's own team ordering into the simulation's 20-club
     ordering.
 
-    **Promoted clubs get an empirically-derived SE, not their raw
-    Laplace-approximation value.** For a genuinely (near-)zero-history
-    club, the Hessian-based SE is close to degenerate: Coventry City and
-    Hull City came out at SE~2.0 in log-attack-space, ~15x an established
-    club's ~0.14 and comparable to the entire empirical attack range
-    itself. A first fix capped that raw SE at a multiple of the
-    established-club median (4x -> ~0.55), which stopped the worst
-    pile-up-at-the-boundary artifact (see git history: that version put
-    Coventry mid-table with a ~16% title probability) but was still an
-    arbitrary multiplier, not a number grounded in what promoted teams
-    actually do. This version instead uses the real spread of the 33
-    historical promotion events in promoted_team_adjustment.py: points
-    finished below league average has mean -17.6, std 12.5 (1888/89-
-    2025/26 window, every promoted club that ever played in this
-    dataset). Converting that std through the same points-to-log-rate
-    scaling already used for the mean offset (points_shortfall / 100,
-    see main()) gives SE ~= 0.125 -- wide enough that a promoted team can
-    still occasionally have a Leeds-2020/21-like season (finished above
-    league average, +6.1), but not wide enough to routinely draw a
-    title-contending rating, consistent with the real ceiling: no
-    promoted club has finished above 7th in 11 seasons of data. This
-    value is passed in as `promoted_se` rather than hardcoded here, so it
-    stays traceable to promoted_team_adjustment.py's own computation.
-    Established clubs keep their raw Laplace SE (all comfortably under
-    0.35 in practice -- Ipswich Town's real-2024/25-data SE of 0.35 is
-    the largest); `ESTABLISHED_SE_SAFETY_CAP` is only a defensive
-    ceiling against a future degenerate fit, not an active constraint
-    today."""
+    **Promoted clubs are drawn from an empirical cross-sectional prior,
+    not from their own (possibly double-counted) fitted rating.** Two
+    prior versions of this class tried to fix promoted-team overconfidence
+    by widening standard error alone: capping raw SE at a multiple of the
+    established-club median (arbitrary), then replacing it with the std
+    of historical points-below-league-average (better, but still only
+    fixed the *spread*, not the *mean*). Both left the MEAN untouched --
+    `fit.attack`/`fit.defense` after `apply_promoted_team_adjustment` --
+    which for a genuinely blank-slate club (Coventry City, Hull City:
+    their real data has decayed to near-zero weight, SE~2.0) is fine,
+    but for a club with real, recent, substantially-weighted Premier
+    League data (Ipswich Town's 2024/25 season, SE~0.35) double-counts:
+    their own real bad defense (-0.456) gets a SECOND generic "-17.6
+    points" shortfall added on top (-0.632 final), a gap from the league
+    median so large that no plausible amount of variance recovers it --
+    which is exactly why Ipswich barely moved (99.96% -> 99.3%
+    relegation) when only the SE was fixed.
+
+    This version discards the offset-adjusted mean for promoted teams
+    entirely and instead draws each promoted club's (attack, defense)
+    JOINTLY, per simulation, from the real empirical distribution of
+    every promoted club's REALISED debut-season rating since 2015/16 (33
+    events, single-season Dixon-Coles fits -- see
+    `promoted_team_adjustment.compute_promoted_team_rating_distribution`).
+    All three of 2026-27's promoted clubs draw from the same
+    distribution, independently per simulation: attack mean -0.222 (std
+    0.217), defense mean -0.288 (std 0.223), with a positive attack-
+    defense covariance (clubs that struggle at one end tend to struggle
+    at the other, real correlation ~0.29). This is wider than any of the
+    previous fixed-SE attempts and no longer depends on how much (or how
+    little) of its own real data any single promoted club happens to
+    have -- Ipswich no longer gets penalized twice for the same bad
+    season. Trade-off, stated plainly: this also means Ipswich's own
+    specific 2024/25 signal is no longer used for the SIMULATION mean at
+    all (only the generic cross-sectional prior is), which discards real
+    club-specific information in exchange for removing the double-count;
+    see reports/epl_2026_27_model_report.md "Season-level calibration"
+    for the resulting numbers and this trade-off's discussion.
+
+    Established clubs are unaffected: independent per-parameter Normal
+    draws from their own raw Laplace SE, capped at
+    `ESTABLISHED_SE_SAFETY_CAP` only as a defensive ceiling against a
+    future degenerate fit (no established club is anywhere near it)."""
 
     ESTABLISHED_SE_SAFETY_CAP = 1.0
 
-    def __init__(self, fit, teams: list[str], promoted_se: float):
+    def __init__(self, fit, teams: list[str], promoted_rating_dist: dict):
         fit_idx = np.array([fit.team_index[t] for t in teams])
         self.attack_mean = fit.attack[fit_idx]
         self.defense_mean = fit.defense[fit_idx]
@@ -124,12 +143,12 @@ class TeamStrengthUncertainty:
         raw_attack_se = fit.attack_se[fit_idx] if has_se else np.zeros(len(teams))
         raw_defense_se = fit.defense_se[fit_idx] if has_se else np.zeros(len(teams))
 
-        promoted_mask = np.array([t in PROMOTED_TEAMS for t in teams])
         self.attack_se = np.minimum(raw_attack_se, self.ESTABLISHED_SE_SAFETY_CAP)
         self.defense_se = np.minimum(raw_defense_se, self.ESTABLISHED_SE_SAFETY_CAP)
-        self.attack_se[promoted_mask] = promoted_se
-        self.defense_se[promoted_mask] = promoted_se
-        self.promoted_se = promoted_se
+
+        self.promoted_mask = np.array([t in PROMOTED_TEAMS for t in teams])
+        self.promoted_mean = np.array([promoted_rating_dist["attack_mean"], promoted_rating_dist["defense_mean"]])
+        self.promoted_cov = np.array(promoted_rating_dist["covariance"])
 
         margin = 0.5
         self.attack_bounds = (float(fit.attack.min()) - margin, float(fit.attack.max()) + margin)
@@ -149,6 +168,17 @@ def simulate_batch(
     n_teams = len(strength.attack_mean)
     attack_draw = rng.normal(strength.attack_mean, strength.attack_se, size=(n_sims, n_teams))
     defense_draw = rng.normal(strength.defense_mean, strength.defense_se, size=(n_sims, n_teams))
+
+    # Promoted clubs: overwrite with a JOINT (attack, defense) draw from the
+    # real cross-sectional distribution of promoted-club debut ratings,
+    # independently per club per simulation -- see TeamStrengthUncertainty
+    # docstring for why this replaces rather than widens their own fitted
+    # mean.
+    for t in np.flatnonzero(strength.promoted_mask):
+        joint = rng.multivariate_normal(strength.promoted_mean, strength.promoted_cov, size=n_sims)
+        attack_draw[:, t] = joint[:, 0]
+        defense_draw[:, t] = joint[:, 1]
+
     attack_draw = np.clip(attack_draw, *strength.attack_bounds)
     defense_draw = np.clip(defense_draw, *strength.defense_bounds)
 
@@ -229,7 +259,7 @@ def run_monte_carlo(
     n_simulations: int,
     seed: int,
     sim_cfg: dict,
-    promoted_se: float,
+    promoted_rating_dist: dict,
     initial_points: dict[str, int] | None = None,
     initial_goals_for: dict[str, int] | None = None,
     initial_goals_against: dict[str, int] | None = None,
@@ -267,7 +297,7 @@ def run_monte_carlo(
     base_draws = _init_array(initial_draws)
     base_losses = _init_array(initial_losses)
 
-    strength = TeamStrengthUncertainty(fit, teams_2627, promoted_se)
+    strength = TeamStrengthUncertainty(fit, teams_2627, promoted_rating_dist)
     n_fixtures = len(fixtures_df)
 
     remaining = n_simulations
@@ -412,8 +442,14 @@ def main() -> None:
     # ends, not stronger on one.
     dc_attack_offset = points_shortfall / 100.0
     dc_defense_offset = points_shortfall / 100.0
-    points_shortfall_std = promo_summary["std_points_below_league_avg"] or 12.5
-    promoted_se = points_shortfall_std / 100.0
+    # For the SIMULATION (not the point estimate above, which still feeds
+    # strength_df and match-level predictions): draw promoted clubs from
+    # the real cross-sectional distribution of promoted-club debut ratings
+    # instead of a fixed offset -- see TeamStrengthUncertainty docstring
+    # for why (fixes a double-counting bug for clubs with real recent data).
+    promoted_rating_dist = compute_promoted_team_rating_distribution(
+        df_clean, l2_reg=model_cfg["dixon_coles"].get("l2_reg", 0.03),
+    )
 
     as_of_date = pd.Timestamp(now_utc_iso()[:10])
     strength_df, fit = compute_team_strength_state(
@@ -434,7 +470,7 @@ def main() -> None:
     teams_2627 = EPL_2026_27_CLUBS
 
     expected_table, position_dist = run_monte_carlo(
-        fixtures_df, fit, teams_2627, n_simulations, seed, sim_cfg, promoted_se,
+        fixtures_df, fit, teams_2627, n_simulations, seed, sim_cfg, promoted_rating_dist,
     )
     generated_at = now_utc_iso()
 

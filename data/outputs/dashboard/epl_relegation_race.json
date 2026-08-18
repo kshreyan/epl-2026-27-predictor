@@ -1,128 +1,128 @@
 {
-  "generated_at": "2026-08-18T12:31:31+00:00",
+  "generated_at": "2026-08-18T17:54:04+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 20,
   "data": [
     {
       "team": "Ipswich Town",
-      "relegation_probability": 0.99276,
-      "expected_points": 16.58,
-      "expected_position": 19.85
-    },
-    {
-      "team": "Hull City",
-      "relegation_probability": 0.62558,
-      "expected_points": 33.68,
-      "expected_position": 17.383
+      "relegation_probability": 0.72137,
+      "expected_points": 29.69,
+      "expected_position": 17.842
     },
     {
       "team": "Coventry City",
-      "relegation_probability": 0.59773,
-      "expected_points": 34.27,
-      "expected_position": 17.24
+      "relegation_probability": 0.71996,
+      "expected_points": 29.75,
+      "expected_position": 17.836
+    },
+    {
+      "team": "Hull City",
+      "relegation_probability": 0.7196,
+      "expected_points": 29.73,
+      "expected_position": 17.833
     },
     {
       "team": "Sunderland",
-      "relegation_probability": 0.12114,
-      "expected_points": 48.74,
-      "expected_position": 12.201
+      "relegation_probability": 0.12569,
+      "expected_points": 48.42,
+      "expected_position": 12.271
     },
     {
       "team": "Crystal Palace",
-      "relegation_probability": 0.10848,
-      "expected_points": 47.92,
-      "expected_position": 12.612
+      "relegation_probability": 0.11476,
+      "expected_points": 47.57,
+      "expected_position": 12.684
     },
     {
       "team": "Leeds United",
-      "relegation_probability": 0.10509,
-      "expected_points": 49.46,
-      "expected_position": 11.943
+      "relegation_probability": 0.11202,
+      "expected_points": 49.06,
+      "expected_position": 12.04
     },
     {
       "team": "Tottenham Hotspur",
-      "relegation_probability": 0.10328,
-      "expected_points": 48.36,
-      "expected_position": 12.445
+      "relegation_probability": 0.11127,
+      "expected_points": 47.96,
+      "expected_position": 12.542
     },
     {
       "team": "Everton",
-      "relegation_probability": 0.07927,
-      "expected_points": 49.76,
-      "expected_position": 11.858
+      "relegation_probability": 0.08337,
+      "expected_points": 49.43,
+      "expected_position": 11.926
     },
     {
       "team": "Fulham",
-      "relegation_probability": 0.07177,
-      "expected_points": 50.48,
-      "expected_position": 11.565
+      "relegation_probability": 0.07669,
+      "expected_points": 50.12,
+      "expected_position": 11.645
     },
     {
       "team": "Nottingham Forest",
-      "relegation_probability": 0.0408,
-      "expected_points": 53.6,
-      "expected_position": 10.273
+      "relegation_probability": 0.04357,
+      "expected_points": 53.23,
+      "expected_position": 10.351
     },
     {
       "team": "Brentford",
-      "relegation_probability": 0.02916,
-      "expected_points": 55.33,
-      "expected_position": 9.552
+      "relegation_probability": 0.03188,
+      "expected_points": 54.96,
+      "expected_position": 9.625
     },
     {
       "team": "Brighton & Hove Albion",
-      "relegation_probability": 0.02688,
-      "expected_points": 55.56,
-      "expected_position": 9.454
+      "relegation_probability": 0.0306,
+      "expected_points": 55.23,
+      "expected_position": 9.513
     },
     {
       "team": "AFC Bournemouth",
-      "relegation_probability": 0.02649,
-      "expected_points": 55.75,
-      "expected_position": 9.379
+      "relegation_probability": 0.02976,
+      "expected_points": 55.38,
+      "expected_position": 9.458
     },
     {
       "team": "Newcastle United",
-      "relegation_probability": 0.0205,
-      "expected_points": 57.05,
-      "expected_position": 8.847
+      "relegation_probability": 0.02202,
+      "expected_points": 56.75,
+      "expected_position": 8.887
     },
     {
       "team": "Chelsea",
-      "relegation_probability": 0.01956,
-      "expected_points": 57.2,
-      "expected_position": 8.779
+      "relegation_probability": 0.02194,
+      "expected_points": 56.88,
+      "expected_position": 8.827
     },
     {
       "team": "Aston Villa",
-      "relegation_probability": 0.0183,
-      "expected_points": 57.53,
-      "expected_position": 8.644
+      "relegation_probability": 0.02022,
+      "expected_points": 57.24,
+      "expected_position": 8.683
     },
     {
       "team": "Manchester United",
-      "relegation_probability": 0.01086,
-      "expected_points": 59.73,
-      "expected_position": 7.77
+      "relegation_probability": 0.01245,
+      "expected_points": 59.47,
+      "expected_position": 7.793
     },
     {
       "team": "Liverpool",
-      "relegation_probability": 0.00226,
-      "expected_points": 65.97,
-      "expected_position": 5.486
+      "relegation_probability": 0.00272,
+      "expected_points": 65.65,
+      "expected_position": 5.526
     },
     {
       "team": "Manchester City",
-      "relegation_probability": 4e-05,
-      "expected_points": 77.79,
-      "expected_position": 2.451
+      "relegation_probability": 7e-05,
+      "expected_points": 77.56,
+      "expected_position": 2.452
     },
     {
       "team": "Arsenal",
-      "relegation_probability": 2e-05,
-      "expected_points": 78.85,
-      "expected_position": 2.266
+      "relegation_probability": 3e-05,
+      "expected_points": 78.63,
+      "expected_position": 2.267
     }
   ]
 }

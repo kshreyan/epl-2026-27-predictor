@@ -1,21 +1,21 @@
 team,top_4_probability,expected_points,expected_position
-Arsenal,0.90492,78.85,2.266
-Manchester City,0.88338,77.79,2.451
-Liverpool,0.49592,65.97,5.486
-Manchester United,0.25936,59.73,7.77
-Aston Villa,0.19507,57.53,8.644
-Chelsea,0.18672,57.2,8.779
-Newcastle United,0.18271,57.05,8.847
-AFC Bournemouth,0.15362,55.75,9.379
-Brighton & Hove Albion,0.14678,55.56,9.454
-Brentford,0.14389,55.33,9.552
-Nottingham Forest,0.10871,53.6,10.273
-Leeds United,0.07032,49.46,11.943
-Sunderland,0.06651,48.74,12.201
-Fulham,0.0642,50.48,11.565
-Everton,0.05541,49.76,11.858
-Tottenham Hotspur,0.0428,48.36,12.445
-Crystal Palace,0.03885,47.92,12.612
-Coventry City,0.00041,34.27,17.24
-Hull City,0.00041,33.68,17.383
-Ipswich Town,0.0,16.58,19.85
+Arsenal,0.90456,78.63,2.267
+Manchester City,0.88416,77.56,2.452
+Liverpool,0.49284,65.65,5.526
+Manchester United,0.26079,59.47,7.793
+Aston Villa,0.19616,57.24,8.683
+Chelsea,0.1866,56.88,8.827
+Newcastle United,0.18276,56.75,8.887
+AFC Bournemouth,0.15125,55.38,9.458
+Brighton & Hove Albion,0.14618,55.23,9.513
+Brentford,0.14286,54.96,9.625
+Nottingham Forest,0.10789,53.23,10.351
+Leeds United,0.06865,49.06,12.04
+Sunderland,0.06536,48.42,12.271
+Fulham,0.06432,50.12,11.645
+Everton,0.05449,49.43,11.926
+Tottenham Hotspur,0.04248,47.96,12.542
+Crystal Palace,0.03875,47.57,12.684
+Hull City,0.0034,29.73,17.833
+Ipswich Town,0.00331,29.69,17.842
+Coventry City,0.0032,29.75,17.836

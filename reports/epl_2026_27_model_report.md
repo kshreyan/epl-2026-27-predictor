@@ -307,7 +307,7 @@ before it shipped: it produced a ~16% *title* probability for a
 promoted club. The final version replaces a promoted team's raw SE
 with an empirically-derived one instead of capping it: the standard
 deviation of `points_below_league_avg` across all 33 real historical
-promotion events (1888/89-2025/26 dataset window), mean -17.6, **std
+promotion events (2015/16-2025/26 dataset window), mean -17.6, **std
 12.5**, converted through the same points-to-log-rate scaling already
 used for the mean promoted-team offset (`/100`) to give
 **promoted_se ~= 0.125**. Established clubs keep their raw Laplace SE
@@ -342,6 +342,15 @@ driven by Ipswich's own actual, poor recent Dixon-Coles fit.
 Relegation probabilities still sum to exactly 3.0 and title
 probabilities to exactly 1.0 in both versions (an invariant of how the
 Monte Carlo tallies finishing positions, not a calibration claim).
+
+**Superseded, see section 5 below**: the claim in the previous
+paragraph that Ipswich's ~99% "was never resting on the promoted-team
+offset" turned out to be wrong in the way that mattered -- it wasn't
+resting on the offset *alone*, but the offset was still being added on
+top of Ipswich's own real data, and that stacking is precisely what
+kept it near 99%. Left as originally written above rather than edited
+after the fact; the correction is in section 5, not a silent rewrite
+of this one.
 
 ### 3. Promoted-team adjustment: what prior, what window
 
@@ -451,6 +460,158 @@ history -- and the answer is: reasonably well, with the two honest
 misses (Liverpool's two titles, Leicester's shock relegation) named
 explicitly rather than smoothed over.
 
+### 5. Second pass: promoted teams were double-counted, not zero-variance
+
+A follow-up review flagged that Ipswich Town barely moved after the
+section-2 fix (99.96% -> 99.28%) while Coventry and Hull moved ~15
+points, and hypothesized that promoted-club ratings were being drawn
+from a deterministic prior with no variance term at all, resampled for
+established clubs but held fixed for promoted ones.
+
+**That specific hypothesis does not hold** -- Coventry and Hull do
+resample every simulation (section 2's fix applies to all three
+promoted clubs identically). The real mechanism is different and
+specific to Ipswich: `apply_promoted_team_adjustment`
+(`scoreline_models.py:189`) unconditionally adds the same generic
+`points_below_league_avg / 100` shortfall to every promoted club's
+attack AND defense, regardless of whether that club already has real,
+substantially-weighted Premier League data reflecting its actual
+quality. Real numbers pulled directly from the production fit
+(time-decay half-life 269 days):
+
+| Team | Real PL history in this dataset | Attack before offset (SE) | Defense before offset (SE) | Defense after offset |
+|---|---|---|---|---|
+| Coventry City | 0 matches | 0.000 (SE 2.01) | 0.000 (SE 2.01) | -0.176 |
+| Hull City | 76 matches, most recent May 2017 -- 9 years stale, decayed to near-nothing at this half-life | -0.004 (SE 1.99) | -0.015 (SE 1.99) | -0.191 |
+| Ipswich Town | 38 matches, full 2024/25 season, ending May 2025 -- still roughly half-weighted | -0.181 (SE 0.35) | **-0.456** (SE 0.23) | **-0.632** |
+
+Coventry and Hull are genuinely blank-slate -- their historical data
+has decayed to irrelevance, so the generic offset is the right tool.
+Ipswich is not blank-slate: it already carries a real, substantially-
+weighted, badly-below-average defense rating from actually being
+relegated last season. Adding the same generic "-17.6 points" shortfall
+on top double-counts that signal -- Ipswich's defense parameter ends up
+roughly 1.2 full log-rate units below Arsenal's, a gap section 2's
+widened-but-still-fixed-mean SE (0.125, which was in fact *narrower*
+than Ipswich's own real fitted SE of 0.348) could never plausibly
+close.
+
+**Fix**: `compute_promoted_team_rating_distribution`
+(`promoted_team_adjustment.py`) fits a single-season Dixon-Coles model
+to each of the 33 real historical promotion events individually (2015/16
+-2025/26, one fit per season using only that season's ~380 matches, a
+very long half-life so no within-season decay distorts it) and reads
+off each promoted club's own REALISED debut-season attack/defense. This
+gives a real empirical joint distribution -- attack mean -0.222 (std
+0.217), defense mean -0.288 (std 0.223), positive attack-defense
+correlation ~0.29 -- built entirely from what promoted clubs have
+actually turned out to be, never from what any one club's own
+(possibly stale, possibly double-counted) fit says. In the season
+simulation, all three of 2026-27's promoted clubs now draw their
+(attack, defense) JOINTLY from this same distribution, independently
+per simulation, replacing the offset-adjusted mean entirely rather than
+only widening its SE.
+
+**Stated trade-off**: this also means Ipswich's own specific 2024/25
+signal no longer informs the simulation's promoted-team ratings at
+all -- only the generic cross-sectional prior does. That discards real,
+club-specific information (a below-average finish two years running is
+arguably informative about Ipswich specifically, not just "promoted
+clubs in general") in exchange for removing the double-count. It also
+means all three of 2026-27's promoted clubs are now statistically
+interchangeable in the simulation's eyes -- their relegation
+probabilities converge to nearly the same value (see below), whereas
+before the fix, real match data \[wrongly\] gave the appearance of
+differentiating them. Whether a hybrid that shrinks Ipswich's own
+real fit toward this prior -- rather than replacing it outright -- would
+be more accurate is a legitimate open question, not resolved here.
+
+Real production numbers, same 250,000-simulation preseason run:
+
+| | Section 2 (SE-only fix) | Section 5 (empirical joint prior) |
+|---|---|---|
+| Ipswich Town relegation probability | 99.28% | **72.14%** |
+| Coventry City relegation probability | 59.77% | 72.00% |
+| Hull City relegation probability | 62.56% | 71.96% |
+| Title/top-4 probabilities (established clubs) | -- | materially unchanged (Arsenal 43.7% -> 43.8% title) |
+
+Full title and relegation tables, every club, same run:
+
+| Team | Title probability |
+|---|---|
+| Arsenal | 43.81% |
+| Manchester City | 38.49% |
+| Liverpool | 6.79% |
+| Manchester United | 2.17% |
+| Aston Villa | 1.38% |
+| Chelsea | 1.32% |
+| Newcastle United | 1.23% |
+| AFC Bournemouth | 0.93% |
+| Brighton & Hove Albion | 0.87% |
+| Brentford | 0.85% |
+| Nottingham Forest | 0.57% |
+| Sunderland | 0.41% |
+| Leeds United | 0.40% |
+| Fulham | 0.26% |
+| Everton | 0.20% |
+| Tottenham Hotspur | 0.15% |
+| Crystal Palace | 0.12% |
+| Hull City | 0.015% |
+| Coventry City | 0.010% |
+| Ipswich Town | 0.008% |
+| **Sum** | **1.0000** |
+
+| Team | Relegation probability |
+|---|---|
+| Ipswich Town | 72.14% |
+| Coventry City | 72.00% |
+| Hull City | 71.96% |
+| Sunderland | 12.57% |
+| Crystal Palace | 11.48% |
+| Leeds United | 11.20% |
+| Tottenham Hotspur | 11.13% |
+| Everton | 8.34% |
+| Fulham | 7.67% |
+| Nottingham Forest | 4.36% |
+| Brentford | 3.19% |
+| Brighton & Hove Albion | 3.06% |
+| AFC Bournemouth | 2.98% |
+| Newcastle United | 2.20% |
+| Chelsea | 2.19% |
+| Aston Villa | 2.02% |
+| Manchester United | 1.25% |
+| Liverpool | 0.27% |
+| Manchester City | 0.007% |
+| Arsenal | 0.003% |
+| **Sum** | **3.0000** |
+
+No club exceeds ~90% relegation probability (previous ceiling: 99.96%
+for Ipswich). The season-level calibration backtest was re-run with
+this fix (leakage-safe: each historical season's promoted-team
+distribution is refit from only the promotion events strictly before
+that season, same discipline as the mean-offset version):
+
+| Target | Brier score (SE-only fix) | Brier score (empirical joint prior) |
+|---|---|---|
+| Title | 0.02507 | 0.02508 |
+| Top-4 | 0.09031 | 0.09029 |
+| Relegation | 0.08968 | **0.08874** |
+
+Title and top-4 are essentially unchanged (expected -- this fix only
+touches promoted-club ratings). Relegation Brier improved modestly.
+Promoted-team relegation calibration across the 21 backtest
+observations: mean predicted 61.6% vs actual realized rate 57.1%
+(previously 61.1% vs 57.1%) -- a small, real improvement, not a large
+one, because most backtest-era promoted clubs did NOT have Ipswich's
+specific situation (a *recent* full season of real top-flight data):
+Sheffield United's 2023/24 recall is the closest historical analogue,
+and even that gap (2020/21 relegation to 2023/24 promotion, ~2.5 years)
+had decayed further than Ipswich's 15-month gap. This bug's impact was
+therefore real but concentrated almost entirely in the live 2026-27
+forecast, not spread evenly across the historical backtest -- which is
+exactly why a season-level calibration backtest alone would not have
+caught it; it took a human noticing one club's number didn't move.
+
 ## Market comparison
 
 Every number above was checked against the model's own backtest, never
@@ -474,29 +635,34 @@ predictions -- they exist for comparison only.
 
 | Team | Model title probability | Market title probability (no-vig) |
 |---|---|---|
-| Arsenal | 43.7% | 34.3% |
-| Manchester City | 38.6% | 23.5% |
-| Liverpool | 6.9% | 13.7% |
-| Manchester United | 2.1% | 11.1% |
+| Arsenal | 43.8% | 34.3% |
+| Manchester City | 38.5% | 23.5% |
+| Liverpool | 6.8% | 13.7% |
+| Manchester United | 2.2% | 11.1% |
 | Chelsea | 1.3% | 9.9% |
-| Tottenham Hotspur | 0.2% | 4.2% |
+| Tottenham Hotspur | 0.1% | 4.2% |
 | Aston Villa | 1.4% | 1.8% |
-| Newcastle United | 1.3% | 0.6% |
+| Newcastle United | 1.2% | 0.6% |
 | Brighton & Hove Albion | 0.9% | 0.6% |
 | Leeds United | 0.4% | 0.4% |
 
 | Team | Model relegation probability | Market relegation probability (no-vig) |
 |---|---|---|
-| Hull City | 62.6% | 79.5% |
-| Ipswich Town | 99.3% | 59.4% |
-| Coventry City | 59.8% | 59.4% |
-| Sunderland | 12.1% | 25.4% |
-| Fulham | 7.2% | 15.9% |
-| Leeds United | 10.5% | 14.7% |
-| Crystal Palace | 10.8% | 13.6% |
-| Nottingham Forest | 4.1% | 11.9% |
-| Brentford | 2.9% | 10.6% |
-| Newcastle United | 2.1% | 9.5% |
+| Hull City | 72.0% | 79.5% |
+| Ipswich Town | 72.1% | 59.4% |
+| Coventry City | 72.0% | 59.4% |
+| Sunderland | 12.6% | 25.4% |
+| Fulham | 7.7% | 15.9% |
+| Leeds United | 11.2% | 14.7% |
+| Crystal Palace | 11.5% | 13.6% |
+| Nottingham Forest | 4.4% | 11.9% |
+| Brentford | 3.2% | 10.6% |
+| Newcastle United | 2.2% | 9.5% |
+
+(Numbers as of the section 5 fix above -- promoted-club ratings drawn
+from the empirical joint historical prior. Title-market table is
+essentially unchanged from the section-2 version; only the relegation
+table moved meaningfully.)
 
 This is a genuinely mixed picture, reported as it came out rather than
 selectively:
@@ -518,25 +684,31 @@ selectively:
   information this goals-only model has no access to (see
   "Limitations"); this is a plausible, named explanation, not a
   confirmed one.
-- **Ipswich Town is the single largest, most concerning divergence in
-  this whole comparison**: the model says 99.3% relegation, the market
-  says 59.4% -- a 40-point gap, far larger than Coventry or Hull's
-  near-exact agreement with the market (59.8% vs 59.4%, 62.6% vs
-  79.5%). Unlike Coventry and Hull, Ipswich has a full season of real,
-  poor 2024/25 top-flight Dixon-Coles data (relegated in last place, 22
-  points), so it does **not** get the empirically-derived
-  `promoted_se` treatment described in "Season-level calibration" --
-  it keeps its own real, comparatively tight Laplace SE, because the
-  model has genuinely observed a full season of Ipswich data and isn't
-  being asked to guess. That may be entirely correct (Ipswich really
-  might be much worse than the market thinks) or it may mean the model
-  is over-anchoring on one bad historical season without properly
-  discounting for squad turnover since then, which a market with
-  access to preseason form and transfer activity would price in. This
-  is flagged here as an open question, not resolved by this snapshot
-  alone -- a live, continuously-updated odds feed (see "Limitations")
-  would be needed to track whether this gap closes, widens, or is
-  actually explainable once the season starts producing real results.
+- **Ipswich Town's gap against the market has closed substantially,
+  but not entirely, after the section-5 fix.** Before that fix: model
+  99.3% vs market 59.4%, a 40-point gap driven by a real double-
+  counting bug (Ipswich's own bad 2024/25 data plus a redundant generic
+  promoted-team offset stacked on top -- see "Season-level
+  calibration" section 5). After: model 72.1% vs market 59.4%, a
+  12.7-point gap -- the single largest remaining bug this comparison
+  found was real, and fixing it moved the number by 27 points in the
+  market's direction. The residual 12.7-point gap is plausibly the
+  market pricing real preseason information (squad rebuild, transfer
+  activity, a new manager) that this goals-only model has no access to
+  at all now that Ipswich's own historical signal has been replaced by
+  a generic cross-sectional prior -- see section 5's stated trade-off.
+- **A side effect worth naming plainly**: fixing Ipswich made Coventry
+  City's market alignment slightly *worse*, not better. Before the fix,
+  Coventry (59.8%) was within 0.4 points of the market (59.4%) --
+  coincidentally close, not because the model had real signal on
+  Coventry specifically (it has zero real PL history in this dataset).
+  After the fix, all three promoted clubs are pooled to the same
+  empirical prior and converge to ~72%, widening Coventry's gap to the
+  market to 12.6 points. This is the direct, honest consequence of
+  treating all three clubs identically per section 5's explicit
+  methodology, not a new bug -- but it means "the model agrees with the
+  market" was never a safe read on Coventry specifically; it was
+  coincidence.
 
 ## Limitations (read before trusting a number)
 

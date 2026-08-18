@@ -1,128 +1,128 @@
 {
-  "generated_at": "2026-08-18T12:31:31+00:00",
+  "generated_at": "2026-08-18T17:54:04+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 20,
   "data": [
     {
       "team": "Arsenal",
-      "top_4_probability": 0.90492,
-      "expected_points": 78.85,
-      "expected_position": 2.266
+      "top_4_probability": 0.90456,
+      "expected_points": 78.63,
+      "expected_position": 2.267
     },
     {
       "team": "Manchester City",
-      "top_4_probability": 0.88338,
-      "expected_points": 77.79,
-      "expected_position": 2.451
+      "top_4_probability": 0.88416,
+      "expected_points": 77.56,
+      "expected_position": 2.452
     },
     {
       "team": "Liverpool",
-      "top_4_probability": 0.49592,
-      "expected_points": 65.97,
-      "expected_position": 5.486
+      "top_4_probability": 0.49284,
+      "expected_points": 65.65,
+      "expected_position": 5.526
     },
     {
       "team": "Manchester United",
-      "top_4_probability": 0.25936,
-      "expected_points": 59.73,
-      "expected_position": 7.77
+      "top_4_probability": 0.26079,
+      "expected_points": 59.47,
+      "expected_position": 7.793
     },
     {
       "team": "Aston Villa",
-      "top_4_probability": 0.19507,
-      "expected_points": 57.53,
-      "expected_position": 8.644
+      "top_4_probability": 0.19616,
+      "expected_points": 57.24,
+      "expected_position": 8.683
     },
     {
       "team": "Chelsea",
-      "top_4_probability": 0.18672,
-      "expected_points": 57.2,
-      "expected_position": 8.779
+      "top_4_probability": 0.1866,
+      "expected_points": 56.88,
+      "expected_position": 8.827
     },
     {
       "team": "Newcastle United",
-      "top_4_probability": 0.18271,
-      "expected_points": 57.05,
-      "expected_position": 8.847
+      "top_4_probability": 0.18276,
+      "expected_points": 56.75,
+      "expected_position": 8.887
     },
     {
       "team": "AFC Bournemouth",
-      "top_4_probability": 0.15362,
-      "expected_points": 55.75,
-      "expected_position": 9.379
+      "top_4_probability": 0.15125,
+      "expected_points": 55.38,
+      "expected_position": 9.458
     },
     {
       "team": "Brighton & Hove Albion",
-      "top_4_probability": 0.14678,
-      "expected_points": 55.56,
-      "expected_position": 9.454
+      "top_4_probability": 0.14618,
+      "expected_points": 55.23,
+      "expected_position": 9.513
     },
     {
       "team": "Brentford",
-      "top_4_probability": 0.14389,
-      "expected_points": 55.33,
-      "expected_position": 9.552
+      "top_4_probability": 0.14286,
+      "expected_points": 54.96,
+      "expected_position": 9.625
     },
     {
       "team": "Nottingham Forest",
-      "top_4_probability": 0.10871,
-      "expected_points": 53.6,
-      "expected_position": 10.273
+      "top_4_probability": 0.10789,
+      "expected_points": 53.23,
+      "expected_position": 10.351
     },
     {
       "team": "Leeds United",
-      "top_4_probability": 0.07032,
-      "expected_points": 49.46,
-      "expected_position": 11.943
+      "top_4_probability": 0.06865,
+      "expected_points": 49.06,
+      "expected_position": 12.04
     },
     {
       "team": "Sunderland",
-      "top_4_probability": 0.06651,
-      "expected_points": 48.74,
-      "expected_position": 12.201
+      "top_4_probability": 0.06536,
+      "expected_points": 48.42,
+      "expected_position": 12.271
     },
     {
       "team": "Fulham",
-      "top_4_probability": 0.0642,
-      "expected_points": 50.48,
-      "expected_position": 11.565
+      "top_4_probability": 0.06432,
+      "expected_points": 50.12,
+      "expected_position": 11.645
     },
     {
       "team": "Everton",
-      "top_4_probability": 0.05541,
-      "expected_points": 49.76,
-      "expected_position": 11.858
+      "top_4_probability": 0.05449,
+      "expected_points": 49.43,
+      "expected_position": 11.926
     },
     {
       "team": "Tottenham Hotspur",
-      "top_4_probability": 0.0428,
-      "expected_points": 48.36,
-      "expected_position": 12.445
+      "top_4_probability": 0.04248,
+      "expected_points": 47.96,
+      "expected_position": 12.542
     },
     {
       "team": "Crystal Palace",
-      "top_4_probability": 0.03885,
-      "expected_points": 47.92,
-      "expected_position": 12.612
-    },
-    {
-      "team": "Coventry City",
-      "top_4_probability": 0.00041,
-      "expected_points": 34.27,
-      "expected_position": 17.24
+      "top_4_probability": 0.03875,
+      "expected_points": 47.57,
+      "expected_position": 12.684
     },
     {
       "team": "Hull City",
-      "top_4_probability": 0.00041,
-      "expected_points": 33.68,
-      "expected_position": 17.383
+      "top_4_probability": 0.0034,
+      "expected_points": 29.73,
+      "expected_position": 17.833
     },
     {
       "team": "Ipswich Town",
-      "top_4_probability": 0.0,
-      "expected_points": 16.58,
-      "expected_position": 19.85
+      "top_4_probability": 0.00331,
+      "expected_points": 29.69,
+      "expected_position": 17.842
+    },
+    {
+      "team": "Coventry City",
+      "top_4_probability": 0.0032,
+      "expected_points": 29.75,
+      "expected_position": 17.836
     }
   ]
 }

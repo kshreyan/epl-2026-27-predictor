@@ -1,21 +1,21 @@
 team,title_probability,expected_points,median_points
-Arsenal,0.43712,78.85,79.0
-Manchester City,0.38572,77.79,78.0
-Liverpool,0.06876,65.97,66.0
-Manchester United,0.02124,59.73,60.0
-Aston Villa,0.01353,57.53,58.0
-Newcastle United,0.01278,57.05,57.0
-Chelsea,0.01277,57.2,57.0
-AFC Bournemouth,0.00938,55.75,56.0
-Brentford,0.00867,55.33,55.0
-Brighton & Hove Albion,0.00859,55.56,55.0
-Nottingham Forest,0.00569,53.6,54.0
-Sunderland,0.00394,48.74,48.0
-Leeds United,0.00389,49.46,49.0
-Fulham,0.0027,50.48,50.0
-Everton,0.0022,49.76,50.0
-Tottenham Hotspur,0.00152,48.36,48.0
-Crystal Palace,0.00151,47.92,48.0
-Coventry City,0.0,34.27,34.0
-Hull City,0.0,33.68,33.0
-Ipswich Town,0.0,16.58,16.0
+Arsenal,0.43811,78.63,79.0
+Manchester City,0.38486,77.56,78.0
+Liverpool,0.0679,65.65,66.0
+Manchester United,0.02172,59.47,59.0
+Aston Villa,0.01384,57.24,57.0
+Chelsea,0.01324,56.88,57.0
+Newcastle United,0.01228,56.75,57.0
+AFC Bournemouth,0.00932,55.38,55.0
+Brighton & Hove Albion,0.00872,55.23,55.0
+Brentford,0.00851,54.96,55.0
+Nottingham Forest,0.0057,53.23,53.0
+Sunderland,0.00408,48.42,48.0
+Leeds United,0.00404,49.06,49.0
+Fulham,0.00263,50.12,50.0
+Everton,0.00203,49.43,49.0
+Tottenham Hotspur,0.00145,47.96,48.0
+Crystal Palace,0.00124,47.57,47.0
+Hull City,0.00015,29.73,29.0
+Coventry City,0.0001,29.75,29.0
+Ipswich Town,8e-05,29.69,29.0

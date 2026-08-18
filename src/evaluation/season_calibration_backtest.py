@@ -36,6 +36,7 @@ from src.models.dynamic_team_strength_state_space import compute_team_strength_s
 from src.models.promoted_team_adjustment import (  # noqa: E402
     _season_table,
     compute_promoted_team_history,
+    compute_promoted_team_rating_distribution,
     summarize_promoted_team_baseline,
 )
 from src.simulation.simulate_full_season import run_monte_carlo  # noqa: E402
@@ -102,10 +103,13 @@ def main() -> None:
         promo_history = compute_promoted_team_history(history_before_season)
         promo_summary = summarize_promoted_team_baseline(promo_history)
         shortfall = promo_summary["mean_points_below_league_avg"] or -15.0
-        shortfall_std = promo_summary["std_points_below_league_avg"] or 12.5
         dc_attack_offset = shortfall / 100.0
         dc_defense_offset = shortfall / 100.0
-        promoted_se = shortfall_std / 100.0
+        # Leakage-safe: computed only from promotion events strictly before
+        # this validation season, same as promo_summary above.
+        promoted_rating_dist = compute_promoted_team_rating_distribution(
+            history_before_season, l2_reg=model_cfg["dixon_coles"].get("l2_reg", 0.03),
+        )
 
         hist_teams = sorted(set(history_before_season["home_team"]) | set(history_before_season["away_team"]))
         universe = sorted(set(hist_teams) | set(teams_this_season))
@@ -124,7 +128,7 @@ def main() -> None:
 
         seed = sim_cfg["random_seed"] + i
         expected_table, _ = run_monte_carlo(
-            fixtures_df, fit, teams_this_season, N_SIMULATIONS, seed, sim_cfg, promoted_se,
+            fixtures_df, fit, teams_this_season, N_SIMULATIONS, seed, sim_cfg, promoted_rating_dist,
         )
 
         actual_table = _season_table(season_matches)
@@ -136,21 +140,24 @@ def main() -> None:
         merged = expected_table.merge(actual_table[["team", "final_rank", "actual_champion", "actual_top4", "actual_relegated"]], on="team")
         merged["season"] = season
         merged["is_promoted_team"] = merged["team"].isin(promoted_this_season)
-        merged["promoted_se_used"] = promoted_se
-        merged["n_prior_promotion_events"] = promo_summary["n_promotion_events"]
+        merged["promoted_attack_mean_used"] = promoted_rating_dist["attack_mean"]
+        merged["promoted_defense_mean_used"] = promoted_rating_dist["defense_mean"]
+        merged["n_prior_promotion_events"] = promoted_rating_dist["n_events"]
 
         detail_rows.append(merged[[
             "season", "team", "final_rank", "is_promoted_team",
             "title_probability", "actual_champion",
             "top_4_probability", "actual_top4",
             "relegation_probability", "actual_relegated",
-            "promoted_se_used", "n_prior_promotion_events",
+            "promoted_attack_mean_used", "promoted_defense_mean_used", "n_prior_promotion_events",
         ]])
 
         champ_row = actual_table[actual_table["actual_champion"]].iloc[0]
         predicted_champ_prob = merged.loc[merged["team"] == champ_row["team"], "title_probability"].iloc[0]
         print(f"{season}: actual champion {champ_row['team']} (predicted title prob {predicted_champ_prob:.3f}); "
-              f"n_prior_promotion_events={promo_summary['n_promotion_events']}, promoted_se={promoted_se:.3f}")
+              f"n_prior_promotion_events={promoted_rating_dist['n_events']}, "
+              f"promoted attack/defense mean=({promoted_rating_dist['attack_mean']:.3f}, "
+              f"{promoted_rating_dist['defense_mean']:.3f})")
 
     detail = pd.concat(detail_rows, ignore_index=True)
     OUT_DETAIL.parent.mkdir(parents=True, exist_ok=True)

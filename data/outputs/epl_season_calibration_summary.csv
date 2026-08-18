@@ -1,4 +1,4 @@
 target,n_observations,n_positive,brier_score,log_loss,mean_predicted_probability,empirical_base_rate
-title,140,7,0.02507,0.08124,0.05,0.05
-top_4,140,28,0.09031,0.30202,0.2,0.2
-relegation,140,21,0.08968,0.28769,0.15,0.15
+title,140,7,0.02508,0.08122,0.05,0.05
+top_4,140,28,0.09029,0.302,0.2,0.2
+relegation,140,21,0.08874,0.28543,0.15,0.15

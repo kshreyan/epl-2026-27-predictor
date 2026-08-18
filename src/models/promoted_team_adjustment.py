@@ -12,7 +12,10 @@ uncertainty, per spec section 12.
 """
 from __future__ import annotations
 
+import numpy as np
 import pandas as pd
+
+from src.models.scoreline_models import fit_dixon_coles_model
 
 RELEGATION_ZONE_SIZE = 3
 
@@ -78,6 +81,75 @@ def compute_promoted_team_history(matches: pd.DataFrame) -> pd.DataFrame:
                 "relegated_same_season": bool(row["final_rank"] > n_teams - RELEGATION_ZONE_SIZE),
             })
     return pd.DataFrame(rows)
+
+
+def compute_promoted_team_rating_distribution(matches: pd.DataFrame, l2_reg: float = 0.03) -> dict:
+    """Empirical joint distribution of promoted clubs' REALISED debut-season
+    Dixon-Coles attack/defense ratings, replacing the single fixed
+    "points_below_league_avg" offset used elsewhere in this module.
+
+    For each historical promotion event, fits a Dixon-Coles model using
+    ONLY that one season's ~380 real matches (a very long half-life so
+    no within-season time-decay distorts it) and reads off the promoted
+    club's own fitted attack/defense -- i.e. what a promoted club's
+    rating actually turned out to be that season, not a proxy for it.
+    This directly avoids the double-counting bug in
+    `apply_promoted_team_adjustment`: a club that already has real,
+    substantially-weighted recent Premier League data (e.g. Ipswich
+    Town's 2024/25 season) does not get that real signal PLUS a second,
+    generic "-17.6 points" shortfall stacked on top -- every promoted
+    club, regardless of how much real data it individually has, is
+    treated the same way: drawn from the real cross-sectional spread of
+    what promoted clubs have actually turned out to be.
+
+    Returns attack/defense mean and a full 2x2 covariance matrix (attack
+    and defense are correlated: a club that struggles at one end
+    tends to struggle at the other) from 33 real promotion events,
+    2015/16-2025/26.
+    """
+    matches = matches.dropna(subset=["home_goals", "away_goals"])
+    seasons = list(dict.fromkeys(matches.sort_values("date")["season"]))
+    teams_by_season = {
+        s: set(matches[matches["season"] == s]["home_team"]) | set(matches[matches["season"] == s]["away_team"])
+        for s in seasons
+    }
+
+    ratings = []
+    for i in range(1, len(seasons)):
+        prev_s, cur_s = seasons[i - 1], seasons[i]
+        promoted = teams_by_season[cur_s] - teams_by_season[prev_s]
+        if not promoted:
+            continue
+        season_matches = matches[matches["season"] == cur_s].sort_values("date").reset_index(drop=True)
+        teams_this_season = sorted(teams_by_season[cur_s])
+        as_of_date = season_matches["date"].iloc[-1] + pd.Timedelta(days=1)
+        fit = fit_dixon_coles_model(
+            season_matches, teams_this_season, as_of_date, half_life_days=100_000.0, l2_reg=l2_reg,
+        )
+        for team in promoted:
+            idx = fit.team_index[team]
+            ratings.append({"season": cur_s, "team": team, "attack": fit.attack[idx], "defense": fit.defense[idx]})
+
+    ratings_df = pd.DataFrame(ratings)
+    if ratings_df.empty:
+        return {
+            "n_events": 0, "attack_mean": 0.0, "defense_mean": 0.0,
+            "attack_std": 0.3, "defense_std": 0.3, "covariance": [[0.09, 0.0], [0.0, 0.09]],
+            "ratings": ratings_df,
+        }
+
+    attack = ratings_df["attack"].to_numpy()
+    defense = ratings_df["defense"].to_numpy()
+    cov = np.cov(attack, defense)
+    return {
+        "n_events": len(ratings_df),
+        "attack_mean": float(attack.mean()),
+        "defense_mean": float(defense.mean()),
+        "attack_std": float(attack.std(ddof=1)),
+        "defense_std": float(defense.std(ddof=1)),
+        "covariance": cov.tolist(),
+        "ratings": ratings_df,
+    }
 
 
 def summarize_promoted_team_baseline(history: pd.DataFrame) -> dict:

@@ -57,7 +57,11 @@ from src.models.baselines import (  # noqa: E402
 )
 from src.models.elo_model import compute_promoted_team_elo_offset, run_elo  # noqa: E402
 from src.models.final_stacked_model import BASE_MODELS, CLASSES, fit_final_meta_learner  # noqa: E402
-from src.models.promoted_team_adjustment import compute_promoted_team_history, summarize_promoted_team_baseline  # noqa: E402
+from src.models.promoted_team_adjustment import (  # noqa: E402
+    compute_promoted_team_history,
+    compute_promoted_team_rating_distribution,
+    summarize_promoted_team_baseline,
+)
 from src.models.scoreline_models import (  # noqa: E402
     apply_promoted_team_adjustment,
     fit_dixon_coles_model,
@@ -133,13 +137,16 @@ def build_model_context(df_clean: pd.DataFrame, universe: list[str], model_cfg: 
     # (weaker) direction for a below-average promoted team.
     dc_attack_offset = points_shortfall / 100.0
     dc_defense_offset = points_shortfall / 100.0
-    # Same /100 points-to-log-rate scaling applied to the empirical spread
-    # (not just the mean) of promoted-team outcomes -- see
-    # simulate_full_season.TeamStrengthUncertainty for why this replaces a
-    # promoted team's near-degenerate raw Laplace SE in the season
-    # simulation.
-    points_shortfall_std = promo_summary["std_points_below_league_avg"] or 12.5
-    promoted_se = points_shortfall_std / 100.0
+    # For the season SIMULATION (not these match-level predictions, which
+    # still use the point-estimate offset above): promoted clubs are drawn
+    # from the real cross-sectional distribution of promoted-club debut
+    # ratings instead of a fixed offset -- see
+    # simulate_full_season.TeamStrengthUncertainty for why (fixes a
+    # double-counting bug for clubs, e.g. Ipswich Town, with real recent
+    # data already reflected in their own Dixon-Coles fit).
+    promoted_rating_dist = compute_promoted_team_rating_distribution(
+        df_clean, l2_reg=model_cfg["dixon_coles"].get("l2_reg", 0.03),
+    )
 
     fit = fit_dixon_coles_model(
         df_clean, universe, as_of_date, half_life_days=model_cfg["dixon_coles"]["time_decay_half_life_days"],
@@ -176,7 +183,7 @@ def build_model_context(df_clean: pd.DataFrame, universe: list[str], model_cfg: 
 
     return {
         "fit": fit, "elo_ratings": elo_ratings, "promoted_elo_offset": promoted_elo_offset,
-        "promoted_se": promoted_se,
+        "promoted_rating_dist": promoted_rating_dist,
         "league_avg_goals_overall": league_avg_goals_overall,
         "calibrators": calibrators, "calibration_method": calibration_method,
         "ensemble_meta": ensemble_meta, "ensemble_beats_dc": ensemble_beats_dc, "ensemble_metrics": ensemble_metrics,
