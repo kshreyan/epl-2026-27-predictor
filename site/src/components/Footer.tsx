@@ -11,9 +11,14 @@ export function Footer() {
           <strong className="text-[var(--color-text-dim)]">This is not betting advice.</strong>
         </p>
         <p>
-          {/* TODO: fill in the real repo URL once it's created and pushed --
-              intentionally not a real link yet so this never points somewhere wrong. */}
-          Source, methodology, and full audit reports: see the project repository.
+          <a
+            className="underline decoration-dotted hover:text-[var(--color-text-dim)]"
+            href="https://github.com/kshreyan/epl-2026-27-predictor"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Source, methodology, and full audit reports
+          </a>
         </p>
       </div>
     </footer>

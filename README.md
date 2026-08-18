@@ -11,8 +11,11 @@ advice.** Every output is a probability, not a guarantee. See
 `reports/epl_2026_27_model_risk_audit.md` for where the model is least
 reliable.
 
-**Live dashboard:** _link to be added here once the site is deployed --
-see `site/README.md` and `.github/workflows/deploy.yml`._
+**Repository:** https://github.com/kshreyan/epl-2026-27-predictor
+
+**Live dashboard:** https://kshreyan.github.io/epl-2026-27-predictor/
+(live once Pages is enabled with source "GitHub Actions" in repo
+Settings and `.github/workflows/deploy.yml` has run once).
 
 ## Backtest headline numbers (real, not illustrative)
 
