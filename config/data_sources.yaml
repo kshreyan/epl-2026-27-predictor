@@ -14,19 +14,51 @@ connected_real_sources:
     used_by: src/data_collection/collect_fixtures.py
     cross_checked_against: "Wikipedia '2026-27 Premier League' article (club list, promoted teams, season dates)"
 
+# --- Live 1X2 odds: EVALUATED AND WIRED UP, requires a user-supplied key ---
+conditionally_connected_sources:
+  - name: the-odds-api.com
+    provides: "Live EPL h2h (1X2) odds, free tier 500 credits/month, 1 credit per region per market"
+    terms_evaluated: >
+      Explicitly permits use inside "websites, mobile apps, dashboards, analytical tools" as long as
+      the data itself isn't resold as a standalone product -- fine for this project. Prohibits
+      reselling/repackaging the raw data itself.
+    api_key_handling: "ODDS_API_KEY env var, loaded from a local gitignored .env (see .env.example). Never hardcoded, never committed, never referenced from any client-side file (site/)."
+    used_by: src/data_collection/collect_odds.py
+    status: "Collector built and tested (sentinel path and API-error path both verified against the real endpoint). No real key is available in this environment (cannot self-service a signup) -- market_available remains False until a user supplies ODDS_API_KEY."
+
 not_connected_documented_gap:
   - name: live_bookmaker_odds
-    reason: "requires a paid odds-API subscription; not available in this environment"
+    reason: "no ODDS_API_KEY configured (see conditionally_connected_sources above -- collector is ready, key is not)"
     affected_files:
       - data/raw/epl_2026_27_real_odds.csv
       - data/raw/epl_2026_27_outright_odds.csv
-    mitigation: "model-only mode used throughout Phase 1; market_available=False on every row"
+    mitigation: "model-only mode used throughout; market_available=False on every row"
 
   - name: current_injury_suspension_reports
-    reason: "requires a live, continuously-updated injury-news feed"
+    reason: >
+      Evaluated API-Football (free tier: 100 req/day, all endpoints including /injuries, terms permit
+      dashboard/app use). Its free-tier coverage of the CURRENT 2026-27 EPL season specifically is
+      documented ambiguously ("free plans are limited in terms of available seasons") and cannot be
+      confirmed without creating a real account and testing a real key -- something this environment
+      cannot do on its own. Per the project's own rule ("if none exists, do NOT proxy it"), an
+      unverified candidate is treated as not yet a connected source.
     affected_files:
       - data/raw/epl_2026_27_injury_suspension.csv
-    mitigation: "team-level availability_status=unknown sentinel rows; never treated as fully healthy"
+    mitigation: "team-level availability_status=unknown sentinel rows; never treated as fully healthy. API-Football is documented as the leading candidate for a future collector, pending a human signing up and confirming current-season EPL injury coverage on the free tier."
+
+  - name: player_minutes_xg_xa
+    reason: >
+      Evaluated the `soccerdata` package (FBref/Understat scrapers). Both underlying sources are
+      unusable on real ToS/technical grounds, not just caution: understat.com's robots.txt is
+      `Disallow: /` (blocks all automated access, verified directly); FBref's Terms of Use explicitly
+      prohibit scraping AND explicitly prohibit "creat[ing] websites or tools based on data you
+      scrape" -- directly contradicted by this project building a public dashboard -- and FBref
+      actively blocks automated requests with a Cloudflare JS challenge (verified directly against
+      robots.txt). No collector was built against either source.
+    affected_files:
+      - data/outputs/epl_2026_27_player_minutes_predictions.csv (never created)
+      - data/outputs/epl_2026_27_lineup_strength_by_match.csv (never created)
+    mitigation: "player-minutes/lineup-strength modeling remains fully deferred; no proxy or substitute data was used"
 
   - name: squad_transfer_market_data
     reason: "requires a licensed per-player transfer/market-value data vendor"
@@ -35,7 +67,7 @@ not_connected_documented_gap:
     mitigation: "sentinel rows only; transfer-impact features deferred to a later phase"
 
   - name: advanced_match_stats
-    reason: "xG, PPDA, possession, big-chances, set-piece-xG are not published by football-data.co.uk"
+    reason: "xG, PPDA, possession, big-chances, set-piece-xG are not published by football-data.co.uk (see player_minutes_xg_xa above for why FBref/Understat were not used as a substitute)"
     affected_files:
       - data/raw/epl_historical_matches.csv
     mitigation: "left blank per-row with an explicit notes flag; goal/shot-based models used instead of xG-based ones"

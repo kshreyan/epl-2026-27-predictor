@@ -71,6 +71,21 @@ def validate_file(filename: str, expected_columns: list[str], expected_rows: int
         if len(real_but_unavailable) > 0:
             errors.append(f"{filename}: {len(real_but_unavailable)} rows marked is_real_data=True but data_status=unavailable (contradiction)")
 
+    if "is_real_data" in df.columns and "source_name" in df.columns:
+        # A named, specific source next to is_real_data=False misleadingly
+        # implies a real fetch happened for that row -- caught once in
+        # src/data_collection/collect_odds.py (an API-error fallback path
+        # left the real source name on sentinel rows) and generalized into
+        # a standing check here so it can't recur in any collector.
+        not_real = df[df["is_real_data"] == False]  # noqa: E712
+        mislabeled = not_real[not_real["source_name"] != "none_available"]
+        if len(mislabeled) > 0:
+            errors.append(
+                f"{filename}: {len(mislabeled)} rows have is_real_data=False but source_name != "
+                f"'none_available' ({sorted(mislabeled['source_name'].unique())[:5]}) -- a non-real row "
+                f"must not carry a specific source name"
+            )
+
     return errors
 
 

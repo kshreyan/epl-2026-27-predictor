@@ -1,8 +1,8 @@
-# EPL 2026-27 Model Report (Phase 1 + Phase 2 + Phase 3)
+# EPL 2026-27 Model Report (Phase 1 + Phase 2 + Phase 3 + Phase 4)
 
 ## Status
 
-This report documents **Phases 1-3** of a staged build (see the
+This report documents **Phases 1-4** of a staged build (see the
 project's approved plan). Phase 1 delivered a real, working, backtested
 core pipeline: real data collection, an in-house dynamic Elo +
 Dixon-Coles scoreline engine with an empirically-derived promoted-team
@@ -11,12 +11,16 @@ across 7 real historical seasons, and a 250,000-run Monte Carlo
 full-season simulation for 2026-27. Phase 2 added Optuna hyperparameter
 tuning, closed a leakage gap in the backtest's promoted-team handling,
 dashboard JSON, the integrity audit, the model-risk audit, the academic
-report, the portfolio summary, and 10 more tests. Phase 3 added a real,
+report, the portfolio summary, and 10 more tests. Phase 3 added a
 backtested stacked ensemble of the four models with real data behind
-them, which now beats Dixon-Coles alone and is the primary model for
-match-level 1X2 predictions. It is **not** the complete 37-section spec
--- see "Deferred to later phases" below for what is intentionally
-still not built, and why.
+them, and a weekly-update engine. Phase 4 added a paired-bootstrap
+significance test that found the ensemble's apparent edge over
+Dixon-Coles was not statistically distinguishable from noise (95% CI
+straddles zero, wins only 3/7 backtest seasons) -- **Dixon-Coles alone
+is the primary model**, not the ensemble -- plus a provenance audit and
+a real investigation of the three previously-deferred data feeds (see
+"Deferred to later phases"). It is **not** the complete 37-section spec
+-- see that section for what is intentionally still not built, and why.
 
 ## Why today matters
 
@@ -169,25 +173,30 @@ expected, since the two evaluation setups differ (single fit vs.
 ~38-refits-per-season walk-forward), and is disclosed here rather than
 only reporting the more flattering number.
 
-## Stacked ensemble (Phase 3)
+## Stacked ensemble (Phase 3, revised)
 
 `src/models/final_stacked_model.py` stacks the four base models that
 have real data behind them (Dixon-Coles, Elo, previous-season-table,
 simple Poisson) with a multinomial logistic-regression meta-learner,
 evaluated with proper 5-fold out-of-fold prediction on the same 2,660
-real backtest matches. The ensemble genuinely beats Dixon-Coles alone
-out-of-fold: log loss 0.9834 vs. 0.9865, Brier 0.5853 vs. 0.5864, RPS
-0.2031 vs. 0.2035 (`reports/epl_2026_27_ensemble_report.md`). Because
-it wins, **the ensemble is now the primary model for match-level 1X2
-win/draw/loss probabilities** in `epl_2026_27_match_predictions.csv`
-(checked fresh on every run against the current backtest, not
-hardcoded) -- but it has no scoreline model of its own, so predicted
-scores, top-10 scorelines, and the full-season Monte Carlo simulation
-still use Dixon-Coles' joint distribution. This checked-at-runtime
-fallback (use the ensemble only if it actually wins; otherwise use
-calibrated Dixon-Coles) is deliberate: the same "don't add complexity
-that doesn't earn its place" principle applied earlier to neural
-models is applied here to the ensemble itself.
+real backtest matches. Its raw point-estimate log loss is lower than
+Dixon-Coles alone (0.9834 vs. 0.9865, a 0.0031 gap) -- **but a paired
+bootstrap (10,000 resamples over matches) puts the 95% CI on that gap
+at [-0.0021, +0.0087], straddling zero, and the ensemble wins only 3
+of 7 individual backtest seasons.** On ~2,660 matches the standard
+error of a log-loss estimate is comparable to the point-estimate gap
+itself, so the gap is not distinguishable from noise on this evidence.
+
+**Dixon-Coles alone remains the primary model.** An earlier version of
+this report declared the ensemble primary from the point estimate
+alone, with no significance test -- that was a real methodological gap
+(flagged during external review), now fixed: `fit_final_meta_learner()`
+requires both the bootstrap CI to exclude zero AND a season majority
+before the ensemble is used, computed fresh on every run against the
+current backtest (not hardcoded), so a future genuine improvement can
+still turn it on automatically, and any regression turns it back off.
+See `reports/epl_2026_27_ensemble_report.md` for the full per-season
+breakdown.
 
 ## Weekly-update engine (Phase 3)
 
@@ -273,16 +282,37 @@ order), never left ambiguous or randomly reshuffled per run.
 
 ## Deferred to later phases (not built in Phase 1, 2, or 3)
 
-Player-minutes/lineup-strength model, injury/transfer/manager-tactical
-feature layers (schemas exist, data does not), live market integration
-(the overround-removal and log-odds-averaging math is built and
-unit-tested, see `src/features/build_market_features.py`, and the
-weekly-update engine already refreshes fine without it, but no live
-feed is connected so market features have nothing real to run on), and
-neural sequence models (skipped per the spec's own "don't include for
-prestige" instruction -- ~4,000 historical matches is a small dataset
-for a deep sequence model; classical/statistical models are used
-instead).
+Player-minutes/lineup-strength model and manager-tactical features
+(no viable real source -- FBref/Understat were evaluated and rejected
+on real ToS/technical grounds: understat.com's robots.txt is
+`Disallow: /`, FBref's Terms of Use explicitly prohibit scraping and
+explicitly prohibit building a website/tool from scraped data, and
+FBref actively blocks bots via Cloudflare -- see
+`config/data_sources.yaml`), and neural sequence models (skipped per
+the spec's own "don't include for prestige" instruction -- ~4,000
+historical matches is a small dataset for a deep sequence model;
+classical/statistical models are used instead).
+
+**Live market integration is built and tested, waiting on a user-
+supplied API key**, not deferred by choice: `src/data_collection/collect_odds.py`
+fetches real EPL 1X2 odds from The Odds API (terms permit dashboard/
+analytical-tool use) when `ODDS_API_KEY` is set via a gitignored
+`.env` (see `.env.example`), verified against the real endpoint on
+both the no-key and invalid-key paths -- no key is available in this
+environment (cannot self-service a signup), so `market_available`
+remains False. `src/features/build_market_features.py`'s overround-
+removal and log-odds-averaging math is real and unit-tested, ready to
+run the moment a key is added.
+
+**Injury/suspension data remains a genuine gap after evaluation, not
+an unexamined one**: API-Football was evaluated (free tier: 100
+req/day, a dedicated `/injuries` endpoint, terms that permit
+dashboard/app use) but its free-tier coverage of the *current* season
+specifically could not be confirmed without creating a real account,
+which this environment cannot do. Per this project's own rule ("if
+none exists, do NOT proxy it"), team-level `unknown` sentinel rows
+remain the honest state -- see `reports/epl_2026_27_data_audit.md`
+"Known limitation: player availability."
 
 Phase 2 completed: dashboard JSON (`src/dashboard/build_dashboard_json.py`),
 the integrity audit (`src/run_integrity_audit.py`,
@@ -301,6 +331,20 @@ see "Weekly-update engine" above), including
 `test_completed_match_locking.py` and `test_weekly_update_versioning.py`,
 verified against synthetic data since no real 2026-27 result exists
 yet.
+
+Phase 4 (external review corrections + data feed evaluation)
+completed: a provenance audit confirmed no synthetic data has ever
+reached `data/outputs/` or the real `data/raw/` files; a paired
+bootstrap significance test replaced the ensemble's original raw
+point-estimate comparison (see "Stacked ensemble" above -- this
+demoted the ensemble from primary back to Dixon-Coles); the three
+previously-deferred data feeds (player-minutes/xG/xA, live odds,
+injuries) were each investigated on real terms/technical grounds
+rather than left unexamined (see "Deferred to later phases" above);
+and a real data-honesty bug was caught and fixed (an odds-collector
+fallback path could label a non-real sentinel row with a real-looking
+source name -- fixed, and generalized into a standing validator check
+plus a regression test, `tests/test_odds_source_name_honesty.py`).
 
 ## Ethical note
 

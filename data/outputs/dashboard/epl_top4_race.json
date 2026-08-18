@@ -1,72 +1,72 @@
 {
-  "generated_at": "2026-08-18T02:24:30+00:00",
+  "generated_at": "2026-08-18T03:02:56+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 20,
   "data": [
     {
       "team": "Arsenal",
-      "top_4_probability": 0.97886,
-      "expected_points": 78.97,
+      "top_4_probability": 0.97888,
+      "expected_points": 78.98,
       "expected_position": 1.725
     },
     {
       "team": "Manchester City",
-      "top_4_probability": 0.97094,
-      "expected_points": 77.91,
-      "expected_position": 1.866
+      "top_4_probability": 0.97099,
+      "expected_points": 77.92,
+      "expected_position": 1.865
     },
     {
       "team": "Liverpool",
-      "top_4_probability": 0.61686,
+      "top_4_probability": 0.61696,
       "expected_points": 65.78,
       "expected_position": 4.619
     },
     {
       "team": "Manchester United",
-      "top_4_probability": 0.28511,
-      "expected_points": 59.46,
-      "expected_position": 7.123
+      "top_4_probability": 0.28518,
+      "expected_points": 59.45,
+      "expected_position": 7.122
     },
     {
       "team": "Aston Villa",
-      "top_4_probability": 0.18949,
+      "top_4_probability": 0.18943,
       "expected_points": 57.13,
       "expected_position": 8.225
     },
     {
       "team": "Chelsea",
-      "top_4_probability": 0.17826,
+      "top_4_probability": 0.17825,
       "expected_points": 56.8,
-      "expected_position": 8.385
+      "expected_position": 8.386
     },
     {
       "team": "Newcastle United",
-      "top_4_probability": 0.1739,
+      "top_4_probability": 0.17379,
       "expected_points": 56.64,
-      "expected_position": 8.457
+      "expected_position": 8.456
     },
     {
       "team": "AFC Bournemouth",
       "top_4_probability": 0.13141,
       "expected_points": 55.25,
-      "expected_position": 9.159
+      "expected_position": 9.16
     },
     {
       "team": "Brighton & Hove Albion",
-      "top_4_probability": 0.12573,
-      "expected_points": 55.07,
+      "top_4_probability": 0.12567,
+      "expected_points": 55.06,
       "expected_position": 9.248
     },
     {
       "team": "Brentford",
-      "top_4_probability": 0.12066,
+      "top_4_probability": 0.1207,
       "expected_points": 54.83,
       "expected_position": 9.364
     },
     {
       "team": "Nottingham Forest",
-      "top_4_probability": 0.08042,
+      "top_4_probability": 0.08035,
       "expected_points": 53.05,
       "expected_position": 10.284
     },
@@ -78,45 +78,45 @@
     },
     {
       "team": "Everton",
-      "top_4_probability": 0.02857,
+      "top_4_probability": 0.02856,
       "expected_points": 49.13,
       "expected_position": 12.28
     },
     {
       "team": "Leeds United",
-      "top_4_probability": 0.02684,
+      "top_4_probability": 0.02695,
       "expected_points": 48.76,
-      "expected_position": 12.472
+      "expected_position": 12.471
     },
     {
       "team": "Sunderland",
-      "top_4_probability": 0.02035,
+      "top_4_probability": 0.0203,
       "expected_points": 48.01,
-      "expected_position": 12.834
+      "expected_position": 12.835
     },
     {
       "team": "Tottenham Hotspur",
-      "top_4_probability": 0.02016,
+      "top_4_probability": 0.02014,
       "expected_points": 47.74,
-      "expected_position": 12.969
+      "expected_position": 12.97
     },
     {
       "team": "Crystal Palace",
-      "top_4_probability": 0.01648,
+      "top_4_probability": 0.01647,
       "expected_points": 47.28,
-      "expected_position": 13.188
+      "expected_position": 13.189
     },
     {
       "team": "Coventry City",
       "top_4_probability": 6e-05,
-      "expected_points": 33.54,
-      "expected_position": 17.912
+      "expected_points": 33.55,
+      "expected_position": 17.91
     },
     {
       "team": "Hull City",
       "top_4_probability": 2e-05,
-      "expected_points": 32.95,
-      "expected_position": 18.034
+      "expected_points": 32.94,
+      "expected_position": 18.036
     },
     {
       "team": "Ipswich Town",

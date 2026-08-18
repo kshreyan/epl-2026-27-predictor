@@ -10,10 +10,17 @@ rather than duplicating the model-only numbers under a misleading
 label.
 
 1X2 win/draw/loss probabilities come from the stacked ensemble
-(src/models/final_stacked_model.py) whenever it real-backtests better
-than Dixon-Coles alone (checked fresh on every run, not hardcoded --
-see the printed comparison), falling back to isotonic-calibrated
-Dixon-Coles otherwise. The predicted scoreline, top-10 scorelines, and
+(src/models/final_stacked_model.py) only when its edge over Dixon-Coles
+alone is statistically significant -- a paired-bootstrap 95% CI on the
+log-loss difference that excludes zero AND a majority-of-seasons win,
+checked fresh on every run, not hardcoded. On the real backtest this
+is currently NOT the case (95% CI [-0.0021, +0.0087], wins 3/7
+seasons -- see reports/epl_2026_27_ensemble_report.md), so predictions
+fall back to isotonic-calibrated Dixon-Coles alone. An earlier version
+of this pipeline used a raw point-estimate comparison and briefly
+declared the ensemble primary on a 0.003 log-loss gap that turned out
+to be within bootstrap noise -- fixed by requiring the stronger
+criterion above. The predicted scoreline, top-10 scorelines, and
 expected goals always come from Dixon-Coles' own joint distribution
 regardless of which model wins the 1X2 comparison, because the
 ensemble has no scoreline model of its own -- only a win/draw/loss
@@ -147,9 +154,17 @@ def build_model_context(df_clean: pd.DataFrame, universe: list[str], model_cfg: 
         calibrators = fit_calibrators(backtest_df)
         calibration_method = "isotonic" if all(c is not None for c in calibrators.values()) else "raw_fallback"
         ensemble_meta, ensemble_beats_dc, ensemble_metrics = fit_final_meta_learner(backtest_df)
-        print(f"Stacked ensemble {'beats' if ensemble_beats_dc else 'does not beat'} Dixon-Coles alone "
-              f"(log loss {ensemble_metrics.get('ensemble_log_loss', float('nan')):.4f} vs "
-              f"{ensemble_metrics.get('dc_log_loss', float('nan')):.4f}); "
+        # ensemble_beats_dc requires a paired-bootstrap 95% CI that excludes
+        # zero AND a season-majority win (see final_stacked_model.py) -- not
+        # just a lower point-estimate log loss, which was not statistically
+        # distinguishable from noise on the real backtest (see
+        # reports/epl_2026_27_ensemble_report.md).
+        print(f"Stacked ensemble log loss {ensemble_metrics.get('ensemble_log_loss', float('nan')):.4f} vs "
+              f"Dixon-Coles {ensemble_metrics.get('dc_log_loss', float('nan')):.4f} "
+              f"(bootstrap CI [{ensemble_metrics.get('bootstrap_ci_low', float('nan')):+.4f}, "
+              f"{ensemble_metrics.get('bootstrap_ci_high', float('nan')):+.4f}], "
+              f"{ensemble_metrics.get('season_wins', '?')}/{ensemble_metrics.get('n_seasons', '?')} seasons) -- "
+              f"edge is {'statistically significant' if ensemble_beats_dc else 'NOT statistically significant'}; "
               f"{'using ensemble' if ensemble_beats_dc else 'using calibrated Dixon-Coles'} for final predictions.")
 
     return {

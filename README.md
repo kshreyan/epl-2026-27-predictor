@@ -11,16 +11,25 @@ advice.** Every output is a probability, not a guarantee. See
 `reports/epl_2026_27_model_risk_audit.md` for where the model is least
 reliable.
 
-## Status: Phases 1-3
+## Status: Phases 1-4
 
 This is a staged build. Phases 1-3 deliver a real, working, backtested
-core pipeline, Optuna-tuned hyperparameters, a real stacked ensemble
-(beats Dixon-Coles alone on the real backtest), the full report/audit
-suite, dashboard JSON, and a weekly-update engine (verified against
-synthetic data since the real season hasn't started yet). Player-
-minutes modeling, injury/transfer features, and live market
-integration remain explicitly deferred -- all blocked on data sources
-with no connection in this environment, not on missing effort. See
+core pipeline, Optuna-tuned hyperparameters, a stacked ensemble, the
+full report/audit suite, dashboard JSON, and a weekly-update engine
+(verified against synthetic data since the real season hasn't started
+yet). Phase 4 added a paired-bootstrap significance test that found
+the ensemble's apparent edge over Dixon-Coles was not statistically
+distinguishable from noise (95% CI straddles zero, wins only 3/7
+backtest seasons) -- Dixon-Coles alone is the primary model -- plus a
+provenance audit and a real investigation of the three previously-
+deferred data feeds (player-minutes/xG/xA: rejected on real terms/
+technical grounds; live odds: built and tested, needs a user-supplied
+API key; injuries: no viable free source confirmed, left as an honest
+gap). See `reports/epl_2026_27_data_audit.md` "Known limitation."
+Player-minutes modeling, injury/transfer features, and live market
+integration remain explicitly deferred --
+all blocked on data sources with no connection in this environment,
+not on missing effort. See
 `reports/epl_2026_27_model_report.md` "Deferred to later phases" for
 the complete list and why.
 
@@ -52,8 +61,10 @@ This collects real data, validates it, builds features, runs a
 rolling-origin backtest on 7 real historical seasons, calibrates
 probabilities, runs a 250,000-simulation Monte Carlo season
 simulation, and predicts all 380 real 2026-27 fixtures (via the
-stacked ensemble when it beats Dixon-Coles alone on the current
-backtest, checked fresh every run).
+stacked ensemble only when a paired-bootstrap significance test says
+its edge over Dixon-Coles alone is real, checked fresh every run --
+currently it isn't, so Dixon-Coles alone is used; see
+`reports/epl_2026_27_ensemble_report.md`).
 
 Once the season starts, lock a matchweek's real results and re-predict
 the rest of the season:
