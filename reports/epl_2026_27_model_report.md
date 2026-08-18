@@ -1,20 +1,22 @@
-# EPL 2026-27 Model Report (Phase 1 + Phase 2)
+# EPL 2026-27 Model Report (Phase 1 + Phase 2 + Phase 3)
 
 ## Status
 
-This report documents **Phase 1 and Phase 2** of a staged build (see
-the project's approved plan). Phase 1 delivered a real, working,
-backtested core pipeline: real data collection, an in-house dynamic
-Elo + Dixon-Coles scoreline engine with an empirically-derived
-promoted-team adjustment, isotonic probability calibration, a
-rolling-origin backtest across 7 real historical seasons, and a
-250,000-run Monte Carlo full-season simulation for 2026-27. Phase 2
-added Optuna hyperparameter tuning, closed a leakage gap in the
-backtest's promoted-team handling, dashboard JSON, the integrity audit,
-the model-risk audit, the academic report, the portfolio summary, and
-10 more tests. It is **not** the complete 37-section spec -- see
-"Deferred to later phases" below for what is intentionally still not
-built, and why.
+This report documents **Phases 1-3** of a staged build (see the
+project's approved plan). Phase 1 delivered a real, working, backtested
+core pipeline: real data collection, an in-house dynamic Elo +
+Dixon-Coles scoreline engine with an empirically-derived promoted-team
+adjustment, isotonic probability calibration, a rolling-origin backtest
+across 7 real historical seasons, and a 250,000-run Monte Carlo
+full-season simulation for 2026-27. Phase 2 added Optuna hyperparameter
+tuning, closed a leakage gap in the backtest's promoted-team handling,
+dashboard JSON, the integrity audit, the model-risk audit, the academic
+report, the portfolio summary, and 10 more tests. Phase 3 added a real,
+backtested stacked ensemble of the four models with real data behind
+them, which now beats Dixon-Coles alone and is the primary model for
+match-level 1X2 predictions. It is **not** the complete 37-section spec
+-- see "Deferred to later phases" below for what is intentionally
+still not built, and why.
 
 ## Why today matters
 
@@ -167,6 +169,53 @@ expected, since the two evaluation setups differ (single fit vs.
 ~38-refits-per-season walk-forward), and is disclosed here rather than
 only reporting the more flattering number.
 
+## Stacked ensemble (Phase 3)
+
+`src/models/final_stacked_model.py` stacks the four base models that
+have real data behind them (Dixon-Coles, Elo, previous-season-table,
+simple Poisson) with a multinomial logistic-regression meta-learner,
+evaluated with proper 5-fold out-of-fold prediction on the same 2,660
+real backtest matches. The ensemble genuinely beats Dixon-Coles alone
+out-of-fold: log loss 0.9834 vs. 0.9865, Brier 0.5853 vs. 0.5864, RPS
+0.2031 vs. 0.2035 (`reports/epl_2026_27_ensemble_report.md`). Because
+it wins, **the ensemble is now the primary model for match-level 1X2
+win/draw/loss probabilities** in `epl_2026_27_match_predictions.csv`
+(checked fresh on every run against the current backtest, not
+hardcoded) -- but it has no scoreline model of its own, so predicted
+scores, top-10 scorelines, and the full-season Monte Carlo simulation
+still use Dixon-Coles' joint distribution. This checked-at-runtime
+fallback (use the ensemble only if it actually wins; otherwise use
+calibrated Dixon-Coles) is deliberate: the same "don't add complexity
+that doesn't earn its place" principle applied earlier to neural
+models is applied here to the ensemble itself.
+
+## Weekly-update engine (Phase 3)
+
+`src/update_after_matchweek.py` implements spec section 27: given a
+real, caller-supplied CSV of a matchweek's completed results
+(match_id, home_goals, away_goals, source_name, source_timestamp), it
+locks them into `data/raw/epl_2026_27_completed_matches.csv` (same
+schema as the historical results file, so it concatenates directly for
+refitting), marks those fixtures `completed`, refits Elo/Dixon-Coles
+on historical + completed 2026-27 data, re-predicts every remaining
+fixture (`prediction_mode=early_week_mode`), and re-runs the season
+simulation with the real results-to-date locked in as a fixed baseline
+for every simulated path (`src/simulation/simulate_full_season.run_monte_carlo`,
+generalized from the preseason-only version to accept this baseline).
+A previously-completed match's original pre-match prediction is never
+overwritten -- only the real result is appended alongside it, so
+prediction-vs-outcome accuracy stays auditable.
+
+**This cannot be exercised against real data yet**: today (2026-08-18)
+is three days before kickoff (2026-08-21). It is verified instead
+against synthetic scores for real matchweek-1 fixtures, written only
+to a temporary directory via an injectable `WeeklyUpdatePaths` --
+never to the real project data files (`tests/test_completed_match_locking.py`,
+`tests/test_weekly_update_versioning.py`). The versioning test
+confirms two separate weekly-update runs produce two distinct run_ids
+that are both appended to the experiment log, never overwriting each
+other's timestamp -- spec section 33's explicit requirement.
+
 Full detail: `data/outputs/epl_backtest_match_results.csv`,
 `epl_backtest_model_comparison.csv`, `epl_backtest_scoreline_accuracy.csv`,
 `reports/epl_model_selection_report.md`.
@@ -222,22 +271,18 @@ order), never left ambiguous or randomly reshuffled per run.
   tuned, and the tuning objective itself uses a single holdout season
   rather than a proper three-way train/tune/test split.
 
-## Deferred to later phases (not built in Phase 1 or 2)
+## Deferred to later phases (not built in Phase 1, 2, or 3)
 
 Player-minutes/lineup-strength model, injury/transfer/manager-tactical
-feature layers (schemas exist, data does not), market-integrated
-simulation (the overround-removal and log-odds-averaging math is built
-and unit-tested, see `src/features/build_market_features.py`, but no
-live feed is connected so it has nothing to run on), the weekly
-in-season update engine, the full out-of-fold stacked ensemble
-(section 21 of the original spec -- meaningful only once the player-
-minutes/injury/market model layers it's meant to combine actually
-exist), `test_completed_match_locking.py` and
-`test_weekly_update_versioning.py` (nothing to test until the weekly-
-update engine exists), and neural sequence models (skipped per the
-spec's own "don't include for prestige" instruction -- ~4,000
-historical matches is a small dataset for a deep sequence model;
-classical/statistical models are used instead).
+feature layers (schemas exist, data does not), live market integration
+(the overround-removal and log-odds-averaging math is built and
+unit-tested, see `src/features/build_market_features.py`, and the
+weekly-update engine already refreshes fine without it, but no live
+feed is connected so market features have nothing real to run on), and
+neural sequence models (skipped per the spec's own "don't include for
+prestige" instruction -- ~4,000 historical matches is a small dataset
+for a deep sequence model; classical/statistical models are used
+instead).
 
 Phase 2 completed: dashboard JSON (`src/dashboard/build_dashboard_json.py`),
 the integrity audit (`src/run_integrity_audit.py`,
@@ -245,6 +290,17 @@ the integrity audit (`src/run_integrity_audit.py`,
 academic report, the portfolio summary, Optuna hyperparameter tuning,
 and 10 additional tests (market-odds cleaning, injury/lineup
 missingness flags, simulation table-rules).
+
+Phase 3 completed: the stacked ensemble (`src/models/final_stacked_model.py`,
+see "Stacked ensemble" above) -- of the 4 sub-models with real data
+behind them, not the full 11-model ensemble the original spec
+envisions, since the other 7 (player-minutes, squad-injury,
+transfer-impact, market, tactical-style) have no connected data source
+to stack -- and the weekly-update engine (`src/update_after_matchweek.py`,
+see "Weekly-update engine" above), including
+`test_completed_match_locking.py` and `test_weekly_update_versioning.py`,
+verified against synthetic data since no real 2026-27 result exists
+yet.
 
 ## Ethical note
 

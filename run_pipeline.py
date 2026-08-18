@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
 """Master pipeline entrypoint.
 
-Phase 1 supports:
     python run_pipeline.py --season 2026-27 --mode preseason
 
-which runs, in leakage-safe order: real data collection, data
-validation, feature building, backtest, calibration, full-season
-Monte Carlo simulation, match predictions, and the data audit report.
+runs, in leakage-safe order: real data collection, data validation,
+feature building, backtest, calibration, full-season Monte Carlo
+simulation, match predictions (via the stacked ensemble when it wins,
+see reports/epl_2026_27_model_report.md), dashboard JSON, the data
+audit, and the integrity audit.
 
-`--mode weekly_update`, `--mode pre_match`, and `--mode
-confirmed_lineup` are defined by the spec but not implemented in
-Phase 1 (see reports/epl_2026_27_model_report.md "Limitations" --
-they depend on injury/lineup/market data collectors that are
-currently honest sentinel stubs, and on real 2026-27 match results
-which do not exist yet since today is before kickoff).
+    python run_pipeline.py --season 2026-27 --mode weekly_update --matchweek 1 --results path/to/results.csv
+
+locks a matchweek's real results and re-predicts the rest of the
+season (src/update_after_matchweek.py) -- implemented in Phase 3, but
+cannot be run for real yet since today (2026-08-18) is before kickoff
+(2026-08-21); see tests/test_completed_match_locking.py for how it's
+verified against synthetic data in the meantime.
+
+`--mode pre_match` and `--mode confirmed_lineup` are defined by the
+spec but not implemented: they depend on live injury/lineup/odds data
+that has no connected source in this environment (see
+reports/epl_2026_27_model_report.md "Deferred to later phases").
 """
 from __future__ import annotations
 
@@ -38,8 +45,10 @@ PRESEASON_STEPS = [
     ("Run rolling-origin backtest", "src.evaluation.backtest"),
     ("Calibrate probabilities", "src.calibration.calibrate_probabilities"),
     ("Simulate full 2026-27 season (250k Monte Carlo runs)", "src.simulation.simulate_full_season"),
-    ("Predict all 380 matches", "src.models.predict_all_matches"),
+    ("Predict all 380 matches (stacked ensemble if it wins, else calibrated Dixon-Coles)", "src.models.predict_all_matches"),
+    ("Build dashboard JSON", "src.dashboard.build_dashboard_json"),
     ("Generate data audit report", "src.data_validation.missing_data_report"),
+    ("Run integrity audit", "src.run_integrity_audit"),
 ]
 
 
@@ -62,18 +71,29 @@ def main() -> None:
         required=True,
         choices=["preseason", "weekly_update", "pre_match", "confirmed_lineup"],
     )
-    parser.add_argument("--matchweek", default=None, help="required for --mode weekly_update")
+    parser.add_argument("--matchweek", type=int, default=None, help="required for --mode weekly_update")
+    parser.add_argument("--results", default=None, help="required for --mode weekly_update: CSV with match_id,home_goals,away_goals,source_name,source_timestamp")
     parser.add_argument("--match_id", default=None, help="required for --mode pre_match / confirmed_lineup")
     args = parser.parse_args()
 
-    if args.mode != "preseason":
+    if args.mode in ("pre_match", "confirmed_lineup"):
         print(
-            f"--mode {args.mode} is defined by the project spec but not implemented in Phase 1.\n"
-            f"It depends on real 2026-27 match results, live injury/lineup reports, and a live odds "
-            f"feed, none of which exist yet (today is before kickoff; see "
-            f"reports/epl_2026_27_model_report.md 'Limitations'). Use --mode preseason."
+            f"--mode {args.mode} is defined by the project spec but not implemented.\n"
+            f"It depends on live injury/lineup/odds data that has no connected source in this "
+            f"environment (see reports/epl_2026_27_model_report.md 'Deferred to later phases'). "
+            f"Use --mode preseason or --mode weekly_update."
         )
         sys.exit(2)
+
+    if args.mode == "weekly_update":
+        if args.matchweek is None or args.results is None:
+            print("--mode weekly_update requires both --matchweek and --results.")
+            sys.exit(2)
+        print(f"Running weekly update for season {args.season}, matchweek {args.matchweek}")
+        from src.update_after_matchweek import run_update
+        run_update(args.matchweek, Path(args.results))
+        print(f"\n{'=' * 70}\nWeekly update complete.\n{'=' * 70}")
+        return
 
     print(f"Running preseason pipeline for season {args.season}")
     for label, module in PRESEASON_STEPS:

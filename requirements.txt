@@ -5,3 +5,5 @@ scikit-learn>=1.9
 PyYAML>=6.0
 requests>=2.34
 pytest>=9.0
+optuna>=4.0
+tabulate>=0.9

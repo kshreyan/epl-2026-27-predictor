@@ -11,14 +11,18 @@ advice.** Every output is a probability, not a guarantee. See
 `reports/epl_2026_27_model_risk_audit.md` for where the model is least
 reliable.
 
-## Status: Phase 1 (v0)
+## Status: Phases 1-3
 
-This is a staged build. Phase 1 delivers a real, working, backtested
-system covering the core pipeline; several parts of the full spec
-(player-minutes modeling, live market integration, weekly in-season
-updates, the full dashboard/report suite, hyperparameter tuning) are
-explicitly deferred -- see `reports/epl_2026_27_model_report.md`
-"Limitations" for the complete list and why.
+This is a staged build. Phases 1-3 deliver a real, working, backtested
+core pipeline, Optuna-tuned hyperparameters, a real stacked ensemble
+(beats Dixon-Coles alone on the real backtest), the full report/audit
+suite, dashboard JSON, and a weekly-update engine (verified against
+synthetic data since the real season hasn't started yet). Player-
+minutes modeling, injury/transfer features, and live market
+integration remain explicitly deferred -- all blocked on data sources
+with no connection in this environment, not on missing effort. See
+`reports/epl_2026_27_model_report.md` "Deferred to later phases" for
+the complete list and why.
 
 ## Data honesty
 
@@ -47,7 +51,18 @@ pytest tests/
 This collects real data, validates it, builds features, runs a
 rolling-origin backtest on 7 real historical seasons, calibrates
 probabilities, runs a 250,000-simulation Monte Carlo season
-simulation, and predicts all 380 real 2026-27 fixtures.
+simulation, and predicts all 380 real 2026-27 fixtures (via the
+stacked ensemble when it beats Dixon-Coles alone on the current
+backtest, checked fresh every run).
+
+Once the season starts, lock a matchweek's real results and re-predict
+the rest of the season:
+
+```bash
+python run_pipeline.py --season 2026-27 --mode weekly_update --matchweek 1 --results path/to/results.csv
+```
+
+`results.csv` needs columns `match_id,home_goals,away_goals,source_name,source_timestamp`.
 
 ## Key outputs
 

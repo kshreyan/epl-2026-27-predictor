@@ -13,7 +13,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=9.0"]
+dev = ["pytest>=9.0", "optuna>=4.0"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "slow: integration-style tests that refit real models end-to-end (deselect with -m 'not slow' for a fast run)",
+]

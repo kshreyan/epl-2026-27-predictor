@@ -138,65 +138,57 @@ def rank_teams(points: np.ndarray, goal_diff: np.ndarray, goals_for: np.ndarray,
     return positions
 
 
-def main() -> None:
-    with open(SIM_CONFIG_PATH) as f:
-        sim_cfg = yaml.safe_load(f)
-    with open(MODEL_CONFIG_PATH) as f:
-        model_cfg = yaml.safe_load(f)
+def run_monte_carlo(
+    fixtures_df: pd.DataFrame,
+    fit,
+    teams_2627: list[str],
+    n_simulations: int,
+    seed: int,
+    sim_cfg: dict,
+    initial_points: dict[str, int] | None = None,
+    initial_goals_for: dict[str, int] | None = None,
+    initial_goals_against: dict[str, int] | None = None,
+    initial_wins: dict[str, int] | None = None,
+    initial_draws: dict[str, int] | None = None,
+    initial_losses: dict[str, int] | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Runs the batched Monte Carlo simulation over `fixtures_df` (which
+    may be all 380 fixtures for a preseason run, or only the *remaining*
+    fixtures for a mid-season weekly-update run) and returns
+    (expected_table, position_distribution).
 
-    n_simulations = sim_cfg["n_simulations"]
-    seed = sim_cfg["random_seed"]
-
-    df = pd.read_csv(HISTORICAL_PATH, parse_dates=["date"])
-    df_clean = df.dropna(subset=["home_goals", "away_goals"])
-    hist_teams = sorted(set(df_clean["home_team"]) | set(df_clean["away_team"]))
-    universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
-
-    promoted_elo_offset, n_events = compute_promoted_team_elo_offset(df_clean)
-    promo_history = compute_promoted_team_history(df_clean)
-    promo_summary = summarize_promoted_team_baseline(promo_history)
-    # Convert the empirical points-shortfall into an approximate Dixon-Coles
-    # attack/defense offset: EPL goal supply is roughly linear in points
-    # over a season, so we split the shortfall between attack (scores
-    # fewer) and defense (concedes more) in a simple, documented way.
-    points_shortfall = promo_summary["mean_points_below_league_avg"] or -15.0
-    # Both offsets share the sign of points_shortfall (negative for a
-    # below-average team): defense[i] is SUBTRACTED in the Dixon-Coles
-    # exponent, so a lower defense value means concedes MORE -- the same
-    # (negative) direction as attack makes a promoted team weaker on both
-    # ends, not stronger on one.
-    dc_attack_offset = points_shortfall / 100.0
-    dc_defense_offset = points_shortfall / 100.0
-
-    as_of_date = pd.Timestamp(now_utc_iso()[:10])
-    strength_df, fit = compute_team_strength_state(
-        df_clean, universe, as_of_date=as_of_date,
-        promoted_teams=PROMOTED_TEAMS,
-        promoted_attack_offset=dc_attack_offset, promoted_defense_offset=dc_defense_offset,
-        half_life_days=model_cfg["dixon_coles"]["time_decay_half_life_days"],
-        shrinkage_to_league_prior=model_cfg["dynamic_team_strength"]["shrinkage_to_league_prior"],
-        promoted_extra_shrinkage=model_cfg["dynamic_team_strength"]["promoted_team_extra_shrinkage"],
-        l2_reg=model_cfg["dixon_coles"].get("l2_reg"),
-    )
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    strength_df.to_csv(OUT_DIR / "epl_2026_27_dynamic_team_strength.csv", index=False)
-    print(f"Wrote preseason dynamic team strength for {len(strength_df)} teams")
-
-    fixtures_df = pd.read_csv(FIXTURES_PATH)
-    fixtures_df = fixtures_df.sort_values(["matchweek", "kickoff_utc"]).reset_index(drop=True)
-    teams_2627 = EPL_2026_27_CLUBS
+    `initial_*` dicts let a caller lock in real, already-completed
+    results as a fixed baseline that every simulated path starts from
+    -- this is what makes a weekly-update run "simulate the rest of the
+    season given what has actually happened so far" rather than
+    re-simulating already-known results.
+    """
+    n_teams = len(teams_2627)
     team_pos_idx = {t: i for i, t in enumerate(teams_2627)}
     home_idx = fixtures_df["home_team"].map(team_pos_idx).to_numpy()
     away_idx = fixtures_df["away_team"].map(team_pos_idx).to_numpy()
 
+    def _init_array(d: dict | None) -> np.ndarray:
+        arr = np.zeros(n_teams, dtype=np.int64)
+        if d:
+            for team, v in d.items():
+                arr[team_pos_idx[team]] = v
+        return arr
+
+    base_points = _init_array(initial_points)
+    base_gf = _init_array(initial_goals_for)
+    base_ga = _init_array(initial_goals_against)
+    base_wins = _init_array(initial_wins)
+    base_draws = _init_array(initial_draws)
+    base_losses = _init_array(initial_losses)
+
     cdfs = build_score_distributions(fixtures_df, fit)
     grid_size = MAX_GOALS + 1
 
-    n_teams = len(teams_2627)
     remaining = n_simulations
     rng = np.random.default_rng(seed)
 
-    position_counts = np.zeros((n_teams, n_teams), dtype=np.int64)  # [team, position-1]
+    position_counts = np.zeros((n_teams, n_teams), dtype=np.int64)
     points_samples = [[] for _ in range(n_teams)]
     gf_samples = [[] for _ in range(n_teams)]
     ga_samples = [[] for _ in range(n_teams)]
@@ -207,9 +199,22 @@ def main() -> None:
     n_run = 0
     while remaining > 0:
         batch = min(BATCH_SIZE, remaining)
-        hg, ag = simulate_batch(cdfs, batch, rng, grid_size)
-        points, goal_diff, goals_for = build_tables(hg, ag, home_idx, away_idx, n_teams)
-        goals_against = goals_for - goal_diff
+        if len(cdfs) > 0:
+            hg, ag = simulate_batch(cdfs, batch, rng, grid_size)
+            points, goal_diff, goals_for = build_tables(hg, ag, home_idx, away_idx, n_teams)
+            goals_against = goals_for - goal_diff
+        else:
+            # No remaining fixtures (season fully complete) -- every sim is
+            # just the locked baseline, with no scorelines to draw.
+            points = np.zeros((batch, n_teams), dtype=np.int64)
+            goals_for = np.zeros((batch, n_teams), dtype=np.int64)
+            goals_against = np.zeros((batch, n_teams), dtype=np.int64)
+            hg = ag = np.zeros((batch, 0), dtype=np.int64)
+
+        points = points + base_points[np.newaxis, :]
+        goals_for = goals_for + base_gf[np.newaxis, :]
+        goals_against = goals_against + base_ga[np.newaxis, :]
+        goal_diff = goals_for - goals_against
         positions = rank_teams(points, goal_diff, goals_for, teams_2627)
 
         for t in range(n_teams):
@@ -219,24 +224,28 @@ def main() -> None:
             gf_samples[t].append(goals_for[:, t])
             ga_samples[t].append(goals_against[:, t])
 
-        home_pts = np.where(hg > ag, 3, np.where(hg == ag, 1, 0))
-        away_pts = np.where(ag > hg, 3, np.where(hg == ag, 1, 0))
-        for t in range(n_teams):
-            home_mask = home_idx == t
-            away_mask = away_idx == t
-            wins = (hg[:, home_mask] > ag[:, home_mask]).sum(axis=1) + (ag[:, away_mask] > hg[:, away_mask]).sum(axis=1)
-            draws = (hg[:, home_mask] == ag[:, home_mask]).sum(axis=1) + (ag[:, away_mask] == hg[:, away_mask]).sum(axis=1)
-            losses = (hg[:, home_mask] < ag[:, home_mask]).sum(axis=1) + (ag[:, away_mask] < hg[:, away_mask]).sum(axis=1)
-            win_samples[t].append(wins)
-            draw_samples[t].append(draws)
-            loss_samples[t].append(losses)
+        if len(cdfs) > 0:
+            for t in range(n_teams):
+                home_mask = home_idx == t
+                away_mask = away_idx == t
+                wins = (hg[:, home_mask] > ag[:, home_mask]).sum(axis=1) + (ag[:, away_mask] > hg[:, away_mask]).sum(axis=1)
+                draws = (hg[:, home_mask] == ag[:, home_mask]).sum(axis=1) + (ag[:, away_mask] == hg[:, away_mask]).sum(axis=1)
+                losses = (hg[:, home_mask] < ag[:, home_mask]).sum(axis=1) + (ag[:, away_mask] < hg[:, away_mask]).sum(axis=1)
+                win_samples[t].append(wins + base_wins[t])
+                draw_samples[t].append(draws + base_draws[t])
+                loss_samples[t].append(losses + base_losses[t])
+        else:
+            for t in range(n_teams):
+                win_samples[t].append(np.full(batch, base_wins[t]))
+                draw_samples[t].append(np.full(batch, base_draws[t]))
+                loss_samples[t].append(np.full(batch, base_losses[t]))
 
         n_run += batch
         remaining -= batch
         print(f"  simulated {n_run}/{n_simulations}")
 
     generated_at = now_utc_iso()
-    expected_rows, position_rows, full_sim_summary_rows = [], [], []
+    expected_rows, position_rows = [], []
 
     for t, team in enumerate(teams_2627):
         pts = np.concatenate(points_samples[t])
@@ -285,10 +294,63 @@ def main() -> None:
         position_rows.append(pos_row)
 
     expected_table = pd.DataFrame(expected_rows).sort_values("expected_position").reset_index(drop=True)
+    position_dist = pd.DataFrame(position_rows)
+    return expected_table, position_dist
+
+
+def main() -> None:
+    with open(SIM_CONFIG_PATH) as f:
+        sim_cfg = yaml.safe_load(f)
+    with open(MODEL_CONFIG_PATH) as f:
+        model_cfg = yaml.safe_load(f)
+
+    n_simulations = sim_cfg["n_simulations"]
+    seed = sim_cfg["random_seed"]
+
+    df = pd.read_csv(HISTORICAL_PATH, parse_dates=["date"])
+    df_clean = df.dropna(subset=["home_goals", "away_goals"])
+    hist_teams = sorted(set(df_clean["home_team"]) | set(df_clean["away_team"]))
+    universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
+
+    promoted_elo_offset, n_events = compute_promoted_team_elo_offset(df_clean)
+    promo_history = compute_promoted_team_history(df_clean)
+    promo_summary = summarize_promoted_team_baseline(promo_history)
+    # Convert the empirical points-shortfall into an approximate Dixon-Coles
+    # attack/defense offset: EPL goal supply is roughly linear in points
+    # over a season, so we split the shortfall between attack (scores
+    # fewer) and defense (concedes more) in a simple, documented way.
+    points_shortfall = promo_summary["mean_points_below_league_avg"] or -15.0
+    # Both offsets share the sign of points_shortfall (negative for a
+    # below-average team): defense[i] is SUBTRACTED in the Dixon-Coles
+    # exponent, so a lower defense value means concedes MORE -- the same
+    # (negative) direction as attack makes a promoted team weaker on both
+    # ends, not stronger on one.
+    dc_attack_offset = points_shortfall / 100.0
+    dc_defense_offset = points_shortfall / 100.0
+
+    as_of_date = pd.Timestamp(now_utc_iso()[:10])
+    strength_df, fit = compute_team_strength_state(
+        df_clean, universe, as_of_date=as_of_date,
+        promoted_teams=PROMOTED_TEAMS,
+        promoted_attack_offset=dc_attack_offset, promoted_defense_offset=dc_defense_offset,
+        half_life_days=model_cfg["dixon_coles"]["time_decay_half_life_days"],
+        shrinkage_to_league_prior=model_cfg["dynamic_team_strength"]["shrinkage_to_league_prior"],
+        promoted_extra_shrinkage=model_cfg["dynamic_team_strength"]["promoted_team_extra_shrinkage"],
+        l2_reg=model_cfg["dixon_coles"].get("l2_reg"),
+    )
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    strength_df.to_csv(OUT_DIR / "epl_2026_27_dynamic_team_strength.csv", index=False)
+    print(f"Wrote preseason dynamic team strength for {len(strength_df)} teams")
+
+    fixtures_df = pd.read_csv(FIXTURES_PATH)
+    fixtures_df = fixtures_df.sort_values(["matchweek", "kickoff_utc"]).reset_index(drop=True)
+    teams_2627 = EPL_2026_27_CLUBS
+
+    expected_table, position_dist = run_monte_carlo(fixtures_df, fit, teams_2627, n_simulations, seed, sim_cfg)
+    generated_at = now_utc_iso()
+
     expected_table.to_csv(OUT_DIR / "epl_2026_27_expected_table.csv", index=False)
     expected_table.to_csv(OUT_DIR / "epl_2026_27_table_probabilities.csv", index=False)
-
-    position_dist = pd.DataFrame(position_rows)
     position_dist.to_csv(OUT_DIR / "epl_2026_27_position_distribution.csv", index=False)
 
     title_race = expected_table[["team", "title_probability", "expected_points", "median_points"]].sort_values(
