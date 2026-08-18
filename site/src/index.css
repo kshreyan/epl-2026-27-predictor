@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Dark, dense, data-first -- one accent color, no gradients, no shadows.
+   Deliberately dark-only (not a light/dark toggle): this is a terminal-style
+   read, not a marketing site. */
+@theme {
+  --color-bg: #0a0a0c;
+  --color-panel: #111114;
+  --color-border: #26262b;
+  --color-text: #d4d4d8;
+  --color-text-dim: #8b8b93;
+  --color-text-faint: #55555c;
+  --color-accent: #f0a020;
+  --color-accent-dim: #7a5518;
+  --color-positive: #4ade80;
+  --color-negative: #f87171;
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Every numeric column in the app uses this so figures align on their
+   digits -- non-negotiable for a data-dense, scannable table. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+::selection {
+  background: var(--color-accent-dim);
+  color: #fff;
+}

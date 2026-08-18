@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-18T03:02:56+00:00",
+  "generated_at": "2026-08-18T10:35:26+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 0,
   "status": "not_yet_available",
-  "note": "No live odds feed is connected in Phase 1/2 (see config/data_sources.yaml) -- every 2026-27 prediction is model-only, so there is no market to disagree with yet.",
+  "note": "No live odds feed is configured (ODDS_API_KEY unset; the collector is built and tested -- see src/data_collection/collect_odds.py) -- every 2026-27 prediction is model-only, so there is no market to disagree with yet.",
   "data": []
 }

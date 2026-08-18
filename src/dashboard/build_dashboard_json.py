@@ -1,15 +1,18 @@
 """Transforms existing CSV outputs into dashboard-ready JSON (spec
-section 30). This is a pure data-shape transform -- it does not
-compute anything new, so it is safe to run any time after the
-prediction and simulation pipelines have produced their CSV outputs.
+section 30, plus one addition for the site's model-performance view).
+This is a pure data-shape transform -- it does not compute anything
+new (with the minor exception of joining a few small CSVs together in
+`build_model_performance_json`), so it is safe to run any time after
+the prediction, simulation, backtest, and calibration pipelines have
+produced their CSV outputs.
 
-Two of the nine required files (`epl_model_market_disagreements.json`,
+Two of the ten files (`epl_model_market_disagreements.json`,
 `epl_weekly_changes.json`) have no real content to transform yet: no
-market feed and no weekly-update engine exist in Phase 1/2. Rather
+live odds key is configured and no matchweek has been played. Rather
 than omit them, each is written with an empty `data` array and an
 explicit `status`/`note` explaining why, so dashboard code can be
 built against the final schema now and simply start receiving real
-rows once those pipeline stages exist.
+rows once real data exists for them.
 
 Run: python -m src.dashboard.build_dashboard_json
 """
@@ -102,18 +105,39 @@ def build_match_explanations_json() -> None:
 def build_model_market_disagreements_json() -> None:
     _write_json("epl_model_market_disagreements.json", _envelope(
         [], status="not_yet_available",
-        note="No live odds feed is connected in Phase 1/2 (see config/data_sources.yaml) -- "
-             "every 2026-27 prediction is model-only, so there is no market to disagree with yet.",
+        note="No live odds feed is configured (ODDS_API_KEY unset; the collector is built and tested -- "
+             "see src/data_collection/collect_odds.py) -- every 2026-27 prediction is model-only, so "
+             "there is no market to disagree with yet.",
     ))
 
 
 def build_weekly_changes_json() -> None:
     _write_json("epl_weekly_changes.json", _envelope(
         [], status="not_yet_available",
-        note="The weekly-update engine has not been built yet (today, 2026-08-18, is before kickoff on "
-             "2026-08-21 -- there is no completed matchweek to report changes from). See "
-             "reports/epl_2026_27_model_report.md 'Deferred to later phases'.",
+        note="The weekly-update engine exists (src/update_after_matchweek.py) but has never run against "
+             "real data: today, 2026-08-18, is before kickoff on 2026-08-21, so there is no completed "
+             "matchweek to report changes from yet.",
     ))
+
+
+def build_model_performance_json() -> None:
+    """Backtest model comparison + calibration reliability + the paired-
+    bootstrap ensemble-vs-Dixon-Coles significance result, combined for
+    the dashboard's model-performance/calibration view."""
+    comparison = pd.read_csv(OUT_DIR / "epl_backtest_model_comparison.csv")
+    reliability = pd.read_csv(OUT_DIR / "epl_2026_27_reliability_tables.csv")
+    summary_path = OUT_DIR / "epl_2026_27_calibration_summary.csv"
+    calibration_summary = _to_records(pd.read_csv(summary_path))[0] if summary_path.exists() else None
+    ensemble_per_season_path = OUT_DIR / "epl_ensemble_per_season_comparison.csv"
+    ensemble_per_season = _to_records(pd.read_csv(ensemble_per_season_path)) if ensemble_per_season_path.exists() else []
+
+    payload = _envelope(
+        _to_records(comparison),
+        reliability_table=_to_records(reliability),
+        calibration_summary=calibration_summary,
+        ensemble_per_season_comparison=ensemble_per_season,
+    )
+    _write_json("epl_model_performance.json", payload)
 
 
 def main() -> None:
@@ -126,6 +150,7 @@ def main() -> None:
     build_match_explanations_json()
     build_model_market_disagreements_json()
     build_weekly_changes_json()
+    build_model_performance_json()
 
 
 if __name__ == "__main__":

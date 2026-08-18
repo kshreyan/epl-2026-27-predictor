@@ -1,0 +1,353 @@
+{
+  "generated_at": "2026-08-18T10:35:26+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 4,
+  "reliability_table": [
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.0,
+      "bin_upper": 0.1,
+      "n_matches": 110,
+      "mean_predicted_probability": 0.0663,
+      "empirical_frequency": 0.1182
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.1,
+      "bin_upper": 0.2,
+      "n_matches": 280,
+      "mean_predicted_probability": 0.1548,
+      "empirical_frequency": 0.1679
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.2,
+      "bin_upper": 0.3,
+      "n_matches": 406,
+      "mean_predicted_probability": 0.2525,
+      "empirical_frequency": 0.2882
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.3,
+      "bin_upper": 0.4,
+      "n_matches": 452,
+      "mean_predicted_probability": 0.3527,
+      "empirical_frequency": 0.3982
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.4,
+      "bin_upper": 0.5,
+      "n_matches": 450,
+      "mean_predicted_probability": 0.4496,
+      "empirical_frequency": 0.4111
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.5,
+      "bin_upper": 0.6,
+      "n_matches": 338,
+      "mean_predicted_probability": 0.5479,
+      "empirical_frequency": 0.5503
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.6,
+      "bin_upper": 0.7,
+      "n_matches": 298,
+      "mean_predicted_probability": 0.6493,
+      "empirical_frequency": 0.604
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.7,
+      "bin_upper": 0.8,
+      "n_matches": 189,
+      "mean_predicted_probability": 0.7484,
+      "empirical_frequency": 0.7143
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.8,
+      "bin_upper": 0.9,
+      "n_matches": 100,
+      "mean_predicted_probability": 0.8431,
+      "empirical_frequency": 0.78
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.9,
+      "bin_upper": 1.0,
+      "n_matches": 37,
+      "mean_predicted_probability": 0.9265,
+      "empirical_frequency": 0.9189
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.0,
+      "bin_upper": 0.1,
+      "n_matches": 88,
+      "mean_predicted_probability": 0.0711,
+      "empirical_frequency": 0.1023
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.1,
+      "bin_upper": 0.2,
+      "n_matches": 564,
+      "mean_predicted_probability": 0.1633,
+      "empirical_frequency": 0.1738
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.2,
+      "bin_upper": 0.3,
+      "n_matches": 1865,
+      "mean_predicted_probability": 0.247,
+      "empirical_frequency": 0.2595
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.3,
+      "bin_upper": 0.4,
+      "n_matches": 141,
+      "mean_predicted_probability": 0.3209,
+      "empirical_frequency": 0.2624
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.4,
+      "bin_upper": 0.5,
+      "n_matches": 2,
+      "mean_predicted_probability": 0.433,
+      "empirical_frequency": 0.5
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.5,
+      "bin_upper": 0.6,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.6,
+      "bin_upper": 0.7,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.7,
+      "bin_upper": 0.8,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.8,
+      "bin_upper": 0.9,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.9,
+      "bin_upper": 1.0,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.0,
+      "bin_upper": 0.1,
+      "n_matches": 279,
+      "mean_predicted_probability": 0.0621,
+      "empirical_frequency": 0.0896
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.1,
+      "bin_upper": 0.2,
+      "n_matches": 456,
+      "mean_predicted_probability": 0.1515,
+      "empirical_frequency": 0.1623
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.2,
+      "bin_upper": 0.3,
+      "n_matches": 538,
+      "mean_predicted_probability": 0.2512,
+      "empirical_frequency": 0.2621
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.3,
+      "bin_upper": 0.4,
+      "n_matches": 478,
+      "mean_predicted_probability": 0.35,
+      "empirical_frequency": 0.3494
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.4,
+      "bin_upper": 0.5,
+      "n_matches": 345,
+      "mean_predicted_probability": 0.4501,
+      "empirical_frequency": 0.4087
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.5,
+      "bin_upper": 0.6,
+      "n_matches": 262,
+      "mean_predicted_probability": 0.547,
+      "empirical_frequency": 0.5
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.6,
+      "bin_upper": 0.7,
+      "n_matches": 166,
+      "mean_predicted_probability": 0.6453,
+      "empirical_frequency": 0.6325
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.7,
+      "bin_upper": 0.8,
+      "n_matches": 86,
+      "mean_predicted_probability": 0.7439,
+      "empirical_frequency": 0.6279
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.8,
+      "bin_upper": 0.9,
+      "n_matches": 44,
+      "mean_predicted_probability": 0.8452,
+      "empirical_frequency": 0.7727
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.9,
+      "bin_upper": 1.0,
+      "n_matches": 6,
+      "mean_predicted_probability": 0.9172,
+      "empirical_frequency": 0.6667
+    }
+  ],
+  "calibration_summary": {
+    "method": "isotonic",
+    "ece": 0.0114,
+    "raw_log_loss": 0.9865,
+    "calibrated_log_loss": 0.97,
+    "n_matches": 2660,
+    "generated_at": "2026-08-18T10:34:47+00:00"
+  },
+  "ensemble_per_season_comparison": [
+    {
+      "season": "2019-20",
+      "n_matches": 380,
+      "dc_log_loss": 0.9716,
+      "ensemble_log_loss": 0.9762,
+      "ensemble_wins_season": false
+    },
+    {
+      "season": "2020-21",
+      "n_matches": 380,
+      "dc_log_loss": 1.0275,
+      "ensemble_log_loss": 1.018,
+      "ensemble_wins_season": true
+    },
+    {
+      "season": "2021-22",
+      "n_matches": 380,
+      "dc_log_loss": 0.9538,
+      "ensemble_log_loss": 0.9549,
+      "ensemble_wins_season": false
+    },
+    {
+      "season": "2022-23",
+      "n_matches": 380,
+      "dc_log_loss": 1.0192,
+      "ensemble_log_loss": 0.9938,
+      "ensemble_wins_season": true
+    },
+    {
+      "season": "2023-24",
+      "n_matches": 380,
+      "dc_log_loss": 0.9198,
+      "ensemble_log_loss": 0.9226,
+      "ensemble_wins_season": false
+    },
+    {
+      "season": "2024-25",
+      "n_matches": 380,
+      "dc_log_loss": 0.9706,
+      "ensemble_log_loss": 0.9803,
+      "ensemble_wins_season": false
+    },
+    {
+      "season": "2025-26",
+      "n_matches": 380,
+      "dc_log_loss": 1.0433,
+      "ensemble_log_loss": 1.0379,
+      "ensemble_wins_season": true
+    }
+  ],
+  "data": [
+    {
+      "model": "Dixon-Coles (main model)",
+      "n_matches": 2660,
+      "log_loss": 0.9865,
+      "brier_score": 0.5864,
+      "ranked_probability_score": 0.2035,
+      "accuracy": 0.5289,
+      "favorite_accuracy": 0.6372,
+      "draw_calibration_bias": -0.0089,
+      "expected_calibration_error": null
+    },
+    {
+      "model": "Elo-only baseline",
+      "n_matches": 2660,
+      "log_loss": 0.9931,
+      "brier_score": 0.5912,
+      "ranked_probability_score": 0.2055,
+      "accuracy": 0.5305,
+      "favorite_accuracy": 0.6075,
+      "draw_calibration_bias": -0.0213,
+      "expected_calibration_error": null
+    },
+    {
+      "model": "Previous-season-table baseline",
+      "n_matches": 2660,
+      "log_loss": 1.21,
+      "brier_score": 0.6777,
+      "ranked_probability_score": 0.2342,
+      "accuracy": 0.4647,
+      "favorite_accuracy": 0.5667,
+      "draw_calibration_bias": -0.1059,
+      "expected_calibration_error": null
+    },
+    {
+      "model": "Simple Poisson baseline",
+      "n_matches": 2660,
+      "log_loss": 1.0178,
+      "brier_score": 0.6082,
+      "ranked_probability_score": 0.2146,
+      "accuracy": 0.4962,
+      "favorite_accuracy": 0.6566,
+      "draw_calibration_bias": -0.0007,
+      "expected_calibration_error": null
+    }
+  ]
+}

@@ -29,6 +29,7 @@ BACKTEST_PATH = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv
 OUT_REPORT = REPO_ROOT / "data" / "outputs" / "epl_2026_27_calibration_report.md"
 OUT_RELIABILITY = REPO_ROOT / "data" / "outputs" / "epl_2026_27_reliability_tables.csv"
 OUT_CURVES = REPO_ROOT / "data" / "outputs" / "epl_2026_27_calibration_curves.csv"
+OUT_SUMMARY = REPO_ROOT / "data" / "outputs" / "epl_2026_27_calibration_summary.csv"
 
 CLASSES = ["home_win", "draw", "away_win"]
 N_BINS = 10
@@ -142,6 +143,15 @@ def main() -> None:
         p = max(cal_probs[row["actual_result"]], 1e-12)
         calibrated_losses.append(-np.log(p))
     calibrated_log_loss = float(np.mean(calibrated_losses))
+
+    # A small structured artifact for downstream consumers (the dashboard
+    # JSON builder) that don't want to regex the markdown report for the
+    # ECE number.
+    pd.DataFrame([{
+        "method": method_used, "ece": round(ece, 4),
+        "raw_log_loss": round(float(raw_log_loss), 4), "calibrated_log_loss": round(calibrated_log_loss, 4),
+        "n_matches": len(backtest_df), "generated_at": now_utc_iso(),
+    }]).to_csv(OUT_SUMMARY, index=False)
 
     with open(OUT_REPORT, "w") as f:
         f.write("# EPL 2026-27 Calibration Report (Phase 1)\n\n")

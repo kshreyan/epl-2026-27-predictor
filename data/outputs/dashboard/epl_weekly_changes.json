@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-18T03:02:56+00:00",
+  "generated_at": "2026-08-18T10:35:26+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 0,
   "status": "not_yet_available",
-  "note": "The weekly-update engine has not been built yet (today, 2026-08-18, is before kickoff on 2026-08-21 -- there is no completed matchweek to report changes from). See reports/epl_2026_27_model_report.md 'Deferred to later phases'.",
+  "note": "The weekly-update engine exists (src/update_after_matchweek.py) but has never run against real data: today, 2026-08-18, is before kickoff on 2026-08-21, so there is no completed matchweek to report changes from yet.",
   "data": []
 }

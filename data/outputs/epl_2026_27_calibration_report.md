@@ -1,6 +1,6 @@
 # EPL 2026-27 Calibration Report (Phase 1)
 
-Generated: 2026-08-17T23:49:24+00:00
+Generated: 2026-08-18T10:34:47+00:00
 
 Calibration method: **isotonic** (isotonic regression per outcome class, fit on 2660 real backtest matches; minimum 500 samples required per class).
 
