@@ -64,6 +64,7 @@ def tmp_paths(tmp_path) -> WeeklyUpdatePaths:
         ledger=tmp_path / "ledger.csv",
         weekly_scoring=tmp_path / "weekly_scoring.csv",
         reliability_running=tmp_path / "reliability_running.csv",
+        reliability_horizon=tmp_path / "reliability_horizon.csv",
         season_probability_path=tmp_path / "season_probability_path.csv",
         recalibration_decisions=tmp_path / "recalibration_decisions.csv",
         active_calibrators=tmp_path / "active_calibrators.pkl",

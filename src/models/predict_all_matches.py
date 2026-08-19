@@ -49,8 +49,8 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.calibration.calibrate_probabilities import apply_calibration, fit_calibrators  # noqa: E402
 from src.evaluation.backtest import team_rolling_goal_avgs  # noqa: E402
-from src.evaluation.prediction_ledger import append_to_ledger  # noqa: E402
-from src.evaluation.recalibration_gate import load_active_calibrators  # noqa: E402
+from src.evaluation.prediction_ledger import append_to_ledger, load_real_match_odds  # noqa: E402
+from src.evaluation.recalibration_gate import apply_challenger, load_active_calibrators  # noqa: E402
 from src.features.build_schedule_congestion_features import build_schedule_congestion_features  # noqa: E402
 from src.models.baselines import (  # noqa: E402
     elo_only_probabilities,
@@ -90,6 +90,7 @@ BACKTEST_PATH = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv
 MODEL_CONFIG_PATH = REPO_ROOT / "config" / "model_config.yaml"
 OUT_PREDICTIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_predictions.csv"
 LEDGER_PATH = REPO_ROOT / "data" / "outputs" / "epl_2026_27_prediction_ledger.csv"
+MATCH_ODDS_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_match_odds.csv"
 ACTIVE_CALIBRATORS_PATH = REPO_ROOT / "model_registry" / "active_calibrators.pkl"
 OUT_EXPLANATIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_explanations.csv"
 
@@ -169,7 +170,7 @@ def build_model_context(
     elo_ratings = dict(elo_run.final_ratings)
     league_avg_goals_overall = float(pd.concat([df_clean["home_goals"], df_clean["away_goals"]]).mean())
 
-    calibrators, calibration_method = {}, "none"
+    calibrators, calibration_method, active_challenger = {}, "none", None
     ensemble_meta, ensemble_beats_dc, ensemble_metrics = None, False, {}
     if BACKTEST_PATH.exists():
         backtest_df = pd.read_csv(BACKTEST_PATH)
@@ -177,16 +178,19 @@ def build_model_context(
         calibration_method = "isotonic" if all(c is not None for c in calibrators.values()) else "raw_fallback"
 
         # A promoted challenger (recalibration_gate.py) replaces the
-        # static historical-only fit above -- but ONLY if it already beat
-        # the incumbent on held-out real 2026-27 matches; see that
-        # module's docstring. Below MIN_MATCHES_TO_ATTEMPT (60) real
-        # matches, no challenger is ever promoted, so this file simply
-        # doesn't exist yet and this is a no-op.
+        # static historical-only fit above -- but ONLY if a paired
+        # bootstrap 95% CI showed it beating the incumbent across
+        # rolling-origin real-match evaluations; see that module's
+        # docstring. Below MIN_MATCHES_TO_ATTEMPT (150) real matches, no
+        # challenger is ever promoted, so this file simply doesn't exist
+        # yet and this is a no-op. The challenger may be temperature
+        # scaling (below ISOTONIC_MIN_REAL_MATCHES) or isotonic, so it is
+        # applied via apply_challenger, not apply_calibration, in
+        # predict_fixtures below.
         active_path = active_calibrators_path if active_calibrators_path is not None else ACTIVE_CALIBRATORS_PATH
-        active = load_active_calibrators(active_path)
-        if active is not None:
-            calibrators = active
-            calibration_method = "isotonic_promoted_challenger"
+        active_challenger = load_active_calibrators(active_path)
+        if active_challenger is not None:
+            calibration_method = f"{active_challenger['method']}_promoted_challenger"
 
         ensemble_meta, ensemble_beats_dc, ensemble_metrics = fit_final_meta_learner(backtest_df)
         # ensemble_beats_dc requires a paired-bootstrap 95% CI that excludes
@@ -206,7 +210,7 @@ def build_model_context(
         "fit": fit, "elo_ratings": elo_ratings, "promoted_elo_offset": promoted_elo_offset,
         "promoted_rating_dist": promoted_rating_dist,
         "league_avg_goals_overall": league_avg_goals_overall,
-        "calibrators": calibrators, "calibration_method": calibration_method,
+        "calibrators": calibrators, "calibration_method": calibration_method, "active_challenger": active_challenger,
         "ensemble_meta": ensemble_meta, "ensemble_beats_dc": ensemble_beats_dc, "ensemble_metrics": ensemble_metrics,
     }
 
@@ -227,7 +231,9 @@ def predict_fixtures(
         matrix = score_matrix(lam, mu, fit.rho)
         raw_h, raw_d, raw_a = outcome_probabilities(matrix)
 
-        if ctx["calibrators"]:
+        if ctx.get("active_challenger") is not None:
+            calibrated = apply_challenger(ctx["active_challenger"], {"home_win": raw_h, "draw": raw_d, "away_win": raw_a})
+        elif ctx["calibrators"]:
             calibrated = apply_calibration(ctx["calibrators"], {"home_win": raw_h, "draw": raw_d, "away_win": raw_a})
         else:
             calibrated = {"home_win": raw_h, "draw": raw_d, "away_win": raw_a}
@@ -361,7 +367,7 @@ def main() -> None:
     pred_df.to_csv(OUT_PREDICTIONS, index=False)
     print(f"Wrote {len(pred_df)} match predictions to {OUT_PREDICTIONS}")
 
-    append_to_ledger(pred_rows, LEDGER_PATH)
+    append_to_ledger(pred_rows, LEDGER_PATH, match_odds_by_id=load_real_match_odds(MATCH_ODDS_PATH))
     print(f"Appended {len(pred_rows)} pre-kickoff predictions to {LEDGER_PATH}")
 
     expl_df = pd.DataFrame(expl_rows)

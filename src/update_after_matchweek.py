@@ -36,8 +36,13 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
-from src.evaluation.prediction_ledger import append_to_ledger  # noqa: E402
-from src.evaluation.recalibration_gate import attempt_recalibration  # noqa: E402
+from src.evaluation.prediction_ledger import append_to_ledger, load_real_match_odds  # noqa: E402
+from src.evaluation.recalibration_gate import (  # noqa: E402
+    EVALUATION_CADENCE_MATCHWEEKS as RECAL_CADENCE,
+    MIN_MATCHES_TO_ATTEMPT as RECAL_MIN_MATCHES,
+    N_BOOTSTRAP,
+    attempt_recalibration,
+)
 from src.evaluation.score_weekly_results import append_season_probability_path, score_after_matchweek  # noqa: E402
 from src.models.predict_all_matches import (  # noqa: E402
     PREDICTION_COLUMNS,
@@ -66,6 +71,7 @@ class WeeklyUpdatePaths:
     synthetic data into the real project files."""
     historical: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv")
     fixtures: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv")
+    match_odds: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_match_odds.csv")
     completed_2627: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_completed_matches.csv")
     model_config: Path = field(default_factory=lambda: REPO_ROOT / "config" / "model_config.yaml")
     sim_config: Path = field(default_factory=lambda: REPO_ROOT / "config" / "simulation_config.yaml")
@@ -76,6 +82,7 @@ class WeeklyUpdatePaths:
     weekly_dir: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "weekly")
     weekly_scoring: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_weekly_scoring.csv")
     reliability_running: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_reliability_running.csv")
+    reliability_horizon: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_reliability_horizon.csv")
     season_probability_path: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_season_probability_path.csv")
     recalibration_decisions: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_recalibration_decisions.csv")
     active_calibrators: Path = field(default_factory=lambda: REPO_ROOT / "model_registry" / "active_calibrators.pkl")
@@ -213,7 +220,7 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     pred_rows, expl_rows = predict_fixtures(remaining_fixtures, ctx, df_for_fit, model_cfg, "early_week_mode", generated_at, meta.run_id)
     weekly_predictions = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS] if pred_rows else pd.DataFrame(columns=PREDICTION_COLUMNS)
 
-    append_to_ledger(pred_rows, paths.ledger)
+    append_to_ledger(pred_rows, paths.ledger, match_odds_by_id=load_real_match_odds(paths.match_odds))
 
     # Merge into the main predictions file: completed matches keep their
     # ORIGINAL pre-match prediction (never overwritten) with the real
@@ -289,7 +296,7 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     # Gated challenger recalibration -- a documented no-op below 60 real
     # matches, never silently swaps the production calibrator (see
     # recalibration_gate.py docstring).
-    recalibration = attempt_recalibration(paths)
+    recalibration = attempt_recalibration(paths, matchweek=matchweek)
 
     with open(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_update_report.md", "w") as f:
         f.write(f"# EPL Matchweek {matchweek} Update Report\n\n")
@@ -300,15 +307,19 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
             f.write(probability_changes[["team", "title_probability_change", "top_4_probability_change", "relegation_probability_change"]].head(10).to_markdown(index=False))
             f.write("\n\n")
 
-        f.write("## Scoring\n\n")
+        f.write("## Scoring\n\n"
+                "Two tracks, never pooled: **preseason** is the frozen `preseason-2026-27-v2` tag's "
+                "forecast (no dc_raw baseline available for it -- that field didn't exist yet when v2 "
+                "was tagged); **operational** is the model's latest pre-kickoff prediction at any point "
+                "in the season.\n\n")
         f.write(f"This matchweek ({len(scoring['gameweek_scored'])} scored match(es)):\n\n")
-        f.write(scoring["gameweek_metrics"][["model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
+        f.write(scoring["gameweek_metrics"][["track", "model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
         f.write(f"\n\nCumulative, all {len(scoring['cumulative_scored'])} real match(es) scored so far this season:\n\n")
-        f.write(scoring["cumulative_metrics"][["model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
+        f.write(scoring["cumulative_metrics"][["track", "model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
         f.write("\n\n'production' is what the pipeline actually predicted (calibrated Dixon-Coles, "
-                "or the ensemble on the seasons it's statistically justified); 'dc_raw' is the "
-                "uncalibrated Dixon-Coles baseline; 'market' is unavailable until a real odds feed "
-                "is connected (see 'Data-quality warnings' below) and will show 0 matches until then.\n\n")
+                "or the ensemble on the seasons it's statistically justified, or a promoted challenger); "
+                "'dc_raw' is the uncalibrated Dixon-Coles baseline; 'market' is 0 matches until a real "
+                "match-odds snapshot is logged for that fixture (see 'Data-quality warnings' below).\n\n")
 
         if not scoring["surprising_results"].empty:
             f.write("## Most surprising results\n\n"
@@ -322,18 +333,24 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
         if recalibration is not None:
             f.write("## Recalibration gate\n\n")
             f.write(
-                f"Attempted (>= {60} real matches available): **{recalibration['decision']}**. "
-                f"Incumbent log loss on {recalibration['n_holdout']} held-out real matches: "
-                f"{recalibration['incumbent_log_loss_holdout']:.4f}; challenger: "
-                f"{recalibration['challenger_log_loss_holdout']:.4f}. "
-                f"See `{paths.recalibration_decisions.name}` for the full decision log.\n\n"
+                f"Attempted (>= {RECAL_MIN_MATCHES} real matches, matchweek is a multiple of "
+                f"{RECAL_CADENCE}): **{recalibration['decision']}**. Rolling-origin paired bootstrap "
+                f"({recalibration['n_paired_observations']} paired observations, {N_BOOTSTRAP} resamples): "
+                f"log-loss difference (incumbent - challenger) point estimate "
+                f"{recalibration['point_estimate_log_loss_diff']:.4f}, 95% CI "
+                f"[{recalibration['ci_low']:.4f}, {recalibration['ci_high']:.4f}]. Challenger method: "
+                f"{recalibration['challenger_method']}. Promotion requires the full CI on the "
+                f"challenger-is-better side. See `{paths.recalibration_decisions.name}` for the full decision log.\n\n"
             )
         else:
             f.write("## Recalibration gate\n\n"
-                    "Not attempted yet -- fewer than 60 real completed matches exist "
-                    "(recalibration_gate.py's MIN_MATCHES_TO_ATTEMPT). No automatic weekly "
-                    "recalibration runs; this gate only activates once there is enough real "
-                    "data to validate a challenger on a genuine held-out slice.\n\n")
+                    f"Not attempted this matchweek -- either fewer than {RECAL_MIN_MATCHES} real completed "
+                    "matches exist yet, or this matchweek is not on the evaluation cadence "
+                    f"(every {RECAL_CADENCE}th matchweek, recalibration_gate.py's "
+                    "EVALUATION_CADENCE_MATCHWEEKS, to avoid repeated-testing across the season). No "
+                    "automatic weekly recalibration ever runs; this gate only activates on cadence, and "
+                    "only promotes a challenger backed by a paired-bootstrap 95% CI on rolling-origin "
+                    "evaluations across the whole season so far.\n\n")
 
         f.write("## Data-quality warnings\n\n"
                 "- Injury, lineup, and market-odds data remain unavailable (see config/data_sources.yaml) -- "

@@ -23,9 +23,14 @@ which enforces this as an assertion, not just a design intention).
 from __future__ import annotations
 
 import csv
+import subprocess
 from pathlib import Path
 
 import pandas as pd
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+PRESEASON_TAG = "preseason-2026-27-v2"
+PREDICTIONS_RELPATH = "data/outputs/epl_2026_27_match_predictions.csv"
 
 LEDGER_COLUMNS = [
     "match_id", "matchweek", "home_team", "away_team", "kickoff_utc",
@@ -36,11 +41,30 @@ LEDGER_COLUMNS = [
 ]
 
 
-def prediction_rows_to_ledger_rows(pred_rows: list[dict]) -> list[dict]:
+def prediction_rows_to_ledger_rows(pred_rows: list[dict], match_odds_by_id: dict | None = None) -> list[dict]:
     """Maps `predict_fixtures`' PREDICTION_COLUMNS-shaped dicts into the
-    ledger's own (narrower, renamed) schema."""
-    return [
-        {
+    ledger's own (narrower, renamed) schema. `match_odds_by_id` (from
+    `load_real_match_odds`) supplies the ledger's market_* fields when a
+    real, manually-logged 1X2 snapshot exists for that match -- this is
+    deliberately separate from PREDICTION_COLUMNS' own
+    `*_market_integrated` fields, which represent a different, still-
+    unbuilt blended model+market prediction feature. The ledger's
+    market_* fields exist purely as a scoring BASELINE, not a feature."""
+    match_odds_by_id = match_odds_by_id or {}
+    rows = []
+    for r in pred_rows:
+        odds = match_odds_by_id.get(r["match_id"])
+        if odds is not None:
+            market_home, market_draw, market_away, market_available = (
+                odds["home_implied_probability_no_vig"], odds["draw_implied_probability_no_vig"],
+                odds["away_implied_probability_no_vig"], True,
+            )
+        else:
+            market_home, market_draw, market_away, market_available = (
+                r.get("home_win_prob_market_integrated", ""), r.get("draw_prob_market_integrated", ""),
+                r.get("away_win_prob_market_integrated", ""), r.get("market_available", False),
+            )
+        rows.append({
             "match_id": r["match_id"], "matchweek": r["matchweek"],
             "home_team": r["home_team"], "away_team": r["away_team"],
             "kickoff_utc": r["kickoff_utc"],
@@ -50,24 +74,39 @@ def prediction_rows_to_ledger_rows(pred_rows: list[dict]) -> list[dict]:
             "dc_raw_home_win_prob": r["dc_raw_home_win_prob"],
             "dc_raw_draw_prob": r["dc_raw_draw_prob"],
             "dc_raw_away_win_prob": r["dc_raw_away_win_prob"],
-            "market_home_win_prob": r.get("home_win_prob_market_integrated", ""),
-            "market_draw_prob": r.get("draw_prob_market_integrated", ""),
-            "market_away_win_prob": r.get("away_win_prob_market_integrated", ""),
-            "market_available": r.get("market_available", False),
+            "market_home_win_prob": market_home, "market_draw_prob": market_draw, "market_away_win_prob": market_away,
+            "market_available": market_available,
             "prediction_mode": r["prediction_mode"], "run_id": r["run_id"],
             "model_version": r["model_version"], "generated_at": r["generated_at"],
+        })
+    return rows
+
+
+def load_real_match_odds(match_odds_path: Path) -> dict:
+    """Real, manually-logged match_id -> de-vigged 1X2 probability dict,
+    from `data/raw/epl_2026_27_match_odds.csv`'s `real_snapshot` rows
+    only (sentinel `unavailable` rows are never used)."""
+    if not match_odds_path.exists():
+        return {}
+    df = pd.read_csv(match_odds_path)
+    real = df[df["data_status"] == "real_snapshot"]
+    return {
+        row["match_id"]: {
+            "home_implied_probability_no_vig": row["home_implied_probability_no_vig"],
+            "draw_implied_probability_no_vig": row["draw_implied_probability_no_vig"],
+            "away_implied_probability_no_vig": row["away_implied_probability_no_vig"],
         }
-        for r in pred_rows
-    ]
+        for _, row in real.iterrows()
+    }
 
 
-def append_to_ledger(pred_rows: list[dict], ledger_path: Path) -> None:
+def append_to_ledger(pred_rows: list[dict], ledger_path: Path, match_odds_by_id: dict | None = None) -> None:
     """Appends one row per prediction to `ledger_path`, creating it with
     a header the first time. Pure append -- never reads the file back in
     to rewrite it, so no existing row can be touched."""
     if not pred_rows:
         return
-    ledger_rows = prediction_rows_to_ledger_rows(pred_rows)
+    ledger_rows = prediction_rows_to_ledger_rows(pred_rows, match_odds_by_id=match_odds_by_id)
     ledger_path.parent.mkdir(parents=True, exist_ok=True)
     write_header = not ledger_path.exists()
     with open(ledger_path, "a", newline="", encoding="utf-8") as f:
@@ -118,3 +157,47 @@ def select_pre_kickoff_predictions(ledger: pd.DataFrame, match_ids: list | None 
         "leak-check failed: a row selected for scoring is not actually pre-kickoff"
     )
     return selected
+
+
+def load_preseason_ledger(
+    git_ref: str = PRESEASON_TAG, repo_root: Path = REPO_ROOT, predictions_relpath: str = PREDICTIONS_RELPATH,
+) -> pd.DataFrame:
+    """The frozen `preseason-2026-27-v2` forecast, read directly from its
+    git tag rather than from the live ledger -- the ledger itself did
+    not exist yet as of that tag (it was added in a later commit), so
+    this is the only way to recover exactly what was locked at kickoff-3
+    without relying on the ledger's first block happening to match
+    (true today only by coincidence, not by any enforced invariant).
+
+    The tagged `epl_2026_27_match_predictions.csv` has no dc_raw_*
+    columns (added after v2 was tagged) -- those are set to NaN here,
+    honestly, rather than backfilled from a model refit today, which
+    would not reflect what was actually computed at tag time and would
+    reintroduce exactly the leak this whole module exists to prevent.
+    Scoring against this track therefore has NO Dixon-Coles-raw
+    baseline available; only the production probabilities can be
+    scored against it.
+    """
+    result = subprocess.run(
+        ["git", "show", f"{git_ref}:{predictions_relpath}"],
+        cwd=repo_root, capture_output=True, text=True, check=True,
+    )
+    from io import StringIO
+    tagged = pd.read_csv(StringIO(result.stdout))
+
+    ledger_shaped = pd.DataFrame({
+        "match_id": tagged["match_id"], "matchweek": tagged["matchweek"],
+        "home_team": tagged["home_team"], "away_team": tagged["away_team"],
+        "kickoff_utc": tagged["kickoff_utc"],
+        "home_win_prob": tagged["home_win_prob_model_only"],
+        "draw_prob": tagged["draw_prob_model_only"],
+        "away_win_prob": tagged["away_win_prob_model_only"],
+        "dc_raw_home_win_prob": pd.NA, "dc_raw_draw_prob": pd.NA, "dc_raw_away_win_prob": pd.NA,
+        "market_home_win_prob": pd.NA, "market_draw_prob": pd.NA, "market_away_win_prob": pd.NA,
+        "market_available": False,
+        "prediction_mode": tagged["prediction_mode"], "run_id": tagged["run_id"],
+        "model_version": tagged["model_version"], "generated_at": tagged["generated_at"],
+    })
+    ledger_shaped["kickoff_utc"] = pd.to_datetime(ledger_shaped["kickoff_utc"], utc=True)
+    ledger_shaped["generated_at"] = pd.to_datetime(ledger_shaped["generated_at"], utc=True)
+    return ledger_shaped

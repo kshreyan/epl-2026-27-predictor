@@ -244,34 +244,79 @@ of (d):
   ledger: all 380 rows pass the leak-check.
 - **`src/evaluation/score_weekly_results.py`**: runs automatically
   inside `run_update()` right after a matchweek's results are locked.
-  Computes per-gameweek and cumulative log loss/Brier/RPS for the
-  production prediction, the raw (uncalibrated) Dixon-Coles baseline
-  captured at prediction time (so no baseline is ever reconstructed
-  from a since-refit model), and market odds (0 matches until a real
-  odds feed is connected -- reported honestly, never fabricated). Also
-  a running reliability table over real 2026-27 results scored so far,
-  a "most surprising results" list (matches ranked by how little
-  probability the model assigned to what actually happened), and an
-  append-only season-level title/top-4/relegation probability path (one
-  20-row block per matchweek, so the full season trajectory can be
-  reconstructed later).
+  **Horizon-aware, two tracks, never pooled**: every metric is computed
+  separately for the **preseason** track (the frozen
+  `preseason-2026-27-v2` tag's predictions, read directly from git via
+  `prediction_ledger.load_preseason_ledger` -- the ledger itself did
+  not exist yet as of that tag, so this cannot come from the live
+  ledger) and the **operational** track (the latest pre-kickoff
+  prediction at any point in the season). Per-gameweek and cumulative
+  log loss/Brier/RPS for the production prediction, the raw
+  (uncalibrated) Dixon-Coles baseline captured at prediction time (so
+  no baseline is ever reconstructed from a since-refit model), and a
+  real market baseline (see below). Also a running (non-horizon)
+  reliability table per track, a **horizon-stratified reliability
+  table** bucketing every pre-kickoff prediction ever logged for a
+  completed match (not just the latest) by days-before-kickoff (0-2,
+  3-7, 8-30, 31+) -- answering "how calibrated are predictions made X
+  days out", a different question from "how calibrated is our current
+  best guess" -- a "most surprising results" list, and an append-only
+  season-level title/top-4/relegation probability path.
+- **Real match-level 1X2 odds are now connected**: no live odds feed
+  exists in this environment (needs a user-supplied `ODDS_API_KEY`,
+  see `collect_real_odds.py`), so
+  `src/data_collection/collect_match_odds.py` -- the per-fixture
+  counterpart to the season-outright odds snapshot above -- accepts a
+  manually-entered, de-vigged 1X2 snapshot per match_id, preserved on
+  every re-run exactly like the outright-odds collector. All 10 real
+  gameweek-1 fixtures now carry a real snapshot (ESPN/DraftKings,
+  captured 2026-08-19, 2-3 days before kickoff -- not confirmed to be
+  the literal closing line). `prediction_ledger.append_to_ledger` pulls
+  these into the ledger's `market_*` fields at append time (a scoring
+  baseline, deliberately separate from `PREDICTION_COLUMNS`'
+  `*_market_integrated` fields, which represent a different, still-
+  unbuilt blended model+market prediction feature). Verified against
+  the real ledger: 10/380 matches now score a genuine market baseline;
+  the model and market disagree most on Ipswich Town (13.9% model vs
+  34.9% market win probability for their opener against Sunderland) --
+  consistent with the same Ipswich-specific gap already flagged in
+  "Market comparison" above.
 - **`src/evaluation/recalibration_gate.py`**: explicitly NOT an
-  automatic recalibration loop. Below 60 real completed matches
-  (`MIN_MATCHES_TO_ATTEMPT`) it is a documented no-op. Above it, a
-  challenger calibrator (static historical backtest + all real 2026-27
-  results except the most recent ~20 held out) is evaluated against the
-  incumbent (static-only) calibrator on that held-out slice, which
-  neither has seen. The challenger replaces production's calibrator
-  only if it strictly beats the incumbent's held-out log loss; every
-  attempt, promoted or not, is appended to
-  `epl_2026_27_recalibration_decisions.csv` with its exact numbers.
-  `tests/test_recalibration_gate.py` verifies all three cases with
-  synthetic data: a real no-op below the threshold, a genuine promotion
-  when real data carries exploitable signal the static backtest didn't
-  have, and a logged rejection when it doesn't.
+  automatic recalibration loop, tightened after a second review found
+  the first version's single ~20-match recent holdout and bare point-
+  estimate win too loose for a decision that swaps production's
+  calibrator. Now: **150 real matches minimum** (`MIN_MATCHES_TO_ATTEMPT`,
+  up from 60) before the gate is even eligible; **rolling-origin
+  evaluation** across the whole season so far (real matches walked
+  forward in ~10-match chunks, a challenger refit before each chunk on
+  historical backtest + all real matches strictly before it, evaluated
+  on that chunk -- one paired observation per real match across every
+  chunk, not just a recent slice); promotion requires a **paired
+  bootstrap (10,000 resamples) 95% CI on the log-loss difference that
+  excludes zero on the challenger-is-better side** (`ci_low > 0`), the
+  same statistical bar already used for the ensemble-vs-Dixon-Coles
+  decision, not a bare point estimate; a **fixed evaluation cadence**
+  (every 5th matchweek, `EVALUATION_CADENCE_MATCHWEEKS`) rather than a
+  Bonferroni correction, to control repeated testing across a 38-week
+  season; and the challenger is restricted to **temperature scaling**
+  (`softmax(log(p_raw) / T)`, a single scalar parameter) below
+  `ISOTONIC_MIN_REAL_MATCHES` (500) real matches -- since a Premier
+  League season is only 380 matches, this challenger uses temperature
+  scaling for the entire 2026-27 season; isotonic (used unchanged for
+  the INCUMBENT, which never touches real data) only becomes eligible
+  for the challenger in a future season once enough real matches have
+  accumulated across seasons. Every attempt, promoted or not, is
+  appended to `epl_2026_27_recalibration_decisions.csv` with its exact
+  numbers. `tests/test_recalibration_gate.py` verifies: a real no-op
+  below the threshold and off-cadence, every attempt logged regardless
+  of outcome, a genuine promotion (full bootstrap CI on the
+  challenger's side) when real data carries exploitable signal the
+  static backtest didn't have, a logged rejection when it doesn't, and
+  the temperature-scaling/isotonic method switch at the 500-match
+  threshold.
 
 **This still cannot be exercised against real 2026-27 results**: today
-(2026-08-18) is three days before kickoff (2026-08-21). All of the
+(2026-08-19) is two days before kickoff (2026-08-21). All of the
 above is verified against synthetic scores for real matchweek-1
 fixtures, written only to a temporary directory via an injectable
 `WeeklyUpdatePaths` (now covering the ledger, scoring, and
