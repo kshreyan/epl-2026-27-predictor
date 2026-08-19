@@ -41,9 +41,15 @@ Pages; adjust `REPO_NAME` there if the repo is ever renamed.
 `.github/workflows/deploy.yml` builds and deploys `dist/` to GitHub
 Pages on every push to `main`. It builds from whatever
 `data/outputs/dashboard/*.json` is already committed -- it does **not**
-re-run the Python prediction pipeline. Regenerate and commit the JSON
-yourself (or via a separate scheduled workflow, not yet built) before
-pushing if you want the live site to reflect a new pipeline run.
+re-run the Python prediction pipeline itself. `.github/workflows/weekly_update.yml`
+is what regenerates and commits fresh JSON: it runs daily, locks any
+real gameweek that has newly and fully concluded, refits, re-predicts
+the rest of the season, and rebuilds the dashboard JSON -- a genuine
+no-op on days nothing concluded (see
+`reports/epl_2026_27_model_report.md` "Automated trigger"). That
+commit is what then triggers this deploy workflow. You can also
+regenerate and commit the JSON yourself at any time if you want the
+live site to reflect a new pipeline run sooner.
 
 ## Pages
 

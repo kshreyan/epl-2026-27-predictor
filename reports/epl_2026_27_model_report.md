@@ -316,7 +316,7 @@ of (d):
   threshold.
 
 **This still cannot be exercised against real 2026-27 results**: today
-(2026-08-19) is two days before kickoff (2026-08-21). All of the
+(2026-08-20) is one day before kickoff (2026-08-21). All of the
 above is verified against synthetic scores for real matchweek-1
 fixtures, written only to a temporary directory via an injectable
 `WeeklyUpdatePaths` (now covering the ledger, scoring, and
@@ -328,6 +328,53 @@ recalibration paths too) -- never to the real project data files
 separate weekly-update runs produce two distinct run_ids that are both
 appended to the experiment log, never overwriting each other's
 timestamp -- spec section 33's explicit requirement.
+
+### Automated trigger: no human pastes in a results CSV
+
+Everything above runs the moment `run_update()` is called with a real
+matchweek and a real results file -- but something still had to
+*supply* that call. Two new pieces close that gap:
+
+- **`src/data_collection/fetch_live_results.py`**: fetches real,
+  currently-completed 2026-27 results from football-data.co.uk's
+  live-updating current-season CSV (the same real source
+  `collect_historical_results.py` already uses for 2014/15-2025/26;
+  its current-season file gets new rows appended within a day or two
+  of matches being played). Maps each result to its real `match_id` in
+  `epl_2026_27_fixtures.csv` via team name + `normalize_team_name`
+  (raising, never guessing, on an unrecognized name -- same discipline
+  as every other real collector here) and raises if a completed result
+  has no matching fixture (a real data-integrity signal, never
+  silently dropped). Verified live against the real endpoint: correctly
+  returns 0 results right now (the 2026-27 season file does not exist
+  yet on football-data.co.uk pre-kickoff -- confirmed via direct
+  request, HTTP 300, not an error condition), and the parsing/matching
+  logic itself is tested against synthetic CSV text mirroring the real
+  column format (`tests/test_fetch_live_results.py`).
+- **`src/weekly_auto_update.py`**: determines which matchweek (if any)
+  has newly and *fully* concluded -- every one of its real fixtures has
+  a real result available, not just the first one or most of them,
+  since gameweeks don't always finish on the same day once
+  postponements/rearrangements happen -- and is not already locked.
+  Calls `run_update()` for each newly-complete matchweek in
+  chronological order (required: each matchweek's own pre-kickoff
+  prediction must reflect only the matchweeks strictly before it), then
+  rebuilds the dashboard JSON. A genuine no-op (no lock, no refit, no
+  commit) on any day nothing has newly concluded --
+  `tests/test_weekly_auto_update.py` verifies the no-op case, the
+  detection logic, chronological ordering across a multi-week gap, and
+  a full end-to-end run (real refit/predict/simulate/score/
+  recalibration-gate path, live-results fetch replaced with a fixed
+  in-memory result set) that correctly becomes a no-op on a second call
+  once that matchweek is already locked.
+- **`.github/workflows/weekly_update.yml`**: runs
+  `python -m src.weekly_auto_update` daily (06:00 UTC) plus on manual
+  dispatch, after a fast-test-suite safety check. Needs no API keys or
+  secrets -- results come from a public CSV, and match-odds/injury data
+  (where connected) are read from files already committed, not
+  re-fetched live on this schedule. Commits and pushes only if
+  something actually changed, which in turn triggers `deploy.yml` to
+  redeploy the dashboard from whatever this workflow just committed.
 
 Full detail: `data/outputs/epl_backtest_match_results.csv`,
 `epl_backtest_model_comparison.csv`, `epl_backtest_scoreline_accuracy.csv`,

@@ -12,10 +12,13 @@ audit, and the integrity audit.
     python run_pipeline.py --season 2026-27 --mode weekly_update --matchweek 1 --results path/to/results.csv
 
 locks a matchweek's real results and re-predicts the rest of the
-season (src/update_after_matchweek.py) -- implemented in Phase 3, but
-cannot be run for real yet since today (2026-08-18) is before kickoff
-(2026-08-21); see tests/test_completed_match_locking.py for how it's
-verified against synthetic data in the meantime.
+season (src/update_after_matchweek.py), then rebuilds the dashboard
+JSON. This is the manual, one-matchweek-at-a-time entry point; the
+real, automated version that fetches results itself and figures out
+which matchweek (if any) has newly and fully concluded is
+`python -m src.weekly_auto_update` (no arguments -- reads live results
+from football-data.co.uk, a genuine no-op on days nothing concluded),
+run daily by `.github/workflows/weekly_update.yml`.
 
 `--mode pre_match` and `--mode confirmed_lineup` are defined by the
 spec but not implemented: they depend on live injury/lineup/odds data
@@ -92,6 +95,7 @@ def main() -> None:
         print(f"Running weekly update for season {args.season}, matchweek {args.matchweek}")
         from src.update_after_matchweek import run_update
         run_update(args.matchweek, Path(args.results))
+        run_step("Build dashboard JSON", "src.dashboard.build_dashboard_json")
         print(f"\n{'=' * 70}\nWeekly update complete.\n{'=' * 70}")
         return
 
