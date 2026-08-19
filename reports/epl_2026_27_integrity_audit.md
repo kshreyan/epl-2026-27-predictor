@@ -1,6 +1,6 @@
 # EPL 2026-27 Integrity Audit
 
-Generated: 2026-08-19T12:37:39+00:00
+Generated: 2026-08-19T17:35:29+00:00
 
 **23 passed, 0 failed, 3 not yet applicable** (out of 26 checks).
 
@@ -9,7 +9,7 @@ Generated: 2026-08-19T12:37:39+00:00
 | PASS | All 380 fixtures are present | found 380 |
 | PASS | No duplicate match IDs in fixtures |  |
 | PASS | No missing teams (exactly the 20 real 2026-27 clubs) |  |
-| PASS | No fake odds are used (all 2026-27 odds rows are explicitly flagged unavailable, not fabricated) | 380 rows checked |
+| PASS | No fake odds are used (every real row has a real source_name and data_status=live; every other row is explicitly flagged unavailable, never fabricated) | 579 rows checked (209 real, 370 unavailable) |
 | PASS | No fake injuries are used (all 2026-27 injury rows are explicitly flagged unavailable, not fabricated) | 20 rows checked |
 | PASS | No fake squad news is used (all 2026-27 squad rows are explicitly flagged unavailable, not fabricated) | 20 rows checked |
 | PASS | No placeholder rows in historical matches are treated as real (is_real_data=True implies a real source, and every row has one) | 4560 rows, source=['football-data.co.uk'] |

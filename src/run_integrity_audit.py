@@ -54,10 +54,23 @@ def run_checks() -> None:
     )
 
     odds = pd.read_csv(RAW / "epl_2026_27_real_odds.csv")
+    # Since ODDS_API_KEY was configured, some rows are now genuinely real
+    # (is_real_data=True, data_status=live, a real source_name) -- the
+    # invariant to check is no longer "every row is unavailable", it's
+    # "is_real_data and data_status never disagree, and nothing claims
+    # to be real without a real, non-placeholder source_name".
+    real_odds_rows = odds[odds["is_real_data"] == True]  # noqa: E712
+    sentinel_odds_rows = odds[odds["is_real_data"] == False]  # noqa: E712
     check(
-        "No fake odds are used (all 2026-27 odds rows are explicitly flagged unavailable, not fabricated)",
-        bool((odds["is_real_data"] == False).all() and (odds["data_status"] == "unavailable").all()),  # noqa: E712
-        f"{len(odds)} rows checked",
+        "No fake odds are used (every real row has a real source_name and data_status=live; every "
+        "other row is explicitly flagged unavailable, never fabricated)",
+        bool(
+            (real_odds_rows["data_status"] == "live").all()
+            and (real_odds_rows["source_name"] != "none_available").all()
+            and (sentinel_odds_rows["data_status"] == "unavailable").all()
+            and (sentinel_odds_rows["source_name"] == "none_available").all()
+        ),
+        f"{len(odds)} rows checked ({len(real_odds_rows)} real, {len(sentinel_odds_rows)} unavailable)",
     )
 
     injuries = pd.read_csv(RAW / "epl_2026_27_injury_suspension.csv")

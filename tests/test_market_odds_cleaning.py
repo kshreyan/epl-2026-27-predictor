@@ -43,10 +43,43 @@ def test_log_odds_average_of_multiple_bookmakers_sums_to_one():
     assert abs(sum(result) - 1.0) < 1e-9
 
 
-def test_market_features_report_unavailable_for_current_sentinel_odds_file():
-    # data/raw/epl_2026_27_real_odds.csv is a Phase-1/2 sentinel file (no
-    # live feed connected) -- every row must come back market_available=False
-    # rather than silently computing "probabilities" from fabricated data.
-    odds_df = pd.read_csv(RAW_ODDS_PATH)
+def test_market_features_marks_sentinel_only_matches_unavailable():
+    # A match with only sentinel (is_real_data=False) odds rows must come
+    # back market_available=False -- never a fabricated "probability"
+    # computed from placeholder odds.
+    odds_df = pd.DataFrame([{
+        "match_id": "m1", "is_real_data": False, "current_home_odds": "", "current_draw_odds": "", "current_away_odds": "",
+    }])
     features = build_market_features(odds_df)
     assert (features["market_available"] == False).all()  # noqa: E712
+
+
+def test_market_features_uses_real_odds_when_present():
+    # A match with real (is_real_data=True) bookmaker rows must come back
+    # market_available=True with a genuine no-vig probability -- this is
+    # what a real live-odds feed (collect_odds.py with ODDS_API_KEY
+    # configured) actually produces once a bookmaker posts a market.
+    odds_df = pd.DataFrame([
+        {"match_id": "m2", "is_real_data": True, "current_home_odds": 1.5, "current_draw_odds": 4.0, "current_away_odds": 6.0},
+        {"match_id": "m2", "is_real_data": True, "current_home_odds": 1.55, "current_draw_odds": 3.9, "current_away_odds": 5.8},
+    ])
+    features = build_market_features(odds_df)
+    row = features[features["match_id"] == "m2"].iloc[0]
+    assert row["market_available"] == True  # noqa: E712
+    assert 0 < row["market_home_win_prob_current"] < 1
+    total = row["market_home_win_prob_current"] + row["market_draw_prob_current"] + row["market_away_win_prob_current"]
+    assert abs(total - 1.0) < 1e-6
+
+
+def test_market_features_on_real_odds_file_never_fabricates():
+    # Whatever the CURRENT real state of the file is (sentinel-only, or
+    # partially real once a live feed is connected), every row's
+    # market_available must be a true reflection of is_real_data --
+    # never computed from a sentinel row.
+    if not RAW_ODDS_PATH.exists():
+        return
+    odds_df = pd.read_csv(RAW_ODDS_PATH)
+    features = build_market_features(odds_df)
+    real_match_ids = set(odds_df.loc[odds_df["is_real_data"] == True, "match_id"])  # noqa: E712
+    for _, row in features.iterrows():
+        assert row["market_available"] == (row["match_id"] in real_match_ids)

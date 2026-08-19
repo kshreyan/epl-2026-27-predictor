@@ -85,7 +85,10 @@ def prediction_rows_to_ledger_rows(pred_rows: list[dict], match_odds_by_id: dict
 def load_real_match_odds(match_odds_path: Path) -> dict:
     """Real, manually-logged match_id -> de-vigged 1X2 probability dict,
     from `data/raw/epl_2026_27_match_odds.csv`'s `real_snapshot` rows
-    only (sentinel `unavailable` rows are never used)."""
+    only (sentinel `unavailable` rows are never used). One bookmaker per
+    match, entered by hand -- see `load_live_match_odds` for the richer,
+    multi-bookmaker live-API source, which takes priority when both are
+    available (see `load_combined_match_odds`)."""
     if not match_odds_path.exists():
         return {}
     df = pd.read_csv(match_odds_path)
@@ -98,6 +101,42 @@ def load_real_match_odds(match_odds_path: Path) -> dict:
         }
         for _, row in real.iterrows()
     }
+
+
+def load_live_match_odds(real_odds_path: Path) -> dict:
+    """Real match_id -> de-vigged 1X2 probability dict from the live
+    The Odds API feed (`data/raw/epl_2026_27_real_odds.csv`, written by
+    `collect_odds.py` when `ODDS_API_KEY` is configured), cleaned via
+    `build_market_features`'s real, unit-tested overround-removal and
+    cross-bookmaker log-odds averaging -- typically 15-20+ real
+    bookmakers per fixture once a market is posted, not the single
+    manually-entered price `load_real_match_odds` reads."""
+    if not real_odds_path.exists():
+        return {}
+    from src.features.build_market_features import build_market_features
+    odds_df = pd.read_csv(real_odds_path)
+    market_df = build_market_features(odds_df)
+    available = market_df[market_df["market_available"] == True]  # noqa: E712
+    return {
+        row["match_id"]: {
+            "home_implied_probability_no_vig": row["market_home_win_prob_current"],
+            "draw_implied_probability_no_vig": row["market_draw_prob_current"],
+            "away_implied_probability_no_vig": row["market_away_win_prob_current"],
+        }
+        for _, row in available.iterrows()
+    }
+
+
+def load_combined_match_odds(real_odds_path: Path, match_odds_path: Path) -> dict:
+    """Live multi-bookmaker API odds where available, falling back to the
+    single-bookmaker manual snapshot for any match the live feed hasn't
+    posted a market for yet (bookmakers only post EPL markets shortly
+    before kickoff, so most of the season is covered by neither at any
+    given time -- that stays honestly reflected as market_available=False
+    downstream, not proxied)."""
+    manual = load_real_match_odds(match_odds_path)
+    live = load_live_match_odds(real_odds_path)
+    return {**manual, **live}  # live overrides manual for any match_id in both
 
 
 def append_to_ledger(pred_rows: list[dict], ledger_path: Path, match_odds_by_id: dict | None = None) -> None:

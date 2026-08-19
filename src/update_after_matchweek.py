@@ -36,7 +36,7 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
-from src.evaluation.prediction_ledger import append_to_ledger, load_real_match_odds  # noqa: E402
+from src.evaluation.prediction_ledger import append_to_ledger, load_combined_match_odds  # noqa: E402
 from src.evaluation.recalibration_gate import (  # noqa: E402
     EVALUATION_CADENCE_MATCHWEEKS as RECAL_CADENCE,
     MIN_MATCHES_TO_ATTEMPT as RECAL_MIN_MATCHES,
@@ -72,6 +72,7 @@ class WeeklyUpdatePaths:
     historical: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv")
     fixtures: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv")
     match_odds: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_match_odds.csv")
+    real_odds: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_real_odds.csv")
     completed_2627: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_completed_matches.csv")
     model_config: Path = field(default_factory=lambda: REPO_ROOT / "config" / "model_config.yaml")
     sim_config: Path = field(default_factory=lambda: REPO_ROOT / "config" / "simulation_config.yaml")
@@ -220,7 +221,7 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     pred_rows, expl_rows = predict_fixtures(remaining_fixtures, ctx, df_for_fit, model_cfg, "early_week_mode", generated_at, meta.run_id)
     weekly_predictions = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS] if pred_rows else pd.DataFrame(columns=PREDICTION_COLUMNS)
 
-    append_to_ledger(pred_rows, paths.ledger, match_odds_by_id=load_real_match_odds(paths.match_odds))
+    append_to_ledger(pred_rows, paths.ledger, match_odds_by_id=load_combined_match_odds(paths.real_odds, paths.match_odds))
 
     # Merge into the main predictions file: completed matches keep their
     # ORIGINAL pre-match prediction (never overwritten) with the real

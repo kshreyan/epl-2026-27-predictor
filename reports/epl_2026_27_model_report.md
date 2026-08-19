@@ -829,10 +829,14 @@ selectively:
 - **xG/PPDA/possession/big-chances are not available** for any
   historical season in the connected source, so the scoreline model is
   goals-only, not xG-informed.
-- **Squad, transfer, injury, lineup, and live-odds data are all
-  unavailable** for 2026-27 -- every 2026-27 prediction is model-only,
-  with `data_quality_score` explicitly discounted to reflect this (see
-  `src/models/predict_all_matches.py`).
+- **Squad, transfer, injury, and lineup data are all unavailable**
+  for 2026-27, and **every prediction is model-only regardless of
+  market-odds availability** -- live match odds are now connected
+  (see below), but they feed the prediction ledger's `market_*`
+  *scoring baseline* only, never the prediction itself; there is no
+  code path where market data influences `home_win_prob_model_only`.
+  `data_quality_score` is discounted to reflect the squad/transfer/
+  injury/lineup gaps (see `src/models/predict_all_matches.py`).
 - **European/domestic-cup fixture congestion is not modeled** -- only
   Premier League fixtures are in scope, so `*_european_match_last_7_days`
   and `*_cup_match_last_7_days` are explicitly flagged unavailable
@@ -856,26 +860,54 @@ the spec's own "don't include for prestige" instruction -- ~4,000
 historical matches is a small dataset for a deep sequence model;
 classical/statistical models are used instead).
 
-**Live market integration is built and tested, waiting on a user-
-supplied API key**, not deferred by choice: `src/data_collection/collect_odds.py`
-fetches real EPL 1X2 odds from The Odds API (terms permit dashboard/
-analytical-tool use) when `ODDS_API_KEY` is set via a gitignored
-`.env` (see `.env.example`), verified against the real endpoint on
-both the no-key and invalid-key paths -- no key is available in this
-environment (cannot self-service a signup), so `market_available`
-remains False. `src/features/build_market_features.py`'s overround-
-removal and log-odds-averaging math is real and unit-tested, ready to
-run the moment a key is added.
+**Live market integration is connected, 2026-08-19**: a real, user-
+supplied `ODDS_API_KEY` was added to a local gitignored `.env` (see
+`.env.example`), never committed, never referenced from any
+client-side file. `src/data_collection/collect_odds.py` -- already
+built and tested against the real endpoint's no-key/invalid-key paths
+-- now returns real data: 209 real bookmaker rows (15-21 bookmakers
+per fixture) across the 10 gameweek-1 matches a market has been
+posted for; the other 370 fixtures correctly stay the honest
+`unavailable` sentinel until closer to their own kickoff.
+`src/features/build_market_features.py`'s overround-removal and
+log-odds-averaging math (previously unit-tested against synthetic
+data only) now runs against this real feed via
+`prediction_ledger.load_live_match_odds`, feeding the prediction
+ledger's `market_*` scoring baseline. **This does not change what any
+prediction actually says**: `market_available`/`market_*` remain a
+separate scoring-comparison field, never blended into
+`home_win_prob_model_only` -- see the Limitations bullet above.
 
-**Injury/suspension data remains a genuine gap after evaluation, not
-an unexamined one**: API-Football was evaluated (free tier: 100
-req/day, a dedicated `/injuries` endpoint, terms that permit
-dashboard/app use) but its free-tier coverage of the *current* season
-specifically could not be confirmed without creating a real account,
-which this environment cannot do. Per this project's own rule ("if
-none exists, do NOT proxy it"), team-level `unknown` sentinel rows
-remain the honest state -- see `reports/epl_2026_27_data_audit.md`
+**Injury/suspension data remains a genuine gap, re-checked
+2026-08-19 with live evaluation, not just documentation review**:
+API-Football is still unconfirmed for the same reason as before
+(free-tier current-season coverage can't be verified without creating
+a real account, which this environment does not do on its own).
+PhysioRoom -- the best candidate free public injury table -- was
+checked directly against its own Terms & Conditions: "You must not
+reproduce, duplicate, copy or resell any part of the website or
+content unless specifically authorized in writing" -- an explicit
+reproduction prohibition, the same category of rejection as FBref
+below, confirmed rather than assumed. Sky Sports, RotoWire, and
+Squawka are standard ad-supported sports-media businesses in the same
+category; no public, reproduction-permitting feed was found among
+them either. Per this project's own rule ("if none exists, do NOT
+proxy it"), team-level `unknown` sentinel rows remain the honest
+state -- see `reports/epl_2026_27_data_audit.md`
 "Known limitation: player availability."
+
+**Squad/transfer market data remains a genuine gap, re-checked
+2026-08-19**: Transfermarkt, the dominant free public source for
+player market values and transfers, was checked directly rather than
+assumed unusable -- its terms explicitly prohibit "mechanisms,
+software or scripts" for automated access, and separately prohibit
+"reproduction, inclusion in online services... or duplication on data
+media of any kind, even in part" without prior written consent. This
+is a more explicit, more direct prohibition than FBref's own rejected
+terms, not merely the absence of an official API. No comparable free,
+ToS-compliant alternative was found; this remains what the spec
+already called for -- a licensed per-player transfer/market-value
+data vendor.
 
 Phase 2 completed: dashboard JSON (`src/dashboard/build_dashboard_json.py`),
 the integrity audit (`src/run_integrity_audit.py`,

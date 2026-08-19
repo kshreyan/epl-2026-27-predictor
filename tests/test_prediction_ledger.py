@@ -12,6 +12,9 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.evaluation.prediction_ledger import (  # noqa: E402
     LEDGER_COLUMNS,
     append_to_ledger,
+    load_combined_match_odds,
+    load_live_match_odds,
+    load_real_match_odds,
     read_ledger,
     select_pre_kickoff_predictions,
 )
@@ -119,3 +122,49 @@ def test_select_pre_kickoff_predictions_restricts_to_requested_match_ids(tmp_pat
     ledger = read_ledger(ledger_path)
     selected = select_pre_kickoff_predictions(ledger, match_ids=["m1"])
     assert list(selected["match_id"]) == ["m1"]
+
+
+def test_load_real_match_odds_only_uses_real_snapshot_rows(tmp_path):
+    path = tmp_path / "match_odds.csv"
+    pd.DataFrame([
+        {"match_id": "m1", "data_status": "real_snapshot",
+         "home_implied_probability_no_vig": 0.5, "draw_implied_probability_no_vig": 0.3, "away_implied_probability_no_vig": 0.2},
+        {"match_id": "m2", "data_status": "unavailable",
+         "home_implied_probability_no_vig": "", "draw_implied_probability_no_vig": "", "away_implied_probability_no_vig": ""},
+    ]).to_csv(path, index=False)
+    odds = load_real_match_odds(path)
+    assert set(odds) == {"m1"}
+    assert odds["m1"]["home_implied_probability_no_vig"] == 0.5
+
+
+def test_load_live_match_odds_cleans_via_build_market_features(tmp_path):
+    path = tmp_path / "real_odds.csv"
+    pd.DataFrame([
+        {"match_id": "m1", "is_real_data": True, "current_home_odds": 1.5, "current_draw_odds": 4.0, "current_away_odds": 6.0},
+        {"match_id": "m2", "is_real_data": False, "current_home_odds": "", "current_draw_odds": "", "current_away_odds": ""},
+    ]).to_csv(path, index=False)
+    odds = load_live_match_odds(path)
+    assert set(odds) == {"m1"}  # m2 has no real bookmaker rows -- never fabricated
+    total = sum(odds["m1"].values())
+    assert abs(total - 1.0) < 1e-6
+
+
+def test_load_combined_match_odds_prefers_live_over_manual(tmp_path):
+    real_odds_path = tmp_path / "real_odds.csv"
+    match_odds_path = tmp_path / "match_odds.csv"
+    # Live API has real data for m1 (should win); manual snapshot has a
+    # DIFFERENT value for m1 (should be overridden) and the only data for m2.
+    pd.DataFrame([
+        {"match_id": "m1", "is_real_data": True, "current_home_odds": 1.5, "current_draw_odds": 4.0, "current_away_odds": 6.0},
+    ]).to_csv(real_odds_path, index=False)
+    pd.DataFrame([
+        {"match_id": "m1", "data_status": "real_snapshot",
+         "home_implied_probability_no_vig": 0.99, "draw_implied_probability_no_vig": 0.005, "away_implied_probability_no_vig": 0.005},
+        {"match_id": "m2", "data_status": "real_snapshot",
+         "home_implied_probability_no_vig": 0.4, "draw_implied_probability_no_vig": 0.3, "away_implied_probability_no_vig": 0.3},
+    ]).to_csv(match_odds_path, index=False)
+
+    combined = load_combined_match_odds(real_odds_path, match_odds_path)
+    assert set(combined) == {"m1", "m2"}
+    assert combined["m1"]["home_implied_probability_no_vig"] != 0.99  # live overrides manual
+    assert combined["m2"]["home_implied_probability_no_vig"] == 0.4  # manual fills the gap live doesn't cover

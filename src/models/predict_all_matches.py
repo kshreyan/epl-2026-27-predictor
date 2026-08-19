@@ -49,7 +49,7 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.calibration.calibrate_probabilities import apply_calibration, fit_calibrators  # noqa: E402
 from src.evaluation.backtest import team_rolling_goal_avgs  # noqa: E402
-from src.evaluation.prediction_ledger import append_to_ledger, load_real_match_odds  # noqa: E402
+from src.evaluation.prediction_ledger import append_to_ledger, load_combined_match_odds  # noqa: E402
 from src.evaluation.recalibration_gate import apply_challenger, load_active_calibrators  # noqa: E402
 from src.features.build_schedule_congestion_features import build_schedule_congestion_features  # noqa: E402
 from src.models.baselines import (  # noqa: E402
@@ -91,6 +91,7 @@ MODEL_CONFIG_PATH = REPO_ROOT / "config" / "model_config.yaml"
 OUT_PREDICTIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_predictions.csv"
 LEDGER_PATH = REPO_ROOT / "data" / "outputs" / "epl_2026_27_prediction_ledger.csv"
 MATCH_ODDS_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_match_odds.csv"
+REAL_ODDS_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_real_odds.csv"
 ACTIVE_CALIBRATORS_PATH = REPO_ROOT / "model_registry" / "active_calibrators.pkl"
 OUT_EXPLANATIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_explanations.csv"
 
@@ -367,7 +368,7 @@ def main() -> None:
     pred_df.to_csv(OUT_PREDICTIONS, index=False)
     print(f"Wrote {len(pred_df)} match predictions to {OUT_PREDICTIONS}")
 
-    append_to_ledger(pred_rows, LEDGER_PATH, match_odds_by_id=load_real_match_odds(MATCH_ODDS_PATH))
+    append_to_ledger(pred_rows, LEDGER_PATH, match_odds_by_id=load_combined_match_odds(REAL_ODDS_PATH, MATCH_ODDS_PATH))
     print(f"Appended {len(pred_rows)} pre-kickoff predictions to {LEDGER_PATH}")
 
     expl_df = pd.DataFrame(expl_rows)
