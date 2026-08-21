@@ -111,17 +111,19 @@ currently it isn't, so Dixon-Coles alone is used; see
 `reports/epl_2026_27_ensemble_report.md`).
 
 **This now happens automatically.** `.github/workflows/weekly_update.yml`
-runs daily: fetches real completed 2026-27 results
+runs daily: refreshes live match odds (`ODDS_API_KEY` GitHub Actions
+secret), fetches real completed 2026-27 results
 (`src/data_collection/fetch_live_results.py`, football-data.co.uk's
-live-updating current-season file, no API key needed), locks any
-gameweek that has newly and fully concluded, refits, re-predicts the
-rest of the season (including next gameweek), scores what just
+live-updating current-season file, no key needed for this part), locks
+any gameweek that has newly and fully concluded, refits, re-predicts
+the rest of the season (including next gameweek), scores what just
 happened, lets the gated recalibration process evaluate itself (150
 real matches minimum, paired-bootstrap 95% CI required to promote a
 challenger -- never automatic on a small sample, see
 `reports/epl_2026_27_model_report.md` "Recalibration gate"), and
-commits the result -- a genuine no-op on any day nothing concluded.
-That commit triggers `deploy.yml` to redeploy the dashboard.
+commits the result -- a genuine no-op (beyond the odds refresh) on any
+day no gameweek concluded. That commit triggers `deploy.yml` to
+redeploy the dashboard.
 
 To do the same thing manually for one matchweek (e.g. to test a
 results file before the automation would pick it up):

@@ -15,6 +15,13 @@ name: Weekly auto-update after each gameweek
 # fully concluded since the last run. A push here (only happens when
 # something actually changed) triggers deploy.yml, which redeploys the
 # dashboard from whatever this workflow just committed.
+#
+# Also refreshes live match odds every run (ODDS_API_KEY repo secret,
+# 1 credit/call, well under the free tier's 500/month at daily cadence)
+# -- this keeps data/raw/epl_2026_27_real_odds.csv current even on days
+# nothing else changes, so the scoring baseline in
+# reports/epl_2026_27_model_report.md "Market comparison" doesn't go
+# stale the way it would if odds were only ever fetched manually.
 on:
   schedule:
     - cron: "0 6 * * *" # daily, 06:00 UTC -- safe because most days are a no-op
@@ -43,6 +50,11 @@ jobs:
 
       - name: Run fast test suite (safety check before touching real data)
         run: python -m pytest tests/ -q -m "not slow"
+
+      - name: Refresh live match odds
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python -m src.data_collection.collect_odds
 
       - name: Run weekly auto-update
         run: python -m src.weekly_auto_update

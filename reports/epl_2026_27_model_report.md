@@ -369,12 +369,16 @@ matchweek and a real results file -- but something still had to
   once that matchweek is already locked.
 - **`.github/workflows/weekly_update.yml`**: runs
   `python -m src.weekly_auto_update` daily (06:00 UTC) plus on manual
-  dispatch, after a fast-test-suite safety check. Needs no API keys or
-  secrets -- results come from a public CSV, and match-odds/injury data
-  (where connected) are read from files already committed, not
-  re-fetched live on this schedule. Commits and pushes only if
-  something actually changed, which in turn triggers `deploy.yml` to
-  redeploy the dashboard from whatever this workflow just committed.
+  dispatch, after a fast-test-suite safety check. Results themselves
+  need no key (a public CSV) -- but as of 2026-08-21 the workflow also
+  refreshes live match odds every run via `collect_odds.py`, reading
+  `ODDS_API_KEY` from a GitHub Actions repository secret (added by the
+  user; 1 credit/call, well under the free tier's 500/month at daily
+  cadence), so `data/raw/epl_2026_27_real_odds.csv` -- and the
+  prediction ledger's `market_*` scoring baseline it feeds -- stays
+  current automatically rather than frozen at whatever was last fetched
+  by hand. Commits and pushes if anything changed (a locked gameweek,
+  or just fresh odds), which in turn triggers `deploy.yml`.
 
 Full detail: `data/outputs/epl_backtest_match_results.csv`,
 `epl_backtest_model_comparison.csv`, `epl_backtest_scoreline_accuracy.csv`,
