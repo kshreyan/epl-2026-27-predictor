@@ -51,6 +51,7 @@ from src.calibration.calibrate_probabilities import apply_calibration, fit_calib
 from src.evaluation.backtest import team_rolling_goal_avgs  # noqa: E402
 from src.evaluation.prediction_ledger import append_to_ledger, load_combined_match_odds  # noqa: E402
 from src.evaluation.recalibration_gate import apply_challenger, load_active_calibrators  # noqa: E402
+from src.features.build_market_features import log_odds_average  # noqa: E402
 from src.features.build_schedule_congestion_features import build_schedule_congestion_features  # noqa: E402
 from src.models.baselines import (  # noqa: E402
     elo_only_probabilities,
@@ -59,6 +60,7 @@ from src.models.baselines import (  # noqa: E402
 )
 from src.models.elo_model import compute_promoted_team_elo_offset, run_elo  # noqa: E402
 from src.models.final_stacked_model import BASE_MODELS, CLASSES, fit_final_meta_learner  # noqa: E402
+from src.models.market_blend_model import evaluate_market_blend  # noqa: E402
 from src.models.promoted_team_adjustment import (  # noqa: E402
     compute_promoted_team_history,
     compute_promoted_team_rating_distribution,
@@ -108,7 +110,7 @@ PREDICTION_COLUMNS = [
     "dc_raw_home_win_prob", "dc_raw_draw_prob", "dc_raw_away_win_prob",
     "home_win_prob_market_integrated", "draw_prob_market_integrated", "away_win_prob_market_integrated",
     "top_10_scorelines_model_only_json", "top_10_scorelines_market_integrated_json",
-    "market_available", "closing_market_available", "squad_data_available", "injury_data_available", "lineup_data_available",
+    "market_available", "closing_market_available", "market_blend_applied", "squad_data_available", "injury_data_available", "lineup_data_available",
     "home_key_absences_count", "away_key_absences_count",
     "home_expected_lineup_strength", "away_expected_lineup_strength",
     "rest_day_diff", "congestion_diff", "model_market_disagreement", "confidence", "upset_risk",
@@ -207,23 +209,54 @@ def build_model_context(
               f"edge is {'statistically significant' if ensemble_beats_dc else 'NOT statistically significant'}; "
               f"{'using ensemble' if ensemble_beats_dc else 'using calibrated Dixon-Coles'} for final predictions.")
 
+        # Checked fresh every run, same discipline as the ensemble above:
+        # a 50/50 model+market log-odds blend, tested via paired
+        # bootstrap against 2,660 real historical matches with real
+        # market odds (see market_blend_model.py). Applied per-fixture
+        # only where BOTH this is significant AND real market odds
+        # actually exist for that fixture (predict_fixtures checks the
+        # latter). Same precondition as the ensemble above (needs the
+        # real backtest match results file) -- guarded the same way.
+        market_blend_result = evaluate_market_blend()
+        market_blend_significant = market_blend_result["blend_significant"]
+        print(f"Model+market blend log loss {market_blend_result['blend_mean_log_loss']:.4f} vs "
+              f"Dixon-Coles {market_blend_result['dc_mean_log_loss']:.4f} "
+              f"(bootstrap CI [{market_blend_result['significance']['ci_low']:+.4f}, "
+              f"{market_blend_result['significance']['ci_high']:+.4f}], "
+              f"{market_blend_result['significance']['season_wins']}/{market_blend_result['significance']['n_seasons']} seasons) -- "
+              f"edge is {'statistically significant' if market_blend_significant else 'NOT statistically significant'}; "
+              f"{'blending market odds in' if market_blend_significant else 'model-only'} for fixtures with real market data.")
+    else:
+        market_blend_significant = False
+
     return {
         "fit": fit, "elo_ratings": elo_ratings, "promoted_elo_offset": promoted_elo_offset,
         "promoted_rating_dist": promoted_rating_dist,
         "league_avg_goals_overall": league_avg_goals_overall,
         "calibrators": calibrators, "calibration_method": calibration_method, "active_challenger": active_challenger,
         "ensemble_meta": ensemble_meta, "ensemble_beats_dc": ensemble_beats_dc, "ensemble_metrics": ensemble_metrics,
+        "market_blend_significant": market_blend_significant,
     }
 
 
 def predict_fixtures(
     fixtures_df: pd.DataFrame, ctx: dict, df_clean: pd.DataFrame, model_cfg: dict,
     prediction_mode: str, generated_at: str, run_id: str,
+    match_odds_by_id: dict | None = None,
 ) -> tuple[list[dict], list[dict]]:
     """Core per-fixture prediction loop, shared by the preseason run
     (all 380 fixtures) and the weekly-update engine (only the remaining,
-    not-yet-completed fixtures)."""
+    not-yet-completed fixtures). `match_odds_by_id` (from
+    prediction_ledger.load_combined_match_odds) enables the model+market
+    blend for any fixture it covers -- see market_blend_model.py: a
+    50/50 log-odds pool of the model's own probability and the real
+    market's, applied only when `ctx["market_blend_significant"]` (a
+    paired-bootstrap test against 2,660 real historical matches, same
+    bar the stacked ensemble was held to, checked fresh every run) and
+    real market odds exist for that specific fixture -- which, before
+    kickoff, is rarely more than a handful of fixtures at a time."""
     fit = ctx["fit"]
+    match_odds_by_id = match_odds_by_id or {}
     pred_rows, expl_rows = [], []
 
     for _, fx in fixtures_df.iterrows():
@@ -265,6 +298,19 @@ def predict_fixtures(
                 "away_win": float(ens_probs_arr[class_to_idx["away_win"]]),
             }
 
+        market_blend_applied = False
+        fixture_odds = match_odds_by_id.get(fx["match_id"])
+        if ctx.get("market_blend_significant") and fixture_odds is not None:
+            model_tuple = (calibrated["home_win"], calibrated["draw"], calibrated["away_win"])
+            market_tuple = (
+                fixture_odds["home_implied_probability_no_vig"],
+                fixture_odds["draw_implied_probability_no_vig"],
+                fixture_odds["away_implied_probability_no_vig"],
+            )
+            bh, bd, ba = log_odds_average([model_tuple, market_tuple])
+            calibrated = {"home_win": bh, "draw": bd, "away_win": ba}
+            market_blend_applied = True
+
         pred_ij = max(
             ((i, j) for i in range(matrix.shape[0]) for j in range(matrix.shape[1])),
             key=lambda ij: matrix[ij[0], ij[1]],
@@ -301,6 +347,7 @@ def predict_fixtures(
             "top_10_scorelines_model_only_json": json.dumps(top10),
             "top_10_scorelines_market_integrated_json": "",
             "market_available": False, "closing_market_available": False,
+            "market_blend_applied": market_blend_applied,
             "squad_data_available": False, "injury_data_available": False, "lineup_data_available": False,
             "home_key_absences_count": "", "away_key_absences_count": "",
             "home_expected_lineup_strength": "", "away_expected_lineup_strength": "",
@@ -319,7 +366,11 @@ def predict_fixtures(
             "top_factors_favoring_draw": f"Scoreline entropy {scoreline_entropy(matrix):.2f} nats; teams of similar fitted strength." if abs(raw_h - raw_a) < 0.15 else "Model does not see this as a close match.",
             "top_factors_favoring_away": f"Dixon-Coles attack/defense edge (mu={mu:.2f} expected goals).",
             "top_factors_affecting_scoreline": f"Fitted home advantage log-coefficient={fit.home_advantage:.3f}, low-score correlation rho={fit.rho:.3f}.",
-            "market_disagreement_explanation": "No verified odds feed connected -- model-only prediction.",
+            "market_disagreement_explanation": (
+                "Real market odds blended in (50/50 log-odds pool, validated via paired bootstrap "
+                "against 2,660 real historical matches -- see market_blend_model.py)."
+                if market_blend_applied else "No real market odds available for this fixture yet -- model-only prediction."
+            ),
             "squad_injury_explanation": (
                 f"{'Promoted club' if home_is_promoted else 'Established club'} vs "
                 f"{'promoted club' if away_is_promoted else 'established club'}; no verified injury/lineup "
@@ -361,14 +412,16 @@ def main() -> None:
         latest_source_timestamp_used=fixtures_df["source_timestamp"].max() if "source_timestamp" in fixtures_df else generated_at,
     )
 
-    pred_rows, expl_rows = predict_fixtures(fixtures_df, ctx, df_clean, model_cfg, "preseason_mode", generated_at, meta.run_id)
+    match_odds_by_id = load_combined_match_odds(REAL_ODDS_PATH, MATCH_ODDS_PATH)
+    pred_rows, expl_rows = predict_fixtures(fixtures_df, ctx, df_clean, model_cfg, "preseason_mode", generated_at, meta.run_id, match_odds_by_id)
 
     pred_df = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS]
     OUT_PREDICTIONS.parent.mkdir(parents=True, exist_ok=True)
     pred_df.to_csv(OUT_PREDICTIONS, index=False)
-    print(f"Wrote {len(pred_df)} match predictions to {OUT_PREDICTIONS}")
+    print(f"Wrote {len(pred_df)} match predictions to {OUT_PREDICTIONS} "
+          f"({int(pred_df['market_blend_applied'].sum())} with the model+market blend applied)")
 
-    append_to_ledger(pred_rows, LEDGER_PATH, match_odds_by_id=load_combined_match_odds(REAL_ODDS_PATH, MATCH_ODDS_PATH))
+    append_to_ledger(pred_rows, LEDGER_PATH, match_odds_by_id=match_odds_by_id)
     print(f"Appended {len(pred_rows)} pre-kickoff predictions to {LEDGER_PATH}")
 
     expl_df = pd.DataFrame(expl_rows)

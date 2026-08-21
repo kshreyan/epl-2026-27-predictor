@@ -45,10 +45,14 @@ alone is the primary model. Full detail:
   prohibit scraping and explicitly prohibit building a website/tool
   from scraped data (this project builds a public dashboard); FBref
   also actively blocks bots via Cloudflare.
-- **Live 1X2 odds**: built and tested (`src/data_collection/collect_odds.py`,
-  The Odds API), but no API key is available in this environment --
-  `market_available=False` on every prediction until a real
-  `ODDS_API_KEY` is supplied (see `.env.example`).
+- ~~Live 1X2 odds~~ **connected, 2026-08-21** (`src/data_collection/collect_odds.py`,
+  The Odds API, real `ODDS_API_KEY` configured -- both locally and as a
+  GitHub Actions secret, refreshed automatically every day). Real
+  market data now also feeds a validated model+market blend into live
+  predictions for any fixture it covers (see
+  `reports/epl_2026_27_model_report.md` "Model+market blend") -- a
+  paired-bootstrap-tested edge (log loss 0.9865 -> 0.9717 vs Dixon-Coles
+  alone, 7/7 backtest seasons), not an assumption that blending helps.
 - **Injuries/suspensions**: no free source with confirmable current-season
   EPL coverage. Left as an honest `unknown` sentinel, never proxied.
 

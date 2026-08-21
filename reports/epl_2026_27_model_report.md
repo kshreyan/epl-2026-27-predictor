@@ -274,13 +274,16 @@ of (d):
   the literal closing line). `prediction_ledger.append_to_ledger` pulls
   these into the ledger's `market_*` fields at append time (a scoring
   baseline, deliberately separate from `PREDICTION_COLUMNS`'
-  `*_market_integrated` fields, which represent a different, still-
-  unbuilt blended model+market prediction feature). Verified against
+  `*_market_integrated` fields, which remain unused). Verified against
   the real ledger: 10/380 matches now score a genuine market baseline;
   the model and market disagree most on Ipswich Town (13.9% model vs
   34.9% market win probability for their opener against Sunderland) --
   consistent with the same Ipswich-specific gap already flagged in
-  "Market comparison" above.
+  "Market comparison" above. **Update, 2026-08-21**: a blended model+
+  market prediction feature -- described here as "still-unbuilt" --
+  was subsequently built, validated, and wired into live predictions
+  via a different, separate mechanism (not these unused
+  `*_market_integrated` columns); see "Model+market blend" below.
 - **`src/evaluation/recalibration_gate.py`**: explicitly NOT an
   automatic recalibration loop, tightened after a second review found
   the first version's single ~20-match recent holdout and bare point-
@@ -860,6 +863,92 @@ selectively:
   market" was never a safe read on Coventry specifically; it was
   coincidence.
 
+## Model+market blend
+
+A direct question -- "will model+market be better than model alone?"
+-- got a direct, evidence-based answer instead of a guess, using the
+same statistical bar the stacked ensemble was held to
+(`src/models/market_blend_model.py`).
+
+**The blend**: a 50/50 average, in log-odds space, of the model's own
+probability and the market's de-vigged probability
+(`build_market_features.log_odds_average`, already used and tested for
+cross-bookmaker averaging -- reused unchanged, just fed a
+(model, market) pair instead of a (bookmaker, bookmaker) pair). No
+blend weight is fit or tuned -- an untuned 50/50 log-opinion-pool is
+the standard default absent other information, and fitting a weight on
+this sample would risk exactly the overfitting this project has
+already been careful to avoid elsewhere (see the recalibration gate's
+temperature-scaling-not-isotonic choice, same reasoning). Only **one**
+candidate was tested, once -- not several weights compared post-hoc,
+which would itself be a form of the leakage this project has spent
+real effort catching in other places.
+
+**Real historical market odds, not synthetic**: football-data.co.uk's
+own closing "Avg" columns (the average closing price across every
+bookmaker they track) -- already cached locally from the original
+historical-results collection (`data/external/football_data_co_uk/`,
+tracked in git), no new network call needed. Full coverage confirmed
+directly: 2,660/2,660 matches across all 7 backtest seasons
+(2019/20-2025/26), 0 missing.
+
+**Result**: the blend beat Dixon-Coles alone far more decisively than
+the ensemble ever did.
+
+| | Dixon-Coles alone | Model+market blend | Stacked ensemble (for reference) |
+|---|---|---|---|
+| Log loss | 0.9865 | **0.9717** | 0.9834 |
+| Brier | 0.5864 | **0.5772** | 0.5853 |
+| RPS | 0.2035 | **0.1993** | 0.2031 |
+
+Paired bootstrap (10,000 resamples): log-loss difference (DC minus
+blend) point estimate **+0.0148**, 95% CI **[+0.0106, +0.0192]** --
+entirely positive, nowhere near zero. The blend beat Dixon-Coles in
+**7 of 7** backtest seasons, not just a majority. Both promotion
+conditions the ensemble was held to (CI excludes zero AND wins a
+season majority) are cleared comfortably; the effect size here (0.0148)
+is roughly 5x the ensemble's own (non-significant) point estimate of
+0.0031. This makes intuitive sense in a way the ensemble result never
+quite did: a real betting market aggregates information (injuries,
+lineups, team news, public and professional money) a goals-only model
+structurally cannot see, so a genuine edge here is exactly what
+sports-forecasting theory would predict -- unlike stacking four
+variants of the same goals-only signal together, which is what the
+ensemble was actually doing.
+
+**Wired into live predictions, 2026-08-21**: `build_model_context`
+calls `evaluate_market_blend()` fresh on every run (cheap -- no
+refitting, ~1 second) and only applies the blend, per fixture, where
+BOTH the blend is significant AND real market odds actually exist for
+that specific fixture (`predict_fixtures` checks the latter via
+`prediction_ledger.load_combined_match_odds` -- the same live-API-
+preferred-over-manual-snapshot source already feeding the ledger's
+scoring baseline). A new `market_blend_applied` column on every
+prediction row records which ones got it. Verified against the real
+pipeline: 10 of 380 current predictions have it applied (matchweek 1,
+the only fixtures with a real market posted right now) -- e.g. Ipswich
+Town's win probability against Sunderland moved from 13.9% (model-
+only) to 23.2% (blended), pulled toward the market's 35.2%, the same
+Ipswich gap already flagged in "Market comparison" above. Tested with
+both synthetic data (`tests/test_market_blend_model.py`: a challenger
+with genuine signal gets promoted, one without does not, coverage
+gaps are never estimated) and a real fitted context
+(`tests/test_market_blend_wiring.py`: blend applies only to fixtures
+with real odds, never to fixtures without, even when globally
+significant).
+
+**Honest scope note**: the backtest compared the blend against
+Dixon-Coles's own *raw* (pre-calibration) probability -- the same
+`dc_home_win`/`dc_draw`/`dc_away_win` columns the ensemble was tested
+against, for direct comparability -- not against the fully calibrated/
+ensemble/promoted-challenger production pipeline the blend is actually
+layered on top of in live predictions. Isotonic calibration mainly
+affects per-class calibration (ECE) rather than raw log loss, and an
+effect this large and this consistent (7/7 seasons) is very unlikely
+to reverse after calibration, but this was not separately re-verified
+against the exact calibrated pipeline -- a real, named gap in the
+validation, not a hidden one.
+
 ## Limitations (read before trusting a number)
 
 - **Correction (previously listed as a limitation, no longer accurate as
@@ -881,13 +970,16 @@ selectively:
   historical season in the connected source, so the scoreline model is
   goals-only, not xG-informed.
 - **Squad, transfer, injury, and lineup data are all unavailable**
-  for 2026-27, and **every prediction is model-only regardless of
-  market-odds availability** -- live match odds are now connected
-  (see below), but they feed the prediction ledger's `market_*`
-  *scoring baseline* only, never the prediction itself; there is no
-  code path where market data influences `home_win_prob_model_only`.
-  `data_quality_score` is discounted to reflect the squad/transfer/
-  injury/lineup gaps (see `src/models/predict_all_matches.py`).
+  for 2026-27. **Market-odds data is a different story as of
+  2026-08-21**: a validated model+market blend (see "Model+market
+  blend" below) now does influence `home_win_prob_model_only`, for any
+  fixture with real market odds available -- most of the season, that
+  is no fixture at all (bookmakers post EPL markets only shortly before
+  their own kickoff), so this mostly still reads as "model-only" in
+  practice, but it is no longer categorically true. `data_quality_score`
+  is discounted to reflect the squad/transfer/injury/lineup gaps (see
+  `src/models/predict_all_matches.py`); it does not currently move for
+  fixtures where the market blend was applied.
 - **European/domestic-cup fixture congestion is not modeled** -- only
   Premier League fixtures are in scope, so `*_european_match_last_7_days`
   and `*_cup_match_last_7_days` are explicitly flagged unavailable
@@ -923,11 +1015,15 @@ posted for; the other 370 fixtures correctly stay the honest
 `src/features/build_market_features.py`'s overround-removal and
 log-odds-averaging math (previously unit-tested against synthetic
 data only) now runs against this real feed via
-`prediction_ledger.load_live_match_odds`, feeding the prediction
-ledger's `market_*` scoring baseline. **This does not change what any
-prediction actually says**: `market_available`/`market_*` remain a
-separate scoring-comparison field, never blended into
-`home_win_prob_model_only` -- see the Limitations bullet above.
+`prediction_ledger.load_live_match_odds`, feeding both the prediction
+ledger's `market_*` scoring baseline AND, as of 2026-08-21, the actual
+published prediction for any fixture with real market data available
+-- see "Model+market blend" below. This is a change from earlier in
+this report (some passages above still describe market data as purely
+a scoring baseline that never touches `home_win_prob_model_only` --
+left as originally written rather than silently edited; superseded by
+the section below, same append-only discipline as everywhere else in
+this document).
 
 **Injury/suspension data remains a genuine gap, re-checked
 2026-08-19 with live evaluation, not just documentation review**:

@@ -6,13 +6,13 @@ new (with the minor exception of joining a few small CSVs together in
 the prediction, simulation, backtest, and calibration pipelines have
 produced their CSV outputs.
 
-Two of the ten files (`epl_model_market_disagreements.json`,
-`epl_weekly_changes.json`) have no real content to transform yet: no
-live odds key is configured and no matchweek has been played. Rather
-than omit them, each is written with an empty `data` array and an
-explicit `status`/`note` explaining why, so dashboard code can be
-built against the final schema now and simply start receiving real
-rows once real data exists for them.
+`epl_weekly_changes.json` has no real content to transform yet: no
+matchweek has been played. `epl_model_market_disagreements.json` is
+real once at least one fixture has real market odds (see
+build_model_market_disagreements_json below) -- both are written with
+an empty `data` array and an explicit `status`/`note` when there is
+nothing real yet, so dashboard code can be built against the final
+schema now and simply start receiving real rows once real data exists.
 
 Run: python -m src.dashboard.build_dashboard_json
 """
@@ -103,11 +103,66 @@ def build_match_explanations_json() -> None:
 
 
 def build_model_market_disagreements_json() -> None:
+    """Real once real market odds exist for at least one fixture (which,
+    before kickoff, is only ever a handful -- bookmakers post EPL
+    markets shortly before their own kickoff). Compares the model's own
+    raw (uncalibrated) Dixon-Coles probability against the real
+    de-vigged market probability from the prediction ledger's latest
+    pre-kickoff row per fixture -- the raw probability, not the
+    published (possibly market-blended) one, since the point here is to
+    show how much the model and market actually disagree, not a
+    figure that's already been pulled toward market by the blend."""
+    ledger_path = OUT_DIR / "epl_2026_27_prediction_ledger.csv"
+    if not ledger_path.exists():
+        _write_json("epl_model_market_disagreements.json", _envelope(
+            [], status="not_yet_available",
+            note="No prediction ledger exists yet -- run src/models/predict_all_matches.py first.",
+        ))
+        return
+
+    from src.evaluation.prediction_ledger import read_ledger, select_pre_kickoff_predictions
+
+    ledger = read_ledger(ledger_path)
+    if ledger.empty:
+        _write_json("epl_model_market_disagreements.json", _envelope(
+            [], status="not_yet_available", note="Prediction ledger is empty.",
+        ))
+        return
+
+    selected = select_pre_kickoff_predictions(ledger)
+    with_market = selected[selected["market_available"] == True]  # noqa: E712
+    if with_market.empty:
+        _write_json("epl_model_market_disagreements.json", _envelope(
+            [], status="not_yet_available",
+            note="No live odds feed is configured yet, or no fixture currently has a real market posted "
+                 "(bookmakers only post EPL markets shortly before kickoff) -- every 2026-27 prediction "
+                 "is model-only for now.",
+        ))
+        return
+
+    rows = []
+    for _, r in with_market.iterrows():
+        disagreement = max(
+            abs(r["dc_raw_home_win_prob"] - r["market_home_win_prob"]),
+            abs(r["dc_raw_draw_prob"] - r["market_draw_prob"]),
+            abs(r["dc_raw_away_win_prob"] - r["market_away_win_prob"]),
+        )
+        rows.append({
+            "match_id": r["match_id"], "home_team": r["home_team"], "away_team": r["away_team"],
+            "model_home_win_prob": round(float(r["dc_raw_home_win_prob"]), 4),
+            "model_draw_prob": round(float(r["dc_raw_draw_prob"]), 4),
+            "model_away_win_prob": round(float(r["dc_raw_away_win_prob"]), 4),
+            "market_home_win_prob": round(float(r["market_home_win_prob"]), 4),
+            "market_draw_prob": round(float(r["market_draw_prob"]), 4),
+            "market_away_win_prob": round(float(r["market_away_win_prob"]), 4),
+            "max_class_disagreement": round(float(disagreement), 4),
+        })
+    rows.sort(key=lambda x: x["max_class_disagreement"], reverse=True)
+
     _write_json("epl_model_market_disagreements.json", _envelope(
-        [], status="not_yet_available",
-        note="No live odds feed is configured (ODDS_API_KEY unset; the collector is built and tested -- "
-             "see src/data_collection/collect_odds.py) -- every 2026-27 prediction is model-only, so "
-             "there is no market to disagree with yet.",
+        rows, status="real",
+        note="model_* is the raw (uncalibrated) Dixon-Coles probability; market_* is the real, "
+             "de-vigged market-consensus probability. Sorted by max_class_disagreement descending.",
     ))
 
 

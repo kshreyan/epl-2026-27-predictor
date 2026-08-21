@@ -218,10 +218,11 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
         prefix="weekly_update", season="2026-27",
         calibration_method=ctx["calibration_method"], latest_source_timestamp_used=str(results["source_timestamp"].max()),
     )
-    pred_rows, expl_rows = predict_fixtures(remaining_fixtures, ctx, df_for_fit, model_cfg, "early_week_mode", generated_at, meta.run_id)
+    match_odds_by_id = load_combined_match_odds(paths.real_odds, paths.match_odds)
+    pred_rows, expl_rows = predict_fixtures(remaining_fixtures, ctx, df_for_fit, model_cfg, "early_week_mode", generated_at, meta.run_id, match_odds_by_id)
     weekly_predictions = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS] if pred_rows else pd.DataFrame(columns=PREDICTION_COLUMNS)
 
-    append_to_ledger(pred_rows, paths.ledger, match_odds_by_id=load_combined_match_odds(paths.real_odds, paths.match_odds))
+    append_to_ledger(pred_rows, paths.ledger, match_odds_by_id=match_odds_by_id)
 
     # Merge into the main predictions file: completed matches keep their
     # ORIGINAL pre-match prediction (never overwritten) with the real
