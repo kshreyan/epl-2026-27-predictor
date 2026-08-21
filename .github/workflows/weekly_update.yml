@@ -12,9 +12,14 @@ name: Weekly auto-update after each gameweek
 #
 # Safe to run daily: src/weekly_auto_update.py is a genuine no-op (no
 # lock, no refit, no commit) on any day where no gameweek has newly and
-# fully concluded since the last run. A push here (only happens when
-# something actually changed) triggers deploy.yml, which redeploys the
-# dashboard from whatever this workflow just committed.
+# fully concluded since the last run.
+#
+# IMPORTANT: a push made with the default GITHUB_TOKEN does NOT trigger
+# other on:push workflows (a deliberate GitHub anti-recursion rule) --
+# confirmed the hard way: the first real run of this workflow committed
+# and pushed successfully but deploy.yml never fired. So this workflow
+# explicitly dispatches deploy.yml itself as its last step whenever it
+# committed something, rather than relying on the push trigger to do it.
 #
 # Also refreshes live match odds every run (ODDS_API_KEY repo secret,
 # 1 credit/call, well under the free tier's 500/month at daily cadence)
@@ -29,6 +34,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # needed to dispatch deploy.yml explicitly (see note above)
 
 concurrency:
   group: weekly-update
@@ -60,13 +66,22 @@ jobs:
         run: python -m src.weekly_auto_update
 
       - name: Commit and push if anything changed
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then
             echo "No changes -- nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Automated weekly update: lock concluded gameweek, re-predict, re-score"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Trigger dashboard deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml
