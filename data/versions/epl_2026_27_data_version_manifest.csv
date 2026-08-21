@@ -17,3 +17,4 @@ epl_2026_27_match_odds,2026-08-18.phase1,mixed: real_snapshot + none_available,2
 epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-08-19T17:23:28+00:00,579,True,2026-08-19T17:23:30+00:00,209 real bookmaker rows; rest are honest unavailable sentinels.
 epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-08-21T03:55:43+00:00,579,True,2026-08-21T03:55:43+00:00,209 real bookmaker rows; rest are honest unavailable sentinels.
 epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-08-21T03:59:27+00:00,579,True,2026-08-21T03:59:27+00:00,209 real bookmaker rows; rest are honest unavailable sentinels.
+epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-08-21T06:22:24+00:00,579,True,2026-08-21T06:22:25+00:00,209 real bookmaker rows; rest are honest unavailable sentinels.
