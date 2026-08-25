@@ -18,6 +18,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 import src.utils.versioning as versioning  # noqa: E402
 from src.evaluation.prediction_ledger import append_to_ledger  # noqa: E402
+from src.models.predict_all_matches import PREDICTION_COLUMNS  # noqa: E402
 from src.update_after_matchweek import (  # noqa: E402
     WeeklyUpdatePaths,
     lock_completed_matches,
@@ -210,3 +211,44 @@ def test_run_update_end_to_end_locks_results_and_predicts_remaining(tmp_paths, s
     assert (tmp_paths.weekly_dir / "epl_matchweek_01_predictions.csv").exists()
     assert (tmp_paths.weekly_dir / "epl_matchweek_01_expected_table.csv").exists()
     assert (tmp_paths.weekly_dir / "epl_matchweek_01_update_report.md").exists()
+
+
+@pytest.mark.slow
+def test_run_update_survives_a_real_predictions_csv_with_all_blank_actual_columns(tmp_paths, synthetic_matchweek1_results):
+    """Regression test for a real bug: a genuine predictions.csv (as a
+    real preseason predict_all_matches.py run always produces) has
+    every actual_home_goals/actual_away_goals/actual_result/status cell
+    blank for months before kickoff. Reading that back with
+    pd.read_csv() infers those columns as float64 (all-NaN) -- every
+    OTHER test in this file calls run_update() before any predictions
+    file exists at all, which never exercises this path (an empty
+    DataFrame has no dtype to infer wrong). Writing a real, non-empty
+    predictions.csv first and reading it back is required to reproduce
+    what actually broke in production for real: assigning the string
+    "home_win" into a column pandas decided was numeric raised a hard
+    TypeError, five real days into the season, on the very first
+    matchweek lock."""
+    fixtures = pd.read_csv(REAL_FIXTURES_PATH)
+    seed_rows = []
+    for _, fx in fixtures.iterrows():
+        row = {col: "" for col in PREDICTION_COLUMNS}
+        row.update({
+            "match_id": fx["match_id"], "season": fx["season"], "matchweek": fx["matchweek"],
+            "date": fx["date"], "kickoff_utc": fx["kickoff_utc"], "home_team": fx["home_team"],
+            "away_team": fx["away_team"], "stadium": fx["stadium"], "status": "scheduled",
+            "prediction_mode": "preseason_mode", "home_win_prob_model_only": 0.4,
+            "draw_prob_model_only": 0.3, "away_win_prob_model_only": 0.3,
+        })
+        seed_rows.append(row)
+    pd.DataFrame(seed_rows)[PREDICTION_COLUMNS].to_csv(tmp_paths.predictions, index=False)
+
+    _seed_ledger_pre_kickoff(tmp_paths, synthetic_matchweek1_results)
+    # Must not raise -- this is the actual assertion; the bug crashed here.
+    result = run_update(matchweek=1, results_path=synthetic_matchweek1_results, paths=tmp_paths)
+
+    locked_ids = set(pd.read_csv(synthetic_matchweek1_results)["match_id"])
+    on_disk = pd.read_csv(tmp_paths.predictions)
+    completed_on_disk = on_disk[on_disk["match_id"].isin(locked_ids)]
+    assert (completed_on_disk["status"] == "completed").all()
+    assert completed_on_disk["actual_result"].isin(["home_win", "draw", "away_win"]).all()
+    assert result["run_id"]

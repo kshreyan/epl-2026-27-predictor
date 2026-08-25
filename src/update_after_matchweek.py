@@ -229,6 +229,17 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     # result appended; remaining matches get the freshly refit prediction.
     if paths.predictions.exists():
         existing = pd.read_csv(paths.predictions)
+        # A column that is blank ("") on every not-yet-completed row gets
+        # inferred as float64 (all-NaN) on read -- assigning a string like
+        # "home_win" into that column then raises a hard TypeError on
+        # real data (caught the hard way: every synthetic test fixture
+        # built this same DataFrame in-memory, never via a genuine
+        # CSV round-trip, so this never surfaced until the real pipeline
+        # ran against real, blank-for-months prediction rows). Cast the
+        # columns this loop actually mutates to object dtype so they can
+        # hold the real values being assigned.
+        for col in ["status", "actual_home_goals", "actual_away_goals", "actual_result"]:
+            existing[col] = existing[col].astype(object)
     else:
         existing = pd.DataFrame(columns=PREDICTION_COLUMNS)
     completed_ids = set(fixtures_df.loc[fixtures_df["status"] == "completed", "match_id"])
