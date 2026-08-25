@@ -52,11 +52,28 @@ def _parse_date(date_raw: str) -> str:
 def fetch_live_results_csv() -> str | None:
     """Returns the raw CSV text, or None if the season's file doesn't
     exist yet on football-data.co.uk (a normal pre-kickoff/early-season
-    state, not an error)."""
+    state, not an error).
+
+    Decodes `resp.content` explicitly as utf-8-sig rather than trusting
+    `resp.text` -- this real endpoint doesn't declare a charset in its
+    Content-Type header, so `requests` guesses an encoding that mangles
+    the file's UTF-8 BOM into three garbage characters ("Div" becomes
+    unrecognizable at the start of the string). Caught the hard way:
+    this silently made the season-exists check fail for 5 straight days
+    of real, successful results after kickoff -- the workflow ran
+    clean every day and just never found anything, because the
+    detection check below never matched. Checking for "HomeTeam"
+    anywhere in the header (not exact-matching the first characters)
+    is a second, independent layer of defense against the same class
+    of encoding surprise recurring in a different form."""
     resp = requests.get(CURRENT_SEASON_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, allow_redirects=True)
-    if resp.status_code != 200 or not resp.text.strip().startswith(("Div", "﻿Div")):
+    if resp.status_code != 200:
         return None
-    return resp.text
+    text = resp.content.decode("utf-8-sig", errors="replace")
+    lines = text.splitlines()
+    if not lines or "HomeTeam" not in lines[0]:
+        return None
+    return text
 
 
 def parse_live_results(csv_text: str, fixtures_df: pd.DataFrame) -> pd.DataFrame:
