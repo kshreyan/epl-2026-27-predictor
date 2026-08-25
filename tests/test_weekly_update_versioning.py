@@ -6,7 +6,6 @@ finally exercisable now that src/update_after_matchweek.py exists.
 Uses SYNTHETIC scores for real matchweek-1 fixtures, written only to a
 temporary directory (see test_completed_match_locking.py for why).
 """
-import shutil
 import sys
 from pathlib import Path
 
@@ -47,7 +46,13 @@ def redirect_experiment_log(tmp_path, monkeypatch):
 @pytest.fixture
 def tmp_paths(tmp_path) -> WeeklyUpdatePaths:
     fixtures_copy = tmp_path / "fixtures.csv"
-    shutil.copy(REAL_FIXTURES_PATH, fixtures_copy)
+    # Reset status to "scheduled" regardless of the real file's current
+    # in-season state (see test_completed_match_locking.py's tmp_paths
+    # fixture for why -- once the real season is underway, real
+    # matchweeks genuinely show "completed").
+    fixtures_reset = pd.read_csv(REAL_FIXTURES_PATH)
+    fixtures_reset["status"] = "scheduled"
+    fixtures_reset.to_csv(fixtures_copy, index=False)
     with open(REAL_SIM_CONFIG_PATH) as f:
         sim_cfg = yaml.safe_load(f)
     sim_cfg["n_simulations"] = 300

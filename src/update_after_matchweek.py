@@ -366,8 +366,11 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
                     "evaluations across the whole season so far.\n\n")
 
         f.write("## Data-quality warnings\n\n"
-                "- Injury, lineup, and market-odds data remain unavailable (see config/data_sources.yaml) -- "
-                "this update only incorporates real completed-match results and team-strength re-fitting.\n")
+                "- Injury and lineup data remain unavailable (see config/data_sources.yaml).\n"
+                "- Market-odds data is connected (ODDS_API_KEY) and feeds both the scoring baseline "
+                "above and, for any fixture with real odds available, the model+market blend in live "
+                "predictions -- see reports/epl_2026_27_model_report.md \"Model+market blend\". Most "
+                "fixtures still have no real market posted this far from their own kickoff.\n")
 
     log_experiment(meta, stage="weekly_update", notes=f"matchweek={matchweek}, {len(results)} results locked, {len(remaining_fixtures)} fixtures remaining")
     print(f"Wrote weekly update outputs for matchweek {matchweek} to {paths.weekly_dir}")

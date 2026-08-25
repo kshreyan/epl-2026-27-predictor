@@ -6,7 +6,6 @@ data files (data/raw/epl_2026_27_fixtures.csv etc. are never touched
 by this test). This proves the locking mechanism works even though no
 real 2026-27 result exists yet (today is before kickoff).
 """
-import shutil
 import sys
 from pathlib import Path
 
@@ -52,9 +51,16 @@ def tmp_paths(tmp_path) -> WeeklyUpdatePaths:
     """A full WeeklyUpdatePaths pointed entirely at tmp_path, except
     `historical` and `model_config` which are read-only real files safe
     to reuse. `fixtures` is a COPY of the real fixture list (so
-    match_ids are real and valid), never the real file itself."""
+    match_ids are real and valid), never the real file itself -- with
+    every row's status reset to "scheduled" regardless of the real
+    file's current in-season state (once the real season is underway,
+    the real fixtures.csv genuinely has "completed" rows -- these tests
+    exercise the synthetic-locking mechanism in isolation and must not
+    depend on how far the real season has actually progressed)."""
     fixtures_copy = tmp_path / "fixtures.csv"
-    shutil.copy(REAL_FIXTURES_PATH, fixtures_copy)
+    fixtures_reset = pd.read_csv(REAL_FIXTURES_PATH)
+    fixtures_reset["status"] = "scheduled"
+    fixtures_reset.to_csv(fixtures_copy, index=False)
 
     # Small n_simulations for test speed -- a temp copy of the real sim
     # config with the count overridden, not a hand-written config that
