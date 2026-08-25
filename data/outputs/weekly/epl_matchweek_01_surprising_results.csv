@@ -1,0 +1,11 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+EPL2627_MW01_002_HullCity_ManchesterUnited,1,Hull City,Manchester United,home_win,0.1598,0.1598,0.23,0.6102,1.8338,2026-08-25T19:05:22+00:00
+EPL2627_MW01_004_IpswichTown_Sunderland,1,Ipswich Town,Sunderland,home_win,0.2322,0.2322,0.2709,0.4969,1.4602,2026-08-25T19:05:22+00:00
+EPL2627_MW01_009_NewcastleUnited_Liverpool,1,Newcastle United,Liverpool,draw,0.2506,0.3239,0.2506,0.4255,1.3839,2026-08-25T19:05:22+00:00
+EPL2627_MW01_005_NottinghamForest_LeedsUnited,1,Nottingham Forest,Leeds United,away_win,0.2925,0.4277,0.2799,0.2925,1.2293,2026-08-25T19:05:22+00:00
+EPL2627_MW01_010_Fulham_Chelsea,1,Fulham,Chelsea,away_win,0.414,0.321,0.265,0.414,0.8819,2026-08-25T19:05:22+00:00
+EPL2627_MW01_007_Brighton&HoveAlbion_AstonVilla,1,Brighton & Hove Albion,Aston Villa,home_win,0.4168,0.4168,0.26,0.3232,0.8751,2026-08-25T19:05:22+00:00
+EPL2627_MW01_003_Everton_CrystalPalace,1,Everton,Crystal Palace,home_win,0.4265,0.4265,0.2854,0.288,0.8521,2026-08-25T19:05:22+00:00
+EPL2627_MW01_006_Brentford_TottenhamHotspur,1,Brentford,Tottenham Hotspur,home_win,0.4396,0.4396,0.2595,0.3008,0.8219,2026-08-25T19:05:22+00:00
+EPL2627_MW01_008_ManchesterCity_AFCBournemouth,1,Manchester City,AFC Bournemouth,home_win,0.6184,0.6184,0.2167,0.1649,0.4806,2026-08-25T19:05:22+00:00
+EPL2627_MW01_001_Arsenal_CoventryCity,1,Arsenal,Coventry City,home_win,0.7678,0.7678,0.1561,0.0761,0.2642,2026-08-25T19:05:22+00:00
