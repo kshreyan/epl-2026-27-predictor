@@ -44,7 +44,16 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      # fetch-depth: 0 (full history, all tags) -- NOT the actions/checkout
+      # default (a shallow, depth-1 clone). score_after_matchweek's
+      # preseason track reads the "preseason-2026-27-v2" tag via
+      # `git show <tag>:<path>` (prediction_ledger.load_preseason_ledger);
+      # that tag's commit isn't present in a shallow clone, so this
+      # failed with a real "fatal: invalid object name" the first time
+      # this workflow ever reached a real matchweek lock.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
