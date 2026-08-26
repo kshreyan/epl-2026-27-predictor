@@ -57,9 +57,11 @@ function MatchRow({ match }: { match: MatchPredictionRow }) {
               </div>
             </div>
             <p className="text-[var(--color-text-faint)]">
-              {match.market_available
-                ? 'Market-integrated probabilities available.'
-                : 'No market data available -- no live odds feed is configured (model-only prediction).'}
+              {match.market_blend_applied
+                ? 'Real market odds blended in (validated model+market blend).'
+                : match.market_available
+                  ? 'Market-integrated probabilities available.'
+                  : 'No market data available -- no live odds feed is configured (model-only prediction).'}
             </p>
             <div className="flex flex-wrap gap-1.5 pt-1">
               <span className="rounded-sm border border-[var(--color-border)] px-1.5 py-0.5 text-[10px] text-[var(--color-text-faint)]">
@@ -74,6 +76,35 @@ function MatchRow({ match }: { match: MatchPredictionRow }) {
               <span className="rounded-sm border border-[var(--color-border)] px-1.5 py-0.5 text-[10px] text-[var(--color-text-faint)]">
                 upset risk: {pct(match.upset_risk)}
               </span>
+            </div>
+          </div>
+          <div className="space-y-2 text-[11px] md:col-span-2">
+            <h3 className="text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">Other markets</h3>
+            <div className="tnum grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <div className="border border-[var(--color-border)] p-2">
+                <div className="mb-1 flex items-center justify-between text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">
+                  <span>Both teams to score</span>
+                  <span title="No real market source exists for BTTS on this sport (checked directly) -- always model-only.">model-only</span>
+                </div>
+                <div className="flex justify-between"><span>Yes</span><span>{pct(match.btts_yes_prob_model_only)}</span></div>
+                <div className="flex justify-between"><span>No</span><span>{pct(match.btts_no_prob_model_only)}</span></div>
+              </div>
+              <div className="border border-[var(--color-border)] p-2">
+                <div className="mb-1 flex items-center justify-between text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">
+                  <span>Spread (line {match.handicap_line_model_only > 0 ? '+' : ''}{match.handicap_line_model_only})</span>
+                  <span>{match.handicap_blend_applied ? 'market-blended' : 'model-only'}</span>
+                </div>
+                <div className="flex justify-between"><span>Home covers</span><span>{pct(match.home_cover_prob_model_only)}</span></div>
+                <div className="flex justify-between"><span>Away covers</span><span>{pct(match.away_cover_prob_model_only)}</span></div>
+              </div>
+              <div className="border border-[var(--color-border)] p-2">
+                <div className="mb-1 flex items-center justify-between text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">
+                  <span>Totals (line {match.total_goals_line_model_only})</span>
+                  <span>{match.totals_blend_applied ? 'market-blended' : 'model-only'}</span>
+                </div>
+                <div className="flex justify-between"><span>Over</span><span>{pct(match.over_prob_model_only)}</span></div>
+                <div className="flex justify-between"><span>Under</span><span>{pct(match.under_prob_model_only)}</span></div>
+              </div>
             </div>
           </div>
         </div>

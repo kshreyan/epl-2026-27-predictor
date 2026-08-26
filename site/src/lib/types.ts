@@ -87,6 +87,17 @@ export interface MatchPredictionRow {
   top_10_scorelines_market_integrated_json: ScorelineEntry[] | null
   market_available: boolean
   closing_market_available: boolean
+  market_blend_applied: boolean
+  btts_yes_prob_model_only: number
+  btts_no_prob_model_only: number
+  total_goals_line_model_only: number
+  over_prob_model_only: number
+  under_prob_model_only: number
+  totals_blend_applied: boolean
+  handicap_line_model_only: number
+  home_cover_prob_model_only: number
+  away_cover_prob_model_only: number
+  handicap_blend_applied: boolean
   squad_data_available: boolean
   injury_data_available: boolean
   lineup_data_available: boolean
