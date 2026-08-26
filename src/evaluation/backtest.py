@@ -205,6 +205,11 @@ def main() -> None:
                     "dc_home_win": dc_home, "dc_draw": dc_draw, "dc_away_win": dc_away,
                     "dc_predicted_score": f"{dc_pred_score[0]}-{dc_pred_score[1]}",
                     "dc_top10_scorelines_json": json.dumps(top_n_scorelines(matrix, 10)),
+                    # Full lam/mu/rho so any downstream module (e.g. the
+                    # spread/totals market-blend backtest) can reconstruct
+                    # the exact scoreline matrix and derive BTTS/handicap/
+                    # totals probabilities without re-fitting the model.
+                    "dc_lambda": lam, "dc_mu": mu, "dc_rho": dc_fit_for_predictions.rho,
                     "elo_home_win": eh, "elo_draw": ed, "elo_away_win": ea,
                     "prevseason_home_win": pst_h, "prevseason_draw": pst_d, "prevseason_away_win": pst_a,
                     "simplepoisson_home_win": sp_home, "simplepoisson_draw": sp_draw, "simplepoisson_away_win": sp_away,

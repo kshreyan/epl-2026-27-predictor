@@ -25,7 +25,7 @@ RAW_ODDS_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_real_odds.csv"
 def test_sentinel_row_always_uses_none_available_source_name():
     fx = {"match_id": "X", "season": "2026-27", "matchweek": 1, "date": "2026-08-21",
           "kickoff_utc": "2026-08-21T19:00:00+00:00", "home_team": "Arsenal", "away_team": "Coventry City"}
-    row = sentinel_row(fx, "2026-08-18T00:00:00+00:00", "any note")
+    row = sentinel_row(fx, "h2h", "2026-08-18T00:00:00+00:00", "any note")
     assert row["source_name"] == "none_available"
     assert row["is_real_data"] is False
 
@@ -44,11 +44,12 @@ def test_validator_catches_a_mislabeled_sentinel_row(tmp_path, monkeypatch):
     bad_df = pd.DataFrame([{
         "match_id": "X", "season": "2026-27", "matchweek": 1, "date": "2026-08-21",
         "kickoff_utc": "2026-08-21T19:00:00+00:00", "home_team": "Arsenal", "away_team": "Coventry City",
-        "bookmaker": "", "market_type": "1X2",
+        "bookmaker": "", "market_type": "h2h",
         "opening_home_odds": "", "opening_draw_odds": "", "opening_away_odds": "",
         "current_home_odds": "", "current_draw_odds": "", "current_away_odds": "",
         "closing_home_odds": "", "closing_draw_odds": "", "closing_away_odds": "",
-        "over_2_5_odds": "", "under_2_5_odds": "", "btts_yes_odds": "", "btts_no_odds": "",
+        "spread_line": "", "home_spread_odds": "", "away_spread_odds": "",
+        "total_line": "", "over_odds": "", "under_odds": "", "btts_yes_odds": "", "btts_no_odds": "",
         "odds_snapshot_type": "unknown", "time_to_kickoff_hours": "", "odds_format": "decimal",
         "odds_timestamp": "2026-08-18T00:00:00+00:00",
         "source_name": "the-odds-api.com",  # the bug: a real-looking source name

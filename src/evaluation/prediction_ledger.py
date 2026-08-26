@@ -127,6 +127,56 @@ def load_live_match_odds(real_odds_path: Path) -> dict:
     }
 
 
+def load_live_spread_totals_odds(real_odds_path: Path) -> dict:
+    """Real match_id -> {"spread_line", "home_cover_prob", "total_line",
+    "over_prob"} dict from the live Odds API feed's "spreads"/"totals"
+    market rows (data/raw/epl_2026_27_real_odds.csv), for use by the
+    validated spread/totals model+market blends
+    (spread_totals_blend_model.py). A fixture may have only one of the
+    two markets covered (bookmakers post them independently) -- the
+    dict only includes the keys that market actually has real data for.
+
+    Different bookmakers can quote different handicap/total lines for
+    the same fixture; this uses the modal (most commonly quoted) line
+    and averages, in logit space, only the bookmakers quoting that
+    exact line -- the same "don't average across different bets"
+    principle real odds-comparison sites use, rather than blending
+    probabilities that refer to different lines."""
+    if not real_odds_path.exists():
+        return {}
+    from src.features.build_market_features import log_odds_average_binary, remove_overround_binary
+    odds_df = pd.read_csv(real_odds_path)
+    result: dict = {}
+    for match_id, group in odds_df.groupby("match_id"):
+        entry = {}
+
+        spreads = group[(group["market_type"] == "spreads") & (group["is_real_data"] == True)]  # noqa: E712
+        if not spreads.empty:
+            modal_line = spreads["spread_line"].mode().iloc[0]
+            at_line = spreads[spreads["spread_line"] == modal_line]
+            cover_probs = [
+                remove_overround_binary((float(r["home_spread_odds"]), float(r["away_spread_odds"])))[0]
+                for _, r in at_line.iterrows()
+            ]
+            entry["spread_line"] = float(modal_line)
+            entry["home_cover_prob"] = log_odds_average_binary(cover_probs)
+
+        totals = group[(group["market_type"] == "totals") & (group["is_real_data"] == True)]  # noqa: E712
+        if not totals.empty:
+            modal_line = totals["total_line"].mode().iloc[0]
+            at_line = totals[totals["total_line"] == modal_line]
+            over_probs = [
+                remove_overround_binary((float(r["over_odds"]), float(r["under_odds"])))[0]
+                for _, r in at_line.iterrows()
+            ]
+            entry["total_line"] = float(modal_line)
+            entry["over_prob"] = log_odds_average_binary(over_probs)
+
+        if entry:
+            result[match_id] = entry
+    return result
+
+
 def load_combined_match_odds(real_odds_path: Path, match_odds_path: Path) -> dict:
     """Live multi-bookmaker API odds where available, falling back to the
     single-bookmaker manual snapshot for any match the live feed hasn't

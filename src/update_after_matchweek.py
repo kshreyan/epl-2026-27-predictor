@@ -36,7 +36,11 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
-from src.evaluation.prediction_ledger import append_to_ledger, load_combined_match_odds  # noqa: E402
+from src.evaluation.prediction_ledger import (  # noqa: E402
+    append_to_ledger,
+    load_combined_match_odds,
+    load_live_spread_totals_odds,
+)
 from src.evaluation.recalibration_gate import (  # noqa: E402
     EVALUATION_CADENCE_MATCHWEEKS as RECAL_CADENCE,
     MIN_MATCHES_TO_ATTEMPT as RECAL_MIN_MATCHES,
@@ -219,7 +223,11 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
         calibration_method=ctx["calibration_method"], latest_source_timestamp_used=str(results["source_timestamp"].max()),
     )
     match_odds_by_id = load_combined_match_odds(paths.real_odds, paths.match_odds)
-    pred_rows, expl_rows = predict_fixtures(remaining_fixtures, ctx, df_for_fit, model_cfg, "early_week_mode", generated_at, meta.run_id, match_odds_by_id)
+    spread_totals_odds_by_id = load_live_spread_totals_odds(paths.real_odds)
+    pred_rows, expl_rows = predict_fixtures(
+        remaining_fixtures, ctx, df_for_fit, model_cfg, "early_week_mode", generated_at, meta.run_id,
+        match_odds_by_id, spread_totals_odds_by_id,
+    )
     weekly_predictions = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS] if pred_rows else pd.DataFrame(columns=PREDICTION_COLUMNS)
 
     append_to_ledger(pred_rows, paths.ledger, match_odds_by_id=match_odds_by_id)

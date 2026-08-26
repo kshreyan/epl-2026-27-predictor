@@ -49,9 +49,13 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.calibration.calibrate_probabilities import apply_calibration, fit_calibrators  # noqa: E402
 from src.evaluation.backtest import team_rolling_goal_avgs  # noqa: E402
-from src.evaluation.prediction_ledger import append_to_ledger, load_combined_match_odds  # noqa: E402
+from src.evaluation.prediction_ledger import (  # noqa: E402
+    append_to_ledger,
+    load_combined_match_odds,
+    load_live_spread_totals_odds,
+)
 from src.evaluation.recalibration_gate import apply_challenger, load_active_calibrators  # noqa: E402
-from src.features.build_market_features import log_odds_average  # noqa: E402
+from src.features.build_market_features import log_odds_average, log_odds_average_binary  # noqa: E402
 from src.features.build_schedule_congestion_features import build_schedule_congestion_features  # noqa: E402
 from src.models.baselines import (  # noqa: E402
     elo_only_probabilities,
@@ -61,6 +65,7 @@ from src.models.baselines import (  # noqa: E402
 from src.models.elo_model import compute_promoted_team_elo_offset, run_elo  # noqa: E402
 from src.models.final_stacked_model import BASE_MODELS, CLASSES, fit_final_meta_learner  # noqa: E402
 from src.models.market_blend_model import evaluate_market_blend  # noqa: E402
+from src.models.spread_totals_blend_model import evaluate_spread_totals_blends  # noqa: E402
 from src.models.promoted_team_adjustment import (  # noqa: E402
     compute_promoted_team_history,
     compute_promoted_team_rating_distribution,
@@ -68,12 +73,16 @@ from src.models.promoted_team_adjustment import (  # noqa: E402
 )
 from src.models.scoreline_models import (  # noqa: E402
     apply_promoted_team_adjustment,
+    asian_handicap_home_cover_probability,
+    btts_probability,
     fit_dixon_coles_model,
     match_lambdas,
+    model_fair_handicap_line,
     outcome_probabilities,
     score_matrix,
     scoreline_entropy,
     top_n_scorelines,
+    total_goals_probabilities,
 )
 from src.utils.team_names import EPL_2026_27_CLUBS  # noqa: E402
 from src.utils.versioning import (  # noqa: E402
@@ -98,6 +107,7 @@ ACTIVE_CALIBRATORS_PATH = REPO_ROOT / "model_registry" / "active_calibrators.pkl
 OUT_EXPLANATIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_explanations.csv"
 
 PROMOTED_TEAMS = ["Coventry City", "Ipswich Town", "Hull City"]
+DEFAULT_TOTAL_GOALS_LINE = 2.5  # the standard real-market line when no real total-goals line is available
 
 PREDICTION_COLUMNS = [
     "match_id", "season", "matchweek", "date", "kickoff_utc", "home_team", "away_team", "stadium", "status",
@@ -110,6 +120,9 @@ PREDICTION_COLUMNS = [
     "dc_raw_home_win_prob", "dc_raw_draw_prob", "dc_raw_away_win_prob",
     "home_win_prob_market_integrated", "draw_prob_market_integrated", "away_win_prob_market_integrated",
     "top_10_scorelines_model_only_json", "top_10_scorelines_market_integrated_json",
+    "btts_yes_prob_model_only", "btts_no_prob_model_only",
+    "total_goals_line_model_only", "over_prob_model_only", "under_prob_model_only", "totals_blend_applied",
+    "handicap_line_model_only", "home_cover_prob_model_only", "away_cover_prob_model_only", "handicap_blend_applied",
     "market_available", "closing_market_available", "market_blend_applied", "squad_data_available", "injury_data_available", "lineup_data_available",
     "home_key_absences_count", "away_key_absences_count",
     "home_expected_lineup_strength", "away_expected_lineup_strength",
@@ -226,8 +239,25 @@ def build_model_context(
               f"{market_blend_result['significance']['season_wins']}/{market_blend_result['significance']['n_seasons']} seasons) -- "
               f"edge is {'statistically significant' if market_blend_significant else 'NOT statistically significant'}; "
               f"{'blending market odds in' if market_blend_significant else 'model-only'} for fixtures with real market data.")
+
+        # Same fresh-every-run discipline, for the two derived binary
+        # markets that have a real historical baseline (spread_totals_blend_model.py).
+        # BTTS has no real market source anywhere (confirmed, not assumed --
+        # see that module's docstring) so there is nothing to check here.
+        st_result = evaluate_spread_totals_blends()
+        spread_blend_significant = st_result["spread"]["blend_significant"]
+        totals_blend_significant = st_result["totals"]["blend_significant"]
+        for name, r in st_result.items():
+            sig = r["significance"]
+            print(f"{name.capitalize()} blend log loss {r['blend_mean_log_loss']:.4f} vs "
+                  f"model-only {r['model_mean_log_loss']:.4f} (bootstrap CI [{sig['ci_low']:+.4f}, {sig['ci_high']:+.4f}], "
+                  f"{sig['season_wins']}/{sig['n_seasons']} seasons) -- "
+                  f"edge is {'statistically significant' if r['blend_significant'] else 'NOT statistically significant'}; "
+                  f"{'blending market odds in' if r['blend_significant'] else 'model-only'} for fixtures with real market data.")
     else:
         market_blend_significant = False
+        spread_blend_significant = False
+        totals_blend_significant = False
 
     return {
         "fit": fit, "elo_ratings": elo_ratings, "promoted_elo_offset": promoted_elo_offset,
@@ -236,13 +266,15 @@ def build_model_context(
         "calibrators": calibrators, "calibration_method": calibration_method, "active_challenger": active_challenger,
         "ensemble_meta": ensemble_meta, "ensemble_beats_dc": ensemble_beats_dc, "ensemble_metrics": ensemble_metrics,
         "market_blend_significant": market_blend_significant,
+        "spread_blend_significant": spread_blend_significant,
+        "totals_blend_significant": totals_blend_significant,
     }
 
 
 def predict_fixtures(
     fixtures_df: pd.DataFrame, ctx: dict, df_clean: pd.DataFrame, model_cfg: dict,
     prediction_mode: str, generated_at: str, run_id: str,
-    match_odds_by_id: dict | None = None,
+    match_odds_by_id: dict | None = None, spread_totals_odds_by_id: dict | None = None,
 ) -> tuple[list[dict], list[dict]]:
     """Core per-fixture prediction loop, shared by the preseason run
     (all 380 fixtures) and the weekly-update engine (only the remaining,
@@ -254,9 +286,14 @@ def predict_fixtures(
     paired-bootstrap test against 2,660 real historical matches, same
     bar the stacked ensemble was held to, checked fresh every run) and
     real market odds exist for that specific fixture -- which, before
-    kickoff, is rarely more than a handful of fixtures at a time."""
+    kickoff, is rarely more than a handful of fixtures at a time.
+    `spread_totals_odds_by_id` (from prediction_ledger.load_live_spread_totals_odds)
+    is the same mechanism for the spread and totals blends
+    (spread_totals_blend_model.py) -- independently gated per market
+    since real coverage and validated significance can differ between them."""
     fit = ctx["fit"]
     match_odds_by_id = match_odds_by_id or {}
+    spread_totals_odds_by_id = spread_totals_odds_by_id or {}
     pred_rows, expl_rows = [], []
 
     for _, fx in fixtures_df.iterrows():
@@ -319,6 +356,38 @@ def predict_fixtures(
         predicted_result = result_from_score(pred_ij[0], pred_ij[1])
         top10 = top_n_scorelines(matrix, 10)
 
+        # BTTS, totals, and Asian Handicap -- all derived from the same
+        # scoreline matrix already computed above, no separate model
+        # needed. Real market lines/blending (where validated) are
+        # applied below, same pattern as the moneyline blend. BTTS has
+        # no real market source anywhere (confirmed -- see
+        # spread_totals_blend_model.py's docstring) so it stays model-only.
+        btts_yes, btts_no = btts_probability(matrix), 1.0 - btts_probability(matrix)
+        fixture_spread_totals_odds = spread_totals_odds_by_id.get(fx["match_id"])
+
+        total_line = DEFAULT_TOTAL_GOALS_LINE
+        over_prob, under_prob = total_goals_probabilities(matrix, total_line)
+        totals_blend_applied = False
+        if (ctx.get("totals_blend_significant") and fixture_spread_totals_odds is not None
+                and "over_prob" in fixture_spread_totals_odds):
+            total_line = fixture_spread_totals_odds["total_line"]
+            model_over, _ = total_goals_probabilities(matrix, total_line)
+            over_prob = log_odds_average_binary([model_over, fixture_spread_totals_odds["over_prob"]])
+            under_prob = 1.0 - over_prob
+            totals_blend_applied = True
+
+        handicap_line = model_fair_handicap_line(matrix)
+        home_cover_prob = asian_handicap_home_cover_probability(matrix, handicap_line)
+        away_cover_prob = 1.0 - home_cover_prob
+        handicap_blend_applied = False
+        if (ctx.get("spread_blend_significant") and fixture_spread_totals_odds is not None
+                and "home_cover_prob" in fixture_spread_totals_odds):
+            handicap_line = fixture_spread_totals_odds["spread_line"]
+            model_home_cover = asian_handicap_home_cover_probability(matrix, handicap_line)
+            home_cover_prob = log_odds_average_binary([model_home_cover, fixture_spread_totals_odds["home_cover_prob"]])
+            away_cover_prob = 1.0 - home_cover_prob
+            handicap_blend_applied = True
+
         confidence = max(calibrated.values())
         upset_risk = round(1 - confidence, 4)
 
@@ -346,6 +415,13 @@ def predict_fixtures(
             "home_win_prob_market_integrated": "", "draw_prob_market_integrated": "", "away_win_prob_market_integrated": "",
             "top_10_scorelines_model_only_json": json.dumps(top10),
             "top_10_scorelines_market_integrated_json": "",
+            "btts_yes_prob_model_only": round(btts_yes, 4), "btts_no_prob_model_only": round(btts_no, 4),
+            "total_goals_line_model_only": total_line,
+            "over_prob_model_only": round(over_prob, 4), "under_prob_model_only": round(under_prob, 4),
+            "totals_blend_applied": totals_blend_applied,
+            "handicap_line_model_only": handicap_line,
+            "home_cover_prob_model_only": round(home_cover_prob, 4), "away_cover_prob_model_only": round(away_cover_prob, 4),
+            "handicap_blend_applied": handicap_blend_applied,
             "market_available": False, "closing_market_available": False,
             "market_blend_applied": market_blend_applied,
             "squad_data_available": False, "injury_data_available": False, "lineup_data_available": False,
@@ -413,13 +489,19 @@ def main() -> None:
     )
 
     match_odds_by_id = load_combined_match_odds(REAL_ODDS_PATH, MATCH_ODDS_PATH)
-    pred_rows, expl_rows = predict_fixtures(fixtures_df, ctx, df_clean, model_cfg, "preseason_mode", generated_at, meta.run_id, match_odds_by_id)
+    spread_totals_odds_by_id = load_live_spread_totals_odds(REAL_ODDS_PATH)
+    pred_rows, expl_rows = predict_fixtures(
+        fixtures_df, ctx, df_clean, model_cfg, "preseason_mode", generated_at, meta.run_id,
+        match_odds_by_id, spread_totals_odds_by_id,
+    )
 
     pred_df = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS]
     OUT_PREDICTIONS.parent.mkdir(parents=True, exist_ok=True)
     pred_df.to_csv(OUT_PREDICTIONS, index=False)
     print(f"Wrote {len(pred_df)} match predictions to {OUT_PREDICTIONS} "
-          f"({int(pred_df['market_blend_applied'].sum())} with the model+market blend applied)")
+          f"({int(pred_df['market_blend_applied'].sum())} moneyline, "
+          f"{int(pred_df['handicap_blend_applied'].sum())} spread, "
+          f"{int(pred_df['totals_blend_applied'].sum())} totals with the model+market blend applied)")
 
     append_to_ledger(pred_rows, LEDGER_PATH, match_odds_by_id=match_odds_by_id)
     print(f"Appended {len(pred_rows)} pre-kickoff predictions to {LEDGER_PATH}")

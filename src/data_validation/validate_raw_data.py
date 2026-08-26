@@ -39,7 +39,15 @@ def validate_file(filename: str, expected_columns: list[str], expected_rows: int
     if expected_rows is not None and len(df) != expected_rows:
         errors.append(f"{filename}: expected {expected_rows} rows, found {len(df)}")
 
-    if "match_id" in df.columns and df["match_id"].notna().any():
+    if filename == "epl_2026_27_real_odds.csv":
+        # match_id legitimately repeats here: one row per (match_id,
+        # bookmaker, market_type) -- that combination is the real key.
+        if {"match_id", "bookmaker", "market_type"}.issubset(df.columns):
+            key_cols = ["match_id", "bookmaker", "market_type"]
+            dupe_count = df[key_cols].dropna(subset=["match_id"]).duplicated().sum()
+            if dupe_count > 0:
+                errors.append(f"{filename}: {dupe_count} duplicate (match_id, bookmaker, market_type) rows")
+    elif "match_id" in df.columns and df["match_id"].notna().any():
         dupes = df["match_id"].dropna()
         dupe_count = dupes.duplicated().sum()
         if dupe_count > 0:

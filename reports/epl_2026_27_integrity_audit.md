@@ -1,6 +1,6 @@
 # EPL 2026-27 Integrity Audit
 
-Generated: 2026-08-21T04:24:13+00:00
+Generated: 2026-08-25T22:45:46+00:00
 
 **23 passed, 0 failed, 3 not yet applicable** (out of 26 checks).
 
@@ -9,14 +9,14 @@ Generated: 2026-08-21T04:24:13+00:00
 | PASS | All 380 fixtures are present | found 380 |
 | PASS | No duplicate match IDs in fixtures |  |
 | PASS | No missing teams (exactly the 20 real 2026-27 clubs) |  |
-| PASS | No fake odds are used (every real row has a real source_name and data_status=live; every other row is explicitly flagged unavailable, never fabricated) | 579 rows checked (209 real, 370 unavailable) |
+| PASS | No fake odds are used (every real row has a real source_name and data_status=live; every other row is explicitly flagged unavailable, never fabricated) | 2512 rows checked (1432 real, 1080 unavailable) |
 | PASS | No fake injuries are used (all 2026-27 injury rows are explicitly flagged unavailable, not fabricated) | 20 rows checked |
 | PASS | No fake squad news is used (all 2026-27 squad rows are explicitly flagged unavailable, not fabricated) | 20 rows checked |
 | PASS | No placeholder rows in historical matches are treated as real (is_real_data=True implies a real source, and every row has one) | 4560 rows, source=['football-data.co.uk'] |
 | PASS | All model-only probability rows sum to 1 |  |
 | PASS | Predicted result matches predicted score on every row |  |
 | PASS | Scheduled (not-yet-played) matches carry no actual result |  |
-| PASS | Completed matches (if any) have an actual result -- N/A this run since 0 completed matches exist yet | 0 completed rows |
+| PASS | Completed matches (if any) have an actual result -- N/A this run since 0 completed matches exist yet | 10 completed rows |
 | PASS | No future-data leakage: every prediction's generated_at is at or before that match's kickoff_utc |  |
 | PASS | Market odds are used only when verified real: market_available is False on every row (no real odds feed connected in Phase 1/2) |  |
 | PASS | Model-only and market-integrated outputs are clearly separated (market-integrated columns are blank, not duplicated model-only values, while market is unavailable) |  |

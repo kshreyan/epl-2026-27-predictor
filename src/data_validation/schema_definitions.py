@@ -39,8 +39,9 @@ INJURY_SUSPENSION_COLUMNS = [
 REAL_ODDS_COLUMNS = [
     "match_id", "season", "matchweek", "date", "kickoff_utc", "home_team", "away_team", "bookmaker", "market_type",
     "opening_home_odds", "opening_draw_odds", "opening_away_odds", "current_home_odds", "current_draw_odds",
-    "current_away_odds", "closing_home_odds", "closing_draw_odds", "closing_away_odds", "over_2_5_odds",
-    "under_2_5_odds", "btts_yes_odds", "btts_no_odds", "odds_snapshot_type", "time_to_kickoff_hours",
+    "current_away_odds", "closing_home_odds", "closing_draw_odds", "closing_away_odds",
+    "spread_line", "home_spread_odds", "away_spread_odds", "total_line", "over_odds", "under_odds",
+    "btts_yes_odds", "btts_no_odds", "odds_snapshot_type", "time_to_kickoff_hours",
     "odds_format", "odds_timestamp", "source_name", "source_url_or_page_title", "is_example", "is_real_data",
     "data_status", "collection_date", "notes",
 ]
@@ -61,6 +62,10 @@ RAW_FILE_SCHEMAS = {
     "epl_historical_matches.csv": (HISTORICAL_MATCHES_COLUMNS, None),
     "epl_2026_27_squads_transfers.csv": (SQUADS_TRANSFERS_COLUMNS, None),
     "epl_2026_27_injury_suspension.csv": (INJURY_SUSPENSION_COLUMNS, None),
-    "epl_2026_27_real_odds.csv": (REAL_ODDS_COLUMNS, 380),
+    # Row count is inherently variable, not fixed at 380: one sentinel row per
+    # (fixture, market_type in {h2h, spreads, totals}) at minimum, plus one
+    # additional real row per bookmaker that has actually posted a given
+    # market for a given fixture (see collect_odds.py).
+    "epl_2026_27_real_odds.csv": (REAL_ODDS_COLUMNS, None),
     "epl_2026_27_outright_odds.csv": (OUTRIGHT_ODDS_COLUMNS, None),
 }

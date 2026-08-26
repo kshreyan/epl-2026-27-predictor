@@ -57,13 +57,39 @@ def log_odds_average(probability_triples: list[tuple[float, float, float]]) -> t
     return tuple(probs.tolist())
 
 
+def remove_overround_binary(decimal_odds: tuple[float, float]) -> tuple[float, float]:
+    """Same proportional-normalization de-vig as `remove_overround`, for a
+    two-outcome market (Asian Handicap cover/not-cover, Over/Under) instead
+    of 1X2."""
+    raw = [1.0 / o for o in decimal_odds]
+    total = sum(raw)
+    return tuple(r / total for r in raw)
+
+
+def log_odds_average_binary(probabilities: list[float]) -> float:
+    """Averages a two-outcome market's no-vig probability (of the first
+    outcome) across sources in logit space -- the same reasoning as
+    `log_odds_average`, simplified for one degree of freedom (no
+    renormalization needed: inv_logit of a mean logit is already a valid
+    probability in (0, 1)). Used to blend the model's own probability with
+    a real market's de-vigged probability for the same (fixture, line)."""
+    if not probabilities:
+        raise ValueError("no probabilities to average")
+    return _inv_logit(float(np.mean([_logit(p) for p in probabilities])))
+
+
 def build_market_features(odds_df: pd.DataFrame) -> pd.DataFrame:
     """One row per match_id with market_available and (when real odds
     exist) cleaned market probabilities. With the current sentinel-only
     epl_2026_27_real_odds.csv, every row is market_available=False."""
     rows = []
     for match_id, group in odds_df.groupby("match_id"):
-        real_rows = group[group["is_real_data"] == True]  # noqa: E712
+        # epl_2026_27_real_odds.csv now also carries real "spreads" and
+        # "totals" rows (see collect_odds.py) -- this function is 1X2-only,
+        # so it must restrict to "h2h" or a spread/totals row's blank
+        # current_home_odds would raise on the float() conversion below.
+        h2h_group = group[group["market_type"] == "h2h"] if "market_type" in group.columns else group
+        real_rows = h2h_group[h2h_group["is_real_data"] == True]  # noqa: E712
         if real_rows.empty:
             rows.append({
                 "match_id": match_id,

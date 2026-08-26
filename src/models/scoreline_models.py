@@ -243,6 +243,75 @@ def outcome_probabilities(matrix: np.ndarray) -> tuple[float, float, float]:
     return home_win, draw, away_win
 
 
+def btts_probability(matrix: np.ndarray) -> float:
+    """P(both teams score) -- both home and away goals >= 1."""
+    return float(matrix[1:, 1:].sum())
+
+
+def total_goals_probabilities(matrix: np.ndarray, line: float) -> tuple[float, float]:
+    """P(total goals > line), P(total goals < line). A real total-goals
+    market line is always a half-integer (e.g. 2.5), so no push is
+    possible and the two probabilities always sum to 1."""
+    n = matrix.shape[0]
+    over = 0.0
+    for i in range(n):
+        for j in range(n):
+            if i + j > line:
+                over += matrix[i, j]
+    return over, 1.0 - over
+
+
+def asian_handicap_home_cover_probability(matrix: np.ndarray, home_line: float) -> float:
+    """P(home side covers `home_line`), where home_line is added to the
+    home team's goals -- e.g. home_line=-0.5 means home must win
+    outright to cover; home_line=+0.5 means home covers on a draw or a
+    home win. Away side's cover probability is `1 - this value` for a
+    half/whole line (no push possible), or computed the same way with
+    `-home_line` for a push-capable whole-number line.
+
+    Real Asian Handicap markets also use quarter lines (e.g. -0.75),
+    which split the stake across the two adjacent half-point lines
+    rather than settling as one clean bet. Reported here as the
+    average of the two adjacent lines' cover probabilities -- the
+    standard simplification for a single reportable probability. At a
+    whole-number line, a push (goal difference exactly cancels the
+    line) is treated as half a cover, matching how a push returns the
+    stake rather than winning or losing it."""
+    doubled = home_line * 2
+    if abs(doubled - round(doubled)) > 1e-9:  # a quarter line, e.g. -0.75
+        lower = math.floor(doubled) / 2
+        upper = lower + 0.5
+        return (
+            asian_handicap_home_cover_probability(matrix, lower)
+            + asian_handicap_home_cover_probability(matrix, upper)
+        ) / 2
+
+    n = matrix.shape[0]
+    cover, push = 0.0, 0.0
+    for i in range(n):
+        for j in range(n):
+            diff = (i - j) + home_line
+            if diff > 1e-9:
+                cover += matrix[i, j]
+            elif diff >= -1e-9:
+                push += matrix[i, j]
+    return cover + push * 0.5
+
+
+def model_fair_handicap_line(matrix: np.ndarray) -> float:
+    """The quarter-point handicap line closest to a genuine 50/50 cover
+    probability for the home side -- the model's own "what line would
+    make this a coin flip" answer, used as a default when no real
+    market line is available for this fixture (most of the season)."""
+    candidates = [x / 4 for x in range(-16, 17)]  # -4.00 to +4.00 in quarter-goal steps
+    best_line, best_gap = 0.0, 1.0
+    for line in candidates:
+        gap = abs(asian_handicap_home_cover_probability(matrix, line) - 0.5)
+        if gap < best_gap:
+            best_gap, best_line = gap, line
+    return best_line
+
+
 def top_n_scorelines(matrix: np.ndarray, n: int = 10) -> list[dict]:
     flat = [(f"{i}-{j}", float(matrix[i, j])) for i in range(matrix.shape[0]) for j in range(matrix.shape[1])]
     flat.sort(key=lambda x: -x[1])

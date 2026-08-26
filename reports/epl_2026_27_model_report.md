@@ -949,6 +949,57 @@ to reverse after calibration, but this was not separately re-verified
 against the exact calibrated pipeline -- a real, named gap in the
 validation, not a hidden one.
 
+## BTTS, spread, and totals predictions
+
+Beyond the 1X2 moneyline, the model now predicts three more betting
+markets for every one of the 380 fixtures, every gameweek: both-teams-
+to-score (BTTS), Asian Handicap (spread), and Over/Under 2.5 goals
+(totals). All three are derived from the same Dixon-Coles scoreline
+matrix already computed for the moneyline prediction -- no separate
+model (`src/models/scoreline_models.py`: `btts_probability`,
+`total_goals_probabilities`, `asian_handicap_home_cover_probability`,
+`model_fair_handicap_line`).
+
+**Real market data, where it genuinely exists**: The Odds API confirmed
+to support `spreads` and `totals` for this sport (`collect_odds.py` now
+requests `h2h,spreads,totals` together); confirmed to explicitly NOT
+support `btts` (`INVALID_MARKET` error, tested directly, not assumed).
+football-data.co.uk's cached historical files have real closing-line
+Asian Handicap (`AHh`/`AvgAHH`/`AvgAHA`) and Over/Under 2.5
+(`Avg>2.5`/`Avg<2.5`) columns for backtesting; they have no BTTS column
+anywhere. **BTTS therefore has no real market source, live or
+historical, and stays honestly model-only** -- not a gap that was
+skipped, a gap that was checked and confirmed absent.
+
+**Spread and totals blends, validated the same way the moneyline blend
+was** (`src/models/spread_totals_blend_model.py`): a 50/50 log-odds
+blend of the model's own probability and the real market's de-vigged
+probability, tested via the same paired-bootstrap bar (10,000
+resamples, 95% CI must exclude zero AND win a season majority) against
+the full 7-season real historical backtest. Both cleared it decisively:
+
+| Market | Model-only log loss | Blend log loss | Bootstrap CI (model &minus; blend) | Season wins |
+|---|---|---|---|---|
+| Spread (Asian Handicap) | 0.7108 | **0.6969** | [+0.0101, +0.0176] | 7/7 |
+| Totals (Over/Under 2.5) | 0.6868 | **0.6775** | [+0.0062, +0.0126] | 7/7 |
+
+Both blends are now applied in live predictions (`handicap_blend_applied`
+/ `totals_blend_applied` columns), gated per fixture on real market data
+actually existing for that specific match and market -- exactly the same
+"significant AND real data present" precondition the moneyline blend
+uses, checked independently per market since real coverage differs
+market to market (a bookmaker may post h2h before spreads, or totals
+before either). Real spread/totals odds are aggregated across
+bookmakers at the market's modal (most commonly quoted) line only --
+not averaged across different lines, which would mix incomparable bets
+(`prediction_ledger.load_live_spread_totals_odds`).
+
+Tested via `tests/test_derived_markets.py` (pure scoreline-matrix math,
+including the Asian Handicap quarter-line and whole-number-push
+conventions) and `tests/test_spread_totals_blend_wiring.py` (blend
+applies only to fixtures with real market data, mirroring
+`test_market_blend_wiring.py`'s pattern for the moneyline blend).
+
 ## Limitations (read before trusting a number)
 
 - **Correction (previously listed as a limitation, no longer accurate as

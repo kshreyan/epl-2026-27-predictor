@@ -53,6 +53,15 @@ alone is the primary model. Full detail:
   `reports/epl_2026_27_model_report.md` "Model+market blend") -- a
   paired-bootstrap-tested edge (log loss 0.9865 -> 0.9717 vs Dixon-Coles
   alone, 7/7 backtest seasons), not an assumption that blending helps.
+- ~~Spread/totals/BTTS predictions~~ **added, 2026-08-25**: every fixture
+  now also gets a both-teams-to-score, Asian Handicap (spread), and
+  Over/Under 2.5 (totals) prediction, with real market data connected
+  for spread and totals (also via The Odds API and football-data.co.uk)
+  and each blended in only where independently validated -- see
+  `reports/epl_2026_27_model_report.md` "BTTS, spread, and totals
+  predictions". BTTS has no real market source anywhere (checked
+  directly: unsupported by the live odds API for this sport, no column
+  in the historical data either) and stays model-only.
 - **Injuries/suspensions**: no free source with confirmable current-season
   EPL coverage. Left as an honest `unknown` sentinel, never proxied.
 
@@ -140,7 +149,7 @@ python run_pipeline.py --season 2026-27 --mode weekly_update --matchweek 1 --res
 
 ## Key outputs
 
-- `data/outputs/epl_2026_27_match_predictions.csv` -- every fixture: predicted score, top-10 scorelines, 1X2 probabilities, confidence, upset risk
+- `data/outputs/epl_2026_27_match_predictions.csv` -- every fixture: predicted score, top-10 scorelines, 1X2/BTTS/spread/totals probabilities, confidence, upset risk
 - `data/outputs/epl_2026_27_expected_table.csv` -- expected final table with uncertainty bands
 - `data/outputs/epl_2026_27_position_distribution.csv` -- full 1st-20th finish probability for every club
 - `data/outputs/epl_2026_27_title_race.csv`, `_top4_probabilities.csv`, `_relegation_probabilities.csv`
