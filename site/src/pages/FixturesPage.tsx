@@ -115,12 +115,24 @@ function MatchRow({ match }: { match: MatchPredictionRow }) {
 
 export function FixturesPage() {
   const { data, error, loading } = useDashboardJson<Envelope<MatchPredictionRow>>('epl_match_predictions.json')
-  const [matchweek, setMatchweek] = useState(1)
+  const [pickedMatchweek, setPickedMatchweek] = useState<number | null>(null)
 
   const matchweeks = useMemo(
     () => (data ? [...new Set(data.data.map((m) => m.matchweek))].sort((a, b) => a - b) : []),
     [data],
   )
+
+  // Default to the first matchweek that isn't fully completed (rather
+  // than always matchweek 1), so the page shows upcoming fixtures --
+  // with real, current model+market predictions -- once the season is
+  // underway, instead of an already-played week whose rows are frozen
+  // at their original pre-kickoff values.
+  const defaultMatchweek = useMemo(() => {
+    if (!data) return 1
+    return matchweeks.find((mw) => data.data.some((m) => m.matchweek === mw && m.status !== 'completed')) ?? matchweeks[0] ?? 1
+  }, [data, matchweeks])
+  const matchweek = pickedMatchweek ?? defaultMatchweek
+
   const matches = useMemo(
     () => (data ? data.data.filter((m) => m.matchweek === matchweek).sort((a, b) => a.kickoff_utc.localeCompare(b.kickoff_utc)) : []),
     [data, matchweek],
@@ -137,7 +149,7 @@ export function FixturesPage() {
         <select
           id="mw"
           value={matchweek}
-          onChange={(e) => setMatchweek(Number(e.target.value))}
+          onChange={(e) => setPickedMatchweek(Number(e.target.value))}
           className="tnum border border-[var(--color-border)] bg-[var(--color-panel)] px-2 py-1 text-[12px]"
         >
           {matchweeks.map((mw) => (

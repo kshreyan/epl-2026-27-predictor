@@ -1,6 +1,6 @@
 # EPL 2026-27 Integrity Audit
 
-Generated: 2026-08-26T02:16:10+00:00
+Generated: 2026-08-26T02:26:31+00:00
 
 **23 passed, 0 failed, 3 not yet applicable** (out of 26 checks).
 
