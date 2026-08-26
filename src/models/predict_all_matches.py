@@ -74,15 +74,19 @@ from src.models.promoted_team_adjustment import (  # noqa: E402
 from src.models.scoreline_models import (  # noqa: E402
     apply_promoted_team_adjustment,
     asian_handicap_home_cover_probability,
+    btts_pick,
     btts_probability,
     fit_dixon_coles_model,
     match_lambdas,
     model_fair_handicap_line,
+    moneyline_pick,
     outcome_probabilities,
     score_matrix,
     scoreline_entropy,
+    spread_pick,
     top_n_scorelines,
     total_goals_probabilities,
+    totals_pick,
 )
 from src.utils.team_names import EPL_2026_27_CLUBS  # noqa: E402
 from src.utils.versioning import (  # noqa: E402
@@ -116,13 +120,13 @@ PREDICTION_COLUMNS = [
     "home_expected_goals_market_integrated", "away_expected_goals_market_integrated",
     "predicted_score_model_only", "predicted_score_market_integrated",
     "predicted_result_model_only", "predicted_result_market_integrated",
-    "home_win_prob_model_only", "draw_prob_model_only", "away_win_prob_model_only",
+    "home_win_prob_model_only", "draw_prob_model_only", "away_win_prob_model_only", "moneyline_pick",
     "dc_raw_home_win_prob", "dc_raw_draw_prob", "dc_raw_away_win_prob",
     "home_win_prob_market_integrated", "draw_prob_market_integrated", "away_win_prob_market_integrated",
     "top_10_scorelines_model_only_json", "top_10_scorelines_market_integrated_json",
-    "btts_yes_prob_model_only", "btts_no_prob_model_only",
-    "total_goals_line_model_only", "over_prob_model_only", "under_prob_model_only", "totals_blend_applied",
-    "handicap_line_model_only", "home_cover_prob_model_only", "away_cover_prob_model_only", "handicap_blend_applied",
+    "btts_yes_prob_model_only", "btts_no_prob_model_only", "btts_pick",
+    "total_goals_line_model_only", "over_prob_model_only", "under_prob_model_only", "totals_blend_applied", "totals_pick",
+    "handicap_line_model_only", "home_cover_prob_model_only", "away_cover_prob_model_only", "handicap_blend_applied", "spread_pick",
     "market_available", "closing_market_available", "market_blend_applied", "squad_data_available", "injury_data_available", "lineup_data_available",
     "home_key_absences_count", "away_key_absences_count",
     "home_expected_lineup_strength", "away_expected_lineup_strength",
@@ -391,6 +395,19 @@ def predict_fixtures(
         confidence = max(calibrated.values())
         upset_risk = round(1 - confidence, 4)
 
+        # A single, explicit pick per market -- whichever side each
+        # market's own (blend-aware, since the variables above already
+        # hold the blended probability when a blend was applied)
+        # probability favors. moneyline_pick uses the aggregated 1X2
+        # probabilities directly, not predicted_result (the single most
+        # likely exact scoreline), since those can genuinely disagree
+        # in a close match and the aggregated probability is the
+        # correct basis for a 1X2 pick.
+        moneyline_pick_value = moneyline_pick(calibrated["home_win"], calibrated["draw"], calibrated["away_win"], home, away)
+        btts_pick_value = btts_pick(btts_yes)
+        totals_pick_value = totals_pick(over_prob, total_line)
+        spread_pick_value = spread_pick(home_cover_prob, handicap_line, home, away)
+
         pred_rows.append({
             "match_id": fx["match_id"], "season": fx["season"], "matchweek": fx["matchweek"],
             "date": fx["date"], "kickoff_utc": fx["kickoff_utc"], "home_team": home, "away_team": away,
@@ -403,6 +420,7 @@ def predict_fixtures(
             "home_win_prob_model_only": round(calibrated["home_win"], 4),
             "draw_prob_model_only": round(calibrated["draw"], 4),
             "away_win_prob_model_only": round(calibrated["away_win"], 4),
+            "moneyline_pick": moneyline_pick_value,
             # Raw (uncalibrated, pre-ensemble) Dixon-Coles probability,
             # captured unconditionally at prediction time -- this is the
             # baseline a later scoring pass compares the production
@@ -416,12 +434,13 @@ def predict_fixtures(
             "top_10_scorelines_model_only_json": json.dumps(top10),
             "top_10_scorelines_market_integrated_json": "",
             "btts_yes_prob_model_only": round(btts_yes, 4), "btts_no_prob_model_only": round(btts_no, 4),
+            "btts_pick": btts_pick_value,
             "total_goals_line_model_only": total_line,
             "over_prob_model_only": round(over_prob, 4), "under_prob_model_only": round(under_prob, 4),
-            "totals_blend_applied": totals_blend_applied,
+            "totals_blend_applied": totals_blend_applied, "totals_pick": totals_pick_value,
             "handicap_line_model_only": handicap_line,
             "home_cover_prob_model_only": round(home_cover_prob, 4), "away_cover_prob_model_only": round(away_cover_prob, 4),
-            "handicap_blend_applied": handicap_blend_applied,
+            "handicap_blend_applied": handicap_blend_applied, "spread_pick": spread_pick_value,
             "market_available": False, "closing_market_available": False,
             "market_blend_applied": market_blend_applied,
             "squad_data_available": False, "injury_data_available": False, "lineup_data_available": False,

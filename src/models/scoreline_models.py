@@ -312,6 +312,35 @@ def model_fair_handicap_line(matrix: np.ndarray) -> float:
     return best_line
 
 
+def moneyline_pick(home_win_prob: float, draw_prob: float, away_win_prob: float, home_team: str, away_team: str) -> str:
+    """The model's single most likely 1X2 outcome, by name -- the
+    highest of the three published probabilities, which is not always
+    the same side as `predicted_score`'s implied result (that comes
+    from the single most likely exact scoreline, which can differ from
+    the aggregated 1X2 favorite in a genuinely close match)."""
+    options = [(home_win_prob, home_team), (draw_prob, "Draw"), (away_win_prob, away_team)]
+    return max(options, key=lambda x: x[0])[1]
+
+
+def btts_pick(btts_yes_prob: float) -> str:
+    return "Yes" if btts_yes_prob >= 0.5 else "No"
+
+
+def totals_pick(over_prob: float, line: float) -> str:
+    return f"Over {line}" if over_prob >= 0.5 else f"Under {line}"
+
+
+def spread_pick(home_cover_prob: float, home_line: float, home_team: str, away_team: str) -> str:
+    """Home_line is signed from the home side (e.g. -1.75 means home
+    must win by 2+ to fully cover); the away side's equivalent line is
+    always its negation."""
+    picked_team = home_team if home_cover_prob >= 0.5 else away_team
+    picked_line = home_line if home_cover_prob >= 0.5 else -home_line
+    if picked_line == 0:
+        return f"{picked_team} (pick'em)"
+    return f"{picked_team} {picked_line:+g}"
+
+
 def top_n_scorelines(matrix: np.ndarray, n: int = 10) -> list[dict]:
     flat = [(f"{i}-{j}", float(matrix[i, j])) for i in range(matrix.shape[0]) for j in range(matrix.shape[1])]
     flat.sort(key=lambda x: -x[1])

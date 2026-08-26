@@ -15,11 +15,15 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 from src.models.scoreline_models import (  # noqa: E402
     asian_handicap_home_cover_probability,
+    btts_pick,
     btts_probability,
     model_fair_handicap_line,
+    moneyline_pick,
     outcome_probabilities,
     score_matrix,
+    spread_pick,
     total_goals_probabilities,
+    totals_pick,
 )
 
 
@@ -93,6 +97,31 @@ def test_quarter_line_is_average_of_two_adjacent_half_lines():
     half_below = asian_handicap_home_cover_probability(matrix, -0.5)
     half_above = asian_handicap_home_cover_probability(matrix, -1.0)
     assert quarter == pytest.approx((half_below + half_above) / 2, abs=1e-6)
+
+
+def test_moneyline_pick_returns_the_highest_probability_side():
+    assert moneyline_pick(0.6, 0.25, 0.15, "Arsenal", "Chelsea") == "Arsenal"
+    assert moneyline_pick(0.2, 0.3, 0.5, "Arsenal", "Chelsea") == "Chelsea"
+    assert moneyline_pick(0.2, 0.6, 0.2, "Arsenal", "Chelsea") == "Draw"
+
+
+def test_btts_pick_is_yes_only_above_fifty_percent():
+    assert btts_pick(0.51) == "Yes"
+    assert btts_pick(0.49) == "No"
+    assert btts_pick(0.5) == "Yes"  # ties resolve to Yes (>=), an arbitrary but deterministic tiebreak
+
+
+def test_totals_pick_includes_the_actual_line():
+    assert totals_pick(0.6, 2.5) == "Over 2.5"
+    assert totals_pick(0.4, 2.5) == "Under 2.5"
+    assert totals_pick(0.6, 3.0) == "Over 3.0"
+
+
+def test_spread_pick_picks_the_covering_side_with_its_own_signed_line():
+    assert spread_pick(0.6, -1.75, "Arsenal", "Chelsea") == "Arsenal -1.75"
+    # Away side's line is the negation of the home line, not a copy of it.
+    assert spread_pick(0.4, -1.75, "Arsenal", "Chelsea") == "Chelsea +1.75"
+    assert spread_pick(0.6, 0.0, "Arsenal", "Chelsea") == "Arsenal (pick'em)"
 
 
 def test_home_and_away_win_probs_from_outcome_probabilities_are_consistent_with_ah_at_pick_em():

@@ -83,6 +83,10 @@ export interface MatchPredictionRow {
   home_win_prob_market_integrated: number | null
   draw_prob_market_integrated: number | null
   away_win_prob_market_integrated: number | null
+  moneyline_pick: string
+  btts_pick: string
+  totals_pick: string
+  spread_pick: string
   top_10_scorelines_model_only_json: ScorelineEntry[]
   top_10_scorelines_market_integrated_json: ScorelineEntry[] | null
   market_available: boolean

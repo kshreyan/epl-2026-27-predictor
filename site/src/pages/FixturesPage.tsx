@@ -16,13 +16,22 @@ function ProbBar({ home, draw, away }: { home: number; draw: number; away: numbe
   )
 }
 
+function PickChip({ label, value }: { label: string; value: string }) {
+  return (
+    <span className="rounded-sm border border-[var(--color-border)] px-1.5 py-0.5 text-[10px]">
+      <span className="text-[var(--color-text-faint)]">{label}: </span>
+      <span className="tnum font-medium text-[var(--color-accent)]">{value}</span>
+    </span>
+  )
+}
+
 function MatchRow({ match }: { match: MatchPredictionRow }) {
   const [open, setOpen] = useState(false)
   return (
     <div className="border-b border-[var(--color-border)] last:border-0">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="grid w-full grid-cols-[100px_1fr_80px_140px_auto] items-center gap-3 px-2 py-2 text-left hover:bg-[var(--color-panel)]"
+        className="grid w-full grid-cols-[100px_1fr_80px_140px_auto] items-center gap-3 px-2 pt-2 text-left hover:bg-[var(--color-panel)]"
       >
         <span className="tnum text-[11px] text-[var(--color-text-faint)]">{formatKickoff(match.kickoff_utc)}</span>
         <span className="text-[12px]">
@@ -33,6 +42,12 @@ function MatchRow({ match }: { match: MatchPredictionRow }) {
         </span>
         <ProbBar home={match.home_win_prob_model_only} draw={match.draw_prob_model_only} away={match.away_win_prob_model_only} />
         <DataQualityBadge marketAvailable={match.market_available} dataQualityScore={match.data_quality_score} />
+      </button>
+      <button onClick={() => setOpen((o) => !o)} className="flex w-full flex-wrap gap-1.5 px-2 pb-2 pt-1.5 text-left hover:bg-[var(--color-panel)]">
+        <PickChip label="ML" value={match.moneyline_pick} />
+        <PickChip label="BTTS" value={match.btts_pick} />
+        <PickChip label="Spread" value={match.spread_pick} />
+        <PickChip label="Total" value={match.totals_pick} />
       </button>
       {open && (
         <div className="grid grid-cols-1 gap-4 border-t border-[var(--color-border)] bg-[var(--color-panel)] px-3 py-3 md:grid-cols-2">
