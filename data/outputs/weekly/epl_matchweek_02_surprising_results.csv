@@ -1,0 +1,11 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+EPL2627_MW02_017_Liverpool_NottinghamForest,2,Liverpool,Nottingham Forest,draw,0.2397,0.587,0.2397,0.1733,1.4284,2026-09-01T10:36:49+00:00
+EPL2627_MW02_016_LeedsUnited_Brentford,2,Leeds United,Brentford,draw,0.2679,0.389,0.2679,0.3431,1.3171,2026-09-01T10:36:49+00:00
+EPL2627_MW02_011_AFCBournemouth_Everton,2,AFC Bournemouth,Everton,draw,0.2828,0.4448,0.2828,0.2724,1.263,2026-09-01T10:36:49+00:00
+EPL2627_MW02_020_TottenhamHotspur_NewcastleUnited,2,Tottenham Hotspur,Newcastle United,away_win,0.3462,0.3864,0.2673,0.3462,1.0607,2026-09-01T10:36:49+00:00
+EPL2627_MW02_019_Sunderland_Fulham,2,Sunderland,Fulham,home_win,0.3911,0.3911,0.2822,0.3266,0.9388,2026-09-01T10:36:49+00:00
+EPL2627_MW02_013_Chelsea_Brighton&HoveAlbion,2,Chelsea,Brighton & Hove Albion,home_win,0.4481,0.4481,0.2526,0.2993,0.8027,2026-09-01T10:36:49+00:00
+EPL2627_MW02_012_AstonVilla_Arsenal,2,Aston Villa,Arsenal,away_win,0.5706,0.1847,0.2447,0.5706,0.5611,2026-09-01T10:36:49+00:00
+EPL2627_MW02_015_CrystalPalace_ManchesterCity,2,Crystal Palace,Manchester City,away_win,0.576,0.1683,0.2557,0.576,0.5516,2026-09-01T10:36:49+00:00
+EPL2627_MW02_018_ManchesterUnited_IpswichTown,2,Manchester United,Ipswich Town,home_win,0.7262,0.7262,0.1549,0.1189,0.3199,2026-09-01T10:36:49+00:00
+EPL2627_MW02_014_CoventryCity_HullCity,2,Coventry City,Hull City,away_win,0.7489,0.0,0.2511,0.7489,0.2891,2026-09-01T10:36:49+00:00
