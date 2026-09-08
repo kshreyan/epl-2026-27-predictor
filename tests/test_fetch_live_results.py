@@ -94,10 +94,47 @@ def test_fetch_live_results_csv_survives_a_mis_detected_encoding():
     assert "Arsenal" in result
 
 
-def test_fetch_live_results_csv_returns_none_for_a_genuinely_unavailable_season():
+def test_fetch_live_results_csv_returns_none_for_an_unexpected_status(capsys):
     mock_resp = MagicMock()
-    mock_resp.status_code = 300  # the real response football-data.co.uk gives pre-season
+    mock_resp.status_code = 300
     mock_resp.content = b"<html><title>300 Multiple Choices</title></html>"
     with patch("src.data_collection.fetch_live_results.requests.get", return_value=mock_resp):
         result = fetch_live_results_csv()
     assert result is None
+    # Not the expected 404-early-in-the-season case -- must be printed as
+    # a WARNING (see the next test for the real incident this covers).
+    assert "WARNING" in capsys.readouterr().out
+
+
+def test_fetch_live_results_csv_returns_none_quietly_for_a_genuinely_unavailable_season(capsys):
+    """404 is the real, normal response football-data.co.uk gives before
+    the season's file has been created (pre-kickoff/early-season) --
+    must NOT be printed as a warning, since this is an expected state."""
+    mock_resp = MagicMock()
+    mock_resp.status_code = 404
+    mock_resp.content = b"<html><title>404 Not Found</title></html>"
+    with patch("src.data_collection.fetch_live_results.requests.get", return_value=mock_resp):
+        result = fetch_live_results_csv()
+    assert result is None
+    assert "WARNING" not in capsys.readouterr().out
+
+
+def test_fetch_live_results_csv_warns_on_a_real_site_outage(capsys):
+    """Regression test for a real incident: football-data.co.uk returned
+    HTTP 503 site-wide ("the page you are looking for is temporarily
+    unavailable") on 2026-09-08 while a real matchweek had already
+    concluded -- confirmed as a genuine upstream outage (their homepage
+    and a prior-season file both also 503'd), not a code bug. Before
+    this fix, this looked identical in the logs to the normal
+    no-results-yet case, and cost real time to diagnose. Must still
+    fail safe (return None, no fabricated/guessed results) but must
+    also be visibly distinguishable from the normal case."""
+    mock_resp = MagicMock()
+    mock_resp.status_code = 503
+    mock_resp.content = b"<html><title>The page is temporarily unavailable</title></html>"
+    with patch("src.data_collection.fetch_live_results.requests.get", return_value=mock_resp):
+        result = fetch_live_results_csv()
+    assert result is None
+    out = capsys.readouterr().out
+    assert "WARNING" in out
+    assert "503" in out

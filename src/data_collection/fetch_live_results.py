@@ -50,9 +50,25 @@ def _parse_date(date_raw: str) -> str:
 
 
 def fetch_live_results_csv() -> str | None:
-    """Returns the raw CSV text, or None if the season's file doesn't
-    exist yet on football-data.co.uk (a normal pre-kickoff/early-season
-    state, not an error).
+    """Returns the raw CSV text, or None if no real results are
+    obtainable right now.
+
+    None covers two genuinely different situations, and this function
+    prints which one happened rather than staying silent -- otherwise
+    both look identical to a caller (and to anyone reading the workflow
+    log) as "no newly-concluded matchweek found", which cost real time
+    to diagnose once (see below) and did again on 2026-09-08, when
+    football-data.co.uk returned HTTP 503 site-wide ("the page you are
+    looking for is temporarily unavailable") for a real, already-
+    concluded matchweek 3 -- a genuine upstream outage, not a code bug,
+    confirmed by checking their homepage and a prior-season file too.
+    The normal case (season file genuinely doesn't exist yet, a 404
+    early in the season) and this abnormal case (a non-404 failure
+    while real results should exist) both still return None -- this
+    project doesn't retry-until-success or guess at results, it fails
+    safe and lets the next scheduled run try again -- but only the
+    abnormal case is now printed as a WARNING, so it's visible without
+    having to reproduce it by hand.
 
     Decodes `resp.content` explicitly as utf-8-sig rather than trusting
     `resp.text` -- this real endpoint doesn't declare a charset in its
@@ -68,10 +84,20 @@ def fetch_live_results_csv() -> str | None:
     of encoding surprise recurring in a different form."""
     resp = requests.get(CURRENT_SEASON_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, allow_redirects=True)
     if resp.status_code != 200:
+        if resp.status_code != 404:
+            print(
+                f"WARNING: {CURRENT_SEASON_URL} returned HTTP {resp.status_code} (expected 200, or 404 if the "
+                f"season's file genuinely doesn't exist yet) -- treating as no real results available this run, "
+                f"not as confirmation the season hasn't started. Will retry on the next scheduled run."
+            )
         return None
     text = resp.content.decode("utf-8-sig", errors="replace")
     lines = text.splitlines()
     if not lines or "HomeTeam" not in lines[0]:
+        print(
+            f"WARNING: {CURRENT_SEASON_URL} returned HTTP 200 but its content doesn't look like the expected "
+            f"results CSV (no 'HomeTeam' header found) -- treating as no real results available this run."
+        )
         return None
     return text
 
