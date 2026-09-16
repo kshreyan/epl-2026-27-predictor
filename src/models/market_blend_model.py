@@ -70,8 +70,16 @@ def load_historical_market_odds(seasons: list[str], league_id: str = "epl") -> p
     """Real closing-line no-vig probabilities for every match in the
     given seasons, keyed the same way backtest.py's elo_lookup already
     is (`YYYY-MM-DD_HomeTeam_AwayTeam`) so the two can be joined
-    directly. Raises if a season's cached file or its Avg odds columns
-    are missing -- never silently drops coverage."""
+    directly. Raises if a season's cached file is missing entirely.
+    A real, isolated match missing just its own Avg odds columns (seen
+    once in Serie A 2021-22: Torino-Fiorentina had no opening-line
+    Avg columns recorded, though its closing-line AvgC* columns were
+    present -- a football-data.co.uk data gap for that single match,
+    not a systemic issue) is skipped, matching
+    load_historical_spread_totals_odds' already-established "drop the
+    row, report it via the join, never estimate it" discipline --
+    evaluate_market_blend's own n_dropped/inner-join logic already
+    reports any such gap, so this never silently drops coverage either."""
     code_prefix = load_league_config(league_id).football_data_code
     rows = []
     for season in seasons:
@@ -80,10 +88,9 @@ def load_historical_market_odds(seasons: list[str], league_id: str = "epl") -> p
         if not path.exists():
             raise FileNotFoundError(f"No cached odds file for {season} at {path}")
         df = pd.read_csv(path)
-        missing = df[["AvgH", "AvgD", "AvgA"]].isna().any(axis=1).sum()
-        if missing:
-            raise ValueError(f"{season}: {missing} matches missing Avg odds -- coverage is not actually complete")
         for _, row in df.iterrows():
+            if row[["AvgH", "AvgD", "AvgA"]].isna().any():
+                continue
             home = normalize_team_name(row["HomeTeam"], league_id=league_id)
             away = normalize_team_name(row["AwayTeam"], league_id=league_id)
             date_obj = pd.to_datetime(row["Date"], dayfirst=True)

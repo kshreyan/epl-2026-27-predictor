@@ -51,3 +51,6 @@ la_liga_historical_matches,2026-08-18.phase1,football-data.co.uk,2026-09-16T07:0
 la_liga_2026_27_fixtures,2026-08-18.phase1,fixturedownload.com,2026-09-16T07:04:40+00:00,380,True,2026-09-16T07:04:40+00:00,La Liga 2026-27 fixture list from fixturedownload.com.
 la_liga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-16T07:07:05+00:00,1547,True,2026-09-16T07:07:06+00:00,425 real bookmaker/market rows; rest are honest unavailable sentinels.
 epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-16T10:21:49+00:00,2390,True,2026-09-16T10:21:50+00:00,1310 real bookmaker/market rows; rest are honest unavailable sentinels.
+serie_a_historical_matches,2026-08-18.phase1,football-data.co.uk,2026-09-16T18:51:32+00:00,4560,True,2026-09-16T18:51:51+00:00,"Seasons 1415-2526; Advanced metrics (xG, possession, PPDA, big_chances, set_piece_xg), stadium, and attendance are not published by football-data.co.uk and are intentionally left blank rather than estimated."
+serie_a_2026_27_fixtures,2026-08-18.phase1,fixturedownload.com,2026-09-16T18:51:56+00:00,380,True,2026-09-16T18:51:57+00:00,Serie A 2026-27 fixture list from fixturedownload.com.
+serie_a_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-16T18:52:10+00:00,1878,True,2026-09-16T18:52:11+00:00,777 real bookmaker/market rows; rest are honest unavailable sentinels.

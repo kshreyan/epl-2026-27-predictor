@@ -102,6 +102,61 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "Sporting Gijón": ["Sp Gijon"],
         "Real Valladolid": ["Valladolid"],
     },
+    # Built from football-data.co.uk's real I1.csv (2014/15-2025/26, every
+    # team that appeared across all 12 seasons) cross-referenced against
+    # fixturedownload.com's real 2026-27 Serie A fixture feed (the 20
+    # actual 2026-27 clubs). Only one club's name actually differs between
+    # the two real sources -- football-data.co.uk's live/historical files
+    # say "Inter", fixturedownload.com's 2026-27 feed says "Internazionale"
+    # -- every other club's short name already matches across both sources
+    # (Italian clubs' common short names, e.g. "Milan" not "AC Milan",
+    # "Roma" not "AS Roma", are what both real sources already use, so
+    # nothing was invented here). The 3 real 2026-27 promoted clubs
+    # (Frosinone, Monza, Venezia) fall out automatically from
+    # derive_promoted_teams() -- all three already appear in the 12-season
+    # historical window (previously relegated, now back up), so no
+    # separate promoted-club verification was needed the way La Liga's was.
+    "serie_a": {
+        "Atalanta": ["Atalanta"],
+        "Bologna": ["Bologna"],
+        "Cagliari": ["Cagliari"],
+        "Como": ["Como"],
+        "Fiorentina": ["Fiorentina"],
+        "Frosinone": ["Frosinone"],
+        "Genoa": ["Genoa"],
+        "Internazionale": ["Inter"],
+        "Juventus": ["Juventus"],
+        "Lazio": ["Lazio"],
+        "Lecce": ["Lecce"],
+        "Milan": ["Milan"],
+        "Monza": ["Monza"],
+        "Napoli": ["Napoli"],
+        "Parma": ["Parma"],
+        "Roma": ["Roma"],
+        "Sassuolo": ["Sassuolo"],
+        "Torino": ["Torino"],
+        "Udinese": ["Udinese"],
+        "Venezia": ["Venezia"],
+        # Historical-only clubs (2014/15-2025/26 real fd.co.uk data, not in
+        # the 2026-27 fixture list) -- kept so backtest data can still be
+        # normalized even though they're not this season's clubs.
+        "Benevento": ["Benevento"],
+        "Brescia": ["Brescia"],
+        "Carpi": ["Carpi"],
+        "Cesena": ["Cesena"],
+        "Chievo": ["Chievo"],
+        "Cremonese": ["Cremonese"],
+        "Crotone": ["Crotone"],
+        "Empoli": ["Empoli"],
+        "Palermo": ["Palermo"],
+        "Pescara": ["Pescara"],
+        "Pisa": ["Pisa"],
+        "Salernitana": ["Salernitana"],
+        "Sampdoria": ["Sampdoria"],
+        "Spal": ["Spal"],
+        "Spezia": ["Spezia"],
+        "Verona": ["Verona"],
+    },
 }
 
 _ALIAS_TO_CANONICAL: dict[str, dict[str, str]] = {}

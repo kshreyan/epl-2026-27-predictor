@@ -7,7 +7,6 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
@@ -35,17 +34,27 @@ def test_load_historical_market_odds_parses_and_devigs(tmp_path, monkeypatch):
     assert row["market_home_win"] > row["market_draw"] > row["market_away_win"]  # shortest odds = highest prob
 
 
-def test_load_historical_market_odds_raises_on_missing_avg_columns(tmp_path, monkeypatch):
+def test_load_historical_market_odds_skips_row_missing_avg_columns(tmp_path, monkeypatch):
+    """A real match can have its own Avg columns blank while every
+    other real column (e.g. the closing-line AvgC* columns) is present
+    -- seen once in real Serie A 2021-22 data (Torino-Fiorentina, only
+    missing opening-line odds). That single row is skipped, not
+    estimated, matching load_historical_spread_totals_odds' established
+    per-row-drop discipline -- it must never silently inflate coverage
+    by keeping a fabricated value, and it must not abort the whole
+    season's evaluation over one real, isolated gap either."""
     import src.models.market_blend_model as market_blend_model
     monkeypatch.setattr(market_blend_model, "RAW_CACHE_DIR", tmp_path)
     monkeypatch.setattr(market_blend_model, "SEASON_CODES", {"2025-26": "2526"})
 
     pd.DataFrame([
         {"Date": "15/08/2025", "HomeTeam": "Arsenal", "AwayTeam": "Chelsea", "AvgH": 2.0, "AvgD": 3.5, "AvgA": None},
+        {"Date": "16/08/2025", "HomeTeam": "Liverpool", "AwayTeam": "Everton", "AvgH": 1.8, "AvgD": 3.6, "AvgA": 4.2},
     ]).to_csv(tmp_path / "E0_2526.csv", index=False)
 
-    with pytest.raises(ValueError, match="missing Avg odds"):
-        load_historical_market_odds(["2025-26"])
+    result = load_historical_market_odds(["2025-26"])
+    assert len(result) == 1
+    assert result.iloc[0]["key"] == "2025-08-16_Liverpool_Everton"
 
 
 def _synthetic_backtest_df(n_per_season=40, seasons=("2019-20", "2020-21"), market_is_more_accurate=True, seed=0):

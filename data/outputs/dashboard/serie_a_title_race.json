@@ -1,0 +1,129 @@
+{
+  "league": "serie_a",
+  "generated_at": "2026-09-16T19:44:30+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 20,
+  "data": [
+    {
+      "team": "Internazionale",
+      "title_probability": 0.53652,
+      "expected_points": 81.6,
+      "median_points": 82.0
+    },
+    {
+      "team": "Como",
+      "title_probability": 0.11009,
+      "expected_points": 69.78,
+      "median_points": 70.0
+    },
+    {
+      "team": "Roma",
+      "title_probability": 0.09751,
+      "expected_points": 69.53,
+      "median_points": 70.0
+    },
+    {
+      "team": "Juventus",
+      "title_probability": 0.07372,
+      "expected_points": 67.88,
+      "median_points": 68.0
+    },
+    {
+      "team": "Napoli",
+      "title_probability": 0.06979,
+      "expected_points": 67.46,
+      "median_points": 68.0
+    },
+    {
+      "team": "Atalanta",
+      "title_probability": 0.06119,
+      "expected_points": 66.81,
+      "median_points": 67.0
+    },
+    {
+      "team": "Milan",
+      "title_probability": 0.03129,
+      "expected_points": 63.08,
+      "median_points": 63.0
+    },
+    {
+      "team": "Bologna",
+      "title_probability": 0.00678,
+      "expected_points": 55.59,
+      "median_points": 56.0
+    },
+    {
+      "team": "Lazio",
+      "title_probability": 0.00574,
+      "expected_points": 54.97,
+      "median_points": 55.0
+    },
+    {
+      "team": "Fiorentina",
+      "title_probability": 0.00376,
+      "expected_points": 53.33,
+      "median_points": 53.0
+    },
+    {
+      "team": "Sassuolo",
+      "title_probability": 0.00117,
+      "expected_points": 46.74,
+      "median_points": 47.0
+    },
+    {
+      "team": "Udinese",
+      "title_probability": 0.00108,
+      "expected_points": 48.15,
+      "median_points": 48.0
+    },
+    {
+      "team": "Genoa",
+      "title_probability": 0.00058,
+      "expected_points": 46.24,
+      "median_points": 46.0
+    },
+    {
+      "team": "Torino",
+      "title_probability": 0.00034,
+      "expected_points": 44.18,
+      "median_points": 44.0
+    },
+    {
+      "team": "Cagliari",
+      "title_probability": 0.00022,
+      "expected_points": 42.77,
+      "median_points": 42.0
+    },
+    {
+      "team": "Parma",
+      "title_probability": 0.00017,
+      "expected_points": 40.89,
+      "median_points": 41.0
+    },
+    {
+      "team": "Lecce",
+      "title_probability": 2e-05,
+      "expected_points": 35.95,
+      "median_points": 36.0
+    },
+    {
+      "team": "Frosinone",
+      "title_probability": 1e-05,
+      "expected_points": 31.28,
+      "median_points": 31.0
+    },
+    {
+      "team": "Monza",
+      "title_probability": 0.0,
+      "expected_points": 31.27,
+      "median_points": 31.0
+    },
+    {
+      "team": "Venezia",
+      "title_probability": 0.0,
+      "expected_points": 31.24,
+      "median_points": 31.0
+    }
+  ]
+}

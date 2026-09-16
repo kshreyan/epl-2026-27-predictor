@@ -34,3 +34,13 @@ leagues:
     timezone: Europe/Madrid
     n_teams: 20
     match_id_prefix: LALIGA
+
+  - league_id: serie_a
+    display_name: Serie A
+    country: Italy
+    football_data_code: I1
+    fixturedownload_slug: serie-a
+    odds_api_sport_key: soccer_italy_serie_a
+    timezone: Europe/Rome
+    n_teams: 20
+    match_id_prefix: SERIEA

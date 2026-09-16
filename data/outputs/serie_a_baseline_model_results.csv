@@ -1,0 +1,5 @@
+model,n_matches,log_loss,brier_score,ranked_probability_score,accuracy,favorite_accuracy,draw_calibration_bias,expected_calibration_error
+Dixon-Coles (main model),2660,0.9926,0.5908,0.1991,0.532,0.6025,-0.0206,
+Elo-only baseline,2660,1.0043,0.5984,0.2016,0.5259,0.6016,-0.0479,
+Previous-season-table baseline,2660,1.2252,0.6773,0.2263,0.4812,0.5606,-0.1323,
+Simple Poisson baseline,2660,1.0002,0.5954,0.2011,0.5169,0.6328,-0.0365,

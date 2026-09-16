@@ -1,0 +1,129 @@
+{
+  "league": "serie_a",
+  "generated_at": "2026-09-16T19:44:30+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 20,
+  "data": [
+    {
+      "team": "Venezia",
+      "relegation_probability": 0.59282,
+      "expected_points": 31.24,
+      "expected_position": 17.355
+    },
+    {
+      "team": "Monza",
+      "relegation_probability": 0.59253,
+      "expected_points": 31.27,
+      "expected_position": 17.345
+    },
+    {
+      "team": "Frosinone",
+      "relegation_probability": 0.59164,
+      "expected_points": 31.28,
+      "expected_position": 17.346
+    },
+    {
+      "team": "Lecce",
+      "relegation_probability": 0.38364,
+      "expected_points": 35.95,
+      "expected_position": 16.085
+    },
+    {
+      "team": "Parma",
+      "relegation_probability": 0.21631,
+      "expected_points": 40.89,
+      "expected_position": 14.47
+    },
+    {
+      "team": "Cagliari",
+      "relegation_probability": 0.16473,
+      "expected_points": 42.77,
+      "expected_position": 13.853
+    },
+    {
+      "team": "Torino",
+      "relegation_probability": 0.13192,
+      "expected_points": 44.18,
+      "expected_position": 13.364
+    },
+    {
+      "team": "Sassuolo",
+      "relegation_probability": 0.10063,
+      "expected_points": 46.74,
+      "expected_position": 12.434
+    },
+    {
+      "team": "Genoa",
+      "relegation_probability": 0.09459,
+      "expected_points": 46.24,
+      "expected_position": 12.611
+    },
+    {
+      "team": "Udinese",
+      "relegation_probability": 0.06832,
+      "expected_points": 48.15,
+      "expected_position": 11.932
+    },
+    {
+      "team": "Fiorentina",
+      "relegation_probability": 0.02475,
+      "expected_points": 53.33,
+      "expected_position": 10.064
+    },
+    {
+      "team": "Lazio",
+      "relegation_probability": 0.01699,
+      "expected_points": 54.97,
+      "expected_position": 9.47
+    },
+    {
+      "team": "Bologna",
+      "relegation_probability": 0.01602,
+      "expected_points": 55.59,
+      "expected_position": 9.258
+    },
+    {
+      "team": "Milan",
+      "relegation_probability": 0.00223,
+      "expected_points": 63.08,
+      "expected_position": 6.7
+    },
+    {
+      "team": "Atalanta",
+      "relegation_probability": 0.00086,
+      "expected_points": 66.81,
+      "expected_position": 5.546
+    },
+    {
+      "team": "Napoli",
+      "relegation_probability": 0.00072,
+      "expected_points": 67.46,
+      "expected_position": 5.358
+    },
+    {
+      "team": "Juventus",
+      "relegation_probability": 0.00052,
+      "expected_points": 67.88,
+      "expected_position": 5.234
+    },
+    {
+      "team": "Como",
+      "relegation_probability": 0.00043,
+      "expected_points": 69.78,
+      "expected_position": 4.726
+    },
+    {
+      "team": "Roma",
+      "relegation_probability": 0.00036,
+      "expected_points": 69.53,
+      "expected_position": 4.765
+    },
+    {
+      "team": "Internazionale",
+      "relegation_probability": 0.0,
+      "expected_points": 81.6,
+      "expected_position": 2.082
+    }
+  ]
+}
