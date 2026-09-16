@@ -54,3 +54,13 @@ leagues:
     timezone: Europe/Berlin
     n_teams: 18
     match_id_prefix: BUNDESLIGA
+
+  - league_id: ligue_1
+    display_name: Ligue 1
+    country: France
+    football_data_code: F1
+    fixturedownload_slug: ligue-1
+    odds_api_sport_key: soccer_france_ligue_one
+    timezone: Europe/Paris
+    n_teams: 18
+    match_id_prefix: LIGUE1

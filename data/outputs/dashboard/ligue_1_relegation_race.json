@@ -1,0 +1,117 @@
+{
+  "league": "ligue_1",
+  "generated_at": "2026-09-16T23:47:22+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 18,
+  "data": [
+    {
+      "team": "Le Mans FC",
+      "relegation_probability": 0.60246,
+      "expected_points": 30.19,
+      "expected_position": 15.262
+    },
+    {
+      "team": "Estac Troyes",
+      "relegation_probability": 0.60236,
+      "expected_points": 30.2,
+      "expected_position": 15.256
+    },
+    {
+      "team": "Angers SCO",
+      "relegation_probability": 0.53899,
+      "expected_points": 31.73,
+      "expected_position": 14.975
+    },
+    {
+      "team": "Havre Athletic Club",
+      "relegation_probability": 0.35057,
+      "expected_points": 36.11,
+      "expected_position": 13.588
+    },
+    {
+      "team": "Stade Brestois 29",
+      "relegation_probability": 0.17945,
+      "expected_points": 41.26,
+      "expected_position": 11.737
+    },
+    {
+      "team": "OGC Nice",
+      "relegation_probability": 0.1596,
+      "expected_points": 42.02,
+      "expected_position": 11.445
+    },
+    {
+      "team": "AJ Auxerre",
+      "relegation_probability": 0.15527,
+      "expected_points": 42.38,
+      "expected_position": 11.276
+    },
+    {
+      "team": "FC Lorient",
+      "relegation_probability": 0.12542,
+      "expected_points": 44.31,
+      "expected_position": 10.54
+    },
+    {
+      "team": "Paris FC",
+      "relegation_probability": 0.08474,
+      "expected_points": 47.68,
+      "expected_position": 9.238
+    },
+    {
+      "team": "Toulouse FC",
+      "relegation_probability": 0.08364,
+      "expected_points": 46.01,
+      "expected_position": 9.877
+    },
+    {
+      "team": "RC Strasbourg Alsace",
+      "relegation_probability": 0.03098,
+      "expected_points": 51.24,
+      "expected_position": 7.832
+    },
+    {
+      "team": "Stade Rennais FC",
+      "relegation_probability": 0.02608,
+      "expected_points": 52.07,
+      "expected_position": 7.523
+    },
+    {
+      "team": "AS Monaco",
+      "relegation_probability": 0.01871,
+      "expected_points": 53.68,
+      "expected_position": 6.921
+    },
+    {
+      "team": "Olympique Lyonnais",
+      "relegation_probability": 0.0161,
+      "expected_points": 54.32,
+      "expected_position": 6.684
+    },
+    {
+      "team": "Olympique de Marseille",
+      "relegation_probability": 0.01113,
+      "expected_points": 56.03,
+      "expected_position": 6.075
+    },
+    {
+      "team": "LOSC Lille",
+      "relegation_probability": 0.01014,
+      "expected_points": 56.03,
+      "expected_position": 6.077
+    },
+    {
+      "team": "RC Lens",
+      "relegation_probability": 0.00432,
+      "expected_points": 59.7,
+      "expected_position": 4.864
+    },
+    {
+      "team": "Paris Saint-Germain",
+      "relegation_probability": 7e-05,
+      "expected_points": 72.84,
+      "expected_position": 1.83
+    }
+  ]
+}
