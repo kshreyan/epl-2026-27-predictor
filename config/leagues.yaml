@@ -44,3 +44,13 @@ leagues:
     timezone: Europe/Rome
     n_teams: 20
     match_id_prefix: SERIEA
+
+  - league_id: bundesliga
+    display_name: Bundesliga
+    country: Germany
+    football_data_code: D1
+    fixturedownload_slug: bundesliga
+    odds_api_sport_key: soccer_germany_bundesliga
+    timezone: Europe/Berlin
+    n_teams: 18
+    match_id_prefix: BUNDESLIGA

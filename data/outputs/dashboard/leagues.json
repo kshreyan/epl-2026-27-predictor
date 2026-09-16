@@ -1,6 +1,11 @@
 {
-  "generated_at": "2026-09-16T19:44:30+00:00",
+  "generated_at": "2026-09-16T20:13:30+00:00",
   "leagues": [
+    {
+      "league_id": "bundesliga",
+      "display_name": "Bundesliga",
+      "country": "Germany"
+    },
     {
       "league_id": "epl",
       "display_name": "Premier League",

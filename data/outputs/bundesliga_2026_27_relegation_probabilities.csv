@@ -1,0 +1,19 @@
+team,relegation_probability,expected_points,expected_position
+SC Paderborn 07,0.51852,31.71,14.506
+SV Elversberg,0.51816,31.73,14.498
+FC Schalke 04,0.51683,31.71,14.506
+1. FC Köln,0.24506,38.67,12.379
+SV Werder Bremen,0.23265,38.58,12.434
+Hamburger SV,0.20979,40.32,11.75
+FC Augsburg,0.20839,39.32,12.164
+1. FC Union Berlin,0.20655,39.39,12.134
+Borussia Mönchengladbach,0.10607,43.72,10.51
+Sport-Club Freiburg,0.08587,45.02,10.023
+1. FSV Mainz 05,0.06254,46.61,9.417
+TSG Hoffenheim,0.04301,48.79,8.629
+Eintracht Frankfurt,0.0364,49.56,8.347
+RB Leipzig,0.0055,57.64,5.676
+VfB Stuttgart,0.00312,59.76,5.066
+Bayer 04 Leverkusen,0.00124,62.9,4.255
+Borussia Dortmund,0.0003,66.49,3.448
+FC Bayern München,0.0,82.05,1.258

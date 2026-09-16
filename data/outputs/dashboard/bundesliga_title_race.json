@@ -1,0 +1,117 @@
+{
+  "league": "bundesliga",
+  "generated_at": "2026-09-16T20:13:30+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 18,
+  "data": [
+    {
+      "team": "FC Bayern M\u00fcnchen",
+      "title_probability": 0.82323,
+      "expected_points": 82.05,
+      "median_points": 83.0
+    },
+    {
+      "team": "Borussia Dortmund",
+      "title_probability": 0.0832,
+      "expected_points": 66.49,
+      "median_points": 67.0
+    },
+    {
+      "team": "Bayer 04 Leverkusen",
+      "title_probability": 0.04486,
+      "expected_points": 62.9,
+      "median_points": 63.0
+    },
+    {
+      "team": "VfB Stuttgart",
+      "title_probability": 0.02428,
+      "expected_points": 59.76,
+      "median_points": 60.0
+    },
+    {
+      "team": "RB Leipzig",
+      "title_probability": 0.01601,
+      "expected_points": 57.64,
+      "median_points": 58.0
+    },
+    {
+      "team": "Eintracht Frankfurt",
+      "title_probability": 0.00255,
+      "expected_points": 49.56,
+      "median_points": 49.0
+    },
+    {
+      "team": "TSG Hoffenheim",
+      "title_probability": 0.00198,
+      "expected_points": 48.79,
+      "median_points": 49.0
+    },
+    {
+      "team": "1. FSV Mainz 05",
+      "title_probability": 0.00112,
+      "expected_points": 46.61,
+      "median_points": 47.0
+    },
+    {
+      "team": "Sport-Club Freiburg",
+      "title_probability": 0.00073,
+      "expected_points": 45.02,
+      "median_points": 45.0
+    },
+    {
+      "team": "Hamburger SV",
+      "title_probability": 0.00052,
+      "expected_points": 40.32,
+      "median_points": 40.0
+    },
+    {
+      "team": "Borussia M\u00f6nchengladbach",
+      "title_probability": 0.00045,
+      "expected_points": 43.72,
+      "median_points": 44.0
+    },
+    {
+      "team": "SV Elversberg",
+      "title_probability": 0.00021,
+      "expected_points": 31.73,
+      "median_points": 31.0
+    },
+    {
+      "team": "FC Schalke 04",
+      "title_probability": 0.00018,
+      "expected_points": 31.71,
+      "median_points": 31.0
+    },
+    {
+      "team": "SC Paderborn 07",
+      "title_probability": 0.00017,
+      "expected_points": 31.71,
+      "median_points": 31.0
+    },
+    {
+      "team": "1. FC Union Berlin",
+      "title_probability": 0.00016,
+      "expected_points": 39.39,
+      "median_points": 39.0
+    },
+    {
+      "team": "1. FC K\u00f6ln",
+      "title_probability": 0.00016,
+      "expected_points": 38.67,
+      "median_points": 38.0
+    },
+    {
+      "team": "FC Augsburg",
+      "title_probability": 0.0001,
+      "expected_points": 39.32,
+      "median_points": 39.0
+    },
+    {
+      "team": "SV Werder Bremen",
+      "title_probability": 9e-05,
+      "expected_points": 38.58,
+      "median_points": 38.0
+    }
+  ]
+}

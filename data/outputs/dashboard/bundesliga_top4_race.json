@@ -1,0 +1,117 @@
+{
+  "league": "bundesliga",
+  "generated_at": "2026-09-16T20:13:30+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 18,
+  "data": [
+    {
+      "team": "FC Bayern M\u00fcnchen",
+      "top_4_probability": 0.99346,
+      "expected_points": 82.05,
+      "expected_position": 1.258
+    },
+    {
+      "team": "Borussia Dortmund",
+      "top_4_probability": 0.77295,
+      "expected_points": 66.49,
+      "expected_position": 3.448
+    },
+    {
+      "team": "Bayer 04 Leverkusen",
+      "top_4_probability": 0.64259,
+      "expected_points": 62.9,
+      "expected_position": 4.255
+    },
+    {
+      "team": "VfB Stuttgart",
+      "top_4_probability": 0.51086,
+      "expected_points": 59.76,
+      "expected_position": 5.066
+    },
+    {
+      "team": "RB Leipzig",
+      "top_4_probability": 0.41931,
+      "expected_points": 57.64,
+      "expected_position": 5.676
+    },
+    {
+      "team": "Eintracht Frankfurt",
+      "top_4_probability": 0.14951,
+      "expected_points": 49.56,
+      "expected_position": 8.347
+    },
+    {
+      "team": "TSG Hoffenheim",
+      "top_4_probability": 0.13176,
+      "expected_points": 48.79,
+      "expected_position": 8.629
+    },
+    {
+      "team": "1. FSV Mainz 05",
+      "top_4_probability": 0.09113,
+      "expected_points": 46.61,
+      "expected_position": 9.417
+    },
+    {
+      "team": "Sport-Club Freiburg",
+      "top_4_probability": 0.06986,
+      "expected_points": 45.02,
+      "expected_position": 10.023
+    },
+    {
+      "team": "Borussia M\u00f6nchengladbach",
+      "top_4_probability": 0.05383,
+      "expected_points": 43.72,
+      "expected_position": 10.51
+    },
+    {
+      "team": "Hamburger SV",
+      "top_4_probability": 0.04171,
+      "expected_points": 40.32,
+      "expected_position": 11.75
+    },
+    {
+      "team": "1. FC K\u00f6ln",
+      "top_4_probability": 0.02462,
+      "expected_points": 38.67,
+      "expected_position": 12.379
+    },
+    {
+      "team": "1. FC Union Berlin",
+      "top_4_probability": 0.0213,
+      "expected_points": 39.39,
+      "expected_position": 12.134
+    },
+    {
+      "team": "FC Augsburg",
+      "top_4_probability": 0.02082,
+      "expected_points": 39.32,
+      "expected_position": 12.164
+    },
+    {
+      "team": "SV Werder Bremen",
+      "top_4_probability": 0.01785,
+      "expected_points": 38.58,
+      "expected_position": 12.434
+    },
+    {
+      "team": "SV Elversberg",
+      "top_4_probability": 0.01286,
+      "expected_points": 31.73,
+      "expected_position": 14.498
+    },
+    {
+      "team": "SC Paderborn 07",
+      "top_4_probability": 0.0128,
+      "expected_points": 31.71,
+      "expected_position": 14.506
+    },
+    {
+      "team": "FC Schalke 04",
+      "top_4_probability": 0.01277,
+      "expected_points": 31.71,
+      "expected_position": 14.506
+    }
+  ]
+}

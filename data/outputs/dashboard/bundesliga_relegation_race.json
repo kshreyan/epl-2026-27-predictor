@@ -1,0 +1,117 @@
+{
+  "league": "bundesliga",
+  "generated_at": "2026-09-16T20:13:30+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 18,
+  "data": [
+    {
+      "team": "SC Paderborn 07",
+      "relegation_probability": 0.51852,
+      "expected_points": 31.71,
+      "expected_position": 14.506
+    },
+    {
+      "team": "SV Elversberg",
+      "relegation_probability": 0.51816,
+      "expected_points": 31.73,
+      "expected_position": 14.498
+    },
+    {
+      "team": "FC Schalke 04",
+      "relegation_probability": 0.51683,
+      "expected_points": 31.71,
+      "expected_position": 14.506
+    },
+    {
+      "team": "1. FC K\u00f6ln",
+      "relegation_probability": 0.24506,
+      "expected_points": 38.67,
+      "expected_position": 12.379
+    },
+    {
+      "team": "SV Werder Bremen",
+      "relegation_probability": 0.23265,
+      "expected_points": 38.58,
+      "expected_position": 12.434
+    },
+    {
+      "team": "Hamburger SV",
+      "relegation_probability": 0.20979,
+      "expected_points": 40.32,
+      "expected_position": 11.75
+    },
+    {
+      "team": "FC Augsburg",
+      "relegation_probability": 0.20839,
+      "expected_points": 39.32,
+      "expected_position": 12.164
+    },
+    {
+      "team": "1. FC Union Berlin",
+      "relegation_probability": 0.20655,
+      "expected_points": 39.39,
+      "expected_position": 12.134
+    },
+    {
+      "team": "Borussia M\u00f6nchengladbach",
+      "relegation_probability": 0.10607,
+      "expected_points": 43.72,
+      "expected_position": 10.51
+    },
+    {
+      "team": "Sport-Club Freiburg",
+      "relegation_probability": 0.08587,
+      "expected_points": 45.02,
+      "expected_position": 10.023
+    },
+    {
+      "team": "1. FSV Mainz 05",
+      "relegation_probability": 0.06254,
+      "expected_points": 46.61,
+      "expected_position": 9.417
+    },
+    {
+      "team": "TSG Hoffenheim",
+      "relegation_probability": 0.04301,
+      "expected_points": 48.79,
+      "expected_position": 8.629
+    },
+    {
+      "team": "Eintracht Frankfurt",
+      "relegation_probability": 0.0364,
+      "expected_points": 49.56,
+      "expected_position": 8.347
+    },
+    {
+      "team": "RB Leipzig",
+      "relegation_probability": 0.0055,
+      "expected_points": 57.64,
+      "expected_position": 5.676
+    },
+    {
+      "team": "VfB Stuttgart",
+      "relegation_probability": 0.00312,
+      "expected_points": 59.76,
+      "expected_position": 5.066
+    },
+    {
+      "team": "Bayer 04 Leverkusen",
+      "relegation_probability": 0.00124,
+      "expected_points": 62.9,
+      "expected_position": 4.255
+    },
+    {
+      "team": "Borussia Dortmund",
+      "relegation_probability": 0.0003,
+      "expected_points": 66.49,
+      "expected_position": 3.448
+    },
+    {
+      "team": "FC Bayern M\u00fcnchen",
+      "relegation_probability": 0.0,
+      "expected_points": 82.05,
+      "expected_position": 1.258
+    }
+  ]
+}

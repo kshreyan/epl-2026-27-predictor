@@ -157,6 +157,55 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "Spezia": ["Spezia"],
         "Verona": ["Verona"],
     },
+    # Built from football-data.co.uk's real D1.csv (2014/15-2025/26, every
+    # team that appeared across all 12 seasons, plus the live 2026-27
+    # current-season file) cross-referenced against fixturedownload.com's
+    # real 2026-27 Bundesliga fixture feed (the 18 actual 2026-27 clubs --
+    # Bundesliga has 18 teams, not 20 like EPL/La Liga/Serie A). Every
+    # short name below is exactly what football-data.co.uk's own files
+    # use; nothing invented. One 2026-27 promoted club, SV Elversberg, has
+    # no alias in the 2014/15-2025/26 historical window (this is its
+    # first-ever top-flight season in that span) -- its alias comes only
+    # from the live 2026-27 file, the same situation La Liga's Racing
+    # Santander case was in. The other two real 2026-27 promoted clubs,
+    # FC Schalke 04 and SC Paderborn 07, both already appear in the
+    # 12-season historical window (previously relegated, now back up).
+    "bundesliga": {
+        "1. FC Köln": ["FC Koln"],
+        "1. FC Union Berlin": ["Union Berlin"],
+        "1. FSV Mainz 05": ["Mainz"],
+        "Bayer 04 Leverkusen": ["Leverkusen"],
+        "Borussia Dortmund": ["Dortmund"],
+        "Borussia Mönchengladbach": ["M'gladbach"],
+        "Eintracht Frankfurt": ["Ein Frankfurt"],
+        "FC Augsburg": ["Augsburg"],
+        "FC Bayern München": ["Bayern Munich"],
+        "FC Schalke 04": ["Schalke 04"],
+        "Hamburger SV": ["Hamburg"],
+        "RB Leipzig": ["RB Leipzig"],
+        "SC Paderborn 07": ["Paderborn"],
+        "SV Elversberg": ["Elversberg"],
+        "SV Werder Bremen": ["Werder Bremen"],
+        "Sport-Club Freiburg": ["Freiburg"],
+        "TSG Hoffenheim": ["Hoffenheim"],
+        "VfB Stuttgart": ["Stuttgart"],
+        # Historical-only clubs (2014/15-2025/26 real fd.co.uk data, not in
+        # the 2026-27 fixture list) -- kept so backtest data can still be
+        # normalized even though they're not this season's clubs.
+        "Bielefeld": ["Bielefeld"],
+        "Bochum": ["Bochum"],
+        "Darmstadt": ["Darmstadt"],
+        "Fortuna Dusseldorf": ["Fortuna Dusseldorf"],
+        "Greuther Furth": ["Greuther Furth"],
+        "Hannover": ["Hannover"],
+        "Heidenheim": ["Heidenheim"],
+        "Hertha": ["Hertha"],
+        "Holstein Kiel": ["Holstein Kiel"],
+        "Ingolstadt": ["Ingolstadt"],
+        "Nurnberg": ["Nurnberg"],
+        "St Pauli": ["St Pauli"],
+        "Wolfsburg": ["Wolfsburg"],
+    },
 }
 
 _ALIAS_TO_CANONICAL: dict[str, dict[str, str]] = {}

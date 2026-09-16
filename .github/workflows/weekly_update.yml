@@ -73,13 +73,13 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: |
-          for league in epl la_liga serie_a; do
+          for league in epl la_liga serie_a bundesliga; do
             python -m src.data_collection.collect_odds --league "$league"
           done
 
       - name: Run weekly auto-update
         run: |
-          for league in epl la_liga serie_a; do
+          for league in epl la_liga serie_a bundesliga; do
             python -m src.weekly_auto_update --league "$league"
           done
 

@@ -1,0 +1,2 @@
+model,n_matches,exact_score_accuracy,top_3_scoreline_hit_rate,top_5_scoreline_hit_rate,goal_mae,total_goals_mae
+Dixon-Coles (main model),2142,0.1139,0.2782,0.4164,0.9956,1.5532

@@ -1,0 +1,131 @@
+{
+  "league": "bundesliga",
+  "generated_at": "2026-09-16T20:13:30+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 10,
+  "status": "real",
+  "note": "model_* is the raw (uncalibrated) Dixon-Coles probability; market_* is the real, de-vigged market-consensus probability. Sorted by max_class_disagreement descending.",
+  "data": [
+    {
+      "match_id": "BUNDESLIGA2627_MW04_029_FCSchalke04_SVElversberg",
+      "home_team": "FC Schalke 04",
+      "away_team": "SV Elversberg",
+      "model_home_win_prob": 0.2258,
+      "model_draw_prob": 0.2076,
+      "model_away_win_prob": 0.5666,
+      "market_home_win_prob": 0.4673,
+      "market_draw_prob": 0.2587,
+      "market_away_win_prob": 0.274,
+      "max_class_disagreement": 0.2926
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW05_039_1.FCUnionBerlin_SVElversberg",
+      "home_team": "1. FC Union Berlin",
+      "away_team": "SV Elversberg",
+      "model_home_win_prob": 0.2361,
+      "model_draw_prob": 0.1914,
+      "model_away_win_prob": 0.5725,
+      "market_home_win_prob": 0.4405,
+      "market_draw_prob": 0.248,
+      "market_away_win_prob": 0.3115,
+      "max_class_disagreement": 0.261
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW04_035_VfBStuttgart_BorussiaDortmund",
+      "home_team": "VfB Stuttgart",
+      "away_team": "Borussia Dortmund",
+      "model_home_win_prob": 0.3494,
+      "model_draw_prob": 0.2416,
+      "model_away_win_prob": 0.409,
+      "market_home_win_prob": 0.4098,
+      "market_draw_prob": 0.2495,
+      "market_away_win_prob": 0.3408,
+      "max_class_disagreement": 0.0682
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW05_043_TSGHoffenheim_HamburgerSV",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "Hamburger SV",
+      "model_home_win_prob": 0.6311,
+      "model_draw_prob": 0.207,
+      "model_away_win_prob": 0.1619,
+      "market_home_win_prob": 0.6961,
+      "market_draw_prob": 0.1761,
+      "market_away_win_prob": 0.1277,
+      "max_class_disagreement": 0.065
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW05_045_BorussiaDortmund_SVWerderBremen",
+      "home_team": "Borussia Dortmund",
+      "away_team": "SV Werder Bremen",
+      "model_home_win_prob": 0.7228,
+      "model_draw_prob": 0.1767,
+      "model_away_win_prob": 0.1006,
+      "market_home_win_prob": 0.6657,
+      "market_draw_prob": 0.1822,
+      "market_away_win_prob": 0.1521,
+      "max_class_disagreement": 0.0571
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW05_041_FCAugsburg_FCBayernM\u00fcnchen",
+      "home_team": "FC Augsburg",
+      "away_team": "FC Bayern M\u00fcnchen",
+      "model_home_win_prob": 0.1122,
+      "model_draw_prob": 0.1602,
+      "model_away_win_prob": 0.7276,
+      "market_home_win_prob": 0.1018,
+      "market_draw_prob": 0.1211,
+      "market_away_win_prob": 0.7772,
+      "max_class_disagreement": 0.0496
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW05_044_RBLeipzig_EintrachtFrankfurt",
+      "home_team": "RB Leipzig",
+      "away_team": "Eintracht Frankfurt",
+      "model_home_win_prob": 0.5861,
+      "model_draw_prob": 0.2034,
+      "model_away_win_prob": 0.2105,
+      "market_home_win_prob": 0.6302,
+      "market_draw_prob": 0.1906,
+      "market_away_win_prob": 0.1792,
+      "max_class_disagreement": 0.0441
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW04_030_SVWerderBremen_FCAugsburg",
+      "home_team": "SV Werder Bremen",
+      "away_team": "FC Augsburg",
+      "model_home_win_prob": 0.381,
+      "model_draw_prob": 0.2766,
+      "model_away_win_prob": 0.3423,
+      "market_home_win_prob": 0.4128,
+      "market_draw_prob": 0.2453,
+      "market_away_win_prob": 0.3419,
+      "max_class_disagreement": 0.0318
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW04_031_HamburgerSV_1.FCK\u00f6ln",
+      "home_team": "Hamburger SV",
+      "away_team": "1. FC K\u00f6ln",
+      "model_home_win_prob": 0.3634,
+      "model_draw_prob": 0.2706,
+      "model_away_win_prob": 0.366,
+      "market_home_win_prob": 0.3528,
+      "market_draw_prob": 0.2612,
+      "market_away_win_prob": 0.386,
+      "max_class_disagreement": 0.02
+    },
+    {
+      "match_id": "BUNDESLIGA2627_MW04_036_FCBayernM\u00fcnchen_1.FCUnionBerlin",
+      "home_team": "FC Bayern M\u00fcnchen",
+      "away_team": "1. FC Union Berlin",
+      "model_home_win_prob": 0.8874,
+      "model_draw_prob": 0.0785,
+      "model_away_win_prob": 0.0341,
+      "market_home_win_prob": 0.8921,
+      "market_draw_prob": 0.068,
+      "market_away_win_prob": 0.0399,
+      "max_class_disagreement": 0.0105
+    }
+  ]
+}
