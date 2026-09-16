@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T20:13:30+00:00",
+  "generated_at": "2026-09-16T23:47:22+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
@@ -15,6 +15,11 @@
       "league_id": "la_liga",
       "display_name": "La Liga",
       "country": "Spain"
+    },
+    {
+      "league_id": "ligue_1",
+      "display_name": "Ligue 1",
+      "country": "France"
     },
     {
       "league_id": "serie_a",

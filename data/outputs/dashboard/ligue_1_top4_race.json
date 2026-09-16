@@ -1,0 +1,117 @@
+{
+  "league": "ligue_1",
+  "generated_at": "2026-09-16T23:47:22+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 18,
+  "data": [
+    {
+      "team": "Paris Saint-Germain",
+      "top_4_probability": 0.93525,
+      "expected_points": 72.84,
+      "expected_position": 1.83
+    },
+    {
+      "team": "RC Lens",
+      "top_4_probability": 0.55394,
+      "expected_points": 59.7,
+      "expected_position": 4.864
+    },
+    {
+      "team": "Olympique de Marseille",
+      "top_4_probability": 0.4054,
+      "expected_points": 56.03,
+      "expected_position": 6.075
+    },
+    {
+      "team": "LOSC Lille",
+      "top_4_probability": 0.40272,
+      "expected_points": 56.03,
+      "expected_position": 6.077
+    },
+    {
+      "team": "Olympique Lyonnais",
+      "top_4_probability": 0.33803,
+      "expected_points": 54.32,
+      "expected_position": 6.684
+    },
+    {
+      "team": "AS Monaco",
+      "top_4_probability": 0.31563,
+      "expected_points": 53.68,
+      "expected_position": 6.921
+    },
+    {
+      "team": "Stade Rennais FC",
+      "top_4_probability": 0.25903,
+      "expected_points": 52.07,
+      "expected_position": 7.523
+    },
+    {
+      "team": "RC Strasbourg Alsace",
+      "top_4_probability": 0.23368,
+      "expected_points": 51.24,
+      "expected_position": 7.832
+    },
+    {
+      "team": "Paris FC",
+      "top_4_probability": 0.16955,
+      "expected_points": 47.68,
+      "expected_position": 9.238
+    },
+    {
+      "team": "Toulouse FC",
+      "top_4_probability": 0.1068,
+      "expected_points": 46.01,
+      "expected_position": 9.877
+    },
+    {
+      "team": "FC Lorient",
+      "top_4_probability": 0.09192,
+      "expected_points": 44.31,
+      "expected_position": 10.54
+    },
+    {
+      "team": "AJ Auxerre",
+      "top_4_probability": 0.05851,
+      "expected_points": 42.38,
+      "expected_position": 11.276
+    },
+    {
+      "team": "OGC Nice",
+      "top_4_probability": 0.05118,
+      "expected_points": 42.02,
+      "expected_position": 11.445
+    },
+    {
+      "team": "Stade Brestois 29",
+      "top_4_probability": 0.0442,
+      "expected_points": 41.26,
+      "expected_position": 11.737
+    },
+    {
+      "team": "Havre Athletic Club",
+      "top_4_probability": 0.01482,
+      "expected_points": 36.11,
+      "expected_position": 13.588
+    },
+    {
+      "team": "Estac Troyes",
+      "top_4_probability": 0.00743,
+      "expected_points": 30.2,
+      "expected_position": 15.256
+    },
+    {
+      "team": "Le Mans FC",
+      "top_4_probability": 0.00729,
+      "expected_points": 30.19,
+      "expected_position": 15.262
+    },
+    {
+      "team": "Angers SCO",
+      "top_4_probability": 0.00462,
+      "expected_points": 31.73,
+      "expected_position": 14.975
+    }
+  ]
+}

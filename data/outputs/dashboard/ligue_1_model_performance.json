@@ -1,0 +1,304 @@
+{
+  "league": "ligue_1",
+  "generated_at": "2026-09-16T23:47:22+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 4,
+  "reliability_table": [
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.0,
+      "bin_upper": 0.1,
+      "n_matches": 42,
+      "mean_predicted_probability": 0.0718,
+      "empirical_frequency": 0.1667
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.1,
+      "bin_upper": 0.2,
+      "n_matches": 195,
+      "mean_predicted_probability": 0.1606,
+      "empirical_frequency": 0.2154
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.2,
+      "bin_upper": 0.3,
+      "n_matches": 380,
+      "mean_predicted_probability": 0.2537,
+      "empirical_frequency": 0.2368
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.3,
+      "bin_upper": 0.4,
+      "n_matches": 425,
+      "mean_predicted_probability": 0.3517,
+      "empirical_frequency": 0.3482
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.4,
+      "bin_upper": 0.5,
+      "n_matches": 481,
+      "mean_predicted_probability": 0.4495,
+      "empirical_frequency": 0.4636
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.5,
+      "bin_upper": 0.6,
+      "n_matches": 375,
+      "mean_predicted_probability": 0.548,
+      "empirical_frequency": 0.56
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.6,
+      "bin_upper": 0.7,
+      "n_matches": 245,
+      "mean_predicted_probability": 0.6471,
+      "empirical_frequency": 0.6204
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.7,
+      "bin_upper": 0.8,
+      "n_matches": 134,
+      "mean_predicted_probability": 0.7444,
+      "empirical_frequency": 0.6269
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.8,
+      "bin_upper": 0.9,
+      "n_matches": 50,
+      "mean_predicted_probability": 0.8393,
+      "empirical_frequency": 0.78
+    },
+    {
+      "outcome_class": "home_win",
+      "bin_lower": 0.9,
+      "bin_upper": 1.0,
+      "n_matches": 10,
+      "mean_predicted_probability": 0.9234,
+      "empirical_frequency": 1.0
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.0,
+      "bin_upper": 0.1,
+      "n_matches": 27,
+      "mean_predicted_probability": 0.0746,
+      "empirical_frequency": 0.0
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.1,
+      "bin_upper": 0.2,
+      "n_matches": 345,
+      "mean_predicted_probability": 0.1647,
+      "empirical_frequency": 0.229
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.2,
+      "bin_upper": 0.3,
+      "n_matches": 1753,
+      "mean_predicted_probability": 0.254,
+      "empirical_frequency": 0.2504
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.3,
+      "bin_upper": 0.4,
+      "n_matches": 211,
+      "mean_predicted_probability": 0.3152,
+      "empirical_frequency": 0.2796
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.4,
+      "bin_upper": 0.5,
+      "n_matches": 1,
+      "mean_predicted_probability": 0.4053,
+      "empirical_frequency": 0.0
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.5,
+      "bin_upper": 0.6,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.6,
+      "bin_upper": 0.7,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.7,
+      "bin_upper": 0.8,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.8,
+      "bin_upper": 0.9,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "draw",
+      "bin_lower": 0.9,
+      "bin_upper": 1.0,
+      "n_matches": 0,
+      "mean_predicted_probability": null,
+      "empirical_frequency": null
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.0,
+      "bin_upper": 0.1,
+      "n_matches": 152,
+      "mean_predicted_probability": 0.0687,
+      "empirical_frequency": 0.1053
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.1,
+      "bin_upper": 0.2,
+      "n_matches": 452,
+      "mean_predicted_probability": 0.1541,
+      "empirical_frequency": 0.1726
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.2,
+      "bin_upper": 0.3,
+      "n_matches": 569,
+      "mean_predicted_probability": 0.2504,
+      "empirical_frequency": 0.2513
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.3,
+      "bin_upper": 0.4,
+      "n_matches": 466,
+      "mean_predicted_probability": 0.3464,
+      "empirical_frequency": 0.3541
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.4,
+      "bin_upper": 0.5,
+      "n_matches": 339,
+      "mean_predicted_probability": 0.4485,
+      "empirical_frequency": 0.4484
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.5,
+      "bin_upper": 0.6,
+      "n_matches": 206,
+      "mean_predicted_probability": 0.5487,
+      "empirical_frequency": 0.5194
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.6,
+      "bin_upper": 0.7,
+      "n_matches": 96,
+      "mean_predicted_probability": 0.6423,
+      "empirical_frequency": 0.5625
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.7,
+      "bin_upper": 0.8,
+      "n_matches": 41,
+      "mean_predicted_probability": 0.742,
+      "empirical_frequency": 0.6829
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.8,
+      "bin_upper": 0.9,
+      "n_matches": 15,
+      "mean_predicted_probability": 0.8345,
+      "empirical_frequency": 0.7333
+    },
+    {
+      "outcome_class": "away_win",
+      "bin_lower": 0.9,
+      "bin_upper": 1.0,
+      "n_matches": 1,
+      "mean_predicted_probability": 0.915,
+      "empirical_frequency": 1.0
+    }
+  ],
+  "calibration_summary": {
+    "method": "isotonic",
+    "ece": 0.0142,
+    "raw_log_loss": 1.0108,
+    "calibrated_log_loss": 0.9959,
+    "n_matches": 2337,
+    "generated_at": "2026-09-16T23:40:26+00:00"
+  },
+  "ensemble_per_season_comparison": [],
+  "data": [
+    {
+      "model": "Dixon-Coles (main model)",
+      "n_matches": 2337,
+      "log_loss": 1.0108,
+      "brier_score": 0.604,
+      "ranked_probability_score": 0.2095,
+      "accuracy": 0.5139,
+      "favorite_accuracy": 0.6081,
+      "draw_calibration_bias": -0.0025,
+      "expected_calibration_error": null
+    },
+    {
+      "model": "Elo-only baseline",
+      "n_matches": 2337,
+      "log_loss": 1.015,
+      "brier_score": 0.6065,
+      "ranked_probability_score": 0.2103,
+      "accuracy": 0.5066,
+      "favorite_accuracy": 0.5819,
+      "draw_calibration_bias": -0.03,
+      "expected_calibration_error": null
+    },
+    {
+      "model": "Previous-season-table baseline",
+      "n_matches": 2337,
+      "log_loss": 1.2211,
+      "brier_score": 0.6794,
+      "ranked_probability_score": 0.2319,
+      "accuracy": 0.469,
+      "favorite_accuracy": 0.5424,
+      "draw_calibration_bias": -0.1279,
+      "expected_calibration_error": null
+    },
+    {
+      "model": "Simple Poisson baseline",
+      "n_matches": 2337,
+      "log_loss": 1.0239,
+      "brier_score": 0.6139,
+      "ranked_probability_score": 0.2142,
+      "accuracy": 0.4959,
+      "favorite_accuracy": 0.6327,
+      "draw_calibration_bias": -0.0019,
+      "expected_calibration_error": null
+    }
+  ]
+}

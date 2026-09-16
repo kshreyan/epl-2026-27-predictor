@@ -206,6 +206,63 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "St Pauli": ["St Pauli"],
         "Wolfsburg": ["Wolfsburg"],
     },
+    # Built from football-data.co.uk's real F1.csv (2014/15-2025/26, every
+    # team that appeared across all 12 seasons -- Ligue 1 played 20 teams
+    # through 2022/23 then dropped to 18 from 2023/24 on, plus a real
+    # abandoned 2019/20 season (COVID) -- both reflected as-is, not
+    # normalized away) cross-referenced against fixturedownload.com's real
+    # 2026-27 Ligue 1 fixture feed (18 clubs) and, independently, the-odds-
+    # api.com's live event list for the same season (used as the second
+    # real source for cross-verification). One 2026-27 club, Le Mans FC,
+    # has no alias in the 2014/15-2025/26 historical window (no top-flight
+    # appearance in that span, confirmed absent from both the historical
+    # file and corroborated by its presence in both real live sources) --
+    # the same situation La Liga's Racing Santander and Bundesliga's SV
+    # Elversberg cases were in. The other 2026-27 promoted club, Estac
+    # Troyes, already appears in the 12-season historical window
+    # (previously relegated, now back up). Paris Saint-Germain has two
+    # real source spellings ("Paris SG" from football-data.co.uk, "Paris
+    # Saint Germain" from the Odds API) -- both kept, nothing invented.
+    "ligue_1": {
+        "AJ Auxerre": ["Auxerre"],
+        "AS Monaco": ["Monaco"],
+        "Angers SCO": ["Angers"],
+        "Estac Troyes": ["Troyes"],
+        "FC Lorient": ["Lorient"],
+        "Havre Athletic Club": ["Le Havre"],
+        "LOSC Lille": ["Lille"],
+        "Le Mans FC": ["Le Mans FC", "Le Mans"],
+        "OGC Nice": ["Nice"],
+        "Olympique Lyonnais": ["Lyon"],
+        "Olympique de Marseille": ["Marseille"],
+        "Paris FC": ["Paris FC"],
+        "Paris Saint-Germain": ["Paris SG", "Paris Saint Germain"],
+        "RC Lens": ["Lens"],
+        "RC Strasbourg Alsace": ["Strasbourg"],
+        "Stade Brestois 29": ["Brest"],
+        "Stade Rennais FC": ["Rennes"],
+        "Toulouse FC": ["Toulouse"],
+        # Historical-only clubs (2014/15-2025/26 real fd.co.uk data, not in
+        # the 2026-27 fixture list) -- kept so backtest data can still be
+        # normalized even though they're not this season's clubs.
+        "Ajaccio": ["Ajaccio"],
+        "Ajaccio GFCO": ["Ajaccio GFCO"],
+        "Amiens": ["Amiens"],
+        "Bastia": ["Bastia"],
+        "Bordeaux": ["Bordeaux"],
+        "Caen": ["Caen"],
+        "Clermont": ["Clermont"],
+        "Dijon": ["Dijon"],
+        "Evian Thonon Gaillard": ["Evian Thonon Gaillard"],
+        "Guingamp": ["Guingamp"],
+        "Metz": ["Metz"],
+        "Montpellier": ["Montpellier"],
+        "Nancy": ["Nancy"],
+        "Nantes": ["Nantes"],
+        "Nimes": ["Nimes"],
+        "Reims": ["Reims"],
+        "St Etienne": ["St Etienne"],
+    },
 }
 
 _ALIAS_TO_CANONICAL: dict[str, dict[str, str]] = {}
