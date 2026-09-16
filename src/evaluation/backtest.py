@@ -38,17 +38,25 @@ from src.models.scoreline_models import (  # noqa: E402
     score_matrix,
     top_n_scorelines,
 )
-from src.utils.team_names import EPL_2026_27_CLUBS  # noqa: E402
+from src.leagues import league_path, load_league_config  # noqa: E402
 from src.utils.versioning import log_experiment, make_run_metadata, register_model  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-HISTORICAL_PATH = REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv"
 MODEL_CONFIG_PATH = REPO_ROOT / "config" / "model_config.yaml"
-OUT_MATCH_RESULTS = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv"
-OUT_MODEL_COMPARISON = REPO_ROOT / "data" / "outputs" / "epl_backtest_model_comparison.csv"
-OUT_SCORELINE_ACCURACY = REPO_ROOT / "data" / "outputs" / "epl_backtest_scoreline_accuracy.csv"
-OUT_BASELINE_RESULTS = REPO_ROOT / "data" / "outputs" / "baseline_model_results.csv"
-OUT_SELECTION_REPORT = REPO_ROOT / "reports" / "epl_model_selection_report.md"
+
+
+def _paths(league_id: str) -> dict:
+    raw = REPO_ROOT / "data" / "raw"
+    out = REPO_ROOT / "data" / "outputs"
+    return {
+        "historical": raw / f"{league_id}_historical_matches.csv",
+        "fixtures": raw / league_path(league_id, "2026_27_fixtures.csv"),
+        "out_match_results": out / league_path(league_id, "backtest_match_results.csv"),
+        "out_model_comparison": out / league_path(league_id, "backtest_model_comparison.csv"),
+        "out_scoreline_accuracy": out / league_path(league_id, "backtest_scoreline_accuracy.csv"),
+        "out_baseline_results": out / league_path(league_id, "baseline_model_results.csv"),
+        "out_selection_report": REPO_ROOT / "reports" / league_path(league_id, "model_selection_report.md"),
+    }
 
 VALIDATION_SEASONS = [
     "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25", "2025-26",
@@ -96,11 +104,14 @@ def team_rolling_goal_avgs(matches_before: pd.DataFrame, team: str) -> tuple[flo
     return float(gf.mean()), float(ga.mean())
 
 
-def main() -> None:
-    df = pd.read_csv(HISTORICAL_PATH, parse_dates=["date"])
+def main(league_id: str = "epl") -> None:
+    paths = _paths(league_id)
+    df = pd.read_csv(paths["historical"], parse_dates=["date"])
     df = df.dropna(subset=["home_goals", "away_goals"]).sort_values("date").reset_index(drop=True)
     hist_teams = sorted(set(df["home_team"]) | set(df["away_team"]))
-    universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
+    current_fixtures = pd.read_csv(paths["fixtures"])
+    teams_2627 = sorted(set(current_fixtures["home_team"]) | set(current_fixtures["away_team"]))
+    universe = sorted(set(hist_teams) | set(teams_2627))
 
     promoted_elo_offset, n_events = compute_promoted_team_elo_offset(df)
     elo_run = run_elo(df, promoted_offset=promoted_elo_offset, k_factor=ELO_K_FACTOR, home_advantage=ELO_HOME_ADVANTAGE)
@@ -221,9 +232,9 @@ def main() -> None:
                 })
 
     results_df = pd.DataFrame(match_rows)
-    OUT_MATCH_RESULTS.parent.mkdir(parents=True, exist_ok=True)
-    results_df.to_csv(OUT_MATCH_RESULTS, index=False)
-    print(f"Wrote {len(results_df)} backtest match rows to {OUT_MATCH_RESULTS}")
+    paths["out_match_results"].parent.mkdir(parents=True, exist_ok=True)
+    results_df.to_csv(paths["out_match_results"], index=False)
+    print(f"Wrote {len(results_df)} backtest match rows to {paths["out_match_results"]}")
 
     model_names = ["dc", "elo", "prevseason", "simplepoisson"]
     display_names = {
@@ -252,9 +263,9 @@ def main() -> None:
             "expected_calibration_error": "",
         })
     comparison_df = pd.DataFrame(comparison_rows)
-    comparison_df.to_csv(OUT_MODEL_COMPARISON, index=False)
-    comparison_df.to_csv(OUT_BASELINE_RESULTS, index=False)
-    print(f"Wrote model comparison to {OUT_MODEL_COMPARISON} and {OUT_BASELINE_RESULTS}")
+    comparison_df.to_csv(paths["out_model_comparison"], index=False)
+    comparison_df.to_csv(paths["out_baseline_results"], index=False)
+    print(f"Wrote model comparison to {paths["out_model_comparison"]} and {paths["out_baseline_results"]}")
 
     dc_exact = (results_df["dc_predicted_score"] == results_df["actual_home_goals"].astype(str) + "-" + results_df["actual_away_goals"].astype(str)).mean()
 
@@ -283,13 +294,13 @@ def main() -> None:
         "goal_mae": round(goal_mae, 4),
         "total_goals_mae": round(total_goal_mae, 4),
     }])
-    scoreline_df.to_csv(OUT_SCORELINE_ACCURACY, index=False)
-    print(f"Wrote scoreline accuracy to {OUT_SCORELINE_ACCURACY}")
+    scoreline_df.to_csv(paths["out_scoreline_accuracy"], index=False)
+    print(f"Wrote scoreline accuracy to {paths["out_scoreline_accuracy"]}")
 
     best_model = comparison_df.sort_values("log_loss").iloc[0]
-    OUT_SELECTION_REPORT.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUT_SELECTION_REPORT, "w") as f:
-        f.write("# EPL Model Selection Report (Phase 1 preliminary)\n\n")
+    paths["out_selection_report"].parent.mkdir(parents=True, exist_ok=True)
+    with open(paths["out_selection_report"], "w") as f:
+        f.write(f"# {load_league_config(league_id).display_name} Model Selection Report (Phase 1 preliminary)\n\n")
         f.write(f"Rolling-origin backtest, validation seasons {VALIDATION_SEASONS[0]} to {VALIDATION_SEASONS[-1]}, "
                 f"refit approximately every matchweek (10-match chronological chunks), predicting only with data "
                 f"strictly before each chunk. {len(results_df)} real historical matches evaluated.\n\n")
@@ -312,7 +323,7 @@ def main() -> None:
                 "from only earlier real promotion events, and applied to that season's actual promoted clubs "
                 "during backtest prediction). The **Elo** promoted-team offset is still a single global "
                 "constant computed from the full historical dataset -- a smaller, documented remaining gap.\n")
-    print(f"Wrote model selection report to {OUT_SELECTION_REPORT}")
+    print(f"Wrote model selection report to {paths["out_selection_report"]}")
 
     meta = make_run_metadata(
         prefix="backtest", season="2026-27",
@@ -325,4 +336,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

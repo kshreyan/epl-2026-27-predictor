@@ -53,8 +53,9 @@ from src.models.predict_all_matches import (  # noqa: E402
     build_model_context,
     predict_fixtures,
 )
+from src.leagues import league_path  # noqa: E402
+from src.models.promoted_team_adjustment import derive_promoted_teams  # noqa: E402
 from src.simulation.simulate_full_season import run_monte_carlo  # noqa: E402
-from src.utils.team_names import EPL_2026_27_CLUBS  # noqa: E402
 from src.utils.versioning import log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
 REQUIRED_RESULT_COLUMNS = ["match_id", "home_goals", "away_goals", "source_name", "source_timestamp"]
@@ -72,7 +73,12 @@ COMPLETED_MATCH_COLUMNS = [
 class WeeklyUpdatePaths:
     """Every path this engine reads or writes, all overridable so tests
     can point the whole run at a temp directory instead of ever writing
-    synthetic data into the real project files."""
+    synthetic data into the real project files. `league_id="epl"`'s
+    defaults are the exact literal filenames this project already had
+    before multi-league support existed -- no migration for live data.
+    Use `WeeklyUpdatePaths.for_league(league_id)` rather than
+    constructing directly for any league other than EPL."""
+    league_id: str = "epl"
     historical: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv")
     fixtures: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv")
     match_odds: Path = field(default_factory=lambda: REPO_ROOT / "data" / "raw" / "epl_2026_27_match_odds.csv")
@@ -91,6 +97,36 @@ class WeeklyUpdatePaths:
     season_probability_path: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_season_probability_path.csv")
     recalibration_decisions: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_2026_27_recalibration_decisions.csv")
     active_calibrators: Path = field(default_factory=lambda: REPO_ROOT / "model_registry" / "active_calibrators.pkl")
+    backtest: Path = field(default_factory=lambda: REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv")
+
+    @classmethod
+    def for_league(cls, league_id: str) -> "WeeklyUpdatePaths":
+        if league_id == "epl":
+            return cls()  # exact original file paths, unchanged
+        out = REPO_ROOT / "data" / "outputs"
+        raw = REPO_ROOT / "data" / "raw"
+        return cls(
+            league_id=league_id,
+            historical=raw / f"{league_id}_historical_matches.csv",
+            fixtures=raw / league_path(league_id, "2026_27_fixtures.csv"),
+            match_odds=raw / league_path(league_id, "2026_27_match_odds.csv"),
+            real_odds=raw / league_path(league_id, "2026_27_real_odds.csv"),
+            completed_2627=raw / league_path(league_id, "2026_27_completed_matches.csv"),
+            model_config=REPO_ROOT / "config" / "model_config.yaml",
+            sim_config=REPO_ROOT / "config" / "simulation_config.yaml",
+            predictions=out / league_path(league_id, "2026_27_match_predictions.csv"),
+            ledger=out / league_path(league_id, "2026_27_prediction_ledger.csv"),
+            expected_table=out / league_path(league_id, "2026_27_expected_table.csv"),
+            position_distribution=out / league_path(league_id, "2026_27_position_distribution.csv"),
+            weekly_dir=out / "weekly",
+            weekly_scoring=out / league_path(league_id, "2026_27_weekly_scoring.csv"),
+            reliability_running=out / league_path(league_id, "2026_27_reliability_running.csv"),
+            reliability_horizon=out / league_path(league_id, "2026_27_reliability_horizon.csv"),
+            season_probability_path=out / league_path(league_id, "2026_27_season_probability_path.csv"),
+            recalibration_decisions=out / league_path(league_id, "2026_27_recalibration_decisions.csv"),
+            active_calibrators=REPO_ROOT / "model_registry" / f"{league_id}_active_calibrators.pkl",
+            backtest=out / league_path(league_id, "backtest_match_results.csv"),
+        )
 
 
 DEFAULT_PATHS = WeeklyUpdatePaths()
@@ -191,11 +227,21 @@ def team_locked_baseline(completed_df: pd.DataFrame, teams: list[str]) -> dict[s
     return baseline
 
 
-def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DEFAULT_PATHS) -> dict:
+def run_update(
+    matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DEFAULT_PATHS, skip_scoring: bool = False,
+) -> dict:
     """Returns a dict of the key in-memory results (fixtures_df,
     final_predictions, new_expected_table, new_position_dist,
     probability_changes) so tests can assert on them directly rather
-    than re-reading files."""
+    than re-reading files.
+
+    `skip_scoring=True` is for onboarding a league mid-season only: a
+    matchweek locked this way genuinely has no honest pre-kickoff
+    prediction to score against (this pipeline wasn't running yet when
+    it was played), which is a fundamentally different situation from
+    an already-onboarded league's operational ledger unexpectedly
+    missing a prediction (a real bug `score_after_matchweek` must keep
+    catching loudly). Never used by the normal weekly-automation path."""
     with open(paths.model_config) as f:
         model_cfg = yaml.safe_load(f)
     with open(paths.sim_config) as f:
@@ -211,10 +257,16 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     completed_2627 = pd.read_csv(paths.completed_2627, parse_dates=["date"])
     df_for_fit = pd.concat([historical_clean, completed_2627], ignore_index=True)
 
+    teams_2627 = sorted(set(fixtures_df["home_team"]) | set(fixtures_df["away_team"]))
+    promoted_teams = derive_promoted_teams(teams_2627, historical_clean)
     hist_teams = sorted(set(df_for_fit["home_team"]) | set(df_for_fit["away_team"]))
-    universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
+    universe = sorted(set(hist_teams) | set(teams_2627))
     as_of_date = pd.Timestamp(now_utc_iso()[:10])
-    ctx = build_model_context(df_for_fit, universe, model_cfg, as_of_date, active_calibrators_path=paths.active_calibrators)
+    ctx = build_model_context(
+        df_for_fit, universe, model_cfg, as_of_date,
+        active_calibrators_path=paths.active_calibrators, promoted_teams=promoted_teams,
+        league_id=paths.league_id, backtest_path=paths.backtest,
+    )
 
     remaining_fixtures = fixtures_df[fixtures_df["status"] != "completed"].copy()
     generated_at = now_utc_iso()
@@ -226,11 +278,21 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     spread_totals_odds_by_id = load_live_spread_totals_odds(paths.real_odds)
     pred_rows, expl_rows = predict_fixtures(
         remaining_fixtures, ctx, df_for_fit, model_cfg, "early_week_mode", generated_at, meta.run_id,
-        match_odds_by_id, spread_totals_odds_by_id,
+        match_odds_by_id, spread_totals_odds_by_id, promoted_teams=promoted_teams,
     )
     weekly_predictions = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS] if pred_rows else pd.DataFrame(columns=PREDICTION_COLUMNS)
 
-    append_to_ledger(pred_rows, paths.ledger, match_odds_by_id=match_odds_by_id)
+    # The ledger (append-only, leak-checked) must never gain a row whose
+    # kickoff has already passed -- that row would fail its own leak-
+    # check the moment this match's matchweek is eventually locked for
+    # real (generated_at computed now would be after kickoff_utc by
+    # construction). This can genuinely happen for a not-yet-fully-
+    # concluded matchweek (some games played, some not) or when
+    # onboarding a league mid-season. The main predictions CSV and the
+    # season simulation are unaffected -- only the ledger append is
+    # filtered, since only the ledger makes a leak-safety promise.
+    ledger_rows = [r for r in pred_rows if pd.Timestamp(r["generated_at"]) < pd.Timestamp(r["kickoff_utc"])]
+    append_to_ledger(ledger_rows, paths.ledger, match_odds_by_id=match_odds_by_id)
 
     # Merge into the main predictions file: completed matches keep their
     # ORIGINAL pre-match prediction (never overwritten) with the real
@@ -270,7 +332,6 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
     paths.predictions.parent.mkdir(parents=True, exist_ok=True)
     final_predictions.to_csv(paths.predictions, index=False)
 
-    teams_2627 = EPL_2026_27_CLUBS
     baseline = team_locked_baseline(completed_2627, teams_2627)
     initial_points = {t: baseline[t]["points"] for t in teams_2627}
     initial_gf = {t: baseline[t]["gf"] for t in teams_2627}
@@ -286,15 +347,16 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
         ctx["promoted_rating_dist"],
         initial_points=initial_points, initial_goals_for=initial_gf, initial_goals_against=initial_ga,
         initial_wins=initial_wins, initial_draws=initial_draws, initial_losses=initial_losses,
+        promoted_teams=promoted_teams,
     )
     new_expected_table.to_csv(paths.expected_table, index=False)
     new_position_dist.to_csv(paths.position_distribution, index=False)
     append_season_probability_path(matchweek, new_expected_table, paths)
 
     paths.weekly_dir.mkdir(parents=True, exist_ok=True)
-    weekly_predictions.to_csv(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_predictions.csv", index=False)
-    new_expected_table.to_csv(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_expected_table.csv", index=False)
-    new_position_dist.to_csv(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_position_distribution.csv", index=False)
+    weekly_predictions.to_csv(paths.weekly_dir / f"{paths.league_id}_matchweek_{matchweek:02d}_predictions.csv", index=False)
+    new_expected_table.to_csv(paths.weekly_dir / f"{paths.league_id}_matchweek_{matchweek:02d}_expected_table.csv", index=False)
+    new_position_dist.to_csv(paths.weekly_dir / f"{paths.league_id}_matchweek_{matchweek:02d}_position_distribution.csv", index=False)
 
     probability_changes = pd.DataFrame()
     if old_expected_table is not None:
@@ -307,20 +369,25 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
         merged["relegation_probability_change"] = merged["relegation_probability_after"] - merged["relegation_probability_before"]
         merged["expected_points_change"] = merged["expected_points_after"] - merged["expected_points_before"]
         probability_changes = merged.sort_values("title_probability_change", ascending=False)
-        probability_changes.to_csv(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_probability_changes.csv", index=False)
+        probability_changes.to_csv(paths.weekly_dir / f"{paths.league_id}_matchweek_{matchweek:02d}_probability_changes.csv", index=False)
 
     # Score the just-locked matchweek's real results against the
     # pre-kickoff predictions actually made for them (leak-checked via
     # the ledger -- see prediction_ledger.select_pre_kickoff_predictions).
-    scoring = score_after_matchweek(matchweek, paths)
+    # Skipped only for a mid-season league-onboarding catch-up lock (see
+    # skip_scoring's docstring above) -- there is no honest prediction to
+    # score for a match this pipeline wasn't yet running to predict.
+    scoring = None if skip_scoring else score_after_matchweek(matchweek, paths)
 
     # Gated challenger recalibration -- a documented no-op below 60 real
     # matches, never silently swaps the production calibrator (see
-    # recalibration_gate.py docstring).
-    recalibration = attempt_recalibration(paths, matchweek=matchweek)
+    # recalibration_gate.py docstring). Also skipped for the same
+    # catch-up case: rolling-origin evaluation needs real scored matches,
+    # which skip_scoring means there are none of yet.
+    recalibration = None if skip_scoring else attempt_recalibration(paths, backtest_path=paths.backtest, matchweek=matchweek)
 
-    with open(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_update_report.md", "w") as f:
-        f.write(f"# EPL Matchweek {matchweek} Update Report\n\n")
+    with open(paths.weekly_dir / f"{paths.league_id}_matchweek_{matchweek:02d}_update_report.md", "w") as f:
+        f.write(f"# {paths.league_id.upper()} Matchweek {matchweek} Update Report\n\n")
         f.write(f"Generated: {generated_at}\n\n")
         f.write(f"Locked {len(results)} real result(s). {len(remaining_fixtures)} fixtures remain to be predicted/simulated.\n\n")
         if not probability_changes.empty:
@@ -328,28 +395,33 @@ def run_update(matchweek: int, results_path: Path, paths: WeeklyUpdatePaths = DE
             f.write(probability_changes[["team", "title_probability_change", "top_4_probability_change", "relegation_probability_change"]].head(10).to_markdown(index=False))
             f.write("\n\n")
 
-        f.write("## Scoring\n\n"
-                "Two tracks, never pooled: **preseason** is the frozen `preseason-2026-27-v2` tag's "
-                "forecast (no dc_raw baseline available for it -- that field didn't exist yet when v2 "
-                "was tagged); **operational** is the model's latest pre-kickoff prediction at any point "
-                "in the season.\n\n")
-        f.write(f"This matchweek ({len(scoring['gameweek_scored'])} scored match(es)):\n\n")
-        f.write(scoring["gameweek_metrics"][["track", "model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
-        f.write(f"\n\nCumulative, all {len(scoring['cumulative_scored'])} real match(es) scored so far this season:\n\n")
-        f.write(scoring["cumulative_metrics"][["track", "model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
-        f.write("\n\n'production' is what the pipeline actually predicted (calibrated Dixon-Coles, "
-                "or the ensemble on the seasons it's statistically justified, or a promoted challenger); "
-                "'dc_raw' is the uncalibrated Dixon-Coles baseline; 'market' is 0 matches until a real "
-                "match-odds snapshot is logged for that fixture (see 'Data-quality warnings' below).\n\n")
+        if skip_scoring:
+            f.write("## Scoring\n\nNot attempted -- this matchweek was locked as part of onboarding this "
+                    "league mid-season (its real matches were already played before this pipeline started "
+                    "predicting for it), so there is no honest pre-kickoff prediction to score it against.\n\n")
+        else:
+            f.write("## Scoring\n\n"
+                    "Two tracks, never pooled: **preseason** is the frozen `preseason-2026-27-v2` tag's "
+                    "forecast (no dc_raw baseline available for it -- that field didn't exist yet when v2 "
+                    "was tagged); **operational** is the model's latest pre-kickoff prediction at any point "
+                    "in the season.\n\n")
+            f.write(f"This matchweek ({len(scoring['gameweek_scored'])} scored match(es)):\n\n")
+            f.write(scoring["gameweek_metrics"][["track", "model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
+            f.write(f"\n\nCumulative, all {len(scoring['cumulative_scored'])} real match(es) scored so far this season:\n\n")
+            f.write(scoring["cumulative_metrics"][["track", "model", "n_matches", "log_loss", "brier", "rps"]].to_markdown(index=False))
+            f.write("\n\n'production' is what the pipeline actually predicted (calibrated Dixon-Coles, "
+                    "or the ensemble on the seasons it's statistically justified, or a promoted challenger); "
+                    "'dc_raw' is the uncalibrated Dixon-Coles baseline; 'market' is 0 matches until a real "
+                    "match-odds snapshot is logged for that fixture (see 'Data-quality warnings' below).\n\n")
 
-        if not scoring["surprising_results"].empty:
-            f.write("## Most surprising results\n\n"
-                    "Matches where the actual outcome sat furthest into the model's predicted tail "
-                    "(lowest probability assigned to what actually happened):\n\n")
-            f.write(scoring["surprising_results"][[
-                "home_team", "away_team", "actual_result", "predicted_probability_of_actual_outcome",
-            ]].to_markdown(index=False))
-            f.write("\n\n")
+            if not scoring["surprising_results"].empty:
+                f.write("## Most surprising results\n\n"
+                        "Matches where the actual outcome sat furthest into the model's predicted tail "
+                        "(lowest probability assigned to what actually happened):\n\n")
+                f.write(scoring["surprising_results"][[
+                    "home_team", "away_team", "actual_result", "predicted_probability_of_actual_outcome",
+                ]].to_markdown(index=False))
+                f.write("\n\n")
 
         if recalibration is not None:
             f.write("## Recalibration gate\n\n")

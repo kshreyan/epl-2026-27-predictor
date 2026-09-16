@@ -45,14 +45,12 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 from src.evaluation.backtest import RESULT_ORDER, brier_row, log_loss_row, rps  # noqa: E402
 from src.features.build_market_features import log_odds_average, remove_overround  # noqa: E402
+from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.final_stacked_model import N_BOOTSTRAP, BOOTSTRAP_SEED, paired_bootstrap_significance  # noqa: E402
 from src.utils.team_names import normalize_team_name  # noqa: E402
 from src.utils.versioning import log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
-BACKTEST_MATCH_RESULTS_PATH = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv"
 RAW_CACHE_DIR = REPO_ROOT / "data" / "external" / "football_data_co_uk"
-OUT_DETAIL = REPO_ROOT / "data" / "outputs" / "epl_market_blend_backtest.csv"
-OUT_REPORT = REPO_ROOT / "reports" / "epl_2026_27_market_blend_report.md"
 
 SEASON_CODES = {
     "2019-20": "1920", "2020-21": "2021", "2021-22": "2122", "2022-23": "2223",
@@ -60,16 +58,25 @@ SEASON_CODES = {
 }
 
 
-def load_historical_market_odds(seasons: list[str]) -> pd.DataFrame:
+def _paths(league_id: str) -> dict:
+    return {
+        "backtest": REPO_ROOT / "data" / "outputs" / f"{league_path(league_id, 'backtest_match_results.csv')}",
+        "out_detail": REPO_ROOT / "data" / "outputs" / f"{league_path(league_id, 'market_blend_backtest.csv')}",
+        "out_report": REPO_ROOT / "reports" / f"{league_path(league_id, '2026_27_market_blend_report.md')}",
+    }
+
+
+def load_historical_market_odds(seasons: list[str], league_id: str = "epl") -> pd.DataFrame:
     """Real closing-line no-vig probabilities for every match in the
     given seasons, keyed the same way backtest.py's elo_lookup already
     is (`YYYY-MM-DD_HomeTeam_AwayTeam`) so the two can be joined
     directly. Raises if a season's cached file or its Avg odds columns
     are missing -- never silently drops coverage."""
+    code_prefix = load_league_config(league_id).football_data_code
     rows = []
     for season in seasons:
         code = SEASON_CODES[season]
-        path = RAW_CACHE_DIR / f"E0_{code}.csv"
+        path = RAW_CACHE_DIR / f"{code_prefix}_{code}.csv"
         if not path.exists():
             raise FileNotFoundError(f"No cached odds file for {season} at {path}")
         df = pd.read_csv(path)
@@ -77,8 +84,8 @@ def load_historical_market_odds(seasons: list[str]) -> pd.DataFrame:
         if missing:
             raise ValueError(f"{season}: {missing} matches missing Avg odds -- coverage is not actually complete")
         for _, row in df.iterrows():
-            home = normalize_team_name(row["HomeTeam"])
-            away = normalize_team_name(row["AwayTeam"])
+            home = normalize_team_name(row["HomeTeam"], league_id=league_id)
+            away = normalize_team_name(row["AwayTeam"], league_id=league_id)
             date_obj = pd.to_datetime(row["Date"], dayfirst=True)
             date_str = date_obj.strftime("%Y-%m-%d")
             h, d, a = remove_overround((float(row["AvgH"]), float(row["AvgD"]), float(row["AvgA"])))
@@ -89,7 +96,7 @@ def load_historical_market_odds(seasons: list[str]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def evaluate_market_blend(results_df: pd.DataFrame | None = None) -> dict:
+def evaluate_market_blend(results_df: pd.DataFrame | None = None, league_id: str = "epl") -> dict:
     """Reusable entry point for other modules (predict_all_matches.py):
     evaluates the 50/50 model+market log-odds blend against Dixon-Coles
     alone on real historical data, fresh every call (cheap -- no
@@ -98,15 +105,16 @@ def evaluate_market_blend(results_df: pd.DataFrame | None = None) -> dict:
     statistically significant (paired bootstrap CI excludes zero AND it
     wins a season majority -- the same bar the ensemble was held to)
     plus the comparison metrics and the merged per-match detail frame."""
+    backtest_path = _paths(league_id)["backtest"]
     if results_df is None:
-        if not BACKTEST_MATCH_RESULTS_PATH.exists():
-            raise FileNotFoundError(f"{BACKTEST_MATCH_RESULTS_PATH} not found -- run the match-level backtest first.")
-        results_df = pd.read_csv(BACKTEST_MATCH_RESULTS_PATH)
+        if not backtest_path.exists():
+            raise FileNotFoundError(f"{backtest_path} not found -- run the match-level backtest first.")
+        results_df = pd.read_csv(backtest_path)
     results_df = results_df.copy()
     results_df["key"] = results_df["date"] + "_" + results_df["home_team"] + "_" + results_df["away_team"]
 
     seasons = sorted(results_df["season"].unique())
-    market_odds = load_historical_market_odds(seasons)
+    market_odds = load_historical_market_odds(seasons, league_id=league_id)
 
     merged = results_df.merge(market_odds[["key", "market_home_win", "market_draw", "market_away_win"]], on="key", how="inner")
     n_dropped = len(results_df) - len(merged)
@@ -157,15 +165,16 @@ def evaluate_market_blend(results_df: pd.DataFrame | None = None) -> dict:
     }
 
 
-def main() -> None:
-    result = evaluate_market_blend()
+def main(league_id: str = "epl") -> None:
+    paths = _paths(league_id)
+    result = evaluate_market_blend(league_id=league_id)
     merged = result["merged"]
     n_dropped = result["n_dropped"]
     significance = result["significance"]
     blend_significant = result["blend_significant"]
 
-    OUT_DETAIL.parent.mkdir(parents=True, exist_ok=True)
-    merged.drop(columns=["key"]).to_csv(OUT_DETAIL, index=False)
+    paths["out_detail"].parent.mkdir(parents=True, exist_ok=True)
+    merged.drop(columns=["key"]).to_csv(paths["out_detail"], index=False)
 
     dc_mean_ll = result["dc_mean_log_loss"]
     blend_mean_ll = result["blend_mean_log_loss"]
@@ -183,7 +192,7 @@ def main() -> None:
     print(f"Blend significantly better than Dixon-Coles alone: {blend_significant}")
 
     generated_at = now_utc_iso()
-    with open(OUT_REPORT, "w") as f:
+    with open(paths["out_report"], "w") as f:
         f.write("# Model+Market Blend Backtest\n\n")
         f.write(f"Generated: {generated_at}\n\n")
         f.write(
@@ -224,9 +233,13 @@ def main() -> None:
         notes=f"n_matches={len(merged)}, blend_log_loss={blend_mean_ll:.4f}, dc_log_loss={dc_mean_ll:.4f}, "
               f"significant={blend_significant}, ci=[{significance['ci_low']:+.4f},{significance['ci_high']:+.4f}]",
     )
-    print(f"\nReport written to {OUT_REPORT}")
+    print(f"\nReport written to {paths['out_report']}")
     return blend_significant
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

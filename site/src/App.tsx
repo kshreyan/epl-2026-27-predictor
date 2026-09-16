@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { useDashboardJson } from './lib/useDashboardData'
@@ -15,29 +15,44 @@ const ModelPerformancePage = lazy(() =>
   import('./pages/ModelPerformancePage').then((m) => ({ default: m.ModelPerformancePage })),
 )
 
-export default function App() {
-  // Loaded once here purely for the header's model_version/generated_at --
-  // every dashboard JSON file carries the same envelope fields, so any one
-  // of them is a valid source for this.
-  const { data } = useDashboardJson<Envelope<ExpectedTableRow>>('epl_expected_table.json')
+// Every page reads its own leagueId from the route param and builds its
+// dashboard-JSON filename as `${leagueId}_<name>.json` -- one component
+// per view, not duplicated per competition. "epl" produces exactly the
+// filenames this site always had, so this is a route-shape change only,
+// not a data change, for the competition that was already live.
+function HeaderData({ leagueId }: { leagueId: string }) {
+  const { data } = useDashboardJson<Envelope<ExpectedTableRow>>(`${leagueId}_expected_table.json`)
+  return <Header modelVersion={data?.model_version} generatedAt={data?.generated_at} leagueId={leagueId} />
+}
 
+function LeagueRoutes() {
+  const { leagueId = 'epl' } = useParams<{ leagueId: string }>()
+  return (
+    <div className="flex min-h-screen flex-col">
+      <HeaderData leagueId={leagueId} />
+      <main className="flex-1">
+        <Suspense fallback={<div className="px-4 py-16 text-center text-[12px] text-[var(--color-text-faint)]">Loading...</div>}>
+          <Routes>
+            <Route path="table" element={<ExpectedTablePage leagueId={leagueId} />} />
+            <Route path="races" element={<RacesPage leagueId={leagueId} />} />
+            <Route path="fixtures" element={<FixturesPage leagueId={leagueId} />} />
+            <Route path="performance" element={<ModelPerformancePage leagueId={leagueId} />} />
+            <Route path="*" element={<Navigate to="table" replace />} />
+          </Routes>
+        </Suspense>
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+export default function App() {
   return (
     <HashRouter>
-      <div className="flex min-h-screen flex-col">
-        <Header modelVersion={data?.model_version} generatedAt={data?.generated_at} />
-        <main className="flex-1">
-          <Suspense fallback={<div className="px-4 py-16 text-center text-[12px] text-[var(--color-text-faint)]">Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Navigate to="/table" replace />} />
-              <Route path="/table" element={<ExpectedTablePage />} />
-              <Route path="/races" element={<RacesPage />} />
-              <Route path="/fixtures" element={<FixturesPage />} />
-              <Route path="/performance" element={<ModelPerformancePage />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/epl/table" replace />} />
+        <Route path="/:leagueId/*" element={<LeagueRoutes />} />
+      </Routes>
     </HashRouter>
   )
 }

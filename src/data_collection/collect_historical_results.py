@@ -21,15 +21,15 @@ from pathlib import Path
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src.leagues import load_league_config  # noqa: E402
 from src.utils.team_names import normalize_team_name  # noqa: E402
 from src.utils.versioning import log_data_version, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 RAW_CACHE_DIR = REPO_ROOT / "data" / "external" / "football_data_co_uk"
-OUTPUT_PATH = REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv"
 
 SOURCE_NAME = "football-data.co.uk"
-BASE_URL = "https://www.football-data.co.uk/mmz4281/{code}/E0.csv"
+BASE_URL = "https://www.football-data.co.uk/mmz4281/{code}/{fd_code}.csv"
 
 # 2014/15 through 2025/26
 SEASON_CODES = [
@@ -65,9 +65,9 @@ def season_code_to_label(code: str) -> str:
     return f"{start}-{end}"
 
 
-def download_season_csv(code: str) -> str:
-    cache_path = RAW_CACHE_DIR / f"E0_{code}.csv"
-    url = BASE_URL.format(code=code)
+def download_season_csv(code: str, fd_code: str) -> str:
+    cache_path = RAW_CACHE_DIR / f"{fd_code}_{code}.csv"
+    url = BASE_URL.format(code=code, fd_code=fd_code)
     resp = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
     resp.raise_for_status()
     RAW_CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -75,7 +75,7 @@ def download_season_csv(code: str) -> str:
     return resp.text
 
 
-def parse_season(code: str, csv_text: str, source_timestamp: str) -> list[dict]:
+def parse_season(code: str, csv_text: str, source_timestamp: str, league_id: str, fd_code: str, match_id_prefix: str) -> list[dict]:
     season_label = season_code_to_label(code)
     rows_out = []
     reader = csv.DictReader(io.StringIO(csv_text))
@@ -86,8 +86,8 @@ def parse_season(code: str, csv_text: str, source_timestamp: str) -> list[dict]:
         if not home_raw or not away_raw or not date_raw:
             continue  # trailing blank rows in some source files
 
-        home_team = normalize_team_name(home_raw)
-        away_team = normalize_team_name(away_raw)
+        home_team = normalize_team_name(home_raw, league_id=league_id)
+        away_team = normalize_team_name(away_raw, league_id=league_id)
 
         try:
             date_obj = datetime.strptime(date_raw, "%d/%m/%Y")
@@ -98,7 +98,7 @@ def parse_season(code: str, csv_text: str, source_timestamp: str) -> list[dict]:
         ftr = (row.get("FTR") or "").strip()
         result_map = {"H": "home_win", "D": "draw", "A": "away_win"}
 
-        match_id = f"EPLHIST_{code}_{i+1:03d}_{home_team.replace(' ', '')}_{away_team.replace(' ', '')}"
+        match_id = f"{match_id_prefix}HIST_{code}_{i+1:03d}_{home_team.replace(' ', '')}_{away_team.replace(' ', '')}"
 
         def num(field: str):
             v = (row.get(field) or "").strip()
@@ -133,7 +133,7 @@ def parse_season(code: str, csv_text: str, source_timestamp: str) -> list[dict]:
             "stadium": "",
             "attendance": "",
             "source_name": SOURCE_NAME,
-            "source_url_or_page_title": BASE_URL.format(code=code),
+            "source_url_or_page_title": BASE_URL.format(code=code, fd_code=fd_code),
             "source_timestamp": source_timestamp,
             "is_real_data": True,
             "data_status": "completed",
@@ -142,26 +142,28 @@ def parse_season(code: str, csv_text: str, source_timestamp: str) -> list[dict]:
     return rows_out
 
 
-def main() -> None:
+def main(league_id: str = "epl") -> None:
+    cfg = load_league_config(league_id)
+    output_path = REPO_ROOT / "data" / "raw" / f"{league_id}_historical_matches.csv"
     all_rows: list[dict] = []
     fetch_ts = now_utc_iso()
     for code in SEASON_CODES:
-        print(f"Downloading EPL {season_code_to_label(code)} from {SOURCE_NAME} ...")
-        csv_text = download_season_csv(code)
-        season_rows = parse_season(code, csv_text, fetch_ts)
+        print(f"Downloading {cfg.display_name} {season_code_to_label(code)} from {SOURCE_NAME} ...")
+        csv_text = download_season_csv(code, cfg.football_data_code)
+        season_rows = parse_season(code, csv_text, fetch_ts, league_id, cfg.football_data_code, cfg.match_id_prefix)
         print(f"  -> {len(season_rows)} matches")
         all_rows.extend(season_rows)
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_PATH, "w", newline="", encoding="utf-8") as f:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=OUTPUT_COLUMNS)
         writer.writeheader()
         writer.writerows(all_rows)
 
-    print(f"Wrote {len(all_rows)} historical matches to {OUTPUT_PATH}")
+    print(f"Wrote {len(all_rows)} historical matches to {output_path}")
 
     log_data_version(
-        dataset_name="epl_historical_matches",
+        dataset_name=f"{league_id}_historical_matches",
         source_name=SOURCE_NAME,
         source_timestamp=fetch_ts,
         row_count=len(all_rows),
@@ -171,4 +173,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

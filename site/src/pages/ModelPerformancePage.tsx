@@ -4,8 +4,8 @@ import { num, pct } from '../lib/format'
 import { CalibrationChart } from '../components/CalibrationChart'
 import { PageState } from '../components/PageState'
 
-export function ModelPerformancePage() {
-  const { data, error, loading } = useDashboardJson<ModelPerformancePayload>('epl_model_performance.json')
+export function ModelPerformancePage({ leagueId }: { leagueId: string }) {
+  const { data, error, loading } = useDashboardJson<ModelPerformancePayload>(`${leagueId}_model_performance.json`)
   if (loading || error || !data) return <PageState loading={loading} error={error} />
 
   const best = [...data.data].sort((a, b) => a.log_loss - b.log_loss)[0]

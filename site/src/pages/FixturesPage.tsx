@@ -128,8 +128,8 @@ function MatchRow({ match }: { match: MatchPredictionRow }) {
   )
 }
 
-export function FixturesPage() {
-  const { data, error, loading } = useDashboardJson<Envelope<MatchPredictionRow>>('epl_match_predictions.json')
+export function FixturesPage({ leagueId }: { leagueId: string }) {
+  const { data, error, loading } = useDashboardJson<Envelope<MatchPredictionRow>>(`${leagueId}_match_predictions.json`)
   const [pickedMatchweek, setPickedMatchweek] = useState<number | null>(null)
 
   const matchweeks = useMemo(

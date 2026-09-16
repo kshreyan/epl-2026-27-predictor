@@ -88,7 +88,8 @@ from src.models.scoreline_models import (  # noqa: E402
     total_goals_probabilities,
     totals_pick,
 )
-from src.utils.team_names import EPL_2026_27_CLUBS  # noqa: E402
+from src.leagues import league_path, load_league_config  # noqa: E402
+from src.models.promoted_team_adjustment import derive_promoted_teams  # noqa: E402
 from src.utils.versioning import (  # noqa: E402
     DATA_VERSION,
     FEATURE_VERSION,
@@ -99,19 +100,29 @@ from src.utils.versioning import (  # noqa: E402
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-HISTORICAL_PATH = REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv"
-FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
-BACKTEST_PATH = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv"
-MODEL_CONFIG_PATH = REPO_ROOT / "config" / "model_config.yaml"
-OUT_PREDICTIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_predictions.csv"
-LEDGER_PATH = REPO_ROOT / "data" / "outputs" / "epl_2026_27_prediction_ledger.csv"
-MATCH_ODDS_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_match_odds.csv"
-REAL_ODDS_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_real_odds.csv"
-ACTIVE_CALIBRATORS_PATH = REPO_ROOT / "model_registry" / "active_calibrators.pkl"
-OUT_EXPLANATIONS = REPO_ROOT / "data" / "outputs" / "epl_2026_27_match_explanations.csv"
-
-PROMOTED_TEAMS = ["Coventry City", "Ipswich Town", "Hull City"]
 DEFAULT_TOTAL_GOALS_LINE = 2.5  # the standard real-market line when no real total-goals line is available
+
+
+def _paths(league_id: str) -> dict:
+    """All file paths this module reads/writes, for a given league.
+    `league_id="epl"` reproduces this project's exact original file
+    paths -- no migration for already-live data."""
+    raw = REPO_ROOT / "data" / "raw"
+    out = REPO_ROOT / "data" / "outputs"
+    return {
+        "historical": raw / f"{league_id}_historical_matches.csv",
+        "fixtures": raw / league_path(league_id, "2026_27_fixtures.csv"),
+        "backtest": out / league_path(league_id, "backtest_match_results.csv"),
+        "model_config": REPO_ROOT / "config" / "model_config.yaml",
+        "out_predictions": out / league_path(league_id, "2026_27_match_predictions.csv"),
+        "ledger": out / league_path(league_id, "2026_27_prediction_ledger.csv"),
+        "match_odds": raw / league_path(league_id, "2026_27_match_odds.csv"),
+        "real_odds": raw / league_path(league_id, "2026_27_real_odds.csv"),
+        "active_calibrators": REPO_ROOT / "model_registry" / (
+            "active_calibrators.pkl" if league_id == "epl" else f"{league_id}_active_calibrators.pkl"
+        ),
+        "out_explanations": out / league_path(league_id, "2026_27_match_explanations.csv"),
+    }
 
 PREDICTION_COLUMNS = [
     "match_id", "season", "matchweek", "date", "kickoff_utc", "home_team", "away_team", "stadium", "status",
@@ -150,12 +161,25 @@ def result_from_score(home_goals: int, away_goals: int) -> str:
 
 def build_model_context(
     df_clean: pd.DataFrame, universe: list[str], model_cfg: dict, as_of_date: pd.Timestamp,
-    active_calibrators_path: Path | None = None,
+    active_calibrators_path: Path | None = None, promoted_teams: list[str] | None = None,
+    league_id: str = "epl", backtest_path: Path | None = None,
 ) -> dict:
     """Fits Dixon-Coles + Elo on `df_clean` (real historical data, optionally
     extended with locked-in real 2026-27 results for a weekly update) and,
     if a backtest exists, the isotonic calibrators and stacked ensemble.
-    Returns a context dict consumed by `predict_fixtures`."""
+    Returns a context dict consumed by `predict_fixtures`.
+
+    `promoted_teams` defaults to EPL's real current 3 clubs (Coventry
+    City, Ipswich Town, Hull City) only when omitted AND league_id is
+    "epl", for backward compatibility with existing callers -- every
+    other league must pass its own real promoted-club list (see
+    `derive_promoted_teams`)."""
+    if promoted_teams is None:
+        if league_id != "epl":
+            raise ValueError(f"promoted_teams must be passed explicitly for league_id='{league_id}'")
+        promoted_teams = ["Coventry City", "Ipswich Town", "Hull City"]
+    paths = _paths(league_id)
+    backtest_path = backtest_path if backtest_path is not None else paths["backtest"]
     promoted_elo_offset, n_events = compute_promoted_team_elo_offset(df_clean)
     promo_history = compute_promoted_team_history(df_clean)
     promo_summary = summarize_promoted_team_baseline(promo_history)
@@ -181,7 +205,7 @@ def build_model_context(
         df_clean, universe, as_of_date, half_life_days=model_cfg["dixon_coles"]["time_decay_half_life_days"],
         l2_reg=model_cfg["dixon_coles"].get("l2_reg", 0.03),
     )
-    fit = apply_promoted_team_adjustment(fit, PROMOTED_TEAMS, dc_attack_offset, dc_defense_offset)
+    fit = apply_promoted_team_adjustment(fit, promoted_teams, dc_attack_offset, dc_defense_offset)
 
     elo_run = run_elo(
         df_clean, promoted_offset=promoted_elo_offset,
@@ -192,8 +216,8 @@ def build_model_context(
 
     calibrators, calibration_method, active_challenger = {}, "none", None
     ensemble_meta, ensemble_beats_dc, ensemble_metrics = None, False, {}
-    if BACKTEST_PATH.exists():
-        backtest_df = pd.read_csv(BACKTEST_PATH)
+    if backtest_path.exists():
+        backtest_df = pd.read_csv(backtest_path)
         calibrators = fit_calibrators(backtest_df)
         calibration_method = "isotonic" if all(c is not None for c in calibrators.values()) else "raw_fallback"
 
@@ -207,7 +231,7 @@ def build_model_context(
         # scaling (below ISOTONIC_MIN_REAL_MATCHES) or isotonic, so it is
         # applied via apply_challenger, not apply_calibration, in
         # predict_fixtures below.
-        active_path = active_calibrators_path if active_calibrators_path is not None else ACTIVE_CALIBRATORS_PATH
+        active_path = active_calibrators_path if active_calibrators_path is not None else paths["active_calibrators"]
         active_challenger = load_active_calibrators(active_path)
         if active_challenger is not None:
             calibration_method = f"{active_challenger['method']}_promoted_challenger"
@@ -234,7 +258,7 @@ def build_model_context(
         # actually exist for that fixture (predict_fixtures checks the
         # latter). Same precondition as the ensemble above (needs the
         # real backtest match results file) -- guarded the same way.
-        market_blend_result = evaluate_market_blend()
+        market_blend_result = evaluate_market_blend(results_df=backtest_df, league_id=league_id)
         market_blend_significant = market_blend_result["blend_significant"]
         print(f"Model+market blend log loss {market_blend_result['blend_mean_log_loss']:.4f} vs "
               f"Dixon-Coles {market_blend_result['dc_mean_log_loss']:.4f} "
@@ -248,7 +272,7 @@ def build_model_context(
         # markets that have a real historical baseline (spread_totals_blend_model.py).
         # BTTS has no real market source anywhere (confirmed, not assumed --
         # see that module's docstring) so there is nothing to check here.
-        st_result = evaluate_spread_totals_blends()
+        st_result = evaluate_spread_totals_blends(results_df=backtest_df, league_id=league_id)
         spread_blend_significant = st_result["spread"]["blend_significant"]
         totals_blend_significant = st_result["totals"]["blend_significant"]
         for name, r in st_result.items():
@@ -265,7 +289,7 @@ def build_model_context(
 
     return {
         "fit": fit, "elo_ratings": elo_ratings, "promoted_elo_offset": promoted_elo_offset,
-        "promoted_rating_dist": promoted_rating_dist,
+        "promoted_rating_dist": promoted_rating_dist, "league_id": league_id,
         "league_avg_goals_overall": league_avg_goals_overall,
         "calibrators": calibrators, "calibration_method": calibration_method, "active_challenger": active_challenger,
         "ensemble_meta": ensemble_meta, "ensemble_beats_dc": ensemble_beats_dc, "ensemble_metrics": ensemble_metrics,
@@ -279,6 +303,7 @@ def predict_fixtures(
     fixtures_df: pd.DataFrame, ctx: dict, df_clean: pd.DataFrame, model_cfg: dict,
     prediction_mode: str, generated_at: str, run_id: str,
     match_odds_by_id: dict | None = None, spread_totals_odds_by_id: dict | None = None,
+    promoted_teams: list[str] | None = None,
 ) -> tuple[list[dict], list[dict]]:
     """Core per-fixture prediction loop, shared by the preseason run
     (all 380 fixtures) and the weekly-update engine (only the remaining,
@@ -298,6 +323,10 @@ def predict_fixtures(
     fit = ctx["fit"]
     match_odds_by_id = match_odds_by_id or {}
     spread_totals_odds_by_id = spread_totals_odds_by_id or {}
+    promoted_teams = promoted_teams if promoted_teams is not None else ["Coventry City", "Ipswich Town", "Hull City"]
+    league_id = ctx.get("league_id", "epl")
+    league_display_name = load_league_config(league_id).display_name
+    strength_file_name = league_path(league_id, "2026_27_dynamic_team_strength.csv")
     pred_rows, expl_rows = [], []
 
     for _, fx in fixtures_df.iterrows():
@@ -453,8 +482,8 @@ def predict_fixtures(
             "model_version": MODEL_VERSION, "generated_at": generated_at,
         })
 
-        home_is_promoted = home in PROMOTED_TEAMS
-        away_is_promoted = away in PROMOTED_TEAMS
+        home_is_promoted = home in promoted_teams
+        away_is_promoted = away in promoted_teams
         expl_rows.append({
             "match_id": fx["match_id"], "home_team": home, "away_team": away,
             "top_factors_favoring_home": f"Dixon-Coles attack/defense edge (lambda={lam:.2f} expected goals) plus home advantage.",
@@ -473,8 +502,8 @@ def predict_fixtures(
             ),
             "schedule_congestion_explanation": f"rest_day_diff={fx.get('rest_day_diff','')}, congestion_diff={fx.get('congestion_diff','')} (matches in last 7 days, home minus away).",
             "uncertainty_explanation": (
-                "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv)."
-                if home_is_promoted or away_is_promoted else "Both clubs have substantial recent EPL history informing this estimate."
+                f"Promoted-club opponent: wide team-strength uncertainty (see {strength_file_name})."
+                if home_is_promoted or away_is_promoted else f"Both clubs have substantial recent {league_display_name} history informing this estimate."
             ),
             "data_quality_notes": f"data_quality_score={DATA_QUALITY_SCORE} (market/injury/lineup/squad-transfer feeds unavailable).",
             "model_version": MODEL_VERSION, "generated_at": generated_at,
@@ -483,19 +512,25 @@ def predict_fixtures(
     return pred_rows, expl_rows
 
 
-def main() -> None:
-    with open(MODEL_CONFIG_PATH) as f:
+def main(league_id: str = "epl") -> None:
+    paths = _paths(league_id)
+    with open(paths["model_config"]) as f:
         model_cfg = yaml.safe_load(f)
 
-    df = pd.read_csv(HISTORICAL_PATH, parse_dates=["date"])
+    df = pd.read_csv(paths["historical"], parse_dates=["date"])
     df_clean = df.dropna(subset=["home_goals", "away_goals"])
+    fixtures_df = pd.read_csv(paths["fixtures"])
+    teams_2627 = sorted(set(fixtures_df["home_team"]) | set(fixtures_df["away_team"]))
+    promoted_teams = derive_promoted_teams(teams_2627, df_clean)
     hist_teams = sorted(set(df_clean["home_team"]) | set(df_clean["away_team"]))
-    universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
+    universe = sorted(set(hist_teams) | set(teams_2627))
 
     as_of_date = pd.Timestamp(now_utc_iso()[:10])
-    ctx = build_model_context(df_clean, universe, model_cfg, as_of_date)
+    ctx = build_model_context(
+        df_clean, universe, model_cfg, as_of_date, promoted_teams=promoted_teams,
+        league_id=league_id, backtest_path=paths["backtest"], active_calibrators_path=paths["active_calibrators"],
+    )
 
-    fixtures_df = pd.read_csv(FIXTURES_PATH)
     congestion_df = build_schedule_congestion_features(fixtures_df)
     fixtures_df = fixtures_df.merge(congestion_df, on="match_id", how="left")
 
@@ -507,30 +542,34 @@ def main() -> None:
         latest_source_timestamp_used=fixtures_df["source_timestamp"].max() if "source_timestamp" in fixtures_df else generated_at,
     )
 
-    match_odds_by_id = load_combined_match_odds(REAL_ODDS_PATH, MATCH_ODDS_PATH)
-    spread_totals_odds_by_id = load_live_spread_totals_odds(REAL_ODDS_PATH)
+    match_odds_by_id = load_combined_match_odds(paths["real_odds"], paths["match_odds"])
+    spread_totals_odds_by_id = load_live_spread_totals_odds(paths["real_odds"])
     pred_rows, expl_rows = predict_fixtures(
         fixtures_df, ctx, df_clean, model_cfg, "preseason_mode", generated_at, meta.run_id,
-        match_odds_by_id, spread_totals_odds_by_id,
+        match_odds_by_id, spread_totals_odds_by_id, promoted_teams=promoted_teams,
     )
 
     pred_df = pd.DataFrame(pred_rows)[PREDICTION_COLUMNS]
-    OUT_PREDICTIONS.parent.mkdir(parents=True, exist_ok=True)
-    pred_df.to_csv(OUT_PREDICTIONS, index=False)
-    print(f"Wrote {len(pred_df)} match predictions to {OUT_PREDICTIONS} "
+    paths["out_predictions"].parent.mkdir(parents=True, exist_ok=True)
+    pred_df.to_csv(paths["out_predictions"], index=False)
+    print(f"Wrote {len(pred_df)} match predictions to {paths['out_predictions']} "
           f"({int(pred_df['market_blend_applied'].sum())} moneyline, "
           f"{int(pred_df['handicap_blend_applied'].sum())} spread, "
           f"{int(pred_df['totals_blend_applied'].sum())} totals with the model+market blend applied)")
 
-    append_to_ledger(pred_rows, LEDGER_PATH, match_odds_by_id=match_odds_by_id)
-    print(f"Appended {len(pred_rows)} pre-kickoff predictions to {LEDGER_PATH}")
+    append_to_ledger(pred_rows, paths["ledger"], match_odds_by_id=match_odds_by_id)
+    print(f"Appended {len(pred_rows)} pre-kickoff predictions to {paths['ledger']}")
 
     expl_df = pd.DataFrame(expl_rows)
-    expl_df.to_csv(OUT_EXPLANATIONS, index=False)
-    print(f"Wrote {len(expl_df)} match explanations to {OUT_EXPLANATIONS}")
+    expl_df.to_csv(paths["out_explanations"], index=False)
+    print(f"Wrote {len(expl_df)} match explanations to {paths['out_explanations']}")
 
     log_experiment(meta, stage="predict_all_matches", notes=f"{len(pred_df)} fixtures, method={effective_method}")
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

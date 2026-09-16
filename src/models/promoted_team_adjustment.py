@@ -20,6 +20,28 @@ from src.models.scoreline_models import fit_dixon_coles_model
 RELEGATION_ZONE_SIZE = 3
 
 
+def derive_promoted_teams(current_season_teams: list[str], historical_matches: pd.DataFrame) -> list[str]:
+    """Clubs in this season's real club list that did not play in the
+    most recent historical season on record -- the same "not in the
+    prior season" rule `compute_promoted_team_history` already applies
+    season-over-season within the historical data, just applied once
+    more between the last historical season and the new one. Replaces
+    a manually-maintained, per-league hardcoded list: verified to
+    reproduce EPL's real 2026-27 promoted clubs (Coventry City,
+    Ipswich Town, Hull City) exactly before being trusted for any
+    other league."""
+    matches = historical_matches.dropna(subset=["home_goals", "away_goals"])
+    seasons = list(dict.fromkeys(matches.sort_values("date")["season"]))
+    if not seasons:
+        return sorted(current_season_teams)
+    most_recent_season = seasons[-1]
+    prior_teams = (
+        set(matches.loc[matches["season"] == most_recent_season, "home_team"])
+        | set(matches.loc[matches["season"] == most_recent_season, "away_team"])
+    )
+    return sorted(set(current_season_teams) - prior_teams)
+
+
 def _season_table(season_matches: pd.DataFrame) -> pd.DataFrame:
     teams = sorted(set(season_matches["home_team"]) | set(season_matches["away_team"]))
     stats = {t: {"points": 0, "goals_for": 0, "goals_against": 0, "played": 0} for t in teams}

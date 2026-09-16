@@ -1,0 +1,129 @@
+{
+  "league": "la_liga",
+  "generated_at": "2026-09-16T18:24:29+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 20,
+  "data": [
+    {
+      "team": "FC Barcelona",
+      "top_4_probability": 0.99836,
+      "expected_points": 90.86,
+      "expected_position": 1.258
+    },
+    {
+      "team": "Real Madrid",
+      "top_4_probability": 0.97117,
+      "expected_points": 81.17,
+      "expected_position": 2.169
+    },
+    {
+      "team": "Atl\u00e9tico de Madrid",
+      "top_4_probability": 0.70544,
+      "expected_points": 68.95,
+      "expected_position": 4.135
+    },
+    {
+      "team": "Real Betis",
+      "top_4_probability": 0.50997,
+      "expected_points": 64.88,
+      "expected_position": 5.233
+    },
+    {
+      "team": "Villarreal CF",
+      "top_4_probability": 0.221,
+      "expected_points": 57.64,
+      "expected_position": 7.453
+    },
+    {
+      "team": "Athletic Club",
+      "top_4_probability": 0.12692,
+      "expected_points": 54.29,
+      "expected_position": 8.868
+    },
+    {
+      "team": "Deportivo Alav\u00e9s",
+      "top_4_probability": 0.10252,
+      "expected_points": 53.15,
+      "expected_position": 9.366
+    },
+    {
+      "team": "Real Sociedad",
+      "top_4_probability": 0.06873,
+      "expected_points": 51.23,
+      "expected_position": 10.322
+    },
+    {
+      "team": "Sevilla FC",
+      "top_4_probability": 0.06624,
+      "expected_points": 51.15,
+      "expected_position": 10.346
+    },
+    {
+      "team": "RCD Espanyol de Barcelona",
+      "top_4_probability": 0.04674,
+      "expected_points": 48.93,
+      "expected_position": 11.233
+    },
+    {
+      "team": "Levante UD",
+      "top_4_probability": 0.0364,
+      "expected_points": 46.62,
+      "expected_position": 12.342
+    },
+    {
+      "team": "Celta Vigo",
+      "top_4_probability": 0.0347,
+      "expected_points": 47.36,
+      "expected_position": 11.927
+    },
+    {
+      "team": "CA Osasuna",
+      "top_4_probability": 0.03042,
+      "expected_points": 47.34,
+      "expected_position": 12.081
+    },
+    {
+      "team": "Rayo Vallecano",
+      "top_4_probability": 0.02976,
+      "expected_points": 46.92,
+      "expected_position": 12.217
+    },
+    {
+      "team": "RC Deportivo",
+      "top_4_probability": 0.01206,
+      "expected_points": 40.48,
+      "expected_position": 15.011
+    },
+    {
+      "team": "Elche CF",
+      "top_4_probability": 0.01132,
+      "expected_points": 41.49,
+      "expected_position": 14.576
+    },
+    {
+      "team": "Getafe CF",
+      "top_4_probability": 0.01078,
+      "expected_points": 43.33,
+      "expected_position": 13.816
+    },
+    {
+      "team": "R. Racing Club",
+      "top_4_probability": 0.00789,
+      "expected_points": 38.5,
+      "expected_position": 15.776
+    },
+    {
+      "team": "Valencia CF",
+      "top_4_probability": 0.00554,
+      "expected_points": 40.49,
+      "expected_position": 15.067
+    },
+    {
+      "team": "M\u00e1laga CF",
+      "top_4_probability": 0.00406,
+      "expected_points": 35.4,
+      "expected_position": 16.803
+    }
+  ]
+}

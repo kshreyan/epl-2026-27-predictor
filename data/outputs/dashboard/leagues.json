@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-09-16T18:24:29+00:00",
+  "leagues": [
+    {
+      "league_id": "epl",
+      "display_name": "Premier League",
+      "country": "England"
+    },
+    {
+      "league_id": "la_liga",
+      "display_name": "La Liga",
+      "country": "Spain"
+    }
+  ]
+}

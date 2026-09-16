@@ -1,0 +1,129 @@
+{
+  "league": "la_liga",
+  "generated_at": "2026-09-16T18:24:29+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 20,
+  "data": [
+    {
+      "team": "M\u00e1laga CF",
+      "relegation_probability": 0.56617,
+      "expected_points": 35.4,
+      "expected_position": 16.803
+    },
+    {
+      "team": "R. Racing Club",
+      "relegation_probability": 0.4419,
+      "expected_points": 38.5,
+      "expected_position": 15.776
+    },
+    {
+      "team": "RC Deportivo",
+      "relegation_probability": 0.35936,
+      "expected_points": 40.48,
+      "expected_position": 15.011
+    },
+    {
+      "team": "Valencia CF",
+      "relegation_probability": 0.33336,
+      "expected_points": 40.49,
+      "expected_position": 15.067
+    },
+    {
+      "team": "Elche CF",
+      "relegation_probability": 0.30674,
+      "expected_points": 41.49,
+      "expected_position": 14.576
+    },
+    {
+      "team": "Getafe CF",
+      "relegation_probability": 0.21172,
+      "expected_points": 43.33,
+      "expected_position": 13.816
+    },
+    {
+      "team": "Levante UD",
+      "relegation_probability": 0.15162,
+      "expected_points": 46.62,
+      "expected_position": 12.342
+    },
+    {
+      "team": "Rayo Vallecano",
+      "relegation_probability": 0.12768,
+      "expected_points": 46.92,
+      "expected_position": 12.217
+    },
+    {
+      "team": "CA Osasuna",
+      "relegation_probability": 0.11617,
+      "expected_points": 47.34,
+      "expected_position": 12.081
+    },
+    {
+      "team": "Celta Vigo",
+      "relegation_probability": 0.11545,
+      "expected_points": 47.36,
+      "expected_position": 11.927
+    },
+    {
+      "team": "RCD Espanyol de Barcelona",
+      "relegation_probability": 0.08483,
+      "expected_points": 48.93,
+      "expected_position": 11.233
+    },
+    {
+      "team": "Real Sociedad",
+      "relegation_probability": 0.05747,
+      "expected_points": 51.23,
+      "expected_position": 10.322
+    },
+    {
+      "team": "Sevilla FC",
+      "relegation_probability": 0.05468,
+      "expected_points": 51.15,
+      "expected_position": 10.346
+    },
+    {
+      "team": "Deportivo Alav\u00e9s",
+      "relegation_probability": 0.03316,
+      "expected_points": 53.15,
+      "expected_position": 9.366
+    },
+    {
+      "team": "Athletic Club",
+      "relegation_probability": 0.02656,
+      "expected_points": 54.29,
+      "expected_position": 8.868
+    },
+    {
+      "team": "Villarreal CF",
+      "relegation_probability": 0.01134,
+      "expected_points": 57.64,
+      "expected_position": 7.453
+    },
+    {
+      "team": "Real Betis",
+      "relegation_probability": 0.00142,
+      "expected_points": 64.88,
+      "expected_position": 5.233
+    },
+    {
+      "team": "Atl\u00e9tico de Madrid",
+      "relegation_probability": 0.00036,
+      "expected_points": 68.95,
+      "expected_position": 4.135
+    },
+    {
+      "team": "Real Madrid",
+      "relegation_probability": 0.0,
+      "expected_points": 81.17,
+      "expected_position": 2.169
+    },
+    {
+      "team": "FC Barcelona",
+      "relegation_probability": 0.0,
+      "expected_points": 90.86,
+      "expected_position": 1.258
+    }
+  ]
+}

@@ -31,12 +31,12 @@ import pandas as pd
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src.leagues import league_path, load_league_config  # noqa: E402
 from src.utils.team_names import normalize_team_name  # noqa: E402
 from src.utils.versioning import now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
-CURRENT_SEASON_URL = "https://www.football-data.co.uk/mmz4281/2627/E0.csv"
 SOURCE_NAME = "football-data.co.uk"
 
 RESULTS_COLUMNS = ["match_id", "home_goals", "away_goals", "source_name", "source_timestamp"]
@@ -49,7 +49,7 @@ def _parse_date(date_raw: str) -> str:
         return datetime.strptime(date_raw, "%d/%m/%y").strftime("%Y-%m-%d")
 
 
-def fetch_live_results_csv() -> str | None:
+def fetch_live_results_csv(fd_code: str = "E0") -> str | None:
     """Returns the raw CSV text, or None if no real results are
     obtainable right now.
 
@@ -82,11 +82,12 @@ def fetch_live_results_csv() -> str | None:
     anywhere in the header (not exact-matching the first characters)
     is a second, independent layer of defense against the same class
     of encoding surprise recurring in a different form."""
-    resp = requests.get(CURRENT_SEASON_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, allow_redirects=True)
+    current_season_url = f"https://www.football-data.co.uk/mmz4281/2627/{fd_code}.csv"
+    resp = requests.get(current_season_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, allow_redirects=True)
     if resp.status_code != 200:
         if resp.status_code != 404:
             print(
-                f"WARNING: {CURRENT_SEASON_URL} returned HTTP {resp.status_code} (expected 200, or 404 if the "
+                f"WARNING: {current_season_url} returned HTTP {resp.status_code} (expected 200, or 404 if the "
                 f"season's file genuinely doesn't exist yet) -- treating as no real results available this run, "
                 f"not as confirmation the season hasn't started. Will retry on the next scheduled run."
             )
@@ -95,14 +96,14 @@ def fetch_live_results_csv() -> str | None:
     lines = text.splitlines()
     if not lines or "HomeTeam" not in lines[0]:
         print(
-            f"WARNING: {CURRENT_SEASON_URL} returned HTTP 200 but its content doesn't look like the expected "
+            f"WARNING: {current_season_url} returned HTTP 200 but its content doesn't look like the expected "
             f"results CSV (no 'HomeTeam' header found) -- treating as no real results available this run."
         )
         return None
     return text
 
 
-def parse_live_results(csv_text: str, fixtures_df: pd.DataFrame) -> pd.DataFrame:
+def parse_live_results(csv_text: str, fixtures_df: pd.DataFrame, league_id: str = "epl") -> pd.DataFrame:
     """Maps every real, completed row in the live CSV to its match_id in
     the real fixtures file via (home_team, away_team) -- unique within a
     season. Raises on an unrecognized team name rather than silently
@@ -126,13 +127,13 @@ def parse_live_results(csv_text: str, fixtures_df: pd.DataFrame) -> pd.DataFrame
         if not home_raw or not away_raw or fthg == "" or ftag == "":
             continue  # not yet played, or a trailing blank row
 
-        home_team = normalize_team_name(home_raw)
-        away_team = normalize_team_name(away_raw)
+        home_team = normalize_team_name(home_raw, league_id=league_id)
+        away_team = normalize_team_name(away_raw, league_id=league_id)
         key = (home_team, away_team)
         if key not in fixture_lookup:
             raise ValueError(
                 f"Live result for {home_team} vs {away_team} has no matching fixture in "
-                f"{FIXTURES_PATH.name} -- check for a postponement/rearrangement or a fixture-list bug."
+                f"the {league_id} fixtures file -- check for a postponement/rearrangement or a fixture-list bug."
             )
 
         rows.append({
@@ -146,19 +147,25 @@ def parse_live_results(csv_text: str, fixtures_df: pd.DataFrame) -> pd.DataFrame
     return pd.DataFrame(rows, columns=RESULTS_COLUMNS)
 
 
-def fetch_all_live_results(fixtures_path: Path = FIXTURES_PATH) -> pd.DataFrame:
+def fetch_all_live_results(fixtures_path: Path = FIXTURES_PATH, league_id: str = "epl") -> pd.DataFrame:
     """Top-level entry point: real completed 2026-27 results available
     right now, or an empty DataFrame if the season's file doesn't exist
     yet on football-data.co.uk."""
-    csv_text = fetch_live_results_csv()
+    fd_code = load_league_config(league_id).football_data_code
+    csv_text = fetch_live_results_csv(fd_code)
     if csv_text is None:
         return pd.DataFrame(columns=RESULTS_COLUMNS)
     fixtures_df = pd.read_csv(fixtures_path)
-    return parse_live_results(csv_text, fixtures_df)
+    return parse_live_results(csv_text, fixtures_df, league_id=league_id)
 
 
 if __name__ == "__main__":
-    results = fetch_all_live_results()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    _fixtures_path = REPO_ROOT / "data" / "raw" / league_path(_args.league_id, "2026_27_fixtures.csv")
+    results = fetch_all_live_results(_fixtures_path, league_id=_args.league_id)
     print(f"{len(results)} real completed 2026-27 result(s) available from {SOURCE_NAME}.")
     if not results.empty:
         print(results.to_string(index=False))

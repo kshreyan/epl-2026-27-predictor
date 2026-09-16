@@ -4,8 +4,8 @@ import { num, pct } from '../lib/format'
 import { PositionBand } from '../components/PositionBand'
 import { PageState } from '../components/PageState'
 
-export function ExpectedTablePage() {
-  const { data, error, loading } = useDashboardJson<Envelope<ExpectedTableRow>>('epl_expected_table.json')
+export function ExpectedTablePage({ leagueId }: { leagueId: string }) {
+  const { data, error, loading } = useDashboardJson<Envelope<ExpectedTableRow>>(`${leagueId}_expected_table.json`)
   if (loading || error || !data) return <PageState loading={loading} error={error} />
 
   const rows = [...data.data].sort((a, b) => a.expected_position - b.expected_position)

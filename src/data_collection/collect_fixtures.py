@@ -27,15 +27,12 @@ from zoneinfo import ZoneInfo
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src.leagues import league_path, load_league_config  # noqa: E402
 from src.utils.team_names import normalize_team_name  # noqa: E402
 from src.utils.versioning import log_data_version, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-RAW_CACHE_PATH = REPO_ROOT / "data" / "external" / "fixturedownload_epl_2026_27.json"
-OUTPUT_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
-
 SOURCE_NAME = "fixturedownload.com"
-SOURCE_URL = "https://fixturedownload.com/feed/json/epl-2026"
 SEASON = "2026-27"
 
 OUTPUT_COLUMNS = [
@@ -45,32 +42,37 @@ OUTPUT_COLUMNS = [
     "is_real_data", "data_status", "notes",
 ]
 
-LONDON = ZoneInfo("Europe/London")
 
+def main(league_id: str = "epl") -> None:
+    cfg = load_league_config(league_id)
+    raw_cache_path = REPO_ROOT / "data" / "external" / f"fixturedownload_{league_id}_2026_27.json"
+    output_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_fixtures.csv")
+    source_url = f"https://fixturedownload.com/feed/json/{cfg.fixturedownload_slug}-2026"
+    local_tz = ZoneInfo(cfg.timezone)
+    expected_fixtures = cfg.n_teams * (cfg.n_teams - 1)  # each team plays every other team home + away
 
-def main() -> None:
     fetch_ts = now_utc_iso()
-    resp = requests.get(SOURCE_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
+    resp = requests.get(source_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
     resp.raise_for_status()
-    RAW_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    RAW_CACHE_PATH.write_bytes(resp.content)
+    raw_cache_path.parent.mkdir(parents=True, exist_ok=True)
+    raw_cache_path.write_bytes(resp.content)
     fixtures = resp.json()
 
-    if len(fixtures) != 380:
+    if len(fixtures) != expected_fixtures:
         raise ValueError(
-            f"Expected 380 fixtures for a 20-team single round-robin double "
+            f"Expected {expected_fixtures} fixtures for a {cfg.n_teams}-team single round-robin double "
             f"season, got {len(fixtures)}. Refusing to write a fixture file "
             f"that doesn't match the real schedule."
         )
 
     rows = []
     for fx in fixtures:
-        home = normalize_team_name(fx["HomeTeam"])
-        away = normalize_team_name(fx["AwayTeam"])
+        home = normalize_team_name(fx["HomeTeam"], league_id=league_id)
+        away = normalize_team_name(fx["AwayTeam"], league_id=league_id)
         dt_utc = datetime.strptime(fx["DateUtc"], "%Y-%m-%d %H:%M:%SZ").replace(tzinfo=timezone.utc)
-        dt_local = dt_utc.astimezone(LONDON)
+        dt_local = dt_utc.astimezone(local_tz)
 
-        match_id = f"EPL2627_MW{fx['RoundNumber']:02d}_{fx['MatchNumber']:03d}_{home.replace(' ', '')}_{away.replace(' ', '')}"
+        match_id = f"{cfg.match_id_prefix}2627_MW{fx['RoundNumber']:02d}_{fx['MatchNumber']:03d}_{home.replace(' ', '')}_{away.replace(' ', '')}"
 
         rows.append({
             "match_id": match_id,
@@ -85,7 +87,7 @@ def main() -> None:
             "city": "",
             "status": "scheduled",
             "source_name": SOURCE_NAME,
-            "source_url_or_page_title": SOURCE_URL,
+            "source_url_or_page_title": source_url,
             "source_timestamp": fetch_ts,
             "is_real_data": True,
             "data_status": "scheduled_provisional",
@@ -97,23 +99,27 @@ def main() -> None:
             ),
         })
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_PATH, "w", newline="", encoding="utf-8") as f:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=OUTPUT_COLUMNS)
         writer.writeheader()
         writer.writerows(rows)
 
-    print(f"Wrote {len(rows)} fixtures to {OUTPUT_PATH}")
+    print(f"Wrote {len(rows)} fixtures to {output_path}")
 
     log_data_version(
-        dataset_name="epl_2026_27_fixtures",
+        dataset_name=f"{league_id}_2026_27_fixtures",
         source_name=SOURCE_NAME,
         source_timestamp=fetch_ts,
         row_count=len(rows),
         is_real_data=True,
-        notes="Cross-checked against Wikipedia 2026-27 Premier League article for club list and season dates.",
+        notes=f"{cfg.display_name} 2026-27 fixture list from fixturedownload.com.",
     )
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

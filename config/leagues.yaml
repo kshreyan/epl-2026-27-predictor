@@ -1,0 +1,36 @@
+# Registry of every competition this pipeline predicts. `epl` is the
+# original, already-live league and MUST keep its exact current file
+# paths (league_id "epl" maps to the literal epl_2026_27_* names
+# already in the repo) -- zero migration for already-live data.
+#
+# Every field here was verified against the real, live source before
+# being added (see reports/epl_2026_27_model_report.md and the session
+# that added multi-league support): football-data.co.uk for
+# football_data_code, fixturedownload.com for fixturedownload_slug, The
+# Odds API's /v4/sports/ endpoint for odds_api_sport_key. UEFA
+# Champions League / Europa League and MLS are deliberately NOT listed
+# here -- no historical-results/fixture source was found for the UEFA
+# competitions, and MLS's conference+playoff structure doesn't fit this
+# registry's "single round-robin table" assumption. Both are explicitly
+# deferred, not silently dropped -- see that report for the real
+# data-availability findings.
+leagues:
+  - league_id: epl
+    display_name: Premier League
+    country: England
+    football_data_code: E0
+    fixturedownload_slug: epl
+    odds_api_sport_key: soccer_epl
+    timezone: Europe/London
+    n_teams: 20
+    match_id_prefix: EPL
+
+  - league_id: la_liga
+    display_name: La Liga
+    country: Spain
+    football_data_code: SP1
+    fixturedownload_slug: la-liga
+    odds_api_sport_key: soccer_spain_la_liga
+    timezone: Europe/Madrid
+    n_teams: 20
+    match_id_prefix: LALIGA

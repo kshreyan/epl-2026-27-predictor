@@ -21,12 +21,12 @@ function RacePanel<T>({ title, filename, prob }: { title: string; filename: stri
   )
 }
 
-export function RacesPage() {
+export function RacesPage({ leagueId }: { leagueId: string }) {
   return (
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-6">
-      <RacePanel<TitleRow> title="Title race" filename="epl_title_race.json" prob={(r) => r.title_probability} />
-      <RacePanel<Top4Row> title="Top-4 race" filename="epl_top4_race.json" prob={(r) => r.top_4_probability} />
-      <RacePanel<RelegationRow> title="Relegation race" filename="epl_relegation_race.json" prob={(r) => r.relegation_probability} />
+      <RacePanel<TitleRow> title="Title race" filename={`${leagueId}_title_race.json`} prob={(r) => r.title_probability} />
+      <RacePanel<Top4Row> title="Top-4 race" filename={`${leagueId}_top4_race.json`} prob={(r) => r.top_4_probability} />
+      <RacePanel<RelegationRow> title="Relegation race" filename={`${leagueId}_relegation_race.json`} prob={(r) => r.relegation_probability} />
     </div>
   )
 }

@@ -67,7 +67,7 @@ def run_auto_update(paths=DEFAULT_PATHS) -> list[dict]:
     call, in order, so scoring/recalibration correctly see one
     matchweek's worth of new data at a time, not several at once."""
     fixtures_df = pd.read_csv(paths.fixtures)
-    live_results_df = fetch_all_live_results(paths.fixtures)
+    live_results_df = fetch_all_live_results(paths.fixtures, league_id=paths.league_id)
     completed_df = pd.read_csv(paths.completed_2627) if paths.completed_2627.exists() else pd.DataFrame(columns=["match_id"])
 
     newly_complete = determine_newly_complete_matchweeks(fixtures_df, live_results_df, completed_df)
@@ -79,7 +79,7 @@ def run_auto_update(paths=DEFAULT_PATHS) -> list[dict]:
     for mw in newly_complete:
         mw_ids = set(fixtures_df.loc[fixtures_df["matchweek"] == mw, "match_id"])
         mw_results = live_results_df[live_results_df["match_id"].isin(mw_ids)]
-        results_path = paths.weekly_dir / f"_auto_results_matchweek_{mw:02d}.csv"
+        results_path = paths.weekly_dir / f"_auto_results_{paths.league_id}_matchweek_{mw:02d}.csv"
         paths.weekly_dir.mkdir(parents=True, exist_ok=True)
         mw_results.to_csv(results_path, index=False)
 
@@ -92,12 +92,17 @@ def run_auto_update(paths=DEFAULT_PATHS) -> list[dict]:
         completed_df = pd.read_csv(paths.completed_2627)
 
     from src.dashboard.build_dashboard_json import main as build_dashboard_json
-    build_dashboard_json()
+    build_dashboard_json()  # rebuilds every configured league's dashboard JSON, not just this one
 
     return processed
 
 
 if __name__ == "__main__":
-    processed = run_auto_update()
+    import argparse
+    from src.update_after_matchweek import WeeklyUpdatePaths
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    processed = run_auto_update(paths=WeeklyUpdatePaths.for_league(_args.league_id))
     if processed:
         print(f"\nProcessed {len(processed)} matchweek(s): {[p['matchweek'] for p in processed]}")

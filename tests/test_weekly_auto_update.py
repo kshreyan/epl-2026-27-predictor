@@ -116,7 +116,7 @@ def test_run_auto_update_locks_a_concluded_matchweek_end_to_end(tmp_paths, tmp_p
         "source_name": ["football-data.co.uk"] * len(mw1),
         "source_timestamp": ["2026-08-25T00:00:00+00:00"] * len(mw1),
     })
-    monkeypatch.setattr(weekly_auto_update, "fetch_all_live_results", lambda fixtures_path: fake_live_results)
+    monkeypatch.setattr(weekly_auto_update, "fetch_all_live_results", lambda fixtures_path, league_id="epl": fake_live_results)
 
     processed = run_auto_update(paths=tmp_paths)
 

@@ -66,13 +66,22 @@ jobs:
       - name: Run fast test suite (safety check before touching real data)
         run: python -m pytest tests/ -q -m "not slow"
 
+      # One iteration per active league (config/leagues.yaml) -- adding a
+      # new league there needs no workflow change, just adding its id to
+      # this list. "epl" alone reproduces exactly what this step always did.
       - name: Refresh live match odds
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python -m src.data_collection.collect_odds
+        run: |
+          for league in epl la_liga; do
+            python -m src.data_collection.collect_odds --league "$league"
+          done
 
       - name: Run weekly auto-update
-        run: python -m src.weekly_auto_update
+        run: |
+          for league in epl la_liga; do
+            python -m src.weekly_auto_update --league "$league"
+          done
 
       - name: Commit and push if anything changed
         id: commit

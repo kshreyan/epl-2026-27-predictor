@@ -215,30 +215,48 @@ def read_ledger(ledger_path: Path) -> pd.DataFrame:
     return df
 
 
-def select_pre_kickoff_predictions(ledger: pd.DataFrame, match_ids: list | None = None) -> pd.DataFrame:
+def select_pre_kickoff_predictions(
+    ledger: pd.DataFrame, match_ids: list | None = None, allow_never_predicted: bool = False,
+) -> pd.DataFrame:
     """For each match_id (optionally restricted to `match_ids`), returns
     the single most-recent ledger row whose generated_at is strictly
     before that match's own kickoff_utc -- the prediction a forecaster
     genuinely held right before kickoff.
 
-    Raises if any requested match_id has zero such rows (every
-    prediction ever logged for it came at or after kickoff -- a real
-    problem, never silently skipped). Asserts, for the rows actually
-    returned, that generated_at < kickoff_utc -- the leak-check, made
-    operational rather than just reasoned about.
+    Raises if any requested match_id has ledger rows but every one of
+    them was generated at or after kickoff (a real leak -- this pipeline
+    predicted the match, just dishonestly late -- never silently
+    skipped, regardless of `allow_never_predicted`).
+
+    A match_id with ZERO ledger rows at all is a different, honest
+    situation: this pipeline was never even running yet when that match
+    was played -- e.g. onboarding a league mid-season, where matchweeks
+    before the onboarding date genuinely have no prediction that could
+    ever have existed. `allow_never_predicted=True` (the caller's
+    explicit opt-in, not the default) excludes only these from the
+    raise -- a match_id that WAS predicted, just too late, still raises
+    even then.
     """
     if match_ids is not None:
-        ledger = ledger[ledger["match_id"].isin(match_ids)]
+        ledger_subset = ledger[ledger["match_id"].isin(match_ids)]
+    else:
+        ledger_subset = ledger
 
-    valid = ledger[ledger["generated_at"] < ledger["kickoff_utc"]] if not ledger.empty else ledger
-    requested = set(match_ids) if match_ids is not None else set(ledger["match_id"])
+    valid = ledger_subset[ledger_subset["generated_at"] < ledger_subset["kickoff_utc"]] if not ledger_subset.empty else ledger_subset
+    requested = set(match_ids) if match_ids is not None else set(ledger_subset["match_id"])
     missing = requested - set(valid["match_id"])
     if missing:
-        raise ValueError(
-            f"No pre-kickoff prediction exists for match_id(s) {missing} -- every "
-            "ledger row logged for these matches was generated at or after kickoff, "
-            "so none of them can be honestly scored."
-        )
+        if allow_never_predicted:
+            ever_predicted = set(ledger[ledger["match_id"].isin(missing)]["match_id"]) if not ledger.empty else set()
+            leaked = missing & ever_predicted
+        else:
+            leaked = missing
+        if leaked:
+            raise ValueError(
+                f"No pre-kickoff prediction exists for match_id(s) {leaked} -- every "
+                "ledger row logged for these matches was generated at or after kickoff, "
+                "so none of them can be honestly scored."
+            )
 
     idx = valid.groupby("match_id")["generated_at"].idxmax()
     selected = valid.loc[idx].reset_index(drop=True)
@@ -266,11 +284,31 @@ def load_preseason_ledger(
     Scoring against this track therefore has NO Dixon-Coles-raw
     baseline available; only the production probabilities can be
     scored against it.
+
+    Returns an empty (but correctly-shaped) DataFrame, not an error, if
+    `git_ref` doesn't exist -- true for every league except EPL right
+    now, since `preseason-2026-27-v2` was tagged specifically for EPL's
+    first predictions. This is the same "genuinely unavailable, not
+    fabricated" pattern used everywhere else in this project (e.g. a
+    missing market-odds snapshot): the preseason scoring track honestly
+    shows 0 matches for a league with no such tag, rather than crashing
+    the whole weekly update or inventing a preseason forecast that was
+    never actually locked in.
     """
-    result = subprocess.run(
-        ["git", "show", f"{git_ref}:{predictions_relpath}"],
-        cwd=repo_root, capture_output=True, text=True, check=True,
-    )
+    empty_columns = [
+        "match_id", "matchweek", "home_team", "away_team", "kickoff_utc",
+        "home_win_prob", "draw_prob", "away_win_prob",
+        "dc_raw_home_win_prob", "dc_raw_draw_prob", "dc_raw_away_win_prob",
+        "market_home_win_prob", "market_draw_prob", "market_away_win_prob", "market_available",
+        "prediction_mode", "run_id", "model_version", "generated_at",
+    ]
+    try:
+        result = subprocess.run(
+            ["git", "show", f"{git_ref}:{predictions_relpath}"],
+            cwd=repo_root, capture_output=True, text=True, check=True,
+        )
+    except subprocess.CalledProcessError:
+        return pd.DataFrame(columns=empty_columns)
     from io import StringIO
     tagged = pd.read_csv(StringIO(result.stdout))
 

@@ -69,19 +69,25 @@ from src.models.promoted_team_adjustment import (  # noqa: E402
     compute_promoted_team_rating_distribution,
     summarize_promoted_team_baseline,
 )
+from src.leagues import league_path  # noqa: E402
 from src.models.dynamic_team_strength_state_space import compute_team_strength_state  # noqa: E402
-from src.utils.team_names import EPL_2026_27_CLUBS  # noqa: E402
+from src.models.promoted_team_adjustment import derive_promoted_teams  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-HISTORICAL_PATH = REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv"
-FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
 SIM_CONFIG_PATH = REPO_ROOT / "config" / "simulation_config.yaml"
 MODEL_CONFIG_PATH = REPO_ROOT / "config" / "model_config.yaml"
 
 OUT_DIR = REPO_ROOT / "data" / "outputs"
-PROMOTED_TEAMS = ["Coventry City", "Ipswich Town", "Hull City"]
 BATCH_SIZE = 25000
+
+
+def _paths(league_id: str) -> dict:
+    raw = REPO_ROOT / "data" / "raw"
+    return {
+        "historical": raw / f"{league_id}_historical_matches.csv",
+        "fixtures": raw / league_path(league_id, "2026_27_fixtures.csv"),
+    }
 
 
 class TeamStrengthUncertainty:
@@ -135,7 +141,7 @@ class TeamStrengthUncertainty:
 
     ESTABLISHED_SE_SAFETY_CAP = 1.0
 
-    def __init__(self, fit, teams: list[str], promoted_rating_dist: dict):
+    def __init__(self, fit, teams: list[str], promoted_rating_dist: dict, promoted_teams: list[str] | None = None):
         fit_idx = np.array([fit.team_index[t] for t in teams])
         self.attack_mean = fit.attack[fit_idx]
         self.defense_mean = fit.defense[fit_idx]
@@ -146,7 +152,8 @@ class TeamStrengthUncertainty:
         self.attack_se = np.minimum(raw_attack_se, self.ESTABLISHED_SE_SAFETY_CAP)
         self.defense_se = np.minimum(raw_defense_se, self.ESTABLISHED_SE_SAFETY_CAP)
 
-        self.promoted_mask = np.array([t in PROMOTED_TEAMS for t in teams])
+        _promoted = promoted_teams if promoted_teams is not None else ["Coventry City", "Ipswich Town", "Hull City"]
+        self.promoted_mask = np.array([t in _promoted for t in teams])
         self.promoted_mean = np.array([promoted_rating_dist["attack_mean"], promoted_rating_dist["defense_mean"]])
         self.promoted_cov = np.array(promoted_rating_dist["covariance"])
 
@@ -266,6 +273,7 @@ def run_monte_carlo(
     initial_wins: dict[str, int] | None = None,
     initial_draws: dict[str, int] | None = None,
     initial_losses: dict[str, int] | None = None,
+    promoted_teams: list[str] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Runs the batched Monte Carlo simulation over `fixtures_df` (which
     may be all 380 fixtures for a preseason run, or only the *remaining*
@@ -297,7 +305,7 @@ def run_monte_carlo(
     base_draws = _init_array(initial_draws)
     base_losses = _init_array(initial_losses)
 
-    strength = TeamStrengthUncertainty(fit, teams_2627, promoted_rating_dist)
+    strength = TeamStrengthUncertainty(fit, teams_2627, promoted_rating_dist, promoted_teams=promoted_teams)
     n_fixtures = len(fixtures_df)
 
     remaining = n_simulations
@@ -413,7 +421,8 @@ def run_monte_carlo(
     return expected_table, position_dist
 
 
-def main() -> None:
+def main(league_id: str = "epl") -> None:
+    paths = _paths(league_id)
     with open(SIM_CONFIG_PATH) as f:
         sim_cfg = yaml.safe_load(f)
     with open(MODEL_CONFIG_PATH) as f:
@@ -422,10 +431,13 @@ def main() -> None:
     n_simulations = sim_cfg["n_simulations"]
     seed = sim_cfg["random_seed"]
 
-    df = pd.read_csv(HISTORICAL_PATH, parse_dates=["date"])
+    df = pd.read_csv(paths["historical"], parse_dates=["date"])
     df_clean = df.dropna(subset=["home_goals", "away_goals"])
+    fixtures_df = pd.read_csv(paths["fixtures"])
+    teams_2627 = sorted(set(fixtures_df["home_team"]) | set(fixtures_df["away_team"]))
+    promoted_teams = derive_promoted_teams(teams_2627, df_clean)
     hist_teams = sorted(set(df_clean["home_team"]) | set(df_clean["away_team"]))
-    universe = sorted(set(hist_teams) | set(EPL_2026_27_CLUBS))
+    universe = sorted(set(hist_teams) | set(teams_2627))
 
     promoted_elo_offset, n_events = compute_promoted_team_elo_offset(df_clean)
     promo_history = compute_promoted_team_history(df_clean)
@@ -454,7 +466,7 @@ def main() -> None:
     as_of_date = pd.Timestamp(now_utc_iso()[:10])
     strength_df, fit = compute_team_strength_state(
         df_clean, universe, as_of_date=as_of_date,
-        promoted_teams=PROMOTED_TEAMS,
+        promoted_teams=promoted_teams,
         promoted_attack_offset=dc_attack_offset, promoted_defense_offset=dc_defense_offset,
         half_life_days=model_cfg["dixon_coles"]["time_decay_half_life_days"],
         shrinkage_to_league_prior=model_cfg["dynamic_team_strength"]["shrinkage_to_league_prior"],
@@ -462,36 +474,35 @@ def main() -> None:
         l2_reg=model_cfg["dixon_coles"].get("l2_reg"),
     )
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    strength_df.to_csv(OUT_DIR / "epl_2026_27_dynamic_team_strength.csv", index=False)
+    strength_df.to_csv(OUT_DIR / league_path(league_id, "2026_27_dynamic_team_strength.csv"), index=False)
     print(f"Wrote preseason dynamic team strength for {len(strength_df)} teams")
 
-    fixtures_df = pd.read_csv(FIXTURES_PATH)
     fixtures_df = fixtures_df.sort_values(["matchweek", "kickoff_utc"]).reset_index(drop=True)
-    teams_2627 = EPL_2026_27_CLUBS
 
     expected_table, position_dist = run_monte_carlo(
         fixtures_df, fit, teams_2627, n_simulations, seed, sim_cfg, promoted_rating_dist,
+        promoted_teams=promoted_teams,
     )
     generated_at = now_utc_iso()
 
-    expected_table.to_csv(OUT_DIR / "epl_2026_27_expected_table.csv", index=False)
-    expected_table.to_csv(OUT_DIR / "epl_2026_27_table_probabilities.csv", index=False)
-    position_dist.to_csv(OUT_DIR / "epl_2026_27_position_distribution.csv", index=False)
+    expected_table.to_csv(OUT_DIR / league_path(league_id, "2026_27_expected_table.csv"), index=False)
+    expected_table.to_csv(OUT_DIR / league_path(league_id, "2026_27_table_probabilities.csv"), index=False)
+    position_dist.to_csv(OUT_DIR / league_path(league_id, "2026_27_position_distribution.csv"), index=False)
 
     title_race = expected_table[["team", "title_probability", "expected_points", "median_points"]].sort_values(
         "title_probability", ascending=False
     )
-    title_race.to_csv(OUT_DIR / "epl_2026_27_title_race.csv", index=False)
+    title_race.to_csv(OUT_DIR / league_path(league_id, "2026_27_title_race.csv"), index=False)
 
     top4 = expected_table[["team", "top_4_probability", "expected_points", "expected_position"]].sort_values(
         "top_4_probability", ascending=False
     )
-    top4.to_csv(OUT_DIR / "epl_2026_27_top4_probabilities.csv", index=False)
+    top4.to_csv(OUT_DIR / league_path(league_id, "2026_27_top4_probabilities.csv"), index=False)
 
     relegation = expected_table[["team", "relegation_probability", "expected_points", "expected_position"]].sort_values(
         "relegation_probability", ascending=False
     )
-    relegation.to_csv(OUT_DIR / "epl_2026_27_relegation_probabilities.csv", index=False)
+    relegation.to_csv(OUT_DIR / league_path(league_id, "2026_27_relegation_probabilities.csv"), index=False)
 
     full_sim_summary = pd.DataFrame([{
         "n_simulations": n_simulations,
@@ -504,7 +515,7 @@ def main() -> None:
         "model_version": MODEL_VERSION,
         "generated_at": generated_at,
     }])
-    full_sim_summary.to_csv(OUT_DIR / "epl_2026_27_full_season_simulation.csv", index=False)
+    full_sim_summary.to_csv(OUT_DIR / league_path(league_id, "2026_27_full_season_simulation.csv"), index=False)
 
     print(f"Wrote season simulation outputs ({n_simulations} sims) to {OUT_DIR}")
 
@@ -513,4 +524,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

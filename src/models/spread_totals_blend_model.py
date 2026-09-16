@@ -56,6 +56,7 @@ import pandas as pd
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 from src.features.build_market_features import log_odds_average_binary, remove_overround_binary  # noqa: E402
+from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.final_stacked_model import N_BOOTSTRAP, BOOTSTRAP_SEED, paired_bootstrap_significance  # noqa: E402
 from src.models.scoreline_models import (  # noqa: E402
     asian_handicap_home_cover_probability,
@@ -67,15 +68,20 @@ from src.utils.versioning import log_experiment, make_run_metadata, now_utc_iso 
 
 DEFAULT_TOTAL_GOALS_LINE = 2.5  # matches predict_all_matches.py's constant of the same name
 
-BACKTEST_MATCH_RESULTS_PATH = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv"
 RAW_CACHE_DIR = REPO_ROOT / "data" / "external" / "football_data_co_uk"
-OUT_DETAIL = REPO_ROOT / "data" / "outputs" / "epl_spread_totals_blend_backtest.csv"
-OUT_REPORT = REPO_ROOT / "reports" / "epl_2026_27_spread_totals_blend_report.md"
 
 SEASON_CODES = {
     "2019-20": "1920", "2020-21": "2021", "2021-22": "2122", "2022-23": "2223",
     "2023-24": "2324", "2024-25": "2425", "2025-26": "2526",
 }
+
+
+def _paths(league_id: str) -> dict:
+    return {
+        "backtest": REPO_ROOT / "data" / "outputs" / league_path(league_id, "backtest_match_results.csv"),
+        "out_detail": REPO_ROOT / "data" / "outputs" / league_path(league_id, "spread_totals_blend_backtest.csv"),
+        "out_report": REPO_ROOT / "reports" / league_path(league_id, "2026_27_spread_totals_blend_report.md"),
+    }
 
 
 def _binary_log_loss(p: float, outcome: float) -> float:
@@ -89,23 +95,24 @@ def _binary_log_loss(p: float, outcome: float) -> float:
     return -np.log(max(q, 1e-12))
 
 
-def load_historical_spread_totals_odds(seasons: list[str]) -> pd.DataFrame:
+def load_historical_spread_totals_odds(seasons: list[str], league_id: str = "epl") -> pd.DataFrame:
     """Real closing-line Asian Handicap line/odds and Over/Under 2.5
     odds for every match in the given seasons, keyed the same way
     market_blend_model.load_historical_market_odds is. Rows missing
     either market's real columns are dropped, not estimated -- reported
     to the caller via the row count difference, matching the moneyline
     blend's own "never fabricate coverage" discipline."""
+    code_prefix = load_league_config(league_id).football_data_code
     rows = []
     for season in seasons:
         code = SEASON_CODES[season]
-        path = RAW_CACHE_DIR / f"E0_{code}.csv"
+        path = RAW_CACHE_DIR / f"{code_prefix}_{code}.csv"
         if not path.exists():
             raise FileNotFoundError(f"No cached odds file for {season} at {path}")
         df = pd.read_csv(path)
         for _, row in df.iterrows():
-            home = normalize_team_name(row["HomeTeam"])
-            away = normalize_team_name(row["AwayTeam"])
+            home = normalize_team_name(row["HomeTeam"], league_id=league_id)
+            away = normalize_team_name(row["AwayTeam"], league_id=league_id)
             date_obj = pd.to_datetime(row["Date"], dayfirst=True)
             date_str = date_obj.strftime("%Y-%m-%d")
             out = {"key": f"{date_str}_{home}_{away}", "season": season}
@@ -130,28 +137,29 @@ def load_historical_spread_totals_odds(seasons: list[str]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def evaluate_spread_totals_blends(results_df: pd.DataFrame | None = None) -> dict:
+def evaluate_spread_totals_blends(results_df: pd.DataFrame | None = None, league_id: str = "epl") -> dict:
     """Reusable entry point (predict_all_matches.py): evaluates both the
     spread and totals 50/50 model+market log-odds blends against
     model-only Dixon-Coles on real historical data. Returns whether
     each blend's edge is statistically significant (paired bootstrap CI
     excludes zero AND wins a season majority) plus comparison metrics
     and per-match detail."""
+    backtest_path = _paths(league_id)["backtest"]
     if results_df is None:
-        if not BACKTEST_MATCH_RESULTS_PATH.exists():
-            raise FileNotFoundError(f"{BACKTEST_MATCH_RESULTS_PATH} not found -- run the match-level backtest first.")
-        results_df = pd.read_csv(BACKTEST_MATCH_RESULTS_PATH)
+        if not backtest_path.exists():
+            raise FileNotFoundError(f"{backtest_path} not found -- run the match-level backtest first.")
+        results_df = pd.read_csv(backtest_path)
     missing_lam = {"dc_lambda", "dc_mu", "dc_rho"} - set(results_df.columns)
     if missing_lam:
         raise ValueError(
-            f"{BACKTEST_MATCH_RESULTS_PATH} is missing {missing_lam} -- re-run "
+            f"{backtest_path} is missing {missing_lam} -- re-run "
             "`python -m src.evaluation.backtest` (backtest.py now stores these for exactly this use)."
         )
     results_df = results_df.copy()
     results_df["key"] = results_df["date"] + "_" + results_df["home_team"] + "_" + results_df["away_team"]
 
     seasons = sorted(results_df["season"].unique())
-    odds = load_historical_spread_totals_odds(seasons)
+    odds = load_historical_spread_totals_odds(seasons, league_id=league_id)
     merged = results_df.merge(odds, on="key", how="inner", suffixes=("", "_odds"))
     n_total = len(results_df)
 
@@ -215,17 +223,18 @@ def evaluate_spread_totals_blends(results_df: pd.DataFrame | None = None) -> dic
     return out
 
 
-def main() -> None:
-    result = evaluate_spread_totals_blends()
+def main(league_id: str = "epl") -> None:
+    paths = _paths(league_id)
+    result = evaluate_spread_totals_blends(league_id=league_id)
     generated_at = now_utc_iso()
 
-    OUT_DETAIL.parent.mkdir(parents=True, exist_ok=True)
+    paths["out_detail"].parent.mkdir(parents=True, exist_ok=True)
     combined = []
     for market_name, r in result.items():
         d = r["detail"].copy()
         d.insert(0, "market", market_name)
         combined.append(d)
-    pd.concat(combined, ignore_index=True).to_csv(OUT_DETAIL, index=False)
+    pd.concat(combined, ignore_index=True).to_csv(paths["out_detail"], index=False)
 
     lines = ["# Spread (Asian Handicap) and Totals (Over/Under 2.5) Market Blend Backtest\n",
               f"Generated: {generated_at}\n",
@@ -264,7 +273,7 @@ def main() -> None:
             lines.append(f"\n**The {label} blend's edge is NOT statistically significant -- model-only remains the "
                           f"production prediction for this market, real market data available or not.**\n")
 
-    with open(OUT_REPORT, "w") as f:
+    with open(paths["out_report"], "w") as f:
         f.write("".join(lines))
 
     meta = make_run_metadata(prefix="spread_totals_blend", season="2026-27", calibration_method="none",
@@ -274,9 +283,13 @@ def main() -> None:
         notes=(f"spread: n={result['spread']['n_matches']}, significant={result['spread']['blend_significant']}; "
                f"totals: n={result['totals']['n_matches']}, significant={result['totals']['blend_significant']}"),
     )
-    print(f"\nReport written to {OUT_REPORT}")
+    print(f"\nReport written to {paths['out_report']}")
     return {k: v["blend_significant"] for k, v in result.items()}
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

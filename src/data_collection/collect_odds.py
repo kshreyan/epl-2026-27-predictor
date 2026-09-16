@@ -56,6 +56,7 @@ from pathlib import Path
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src.leagues import league_path, load_league_config  # noqa: E402
 from src.utils.team_names import normalize_team_name  # noqa: E402
 from src.utils.versioning import log_data_version, now_utc_iso  # noqa: E402
 
@@ -66,11 +67,7 @@ except ImportError:
     pass  # python-dotenv not installed -- ODDS_API_KEY can still come from a real env var
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
-OUTPUT_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_real_odds.csv"
-
 ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-ODDS_API_URL = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/"
 ODDS_API_MARKETS = "h2h,spreads,totals"  # btts is INVALID_MARKET on this endpoint for this sport -- confirmed, not guessed
 SOURCE_NAME = "the-odds-api.com"
 MARKET_TYPES = ["h2h", "spreads", "totals"]
@@ -127,10 +124,10 @@ def sentinel_row(fx: dict, market_type: str, fetch_ts: str, note: str) -> dict:
     }
 
 
-def fetch_real_odds(fetch_ts: str) -> tuple[dict[tuple[str, str], list[dict]], str | None]:
+def fetch_real_odds(fetch_ts: str, league_id: str, odds_api_url: str, fixtures_path: Path) -> tuple[dict[tuple[str, str], list[dict]], str | None]:
     """Returns ((match_id, market_type) -> list of real per-bookmaker row
     dicts, error_message_or_None)."""
-    resp = requests.get(ODDS_API_URL, params={
+    resp = requests.get(odds_api_url, params={
         "apiKey": ODDS_API_KEY, "regions": "uk,us,eu", "markets": ODDS_API_MARKETS, "oddsFormat": "decimal",
     }, timeout=30)
     if resp.status_code != 200:
@@ -142,15 +139,15 @@ def fetch_real_odds(fetch_ts: str) -> tuple[dict[tuple[str, str], list[dict]], s
 
     events = resp.json()
     fixtures = {}
-    with open(FIXTURES_PATH, newline="", encoding="utf-8") as f:
+    with open(fixtures_path, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             fixtures[(row["home_team"], row["away_team"])] = row
 
     rows_by_key: dict[tuple[str, str], list[dict]] = {}
     for event in events:
         try:
-            home = normalize_team_name(event["home_team"])
-            away = normalize_team_name(event["away_team"])
+            home = normalize_team_name(event["home_team"], league_id=league_id)
+            away = normalize_team_name(event["away_team"], league_id=league_id)
         except KeyError:
             continue  # a team name we don't recognize -- skip rather than guess
         fx = fixtures.get((home, away))
@@ -175,7 +172,7 @@ def fetch_real_odds(fetch_ts: str) -> tuple[dict[tuple[str, str], list[dict]], s
                     **_BLANK_ODDS_FIELDS,
                     "odds_snapshot_type": "current", "time_to_kickoff_hours": "", "odds_format": "decimal",
                     "odds_timestamp": bm.get("last_update", fetch_ts), "source_name": SOURCE_NAME,
-                    "source_url_or_page_title": ODDS_API_URL, "is_example": False, "is_real_data": True,
+                    "source_url_or_page_title": odds_api_url, "is_example": False, "is_real_data": True,
                     "data_status": "live", "collection_date": fetch_ts[:10],
                     "notes": "Real current decimal odds from The Odds API. Opening/closing snapshots are not "
                              "available on the free tier and are intentionally left blank.",
@@ -206,9 +203,14 @@ def fetch_real_odds(fetch_ts: str) -> tuple[dict[tuple[str, str], list[dict]], s
     return rows_by_key, None
 
 
-def main() -> None:
+def main(league_id: str = "epl") -> None:
+    cfg = load_league_config(league_id)
+    fixtures_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_fixtures.csv")
+    output_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_real_odds.csv")
+    odds_api_url = f"https://api.the-odds-api.com/v4/sports/{cfg.odds_api_sport_key}/odds/"
+
     fetch_ts = now_utc_iso()
-    with open(FIXTURES_PATH, newline="", encoding="utf-8") as f:
+    with open(fixtures_path, newline="", encoding="utf-8") as f:
         fixtures = list(csv.DictReader(f))
 
     if not ODDS_API_KEY:
@@ -216,8 +218,8 @@ def main() -> None:
         rows = [sentinel_row(fx, mt, fetch_ts, SENTINEL_NOTE) for fx in fixtures for mt in MARKET_TYPES]
         real_count = 0
     else:
-        print(f"ODDS_API_KEY configured -- fetching live EPL {ODDS_API_MARKETS} odds from {ODDS_API_URL} ...")
-        rows_by_key, error = fetch_real_odds(fetch_ts)
+        print(f"ODDS_API_KEY configured -- fetching live {cfg.display_name} {ODDS_API_MARKETS} odds from {odds_api_url} ...")
+        rows_by_key, error = fetch_real_odds(fetch_ts, league_id, odds_api_url, fixtures_path)
         if error:
             print(f"WARNING: The Odds API request failed ({error}) -- falling back to unavailable sentinel rows. "
                   f"This is not a fabrication risk: we simply don't overwrite real odds with fake ones on failure.")
@@ -239,16 +241,16 @@ def main() -> None:
             print(f"Got real odds for {len(covered_fixtures)} fixtures ({real_count} bookmaker/market rows across "
                   f"{ODDS_API_MARKETS}); {len(fixtures) - len(covered_fixtures)} fixtures have no market posted yet.")
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_PATH, "w", newline="", encoding="utf-8") as f:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=OUTPUT_COLUMNS)
         writer.writeheader()
         writer.writerows(rows)
 
-    print(f"Wrote {len(rows)} rows ({real_count} real) to {OUTPUT_PATH}")
+    print(f"Wrote {len(rows)} rows ({real_count} real) to {output_path}")
 
     log_data_version(
-        dataset_name="epl_2026_27_real_odds",
+        dataset_name=f"{league_id}_2026_27_real_odds",
         # Same rule as sentinel_row(): only claim the real source name if
         # real rows were actually obtained, not just because a key was set.
         source_name=SOURCE_NAME if real_count > 0 else "none_available",
@@ -260,4 +262,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

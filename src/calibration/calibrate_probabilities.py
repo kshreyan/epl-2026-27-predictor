@@ -22,14 +22,22 @@ import pandas as pd
 from sklearn.isotonic import IsotonicRegression
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src.leagues import league_path, load_league_config  # noqa: E402
 from src.utils.versioning import now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-BACKTEST_PATH = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv"
-OUT_REPORT = REPO_ROOT / "data" / "outputs" / "epl_2026_27_calibration_report.md"
-OUT_RELIABILITY = REPO_ROOT / "data" / "outputs" / "epl_2026_27_reliability_tables.csv"
-OUT_CURVES = REPO_ROOT / "data" / "outputs" / "epl_2026_27_calibration_curves.csv"
-OUT_SUMMARY = REPO_ROOT / "data" / "outputs" / "epl_2026_27_calibration_summary.csv"
+
+
+def _paths(league_id: str) -> dict:
+    out = REPO_ROOT / "data" / "outputs"
+    return {
+        "backtest": out / league_path(league_id, "backtest_match_results.csv"),
+        "out_report": out / league_path(league_id, "2026_27_calibration_report.md"),
+        "out_reliability": out / league_path(league_id, "2026_27_reliability_tables.csv"),
+        "out_curves": out / league_path(league_id, "2026_27_calibration_curves.csv"),
+        "out_summary": out / league_path(league_id, "2026_27_calibration_summary.csv"),
+    }
+
 
 CLASSES = ["home_win", "draw", "away_win"]
 N_BINS = 10
@@ -112,17 +120,18 @@ def expected_calibration_error(backtest_df: pd.DataFrame, calibrators: dict) -> 
     return float(ece)
 
 
-def main() -> None:
-    if not BACKTEST_PATH.exists():
-        raise FileNotFoundError(f"{BACKTEST_PATH} not found -- run src/evaluation/backtest.py first")
-    backtest_df = pd.read_csv(BACKTEST_PATH)
+def main(league_id: str = "epl") -> None:
+    paths = _paths(league_id)
+    if not paths["backtest"].exists():
+        raise FileNotFoundError(f"{paths['backtest']} not found -- run src/evaluation/backtest.py first")
+    backtest_df = pd.read_csv(paths["backtest"])
 
     calibrators = fit_calibrators(backtest_df)
     method_used = "isotonic" if all(c is not None for c in calibrators.values()) else "raw_fallback_insufficient_samples"
 
     reliability_tables = pd.concat([_reliability_table(backtest_df, cls) for cls in CLASSES], ignore_index=True)
-    OUT_RELIABILITY.parent.mkdir(parents=True, exist_ok=True)
-    reliability_tables.to_csv(OUT_RELIABILITY, index=False)
+    paths["out_reliability"].parent.mkdir(parents=True, exist_ok=True)
+    reliability_tables.to_csv(paths["out_reliability"], index=False)
 
     curve_rows = []
     for cls in CLASSES:
@@ -131,7 +140,7 @@ def main() -> None:
         calibrated_grid = cal.predict(grid) if cal is not None else grid
         for raw_p, cal_p in zip(grid, calibrated_grid):
             curve_rows.append({"outcome_class": cls, "raw_probability": round(float(raw_p), 3), "calibrated_probability": round(float(cal_p), 4)})
-    pd.DataFrame(curve_rows).to_csv(OUT_CURVES, index=False)
+    pd.DataFrame(curve_rows).to_csv(paths["out_curves"], index=False)
 
     ece = expected_calibration_error(backtest_df, calibrators)
     raw_log_loss = backtest_df["dc_log_loss"].mean()
@@ -151,10 +160,10 @@ def main() -> None:
         "method": method_used, "ece": round(ece, 4),
         "raw_log_loss": round(float(raw_log_loss), 4), "calibrated_log_loss": round(calibrated_log_loss, 4),
         "n_matches": len(backtest_df), "generated_at": now_utc_iso(),
-    }]).to_csv(OUT_SUMMARY, index=False)
+    }]).to_csv(paths["out_summary"], index=False)
 
-    with open(OUT_REPORT, "w") as f:
-        f.write("# EPL 2026-27 Calibration Report (Phase 1)\n\n")
+    with open(paths["out_report"], "w") as f:
+        f.write(f"# {load_league_config(league_id).display_name} 2026-27 Calibration Report (Phase 1)\n\n")
         f.write(f"Generated: {now_utc_iso()}\n\n")
         f.write(f"Calibration method: **{method_used}** (isotonic regression per outcome class, "
                 f"fit on {len(backtest_df)} real backtest matches; minimum {MIN_SAMPLES_FOR_ISOTONIC} "
@@ -163,7 +172,7 @@ def main() -> None:
         f.write(f"- Raw Dixon-Coles mean log loss: {raw_log_loss:.4f}\n")
         f.write(f"- Calibrated mean log loss: {calibrated_log_loss:.4f}\n")
         f.write(f"- Expected Calibration Error (top-class, 10 bins): {ece:.4f}\n\n")
-        f.write("## Reliability tables\n\nSee `epl_2026_27_reliability_tables.csv` for the full per-bin breakdown "
+        f.write(f"## Reliability tables\n\nSee `{paths['out_reliability'].name}` for the full per-bin breakdown "
                 "(predicted probability vs. real empirical frequency) for each outcome class.\n\n")
         f.write("## Limitations\n\n"
                 "- Backtest sample size (see above) is modest for 3-way isotonic calibration; bins with very "
@@ -171,8 +180,12 @@ def main() -> None:
                 "- Calibration is fit once on the full backtest window rather than with a separate held-out "
                 "calibration fold, which can slightly overstate calibration quality; a proper train/calibrate/"
                 "test split is a planned improvement.\n")
-    print(f"Wrote calibration report ({method_used}, ECE={ece:.4f}) to {OUT_REPORT}")
+    print(f"Wrote calibration report ({method_used}, ECE={ece:.4f}) to {paths['out_report']}")
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)

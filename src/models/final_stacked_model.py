@@ -48,13 +48,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src.leagues import league_path  # noqa: E402
 from src.utils.versioning import log_experiment, make_run_metadata, now_utc_iso, register_model  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-BACKTEST_PATH = REPO_ROOT / "data" / "outputs" / "epl_backtest_match_results.csv"
-OUT_REPORT = REPO_ROOT / "reports" / "epl_2026_27_ensemble_report.md"
-OUT_OOF_PREDICTIONS = REPO_ROOT / "data" / "outputs" / "epl_ensemble_oof_predictions.csv"
-OUT_PER_SEASON = REPO_ROOT / "data" / "outputs" / "epl_ensemble_per_season_comparison.csv"
+
+
+def _paths(league_id: str) -> dict:
+    return {
+        "backtest": REPO_ROOT / "data" / "outputs" / league_path(league_id, "backtest_match_results.csv"),
+        "out_report": REPO_ROOT / "reports" / league_path(league_id, "2026_27_ensemble_report.md"),
+        "out_oof": REPO_ROOT / "data" / "outputs" / league_path(league_id, "ensemble_oof_predictions.csv"),
+        "out_per_season": REPO_ROOT / "data" / "outputs" / league_path(league_id, "ensemble_per_season_comparison.csv"),
+    }
 
 BASE_MODELS = ["dc", "elo", "prevseason", "simplepoisson"]
 CLASSES = ["away_win", "draw", "home_win"]  # fixed order for the meta-learner's label encoding
@@ -187,15 +193,16 @@ def fit_final_meta_learner(backtest_df: pd.DataFrame) -> tuple[LogisticRegressio
     return final_meta, significance["ensemble_significant"], metrics
 
 
-def main() -> None:
-    if not BACKTEST_PATH.exists():
-        raise FileNotFoundError(f"{BACKTEST_PATH} not found -- run src/evaluation/backtest.py first")
-    backtest_df = pd.read_csv(BACKTEST_PATH)
+def main(league_id: str = "epl") -> None:
+    paths = _paths(league_id)
+    if not paths["backtest"].exists():
+        raise FileNotFoundError(f"{paths['backtest']} not found -- run src/evaluation/backtest.py first")
+    backtest_df = pd.read_csv(paths["backtest"])
 
     oof_df, final_meta, metrics, significance = run_oof_stacking(backtest_df)
-    oof_df.to_csv(OUT_OOF_PREDICTIONS, index=False)
-    print(f"Wrote {len(oof_df)} out-of-fold ensemble predictions to {OUT_OOF_PREDICTIONS}")
-    significance["per_season"].to_csv(OUT_PER_SEASON, index=False)
+    oof_df.to_csv(paths["out_oof"], index=False)
+    print(f"Wrote {len(oof_df)} out-of-fold ensemble predictions to {paths['out_oof']}")
+    significance["per_season"].to_csv(paths["out_per_season"], index=False)
 
     beats_dc = significance["ensemble_significant"]
     coef_df = pd.DataFrame(
@@ -204,8 +211,8 @@ def main() -> None:
         columns=[f"{m}_{c}" for m in BASE_MODELS for c in ("home_win", "draw", "away_win")],
     )
 
-    with open(OUT_REPORT, "w") as f:
-        f.write("# EPL 2026-27 Stacked Ensemble Report (Phase 3, revised)\n\n")
+    with open(paths["out_report"], "w") as f:
+        f.write(f"# {league_id.upper()} 2026-27 Stacked Ensemble Report (Phase 3, revised)\n\n")
         f.write(f"Generated: {now_utc_iso()}\n\n")
         f.write("Out-of-fold (5-fold, stratified) multinomial logistic-regression stacking of the four base "
                 f"models with real data: Dixon-Coles, Elo, previous-season-table, and simple Poisson, evaluated "
@@ -244,7 +251,7 @@ def main() -> None:
                 "- The significance decision rule (CI excludes zero AND season majority) is a reasonable but "
                 "not uniquely-correct threshold; a single-season swing could still flip the majority vote.\n")
 
-    print(f"Wrote ensemble report to {OUT_REPORT}")
+    print(f"Wrote ensemble report to {paths['out_report']}")
     print(f"Ensemble edge is {'SIGNIFICANT -- using ensemble' if beats_dc else 'NOT significant -- using Dixon-Coles alone'} "
           f"(95% CI [{significance['ci_low']:+.4f}, {significance['ci_high']:+.4f}], "
           f"{significance['season_wins']}/{significance['n_seasons']} seasons)")
@@ -259,4 +266,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    _parser = argparse.ArgumentParser()
+    _parser.add_argument("--league", default="epl", dest="league_id")
+    _args = _parser.parse_args()
+    main(league_id=_args.league_id)
