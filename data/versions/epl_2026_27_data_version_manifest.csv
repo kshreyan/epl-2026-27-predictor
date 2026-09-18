@@ -60,3 +60,8 @@ bundesliga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-16T19:57
 ligue_1_historical_matches,2026-08-18.phase1,football-data.co.uk,2026-09-16T20:27:13+00:00,4237,True,2026-09-16T20:27:32+00:00,"Seasons 1415-2526; Advanced metrics (xG, possession, PPDA, big_chances, set_piece_xg), stadium, and attendance are not published by football-data.co.uk and are intentionally left blank rather than estimated."
 ligue_1_2026_27_fixtures,2026-08-18.phase1,fixturedownload.com,2026-09-16T20:27:38+00:00,306,True,2026-09-16T20:27:38+00:00,Ligue 1 2026-27 fixture list from fixturedownload.com.
 ligue_1_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-16T20:27:44+00:00,1757,True,2026-09-16T20:27:44+00:00,893 real bookmaker/market rows; rest are honest unavailable sentinels.
+epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-18T10:07:50+00:00,2370,True,2026-09-18T10:07:50+00:00,1290 real bookmaker/market rows; rest are honest unavailable sentinels.
+la_liga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-18T10:07:50+00:00,1651,True,2026-09-18T10:07:51+00:00,541 real bookmaker/market rows; rest are honest unavailable sentinels.
+serie_a_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-18T10:07:51+00:00,1921,True,2026-09-18T10:07:51+00:00,820 real bookmaker/market rows; rest are honest unavailable sentinels.
+bundesliga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-18T10:07:51+00:00,1424,True,2026-09-18T10:07:51+00:00,536 real bookmaker/market rows; rest are honest unavailable sentinels.
+ligue_1_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-18T10:07:52+00:00,1788,True,2026-09-18T10:07:52+00:00,924 real bookmaker/market rows; rest are honest unavailable sentinels.
