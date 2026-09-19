@@ -14,6 +14,9 @@ const FixturesPage = lazy(() => import('./pages/FixturesPage').then((m) => ({ de
 const ModelPerformancePage = lazy(() =>
   import('./pages/ModelPerformancePage').then((m) => ({ default: m.ModelPerformancePage })),
 )
+const TrustedPicksPage = lazy(() =>
+  import('./pages/TrustedPicksPage').then((m) => ({ default: m.TrustedPicksPage })),
+)
 
 // Every page reads its own leagueId from the route param and builds its
 // dashboard-JSON filename as `${leagueId}_<name>.json` -- one component
@@ -37,6 +40,10 @@ function LeagueRoutes() {
             <Route path="races" element={<RacesPage leagueId={leagueId} />} />
             <Route path="fixtures" element={<FixturesPage leagueId={leagueId} />} />
             <Route path="performance" element={<ModelPerformancePage leagueId={leagueId} />} />
+            {/* Cross-league: trusted_picks.json pools every league and market into
+                one table, so this page takes no leagueId -- reachable from any
+                competition's tab bar, same content regardless of which one. */}
+            <Route path="trusted-picks" element={<TrustedPicksPage />} />
             <Route path="*" element={<Navigate to="table" replace />} />
           </Routes>
         </Suspense>

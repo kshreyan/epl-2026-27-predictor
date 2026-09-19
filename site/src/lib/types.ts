@@ -163,3 +163,34 @@ export interface ModelPerformancePayload extends Envelope<ModelComparisonRow> {
   calibration_summary: CalibrationSummary | null
   ensemble_per_season_comparison: EnsembleSeasonRow[]
 }
+
+export interface TrustedPickRow {
+  rank: number
+  league: string
+  league_display_name: string
+  match_id: string
+  home_team: string
+  away_team: string
+  kickoff_utc: string
+  matchweek: number
+  status: string
+  market: 'moneyline' | 'btts' | 'totals' | 'spread'
+  pick: string
+  probability: number
+  edge: number
+  outcome: 'win' | 'loss' | 'push' | null
+  actual_score: string | null
+}
+
+export interface TrustedPicksWeek {
+  week_start: string
+  week_end: string
+  picks: TrustedPickRow[]
+}
+
+export interface TrustedPicksPayload {
+  generated_at: string
+  model_version: string
+  ranking_method: string
+  weeks: TrustedPicksWeek[]
+}

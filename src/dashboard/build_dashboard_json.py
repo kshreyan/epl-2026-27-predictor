@@ -261,6 +261,9 @@ def main(league_id: str | None = None) -> None:
             print(f"WARNING: skipping {lid}'s dashboard JSON -- {e}")
     build_leagues_manifest()
 
+    from src.dashboard.build_trusted_picks_json import build_trusted_picks
+    build_trusted_picks()
+
 
 if __name__ == "__main__":
     import argparse

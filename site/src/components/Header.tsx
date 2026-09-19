@@ -10,6 +10,7 @@ const NAV = [
   { to: 'races', label: 'Races' },
   { to: 'fixtures', label: 'Fixtures' },
   { to: 'performance', label: 'Model' },
+  { to: 'trusted-picks', label: 'Trusted Picks' },
 ]
 
 function LeagueSwitcher({ leagueId, leagues }: { leagueId: string; leagues: LeagueEntry[] }) {
