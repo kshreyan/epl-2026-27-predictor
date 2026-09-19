@@ -8,6 +8,7 @@ from unittest.mock import MagicMock, patch
 
 import pandas as pd
 import pytest
+import requests
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
@@ -138,3 +139,26 @@ def test_fetch_live_results_csv_warns_on_a_real_site_outage(capsys):
     out = capsys.readouterr().out
     assert "WARNING" in out
     assert "503" in out
+
+
+def test_fetch_live_results_csv_warns_and_returns_none_on_a_connection_error(capsys):
+    """Regression test for a real incident: on 2026-09-17, football-data.
+    co.uk's own redirect chain pointed this URL at http://127.0.0.1/...
+    (a transient anti-bot/rate-limit response, not a real HTTP response
+    this function's status-code branch ever sees) -- `requests` raised a
+    low-level ConnectionError instead of returning a response object.
+    Uncaught, this crashed weekly_auto_update.py's module-level call,
+    which -- being one `run:` shell script in the daily workflow, with
+    GitHub Actions' default -e -- aborted that entire day's job before
+    it reached any other league in the loop. Must fail safe (return
+    None, no fabricated result, printed as a visible WARNING) exactly
+    like the non-200 branch, not propagate and take the whole job down."""
+    with patch(
+        "src.data_collection.fetch_live_results.requests.get",
+        side_effect=requests.exceptions.ConnectionError("Failed to establish a new connection: [Errno 111]"),
+    ):
+        result = fetch_live_results_csv()
+    assert result is None
+    out = capsys.readouterr().out
+    assert "WARNING" in out
+    assert "ConnectionError" in out

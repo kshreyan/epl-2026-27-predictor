@@ -83,7 +83,30 @@ def fetch_live_results_csv(fd_code: str = "E0") -> str | None:
     is a second, independent layer of defense against the same class
     of encoding surprise recurring in a different form."""
     current_season_url = f"https://www.football-data.co.uk/mmz4281/2627/{fd_code}.csv"
-    resp = requests.get(current_season_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, allow_redirects=True)
+    try:
+        resp = requests.get(current_season_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30, allow_redirects=True)
+    except requests.exceptions.RequestException as e:
+        # Real incident, 2026-09-17: football-data.co.uk's own redirect
+        # chain occasionally points this URL at http://127.0.0.1/... (a
+        # transient anti-bot/rate-limit response, not a real 200/404/50x
+        # from the real site) -- requests then raises a low-level
+        # ConnectionError trying to reach localhost, which is not a
+        # response object this function's status-code branch below can
+        # even see. Uncaught, this crashed weekly_auto_update.py's
+        # module-level call outright, which -- being a single `run:`
+        # shell script in the daily workflow with GitHub Actions' default
+        # -e -- aborted that entire day's job before it reached ANY
+        # other league in the loop, not just this one. Same fail-safe
+        # discipline as the non-200 branch below: warn and return None
+        # (no lock, no fabricated result), and let the next scheduled
+        # run retry, rather than taking down every league's update over
+        # one source's transient bad response.
+        print(
+            f"WARNING: {current_season_url} could not be reached ({e.__class__.__name__}: {e}) -- treating as no "
+            f"real results available this run, not as confirmation the season hasn't started. Will retry on the "
+            f"next scheduled run."
+        )
+        return None
     if resp.status_code != 200:
         if resp.status_code != 404:
             print(
