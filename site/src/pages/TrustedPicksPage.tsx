@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDashboardJson } from '../lib/useDashboardData'
 import type {
   InternationalTrustedPicksPayload, InternationalTrustedPickRow,
-  TrustedPicksPayload, TrustedPickRow,
+  TrustedPicksPayload, TrustedPickRow, TrustedPicksWeek,
 } from '../lib/types'
 import { formatKickoff, pct } from '../lib/format'
 import { PageState } from '../components/PageState'
@@ -24,7 +24,7 @@ function OutcomeBadge({ status, outcome }: { status: string; outcome: TrustedPic
   return <span className="rounded-sm bg-[var(--color-negative)]/15 px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-negative)]">miss</span>
 }
 
-function WeekTable({ week }: { week: { week_start: string; week_end: string; picks: TrustedPickRow[] } }) {
+function WeekTable({ week }: { week: TrustedPicksWeek }) {
   const scored = week.picks.filter((p) => p.status === 'completed' && p.outcome !== 'push')
   const hits = scored.filter((p) => p.outcome === 'win').length
 
@@ -40,6 +40,11 @@ function WeekTable({ week }: { week: { week_start: string; week_end: string; pic
           </span>
         )}
       </div>
+      {week.picks.length === 0 ? (
+        <div className="px-3 py-6 text-center text-[12px] text-[var(--color-text-faint)]">
+          {week.note ?? 'No matches this week.'}
+        </div>
+      ) : (
       <div className="overflow-x-auto">
         <table className="w-full min-w-[720px] text-[12px]">
           <thead>
@@ -75,6 +80,7 @@ function WeekTable({ week }: { week: { week_start: string; week_end: string; pic
           </tbody>
         </table>
       </div>
+      )}
     </div>
   )
 }

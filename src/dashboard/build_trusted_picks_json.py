@@ -193,6 +193,31 @@ def build_trusted_picks() -> None:
             "week_end": (week_start + timedelta(days=6)).strftime("%Y-%m-%d"),
             "picks": picks,
         })
+
+    # The upcoming week (`horizon`) is explicitly in scope above, but a
+    # week with zero domestic candidate matches (e.g. every league is
+    # on an international break) never becomes a groupby key and would
+    # otherwise just silently vanish from this list -- worth saying so
+    # plainly (with a pointer to where real picks for that week DO
+    # exist) rather than leaving a reader to guess why next week isn't
+    # here at all.
+    if not any(w["week_start"] == horizon.strftime("%Y-%m-%d") for w in weeks_out):
+        note = "No domestic matches scheduled this week."
+        nl_path = OUT_DIR / "nations_league_2026_27_match_predictions.csv"
+        if nl_path.exists():
+            nl = pd.read_csv(nl_path)
+            nl["week_start"] = pd.to_datetime(nl["kickoff_utc"], utc=True).apply(_week_start)
+            if (nl["week_start"] == horizon).any():
+                note = (
+                    "No domestic matches scheduled this week -- every league is on an international break. "
+                    "See the International Break section below for that week's real trusted picks."
+                )
+        weeks_out.append({
+            "week_start": horizon.strftime("%Y-%m-%d"),
+            "week_end": (horizon + timedelta(days=6)).strftime("%Y-%m-%d"),
+            "picks": [], "note": note,
+        })
+
     weeks_out.sort(key=lambda w: w["week_start"], reverse=True)
 
     payload = {

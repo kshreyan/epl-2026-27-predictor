@@ -186,6 +186,7 @@ export interface TrustedPicksWeek {
   week_start: string
   week_end: string
   picks: TrustedPickRow[]
+  note?: string
 }
 
 export interface TrustedPicksPayload {
