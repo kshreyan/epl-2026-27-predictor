@@ -7,13 +7,24 @@
 # being added (see reports/epl_2026_27_model_report.md and the session
 # that added multi-league support): football-data.co.uk for
 # football_data_code, fixturedownload.com for fixturedownload_slug, The
-# Odds API's /v4/sports/ endpoint for odds_api_sport_key. UEFA
-# Champions League / Europa League and MLS are deliberately NOT listed
-# here -- no historical-results/fixture source was found for the UEFA
-# competitions, and MLS's conference+playoff structure doesn't fit this
-# registry's "single round-robin table" assumption. Both are explicitly
-# deferred, not silently dropped -- see that report for the real
-# data-availability findings.
+# Odds API's /v4/sports/ endpoint for odds_api_sport_key.
+#
+# UEFA Champions League / Europa League and MLS are still deliberately
+# NOT listed here as of 2026-09-19 -- not for lack of a real data
+# source (fixturedownload.com has real historical+current fixtures for
+# both UEFA competitions back to 2017, and The Odds API has
+# soccer_uefa_champs_league/soccer_uefa_europa_league/soccer_epl-style
+# sport keys for all three, confirmed directly against /v4/sports/,
+# correcting an earlier, wrong "no source" note that used to be here)
+# -- but because none of the three fit this registry's original
+# "single round-robin table" (format: single_table) assumption: the
+# UEFA competitions are a partial league phase (each of 36 teams plays
+# only 8 of the other 35) plus a knockout bracket, and MLS is two
+# conferences plus a playoff bracket. `format: groups` (added for UEFA
+# Nations League below) may fit the UEFA competitions' league-phase
+# stage once someone decides how to handle the knockout bracket; MLS's
+# conference+playoff shape still has no matching `format` value. Still
+# explicitly deferred, not silently dropped.
 leagues:
   - league_id: epl
     display_name: Premier League
@@ -64,3 +75,26 @@ leagues:
     timezone: Europe/Paris
     n_teams: 18
     match_id_prefix: LIGUE1
+
+  # Real fixtures+historical results: fixturedownload.com's
+  # nations-league-2026 (2026-27 cycle, 156 matches, 54 UEFA members)
+  # and nations-league-2024 (2024-25 cycle, 167 real scored matches --
+  # the only prior cycle that source has). No football-data.co.uk
+  # coverage exists for this competition (football_data_code is
+  # intentionally None) -- a bespoke collector supplies real historical
+  # data instead of the shared football-data.co.uk-based one. format:
+  # groups because League A/B/C/D each split into groups of 3-4 teams
+  # with no combined table -- excluded from single_table_league_ids()
+  # and everything keyed off it (table/races/season-simulation
+  # dashboards, the domestic Trusted Picks pool). See
+  # src/international/ for its own, separately-built pipeline and
+  # dashboard/trusted-picks output.
+  - league_id: nations_league
+    display_name: UEFA Nations League
+    country: Europe
+    fixturedownload_slug: nations-league
+    odds_api_sport_key: soccer_uefa_nations_league
+    timezone: UTC
+    n_teams: 54
+    match_id_prefix: UNL
+    format: groups

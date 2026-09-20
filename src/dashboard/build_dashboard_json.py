@@ -34,7 +34,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from src.leagues import all_league_ids, league_path, load_league_config  # noqa: E402
+from src.leagues import league_path, load_league_config, single_table_league_ids  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -223,13 +223,17 @@ def build_model_performance_json(league_id: str) -> None:
 
 
 def build_leagues_manifest() -> None:
-    """A small manifest of every active league (id + display name) so
-    the site never has to hardcode a league list -- adding a new
-    league to config/leagues.yaml is enough for it to appear in the
-    site's competition switcher, no frontend code change needed."""
+    """A small manifest of every active single_table league (id +
+    display name) so the site never has to hardcode a league list --
+    adding a new single-table league to config/leagues.yaml is enough
+    for it to appear in the site's competition switcher, no frontend
+    code change needed. single_table_league_ids() only -- a "groups"
+    competition (e.g. UEFA Nations League) has no table/races/season-
+    simulation tabs for this switcher to point at; it gets its own,
+    separately-built section."""
     leagues = [
         {"league_id": lid, "display_name": load_league_config(lid).display_name, "country": load_league_config(lid).country}
-        for lid in all_league_ids()
+        for lid in single_table_league_ids()
     ]
     _write_json("leagues.json", {"generated_at": now_utc_iso(), "leagues": leagues})
 
@@ -248,7 +252,7 @@ def build_all_for_league(league_id: str) -> None:
 
 
 def main(league_id: str | None = None) -> None:
-    league_ids = [league_id] if league_id else all_league_ids()
+    league_ids = [league_id] if league_id else single_table_league_ids()
     for lid in league_ids:
         print(f"--- Building dashboard JSON for {lid} ---")
         try:
@@ -263,6 +267,18 @@ def main(league_id: str | None = None) -> None:
 
     from src.dashboard.build_trusted_picks_json import build_trusted_picks
     build_trusted_picks()
+
+    # Nations League has its own, separately-built match-predictions and
+    # trusted-picks JSON (see src/dashboard/build_nations_league_
+    # dashboard_json.py / build_international_trusted_picks_json.py) --
+    # a "groups" competition, not part of the single_table loop above.
+    # Rebuilding here keeps it current on every full pipeline/weekly-
+    # automation run; both no-op safely (an empty, explicitly-flagged
+    # payload) if predict_nations_league_matches.py hasn't run yet.
+    from src.dashboard.build_nations_league_dashboard_json import build_nations_league_dashboard_json
+    from src.dashboard.build_international_trusted_picks_json import build_international_trusted_picks
+    build_nations_league_dashboard_json()
+    build_international_trusted_picks()
 
 
 if __name__ == "__main__":

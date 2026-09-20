@@ -1,8 +1,11 @@
 """Builds data/outputs/dashboard/trusted_picks.json: a cross-league,
 cross-market "most trusted predictions" table, one per calendar week.
 
-Pools every league's moneyline, BTTS, spread, and totals picks together
-and ranks them by **edge over baseline** -- predicted probability minus
+Pools every single_table league's (see src/leagues.py) moneyline, BTTS,
+spread, and totals picks together -- a "groups" competition (e.g. UEFA
+Nations League) gets its own, separately-built international trusted-
+picks table instead, since it isn't part of this domestic table/races
+dashboard shape -- and ranks them by **edge over baseline** -- predicted probability minus
 that market's naive baseline (1/3 for a 3-way moneyline pick, 1/2 for
 the three binary markets) -- not raw probability. Ranking by raw
 probability would systematically favor the binary markets, which sit
@@ -35,7 +38,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from src.leagues import all_league_ids, load_league_config  # noqa: E402
+from src.leagues import load_league_config, single_table_league_ids  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -126,7 +129,7 @@ CANDIDATE_BUILDERS = [_moneyline_candidate, _btts_candidate, _totals_candidate, 
 
 def _load_all_candidates() -> pd.DataFrame:
     rows = []
-    for league_id in all_league_ids():
+    for league_id in single_table_league_ids():
         league_cfg = load_league_config(league_id)
         pred_path = OUT_DIR / f"{league_id}_2026_27_match_predictions.csv"
         if not pred_path.exists():

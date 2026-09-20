@@ -17,6 +17,9 @@ const ModelPerformancePage = lazy(() =>
 const TrustedPicksPage = lazy(() =>
   import('./pages/TrustedPicksPage').then((m) => ({ default: m.TrustedPicksPage })),
 )
+const InternationalBreakPage = lazy(() =>
+  import('./pages/InternationalBreakPage').then((m) => ({ default: m.InternationalBreakPage })),
+)
 
 // Every page reads its own leagueId from the route param and builds its
 // dashboard-JSON filename as `${leagueId}_<name>.json` -- one component
@@ -44,6 +47,9 @@ function LeagueRoutes() {
                 one table, so this page takes no leagueId -- reachable from any
                 competition's tab bar, same content regardless of which one. */}
             <Route path="trusted-picks" element={<TrustedPicksPage />} />
+            {/* Cross-league, same reasoning as trusted-picks: UEFA Nations League
+                isn't scoped to any one domestic competition. */}
+            <Route path="international" element={<InternationalBreakPage />} />
             <Route path="*" element={<Navigate to="table" replace />} />
           </Routes>
         </Suspense>

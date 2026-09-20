@@ -25,13 +25,27 @@ class LeagueConfig:
     league_id: str
     display_name: str
     country: str
-    football_data_code: str
     fixturedownload_slug: str
     odds_api_sport_key: str
     timezone: str
     n_teams: int
     match_id_prefix: str
     season: str = "2026-27"
+    # "single_table" (default): a single round-robin table a team's own
+    # season position/promotion/relegation makes sense for -- everything
+    # this registry originally modeled. "groups": several small
+    # round-robin groups with no combined table (e.g. UEFA Nations
+    # League) -- table/races/season-simulation dashboard building does
+    # not apply and must not run for these; see
+    # single_table_league_ids() below.
+    format: str = "single_table"
+    # None for a competition football-data.co.uk genuinely has no real
+    # coverage for (e.g. international competitions) -- collect_
+    # historical_results.py and the spread/totals historical-odds
+    # backtest are hard-coupled to this source and simply do not run
+    # for such a league; a bespoke collector supplies its real
+    # historical data instead. Never a placeholder/guessed code.
+    football_data_code: str | None = None
 
 
 def _load_registry() -> dict[str, LeagueConfig]:
@@ -54,6 +68,17 @@ def load_league_config(league_id: str) -> LeagueConfig:
 
 def all_league_ids() -> list[str]:
     return sorted(_REGISTRY)
+
+
+def single_table_league_ids() -> list[str]:
+    """The subset of all_league_ids() a single expected-table/season-
+    simulation/title-race dashboard genuinely applies to -- excludes
+    "groups"-format competitions (see LeagueConfig.format) that have no
+    combined table. Use this, not all_league_ids(), for any loop that
+    builds a table, race, or season-simulation output, or that pools
+    per-league predictions into a single-table-shaped digest (e.g. the
+    domestic Trusted Picks table)."""
+    return [lid for lid in all_league_ids() if _REGISTRY[lid].format == "single_table"]
 
 
 def league_path(league_id: str, suffix: str) -> str:

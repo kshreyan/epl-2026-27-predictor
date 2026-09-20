@@ -194,3 +194,92 @@ export interface TrustedPicksPayload {
   ranking_method: string
   weeks: TrustedPicksWeek[]
 }
+
+export interface NationsLeagueMatchRow {
+  match_id: string
+  season: string
+  matchweek: number
+  group: string
+  date: string
+  kickoff_utc: string
+  home_team: string
+  away_team: string
+  stadium: string
+  status: string
+  actual_home_goals: number | null
+  actual_away_goals: number | null
+  actual_result: string | null
+  home_win_prob: number
+  draw_prob: number
+  away_win_prob: number
+  moneyline_pick: string
+  home_elo: number
+  away_elo: number
+  predicted_score: string
+  top_10_scorelines_json: ScorelineEntry[]
+  btts_yes_prob: number
+  btts_no_prob: number
+  btts_pick: string
+  total_goals_line: number
+  over_prob: number
+  under_prob: number
+  totals_pick: string
+  handicap_line: number
+  home_cover_prob: number
+  away_cover_prob: number
+  spread_pick: string
+  market_available: boolean
+  market_home_odds: number | null
+  market_draw_odds: number | null
+  market_away_odds: number | null
+  moneyline_model_source: string
+  derived_markets_model_source: string
+  run_id: string
+  model_version: string
+  generated_at: string
+}
+
+export interface NationsLeaguePredictionsPayload {
+  league: string
+  generated_at: string
+  model_version: string
+  season: string
+  record_count: number
+  moneyline_model_note?: string
+  status?: string
+  note?: string
+  data: NationsLeagueMatchRow[]
+}
+
+export interface InternationalTrustedPickRow {
+  rank: number
+  match_id: string
+  home_team: string
+  away_team: string
+  kickoff_utc: string
+  matchweek: number
+  group: string
+  status: string
+  market: 'moneyline'
+  pick: string
+  probability: number
+  edge: number
+  outcome: 'win' | 'loss' | 'push' | null
+  actual_score: string | null
+  market_available: boolean
+}
+
+export interface InternationalTrustedPicksWeek {
+  week_start: string
+  week_end: string
+  picks: InternationalTrustedPickRow[]
+}
+
+export interface InternationalTrustedPicksPayload {
+  generated_at: string
+  model_version: string
+  ranking_method: string
+  status?: string
+  note?: string
+  weeks: InternationalTrustedPicksWeek[]
+}

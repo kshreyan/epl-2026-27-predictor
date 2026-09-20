@@ -263,6 +263,31 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "Reims": ["Reims"],
         "St Etienne": ["St Etienne"],
     },
+    # Canonical spelling is fixturedownload.com's real nations-league-2026
+    # feed (54 real UEFA member associations, League A/B/C/D combined),
+    # cross-referenced against the-odds-api.com's live event list for the
+    # same competition (soccer_uefa_nations_league) as the second real
+    # source -- same discipline as every other league's table. Three real
+    # spelling differences found between the two sources; all other names
+    # matched exactly.
+    "nations_league": {
+        "Albania": [], "Andorra": [], "Armenia": [], "Austria": [], "Azerbaijan": [],
+        "Belarus": [], "Belgium": [],
+        "Bosnia and Herzegovina": ["Bosnia & Herzegovina"],
+        "Bulgaria": [], "Croatia": [], "Cyprus": [],
+        "Czechia": ["Czech Republic"],
+        "Denmark": [], "England": [], "Estonia": [], "Faroe Islands": [], "Finland": [],
+        "France": [], "Georgia": [], "Germany": [], "Gibraltar": [], "Greece": [],
+        "Hungary": [], "Iceland": [], "Israel": [], "Italy": [], "Kazakhstan": [],
+        "Kosovo": [], "Latvia": [], "Liechtenstein": [], "Lithuania": [], "Luxembourg": [],
+        "Malta": [], "Moldova": [], "Montenegro": [], "Netherlands": [],
+        "North Macedonia": [], "Northern Ireland": [], "Norway": [], "Poland": [],
+        "Portugal": [], "Republic of Ireland": [], "Romania": [], "San Marino": [],
+        "Scotland": [], "Serbia": [], "Slovakia": [], "Slovenia": [], "Spain": [],
+        "Sweden": [], "Switzerland": [],
+        "Türkiye": ["Turkey"],
+        "Ukraine": [], "Wales": [],
+    },
 }
 
 _ALIAS_TO_CANONICAL: dict[str, dict[str, str]] = {}

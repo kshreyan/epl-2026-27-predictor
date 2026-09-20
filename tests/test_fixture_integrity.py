@@ -6,7 +6,7 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
-from src.leagues import all_league_ids, league_path, load_league_config  # noqa: E402
+from src.leagues import league_path, load_league_config, single_table_league_ids  # noqa: E402
 from src.utils.team_names import CANONICAL_TEAMS, EPL_2026_27_CLUBS  # noqa: E402
 
 FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
@@ -57,10 +57,14 @@ def test_matchweeks_1_through_38_each_have_10_matches():
 
 
 # Generalized versions of the same checks above, parametrized over every
-# league registered in config/leagues.yaml (not just EPL's hardcoded 380/
-# 38/10) -- skips a league whose fixture file hasn't been collected yet
-# rather than failing, since collect_fixtures.py is a one-time bootstrap
-# step run manually per league, not part of every test run.
+# single_table league registered in config/leagues.yaml (not just EPL's
+# hardcoded 380/38/10) -- skips a league whose fixture file hasn't been
+# collected yet rather than failing, since collect_fixtures.py is a
+# one-time bootstrap step run manually per league, not part of every
+# test run. A "groups" league (e.g. UEFA Nations League) has no single
+# round-robin structure for the n_teams*(n_teams-1) assertion below to
+# hold and needs its own, differently-shaped integrity test instead --
+# see tests/test_nations_league_fixture_integrity.py.
 def _fixtures_path_for(league_id: str) -> Path:
     return REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_fixtures.csv")
 
@@ -71,7 +75,7 @@ def _skip_reason(league_id: str) -> str | None:
     return None
 
 
-@pytest.mark.parametrize("league_id", all_league_ids())
+@pytest.mark.parametrize("league_id", single_table_league_ids())
 def test_any_league_has_correct_fixture_count_and_matches_per_team(league_id):
     reason = _skip_reason(league_id)
     if reason:
