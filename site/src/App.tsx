@@ -50,7 +50,10 @@ function LeagueRoutes() {
             {/* Cross-league, same reasoning as trusted-picks: UEFA Nations League
                 isn't scoped to any one domestic competition. */}
             <Route path="international" element={<InternationalBreakPage />} />
-            <Route path="*" element={<Navigate to="table" replace />} />
+            {/* nations_league ("groups" format) has no table/races/fixtures/model
+                tabs to land on -- an empty or unknown sub-path for it goes to
+                International Break instead of a route that would 404 its data. */}
+            <Route path="*" element={<Navigate to={leagueId === 'nations_league' ? 'international' : 'table'} replace />} />
           </Routes>
         </Suspense>
       </main>

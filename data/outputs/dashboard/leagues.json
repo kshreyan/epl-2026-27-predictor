@@ -1,30 +1,41 @@
 {
-  "generated_at": "2026-09-20T23:22:48+00:00",
+  "generated_at": "2026-09-20T23:33:15+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
       "display_name": "Bundesliga",
-      "country": "Germany"
+      "country": "Germany",
+      "format": "single_table"
     },
     {
       "league_id": "epl",
       "display_name": "Premier League",
-      "country": "England"
+      "country": "England",
+      "format": "single_table"
     },
     {
       "league_id": "la_liga",
       "display_name": "La Liga",
-      "country": "Spain"
+      "country": "Spain",
+      "format": "single_table"
     },
     {
       "league_id": "ligue_1",
       "display_name": "Ligue 1",
-      "country": "France"
+      "country": "France",
+      "format": "single_table"
+    },
+    {
+      "league_id": "nations_league",
+      "display_name": "UEFA Nations League",
+      "country": "Europe",
+      "format": "groups"
     },
     {
       "league_id": "serie_a",
       "display_name": "Serie A",
-      "country": "Italy"
+      "country": "Italy",
+      "format": "single_table"
     }
   ]
 }

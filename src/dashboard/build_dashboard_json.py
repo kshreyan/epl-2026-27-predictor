@@ -34,7 +34,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from src.leagues import league_path, load_league_config, single_table_league_ids  # noqa: E402
+from src.leagues import all_league_ids, league_path, load_league_config, single_table_league_ids  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -223,17 +223,22 @@ def build_model_performance_json(league_id: str) -> None:
 
 
 def build_leagues_manifest() -> None:
-    """A small manifest of every active single_table league (id +
-    display name) so the site never has to hardcode a league list --
-    adding a new single-table league to config/leagues.yaml is enough
-    for it to appear in the site's competition switcher, no frontend
-    code change needed. single_table_league_ids() only -- a "groups"
-    competition (e.g. UEFA Nations League) has no table/races/season-
-    simulation tabs for this switcher to point at; it gets its own,
-    separately-built section."""
+    """A small manifest of every active league (id + display name +
+    format) so the site never has to hardcode a league list -- adding a
+    new league to config/leagues.yaml is enough for it to appear in the
+    site's competition switcher, no frontend code change needed. Every
+    league (all_league_ids(), not just single_table_league_ids()) is
+    included -- a "groups" competition (e.g. UEFA Nations League) has
+    no table/races/season-simulation tabs, but it does have its own
+    section the switcher should still be able to reach; the `format`
+    field is how the frontend knows which nav tabs/default route apply
+    to a given entry."""
     leagues = [
-        {"league_id": lid, "display_name": load_league_config(lid).display_name, "country": load_league_config(lid).country}
-        for lid in single_table_league_ids()
+        {
+            "league_id": lid, "display_name": load_league_config(lid).display_name,
+            "country": load_league_config(lid).country, "format": load_league_config(lid).format,
+        }
+        for lid in all_league_ids()
     ]
     _write_json("leagues.json", {"generated_at": now_utc_iso(), "leagues": leagues})
 
