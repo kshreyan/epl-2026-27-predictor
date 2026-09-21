@@ -164,38 +164,6 @@ export interface ModelPerformancePayload extends Envelope<ModelComparisonRow> {
   ensemble_per_season_comparison: EnsembleSeasonRow[]
 }
 
-export interface TrustedPickRow {
-  rank: number
-  league: string
-  league_display_name: string
-  match_id: string
-  home_team: string
-  away_team: string
-  kickoff_utc: string
-  matchweek: number
-  status: string
-  market: 'moneyline' | 'btts' | 'totals' | 'spread'
-  pick: string
-  probability: number
-  edge: number
-  outcome: 'win' | 'loss' | 'push' | null
-  actual_score: string | null
-}
-
-export interface TrustedPicksWeek {
-  week_start: string
-  week_end: string
-  picks: TrustedPickRow[]
-  note?: string
-}
-
-export interface TrustedPicksPayload {
-  generated_at: string
-  model_version: string
-  ranking_method: string
-  weeks: TrustedPicksWeek[]
-}
-
 export interface NationsLeagueMatchRow {
   match_id: string
   season: string
@@ -252,35 +220,3 @@ export interface NationsLeaguePredictionsPayload {
   data: NationsLeagueMatchRow[]
 }
 
-export interface InternationalTrustedPickRow {
-  rank: number
-  match_id: string
-  home_team: string
-  away_team: string
-  kickoff_utc: string
-  matchweek: number
-  group: string
-  status: string
-  market: 'moneyline'
-  pick: string
-  probability: number
-  edge: number
-  outcome: 'win' | 'loss' | 'push' | null
-  actual_score: string | null
-  market_available: boolean
-}
-
-export interface InternationalTrustedPicksWeek {
-  week_start: string
-  week_end: string
-  picks: InternationalTrustedPickRow[]
-}
-
-export interface InternationalTrustedPicksPayload {
-  generated_at: string
-  model_version: string
-  ranking_method: string
-  status?: string
-  note?: string
-  weeks: InternationalTrustedPicksWeek[]
-}

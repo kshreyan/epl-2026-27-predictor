@@ -92,9 +92,7 @@ def single_table_league_ids() -> list[str]:
     simulation/title-race dashboard genuinely applies to -- excludes
     "groups"-format competitions (see LeagueConfig.format) that have no
     combined table. Use this, not all_league_ids(), for any loop that
-    builds a table, race, or season-simulation output, or that pools
-    per-league predictions into a single-table-shaped digest (e.g. the
-    domestic Trusted Picks table)."""
+    builds a table, race, or season-simulation output."""
     return [lid for lid in all_league_ids() if _REGISTRY[lid].format == "single_table"]
 
 

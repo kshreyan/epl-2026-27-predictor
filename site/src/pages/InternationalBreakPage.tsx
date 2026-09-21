@@ -1,9 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useDashboardJson } from '../lib/useDashboardData'
-import type {
-  InternationalTrustedPicksPayload, InternationalTrustedPickRow,
-  NationsLeagueMatchRow, NationsLeaguePredictionsPayload,
-} from '../lib/types'
+import type { NationsLeagueMatchRow, NationsLeaguePredictionsPayload } from '../lib/types'
 import { formatKickoff, pct } from '../lib/format'
 import { PageState } from '../components/PageState'
 
@@ -67,67 +64,9 @@ function MatchRow({ match }: { match: NationsLeagueMatchRow }) {
   )
 }
 
-function OutcomeBadge({ status, outcome }: { status: string; outcome: InternationalTrustedPickRow['outcome'] }) {
-  if (status !== 'completed') {
-    return <span className="rounded-sm border border-[var(--color-border)] px-1.5 py-0.5 text-[10px] text-[var(--color-text-faint)]">upcoming</span>
-  }
-  if (outcome === 'win') return <span className="rounded-sm bg-[var(--color-positive)]/15 px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-positive)]">hit</span>
-  if (outcome === 'push') return <span className="rounded-sm border border-[var(--color-border)] px-1.5 py-0.5 text-[10px] text-[var(--color-text-dim)]">push</span>
-  return <span className="rounded-sm bg-[var(--color-negative)]/15 px-1.5 py-0.5 text-[10px] font-medium text-[var(--color-negative)]">miss</span>
-}
-
-function TrustedPicksWeekTable({ week }: { week: { week_start: string; week_end: string; picks: InternationalTrustedPickRow[] } }) {
-  const scored = week.picks.filter((p) => p.status === 'completed' && p.outcome !== 'push')
-  const hits = scored.filter((p) => p.outcome === 'win').length
-  return (
-    <div className="border border-[var(--color-border)]">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border)] bg-[var(--color-panel)] px-3 py-2">
-        <span className="text-[12px] font-medium">
-          Week of {week.week_start} <span className="text-[var(--color-text-faint)]">to {week.week_end}</span>
-        </span>
-        {scored.length > 0 && <span className="tnum text-[11px] text-[var(--color-text-faint)]">{hits}/{scored.length} hit so far</span>}
-      </div>
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[640px] text-[12px]">
-          <thead>
-            <tr className="border-b border-[var(--color-border)] text-left text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">
-              <th className="px-2 py-1.5">#</th>
-              <th className="px-2 py-1.5">Match</th>
-              <th className="px-2 py-1.5">Group</th>
-              <th className="px-2 py-1.5">Kickoff</th>
-              <th className="px-2 py-1.5">Pick</th>
-              <th className="px-2 py-1.5">Probability</th>
-              <th className="px-2 py-1.5">Edge</th>
-              <th className="px-2 py-1.5">Result</th>
-            </tr>
-          </thead>
-          <tbody>
-            {week.picks.map((p) => (
-              <tr key={p.match_id} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-panel)]">
-                <td className="tnum px-2 py-1.5 text-[var(--color-text-faint)]">{p.rank}</td>
-                <td className="px-2 py-1.5">{p.home_team} <span className="text-[var(--color-text-faint)]">v</span> {p.away_team}</td>
-                <td className="px-2 py-1.5 text-[var(--color-text-faint)]">{p.group}</td>
-                <td className="tnum px-2 py-1.5 text-[var(--color-text-faint)]">{formatKickoff(p.kickoff_utc)}</td>
-                <td className="px-2 py-1.5 font-medium text-[var(--color-accent)]">
-                  {p.pick}{p.actual_score && <span className="ml-1.5 tnum text-[var(--color-text-faint)]">({p.actual_score})</span>}
-                </td>
-                <td className="tnum px-2 py-1.5">{pct(p.probability)}</td>
-                <td className="tnum px-2 py-1.5">+{pct(p.edge)}</td>
-                <td className="px-2 py-1.5"><OutcomeBadge status={p.status} outcome={p.outcome} /></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  )
-}
-
 export function InternationalBreakPage() {
   const { data: predictions, error: predError, loading: predLoading } =
     useDashboardJson<NationsLeaguePredictionsPayload>('nations_league_match_predictions.json')
-  const { data: trusted, error: trustedError, loading: trustedLoading } =
-    useDashboardJson<InternationalTrustedPicksPayload>('international_trusted_picks.json')
   const [pickedMatchday, setPickedMatchday] = useState<number | null>(null)
 
   const matchdays = useMemo(
@@ -145,8 +84,8 @@ export function InternationalBreakPage() {
     [predictions, matchday],
   )
 
-  if (predLoading || trustedLoading) return <PageState loading error={null} />
-  if (predError || trustedError || !predictions || !trusted) return <PageState loading={false} error={predError ?? trustedError} />
+  if (predLoading) return <PageState loading error={null} />
+  if (predError || !predictions) return <PageState loading={false} error={predError} />
 
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-4 py-6">
@@ -180,22 +119,6 @@ export function InternationalBreakPage() {
           </div>
         </section>
       )}
-
-      <section className="space-y-3">
-        <div className="space-y-1">
-          <h2 className="text-[13px] font-semibold">Trusted picks</h2>
-          <p className="max-w-3xl text-[12px] text-[var(--color-text-faint)]">{trusted.ranking_method}</p>
-        </div>
-        {trusted.weeks.length === 0 ? (
-          <div className="border border-[var(--color-border)] px-3 py-8 text-center text-[12px] text-[var(--color-text-faint)]">
-            {trusted.note ?? 'No trusted picks available yet.'}
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {trusted.weeks.map((w) => <TrustedPicksWeekTable key={w.week_start} week={w} />)}
-          </div>
-        )}
-      </section>
     </div>
   )
 }

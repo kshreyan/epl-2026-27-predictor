@@ -7,28 +7,24 @@ interface LeaguesManifest { leagues: LeagueEntry[] }
 
 // A "groups" competition (UEFA Nations League) has no combined table --
 // no Table/Races/Fixtures/Model tabs for it to point at, just its own
-// International Break section (predictions + its weekly trusted picks)
-// and the site-wide Trusted Picks page (which now also surfaces
-// international picks). single_table leagues get the full tab set,
-// including a link over to International Break.
+// International Break section. single_table leagues get the full tab
+// set, including a link over to International Break.
 const SINGLE_TABLE_NAV = [
   { to: 'table', label: 'Table' },
   { to: 'races', label: 'Races' },
   { to: 'fixtures', label: 'Fixtures' },
   { to: 'performance', label: 'Model' },
-  { to: 'trusted-picks', label: 'Trusted Picks' },
   { to: 'international', label: 'International Break' },
 ]
 const GROUPS_NAV = [
   { to: 'international', label: 'International Break' },
-  { to: 'trusted-picks', label: 'Trusted Picks' },
 ]
 const GROUPS_ONLY_TABS = new Set(['table', 'races', 'fixtures', 'performance'])
 
 function LeagueSwitcher({ leagueId, leagues }: { leagueId: string; leagues: LeagueEntry[] }) {
   const location = useLocation()
-  // Preserve the current tab (table/races/fixtures/performance/trusted-
-  // picks/international) when switching competitions, e.g.
+  // Preserve the current tab (table/races/fixtures/performance/
+  // international) when switching competitions, e.g.
   // /epl/fixtures -> /la_liga/fixtures -- except a tab that doesn't
   // exist for the target league's format (e.g. staying on "fixtures"
   // when switching to the "groups"-format Nations League), which falls

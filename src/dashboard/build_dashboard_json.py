@@ -270,20 +270,14 @@ def main(league_id: str | None = None) -> None:
             print(f"WARNING: skipping {lid}'s dashboard JSON -- {e}")
     build_leagues_manifest()
 
-    from src.dashboard.build_trusted_picks_json import build_trusted_picks
-    build_trusted_picks()
-
-    # Nations League has its own, separately-built match-predictions and
-    # trusted-picks JSON (see src/dashboard/build_nations_league_
-    # dashboard_json.py / build_international_trusted_picks_json.py) --
-    # a "groups" competition, not part of the single_table loop above.
+    # Nations League has its own, separately-built match-predictions JSON
+    # (see src/dashboard/build_nations_league_dashboard_json.py) -- a
+    # "groups" competition, not part of the single_table loop above.
     # Rebuilding here keeps it current on every full pipeline/weekly-
-    # automation run; both no-op safely (an empty, explicitly-flagged
+    # automation run; no-ops safely (an empty, explicitly-flagged
     # payload) if predict_nations_league_matches.py hasn't run yet.
     from src.dashboard.build_nations_league_dashboard_json import build_nations_league_dashboard_json
-    from src.dashboard.build_international_trusted_picks_json import build_international_trusted_picks
     build_nations_league_dashboard_json()
-    build_international_trusted_picks()
 
 
 if __name__ == "__main__":
