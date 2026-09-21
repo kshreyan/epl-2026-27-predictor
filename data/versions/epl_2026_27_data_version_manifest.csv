@@ -82,3 +82,8 @@ nations_league_historical_matches,2026-08-18.phase1,fixturedownload.com,2026-09-
 mls_historical_matches,2026-08-18.phase1,fixturedownload.com,2026-09-21T06:05:36+00:00,1496,True,2026-09-21T06:05:38+00:00,"MLS 2023, 2024, 2025 seasons (three full real closed seasons) from fixturedownload.com."
 mls_2026_27_fixtures,2026-08-18.phase1,fixturedownload.com,2026-09-21T06:06:20+00:00,510,True,2026-09-21T06:06:22+00:00,MLS 2026 fixture list from fixturedownload.com (385 real results locked at onboarding).
 mls_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-21T06:06:27+00:00,2610,True,2026-09-21T06:06:27+00:00,1128 real bookmaker/market rows; rest are honest unavailable sentinels.
+epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-21T11:12:48+00:00,2325,True,2026-09-21T11:12:48+00:00,1245 real bookmaker/market rows; rest are honest unavailable sentinels.
+la_liga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-21T11:12:48+00:00,1579,True,2026-09-21T11:12:49+00:00,472 real bookmaker/market rows; rest are honest unavailable sentinels.
+serie_a_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-21T11:12:49+00:00,1655,True,2026-09-21T11:12:49+00:00,554 real bookmaker/market rows; rest are honest unavailable sentinels.
+bundesliga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-21T11:12:49+00:00,1354,True,2026-09-21T11:12:49+00:00,466 real bookmaker/market rows; rest are honest unavailable sentinels.
+ligue_1_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-09-21T11:12:50+00:00,1637,True,2026-09-21T11:12:50+00:00,773 real bookmaker/market rows; rest are honest unavailable sentinels.
