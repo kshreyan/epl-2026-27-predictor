@@ -227,15 +227,47 @@ def score_after_matchweek(matchweek: int, paths, preseason_ledger_loader=load_pr
     mw_ids = fixtures_df.loc[fixtures_df["matchweek"] == matchweek, "match_id"]
     mw_ids = [m for m in mw_ids if m in set(completed_ids)]
 
-    def _scored_frame(source_ledger: pd.DataFrame, match_ids: list) -> pd.DataFrame:
-        selected = select_pre_kickoff_predictions(source_ledger, match_ids=match_ids)
+    def _scored_frame(source_ledger: pd.DataFrame, match_ids: list, allow_never_predicted: bool = False) -> pd.DataFrame:
+        selected = select_pre_kickoff_predictions(source_ledger, match_ids=match_ids, allow_never_predicted=allow_never_predicted)
         return selected.merge(completed[["match_id", "result"]].rename(columns={"result": "actual_result"}), on="match_id")
 
+    # operational+gameweek is the ONE combination kept strict
+    # (allow_never_predicted=False): a match in the matchweek THIS CALL
+    # JUST LOCKED missing its own honest pre-kickoff OPERATIONAL
+    # prediction is a real bug worth catching loudly (this pipeline was
+    # running and should have predicted it in time).
+    #
+    # Every other combination is lenient, for two different permanent
+    # (not bugs) reasons:
+    #
+    # - "cumulative" spans the whole season including any matchweek a
+    #   league was onboarded through via run_update(skip_scoring=True)
+    #   (see that flag's docstring) -- those permanently have zero
+    #   honest ledger rows by design, and that permanent gap must not
+    #   make EVERY later matchweek's cumulative scoring blow up for the
+    #   rest of the season. Real incident, 2026-09-21: Serie A locking
+    #   matchweek 5 (its first normal lock since mid-season onboarding)
+    #   failed here over all 40 of its skip_scoring-onboarded matchweek
+    #   1-4 matches.
+    #
+    # - "preseason" (both scopes) reads the frozen `preseason-2026-27-
+    #   v2` git tag, which -- see load_preseason_ledger's own docstring
+    #   -- was only ever tagged for EPL; every other league's
+    #   preseason_ledger is a real, permanently empty DataFrame, not a
+    #   missing prediction to flag. Real incident, same date: Serie A's
+    #   very first normal (non-skip_scoring) lock since onboarding also
+    #   failed on preseason+gameweek for this exact reason -- confirming
+    #   no non-EPL league had ever completed real weekly scoring before.
+    #
+    # allow_never_predicted=True only ever excuses a match_id with ZERO
+    # ledger rows ever; one that WAS predicted, just too late, still
+    # raises even with this on -- see select_pre_kickoff_predictions's
+    # own docstring.
     scored = {
         ("operational", "gameweek"): _scored_frame(ledger, mw_ids),
-        ("operational", "cumulative"): _scored_frame(ledger, completed_ids),
-        ("preseason", "gameweek"): _scored_frame(preseason_ledger, mw_ids),
-        ("preseason", "cumulative"): _scored_frame(preseason_ledger, completed_ids),
+        ("operational", "cumulative"): _scored_frame(ledger, completed_ids, allow_never_predicted=True),
+        ("preseason", "gameweek"): _scored_frame(preseason_ledger, mw_ids, allow_never_predicted=True),
+        ("preseason", "cumulative"): _scored_frame(preseason_ledger, completed_ids, allow_never_predicted=True),
     }
 
     generated_at = now_utc_iso()

@@ -1,0 +1,10 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+LIGUE12627_MW05_043_OGCNice_LOSCLille,5,OGC Nice,LOSC Lille,home_win,0.2456,0.2456,0.2833,0.4711,1.4041,2026-09-21T07:40:17+00:00
+LIGUE12627_MW05_038_AJAuxerre_StadeBrestois29,5,AJ Auxerre,Stade Brestois 29,home_win,0.3641,0.3641,0.2768,0.3591,1.0103,2026-09-21T07:40:17+00:00
+LIGUE12627_MW05_039_LeMansFC_FCLorient,5,Le Mans FC,FC Lorient,home_win,0.3671,0.3671,0.2516,0.3813,1.0021,2026-09-21T07:40:17+00:00
+LIGUE12627_MW05_042_ASMonaco_RCLens,5,AS Monaco,RC Lens,home_win,0.43,0.43,0.2529,0.3171,0.844,2026-09-21T07:40:17+00:00
+LIGUE12627_MW05_044_ParisFC_RCStrasbourgAlsace,5,Paris FC,RC Strasbourg Alsace,home_win,0.4573,0.4573,0.2474,0.2953,0.7824,2026-09-21T07:40:17+00:00
+LIGUE12627_MW05_040_OlympiqueLyonnais_StadeRennaisFC,5,Olympique Lyonnais,Stade Rennais FC,home_win,0.4697,0.4697,0.2373,0.293,0.7557,2026-09-21T07:40:17+00:00
+LIGUE12627_MW05_037_AngersSCO_EstacTroyes,5,Angers SCO,Estac Troyes,home_win,0.4812,0.4812,0.261,0.2578,0.7315,2026-09-21T07:40:17+00:00
+LIGUE12627_MW05_045_ToulouseFC_HavreAthleticClub,5,Toulouse FC,Havre Athletic Club,home_win,0.5181,0.5181,0.2649,0.2171,0.6576,2026-09-21T07:40:17+00:00
+LIGUE12627_MW05_041_OlympiquedeMarseille_ParisSaint-Germain,5,Olympique de Marseille,Paris Saint-Germain,away_win,0.5858,0.199,0.2152,0.5858,0.5348,2026-09-21T07:40:17+00:00

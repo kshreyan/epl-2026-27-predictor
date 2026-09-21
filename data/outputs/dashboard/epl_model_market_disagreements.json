@@ -1,9 +1,9 @@
 {
   "league": "epl",
-  "generated_at": "2026-09-21T06:41:05+00:00",
+  "generated_at": "2026-09-21T07:40:54+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
-  "record_count": 60,
+  "record_count": 70,
   "status": "real",
   "note": "model_* is the raw (uncalibrated) Dixon-Coles probability; market_* is the real, de-vigged market-consensus probability. Sorted by max_class_disagreement descending.",
   "data": [
@@ -44,18 +44,6 @@
       "max_class_disagreement": 0.4261
     },
     {
-      "match_id": "EPL2627_MW06_054_CoventryCity_NewcastleUnited",
-      "home_team": "Coventry City",
-      "away_team": "Newcastle United",
-      "model_home_win_prob": 0.0104,
-      "model_draw_prob": 0.099,
-      "model_away_win_prob": 0.8906,
-      "market_home_win_prob": 0.2783,
-      "market_draw_prob": 0.2569,
-      "market_away_win_prob": 0.4649,
-      "max_class_disagreement": 0.4257
-    },
-    {
       "match_id": "EPL2627_MW05_049_NottinghamForest_CoventryCity",
       "home_team": "Nottingham Forest",
       "away_team": "Coventry City",
@@ -66,6 +54,18 @@
       "market_draw_prob": 0.2419,
       "market_away_win_prob": 0.1967,
       "max_class_disagreement": 0.3313
+    },
+    {
+      "match_id": "EPL2627_MW06_054_CoventryCity_NewcastleUnited",
+      "home_team": "Coventry City",
+      "away_team": "Newcastle United",
+      "model_home_win_prob": 0.0419,
+      "model_draw_prob": 0.1755,
+      "model_away_win_prob": 0.7826,
+      "market_home_win_prob": 0.2816,
+      "market_draw_prob": 0.2619,
+      "market_away_win_prob": 0.4565,
+      "max_class_disagreement": 0.3261
     },
     {
       "match_id": "EPL2627_MW05_048_NewcastleUnited_HullCity",
@@ -92,28 +92,28 @@
       "max_class_disagreement": 0.2769
     },
     {
-      "match_id": "EPL2627_MW06_056_HullCity_Everton",
-      "home_team": "Hull City",
-      "away_team": "Everton",
-      "model_home_win_prob": 0.3966,
-      "model_draw_prob": 0.3845,
-      "model_away_win_prob": 0.2189,
-      "market_home_win_prob": 0.2527,
-      "market_draw_prob": 0.2908,
-      "market_away_win_prob": 0.4566,
-      "max_class_disagreement": 0.2377
+      "match_id": "EPL2627_MW07_065_Fulham_HullCity",
+      "home_team": "Fulham",
+      "away_team": "Hull City",
+      "model_home_win_prob": 0.3535,
+      "model_draw_prob": 0.3453,
+      "model_away_win_prob": 0.3012,
+      "market_home_win_prob": 0.5922,
+      "market_draw_prob": 0.2366,
+      "market_away_win_prob": 0.1712,
+      "max_class_disagreement": 0.2387
     },
     {
       "match_id": "EPL2627_MW06_057_IpswichTown_Fulham",
       "home_team": "Ipswich Town",
       "away_team": "Fulham",
-      "model_home_win_prob": 0.1701,
-      "model_draw_prob": 0.2208,
-      "model_away_win_prob": 0.6091,
-      "market_home_win_prob": 0.3553,
-      "market_draw_prob": 0.2697,
-      "market_away_win_prob": 0.3749,
-      "max_class_disagreement": 0.2342
+      "model_home_win_prob": 0.1666,
+      "model_draw_prob": 0.2257,
+      "model_away_win_prob": 0.6076,
+      "market_home_win_prob": 0.3559,
+      "market_draw_prob": 0.2687,
+      "market_away_win_prob": 0.3754,
+      "max_class_disagreement": 0.2322
     },
     {
       "match_id": "EPL2627_MW04_035_CrystalPalace_IpswichTown",
@@ -162,6 +162,42 @@
       "market_draw_prob": 0.2491,
       "market_away_win_prob": 0.2172,
       "max_class_disagreement": 0.1872
+    },
+    {
+      "match_id": "EPL2627_MW07_070_TottenhamHotspur_CoventryCity",
+      "home_team": "Tottenham Hotspur",
+      "away_team": "Coventry City",
+      "model_home_win_prob": 0.7661,
+      "model_draw_prob": 0.1912,
+      "model_away_win_prob": 0.0427,
+      "market_home_win_prob": 0.5902,
+      "market_draw_prob": 0.2288,
+      "market_away_win_prob": 0.181,
+      "max_class_disagreement": 0.1759
+    },
+    {
+      "match_id": "EPL2627_MW06_056_HullCity_Everton",
+      "home_team": "Hull City",
+      "away_team": "Everton",
+      "model_home_win_prob": 0.3594,
+      "model_draw_prob": 0.3628,
+      "model_away_win_prob": 0.2778,
+      "market_home_win_prob": 0.2578,
+      "market_draw_prob": 0.2893,
+      "market_away_win_prob": 0.453,
+      "max_class_disagreement": 0.1752
+    },
+    {
+      "match_id": "EPL2627_MW07_067_ManchesterCity_IpswichTown",
+      "home_team": "Manchester City",
+      "away_team": "Ipswich Town",
+      "model_home_win_prob": 0.9263,
+      "model_draw_prob": 0.0555,
+      "model_away_win_prob": 0.0182,
+      "market_home_win_prob": 0.7582,
+      "market_draw_prob": 0.1489,
+      "market_away_win_prob": 0.0929,
+      "max_class_disagreement": 0.1681
     },
     {
       "match_id": "EPL2627_MW02_018_ManchesterUnited_IpswichTown",
@@ -320,6 +356,18 @@
       "max_class_disagreement": 0.0908
     },
     {
+      "match_id": "EPL2627_MW06_051_Arsenal_LeedsUnited",
+      "home_team": "Arsenal",
+      "away_team": "Leeds United",
+      "model_home_win_prob": 0.6278,
+      "model_draw_prob": 0.2441,
+      "model_away_win_prob": 0.1282,
+      "market_home_win_prob": 0.7168,
+      "market_draw_prob": 0.1815,
+      "market_away_win_prob": 0.1017,
+      "max_class_disagreement": 0.089
+    },
+    {
       "match_id": "EPL2627_MW02_012_AstonVilla_Arsenal",
       "home_team": "Aston Villa",
       "away_team": "Arsenal",
@@ -344,6 +392,18 @@
       "max_class_disagreement": 0.0862
     },
     {
+      "match_id": "EPL2627_MW06_053_Chelsea_AFCBournemouth",
+      "home_team": "Chelsea",
+      "away_team": "AFC Bournemouth",
+      "model_home_win_prob": 0.4421,
+      "model_draw_prob": 0.2558,
+      "model_away_win_prob": 0.3021,
+      "market_home_win_prob": 0.5251,
+      "market_draw_prob": 0.2313,
+      "market_away_win_prob": 0.2436,
+      "max_class_disagreement": 0.083
+    },
+    {
       "match_id": "EPL2627_MW04_039_Sunderland_Arsenal",
       "home_team": "Sunderland",
       "away_team": "Arsenal",
@@ -356,16 +416,16 @@
       "max_class_disagreement": 0.0813
     },
     {
-      "match_id": "EPL2627_MW06_051_Arsenal_LeedsUnited",
-      "home_team": "Arsenal",
-      "away_team": "Leeds United",
-      "model_home_win_prob": 0.6467,
-      "model_draw_prob": 0.2366,
-      "model_away_win_prob": 0.1167,
-      "market_home_win_prob": 0.7231,
-      "market_draw_prob": 0.178,
-      "market_away_win_prob": 0.0989,
-      "max_class_disagreement": 0.0764
+      "match_id": "EPL2627_MW07_064_Everton_Chelsea",
+      "home_team": "Everton",
+      "away_team": "Chelsea",
+      "model_home_win_prob": 0.3637,
+      "model_draw_prob": 0.2896,
+      "model_away_win_prob": 0.3467,
+      "market_home_win_prob": 0.3051,
+      "market_draw_prob": 0.2715,
+      "market_away_win_prob": 0.4233,
+      "max_class_disagreement": 0.0766
     },
     {
       "match_id": "EPL2627_MW05_045_Fulham_ManchesterUnited",
@@ -380,16 +440,16 @@
       "max_class_disagreement": 0.0754
     },
     {
-      "match_id": "EPL2627_MW06_053_Chelsea_AFCBournemouth",
-      "home_team": "Chelsea",
-      "away_team": "AFC Bournemouth",
-      "model_home_win_prob": 0.4527,
-      "model_draw_prob": 0.2534,
-      "model_away_win_prob": 0.2939,
-      "market_home_win_prob": 0.5269,
-      "market_draw_prob": 0.2286,
-      "market_away_win_prob": 0.2446,
-      "max_class_disagreement": 0.0742
+      "match_id": "EPL2627_MW07_066_LeedsUnited_ManchesterUnited",
+      "home_team": "Leeds United",
+      "away_team": "Manchester United",
+      "model_home_win_prob": 0.3688,
+      "model_draw_prob": 0.2793,
+      "model_away_win_prob": 0.3519,
+      "market_home_win_prob": 0.3067,
+      "market_draw_prob": 0.27,
+      "market_away_win_prob": 0.4233,
+      "max_class_disagreement": 0.0714
     },
     {
       "match_id": "EPL2627_MW05_047_ManchesterCity_Sunderland",
@@ -440,6 +500,18 @@
       "max_class_disagreement": 0.0557
     },
     {
+      "match_id": "EPL2627_MW07_069_NottinghamForest_Arsenal",
+      "home_team": "Nottingham Forest",
+      "away_team": "Arsenal",
+      "model_home_win_prob": 0.1822,
+      "model_draw_prob": 0.2828,
+      "model_away_win_prob": 0.535,
+      "market_home_win_prob": 0.1968,
+      "market_draw_prob": 0.2279,
+      "market_away_win_prob": 0.5753,
+      "max_class_disagreement": 0.0549
+    },
+    {
       "match_id": "EPL2627_MW03_024_Everton_ManchesterUnited",
       "home_team": "Everton",
       "away_team": "Manchester United",
@@ -462,6 +534,18 @@
       "market_draw_prob": 0.2486,
       "market_away_win_prob": 0.451,
       "max_class_disagreement": 0.0498
+    },
+    {
+      "match_id": "EPL2627_MW06_060_Sunderland_Brighton&HoveAlbion",
+      "home_team": "Sunderland",
+      "away_team": "Brighton & Hove Albion",
+      "model_home_win_prob": 0.2888,
+      "model_draw_prob": 0.2794,
+      "model_away_win_prob": 0.4317,
+      "market_home_win_prob": 0.3367,
+      "market_draw_prob": 0.2767,
+      "market_away_win_prob": 0.3866,
+      "max_class_disagreement": 0.0479
     },
     {
       "match_id": "EPL2627_MW01_005_NottinghamForest_LeedsUnited",
@@ -512,6 +596,18 @@
       "max_class_disagreement": 0.0372
     },
     {
+      "match_id": "EPL2627_MW07_061_AFCBournemouth_Sunderland",
+      "home_team": "AFC Bournemouth",
+      "away_team": "Sunderland",
+      "model_home_win_prob": 0.4791,
+      "model_draw_prob": 0.2782,
+      "model_away_win_prob": 0.2427,
+      "market_home_win_prob": 0.5151,
+      "market_draw_prob": 0.258,
+      "market_away_win_prob": 0.227,
+      "max_class_disagreement": 0.036
+    },
+    {
       "match_id": "EPL2627_MW05_043_Brighton&HoveAlbion_Arsenal",
       "home_team": "Brighton & Hove Albion",
       "away_team": "Arsenal",
@@ -522,6 +618,18 @@
       "market_draw_prob": 0.244,
       "market_away_win_prob": 0.5558,
       "max_class_disagreement": 0.0355
+    },
+    {
+      "match_id": "EPL2627_MW06_052_AstonVilla_Brentford",
+      "home_team": "Aston Villa",
+      "away_team": "Brentford",
+      "model_home_win_prob": 0.3913,
+      "model_draw_prob": 0.2689,
+      "model_away_win_prob": 0.3399,
+      "market_home_win_prob": 0.363,
+      "market_draw_prob": 0.2695,
+      "market_away_win_prob": 0.3675,
+      "max_class_disagreement": 0.0283
     },
     {
       "match_id": "EPL2627_MW03_023_Brighton&HoveAlbion_LeedsUnited",
@@ -584,54 +692,6 @@
       "max_class_disagreement": 0.0259
     },
     {
-      "match_id": "EPL2627_MW06_052_AstonVilla_Brentford",
-      "home_team": "Aston Villa",
-      "away_team": "Brentford",
-      "model_home_win_prob": 0.3971,
-      "model_draw_prob": 0.2741,
-      "model_away_win_prob": 0.3287,
-      "market_home_win_prob": 0.3779,
-      "market_draw_prob": 0.2682,
-      "market_away_win_prob": 0.3539,
-      "max_class_disagreement": 0.0252
-    },
-    {
-      "match_id": "EPL2627_MW06_055_CrystalPalace_NottinghamForest",
-      "home_team": "Crystal Palace",
-      "away_team": "Nottingham Forest",
-      "model_home_win_prob": 0.3299,
-      "model_draw_prob": 0.2963,
-      "model_away_win_prob": 0.3739,
-      "market_home_win_prob": 0.3537,
-      "market_draw_prob": 0.2912,
-      "market_away_win_prob": 0.3551,
-      "max_class_disagreement": 0.0238
-    },
-    {
-      "match_id": "EPL2627_MW06_058_Liverpool_ManchesterCity",
-      "home_team": "Liverpool",
-      "away_team": "Manchester City",
-      "model_home_win_prob": 0.285,
-      "model_draw_prob": 0.2679,
-      "model_away_win_prob": 0.4472,
-      "market_home_win_prob": 0.3079,
-      "market_draw_prob": 0.2546,
-      "market_away_win_prob": 0.4375,
-      "max_class_disagreement": 0.0229
-    },
-    {
-      "match_id": "EPL2627_MW06_060_Sunderland_Brighton&HoveAlbion",
-      "home_team": "Sunderland",
-      "away_team": "Brighton & Hove Albion",
-      "model_home_win_prob": 0.3005,
-      "model_draw_prob": 0.3019,
-      "model_away_win_prob": 0.3976,
-      "market_home_win_prob": 0.32,
-      "market_draw_prob": 0.2791,
-      "market_away_win_prob": 0.4009,
-      "max_class_disagreement": 0.0228
-    },
-    {
       "match_id": "EPL2627_MW02_015_CrystalPalace_ManchesterCity",
       "home_team": "Crystal Palace",
       "away_team": "Manchester City",
@@ -656,16 +716,40 @@
       "max_class_disagreement": 0.0186
     },
     {
+      "match_id": "EPL2627_MW06_058_Liverpool_ManchesterCity",
+      "home_team": "Liverpool",
+      "away_team": "Manchester City",
+      "model_home_win_prob": 0.3036,
+      "model_draw_prob": 0.2605,
+      "model_away_win_prob": 0.4359,
+      "market_home_win_prob": 0.3222,
+      "market_draw_prob": 0.2557,
+      "market_away_win_prob": 0.4221,
+      "max_class_disagreement": 0.0186
+    },
+    {
+      "match_id": "EPL2627_MW07_063_Brighton&HoveAlbion_CrystalPalace",
+      "home_team": "Brighton & Hove Albion",
+      "away_team": "Crystal Palace",
+      "model_home_win_prob": 0.5703,
+      "model_draw_prob": 0.2403,
+      "model_away_win_prob": 0.1893,
+      "market_home_win_prob": 0.559,
+      "market_draw_prob": 0.2331,
+      "market_away_win_prob": 0.2079,
+      "max_class_disagreement": 0.0186
+    },
+    {
       "match_id": "EPL2627_MW06_059_ManchesterUnited_TottenhamHotspur",
       "home_team": "Manchester United",
       "away_team": "Tottenham Hotspur",
-      "model_home_win_prob": 0.5512,
-      "model_draw_prob": 0.2431,
-      "model_away_win_prob": 0.2057,
-      "market_home_win_prob": 0.5678,
-      "market_draw_prob": 0.2288,
-      "market_away_win_prob": 0.2034,
-      "max_class_disagreement": 0.0166
+      "model_home_win_prob": 0.5602,
+      "model_draw_prob": 0.2362,
+      "model_away_win_prob": 0.2035,
+      "market_home_win_prob": 0.5777,
+      "market_draw_prob": 0.2217,
+      "market_away_win_prob": 0.2006,
+      "max_class_disagreement": 0.0175
     },
     {
       "match_id": "EPL2627_MW02_019_Sunderland_Fulham",
@@ -690,6 +774,18 @@
       "market_draw_prob": 0.2689,
       "market_away_win_prob": 0.2722,
       "max_class_disagreement": 0.0152
+    },
+    {
+      "match_id": "EPL2627_MW06_055_CrystalPalace_NottinghamForest",
+      "home_team": "Crystal Palace",
+      "away_team": "Nottingham Forest",
+      "model_home_win_prob": 0.3473,
+      "model_draw_prob": 0.2989,
+      "model_away_win_prob": 0.3537,
+      "market_home_win_prob": 0.357,
+      "market_draw_prob": 0.2852,
+      "market_away_win_prob": 0.3578,
+      "max_class_disagreement": 0.0137
     },
     {
       "match_id": "EPL2627_MW04_032_AstonVilla_NottinghamForest",
@@ -726,6 +822,30 @@
       "market_draw_prob": 0.2806,
       "market_away_win_prob": 0.3456,
       "max_class_disagreement": 0.0102
+    },
+    {
+      "match_id": "EPL2627_MW07_068_NewcastleUnited_AstonVilla",
+      "home_team": "Newcastle United",
+      "away_team": "Aston Villa",
+      "model_home_win_prob": 0.4452,
+      "model_draw_prob": 0.2537,
+      "model_away_win_prob": 0.3011,
+      "market_home_win_prob": 0.4422,
+      "market_draw_prob": 0.2594,
+      "market_away_win_prob": 0.2984,
+      "max_class_disagreement": 0.0057
+    },
+    {
+      "match_id": "EPL2627_MW07_062_Brentford_Liverpool",
+      "home_team": "Brentford",
+      "away_team": "Liverpool",
+      "model_home_win_prob": 0.356,
+      "model_draw_prob": 0.2632,
+      "model_away_win_prob": 0.3808,
+      "market_home_win_prob": 0.352,
+      "market_draw_prob": 0.2652,
+      "market_away_win_prob": 0.3828,
+      "max_class_disagreement": 0.004
     }
   ]
 }

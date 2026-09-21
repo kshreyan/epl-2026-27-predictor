@@ -87,7 +87,14 @@ def _real_scored_df(paths) -> pd.DataFrame:
     completed = pd.read_csv(paths.completed_2627, parse_dates=["date"])
     if completed.empty:
         return pd.DataFrame()
-    selected = select_pre_kickoff_predictions(ledger, match_ids=completed["match_id"].tolist())
+    # allow_never_predicted=True: spans every real completed match all
+    # season, same permanent gap as score_weekly_results.py's
+    # "cumulative" scope -- a matchweek a league was onboarded through
+    # via run_update(skip_scoring=True) has zero honest ledger rows by
+    # design, not a bug (see that flag's docstring), and must not block
+    # recalibration evaluation for the rest of the season. A match that
+    # WAS predicted, just too late, still raises even with this on.
+    selected = select_pre_kickoff_predictions(ledger, match_ids=completed["match_id"].tolist(), allow_never_predicted=True)
     scored = selected.merge(completed[["match_id", "result"]].rename(columns={"result": "actual_result"}), on="match_id")
     return scored.sort_values("kickoff_utc").reset_index(drop=True)
 
