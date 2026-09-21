@@ -69,7 +69,7 @@ from src.models.promoted_team_adjustment import (  # noqa: E402
     compute_promoted_team_rating_distribution,
     summarize_promoted_team_baseline,
 )
-from src.leagues import league_path  # noqa: E402
+from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.dynamic_team_strength_state_space import compute_team_strength_state  # noqa: E402
 from src.models.promoted_team_adjustment import derive_promoted_teams  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
@@ -402,10 +402,27 @@ def run_monte_carlo(
             "expected_goals_against": round(float(ga.mean()), 2),
             "expected_goal_difference": round(float((gf - ga).mean()), 2),
             "title_probability": round(float(pos_probs[0]), 5),
-            "top_4_probability": round(float(pos_probs[:4].sum()), 5),
+            # `playoff_zone_size_override` (from LeagueConfig.
+            # playoff_zone_size) repoints THIS field at a league's real
+            # qualification line (e.g. MLS's real 16-of-30 playoff
+            # field) instead of the literal, European-specific "top 4"
+            # cutoff -- same field name everywhere downstream (this
+            # league's own expected_table.csv/top4_race.json/
+            # ExpectedTablePage.tsx all just read "top_4_probability"),
+            # real number underneath for a league it doesn't literally
+            # apply to.
+            "top_4_probability": round(float(pos_probs[:sim_cfg.get("playoff_zone_size_override") or 4].sum()), 5),
             "top_5_probability": round(float(pos_probs[:5].sum()), 5),
             "top_half_probability": round(float(pos_probs[:sim_cfg["top_half_size"]].sum()), 5),
-            "relegation_probability": round(float(pos_probs[-sim_cfg["relegation_zone_size"]:].sum()), 5),
+            # `pos_probs[-0:]` is the WHOLE array in Python (negative
+            # zero == zero), not an empty slice -- a real trap for a
+            # relegation_zone_size=0 override (e.g. MLS, which has no
+            # relegation at all): explicit branch instead of relying on
+            # slice arithmetic to produce the true "0% for everyone."
+            "relegation_probability": (
+                0.0 if sim_cfg["relegation_zone_size"] == 0
+                else round(float(pos_probs[-sim_cfg["relegation_zone_size"]:].sum()), 5)
+            ),
             "most_likely_finish": int(np.argmax(pos_probs) + 1),
             "model_version": MODEL_VERSION,
             "generated_at": generated_at,
@@ -427,6 +444,16 @@ def main(league_id: str = "epl") -> None:
         sim_cfg = yaml.safe_load(f)
     with open(MODEL_CONFIG_PATH) as f:
         model_cfg = yaml.safe_load(f)
+
+    # Per-league overrides (see LeagueConfig.relegation_zone_size /
+    # playoff_zone_size) for a real competition whose actual relegation/
+    # promotion rules differ from the global default -- None on either
+    # field leaves every existing league's behavior unchanged.
+    league_cfg = load_league_config(league_id)
+    if league_cfg.relegation_zone_size is not None:
+        sim_cfg = {**sim_cfg, "relegation_zone_size": league_cfg.relegation_zone_size}
+    if league_cfg.playoff_zone_size is not None:
+        sim_cfg = {**sim_cfg, "top_half_size": league_cfg.playoff_zone_size, "playoff_zone_size_override": league_cfg.playoff_zone_size}
 
     n_simulations = sim_cfg["n_simulations"]
     seed = sim_cfg["random_seed"]
@@ -494,6 +521,9 @@ def main(league_id: str = "epl") -> None:
     )
     title_race.to_csv(OUT_DIR / league_path(league_id, "2026_27_title_race.csv"), index=False)
 
+    # expected_table's own "top_4_probability" column already reflects
+    # a real playoff_zone_size override (see the expected_rows loop
+    # above) -- nothing extra needed here.
     top4 = expected_table[["team", "top_4_probability", "expected_points", "expected_position"]].sort_values(
         "top_4_probability", ascending=False
     )

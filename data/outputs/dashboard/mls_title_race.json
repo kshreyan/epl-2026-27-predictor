@@ -1,0 +1,189 @@
+{
+  "league": "mls",
+  "generated_at": "2026-09-21T06:25:59+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 30,
+  "data": [
+    {
+      "team": "San Diego FC",
+      "title_probability": 0.14624,
+      "expected_points": 59.75,
+      "median_points": 60.0
+    },
+    {
+      "team": "Los Angeles Football Club",
+      "title_probability": 0.12951,
+      "expected_points": 60.6,
+      "median_points": 61.0
+    },
+    {
+      "team": "Inter Miami CF",
+      "title_probability": 0.11848,
+      "expected_points": 59.93,
+      "median_points": 60.0
+    },
+    {
+      "team": "Vancouver Whitecaps FC",
+      "title_probability": 0.09574,
+      "expected_points": 58.8,
+      "median_points": 59.0
+    },
+    {
+      "team": "Philadelphia Union",
+      "title_probability": 0.07963,
+      "expected_points": 57.32,
+      "median_points": 58.0
+    },
+    {
+      "team": "Columbus Crew",
+      "title_probability": 0.06044,
+      "expected_points": 55.53,
+      "median_points": 56.0
+    },
+    {
+      "team": "Seattle Sounders FC",
+      "title_probability": 0.05385,
+      "expected_points": 54.94,
+      "median_points": 55.0
+    },
+    {
+      "team": "Minnesota United FC",
+      "title_probability": 0.04806,
+      "expected_points": 54.09,
+      "median_points": 54.0
+    },
+    {
+      "team": "FC Cincinnati",
+      "title_probability": 0.04689,
+      "expected_points": 53.99,
+      "median_points": 54.0
+    },
+    {
+      "team": "Orlando City",
+      "title_probability": 0.04347,
+      "expected_points": 53.27,
+      "median_points": 53.0
+    },
+    {
+      "team": "Charlotte FC",
+      "title_probability": 0.03658,
+      "expected_points": 52.68,
+      "median_points": 53.0
+    },
+    {
+      "team": "New York City Football Club",
+      "title_probability": 0.02394,
+      "expected_points": 50.05,
+      "median_points": 50.0
+    },
+    {
+      "team": "Nashville SC",
+      "title_probability": 0.02199,
+      "expected_points": 49.57,
+      "median_points": 49.0
+    },
+    {
+      "team": "Chicago Fire FC",
+      "title_probability": 0.0151,
+      "expected_points": 47.67,
+      "median_points": 48.0
+    },
+    {
+      "team": "FC Dallas",
+      "title_probability": 0.01339,
+      "expected_points": 47.03,
+      "median_points": 47.0
+    },
+    {
+      "team": "Red Bull New York",
+      "title_probability": 0.01212,
+      "expected_points": 46.29,
+      "median_points": 46.0
+    },
+    {
+      "team": "Portland Timbers",
+      "title_probability": 0.00837,
+      "expected_points": 44.16,
+      "median_points": 44.0
+    },
+    {
+      "team": "Houston Dynamo FC",
+      "title_probability": 0.00771,
+      "expected_points": 44.31,
+      "median_points": 44.0
+    },
+    {
+      "team": "LA Galaxy",
+      "title_probability": 0.00757,
+      "expected_points": 44.08,
+      "median_points": 44.0
+    },
+    {
+      "team": "Real Salt Lake",
+      "title_probability": 0.00742,
+      "expected_points": 43.89,
+      "median_points": 44.0
+    },
+    {
+      "team": "St. Louis CITY SC",
+      "title_probability": 0.0046,
+      "expected_points": 41.88,
+      "median_points": 42.0
+    },
+    {
+      "team": "Austin FC",
+      "title_probability": 0.0036,
+      "expected_points": 40.75,
+      "median_points": 40.0
+    },
+    {
+      "team": "Colorado Rapids",
+      "title_probability": 0.00349,
+      "expected_points": 40.1,
+      "median_points": 40.0
+    },
+    {
+      "team": "San Jose Earthquakes",
+      "title_probability": 0.00308,
+      "expected_points": 39.95,
+      "median_points": 40.0
+    },
+    {
+      "team": "Toronto FC",
+      "title_probability": 0.00256,
+      "expected_points": 39.5,
+      "median_points": 39.0
+    },
+    {
+      "team": "Atlanta United",
+      "title_probability": 0.00223,
+      "expected_points": 38.59,
+      "median_points": 38.0
+    },
+    {
+      "team": "New England Revolution",
+      "title_probability": 0.00196,
+      "expected_points": 38.58,
+      "median_points": 38.0
+    },
+    {
+      "team": "Sporting Kansas City",
+      "title_probability": 0.00103,
+      "expected_points": 35.4,
+      "median_points": 35.0
+    },
+    {
+      "team": "CF Montr\u00e9al",
+      "title_probability": 0.00075,
+      "expected_points": 34.25,
+      "median_points": 34.0
+    },
+    {
+      "team": "D.C. United",
+      "title_probability": 0.00021,
+      "expected_points": 30.19,
+      "median_points": 29.0
+    }
+  ]
+}

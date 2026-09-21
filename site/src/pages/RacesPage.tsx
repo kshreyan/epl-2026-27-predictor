@@ -21,12 +21,24 @@ function RacePanel<T>({ title, filename, prob }: { title: string; filename: stri
   )
 }
 
+// MLS has no real relegation and its real playoff field (16 of 30
+// teams) is nothing like a European "top 4" Champions League zone --
+// simulate_full_season.py already writes the real playoff-cutoff
+// probability into this same top_4_probability field for MLS (see
+// LeagueConfig.playoff_zone_size), so only the label needs to change
+// here; relegation is omitted outright rather than shown as a real-
+// looking chart where every bar is truthfully 0%.
+const NO_RELEGATION_LEAGUE_IDS = new Set(['mls'])
+const TOP4_LABEL_OVERRIDES: Record<string, string> = { mls: 'Playoff race (top 16)' }
+
 export function RacesPage({ leagueId }: { leagueId: string }) {
   return (
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-6">
       <RacePanel<TitleRow> title="Title race" filename={`${leagueId}_title_race.json`} prob={(r) => r.title_probability} />
-      <RacePanel<Top4Row> title="Top-4 race" filename={`${leagueId}_top4_race.json`} prob={(r) => r.top_4_probability} />
-      <RacePanel<RelegationRow> title="Relegation race" filename={`${leagueId}_relegation_race.json`} prob={(r) => r.relegation_probability} />
+      <RacePanel<Top4Row> title={TOP4_LABEL_OVERRIDES[leagueId] ?? 'Top-4 race'} filename={`${leagueId}_top4_race.json`} prob={(r) => r.top_4_probability} />
+      {!NO_RELEGATION_LEAGUE_IDS.has(leagueId) && (
+        <RacePanel<RelegationRow> title="Relegation race" filename={`${leagueId}_relegation_race.json`} prob={(r) => r.relegation_probability} />
+      )}
     </div>
   )
 }

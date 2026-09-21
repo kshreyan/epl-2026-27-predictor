@@ -46,6 +46,23 @@ class LeagueConfig:
     # for such a league; a bespoke collector supplies its real
     # historical data instead. Never a placeholder/guessed code.
     football_data_code: str | None = None
+    # None (default): simulate_full_season.py uses config/
+    # simulation_config.yaml's global relegation_zone_size for this
+    # league, correct for every European domestic league here so far.
+    # 0 for a real competition with no relegation at all (e.g. MLS) --
+    # 0 zero-size teams is a real, true statement ("0% relegation
+    # probability for every team" is factually correct, not a rounding
+    # artifact), never omit relegation_race entirely and never reuse
+    # the global default, which would fabricate relegation risk for a
+    # competition that has none.
+    relegation_zone_size: int | None = None
+    # None (default): simulate_full_season.py's hardcoded top_4/top_5
+    # cutoffs apply unchanged (Champions League qualification zones).
+    # An override lets a non-European competition's real promotion/
+    # playoff line reuse the SAME already-computed "top_half_probability"
+    # field (config/simulation_config.yaml's top_half_size) under a
+    # different real meaning -- e.g. MLS's real 16-of-30 playoff field.
+    playoff_zone_size: int | None = None
 
 
 def _load_registry() -> dict[str, LeagueConfig]:

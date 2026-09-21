@@ -288,6 +288,47 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "Türkiye": ["Turkey"],
         "Ukraine": [], "Wales": [],
     },
+    # Canonical spelling is fixturedownload.com's real mls-2026 feed (30
+    # real 2026 clubs, full names e.g. "Atlanta United"), cross-
+    # referenced against two other real sources with their own naming
+    # conventions: fixturedownload.com's own mls-2023/2024/2025 feeds
+    # use SHORT city-only names (e.g. "Atlanta") for every prior season
+    # -- a real, consistent convention shift at that source, not a typo
+    # -- and the-odds-api.com's live event list (soccer_usa_mls) uses a
+    # third convention again (e.g. "Atlanta United FC"). All three
+    # confirmed directly, real aliases only.
+    "mls": {
+        "Atlanta United": ["Atlanta", "Atlanta United FC"],
+        "Austin FC": ["Austin"],
+        "CF Montréal": ["Montréal", "CF Montreal"],
+        "Charlotte FC": ["Charlotte"],
+        "Chicago Fire FC": ["Chicago", "Chicago Fire"],
+        "Colorado Rapids": ["Colorado"],
+        "Columbus Crew": ["Columbus", "Columbus Crew SC"],
+        "D.C. United": ["D.C."],
+        "FC Cincinnati": ["Cincinnati"],
+        "FC Dallas": ["Dallas"],
+        "Houston Dynamo FC": ["Houston", "Houston Dynamo"],
+        "Inter Miami CF": ["Miami"],
+        "LA Galaxy": ["LA"],
+        "Los Angeles Football Club": ["LAFC", "Los Angeles FC"],
+        "Minnesota United FC": ["Minnesota"],
+        "Nashville SC": ["Nashville"],
+        "New England Revolution": ["New England"],
+        "New York City Football Club": ["New York City", "New York City FC"],
+        "Red Bull New York": ["New York", "New York Red Bulls"],
+        "Orlando City": ["Orlando", "Orlando City SC"],
+        "Philadelphia Union": ["Philadelphia"],
+        "Portland Timbers": ["Portland"],
+        "Real Salt Lake": ["Salt Lake"],
+        "San Diego FC": ["San Diego"],
+        "San Jose Earthquakes": ["San Jose"],
+        "Seattle Sounders FC": ["Seattle"],
+        "Sporting Kansas City": ["Kansas City"],
+        "St. Louis CITY SC": ["St. Louis", "St. Louis City SC"],
+        "Toronto FC": ["Toronto"],
+        "Vancouver Whitecaps FC": ["Vancouver"],
+    },
 }
 
 _ALIAS_TO_CANONICAL: dict[str, dict[str, str]] = {}

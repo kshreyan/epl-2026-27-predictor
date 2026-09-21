@@ -65,6 +65,16 @@ def test_matchweeks_1_through_38_each_have_10_matches():
 # round-robin structure for the n_teams*(n_teams-1) assertion below to
 # hold and needs its own, differently-shaped integrity test instead --
 # see tests/test_nations_league_fixture_integrity.py.
+#
+# MLS is `single_table` (one combined table, same dashboard shape as
+# every European league here) but real MLS is NOT a full round-robin --
+# 510 real matches for 30 teams (34 games each), not the 870 a full
+# double round-robin would need -- so it's excluded from this specific
+# round-robin assertion the same way and gets its own integrity test:
+# see tests/test_mls_fixture_integrity.py.
+_ROUND_ROBIN_LEAGUE_IDS = [lid for lid in single_table_league_ids() if lid != "mls"]
+
+
 def _fixtures_path_for(league_id: str) -> Path:
     return REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_fixtures.csv")
 
@@ -75,7 +85,7 @@ def _skip_reason(league_id: str) -> str | None:
     return None
 
 
-@pytest.mark.parametrize("league_id", single_table_league_ids())
+@pytest.mark.parametrize("league_id", _ROUND_ROBIN_LEAGUE_IDS)
 def test_any_league_has_correct_fixture_count_and_matches_per_team(league_id):
     reason = _skip_reason(league_id)
     if reason:

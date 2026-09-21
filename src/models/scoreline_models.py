@@ -107,7 +107,24 @@ def fit_dixon_coles(
         theta0[0] = 0.3  # home_adv starting guess (log scale, ~ +35% goal rate at home)
         theta0[1] = rho_init
 
-    result = minimize(negative_log_likelihood, theta0, method="L-BFGS-B", options={"maxiter": 300})
+    # rho is unregularized (L2 above only touches attack/defense) and
+    # `tau`'s clip at 1e-6 gives the optimizer nowhere further to go in
+    # the cells it clips, but no penalty for continuing to push rho
+    # further in cells it hasn't clipped yet -- a real, reproduced
+    # runaway with thin data (MLS 2023's earliest backtest chunk, only
+    # 14 real matches to fit from: rho converged to 8.2 MILLION,
+    # collapsing the draw probability to ~1e-8 for every match and
+    # driving log loss past 5 -- worse than random guessing -- once an
+    # actual draw occurred, which happens close to 25% of the time in
+    # real football). Every real fitted rho seen across five domestic
+    # leagues' backtests is a small fraction of a point (|rho| < 0.03);
+    # (-0.5, 0.5) is generously wide -- 15x+ any real fitted value --
+    # while ruling out this degenerate blow-up. Every other parameter
+    # (home_adv, attack, defense) is left unbounded, unchanged from
+    # before this fix.
+    n_params = len(theta0)
+    bounds = [(None, None), (-0.5, 0.5)] + [(None, None)] * (n_params - 2)
+    result = minimize(negative_log_likelihood, theta0, method="L-BFGS-B", bounds=bounds, options={"maxiter": 300})
     home_adv, rho, attack, defense = unpack(result.x)
 
     # Laplace (Hessian) approximation to parameter uncertainty, computed in

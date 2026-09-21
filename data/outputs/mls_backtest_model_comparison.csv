@@ -1,0 +1,5 @@
+model,n_matches,log_loss,brier_score,ranked_probability_score
+Elo-only baseline,1481,1.057,0.6357,0.2192
+Dixon-Coles (main model),1481,1.0848,0.6487,0.2251
+Simple Poisson baseline,1481,1.1111,0.6649,0.234
+Previous-season-table baseline,1481,1.2374,0.7044,0.2414

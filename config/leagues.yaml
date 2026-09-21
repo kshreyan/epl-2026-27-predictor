@@ -9,22 +9,31 @@
 # football_data_code, fixturedownload.com for fixturedownload_slug, The
 # Odds API's /v4/sports/ endpoint for odds_api_sport_key.
 #
-# UEFA Champions League / Europa League and MLS are still deliberately
-# NOT listed here as of 2026-09-19 -- not for lack of a real data
-# source (fixturedownload.com has real historical+current fixtures for
-# both UEFA competitions back to 2017, and The Odds API has
-# soccer_uefa_champs_league/soccer_uefa_europa_league/soccer_epl-style
-# sport keys for all three, confirmed directly against /v4/sports/,
-# correcting an earlier, wrong "no source" note that used to be here)
-# -- but because none of the three fit this registry's original
-# "single round-robin table" (format: single_table) assumption: the
-# UEFA competitions are a partial league phase (each of 36 teams plays
-# only 8 of the other 35) plus a knockout bracket, and MLS is two
-# conferences plus a playoff bracket. `format: groups` (added for UEFA
-# Nations League below) may fit the UEFA competitions' league-phase
-# stage once someone decides how to handle the knockout bracket; MLS's
-# conference+playoff shape still has no matching `format` value. Still
-# explicitly deferred, not silently dropped.
+# UEFA Champions League / Europa League are still deliberately NOT
+# listed here as of 2026-09-21 -- not for lack of a real data source
+# (fixturedownload.com has real historical+current fixtures for both
+# back to 2017, and The Odds API has soccer_uefa_champs_league/
+# soccer_uefa_europa_league sport keys, confirmed directly against
+# /v4/sports/) -- but because they are a partial league phase (each of
+# 36 teams plays only 8 of the other 35) plus a knockout bracket, and
+# no format value here models a bracket yet. `format: groups` (added
+# for UEFA Nations League below) may fit the league-phase stage once
+# someone decides how to handle the knockout bracket. Still explicitly
+# deferred, not silently dropped.
+#
+# MLS (added below) really is two conferences plus a playoff bracket,
+# same real mismatch -- but per the request to present it "in the same
+# format as EPL," treated as `format: single_table`, one combined
+# 30-team table across both conferences (real conference standings and
+# the playoff bracket are not separately modeled), the same shape as
+# every European league here.
+# relegation_zone_size: 0 because MLS has no real relegation (0% for
+# every team is a true statement, not an omission -- see
+# LeagueConfig.relegation_zone_size). playoff_zone_size: 16
+# approximates the real cutoff (16 of 30 teams make the real playoffs)
+# but does NOT reproduce actual qualification, which is separately
+# top-8-per-conference -- a team could be top 16 overall and miss out
+# by finishing outside its own conference's top 8, or the reverse.
 leagues:
   - league_id: epl
     display_name: Premier League
@@ -98,3 +107,28 @@ leagues:
     n_teams: 54
     match_id_prefix: UNL
     format: groups
+
+  # Real fixtures+historical results: fixturedownload.com's mls-2026
+  # (current season, 510 matches, 30 teams, real scores for matches
+  # already played as of 2026-09-21) plus mls-2023/2024/2025 (1,496
+  # more real completed matches -- three full prior seasons, close to
+  # domestic-league backtest sample size, unlike UEFA Nations League's
+  # thin one-cycle history). No football-data.co.uk coverage exists
+  # for MLS (football_data_code is intentionally None) -- a bespoke
+  # collector supplies real historical data instead of the shared
+  # football-data.co.uk-based one; season is a single real calendar
+  # year (MLS runs Feb-Dec), not the "2026-27" split-year label every
+  # European league here uses, but file paths still use the literal
+  # "2026_27" suffix for compatibility with the shared pipeline (see
+  # league_path()) -- a filename convention only, not a data error.
+  - league_id: mls
+    display_name: MLS
+    country: United States/Canada
+    fixturedownload_slug: mls
+    odds_api_sport_key: soccer_usa_mls
+    timezone: America/New_York
+    n_teams: 30
+    match_id_prefix: MLS
+    format: single_table
+    relegation_zone_size: 0
+    playoff_zone_size: 16

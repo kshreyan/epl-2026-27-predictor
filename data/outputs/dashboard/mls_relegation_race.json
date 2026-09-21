@@ -1,0 +1,189 @@
+{
+  "league": "mls",
+  "generated_at": "2026-09-21T06:25:59+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 30,
+  "data": [
+    {
+      "team": "Los Angeles Football Club",
+      "relegation_probability": 0.0,
+      "expected_points": 60.6,
+      "expected_position": 7.544
+    },
+    {
+      "team": "Inter Miami CF",
+      "relegation_probability": 0.0,
+      "expected_points": 59.93,
+      "expected_position": 7.856
+    },
+    {
+      "team": "CF Montr\u00e9al",
+      "relegation_probability": 0.0,
+      "expected_points": 34.25,
+      "expected_position": 23.368
+    },
+    {
+      "team": "Sporting Kansas City",
+      "relegation_probability": 0.0,
+      "expected_points": 35.4,
+      "expected_position": 22.716
+    },
+    {
+      "team": "New England Revolution",
+      "relegation_probability": 0.0,
+      "expected_points": 38.58,
+      "expected_position": 20.913
+    },
+    {
+      "team": "Atlanta United",
+      "relegation_probability": 0.0,
+      "expected_points": 38.59,
+      "expected_position": 20.907
+    },
+    {
+      "team": "Toronto FC",
+      "relegation_probability": 0.0,
+      "expected_points": 39.5,
+      "expected_position": 20.356
+    },
+    {
+      "team": "San Jose Earthquakes",
+      "relegation_probability": 0.0,
+      "expected_points": 39.95,
+      "expected_position": 20.079
+    },
+    {
+      "team": "Colorado Rapids",
+      "relegation_probability": 0.0,
+      "expected_points": 40.1,
+      "expected_position": 19.973
+    },
+    {
+      "team": "Austin FC",
+      "relegation_probability": 0.0,
+      "expected_points": 40.75,
+      "expected_position": 19.573
+    },
+    {
+      "team": "St. Louis CITY SC",
+      "relegation_probability": 0.0,
+      "expected_points": 41.88,
+      "expected_position": 18.894
+    },
+    {
+      "team": "Real Salt Lake",
+      "relegation_probability": 0.0,
+      "expected_points": 43.89,
+      "expected_position": 17.59
+    },
+    {
+      "team": "LA Galaxy",
+      "relegation_probability": 0.0,
+      "expected_points": 44.08,
+      "expected_position": 17.501
+    },
+    {
+      "team": "Portland Timbers",
+      "relegation_probability": 0.0,
+      "expected_points": 44.16,
+      "expected_position": 17.422
+    },
+    {
+      "team": "Houston Dynamo FC",
+      "relegation_probability": 0.0,
+      "expected_points": 44.31,
+      "expected_position": 17.318
+    },
+    {
+      "team": "Red Bull New York",
+      "relegation_probability": 0.0,
+      "expected_points": 46.29,
+      "expected_position": 16.056
+    },
+    {
+      "team": "FC Dallas",
+      "relegation_probability": 0.0,
+      "expected_points": 47.03,
+      "expected_position": 15.591
+    },
+    {
+      "team": "Chicago Fire FC",
+      "relegation_probability": 0.0,
+      "expected_points": 47.67,
+      "expected_position": 15.186
+    },
+    {
+      "team": "Nashville SC",
+      "relegation_probability": 0.0,
+      "expected_points": 49.57,
+      "expected_position": 13.973
+    },
+    {
+      "team": "New York City Football Club",
+      "relegation_probability": 0.0,
+      "expected_points": 50.05,
+      "expected_position": 13.656
+    },
+    {
+      "team": "Charlotte FC",
+      "relegation_probability": 0.0,
+      "expected_points": 52.68,
+      "expected_position": 12.03
+    },
+    {
+      "team": "Orlando City",
+      "relegation_probability": 0.0,
+      "expected_points": 53.27,
+      "expected_position": 11.651
+    },
+    {
+      "team": "FC Cincinnati",
+      "relegation_probability": 0.0,
+      "expected_points": 53.99,
+      "expected_position": 11.21
+    },
+    {
+      "team": "Minnesota United FC",
+      "relegation_probability": 0.0,
+      "expected_points": 54.09,
+      "expected_position": 11.17
+    },
+    {
+      "team": "Seattle Sounders FC",
+      "relegation_probability": 0.0,
+      "expected_points": 54.94,
+      "expected_position": 10.65
+    },
+    {
+      "team": "Columbus Crew",
+      "relegation_probability": 0.0,
+      "expected_points": 55.53,
+      "expected_position": 10.323
+    },
+    {
+      "team": "Philadelphia Union",
+      "relegation_probability": 0.0,
+      "expected_points": 57.32,
+      "expected_position": 9.306
+    },
+    {
+      "team": "Vancouver Whitecaps FC",
+      "relegation_probability": 0.0,
+      "expected_points": 58.8,
+      "expected_position": 8.477
+    },
+    {
+      "team": "San Diego FC",
+      "relegation_probability": 0.0,
+      "expected_points": 59.75,
+      "expected_position": 8.297
+    },
+    {
+      "team": "D.C. United",
+      "relegation_probability": 0.0,
+      "expected_points": 30.19,
+      "expected_position": 25.411
+    }
+  ]
+}

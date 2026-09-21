@@ -1,0 +1,31 @@
+team,top_4_probability,expected_points,expected_position
+Los Angeles Football Club,0.89725,60.6,7.544
+Inter Miami CF,0.88772,59.93,7.856
+Vancouver Whitecaps FC,0.8681,58.8,8.477
+San Diego FC,0.85284,59.75,8.297
+Philadelphia Union,0.83691,57.32,9.306
+Columbus Crew,0.79554,55.53,10.323
+Seattle Sounders FC,0.78455,54.94,10.65
+Minnesota United FC,0.76026,54.09,11.17
+FC Cincinnati,0.75771,53.99,11.21
+Orlando City,0.73707,53.27,11.651
+Charlotte FC,0.72003,52.68,12.03
+New York City Football Club,0.63948,50.05,13.656
+Nashville SC,0.62341,49.57,13.973
+Chicago Fire FC,0.55919,47.67,15.186
+FC Dallas,0.53867,47.03,15.591
+Red Bull New York,0.51168,46.29,16.056
+Houston Dynamo FC,0.44424,44.31,17.318
+Portland Timbers,0.43824,44.16,17.422
+LA Galaxy,0.43489,44.08,17.501
+Real Salt Lake,0.42914,43.89,17.59
+St. Louis CITY SC,0.35908,41.88,18.894
+Austin FC,0.32349,40.75,19.573
+Colorado Rapids,0.30465,40.1,19.973
+San Jose Earthquakes,0.29928,39.95,20.079
+Toronto FC,0.28184,39.5,20.356
+Atlanta United,0.25694,38.59,20.907
+New England Revolution,0.25542,38.58,20.913
+Sporting Kansas City,0.17767,35.4,22.716
+CF Montréal,0.14772,34.25,23.368
+D.C. United,0.07702,30.19,25.411
