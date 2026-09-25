@@ -72,6 +72,7 @@ LEAGUE_ID = "nations_league"
 HISTORICAL_PATH = REPO_ROOT / "data" / "raw" / "nations_league_historical_matches.csv"
 FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "nations_league_2026_27_fixtures.csv"
 ODDS_PATH = REPO_ROOT / "data" / "raw" / "nations_league_2026_27_real_odds.csv"
+REAL_RESULTS_PATH = REPO_ROOT / "data" / "raw" / "nations_league_2026_27_real_results.csv"
 OUT_PATH = REPO_ROOT / "data" / "outputs" / "nations_league_2026_27_match_predictions.csv"
 DEFAULT_TOTAL_GOALS_LINE = 2.5
 
@@ -98,6 +99,34 @@ DERIVED_MARKETS_SOURCE_NOTE = (
     "-- its own moneyline log loss, 1.50, was clearly worse than Elo's 1.04 -- treat as less validated "
     "than the moneyline prediction above)."
 )
+
+
+def result_from_score(home_goals: int, away_goals: int) -> str:
+    if home_goals > away_goals:
+        return "home_win"
+    if home_goals < away_goals:
+        return "away_win"
+    return "draw"
+
+
+def load_real_results() -> dict[str, dict]:
+    """match_id -> real completed result, sourced from
+    REAL_RESULTS_PATH -- a manually-verified ledger (see that file's
+    own source_name/notes per row) kept independently of the fixtures
+    feed, because fixturedownload.com's nations-league-2026 feed has
+    been observed to lag real completed matches by more than a day
+    (confirmed 2026-09-25: 0/8 concluded Matchday 1 games marked
+    complete on the source itself). Not wired into fetch_live_results.py
+    (football-data.co.uk, the domestic live-results source) because
+    that source does not cover international fixtures at all."""
+    out: dict[str, dict] = {}
+    if not REAL_RESULTS_PATH.exists():
+        return out
+    with open(REAL_RESULTS_PATH, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            hg, ag = int(row["home_goals"]), int(row["away_goals"])
+            out[row["match_id"]] = {"home_goals": hg, "away_goals": ag, "result": result_from_score(hg, ag)}
+    return out
 
 
 def load_market_odds() -> dict[str, dict]:
@@ -128,6 +157,27 @@ def main() -> None:
     historical = pd.read_csv(HISTORICAL_PATH, parse_dates=["date"])
     fixtures = pd.read_csv(FIXTURES_PATH)
     market_odds = load_market_odds()
+    real_results = load_real_results()
+
+    # Fold real, completed 2026-27 matches into the same pool used to fit
+    # Elo and the rolling goal averages, so ratings/form actually move as
+    # the tournament progresses instead of staying frozen on the 2024-25
+    # cycle forever. Built directly from fixtures + real_results (not the
+    # historical file's own richer schema) -- only the columns run_elo and
+    # team_rolling_goal_avgs actually read are needed.
+    if real_results:
+        completed_rows = []
+        for _, fx in fixtures.iterrows():
+            rr = real_results.get(fx["match_id"])
+            if rr is None:
+                continue
+            completed_rows.append({
+                "season": "2026-27", "match_id": fx["match_id"], "date": pd.Timestamp(fx["date"]),
+                "home_team": fx["home_team"], "away_team": fx["away_team"],
+                "home_goals": rr["home_goals"], "away_goals": rr["away_goals"],
+            })
+        if completed_rows:
+            historical = pd.concat([historical, pd.DataFrame(completed_rows)], ignore_index=True)
 
     # Seeded from each team's real 2024-25 League A/B/C/D tier (see
     # backtest_nations_league.team_tier_seed_ratings): teams in
@@ -167,12 +217,15 @@ def main() -> None:
         home_cover_prob = asian_handicap_home_cover_probability(matrix, handicap_line)
 
         odds = market_odds.get(fx["match_id"])
+        rr = real_results.get(fx["match_id"])
 
         rows.append({
             "match_id": fx["match_id"], "season": fx["season"], "matchweek": fx["matchweek"], "group": fx["group"],
             "date": fx["date"], "kickoff_utc": fx["kickoff_utc"], "home_team": home, "away_team": away,
-            "stadium": fx["stadium"], "status": fx["status"],
-            "actual_home_goals": "", "actual_away_goals": "", "actual_result": "",
+            "stadium": fx["stadium"], "status": "completed" if rr else fx["status"],
+            "actual_home_goals": rr["home_goals"] if rr else "",
+            "actual_away_goals": rr["away_goals"] if rr else "",
+            "actual_result": rr["result"] if rr else "",
             "home_win_prob": round(home_win, 4), "draw_prob": round(draw, 4), "away_win_prob": round(away_win, 4),
             "moneyline_pick": moneyline_pick(home_win, draw, away_win, home, away),
             "home_elo": round(r_home, 1), "away_elo": round(r_away, 1),
