@@ -4,6 +4,7 @@ import type { Envelope, MatchPredictionRow } from '../lib/types'
 import { formatKickoff, pct } from '../lib/format'
 import { DataQualityBadge } from '../components/DataQualityBadge'
 import { ScorelineDistribution } from '../components/ScorelineDistribution'
+import { FinalScore } from '../components/FinalScore'
 import { PageState } from '../components/PageState'
 
 function ProbBar({ home, draw, away }: { home: number; draw: number; away: number }) {
@@ -37,8 +38,15 @@ function MatchRow({ match }: { match: MatchPredictionRow }) {
         <span className="text-[12px]">
           {match.home_team} <span className="text-[var(--color-text-faint)]">v</span> {match.away_team}
         </span>
-        <span className="tnum text-center text-[13px] font-medium text-[var(--color-accent)]">
-          {match.predicted_score_model_only}
+        <span className="text-center">
+          <span className="tnum block text-[13px] font-medium text-[var(--color-accent)]">
+            {match.predicted_score_model_only}
+          </span>
+          <FinalScore
+            status={match.status}
+            actualHomeGoals={match.actual_home_goals}
+            actualAwayGoals={match.actual_away_goals}
+          />
         </span>
         <ProbBar home={match.home_win_prob_model_only} draw={match.draw_prob_model_only} away={match.away_win_prob_model_only} />
         <DataQualityBadge marketAvailable={match.market_available} dataQualityScore={match.data_quality_score} />
