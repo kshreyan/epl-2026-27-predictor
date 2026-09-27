@@ -40,6 +40,11 @@ SOURCE_NAME = "fixturedownload.com"
 SEASON = "2026-27"
 EXPECTED_TOTAL_MATCHES = 156
 EXPECTED_ROUNDS = 6
+REAL_RESULTS_PATH = REPO_ROOT / "data" / "raw" / "nations_league_2026_27_real_results.csv"
+REAL_RESULTS_COLUMNS = [
+    "match_id", "home_goals", "away_goals", "source_name",
+    "source_url_or_page_title", "source_timestamp", "notes",
+]
 
 OUTPUT_COLUMNS = [
     "match_id", "season", "matchweek", "group", "date", "kickoff_utc",
@@ -47,6 +52,46 @@ OUTPUT_COLUMNS = [
     "source_name", "source_url_or_page_title", "source_timestamp",
     "is_real_data", "data_status", "notes",
 ]
+
+
+def _append_newly_completed_results(fixtures: list[dict], match_ids: dict[int, str], fetch_ts: str, source_url: str) -> int:
+    """fixturedownload.com's live feed has been observed to lag real
+    completed matches by a day or more (confirmed 2026-09-25), but it
+    does eventually catch up -- so every run checks for HomeTeamScore/
+    AwayTeamScore now present on a match this collector hasn't already
+    recorded, and appends it to the same manually-verified results
+    ledger predict_nations_league_matches.py reads (see that module's
+    load_real_results docstring). This makes a same-day source catch-up
+    self-healing; a still-lagging match still needs a manual WebSearch-
+    verified entry in the meantime, as done for 2026-09-25's Matchday 1."""
+    already_recorded: set[str] = set()
+    if REAL_RESULTS_PATH.exists():
+        with open(REAL_RESULTS_PATH, newline="", encoding="utf-8") as f:
+            already_recorded = {row["match_id"] for row in csv.DictReader(f)}
+
+    new_rows = []
+    for fx in fixtures:
+        mid = match_ids[fx["MatchNumber"]]
+        if mid in already_recorded:
+            continue
+        hg, ag = fx.get("HomeTeamScore"), fx.get("AwayTeamScore")
+        if hg is None or ag is None:
+            continue
+        new_rows.append({
+            "match_id": mid, "home_goals": int(hg), "away_goals": int(ag),
+            "source_name": SOURCE_NAME, "source_url_or_page_title": source_url,
+            "source_timestamp": fetch_ts,
+            "notes": "Auto-detected completed result directly from fixturedownload.com's live feed.",
+        })
+
+    if new_rows:
+        write_header = not REAL_RESULTS_PATH.exists()
+        with open(REAL_RESULTS_PATH, "a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=REAL_RESULTS_COLUMNS)
+            if write_header:
+                writer.writeheader()
+            writer.writerows(new_rows)
+    return len(new_rows)
 
 
 def main() -> None:
@@ -72,6 +117,7 @@ def main() -> None:
         raise ValueError(f"Expected rounds 1-{EXPECTED_ROUNDS}, got {sorted(rounds)}.")
 
     rows = []
+    match_ids: dict[int, str] = {}
     for fx in fixtures:
         home = normalize_team_name(fx["HomeTeam"], league_id=LEAGUE_ID)
         away = normalize_team_name(fx["AwayTeam"], league_id=LEAGUE_ID)
@@ -81,6 +127,7 @@ def main() -> None:
             f"{cfg.match_id_prefix}2627_MD{fx['RoundNumber']:02d}_{fx['MatchNumber']:03d}_"
             f"{home.replace(' ', '')}_{away.replace(' ', '')}"
         )
+        match_ids[fx["MatchNumber"]] = match_id
 
         rows.append({
             "match_id": match_id,
@@ -111,6 +158,10 @@ def main() -> None:
         writer.writerows(rows)
 
     print(f"Wrote {len(rows)} fixtures to {output_path}")
+
+    n_new_results = _append_newly_completed_results(fixtures, match_ids, fetch_ts, source_url)
+    if n_new_results:
+        print(f"Auto-detected {n_new_results} newly-completed real result(s) from the live feed -- appended to {REAL_RESULTS_PATH}")
 
     log_data_version(
         dataset_name=f"{LEAGUE_ID}_2026_27_fixtures",

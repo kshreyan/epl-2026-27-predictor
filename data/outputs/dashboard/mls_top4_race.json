@@ -1,189 +1,189 @@
 {
   "league": "mls",
-  "generated_at": "2026-09-22T10:26:32+00:00",
+  "generated_at": "2026-09-27T23:02:01+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 30,
   "data": [
     {
       "team": "Los Angeles Football Club",
-      "top_4_probability": 0.89725,
-      "expected_points": 60.6,
-      "expected_position": 7.544
+      "top_4_probability": 0.89584,
+      "expected_points": 60.58,
+      "expected_position": 7.577
     },
     {
       "team": "Inter Miami CF",
-      "top_4_probability": 0.88772,
-      "expected_points": 59.93,
-      "expected_position": 7.856
+      "top_4_probability": 0.88636,
+      "expected_points": 59.96,
+      "expected_position": 7.874
     },
     {
       "team": "Vancouver Whitecaps FC",
-      "top_4_probability": 0.8681,
-      "expected_points": 58.8,
-      "expected_position": 8.477
+      "top_4_probability": 0.86816,
+      "expected_points": 58.81,
+      "expected_position": 8.485
     },
     {
       "team": "San Diego FC",
-      "top_4_probability": 0.85284,
+      "top_4_probability": 0.85187,
       "expected_points": 59.75,
-      "expected_position": 8.297
+      "expected_position": 8.326
     },
     {
       "team": "Philadelphia Union",
-      "top_4_probability": 0.83691,
-      "expected_points": 57.32,
-      "expected_position": 9.306
+      "top_4_probability": 0.83662,
+      "expected_points": 57.31,
+      "expected_position": 9.319
     },
     {
       "team": "Columbus Crew",
-      "top_4_probability": 0.79554,
+      "top_4_probability": 0.79465,
       "expected_points": 55.53,
-      "expected_position": 10.323
+      "expected_position": 10.348
     },
     {
       "team": "Seattle Sounders FC",
-      "top_4_probability": 0.78455,
-      "expected_points": 54.94,
-      "expected_position": 10.65
+      "top_4_probability": 0.78389,
+      "expected_points": 54.99,
+      "expected_position": 10.643
     },
     {
       "team": "Minnesota United FC",
-      "top_4_probability": 0.76026,
-      "expected_points": 54.09,
-      "expected_position": 11.17
+      "top_4_probability": 0.76016,
+      "expected_points": 54.11,
+      "expected_position": 11.167
     },
     {
       "team": "FC Cincinnati",
-      "top_4_probability": 0.75771,
-      "expected_points": 53.99,
-      "expected_position": 11.21
+      "top_4_probability": 0.7571,
+      "expected_points": 53.96,
+      "expected_position": 11.236
     },
     {
       "team": "Orlando City",
-      "top_4_probability": 0.73707,
-      "expected_points": 53.27,
-      "expected_position": 11.651
+      "top_4_probability": 0.73573,
+      "expected_points": 53.26,
+      "expected_position": 11.676
     },
     {
       "team": "Charlotte FC",
-      "top_4_probability": 0.72003,
-      "expected_points": 52.68,
-      "expected_position": 12.03
+      "top_4_probability": 0.72102,
+      "expected_points": 52.73,
+      "expected_position": 12.019
     },
     {
       "team": "New York City Football Club",
-      "top_4_probability": 0.63948,
-      "expected_points": 50.05,
-      "expected_position": 13.656
+      "top_4_probability": 0.63808,
+      "expected_points": 50.03,
+      "expected_position": 13.678
     },
     {
       "team": "Nashville SC",
-      "top_4_probability": 0.62341,
-      "expected_points": 49.57,
-      "expected_position": 13.973
+      "top_4_probability": 0.62257,
+      "expected_points": 49.56,
+      "expected_position": 13.978
     },
     {
       "team": "Chicago Fire FC",
-      "top_4_probability": 0.55919,
+      "top_4_probability": 0.5583,
       "expected_points": 47.67,
-      "expected_position": 15.186
+      "expected_position": 15.195
     },
     {
       "team": "FC Dallas",
-      "top_4_probability": 0.53867,
-      "expected_points": 47.03,
-      "expected_position": 15.591
+      "top_4_probability": 0.53768,
+      "expected_points": 47.04,
+      "expected_position": 15.587
     },
     {
       "team": "Red Bull New York",
-      "top_4_probability": 0.51168,
-      "expected_points": 46.29,
-      "expected_position": 16.056
+      "top_4_probability": 0.51086,
+      "expected_points": 46.24,
+      "expected_position": 16.084
     },
     {
       "team": "Houston Dynamo FC",
-      "top_4_probability": 0.44424,
-      "expected_points": 44.31,
-      "expected_position": 17.318
+      "top_4_probability": 0.44361,
+      "expected_points": 44.32,
+      "expected_position": 17.315
     },
     {
       "team": "Portland Timbers",
-      "top_4_probability": 0.43824,
-      "expected_points": 44.16,
-      "expected_position": 17.422
+      "top_4_probability": 0.43808,
+      "expected_points": 44.17,
+      "expected_position": 17.417
     },
     {
       "team": "LA Galaxy",
-      "top_4_probability": 0.43489,
-      "expected_points": 44.08,
-      "expected_position": 17.501
+      "top_4_probability": 0.43222,
+      "expected_points": 44.01,
+      "expected_position": 17.539
     },
     {
       "team": "Real Salt Lake",
-      "top_4_probability": 0.42914,
+      "top_4_probability": 0.43015,
       "expected_points": 43.89,
-      "expected_position": 17.59
+      "expected_position": 17.581
     },
     {
       "team": "St. Louis CITY SC",
-      "top_4_probability": 0.35908,
-      "expected_points": 41.88,
-      "expected_position": 18.894
+      "top_4_probability": 0.36088,
+      "expected_points": 41.87,
+      "expected_position": 18.891
     },
     {
       "team": "Austin FC",
-      "top_4_probability": 0.32349,
-      "expected_points": 40.75,
-      "expected_position": 19.573
+      "top_4_probability": 0.32482,
+      "expected_points": 40.79,
+      "expected_position": 19.528
     },
     {
       "team": "Colorado Rapids",
-      "top_4_probability": 0.30465,
-      "expected_points": 40.1,
-      "expected_position": 19.973
+      "top_4_probability": 0.30305,
+      "expected_points": 40.08,
+      "expected_position": 19.979
     },
     {
       "team": "San Jose Earthquakes",
-      "top_4_probability": 0.29928,
-      "expected_points": 39.95,
-      "expected_position": 20.079
+      "top_4_probability": 0.30187,
+      "expected_points": 39.97,
+      "expected_position": 20.05
     },
     {
       "team": "Toronto FC",
-      "top_4_probability": 0.28184,
-      "expected_points": 39.5,
-      "expected_position": 20.356
-    },
-    {
-      "team": "Atlanta United",
-      "top_4_probability": 0.25694,
-      "expected_points": 38.59,
-      "expected_position": 20.907
+      "top_4_probability": 0.28484,
+      "expected_points": 39.52,
+      "expected_position": 20.321
     },
     {
       "team": "New England Revolution",
-      "top_4_probability": 0.25542,
-      "expected_points": 38.58,
-      "expected_position": 20.913
+      "top_4_probability": 0.25916,
+      "expected_points": 38.61,
+      "expected_position": 20.863
+    },
+    {
+      "team": "Atlanta United",
+      "top_4_probability": 0.25884,
+      "expected_points": 38.62,
+      "expected_position": 20.879
     },
     {
       "team": "Sporting Kansas City",
-      "top_4_probability": 0.17767,
-      "expected_points": 35.4,
-      "expected_position": 22.716
+      "top_4_probability": 0.17762,
+      "expected_points": 35.39,
+      "expected_position": 22.706
     },
     {
       "team": "CF Montr\u00e9al",
-      "top_4_probability": 0.14772,
+      "top_4_probability": 0.14826,
       "expected_points": 34.25,
-      "expected_position": 23.368
+      "expected_position": 23.355
     },
     {
       "team": "D.C. United",
-      "top_4_probability": 0.07702,
-      "expected_points": 30.19,
-      "expected_position": 25.411
+      "top_4_probability": 0.07772,
+      "expected_points": 30.18,
+      "expected_position": 25.383
     }
   ]
 }
