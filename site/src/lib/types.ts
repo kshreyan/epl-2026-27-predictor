@@ -208,6 +208,73 @@ export interface NationsLeagueMatchRow {
   generated_at: string
 }
 
+export interface MarginSurvivalRow {
+  match_id: string
+  league_id: string
+  season: string
+  matchweek: number
+  date: string
+  kickoff_utc: string
+  status: string
+  team: string
+  opponent: string
+  is_home: boolean
+  predicted_score_model_only: string
+  eligible: boolean
+  win_prob: number
+  draw_prob: number
+  lose_1_prob: number
+  lose_2_prob: number
+  lose_3_prob: number
+  lose_4plus_prob: number
+  p_cover: number
+  p_push: number
+  p_fail: number
+  p_survive: number
+  risk_label: string
+  factor_strength_gap_score: number | null
+  factor_low_total_score: number | null
+  factor_historical_tail_score: number | null
+  factor_opponent_blowout_score: number | null
+  factor_rotation_score: number | null
+  team_history_n_matches: number
+  team_history_loss3plus_rate: number | null
+  opponent_history_n_matches: number
+  opponent_history_win3plus_rate: number | null
+  real_line: number | null
+  real_odds: number | null
+  real_bookmaker: string | null
+  cover_prob_at_real_line: number | null
+  implied_prob_at_real_line: number | null
+  value_gap: number | null
+  fair_plus2_decimal_odds: number | null
+  verdict: 'PICK +2' | 'LEAN +2' | 'PASS'
+  why_text: string
+  data_confidence?: 'high' | 'moderate' | 'low'
+  league_display_name?: string
+  rank?: number
+  run_id: string
+  model_version: string
+  generated_at: string
+}
+
+export interface MarginSurvivalPayload extends Envelope<MarginSurvivalRow> {
+  engine_note?: string
+  status?: string
+  note?: string
+  verdict_tally?: Record<string, number>
+}
+
+export interface Top20MarginSurvivalPayload {
+  generated_at: string
+  model_version: string
+  season: string
+  view: string
+  note?: string
+  record_count: number
+  data: MarginSurvivalRow[]
+}
+
 export interface NationsLeaguePredictionsPayload {
   league: string
   generated_at: string
