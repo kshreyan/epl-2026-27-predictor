@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react'
 import { useDashboardJson } from '../lib/useDashboardData'
-import type { Envelope, MatchPredictionRow } from '../lib/types'
+import type { Envelope, MarginSurvivalPayload, MarginSurvivalRow, MatchPredictionRow } from '../lib/types'
 import { formatKickoff, pct } from '../lib/format'
 import { DataQualityBadge } from '../components/DataQualityBadge'
 import { ScorelineDistribution } from '../components/ScorelineDistribution'
 import { FinalScore } from '../components/FinalScore'
+import { Plus2Section } from '../components/Plus2Panel'
 import { PageState } from '../components/PageState'
 
 function ProbBar({ home, draw, away }: { home: number; draw: number; away: number }) {
@@ -26,7 +27,7 @@ function PickChip({ label, value }: { label: string; value: string }) {
   )
 }
 
-function MatchRow({ match }: { match: MatchPredictionRow }) {
+function MatchRow({ match, margin }: { match: MatchPredictionRow; margin?: { home?: MarginSurvivalRow; away?: MarginSurvivalRow } }) {
   const [open, setOpen] = useState(false)
   return (
     <div className="border-b border-[var(--color-border)] last:border-0">
@@ -130,6 +131,7 @@ function MatchRow({ match }: { match: MatchPredictionRow }) {
               </div>
             </div>
           </div>
+          <Plus2Section home={margin?.home} away={margin?.away} />
         </div>
       )}
     </div>
@@ -138,7 +140,25 @@ function MatchRow({ match }: { match: MatchPredictionRow }) {
 
 export function FixturesPage({ leagueId }: { leagueId: string }) {
   const { data, error, loading } = useDashboardJson<Envelope<MatchPredictionRow>>(`${leagueId}_match_predictions.json`)
+  // The +2 Margin Survival Engine (Phase 1) only covers the 5 domestic
+  // leagues with a real, backtested Dixon-Coles fit -- see
+  // compute_margin_survival.py's module docstring for why MLS has no
+  // file here (Elo-only there; DC badly overfits its smaller real
+  // backtest sample). A 404 for MLS is expected and handled gracefully
+  // below (marginByMatch just stays empty).
+  const { data: marginData } = useDashboardJson<MarginSurvivalPayload>(`${leagueId}_margin_survival.json`)
   const [pickedMatchweek, setPickedMatchweek] = useState<number | null>(null)
+
+  const marginByMatch = useMemo(() => {
+    const map = new Map<string, { home?: MarginSurvivalRow; away?: MarginSurvivalRow }>()
+    for (const row of marginData?.data ?? []) {
+      const entry = map.get(row.match_id) ?? {}
+      if (row.is_home) entry.home = row
+      else entry.away = row
+      map.set(row.match_id, entry)
+    }
+    return map
+  }, [marginData])
 
   const matchweeks = useMemo(
     () => (data ? [...new Set(data.data.map((m) => m.matchweek))].sort((a, b) => a - b) : []),
@@ -184,7 +204,7 @@ export function FixturesPage({ leagueId }: { leagueId: string }) {
       </div>
       <div className="border border-[var(--color-border)]">
         {matches.map((m) => (
-          <MatchRow key={m.match_id} match={m} />
+          <MatchRow key={m.match_id} match={m} margin={marginByMatch.get(m.match_id)} />
         ))}
       </div>
     </div>
