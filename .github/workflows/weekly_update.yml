@@ -83,17 +83,6 @@ jobs:
             python -m src.weekly_auto_update --league "$league"
           done
 
-      # +2 Margin Survival Engine (Phase 1, domestic leagues only -- see
-      # compute_margin_survival.py's module docstring). Run daily like
-      # the odds refresh above, not gated on a matchweek lock: this uses
-      # whatever predictions are currently published, and its "recent
-      # real matches" historical-tail window is date-based, so it can
-      # shift day to day even without a new lock.
-      - name: Recompute +2 margin survival engine
-        run: |
-          python -m src.models.compute_margin_survival
-          python -m src.dashboard.build_margin_survival_json
-
       - name: Commit and push if anything changed
         id: commit
         run: |

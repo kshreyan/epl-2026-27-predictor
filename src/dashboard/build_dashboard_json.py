@@ -279,14 +279,6 @@ def main(league_id: str | None = None) -> None:
     from src.dashboard.build_nations_league_dashboard_json import build_nations_league_dashboard_json
     build_nations_league_dashboard_json()
 
-    # +2 Margin Survival Engine (Phase 1, domestic leagues only -- see
-    # compute_margin_survival.py's module docstring). Reads whatever
-    # {league}_2026_27_margin_survival.csv files already exist; run
-    # `python -m src.models.compute_margin_survival` first to (re)compute
-    # them, this step only rebuilds the JSON from what's on disk.
-    from src.dashboard.build_margin_survival_json import main as build_margin_survival_json
-    build_margin_survival_json()
-
 
 if __name__ == "__main__":
     import argparse

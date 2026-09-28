@@ -15,11 +15,9 @@ const SINGLE_TABLE_NAV = [
   { to: 'fixtures', label: 'Fixtures' },
   { to: 'performance', label: 'Model' },
   { to: 'international', label: 'International Break' },
-  { to: 'plus2', label: '+2 Board' },
 ]
 const GROUPS_NAV = [
   { to: 'international', label: 'International Break' },
-  { to: 'plus2', label: '+2 Board' },
 ]
 const GROUPS_ONLY_TABS = new Set(['table', 'races', 'fixtures', 'performance'])
 

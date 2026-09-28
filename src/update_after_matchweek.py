@@ -55,7 +55,6 @@ from src.models.predict_all_matches import (  # noqa: E402
 )
 from src.leagues import league_path  # noqa: E402
 from src.models.promoted_team_adjustment import derive_promoted_teams  # noqa: E402
-from src.features.build_schedule_congestion_features import build_schedule_congestion_features  # noqa: E402
 from src.simulation.simulate_full_season import run_monte_carlo  # noqa: E402
 from src.utils.versioning import log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
@@ -268,14 +267,6 @@ def run_update(
         active_calibrators_path=paths.active_calibrators, promoted_teams=promoted_teams,
         league_id=paths.league_id, backtest_path=paths.backtest,
     )
-
-    # Only ever merged in the one-time preseason main() path before this
-    # fix -- every weekly-refit prediction (i.e. every prediction actually
-    # published after week 1) silently had a blank rest_day_diff/
-    # congestion_diff, since this file rebuilds fixtures_df from scratch
-    # each week instead of reusing main()'s already-merged copy.
-    congestion_df = build_schedule_congestion_features(fixtures_df)
-    fixtures_df = fixtures_df.merge(congestion_df, on="match_id", how="left", suffixes=("", "_congestion"))
 
     remaining_fixtures = fixtures_df[fixtures_df["status"] != "completed"].copy()
     generated_at = now_utc_iso()
