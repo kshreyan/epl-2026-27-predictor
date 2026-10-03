@@ -4,24 +4,14 @@ import { num, pct } from '../lib/format'
 import { PositionBand } from '../components/PositionBand'
 import { PageState } from '../components/PageState'
 
-// MLS's real playoff field (16 of 30 teams) is nothing like a European
-// "top 4" Champions League zone, and it has no real relegation at all
-// -- simulate_full_season.py already writes the real playoff-cutoff
-// probability into this same top_4_probability field for MLS (see
-// LeagueConfig.playoff_zone_size) and a true 0% into relegation_
-// probability, so only the labels/highlighting need to change here.
-const TOP4_LABEL_OVERRIDES: Record<string, string> = { mls: 'Playoff' }
-const NO_RELEGATION_LEAGUE_IDS = new Set(['mls'])
-const HIGHLIGHT_ZONE_OVERRIDES: Record<string, number> = { mls: 16 }
-
 export function ExpectedTablePage({ leagueId }: { leagueId: string }) {
   const { data, error, loading } = useDashboardJson<Envelope<ExpectedTableRow>>(`${leagueId}_expected_table.json`)
   if (loading || error || !data) return <PageState loading={loading} error={error} />
 
   const rows = [...data.data].sort((a, b) => a.expected_position - b.expected_position)
-  const top4Label = TOP4_LABEL_OVERRIDES[leagueId] ?? 'Top 4'
-  const hasRelegation = !NO_RELEGATION_LEAGUE_IDS.has(leagueId)
-  const highlightZone = HIGHLIGHT_ZONE_OVERRIDES[leagueId] ?? 4
+  const top4Label = 'Top 4'
+  const hasRelegation = true
+  const highlightZone = 4
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-6">

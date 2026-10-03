@@ -270,15 +270,6 @@ def main(league_id: str | None = None) -> None:
             print(f"WARNING: skipping {lid}'s dashboard JSON -- {e}")
     build_leagues_manifest()
 
-    # Nations League has its own, separately-built match-predictions JSON
-    # (see src/dashboard/build_nations_league_dashboard_json.py) -- a
-    # "groups" competition, not part of the single_table loop above.
-    # Rebuilding here keeps it current on every full pipeline/weekly-
-    # automation run; no-ops safely (an empty, explicitly-flagged
-    # payload) if predict_nations_league_matches.py hasn't run yet.
-    from src.dashboard.build_nations_league_dashboard_json import build_nations_league_dashboard_json
-    build_nations_league_dashboard_json()
-
     # +2 Margin Survival Engine (Phase 1, domestic leagues only -- see
     # compute_margin_survival.py's module docstring). Reads whatever
     # {league}_2026_27_margin_survival.csv files already exist; run

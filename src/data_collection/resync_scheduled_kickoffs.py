@@ -114,11 +114,7 @@ def resync_league(league_id: str) -> int:
 
 def main(league_id: str | None = None) -> None:
     # single_table_league_ids() only -- this assumes the domestic
-    # fixtures.csv schema (kickoff_local, no `group` column). UEFA
-    # Nations League's own fixture-refresh path is
-    # collect_nations_league_fixtures.py, which fully re-collects
-    # (real historical data hasn't started locking there yet, so there
-    # is no "stuck matchweek" this resync exists to fix).
+    # fixtures.csv schema (kickoff_local, no `group` column).
     for lid in ([league_id] if league_id else single_table_league_ids()):
         resync_league(lid)
 

@@ -61,18 +61,8 @@ def test_matchweeks_1_through_38_each_have_10_matches():
 # hardcoded 380/38/10) -- skips a league whose fixture file hasn't been
 # collected yet rather than failing, since collect_fixtures.py is a
 # one-time bootstrap step run manually per league, not part of every
-# test run. A "groups" league (e.g. UEFA Nations League) has no single
-# round-robin structure for the n_teams*(n_teams-1) assertion below to
-# hold and needs its own, differently-shaped integrity test instead --
-# see tests/test_nations_league_fixture_integrity.py.
-#
-# MLS is `single_table` (one combined table, same dashboard shape as
-# every European league here) but real MLS is NOT a full round-robin --
-# 510 real matches for 30 teams (34 games each), not the 870 a full
-# double round-robin would need -- so it's excluded from this specific
-# round-robin assertion the same way and gets its own integrity test:
-# see tests/test_mls_fixture_integrity.py.
-_ROUND_ROBIN_LEAGUE_IDS = [lid for lid in single_table_league_ids() if lid != "mls"]
+# test run.
+_ROUND_ROBIN_LEAGUE_IDS = single_table_league_ids()
 
 
 def _fixtures_path_for(league_id: str) -> Path:

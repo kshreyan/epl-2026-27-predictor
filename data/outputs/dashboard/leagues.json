@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T19:27:28+00:00",
+  "generated_at": "2026-10-03T09:24:11+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
@@ -24,18 +24,6 @@
       "display_name": "Ligue 1",
       "country": "France",
       "format": "single_table"
-    },
-    {
-      "league_id": "mls",
-      "display_name": "MLS",
-      "country": "United States/Canada",
-      "format": "single_table"
-    },
-    {
-      "league_id": "nations_league",
-      "display_name": "UEFA Nations League",
-      "country": "Europe",
-      "format": "groups"
     },
     {
       "league_id": "serie_a",

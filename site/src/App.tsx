@@ -14,9 +14,6 @@ const FixturesPage = lazy(() => import('./pages/FixturesPage').then((m) => ({ de
 const ModelPerformancePage = lazy(() =>
   import('./pages/ModelPerformancePage').then((m) => ({ default: m.ModelPerformancePage })),
 )
-const InternationalBreakPage = lazy(() =>
-  import('./pages/InternationalBreakPage').then((m) => ({ default: m.InternationalBreakPage })),
-)
 const Plus2BoardPage = lazy(() => import('./pages/Plus2BoardPage').then((m) => ({ default: m.Plus2BoardPage })))
 
 // Every page reads its own leagueId from the route param and builds its
@@ -41,22 +38,10 @@ function LeagueRoutes() {
             <Route path="races" element={<RacesPage leagueId={leagueId} />} />
             <Route path="fixtures" element={<FixturesPage leagueId={leagueId} />} />
             <Route path="performance" element={<ModelPerformancePage leagueId={leagueId} />} />
-            {/* Cross-league: UEFA Nations League isn't scoped to any one
-                domestic competition, so this page takes no leagueId --
-                reachable from any competition's tab bar. */}
-            <Route path="international" element={<InternationalBreakPage />} />
-            {/* Cross-league, same reasoning as International Break above --
-                the +2 board spans every covered competition, not just the
-                current leagueId. */}
+            {/* Cross-league: the +2 board spans every covered competition,
+                not just the current leagueId. */}
             <Route path="plus2" element={<Plus2BoardPage />} />
-            {/* nations_league ("groups" format) has no table/races/fixtures/model
-                tabs to land on -- an empty or unknown sub-path for it goes to
-                International Break instead of a route that would 404 its data.
-                Absolute path (leading "/"), not relative -- a relative target
-                here resolves against the current *unmatched* location, which
-                for a genuinely unknown path (e.g. an old removed route) does
-                not fully replace it and loops the URL instead of navigating. */}
-            <Route path="*" element={<Navigate to={`/${leagueId}/${leagueId === 'nations_league' ? 'international' : 'table'}`} replace />} />
+            <Route path="*" element={<Navigate to={`/${leagueId}/table`} replace />} />
           </Routes>
         </Suspense>
       </main>
