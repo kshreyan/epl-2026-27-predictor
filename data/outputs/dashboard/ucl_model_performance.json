@@ -1,0 +1,33 @@
+{
+  "league": "ucl",
+  "generated_at": "2026-10-19T05:18:47+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 3,
+  "reliability_table": [],
+  "calibration_summary": null,
+  "ensemble_per_season_comparison": [],
+  "data": [
+    {
+      "model": "Elo-only baseline",
+      "n_matches": 270,
+      "log_loss": 0.9683638173,
+      "brier_score": 0.5766584906,
+      "ranked_probability_score": 0.2224978057
+    },
+    {
+      "model": "Dixon-Coles (main model)",
+      "n_matches": 270,
+      "log_loss": 1.0689115286,
+      "brier_score": 0.5873852623,
+      "ranked_probability_score": 0.2248529521
+    },
+    {
+      "model": "Simple Poisson baseline",
+      "n_matches": 270,
+      "log_loss": 1.2365243684,
+      "brier_score": 0.654753696,
+      "ranked_probability_score": 0.2469884984
+    }
+  ]
+}

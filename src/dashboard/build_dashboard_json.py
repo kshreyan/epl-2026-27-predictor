@@ -256,9 +256,60 @@ def build_all_for_league(league_id: str) -> None:
     build_model_performance_json(league_id)
 
 
+def build_knockout_json(league_id: str) -> None:
+    """Only for a "swiss"-format league with a real knockout-bracket
+    simulation (see simulate_continental_cup_knockout.py's module
+    docstring for the real uncertainty caveats every consumer of this
+    file must surface) -- no-ops with an explicit status if that
+    simulation hasn't been run yet."""
+    out_name = league_path(league_id, "knockout_probabilities.json")
+    csv_path = OUT_DIR / league_path(league_id, "2026_27_knockout_probabilities.csv")
+    if not csv_path.exists():
+        _write_json(out_name, _envelope(
+            league_id, [], status="not_yet_available",
+            note="No knockout-bracket simulation exists yet -- run simulate_continental_cup_knockout.py first.",
+        ))
+        return
+    df = pd.read_csv(csv_path).sort_values("prob_win_competition", ascending=False)
+    n_trials = int(df["n_trials"].iloc[0]) if "n_trials" in df.columns and not df.empty else None
+    _write_json(out_name, _envelope(
+        league_id, _to_records(df), status="real", n_trials=n_trials,
+        note=(
+            "Monte Carlo simulation of the rest of the real league phase AND the real knockout bracket "
+            "(playoff round -> Round of 16 -> quarter-finals -> semi-finals -> Final) -- the bracket itself "
+            "has not been drawn yet. Layers several already-less-validated model pieces on top of each "
+            "other and does not propagate rating uncertainty between trials -- read as a rough directional "
+            "guide, not a precise forecast. See simulate_continental_cup_knockout.py's module docstring "
+            f"for the full, real list of simplifications."
+        ),
+    ))
+
+
+def build_match_level_outputs(league_id: str) -> None:
+    """For a "swiss"-format league (see LeagueConfig.format): everything
+    build_all_for_league() builds EXCEPT the five table-shaped outputs
+    (expected_table/position_distribution/title_race/top4_race/
+    relegation_race, none of which a real partial Swiss-phase schedule
+    produces) and match_explanations (a separate, not-yet-built
+    per-match narrative feature for these leagues -- its build function
+    has no missing-file guard, unlike the four below)."""
+    build_match_predictions_json(league_id)
+    build_model_market_disagreements_json(league_id)
+    build_weekly_changes_json(league_id)
+    build_model_performance_json(league_id)
+    build_knockout_json(league_id)
+
+
 def main(league_id: str | None = None) -> None:
-    league_ids = [league_id] if league_id else single_table_league_ids()
-    for lid in league_ids:
+    single_table_ids = single_table_league_ids()
+    if league_id:
+        table_ids = [league_id] if league_id in single_table_ids else []
+        swiss_ids = [league_id] if league_id not in single_table_ids else []
+    else:
+        table_ids = single_table_ids
+        swiss_ids = [lid for lid in all_league_ids() if lid not in single_table_ids]
+
+    for lid in table_ids:
         print(f"--- Building dashboard JSON for {lid} ---")
         try:
             build_all_for_league(lid)
@@ -268,6 +319,14 @@ def main(league_id: str | None = None) -> None:
             # already-working dashboard rebuild -- print and move on,
             # don't silently swallow it either.
             print(f"WARNING: skipping {lid}'s dashboard JSON -- {e}")
+
+    for lid in swiss_ids:
+        print(f"--- Building match-level dashboard JSON for {lid} ---")
+        try:
+            build_match_level_outputs(lid)
+        except FileNotFoundError as e:
+            print(f"WARNING: skipping {lid}'s dashboard JSON -- {e}")
+
     build_leagues_manifest()
 
     # +2 Margin Survival Engine (Phase 1, domestic leagues only -- see

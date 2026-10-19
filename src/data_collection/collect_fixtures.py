@@ -49,7 +49,9 @@ def main(league_id: str = "epl") -> None:
     output_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_fixtures.csv")
     source_url = f"https://fixturedownload.com/feed/json/{cfg.fixturedownload_slug}-2026"
     local_tz = ZoneInfo(cfg.timezone)
-    expected_fixtures = cfg.n_teams * (cfg.n_teams - 1)  # each team plays every other team home + away
+    # expected_fixture_count overrides the round-robin default for a
+    # "swiss"-format league's real partial schedule (see LeagueConfig).
+    expected_fixtures = cfg.expected_fixture_count or cfg.n_teams * (cfg.n_teams - 1)
 
     fetch_ts = now_utc_iso()
     resp = requests.get(source_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=30)
@@ -60,9 +62,8 @@ def main(league_id: str = "epl") -> None:
 
     if len(fixtures) != expected_fixtures:
         raise ValueError(
-            f"Expected {expected_fixtures} fixtures for a {cfg.n_teams}-team single round-robin double "
-            f"season, got {len(fixtures)}. Refusing to write a fixture file "
-            f"that doesn't match the real schedule."
+            f"Expected {expected_fixtures} real fixtures for {cfg.display_name}, got {len(fixtures)}. "
+            f"Refusing to write a fixture file that doesn't match the real schedule."
         )
 
     rows = []

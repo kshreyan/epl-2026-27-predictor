@@ -4,14 +4,19 @@ EVERY match -- no eligibility filter) plus a combined cross-league
 leaderboard (top20_margin_survival.json) of the best real PICK +2 /
 LEAN +2 candidates.
 
-Phase 1 scope (real-data-only, see src/models/compute_margin_survival.py's
-module docstring for why): the 5 domestic leagues with a real,
-backtested Dixon-Coles fit. Every row carries a `verdict` (PICK +2 /
-LEAN +2 / PASS) that combines absolute blowout risk with real market
-price where one exists -- most fixtures have no real market posted yet
-(bookmakers only post close to kickoff), so most verdicts are risk-tier
-only; `real_line`/`real_odds`/`value_gap` are null rather than
-estimated whenever no real market exists for that fixture.
+Covers the 5 domestic leagues with a real, backtested, PRIMARY Dixon-
+Coles fit (see src/models/compute_margin_survival.py's module
+docstring) plus UCL/UEL/UECL (see compute_margin_survival_continental.py's
+module docstring) -- built on request even though those three
+competitions' own real backtest found Dixon-Coles clearly weaker than
+Elo, their actual moneyline model; every row for those three says so
+plainly in engine_note/why_text. Every row carries a `verdict` (PICK
++2 / LEAN +2 / PASS) that combines absolute blowout risk with real
+market price where one exists -- most fixtures have no real market
+posted yet (bookmakers only post close to kickoff), so most verdicts
+are risk-tier only; `real_line`/`real_odds`/`value_gap` are null
+rather than estimated whenever no real market exists for that
+fixture.
 
 Run: python -m src.dashboard.build_margin_survival_json
 """
@@ -31,6 +36,15 @@ from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
 
 OUT_DIR = REPO_ROOT / "data" / "outputs"
 TOP20_SIZE = 20
+
+# UCL/UEL/UECL (see compute_margin_survival_continental.py's module
+# docstring): built on request despite the real backtest finding Elo
+# clearly beats Dixon-Coles for all three competitions' own moneyline
+# prediction -- unlike the 5 domestic leagues above, the Dixon-Coles
+# surface this reads from is NOT this league's primary/best-validated
+# model, just the weaker of two real models tested. engine_note below
+# is written per-league so this distinction is never glossed over.
+CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel", "uecl"]
 
 
 def _confidence(row: pd.Series) -> str:
@@ -57,17 +71,28 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
     df["data_confidence"] = df.apply(_confidence, axis=1)
 
     tally = df["verdict"].value_counts().to_dict()
-    payload = {
-        "league": league_id, "generated_at": now_utc_iso(), "model_version": MODEL_VERSION,
-        "season": "2026-27", "record_count": len(df),
-        "verdict_tally": tally,
-        "engine_note": (
+    if league_id in CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS:
+        engine_note = (
+            "Every team in every match, every round: P_cover/P_push/P_fail read directly off this "
+            "competition's own separately-fit Dixon-Coles score matrix -- NOT the same model as this "
+            f"competition's moneyline prediction, which is Elo-only (the real backtest found Elo clearly "
+            f"beats Dixon-Coles here -- see reports/{league_id}_model_selection_report.md). Treat these "
+            "verdicts with real caution. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute "
+            "blowout risk first, then breaks ties with real market price where one currently exists."
+        )
+    else:
+        engine_note = (
             "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same "
             "backtested Dixon-Coles score matrix used for this league's own moneyline predictions -- "
             "not a separate multi-model ensemble. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on "
             "absolute blowout risk first, then breaks ties with real market price where one currently exists "
             "(most fixtures have none yet -- bookmakers only post close to kickoff)."
-        ),
+        )
+    payload = {
+        "league": league_id, "generated_at": now_utc_iso(), "model_version": MODEL_VERSION,
+        "season": "2026-27", "record_count": len(df),
+        "verdict_tally": tally,
+        "engine_note": engine_note,
         "data": _to_records(df),
     }
     _write_json(f"{league_id}_margin_survival.json", payload)
@@ -124,7 +149,10 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
 
 
 def main() -> None:
-    all_leagues = {lid: build_league_margin_survival_json(lid) for lid in MARGIN_SURVIVAL_LEAGUE_IDS}
+    all_leagues = {
+        lid: build_league_margin_survival_json(lid)
+        for lid in MARGIN_SURVIVAL_LEAGUE_IDS + CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS
+    }
     build_top20(all_leagues)
 
 

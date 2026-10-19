@@ -2,28 +2,42 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { formatGeneratedAt } from '../lib/format'
 import { useDashboardJson } from '../lib/useDashboardData'
 
-interface LeagueEntry { league_id: string; display_name: string; country: string; format: 'single_table' }
+interface LeagueEntry { league_id: string; display_name: string; country: string; format: 'single_table' | 'swiss' }
 interface LeaguesManifest { leagues: LeagueEntry[] }
 
-const NAV = [
+// "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) has no
+// combined table/races -- see LeagueConfig.format in src/leagues.py.
+const SINGLE_TABLE_NAV = [
   { to: 'table', label: 'Table' },
   { to: 'races', label: 'Races' },
   { to: 'fixtures', label: 'Fixtures' },
   { to: 'performance', label: 'Model' },
   { to: 'plus2', label: '+2 Board' },
 ]
+const SWISS_NAV = [
+  { to: 'fixtures', label: 'Fixtures' },
+  { to: 'knockout', label: 'Knockout' },
+  { to: 'performance', label: 'Model' },
+  { to: 'plus2', label: '+2 Board' },
+]
+const SINGLE_TABLE_ONLY_TABS = new Set(['table', 'races'])
 
 function LeagueSwitcher({ leagueId, leagues }: { leagueId: string; leagues: LeagueEntry[] }) {
   const location = useLocation()
   // Preserve the current tab (table/races/fixtures/performance) when
-  // switching competitions, e.g. /epl/fixtures -> /la_liga/fixtures.
+  // switching competitions, e.g. /epl/fixtures -> /la_liga/fixtures --
+  // except a tab that doesn't exist for the target league's format
+  // (e.g. staying on "table" when switching to a "swiss"-format
+  // competition), which falls back to Fixtures instead of a dead route.
   const currentTab = location.pathname.split('/')[2] || 'table'
   if (leagues.length <= 1) return null
   return (
     <select
       value={leagueId}
       onChange={(e) => {
-        window.location.hash = `#/${e.target.value}/${currentTab}`
+        const target = leagues.find((l) => l.league_id === e.target.value)
+        const tab = target?.format === 'swiss' && SINGLE_TABLE_ONLY_TABS.has(currentTab) ? 'fixtures' : currentTab
+        window.location.hash = `#/${e.target.value}/${tab}`
       }}
       className="tnum rounded border border-[var(--color-border)] bg-[var(--color-panel)] px-2 py-1 text-[12px] text-[var(--color-text)]"
     >
@@ -43,7 +57,7 @@ export function Header({
   const leagues = manifest?.leagues ?? []
   const current = leagues.find((l) => l.league_id === leagueId)
   const brandName = current ? current.display_name : leagueId.toUpperCase()
-  const nav = NAV
+  const nav = current?.format === 'swiss' ? SWISS_NAV : SINGLE_TABLE_NAV
 
   return (
     <header className="sticky top-0 z-10 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur">

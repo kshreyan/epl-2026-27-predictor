@@ -73,7 +73,7 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: |
-          for league in epl la_liga serie_a bundesliga ligue_1; do
+          for league in epl la_liga serie_a bundesliga ligue_1 ucl uel uecl; do
             python -m src.data_collection.collect_odds --league "$league"
           done
 
@@ -83,12 +83,29 @@ jobs:
             python -m src.weekly_auto_update --league "$league"
           done
 
-      # +2 Margin Survival Engine (Phase 1, domestic leagues only -- see
-      # compute_margin_survival.py's module docstring). Run daily like
-      # the odds refresh above, not gated on a matchweek lock: this uses
-      # whatever predictions are currently published, and its "recent
-      # real matches" historical-tail window is date-based, so it can
-      # shift day to day even without a new lock.
+      # UCL/UEL/UECL (see predict_continental_cup_matches.py): no
+      # matchweek-lock/refit mechanism exists for these yet (unlike
+      # weekly_auto_update.py above) -- every run just re-fetches
+      # whatever real league-phase results fixturedownload.com has and
+      # recomputes fresh, the same "not gated on a lock" pattern the +2
+      # engine below already uses. A genuine no-op on content (same
+      # predictions) on a day no real result changed.
+      - name: Refresh UEFA club competition predictions
+        run: |
+          for league in ucl uel uecl; do
+            python -m src.data_collection.fetch_continental_cup_live_results --league "$league"
+            python -m src.models.predict_continental_cup_matches --league "$league"
+            python -m src.models.compute_margin_survival_continental --league "$league"
+          done
+          python -m src.dashboard.build_dashboard_json
+
+      # +2 Margin Survival Engine (Phase 1, domestic leagues -- see
+      # compute_margin_survival.py's module docstring -- plus UCL/UEL/
+      # UECL, recomputed just above). Run daily like the odds refresh
+      # above, not gated on a matchweek lock: this uses whatever
+      # predictions are currently published, and its "recent real
+      # matches" historical-tail window is date-based, so it can shift
+      # day to day even without a new lock.
       - name: Recompute +2 margin survival engine
         run: |
           python -m src.models.compute_margin_survival

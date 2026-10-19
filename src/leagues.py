@@ -33,11 +33,15 @@ class LeagueConfig:
     season: str = "2026-27"
     # "single_table" (default): a single round-robin table a team's own
     # season position/promotion/relegation makes sense for -- everything
-    # this registry originally modeled. "groups": several small
-    # round-robin groups with no combined table (e.g. UEFA Nations
-    # League) -- table/races/season-simulation dashboard building does
-    # not apply and must not run for these; see
-    # single_table_league_ids() below.
+    # this registry originally modeled. "swiss": a single combined table
+    # with a PARTIAL schedule -- each team plays only some of the other
+    # teams, not a full round-robin (e.g. UEFA Champions/Europa/
+    # Conference League's 36-team league phase, 8 or 6 games each) --
+    # table/races/season-simulation dashboard building does not apply
+    # and must not run for these; see single_table_league_ids() below.
+    # Match predictions and (where the real backtest supports it) +2
+    # Margin Survival still apply -- only the table-shaped outputs are
+    # skipped.
     format: str = "single_table"
     # None for a competition football-data.co.uk genuinely has no real
     # coverage for (e.g. international competitions) -- collect_
@@ -63,6 +67,15 @@ class LeagueConfig:
     # field (config/simulation_config.yaml's top_half_size) under a
     # different real meaning -- e.g. MLS's real 16-of-30 playoff field.
     playoff_zone_size: int | None = None
+    # None (default): collect_fixtures.py's real-fixture-count sanity
+    # check assumes a full double round-robin (n_teams*(n_teams-1)) --
+    # correct for every "single_table" league so far. An override
+    # supplies the real expected count for a "swiss"-format league's
+    # partial schedule (e.g. 36 teams x 8 games / 2 = 144 for UEFA
+    # Champions/Europa League, x6 = 108 for the Conference League) so
+    # the check still catches a genuinely wrong/incomplete real feed
+    # instead of being silently skipped.
+    expected_fixture_count: int | None = None
 
 
 def _load_registry() -> dict[str, LeagueConfig]:

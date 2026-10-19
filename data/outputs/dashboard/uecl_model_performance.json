@@ -1,0 +1,33 @@
+{
+  "league": "uecl",
+  "generated_at": "2026-10-19T05:18:47+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 3,
+  "reliability_table": [],
+  "calibration_summary": null,
+  "ensemble_per_season_comparison": [],
+  "data": [
+    {
+      "model": "Elo-only baseline",
+      "n_matches": 198,
+      "log_loss": 1.0283178093,
+      "brier_score": 0.6173508949,
+      "ranked_probability_score": 0.2219517344
+    },
+    {
+      "model": "Dixon-Coles (main model)",
+      "n_matches": 198,
+      "log_loss": 1.2557870128,
+      "brier_score": 0.7017335196,
+      "ranked_probability_score": 0.2582154582
+    },
+    {
+      "model": "Simple Poisson baseline",
+      "n_matches": 198,
+      "log_loss": 1.5629706913,
+      "brier_score": 0.774848024,
+      "ranked_probability_score": 0.290561758
+    }
+  ]
+}

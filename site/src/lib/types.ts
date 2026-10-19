@@ -10,6 +10,30 @@ export interface Envelope<T> {
   data: T[]
 }
 
+export interface KnockoutProbabilityRow {
+  n_trials: number
+  team: string
+  current_elo: number
+  current_points: number
+  current_goal_diff: number
+  prob_direct_round_of_16: number
+  prob_playoff_round_zone: number
+  prob_eliminated_league_phase: number
+  prob_reach_round_of_16: number
+  prob_reach_quarter_final: number
+  prob_reach_semi_final: number
+  prob_reach_final: number
+  prob_win_competition: number
+  generated_at: string
+  model_version: string
+}
+
+export interface KnockoutProbabilityPayload extends Envelope<KnockoutProbabilityRow> {
+  status?: string
+  note?: string
+  n_trials?: number | null
+}
+
 export interface ExpectedTableRow {
   team: string
   expected_position: number

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T13:04:33+00:00",
+  "generated_at": "2026-10-19T05:18:47+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
@@ -30,6 +30,24 @@
       "display_name": "Serie A",
       "country": "Italy",
       "format": "single_table"
+    },
+    {
+      "league_id": "ucl",
+      "display_name": "UEFA Champions League",
+      "country": "Europe",
+      "format": "swiss"
+    },
+    {
+      "league_id": "uecl",
+      "display_name": "UEFA Conference League",
+      "country": "Europe",
+      "format": "swiss"
+    },
+    {
+      "league_id": "uel",
+      "display_name": "UEFA Europa League",
+      "country": "Europe",
+      "format": "swiss"
     }
   ]
 }

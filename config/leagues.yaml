@@ -9,15 +9,19 @@
 # football_data_code, fixturedownload.com for fixturedownload_slug, The
 # Odds API's /v4/sports/ endpoint for odds_api_sport_key.
 #
-# UEFA Champions League / Europa League are still deliberately NOT
-# listed here as of 2026-09-21 -- not for lack of a real data source
-# (fixturedownload.com has real historical+current fixtures for both
-# back to 2017, and The Odds API has soccer_uefa_champs_league/
-# soccer_uefa_europa_league sport keys, confirmed directly against
-# /v4/sports/) -- but because they are a partial league phase (each of
-# 36 teams plays only 8 of the other 35) plus a knockout bracket, and
-# no format value here models a bracket yet. Still explicitly deferred,
-# not silently dropped.
+# UEFA Champions League, Europa League, and Conference League (added
+# 2026-10-19): `format: swiss` -- a single 36-team table with a REAL
+# PARTIAL schedule (each team plays 8 (UCL/UEL) or 6 (UECL) of the
+# other 35, not a full round-robin), so no expected-table/races/
+# season-simulation dashboard is built for them (see
+# single_table_league_ids()). The knockout bracket that follows the
+# league phase (playoff round -> Round of 16 -> Final) is explicitly
+# OUT OF SCOPE -- it isn't drawn until the league phase ends, fixture
+# download's current-season feed doesn't include it, and this pipeline
+# has no two-legged-tie/bracket simulation. Match predictions and (only
+# where each competition's own real backtest supports it -- see
+# reports/{league}_model_selection_report.md) +2 Margin Survival cover
+# the 144/144/108 real league-phase matches only.
 #
 # MLS and UEFA Nations League were previously supported here (bespoke
 # collectors/Elo-only models, `format: groups`/`single_table` with a
@@ -77,3 +81,36 @@ leagues:
     timezone: Europe/Paris
     n_teams: 18
     match_id_prefix: LIGUE1
+
+  - league_id: ucl
+    display_name: UEFA Champions League
+    country: Europe
+    fixturedownload_slug: champions-league
+    odds_api_sport_key: soccer_uefa_champs_league
+    timezone: UTC
+    n_teams: 36
+    match_id_prefix: UCL
+    format: swiss
+    expected_fixture_count: 144
+
+  - league_id: uel
+    display_name: UEFA Europa League
+    country: Europe
+    fixturedownload_slug: europa-league
+    odds_api_sport_key: soccer_uefa_europa_league
+    timezone: UTC
+    n_teams: 36
+    match_id_prefix: UEL
+    format: swiss
+    expected_fixture_count: 144
+
+  - league_id: uecl
+    display_name: UEFA Conference League
+    country: Europe
+    fixturedownload_slug: conference-league
+    odds_api_sport_key: soccer_uefa_europa_conference_league
+    timezone: UTC
+    n_teams: 36
+    match_id_prefix: UECL
+    format: swiss
+    expected_fixture_count: 108
