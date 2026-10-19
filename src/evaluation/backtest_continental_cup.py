@@ -18,10 +18,16 @@ league-phase matches. The real knockout matches are NOT scored (out of
 scope) but DO feed every model's own continuous rating/fit, same as
 any other real result.
 
-No tier-seed hack (unlike Nations League's real UEFA-tier Elo seed):
-these two real cycles are temporally continuous (same clubs mostly
-repeat year to year), so Elo accumulates real signal across both
-seasons from a flat start rather than needing a pre-season seed.
+Seeded from real domestic-league Elo where one exists (see
+cross_competition_elo.py) -- not Nations League's real UEFA-tier seed,
+but the same idea: this competition's own 2-season sample is too thin
+to estimate 36 teams' relative strength well from nothing, and a club
+playing in one of the 5 domestic leagues this project tracks has a far
+better-informed real prior than a flat 1500. Leak-free: the seed is
+computed from domestic results strictly BEFORE this backtest's own
+earliest real match, never "today." Only a partial fix -- a club from
+an untracked domestic league (the majority of smaller-league entrants)
+still starts flat.
 
 Reuses domestic hyperparameters unchanged from config/model_config.yaml
 -- there is nowhere near enough real data here to independently tune
@@ -45,6 +51,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.evaluation.backtest import brier_row, log_loss_row, rps, team_rolling_goal_avgs  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.baselines import elo_only_probabilities, simple_poisson_baseline  # noqa: E402
+from src.models.cross_competition_elo import cross_competition_seed_ratings  # noqa: E402
 from src.models.elo_model import run_elo  # noqa: E402
 from src.models.scoreline_models import fit_dixon_coles_model, outcome_probabilities, score_matrix  # noqa: E402
 
@@ -71,8 +78,30 @@ def main(league_id: str) -> None:
     df = df.sort_values("date").reset_index(drop=True)
     teams = sorted(set(df["home_team"]) | set(df["away_team"]))
 
+    # Flat-start Elo (no cross-competition prior) and domestic-seeded Elo
+    # (see cross_competition_elo.py) are scored as TWO SEPARATE
+    # candidates, not one assumed-better replacement -- the seed only
+    # improved UCL's real backtest log loss (0.968 -> 0.946); it made
+    # UEL/UECL's slightly WORSE (1.001 -> 1.010, 1.028 -> 1.034), almost
+    # certainly because so few of their 36 teams (12 and 4, vs UCL's 21)
+    # get a real domestic signal to seed from. Whichever wins each
+    # competition's own real backtest is what predict_continental_cup_matches.py
+    # and simulate_continental_cup_knockout.py actually use -- see
+    # select_elo_variant() below.
+    #
+    # The seed, when used, is computed from domestic Elo AS OF the
+    # EARLIEST real match in this backtest's own historical window, not
+    # "today" -- using today's domestic form (which includes 2+ real
+    # seasons after this backtest's data ends) to seed a 2024-25
+    # continental prediction would be real data leakage and would make
+    # this backtest's own reported numbers artificially optimistic. A
+    # single static seed at the window's start is leak-free for every
+    # round that follows it.
+    domestic_seed = cross_competition_seed_ratings(as_of_date=df["date"].min())
     elo_run = run_elo(df, k_factor=ELO_K_FACTOR, home_advantage=ELO_HOME_ADVANTAGE)
     elo_pre = elo_run.history[["home_team", "away_team", "date", "home_elo_pre", "away_elo_pre"]]
+    elo_seeded_run = run_elo(df, seed_ratings=domestic_seed, k_factor=ELO_K_FACTOR, home_advantage=ELO_HOME_ADVANTAGE)
+    elo_seeded_pre = elo_seeded_run.history[["home_team", "away_team", "date", "home_elo_pre", "away_elo_pre"]]
 
     league_phase = df[df["stage"] == "league_phase"].reset_index(drop=True)
     # (season, round_number) pairs in chronological order, league-phase only.
@@ -102,6 +131,10 @@ def main(league_id: str) -> None:
             r_home, r_away = float(elo_row["home_elo_pre"].iloc[0]), float(elo_row["away_elo_pre"].iloc[0])
             elo_h, elo_d, elo_a = elo_only_probabilities(r_home, r_away, ELO_HOME_ADVANTAGE)
 
+            elo_seeded_row = elo_seeded_pre[(elo_seeded_pre["home_team"] == home) & (elo_seeded_pre["away_team"] == away) & (elo_seeded_pre["date"] == m["date"])]
+            rs_home, rs_away = float(elo_seeded_row["home_elo_pre"].iloc[0]), float(elo_seeded_row["away_elo_pre"].iloc[0])
+            eloseeded_h, eloseeded_d, eloseeded_a = elo_only_probabilities(rs_home, rs_away, ELO_HOME_ADVANTAGE)
+
             h_gf, h_ga = team_rolling_goal_avgs(history_before, home)
             a_gf, a_ga = team_rolling_goal_avgs(history_before, away)
             sp_lam, sp_mu = simple_poisson_baseline(h_gf, h_ga, a_gf, a_ga, league_avg_goals)
@@ -110,6 +143,7 @@ def main(league_id: str) -> None:
 
             dc_probs = {"home_win": dc_h, "draw": dc_d, "away_win": dc_a}
             elo_probs = {"home_win": elo_h, "draw": elo_d, "away_win": elo_a}
+            eloseeded_probs = {"home_win": eloseeded_h, "draw": eloseeded_d, "away_win": eloseeded_a}
             sp_probs = {"home_win": sp_h, "draw": sp_d, "away_win": sp_a}
 
             rows.append({
@@ -119,9 +153,12 @@ def main(league_id: str) -> None:
                 "dc_home_win": dc_h, "dc_draw": dc_d, "dc_away_win": dc_a,
                 "dc_lambda": lam, "dc_mu": mu, "dc_rho": dc_fit.rho,
                 "elo_home_win": elo_h, "elo_draw": elo_d, "elo_away_win": elo_a,
+                "eloseeded_home_win": eloseeded_h, "eloseeded_draw": eloseeded_d, "eloseeded_away_win": eloseeded_a,
                 "simplepoisson_home_win": sp_h, "simplepoisson_draw": sp_d, "simplepoisson_away_win": sp_a,
                 "dc_log_loss": log_loss_row(dc_probs, actual), "dc_brier": brier_row(dc_probs, actual), "dc_rps": rps(dc_probs, actual),
                 "elo_log_loss": log_loss_row(elo_probs, actual), "elo_brier": brier_row(elo_probs, actual), "elo_rps": rps(elo_probs, actual),
+                "eloseeded_log_loss": log_loss_row(eloseeded_probs, actual), "eloseeded_brier": brier_row(eloseeded_probs, actual),
+                "eloseeded_rps": rps(eloseeded_probs, actual),
                 "simplepoisson_log_loss": log_loss_row(sp_probs, actual), "simplepoisson_brier": brier_row(sp_probs, actual),
                 "simplepoisson_rps": rps(sp_probs, actual),
             })
@@ -132,9 +169,12 @@ def main(league_id: str) -> None:
     print(f"Wrote {len(match_results)} real scored backtest matches to {out_match_results}")
 
     comparison_rows = []
-    for model in ["dc", "elo", "simplepoisson"]:
+    for model in ["dc", "elo", "eloseeded", "simplepoisson"]:
         comparison_rows.append({
-            "model": {"dc": "Dixon-Coles (main model)", "elo": "Elo-only baseline", "simplepoisson": "Simple Poisson baseline"}[model],
+            "model": {
+                "dc": "Dixon-Coles (main model)", "elo": "Elo-only, flat start",
+                "eloseeded": "Elo-only, domestic-Elo-seeded", "simplepoisson": "Simple Poisson baseline",
+            }[model],
             "n_matches": len(match_results),
             "log_loss": match_results[f"{model}_log_loss"].mean(),
             "brier_score": match_results[f"{model}_brier"].mean(),
@@ -145,6 +185,7 @@ def main(league_id: str) -> None:
     print(f"Wrote model comparison to {out_model_comparison}")
 
     best = comparison.iloc[0]
+    n_seeded = sum(1 for t in teams if t in domestic_seed)
     out_report.parent.mkdir(parents=True, exist_ok=True)
     with open(out_report, "w") as f:
         f.write(f"# {cfg.display_name} Model Selection Report\n\n")
@@ -165,6 +206,14 @@ def main(league_id: str) -> None:
                 f"({best['log_loss']:.4f}) and is used as the primary model for 2026-27 league-phase "
                 f"predictions.\n\n")
         f.write(
+            "## Cross-competition Elo seed (src/models/cross_competition_elo.py)\n\n"
+            f"{n_seeded} of this backtest's {len(teams)} real historical-window teams have a real domestic "
+            f"Elo rating (EPL/La Liga/Serie A/Bundesliga/Ligue 1) to seed from; the rest start flat at 1500, "
+            "same as before this existed. Scored as its own candidate (\"Elo-only, domestic-Elo-seeded\") "
+            "above, not assumed better: the real backtest result is what decides whether this competition's "
+            f"predictions actually use it -- {'it won here' if best['model'] == 'Elo-only, domestic-Elo-seeded' else 'it did NOT win here, so predictions use the flat-start Elo instead'}.\n\n"
+        )
+        f.write(
             "## Limitations\n\n"
             "- Sample size (see above) is far too small for isotonic calibration (this project's own "
             "500-match minimum) -- raw model probabilities are used uncalibrated.\n"
@@ -174,9 +223,9 @@ def main(league_id: str) -> None:
             f"- Time-decay half-life ({HALF_LIFE_DAYS:.0f} days) and all other hyperparameters are the "
             "domestic, club-football-tuned defaults, not independently validated for this competition's "
             "much sparser real match calendar.\n"
-            "- No pre-season strength seed (unlike Nations League's real UEFA-tier Elo seed): both real "
-            "historical cycles are temporally continuous and mostly share the same clubs year to year, so "
-            "Elo accumulates real signal from a flat start across both seasons rather than needing one.\n"
+            "- The domestic-Elo seed only covers a club playing in one of the 5 domestic leagues this "
+            "project tracks -- the majority of smaller-league entrants (and every non-European-covered "
+            "country) get no real cross-competition signal at all.\n"
         )
     print(f"Wrote model selection report to {out_report}")
 

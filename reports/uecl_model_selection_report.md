@@ -4,19 +4,24 @@
 
 ## Model comparison (lower log loss / Brier / RPS is better)
 
-| model                    |   n_matches |   log_loss |   brier_score |   ranked_probability_score |
-|:-------------------------|------------:|-----------:|--------------:|---------------------------:|
-| Elo-only baseline        |         198 |    1.02832 |      0.617351 |                   0.221952 |
-| Dixon-Coles (main model) |         198 |    1.25579 |      0.701734 |                   0.258215 |
-| Simple Poisson baseline  |         198 |    1.56297 |      0.774848 |                   0.290562 |
+| model                         |   n_matches |   log_loss |   brier_score |   ranked_probability_score |
+|:------------------------------|------------:|-----------:|--------------:|---------------------------:|
+| Elo-only, flat start          |         198 |    1.02832 |      0.617351 |                   0.221952 |
+| Elo-only, domestic-Elo-seeded |         198 |    1.03446 |      0.622141 |                   0.224127 |
+| Dixon-Coles (main model)      |         198 |    1.25579 |      0.701734 |                   0.258215 |
+| Simple Poisson baseline       |         198 |    1.56297 |      0.774848 |                   0.290562 |
 
 ## Selected model
 
-**Elo-only baseline** has the lowest backtest log loss (1.0283) and is used as the primary model for 2026-27 league-phase predictions.
+**Elo-only, flat start** has the lowest backtest log loss (1.0283) and is used as the primary model for 2026-27 league-phase predictions.
+
+## Cross-competition Elo seed (src/models/cross_competition_elo.py)
+
+6 of this backtest's 64 real historical-window teams have a real domestic Elo rating (EPL/La Liga/Serie A/Bundesliga/Ligue 1) to seed from; the rest start flat at 1500, same as before this existed. Scored as its own candidate ("Elo-only, domestic-Elo-seeded") above, not assumed better: the real backtest result is what decides whether this competition's predictions actually use it -- it did NOT win here, so predictions use the flat-start Elo instead.
 
 ## Limitations
 
 - Sample size (see above) is far too small for isotonic calibration (this project's own 500-match minimum) -- raw model probabilities are used uncalibrated.
 - No historical market-odds source exists for this competition (no football-data.co.uk coverage) -- no model+market blend backtest could be run; real current market odds (The Odds API) are shown alongside predictions for comparison only, not blended in.
 - Time-decay half-life (269 days) and all other hyperparameters are the domestic, club-football-tuned defaults, not independently validated for this competition's much sparser real match calendar.
-- No pre-season strength seed (unlike Nations League's real UEFA-tier Elo seed): both real historical cycles are temporally continuous and mostly share the same clubs year to year, so Elo accumulates real signal from a flat start across both seasons rather than needing one.
+- The domestic-Elo seed only covers a club playing in one of the 5 domestic leagues this project tracks -- the majority of smaller-league entrants (and every non-European-covered country) get no real cross-competition signal at all.

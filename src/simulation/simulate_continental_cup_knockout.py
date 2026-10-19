@@ -13,8 +13,10 @@ validated pieces on top of each other:
 
 1. Remaining league-phase results: match WIN/DRAW/LOSS is drawn from
    each team's current Elo rating (the real, backtested, primary
-   moneyline model -- see reports/{league}_model_selection_report.md).
-   Elo ratings are held FIXED at today's value for every simulated
+   moneyline model -- see reports/{league}_model_selection_report.md),
+   seeded from real domestic-league Elo where this competition's own
+   backtest found that helps (see cross_competition_elo.py). Elo
+   ratings are held FIXED at today's value for every simulated
    trial -- unlike simulate_full_season.py's domestic Dixon-Coles
    simulation, which draws a fresh attack/defense value per trial from
    each team's real fitted uncertainty, this does NOT propagate rating
@@ -65,6 +67,7 @@ from src.evaluation.backtest import team_rolling_goal_avgs  # noqa: E402
 from src.evaluation.backtest_continental_cup import ELO_HOME_ADVANTAGE, ELO_K_FACTOR  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.baselines import elo_only_probabilities, simple_poisson_baseline  # noqa: E402
+from src.models.cross_competition_elo import cross_competition_seed_ratings, should_use_domestic_seed  # noqa: E402
 from src.models.elo_model import run_elo  # noqa: E402
 from src.models.scoreline_models import score_matrix  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
@@ -205,7 +208,13 @@ def main(league_id: str) -> None:
     if completed_rows:
         historical = pd.concat([historical, pd.DataFrame(completed_rows)], ignore_index=True)
 
-    elo_run = run_elo(historical, k_factor=ELO_K_FACTOR, home_advantage=ELO_HOME_ADVANTAGE)
+    # Cross-competition Elo seed (see cross_competition_elo.py) only
+    # when this competition's own real backtest found it helps -- same
+    # conditional predict_continental_cup_matches.py uses, read fresh
+    # from the same backtest comparison CSV rather than duplicated/
+    # assumed here.
+    seed_ratings = cross_competition_seed_ratings() if should_use_domestic_seed(league_id) else None
+    elo_run = run_elo(historical, seed_ratings=seed_ratings, k_factor=ELO_K_FACTOR, home_advantage=ELO_HOME_ADVANTAGE)
     ratings = elo_run.final_ratings
     league_avg_goals = float(pd.concat([historical["home_goals"], historical["away_goals"]]).mean())
 

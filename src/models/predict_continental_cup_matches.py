@@ -41,6 +41,7 @@ from src.evaluation.backtest import team_rolling_goal_avgs  # noqa: E402
 from src.evaluation.backtest_continental_cup import ELO_HOME_ADVANTAGE, ELO_K_FACTOR  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.baselines import elo_only_probabilities, simple_poisson_baseline  # noqa: E402
+from src.models.cross_competition_elo import cross_competition_seed_ratings, should_use_domestic_seed  # noqa: E402
 from src.models.elo_model import run_elo  # noqa: E402
 from src.models.scoreline_models import (  # noqa: E402
     asian_handicap_home_cover_probability,
@@ -143,9 +144,18 @@ def main(league_id: str) -> None:
     real_results_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_real_results.csv")
     out_path = REPO_ROOT / "data" / "outputs" / league_path(league_id, "2026_27_match_predictions.csv")
 
+    use_domestic_seed = should_use_domestic_seed(league_id)
+    seed_note = (
+        " Seeded from real domestic-league Elo where one exists (see src/models/cross_competition_elo.py) "
+        "-- this competition's own real backtest found that helps here."
+        if use_domestic_seed else
+        " Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded "
+        "variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers."
+    )
     moneyline_source_note = (
-        f"Elo-only, real-backtested (best of 3 models tested on {cfg.display_name}'s real 2024-25+2025-26 "
-        f"league-phase data -- see reports/{league_id}_model_selection_report.md)."
+        f"Elo-only, real-backtested (best of up to 4 models tested on {cfg.display_name}'s real "
+        f"2024-25+2025-26 league-phase data -- see reports/{league_id}_model_selection_report.md)."
+        f"{seed_note}"
     )
     derived_markets_source_note = (
         "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically "
@@ -177,7 +187,12 @@ def main(league_id: str) -> None:
         if completed_rows:
             historical = pd.concat([historical, pd.DataFrame(completed_rows)], ignore_index=True)
 
-    elo_run = run_elo(historical, k_factor=ELO_K_FACTOR, home_advantage=ELO_HOME_ADVANTAGE)
+    # "Today's" live domestic ratings are correct to use here (not
+    # backtest_continental_cup.py's leak-free historical-window seed):
+    # this is predicting real future matches, so every currently
+    # available real result is fair game.
+    seed_ratings = cross_competition_seed_ratings() if use_domestic_seed else None
+    elo_run = run_elo(historical, seed_ratings=seed_ratings, k_factor=ELO_K_FACTOR, home_advantage=ELO_HOME_ADVANTAGE)
     ratings = elo_run.final_ratings
 
     league_avg_goals = float(pd.concat([historical["home_goals"], historical["away_goals"]]).mean())
