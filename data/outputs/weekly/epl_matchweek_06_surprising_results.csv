@@ -1,10 +1,10 @@
 match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
-LIGUE12627_MW06_050_ASMonaco_ToulouseFC,6,AS Monaco,Toulouse FC,draw,0.2347,0.5391,0.2347,0.2262,1.4494,2026-10-13T13:04:33+00:00
-LIGUE12627_MW06_049_FCLorient_ParisFC,6,FC Lorient,Paris FC,home_win,0.3315,0.3315,0.2803,0.3882,1.1041,2026-10-13T13:04:33+00:00
-LIGUE12627_MW06_051_OGCNice_RCStrasbourgAlsace,6,OGC Nice,RC Strasbourg Alsace,home_win,0.3832,0.3832,0.2571,0.3597,0.9592,2026-10-13T13:04:33+00:00
-LIGUE12627_MW06_047_RCLens_OlympiqueLyonnais,6,RC Lens,Olympique Lyonnais,home_win,0.4536,0.4536,0.2479,0.2985,0.7905,2026-10-13T13:04:33+00:00
-LIGUE12627_MW06_046_StadeBrestois29_AngersSCO,6,Stade Brestois 29,Angers SCO,home_win,0.4957,0.4957,0.2663,0.2381,0.7018,2026-10-13T13:04:33+00:00
-LIGUE12627_MW06_054_EstacTroyes_OlympiquedeMarseille,6,Estac Troyes,Olympique de Marseille,away_win,0.5555,0.2214,0.2231,0.5555,0.5879,2026-10-13T13:04:33+00:00
-LIGUE12627_MW06_053_StadeRennaisFC_AJAuxerre,6,Stade Rennais FC,AJ Auxerre,home_win,0.6049,0.6049,0.2101,0.185,0.5027,2026-10-13T13:04:33+00:00
-LIGUE12627_MW06_048_LOSCLille_HavreAthleticClub,6,LOSC Lille,Havre Athletic Club,home_win,0.6362,0.6362,0.2269,0.1369,0.4522,2026-10-13T13:04:33+00:00
-LIGUE12627_MW06_052_ParisSaint-Germain_LeMansFC,6,Paris Saint-Germain,Le Mans FC,home_win,0.8161,0.8161,0.1238,0.0601,0.2032,2026-10-13T13:04:33+00:00
+BUNDESLIGA2627_MW06_051_1.FCUnionBerlin_BorussiaDortmund,6,1. FC Union Berlin,Borussia Dortmund,draw,0.2261,0.1891,0.2261,0.5848,1.4868,2026-10-20T10:33:23+00:00
+BUNDESLIGA2627_MW06_049_HamburgerSV_VfBStuttgart,6,Hamburger SV,VfB Stuttgart,home_win,0.2457,0.2457,0.2553,0.499,1.4036,2026-10-20T10:33:23+00:00
+BUNDESLIGA2627_MW06_048_SVWerderBremen_SCPaderborn07,6,SV Werder Bremen,SC Paderborn 07,draw,0.2516,0.5586,0.2516,0.1899,1.3799,2026-10-20T10:33:23+00:00
+BUNDESLIGA2627_MW06_050_BorussiaMönchengladbach_TSGHoffenheim,6,Borussia Mönchengladbach,TSG Hoffenheim,away_win,0.3352,0.3771,0.2876,0.3352,1.093,2026-10-20T10:33:23+00:00
+BUNDESLIGA2627_MW06_047_FCSchalke04_1.FSVMainz05,6,FC Schalke 04,1. FSV Mainz 05,away_win,0.4057,0.3291,0.2652,0.4057,0.9021,2026-10-20T10:33:23+00:00
+BUNDESLIGA2627_MW06_046_SVElversberg_FCAugsburg,6,SV Elversberg,FC Augsburg,home_win,0.4411,0.4411,0.2604,0.2985,0.8185,2026-10-20T10:33:23+00:00
+BUNDESLIGA2627_MW06_052_EintrachtFrankfurt_1.FCKöln,6,Eintracht Frankfurt,1. FC Köln,home_win,0.5112,0.5112,0.2337,0.2551,0.671,2026-10-20T10:33:23+00:00
+BUNDESLIGA2627_MW06_053_Bayer04Leverkusen_Sport-ClubFreiburg,6,Bayer 04 Leverkusen,Sport-Club Freiburg,home_win,0.5727,0.5727,0.2401,0.1872,0.5574,2026-10-20T10:33:23+00:00
+BUNDESLIGA2627_MW06_054_FCBayernMünchen_RBLeipzig,6,FC Bayern München,RB Leipzig,home_win,0.7156,0.7156,0.1718,0.1125,0.3346,2026-10-20T10:33:23+00:00
