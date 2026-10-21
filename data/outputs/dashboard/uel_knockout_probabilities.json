@@ -1,6 +1,6 @@
 {
   "league": "uel",
-  "generated_at": "2026-10-19T21:03:50+00:00",
+  "generated_at": "2026-10-21T01:09:37+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 36,
@@ -22,7 +22,7 @@
       "prob_reach_semi_final": 0.3216,
       "prob_reach_final": 0.1966,
       "prob_win_competition": 0.111,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -39,7 +39,7 @@
       "prob_reach_semi_final": 0.2472,
       "prob_reach_final": 0.1362,
       "prob_win_competition": 0.0692,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -56,7 +56,7 @@
       "prob_reach_semi_final": 0.2122,
       "prob_reach_final": 0.1066,
       "prob_win_competition": 0.0566,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -73,7 +73,7 @@
       "prob_reach_semi_final": 0.1702,
       "prob_reach_final": 0.0924,
       "prob_win_competition": 0.0512,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -90,7 +90,7 @@
       "prob_reach_semi_final": 0.205,
       "prob_reach_final": 0.0966,
       "prob_win_competition": 0.0502,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -107,7 +107,7 @@
       "prob_reach_semi_final": 0.2108,
       "prob_reach_final": 0.1068,
       "prob_win_competition": 0.05,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -124,7 +124,7 @@
       "prob_reach_semi_final": 0.1866,
       "prob_reach_final": 0.0912,
       "prob_win_competition": 0.0494,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -141,7 +141,7 @@
       "prob_reach_semi_final": 0.1816,
       "prob_reach_final": 0.1036,
       "prob_win_competition": 0.0492,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -158,7 +158,7 @@
       "prob_reach_semi_final": 0.1922,
       "prob_reach_final": 0.0918,
       "prob_win_competition": 0.0466,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -175,7 +175,7 @@
       "prob_reach_semi_final": 0.1612,
       "prob_reach_final": 0.0754,
       "prob_win_competition": 0.0418,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -192,7 +192,7 @@
       "prob_reach_semi_final": 0.1648,
       "prob_reach_final": 0.0756,
       "prob_win_competition": 0.0416,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -209,7 +209,7 @@
       "prob_reach_semi_final": 0.1326,
       "prob_reach_final": 0.0686,
       "prob_win_competition": 0.0368,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -226,7 +226,7 @@
       "prob_reach_semi_final": 0.1644,
       "prob_reach_final": 0.0716,
       "prob_win_competition": 0.0338,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -243,7 +243,7 @@
       "prob_reach_semi_final": 0.1338,
       "prob_reach_final": 0.0668,
       "prob_win_competition": 0.0332,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -260,7 +260,7 @@
       "prob_reach_semi_final": 0.1318,
       "prob_reach_final": 0.0664,
       "prob_win_competition": 0.0316,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -277,7 +277,7 @@
       "prob_reach_semi_final": 0.112,
       "prob_reach_final": 0.0556,
       "prob_win_competition": 0.0284,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -294,7 +294,7 @@
       "prob_reach_semi_final": 0.1294,
       "prob_reach_final": 0.0636,
       "prob_win_competition": 0.0266,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -311,7 +311,7 @@
       "prob_reach_semi_final": 0.0842,
       "prob_reach_final": 0.0472,
       "prob_win_competition": 0.0256,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -328,7 +328,7 @@
       "prob_reach_semi_final": 0.1138,
       "prob_reach_final": 0.055,
       "prob_win_competition": 0.0252,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -345,7 +345,7 @@
       "prob_reach_semi_final": 0.121,
       "prob_reach_final": 0.0592,
       "prob_win_competition": 0.0246,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -362,7 +362,7 @@
       "prob_reach_semi_final": 0.0964,
       "prob_reach_final": 0.0432,
       "prob_win_competition": 0.0192,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -379,7 +379,7 @@
       "prob_reach_semi_final": 0.0538,
       "prob_reach_final": 0.029,
       "prob_win_competition": 0.0126,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -396,7 +396,7 @@
       "prob_reach_semi_final": 0.0662,
       "prob_reach_final": 0.0288,
       "prob_win_competition": 0.0118,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -413,7 +413,7 @@
       "prob_reach_semi_final": 0.0446,
       "prob_reach_final": 0.0214,
       "prob_win_competition": 0.0094,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -430,7 +430,7 @@
       "prob_reach_semi_final": 0.0474,
       "prob_reach_final": 0.0208,
       "prob_win_competition": 0.0078,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -447,7 +447,7 @@
       "prob_reach_semi_final": 0.0346,
       "prob_reach_final": 0.015,
       "prob_win_competition": 0.0076,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -464,7 +464,7 @@
       "prob_reach_semi_final": 0.0372,
       "prob_reach_final": 0.0158,
       "prob_win_competition": 0.0076,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -481,7 +481,7 @@
       "prob_reach_semi_final": 0.0402,
       "prob_reach_final": 0.0172,
       "prob_win_competition": 0.0072,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -498,7 +498,7 @@
       "prob_reach_semi_final": 0.0376,
       "prob_reach_final": 0.014,
       "prob_win_competition": 0.0072,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -515,7 +515,7 @@
       "prob_reach_semi_final": 0.0308,
       "prob_reach_final": 0.011,
       "prob_win_competition": 0.0054,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -532,7 +532,7 @@
       "prob_reach_semi_final": 0.0306,
       "prob_reach_final": 0.0136,
       "prob_win_competition": 0.0054,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -549,7 +549,7 @@
       "prob_reach_semi_final": 0.031,
       "prob_reach_final": 0.0154,
       "prob_win_competition": 0.0052,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -566,7 +566,7 @@
       "prob_reach_semi_final": 0.027,
       "prob_reach_final": 0.0108,
       "prob_win_competition": 0.0044,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -583,7 +583,7 @@
       "prob_reach_semi_final": 0.0224,
       "prob_reach_final": 0.0084,
       "prob_win_competition": 0.0026,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -600,7 +600,7 @@
       "prob_reach_semi_final": 0.0166,
       "prob_reach_final": 0.0064,
       "prob_win_competition": 0.0024,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -617,7 +617,7 @@
       "prob_reach_semi_final": 0.0072,
       "prob_reach_final": 0.0024,
       "prob_win_competition": 0.0016,
-      "generated_at": "2026-10-19T21:02:52+00:00",
+      "generated_at": "2026-10-21T01:08:49+00:00",
       "model_version": "0.1.0-phase1"
     }
   ]
