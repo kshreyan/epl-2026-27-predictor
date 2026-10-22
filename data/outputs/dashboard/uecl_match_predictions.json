@@ -1,6 +1,6 @@
 {
   "league": "uecl",
-  "generated_at": "2026-10-22T00:50:47+00:00",
+  "generated_at": "2026-10-22T10:45:21+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 108,
@@ -108,9 +108,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_056_Panathinaikos_BoracBanjaLuka",
@@ -215,9 +215,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_057_FCLugano_CrvenaZvezda",
@@ -322,9 +322,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_058_KuPSKuopio_Trabzonspor",
@@ -429,9 +429,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_059_UniversitateaCraiova_Getafe",
@@ -536,9 +536,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_060_RigaFC_FCKairat",
@@ -643,9 +643,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_061_HajdukSplit_Ajax",
@@ -750,9 +750,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_062_CSKASofia_ASMonaco",
@@ -857,9 +857,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_063_Mjallby_InterClubd'Escaldes",
@@ -964,9 +964,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_064_KFEgnatia_FCMidtjylland",
@@ -1071,9 +1071,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_065_Atalanta_Pafos",
@@ -1178,9 +1178,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_066_SCFreiburg_Jablonec",
@@ -1285,9 +1285,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_067_FCCopenhagen_SCBraga",
@@ -1392,9 +1392,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_068_Brighton_KaunoZalgiris",
@@ -1499,9 +1499,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_069_FCTwente_FCThun",
@@ -1606,9 +1606,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_070_Sint-Truidense_FCIberia1999",
@@ -1713,9 +1713,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_071_SKBrann_LincolnRedImps",
@@ -1820,9 +1820,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW01_072_Hearts_FCNordsjaelland",
@@ -1927,9 +1927,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_073_FCKairat_Panathinaikos",
@@ -2031,12 +2031,12 @@
       "data_quality_score": 0.2,
       "market_home_odds": 4.6,
       "market_draw_odds": 3.7,
-      "market_away_odds": 1.53,
+      "market_away_odds": 1.54,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_074_CrvenaZvezda_FCCopenhagen",
@@ -2136,14 +2136,14 @@
       "confidence": 0.4346,
       "upset_risk": 0.5654,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.97,
-      "market_draw_odds": 3.4,
-      "market_away_odds": 2.95,
+      "market_home_odds": 2.15,
+      "market_draw_odds": 3.3,
+      "market_away_odds": 2.65,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_075_Pafos_RigaFC",
@@ -2243,14 +2243,14 @@
       "confidence": 0.4637,
       "upset_risk": 0.5363,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.5,
-      "market_draw_odds": 3.8,
-      "market_away_odds": 4.7,
+      "market_home_odds": 1.47,
+      "market_draw_odds": 3.9,
+      "market_away_odds": 4.9,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_076_Getafe_FCLugano",
@@ -2350,14 +2350,14 @@
       "confidence": 0.4258,
       "upset_risk": 0.5742,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.69,
-      "market_draw_odds": 3.35,
-      "market_away_odds": 4.35,
+      "market_home_odds": 1.88,
+      "market_draw_odds": 3.25,
+      "market_away_odds": 3.88,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_077_Trabzonspor_Hearts",
@@ -2457,14 +2457,14 @@
       "confidence": 0.5012,
       "upset_risk": 0.4988,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.3,
-      "market_draw_odds": 5.5,
-      "market_away_odds": 9.5,
+      "market_home_odds": 1.25,
+      "market_draw_odds": 6.0,
+      "market_away_odds": 11.0,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_078_Jablonec_Brighton",
@@ -2564,14 +2564,14 @@
       "confidence": 0.4224,
       "upset_risk": 0.5776,
       "data_quality_score": 0.2,
-      "market_home_odds": 9.5,
-      "market_draw_odds": 5.75,
-      "market_away_odds": 1.27,
+      "market_home_odds": 15.0,
+      "market_draw_odds": 7.0,
+      "market_away_odds": 1.17,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_079_FCNordsjaelland_CSKASofia",
@@ -2672,13 +2672,13 @@
       "upset_risk": 0.5263,
       "data_quality_score": 0.2,
       "market_home_odds": 1.4,
-      "market_draw_odds": 5.0,
+      "market_draw_odds": 4.8,
       "market_away_odds": 6.5,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_080_InterClubd'Escaldes_UniversitateaCraiova",
@@ -2779,13 +2779,13 @@
       "upset_risk": 0.5454,
       "data_quality_score": 0.2,
       "market_home_odds": 5.0,
-      "market_draw_odds": 3.8,
-      "market_away_odds": 1.48,
+      "market_draw_odds": 3.7,
+      "market_away_odds": 1.5,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_081_KaunoZalgiris_SKBrann",
@@ -2885,14 +2885,14 @@
       "confidence": 0.4234,
       "upset_risk": 0.5766,
       "data_quality_score": 0.2,
-      "market_home_odds": 4.0,
-      "market_draw_odds": 3.6,
-      "market_away_odds": 1.69,
+      "market_home_odds": 4.05,
+      "market_draw_odds": 3.95,
+      "market_away_odds": 1.67,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_082_FCIberia1999_Mjallby",
@@ -2992,14 +2992,14 @@
       "confidence": 0.424,
       "upset_risk": 0.576,
       "data_quality_score": 0.2,
-      "market_home_odds": 3.1,
+      "market_home_odds": 3.0,
       "market_draw_odds": 3.5,
-      "market_away_odds": 2.25,
+      "market_away_odds": 2.3,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_083_SCBraga_Gent",
@@ -3099,14 +3099,14 @@
       "confidence": 0.4357,
       "upset_risk": 0.5643,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.83,
+      "market_home_odds": 1.9,
       "market_draw_odds": 3.4,
-      "market_away_odds": 4.3,
+      "market_away_odds": 3.95,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_084_Ajax_Atalanta",
@@ -3206,14 +3206,14 @@
       "confidence": 0.4289,
       "upset_risk": 0.5711,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.95,
-      "market_draw_odds": 3.5,
+      "market_home_odds": 1.98,
+      "market_draw_odds": 3.4,
       "market_away_odds": 2.95,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_085_ASMonaco_SCFreiburg",
@@ -3313,14 +3313,14 @@
       "confidence": 0.4611,
       "upset_risk": 0.5389,
       "data_quality_score": 0.2,
-      "market_home_odds": 2.18,
-      "market_draw_odds": 3.55,
-      "market_away_odds": 3.0,
+      "market_home_odds": 2.2,
+      "market_draw_odds": 3.45,
+      "market_away_odds": 3.05,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_086_FCMidtjylland_Sint-Truidense",
@@ -3420,14 +3420,14 @@
       "confidence": 0.4437,
       "upset_risk": 0.5563,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.51,
-      "market_draw_odds": 4.0,
-      "market_away_odds": 4.4,
+      "market_home_odds": 1.6,
+      "market_draw_odds": 3.7,
+      "market_away_odds": 4.1,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_087_LincolnRedImps_FCTwente",
@@ -3527,14 +3527,14 @@
       "confidence": 0.4083,
       "upset_risk": 0.5917,
       "data_quality_score": 0.2,
-      "market_home_odds": 11.0,
+      "market_home_odds": 12.0,
       "market_draw_odds": 6.5,
-      "market_away_odds": 1.22,
+      "market_away_odds": 1.2,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_088_BoracBanjaLuka_KuPSKuopio",
@@ -3634,14 +3634,14 @@
       "confidence": 0.4773,
       "upset_risk": 0.5227,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.84,
+      "market_home_odds": 1.8,
       "market_draw_odds": 3.6,
-      "market_away_odds": 4.2,
+      "market_away_odds": 4.25,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_089_AGFAarhus_KFEgnatia",
@@ -3741,14 +3741,14 @@
       "confidence": 0.4493,
       "upset_risk": 0.5507,
       "data_quality_score": 0.2,
-      "market_home_odds": 1.41,
+      "market_home_odds": 1.4,
       "market_draw_odds": 4.1,
-      "market_away_odds": 5.3,
+      "market_away_odds": 5.6,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW02_090_FCThun_HajdukSplit",
@@ -3848,14 +3848,14 @@
       "confidence": 0.4361,
       "upset_risk": 0.5639,
       "data_quality_score": 0.2,
-      "market_home_odds": 2.8,
-      "market_draw_odds": 3.6,
-      "market_away_odds": 2.38,
+      "market_home_odds": 2.85,
+      "market_draw_odds": 3.5,
+      "market_away_odds": 2.3,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_091_Atalanta_FCKairat",
@@ -3960,9 +3960,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_092_FCMidtjylland_Ajax",
@@ -4067,9 +4067,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_093_CrvenaZvezda_InterClubd'Escaldes",
@@ -4174,9 +4174,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_094_KuPSKuopio_Gent",
@@ -4281,9 +4281,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_095_LincolnRedImps_HajdukSplit",
@@ -4388,9 +4388,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_096_Trabzonspor_SCFreiburg",
@@ -4495,9 +4495,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_097_AGFAarhus_SCBraga",
@@ -4602,9 +4602,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_098_FCThun_Hearts",
@@ -4709,9 +4709,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_099_Mjallby_BoracBanjaLuka",
@@ -4816,9 +4816,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_100_ASMonaco_FCNordsjaelland",
@@ -4923,9 +4923,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_101_FCCopenhagen_FCIberia1999",
@@ -5030,9 +5030,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_102_Panathinaikos_CSKASofia",
@@ -5137,9 +5137,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_103_FCLugano_KaunoZalgiris",
@@ -5244,9 +5244,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_104_Getafe_Brighton",
@@ -5351,9 +5351,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_105_FCTwente_Pafos",
@@ -5458,9 +5458,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_106_Sint-Truidense_SKBrann",
@@ -5565,9 +5565,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_107_UniversitateaCraiova_KFEgnatia",
@@ -5672,9 +5672,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW03_108_RigaFC_Jablonec",
@@ -5779,9 +5779,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_001_FCKairat_Mjallby",
@@ -5886,9 +5886,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_002_Ajax_FCThun",
@@ -5993,9 +5993,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_003_Pafos_FCMidtjylland",
@@ -6100,9 +6100,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_004_Brighton_UniversitateaCraiova",
@@ -6207,9 +6207,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_005_SKBrann_AGFAarhus",
@@ -6314,9 +6314,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_006_Hearts_ASMonaco",
@@ -6421,9 +6421,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_007_Jablonec_FCLugano",
@@ -6528,9 +6528,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_008_KaunoZalgiris_RigaFC",
@@ -6635,9 +6635,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_009_FCIberia1999_Getafe",
@@ -6742,9 +6742,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_010_KFEgnatia_LincolnRedImps",
@@ -6849,9 +6849,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_011_SCBraga_KuPSKuopio",
@@ -6956,9 +6956,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_012_SCFreiburg_FCTwente",
@@ -7063,9 +7063,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_013_Gent_CrvenaZvezda",
@@ -7170,9 +7170,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_014_BoracBanjaLuka_Atalanta",
@@ -7277,9 +7277,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_015_HajdukSplit_Sint-Truidense",
@@ -7384,9 +7384,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_016_FCNordsjaelland_Panathinaikos",
@@ -7491,9 +7491,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_017_InterClubd'Escaldes_FCCopenhagen",
@@ -7598,9 +7598,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW04_018_CSKASofia_Trabzonspor",
@@ -7705,9 +7705,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_019_FCKairat_UniversitateaCraiova",
@@ -7812,9 +7812,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_020_SCFreiburg_Panathinaikos",
@@ -7919,9 +7919,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_021_FCCopenhagen_FCLugano",
@@ -8026,9 +8026,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_022_Getafe_InterClubd'Escaldes",
@@ -8133,9 +8133,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_023_KuPSKuopio_CSKASofia",
@@ -8240,9 +8240,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_024_LincolnRedImps_FCMidtjylland",
@@ -8347,9 +8347,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_025_SKBrann_SCBraga",
@@ -8454,9 +8454,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_026_Trabzonspor_Jablonec",
@@ -8561,9 +8561,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_027_RigaFC_Atalanta",
@@ -8668,9 +8668,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_028_FCIberia1999_CrvenaZvezda",
@@ -8775,9 +8775,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_029_Brighton_ASMonaco",
@@ -8882,9 +8882,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_030_Sint-Truidense_Ajax",
@@ -8989,9 +8989,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_031_Hearts_BoracBanjaLuka",
@@ -9096,9 +9096,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_032_HajdukSplit_FCNordsjaelland",
@@ -9203,9 +9203,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_033_AGFAarhus_FCTwente",
@@ -9310,9 +9310,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_034_FCThun_Gent",
@@ -9417,9 +9417,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_035_Mjallby_Pafos",
@@ -9524,9 +9524,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW05_036_KFEgnatia_KaunoZalgiris",
@@ -9631,9 +9631,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_037_Atalanta_Mjallby",
@@ -9738,9 +9738,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_038_SCBraga_KFEgnatia",
@@ -9845,9 +9845,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_039_Ajax_Getafe",
@@ -9952,9 +9952,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_040_ASMonaco_LincolnRedImps",
@@ -10059,9 +10059,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_041_FCMidtjylland_HajdukSplit",
@@ -10166,9 +10166,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_042_CrvenaZvezda_Trabzonspor",
@@ -10273,9 +10273,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_043_Gent_SKBrann",
@@ -10380,9 +10380,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_044_Panathinaikos_Brighton",
@@ -10487,9 +10487,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_045_Pafos_Hearts",
@@ -10594,9 +10594,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_046_FCLugano_Sint-Truidense",
@@ -10701,9 +10701,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_047_FCTwente_FCKairat",
@@ -10808,9 +10808,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_048_BoracBanjaLuka_RigaFC",
@@ -10915,9 +10915,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_049_UniversitateaCraiova_FCCopenhagen",
@@ -11022,9 +11022,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_050_Jablonec_FCIberia1999",
@@ -11129,9 +11129,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_051_FCNordsjaelland_KuPSKuopio",
@@ -11236,9 +11236,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_052_InterClubd'Escaldes_AGFAarhus",
@@ -11343,9 +11343,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_053_CSKASofia_FCThun",
@@ -11450,9 +11450,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     },
     {
       "match_id": "UECL2627_MW06_054_KaunoZalgiris_SCFreiburg",
@@ -11557,9 +11557,9 @@
       "market_away_odds": null,
       "moneyline_model_source": "Elo-only, real-backtested (best of up to 4 models tested on UEFA Conference League's real 2024-25+2025-26 league-phase data -- see reports/uecl_model_selection_report.md). Flat-start (no domestic-Elo seed): this competition's own real backtest found the domestic-seeded variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers.",
       "derived_markets_model_source": "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically -- its own moneyline log loss was clearly worse than Elo's -- see reports/uecl_model_selection_report.md -- treat as less validated than the moneyline prediction above).",
-      "run_id": "predict_uecl_20261022T004936Z_cc0ba37c",
+      "run_id": "predict_uecl_20261022T104425Z_cfe1a07b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-22T00:49:36+00:00"
+      "generated_at": "2026-10-22T10:44:25+00:00"
     }
   ]
 }
