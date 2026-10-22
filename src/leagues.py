@@ -25,7 +25,6 @@ class LeagueConfig:
     league_id: str
     display_name: str
     country: str
-    fixturedownload_slug: str
     odds_api_sport_key: str
     timezone: str
     n_teams: int
@@ -39,10 +38,20 @@ class LeagueConfig:
     # Conference League's 36-team league phase, 8 or 6 games each) --
     # table/races/season-simulation dashboard building does not apply
     # and must not run for these; see single_table_league_ids() below.
-    # Match predictions and (where the real backtest supports it) +2
-    # Margin Survival still apply -- only the table-shaped outputs are
-    # skipped.
+    # "points": a real points-scored (not goals) team sport (NFL, NBA) --
+    # also excluded from single_table_league_ids() (goal-difference-
+    # tiebreak table logic doesn't apply); gets its own real-rules
+    # season/playoff-picture simulator instead
+    # (simulate_team_sport_season.py). Match predictions and +2 Margin
+    # Survival apply to every format the same way.
     format: str = "single_table"
+    # None for a competition fixturedownload.com genuinely has no real
+    # coverage for (e.g. American team sports) -- collect_fixtures.py/
+    # collect_continental_cup_historical.py are hard-coupled to this
+    # source and simply do not run for such a league; a bespoke
+    # collector (e.g. collect_espn_schedule.py) supplies its real
+    # fixtures instead. Never a placeholder/guessed slug.
+    fixturedownload_slug: str | None = None
     # None for a competition football-data.co.uk genuinely has no real
     # coverage for (e.g. international competitions) -- collect_
     # historical_results.py and the spread/totals historical-odds

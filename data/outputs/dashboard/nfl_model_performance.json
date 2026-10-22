@@ -1,0 +1,33 @@
+{
+  "league": "nfl",
+  "generated_at": "2026-10-22T00:34:01+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 3,
+  "reliability_table": [],
+  "calibration_summary": null,
+  "ensemble_per_season_comparison": [],
+  "data": [
+    {
+      "model": "Point-margin model (Elo + margin regression)",
+      "n_matches": 1329,
+      "log_loss": 0.701077052,
+      "brier_score": 0.4762577453,
+      "ranked_probability_score": 0.2363286527
+    },
+    {
+      "model": "Flat/home-field-only baseline",
+      "n_matches": 1329,
+      "log_loss": 0.7256386877,
+      "brier_score": 0.5002695989,
+      "ranked_probability_score": 0.2486295323
+    },
+    {
+      "model": "Elo-only win probability",
+      "n_matches": 1329,
+      "log_loss": 0.8962637061,
+      "brier_score": 0.5287848543,
+      "ranked_probability_score": 0.2396340926
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
-from src.leagues import all_league_ids, league_path, load_league_config, single_table_league_ids  # noqa: E402
+from src.leagues import all_league_ids, league_path, load_league_config  # noqa: E402
 from src.utils.team_names import CANONICAL_TEAMS  # noqa: E402
 
 # "swiss"-format leagues (UCL/UEL/UECL's 36-team partial-schedule league
@@ -14,8 +14,12 @@ from src.utils.team_names import CANONICAL_TEAMS  # noqa: E402
 # differently-shaped integrity checks here rather than
 # test_fixture_integrity.py's round-robin assertions, which don't apply
 # to a real partial schedule (each team plays only 8 or 6 of the other
-# 35 teams, not all of them).
-CONTINENTAL_CUP_LEAGUE_IDS = [lid for lid in all_league_ids() if lid not in single_table_league_ids()]
+# 35 teams, not all of them). Scoped specifically to format=="swiss",
+# not just "non-single_table" -- NFL/NBA (format=="points") are also
+# excluded from single_table_league_ids() but have a real, different
+# season shape (no expected_fixture_count override, no 18-match-per-
+# round structure) and get their own integrity test instead.
+CONTINENTAL_CUP_LEAGUE_IDS = [lid for lid in all_league_ids() if load_league_config(lid).format == "swiss"]
 
 
 def _fixtures_path_for(league_id: str) -> Path:

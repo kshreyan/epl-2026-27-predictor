@@ -266,3 +266,11 @@ ligue_1_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-21T10:41:32
 ucl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-21T10:41:33+00:00,1178,True,2026-10-21T10:41:33+00:00,779 real bookmaker/market rows; rest are honest unavailable sentinels.
 uel_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-21T10:41:33+00:00,1730,True,2026-10-21T10:41:33+00:00,1352 real bookmaker/market rows; rest are honest unavailable sentinels.
 uecl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-21T10:41:33+00:00,1243,True,2026-10-21T10:41:33+00:00,973 real bookmaker/market rows; rest are honest unavailable sentinels.
+nfl_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-22T00:02:59+00:00,272,True,2026-10-22T00:03:05+00:00,NFL 2026-27 real schedule from ESPN's site API (season=2026).
+nba_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-22T00:03:05+00:00,1200,True,2026-10-22T00:03:13+00:00,NBA 2026-27 real schedule from ESPN's site API (season=2027).
+nfl_historical_matches,2026-08-18.phase1,site.api.espn.com,2026-10-22T00:05:56+00:00,1359,True,2026-10-22T00:06:30+00:00,"NFL, 5 real prior regular seasons from ESPN's site API."
+nba_historical_matches,2026-08-18.phase1,site.api.espn.com,2026-10-22T00:06:34+00:00,6153,True,2026-10-22T00:07:14+00:00,"NBA, 5 real prior regular seasons from ESPN's site API."
+nfl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-22T00:14:26+00:00,2040,True,2026-10-22T00:14:27+00:00,1280 real bookmaker/market rows; rest are honest unavailable sentinels.
+nba_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-22T00:14:27+00:00,4476,True,2026-10-22T00:14:27+00:00,962 real bookmaker/market rows; rest are honest unavailable sentinels.
+nfl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-22T00:17:18+00:00,2788,True,2026-10-22T00:17:18+00:00,2056 real bookmaker/market rows; rest are honest unavailable sentinels.
+nba_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-22T00:17:18+00:00,5182,True,2026-10-22T00:17:19+00:00,1711 real bookmaker/market rows; rest are honest unavailable sentinels.

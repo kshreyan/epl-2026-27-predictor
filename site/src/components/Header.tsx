@@ -2,11 +2,13 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { formatGeneratedAt } from '../lib/format'
 import { useDashboardJson } from '../lib/useDashboardData'
 
-interface LeagueEntry { league_id: string; display_name: string; country: string; format: 'single_table' | 'swiss' }
+interface LeagueEntry { league_id: string; display_name: string; country: string; format: 'single_table' | 'swiss' | 'points' }
 interface LeaguesManifest { leagues: LeagueEntry[] }
 
-// "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) has no
-// combined table/races -- see LeagueConfig.format in src/leagues.py.
+// "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) and
+// "points" (NFL/NBA, a real conference/division-seeded sport) both
+// have no goal-difference table/races -- see LeagueConfig.format in
+// src/leagues.py.
 const SINGLE_TABLE_NAV = [
   { to: 'table', label: 'Table' },
   { to: 'races', label: 'Races' },
@@ -20,6 +22,15 @@ const SWISS_NAV = [
   { to: 'performance', label: 'Model' },
   { to: 'plus2', label: '+2 Board' },
 ]
+const POINTS_NAV = [
+  { to: 'fixtures', label: 'Fixtures' },
+  { to: 'standings', label: 'Standings' },
+  { to: 'performance', label: 'Model' },
+  { to: 'plus2', label: '+2 Board' },
+]
+const NAV_BY_FORMAT: Record<LeagueEntry['format'], typeof SINGLE_TABLE_NAV> = {
+  single_table: SINGLE_TABLE_NAV, swiss: SWISS_NAV, points: POINTS_NAV,
+}
 const SINGLE_TABLE_ONLY_TABS = new Set(['table', 'races'])
 
 function LeagueSwitcher({ leagueId, leagues }: { leagueId: string; leagues: LeagueEntry[] }) {
@@ -27,8 +38,9 @@ function LeagueSwitcher({ leagueId, leagues }: { leagueId: string; leagues: Leag
   // Preserve the current tab (table/races/fixtures/performance) when
   // switching competitions, e.g. /epl/fixtures -> /la_liga/fixtures --
   // except a tab that doesn't exist for the target league's format
-  // (e.g. staying on "table" when switching to a "swiss"-format
-  // competition), which falls back to Fixtures instead of a dead route.
+  // (e.g. staying on "table" when switching to a "swiss"- or "points"-
+  // format competition), which falls back to Fixtures instead of a
+  // dead route.
   const currentTab = location.pathname.split('/')[2] || 'table'
   if (leagues.length <= 1) return null
   return (
@@ -36,7 +48,8 @@ function LeagueSwitcher({ leagueId, leagues }: { leagueId: string; leagues: Leag
       value={leagueId}
       onChange={(e) => {
         const target = leagues.find((l) => l.league_id === e.target.value)
-        const tab = target?.format === 'swiss' && SINGLE_TABLE_ONLY_TABS.has(currentTab) ? 'fixtures' : currentTab
+        const targetIsTableFormat = target?.format === 'single_table'
+        const tab = !targetIsTableFormat && SINGLE_TABLE_ONLY_TABS.has(currentTab) ? 'fixtures' : currentTab
         window.location.hash = `#/${e.target.value}/${tab}`
       }}
       className="tnum rounded border border-[var(--color-border)] bg-[var(--color-panel)] px-2 py-1 text-[12px] text-[var(--color-text)]"
@@ -57,7 +70,7 @@ export function Header({
   const leagues = manifest?.leagues ?? []
   const current = leagues.find((l) => l.league_id === leagueId)
   const brandName = current ? current.display_name : leagueId.toUpperCase()
-  const nav = current?.format === 'swiss' ? SWISS_NAV : SINGLE_TABLE_NAV
+  const nav = NAV_BY_FORMAT[current?.format ?? 'single_table']
 
   return (
     <header className="sticky top-0 z-10 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur">

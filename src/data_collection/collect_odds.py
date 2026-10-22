@@ -179,11 +179,23 @@ def fetch_real_odds(fetch_ts: str, league_id: str, odds_api_url: str, fixtures_p
                 }
 
                 if market_type == "h2h":
+                    # draw_odds is intentionally NOT required: a sport with
+                    # no real draw outcome (NFL/NBA moneylines only ever
+                    # list the two teams, never a "Draw" option -- real,
+                    # not a gap in the data) must still get its real
+                    # home/away odds recorded; current_draw_odds just stays
+                    # blank (the default in _BLANK_ODDS_FIELDS) rather than
+                    # the whole row being silently dropped, which is what
+                    # happened here before this was caught (confirmed
+                    # directly: 0/272 real NFL h2h rows despite the API
+                    # actually returning real prices for every one).
                     by_name = {o["name"]: o["price"] for o in outcomes}
                     home_odds, away_odds, draw_odds = by_name.get(event["home_team"]), by_name.get(event["away_team"]), by_name.get("Draw")
-                    if home_odds is None or away_odds is None or draw_odds is None:
+                    if home_odds is None or away_odds is None:
                         continue
-                    row["current_home_odds"], row["current_draw_odds"], row["current_away_odds"] = home_odds, draw_odds, away_odds
+                    row["current_home_odds"], row["current_away_odds"] = home_odds, away_odds
+                    if draw_odds is not None:
+                        row["current_draw_odds"] = draw_odds
 
                 elif market_type == "spreads":
                     by_name = {o["name"]: o for o in outcomes}

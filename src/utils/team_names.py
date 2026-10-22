@@ -513,6 +513,49 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "Vitoria SC": ["Vitória SC", "Vitória Guimarães"],
         "HSK Zrinjski": ["Zrinjski", "HŠK Zrinjski Mostar"],
     },
+    # Canonical spelling is ESPN's own team displayName (site.api.espn.com),
+    # the single real source for both current fixtures and historical
+    # results -- unlike soccer, there's no cross-source spelling drift
+    # to reconcile between the fixtures feed and the historical feed,
+    # since both come from the same place. Cross-referenced directly
+    # against The Odds API's live event list (americanfootball_nfl):
+    # all 32 real teams matched ESPN's spelling exactly, no aliases
+    # needed.
+    "nfl": {
+        "Arizona Cardinals": [], "Atlanta Falcons": [], "Baltimore Ravens": [],
+        "Buffalo Bills": [], "Carolina Panthers": [], "Chicago Bears": [],
+        "Cincinnati Bengals": [], "Cleveland Browns": [], "Dallas Cowboys": [],
+        "Denver Broncos": [], "Detroit Lions": [], "Green Bay Packers": [],
+        "Houston Texans": [], "Indianapolis Colts": [], "Jacksonville Jaguars": [],
+        "Kansas City Chiefs": [], "Las Vegas Raiders": [], "Los Angeles Chargers": [],
+        "Los Angeles Rams": [], "Miami Dolphins": [], "Minnesota Vikings": [],
+        "New England Patriots": [], "New Orleans Saints": [], "New York Giants": [],
+        "New York Jets": [], "Philadelphia Eagles": [], "Pittsburgh Steelers": [],
+        "San Francisco 49ers": [], "Seattle Seahawks": [], "Tampa Bay Buccaneers": [],
+        "Tennessee Titans": [],
+        # Real historical name: ESPN's own schedule data uses the short
+        # "Washington" (not "Washington Commanders") for this team in
+        # several real past seasons -- confirmed directly across 2021-2026.
+        "Washington Commanders": ["Washington"],
+    },
+    # Canonical spelling is ESPN's own team displayName, same discipline
+    # as "nfl" above. Cross-referenced directly against The Odds API's
+    # live event list (basketball_nba): one real spelling difference
+    # found (ESPN's short "LA Clippers" vs the Odds API's full "Los
+    # Angeles Clippers"); every other team matched exactly.
+    "nba": {
+        "Atlanta Hawks": [], "Boston Celtics": [], "Brooklyn Nets": [],
+        "Charlotte Hornets": [], "Chicago Bulls": [], "Cleveland Cavaliers": [],
+        "Dallas Mavericks": [], "Denver Nuggets": [], "Detroit Pistons": [],
+        "Golden State Warriors": [], "Houston Rockets": [], "Indiana Pacers": [],
+        "LA Clippers": ["Los Angeles Clippers"], "Los Angeles Lakers": [],
+        "Memphis Grizzlies": [], "Miami Heat": [], "Milwaukee Bucks": [],
+        "Minnesota Timberwolves": [], "New Orleans Pelicans": [], "New York Knicks": [],
+        "Oklahoma City Thunder": [], "Orlando Magic": [], "Philadelphia 76ers": [],
+        "Phoenix Suns": [], "Portland Trail Blazers": [], "Sacramento Kings": [],
+        "San Antonio Spurs": [], "Toronto Raptors": [], "Utah Jazz": [],
+        "Washington Wizards": [],
+    },
 }
 
 _ALIAS_TO_CANONICAL: dict[str, dict[str, str]] = {}

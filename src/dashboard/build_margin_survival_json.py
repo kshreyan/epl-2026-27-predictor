@@ -32,6 +32,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.dashboard.build_dashboard_json import _to_records, _write_json  # noqa: E402
 from src.leagues import load_league_config  # noqa: E402
 from src.models.compute_margin_survival import MARGIN_SURVIVAL_LEAGUE_IDS  # noqa: E402
+from src.models.point_margin_model import should_use_point_margin_model  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
 
 OUT_DIR = REPO_ROOT / "data" / "outputs"
@@ -46,8 +47,25 @@ TOP20_SIZE = 20
 # is written per-league so this distinction is never glossed over.
 CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel", "uecl"]
 
+# NFL/NBA (see compute_margin_survival_team_sport.py's module
+# docstring): a sport-correct equivalent, not soccer's "+2 goals"
+# ported literally -- real NFL "key numbers" research informed the
+# threshold choice (ultimately anchored to a real ~80th-percentile
+# "three-score game," not the spread-setting key number itself -- see
+# that module's docstring), NBA's threshold comes from its own real
+# backtested margin distribution (no real key numbers exist for NBA).
+TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba"]
+
 
 def _confidence(row: pd.Series) -> str:
+    # NFL/NBA margin survival (compute_margin_survival_team_sport.py)
+    # does not compute a real historical-tail factor (team_history_
+    # n_matches/opponent_history_n_matches are always null for these
+    # two leagues -- a real, disclosed limitation, not a bug) --
+    # "low" is the honest answer when that real signal doesn't exist,
+    # not a crash on None.
+    if pd.isna(row["team_history_n_matches"]) or pd.isna(row["opponent_history_n_matches"]):
+        return "low"
     n_min = min(row["team_history_n_matches"], row["opponent_history_n_matches"])
     if n_min >= 20:
         return "high"
@@ -79,6 +97,23 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
             f"beats Dixon-Coles here -- see reports/{league_id}_model_selection_report.md). Treat these "
             "verdicts with real caution. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute "
             "blowout risk first, then breaks ties with real market price where one currently exists."
+        )
+    elif league_id in TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS:
+        threshold = {"nfl": 17, "nba": 20}[league_id]
+        same_model_note = (
+            "the same point-margin model used for this league's own moneyline prediction"
+            if should_use_point_margin_model(league_id) else
+            "NOT the same model as this league's moneyline prediction, which is Elo-only -- the real backtest "
+            f"found Elo beats the point-margin model here (see reports/{league_id}_model_selection_report.md). "
+            "Treat these verdicts with real caution"
+        )
+        engine_note = (
+            f"Every team in every game: P_cover/P_push/P_fail read off a real fitted Normal margin "
+            f"distribution (not a discrete scoreline grid -- there isn't one for this model), at this "
+            f"league's own real blowout threshold (lose by more than {threshold} points) -- see "
+            f"reports/{league_id}_model_selection_report.md for how that threshold was derived. Uses "
+            f"{same_model_note}. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout "
+            "risk first, then breaks ties with real market price where one currently exists."
         )
     else:
         engine_note = (
@@ -151,7 +186,7 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
 def main() -> None:
     all_leagues = {
         lid: build_league_margin_survival_json(lid)
-        for lid in MARGIN_SURVIVAL_LEAGUE_IDS + CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS
+        for lid in MARGIN_SURVIVAL_LEAGUE_IDS + CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS + TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS
     }
     build_top20(all_leagues)
 

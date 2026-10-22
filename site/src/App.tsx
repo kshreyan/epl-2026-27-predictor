@@ -16,6 +16,7 @@ const ModelPerformancePage = lazy(() =>
 )
 const Plus2BoardPage = lazy(() => import('./pages/Plus2BoardPage').then((m) => ({ default: m.Plus2BoardPage })))
 const KnockoutPage = lazy(() => import('./pages/KnockoutPage').then((m) => ({ default: m.KnockoutPage })))
+const StandingsPage = lazy(() => import('./pages/StandingsPage').then((m) => ({ default: m.StandingsPage })))
 
 // Every page reads its own leagueId from the route param and builds its
 // dashboard-JSON filename as `${leagueId}_<name>.json` -- one component
@@ -34,12 +35,14 @@ function LeagueRoutes() {
   const { leagueId = 'epl' } = useParams<{ leagueId: string }>()
   const { data: manifest } = useDashboardJson<{ leagues: { league_id: string; format: string }[] }>('leagues.json')
   const format = manifest?.leagues.find((l) => l.league_id === leagueId)?.format
-  // "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) has
-  // no table/races tab to land on -- an unknown sub-path for it goes to
-  // Fixtures instead of a route that would 404 its data. Defaults to
-  // "table" while the manifest is still loading (every league, single_table
-  // or swiss, matched it correctly once -- a brief flash at worst).
-  const defaultTab = format === 'swiss' ? 'fixtures' : 'table'
+  // "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) and
+  // "points" (NFL/NBA, a real conference/division-seeded sport, not a
+  // goal-difference table) both have no table/races tab to land on --
+  // an unknown sub-path for either goes to Fixtures instead of a route
+  // that would 404 its data. Defaults to "table" while the manifest is
+  // still loading (every league, whatever its format, matched it
+  // correctly once -- a brief flash at worst).
+  const defaultTab = format === 'swiss' || format === 'points' ? 'fixtures' : 'table'
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderData leagueId={leagueId} />
@@ -56,6 +59,9 @@ function LeagueRoutes() {
             {/* "swiss"-format leagues only (UCL/UEL/UECL) -- see
                 simulate_continental_cup_knockout.py. */}
             <Route path="knockout" element={<KnockoutPage leagueId={leagueId} />} />
+            {/* "points"-format leagues only (NFL/NBA) -- see
+                simulate_team_sport_season.py. */}
+            <Route path="standings" element={<StandingsPage leagueId={leagueId} />} />
             <Route path="*" element={<Navigate to={`/${leagueId}/${defaultTab}`} replace />} />
           </Routes>
         </Suspense>

@@ -23,6 +23,21 @@
 # reports/{league}_model_selection_report.md) +2 Margin Survival cover
 # the 144/144/108 real league-phase matches only.
 #
+# NFL and NBA (added 2026-10-21): `format: points` -- real American
+# team sports, scored in points not goals. No fixturedownload_slug/
+# football_data_code (neither source covers these) -- fixtures AND
+# historical results both come from ESPN's public site API
+# (site.api.espn.com), confirmed directly accessible, via
+# collect_espn_schedule.py/collect_espn_historical.py, not
+# collect_fixtures.py. The Dixon-Coles/Poisson scoreline grid
+# (scoreline_models.py) does not fit these sports' scoring scale
+# (10-40+ points for NFL, 90-130+ for NBA, vs soccer's 0-8 goals) --
+# predictions use src/models/point_margin_model.py (Elo + a real
+# fitted margin-of-victory regression) instead. Real divisions/
+# conferences are hardcoded in simulate_team_sport_season.py (stable
+# public facts, unchanged in years -- same discipline as hardcoding a
+# real club roster in team_names.py), not derived from an API.
+#
 # MLS and UEFA Nations League were previously supported here (bespoke
 # collectors/Elo-only models, `format: groups`/`single_table` with a
 # playoff_zone_size override) and were removed, along with their site
@@ -114,3 +129,21 @@ leagues:
     match_id_prefix: UECL
     format: swiss
     expected_fixture_count: 108
+
+  - league_id: nfl
+    display_name: NFL
+    country: United States
+    odds_api_sport_key: americanfootball_nfl
+    timezone: America/New_York
+    n_teams: 32
+    match_id_prefix: NFL
+    format: points
+
+  - league_id: nba
+    display_name: NBA
+    country: United States
+    odds_api_sport_key: basketball_nba
+    timezone: America/New_York
+    n_teams: 30
+    match_id_prefix: NBA
+    format: points

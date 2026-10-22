@@ -34,6 +34,28 @@ export interface KnockoutProbabilityPayload extends Envelope<KnockoutProbability
   n_trials?: number | null
 }
 
+// NFL has prob_seed_1..7 + prob_win_division; NBA has prob_seed_1..8,
+// no prob_win_division (no real division-winner concept drives NBA
+// seeding) -- a flexible index, same convention PositionDistributionRow
+// already uses for a similarly per-league-shaped row, read with the
+// getSeedProbability helper in lib/format.ts rather than a precise
+// (and awkward-in-TS) type.
+export type PlayoffPictureRow = {
+  team: string
+  conference: string
+  division: string
+  current_win_pct: number | null
+  current_point_diff: number
+  prob_make_playoffs: number
+  prob_direct_seed: number
+} & Record<string, string | number | null>
+
+export interface PlayoffPicturePayload extends Envelope<PlayoffPictureRow> {
+  status?: string
+  note?: string
+  n_trials?: number | null
+}
+
 export interface ExpectedTableRow {
   team: string
   expected_position: number

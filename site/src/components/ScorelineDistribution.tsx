@@ -14,11 +14,19 @@ export function ScorelineDistribution({ scorelines }: { scorelines: ScorelineEnt
           tickLine={false}
         />
         <YAxis
-          tickFormatter={(v: number) => `${Math.round(v * 100)}%`}
+          // NFL/NBA's real top-10 scorelines are each ~0.1-0.2% (points
+          // scoring is far more spread out than soccer's), so rounding to
+          // a whole percent (fine for soccer's larger per-scoreline
+          // shares) would show "0%" on every tick -- show real precision
+          // below 1%, whole percent at or above it.
+          tickFormatter={(v: number) => {
+            const pct = v * 100
+            return `${pct < 1 ? pct.toFixed(2) : Math.round(pct)}%`
+          }}
           tick={{ fill: 'var(--color-text-faint)', fontSize: 10 }}
           axisLine={{ stroke: 'var(--color-border)' }}
           tickLine={false}
-          width={36}
+          width={42}
         />
         <Bar dataKey="probability" fill="var(--color-accent)" radius={0} barSize={16} />
       </BarChart>

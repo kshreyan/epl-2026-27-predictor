@@ -1,4 +1,4 @@
-import type { PositionDistributionRow } from './types'
+import type { PlayoffPictureRow, PositionDistributionRow } from './types'
 
 export function pct(x: number | null | undefined, digits = 1): string {
   if (x === null || x === undefined || Number.isNaN(x)) return '—'
@@ -12,6 +12,11 @@ export function num(x: number | null | undefined, digits = 1): string {
 
 export function getFinishProbability(row: PositionDistributionRow, position: number): number {
   const v = row[`finish_${position}_probability`]
+  return typeof v === 'number' ? v : 0
+}
+
+export function getSeedProbability(row: PlayoffPictureRow, seed: number): number {
+  const v = row[`prob_seed_${seed}`]
   return typeof v === 'number' ? v : 0
 }
 

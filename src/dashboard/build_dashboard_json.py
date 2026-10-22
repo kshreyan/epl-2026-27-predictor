@@ -285,19 +285,52 @@ def build_knockout_json(league_id: str) -> None:
     ))
 
 
+def build_playoff_picture_json(league_id: str) -> None:
+    """Only for a "points"-format league (NFL/NBA) with a real season/
+    playoff-picture simulation (see simulate_team_sport_season.py's
+    module docstring for the real scope boundary and limitations every
+    consumer of this file must surface) -- no-ops with an explicit
+    status if that simulation hasn't been run yet."""
+    out_name = league_path(league_id, "playoff_picture.json")
+    csv_path = OUT_DIR / league_path(league_id, "2026_27_playoff_picture.csv")
+    if not csv_path.exists():
+        _write_json(out_name, _envelope(
+            league_id, [], status="not_yet_available",
+            note="No season/playoff-picture simulation exists yet -- run simulate_team_sport_season.py first.",
+        ))
+        return
+    df = pd.read_csv(csv_path).sort_values(["conference", "prob_make_playoffs"], ascending=[True, False])
+    n_trials = int(df["n_trials"].iloc[0]) if "n_trials" in df.columns and not df.empty else None
+    _write_json(out_name, _envelope(
+        league_id, _to_records(df), status="real", n_trials=n_trials,
+        note=(
+            "Monte Carlo simulation of the rest of the real regular season -- who makes the playoffs and as "
+            "what seed, NOT the playoff bracket itself (no simulated champion). Does not propagate rating "
+            "uncertainty between trials -- read as a rough directional guide, not a precise forecast. See "
+            "simulate_team_sport_season.py's module docstring for the full, real list of simplifications."
+        ),
+    ))
+
+
 def build_match_level_outputs(league_id: str) -> None:
-    """For a "swiss"-format league (see LeagueConfig.format): everything
+    """For any non-single_table league (see LeagueConfig.format: "swiss"
+    for the UEFA club competitions, "points" for NFL/NBA): everything
     build_all_for_league() builds EXCEPT the five table-shaped outputs
     (expected_table/position_distribution/title_race/top4_race/
-    relegation_race, none of which a real partial Swiss-phase schedule
-    produces) and match_explanations (a separate, not-yet-built
-    per-match narrative feature for these leagues -- its build function
-    has no missing-file guard, unlike the four below)."""
+    relegation_race, none of which applies to a partial Swiss-phase
+    schedule or a conference/division-seeded sport the same way) and
+    match_explanations (a separate, not-yet-built per-match narrative
+    feature for these leagues -- its build function has no missing-file
+    guard, unlike the four below)."""
+    cfg = load_league_config(league_id)
     build_match_predictions_json(league_id)
     build_model_market_disagreements_json(league_id)
     build_weekly_changes_json(league_id)
     build_model_performance_json(league_id)
-    build_knockout_json(league_id)
+    if cfg.format == "swiss":
+        build_knockout_json(league_id)
+    elif cfg.format == "points":
+        build_playoff_picture_json(league_id)
 
 
 def main(league_id: str | None = None) -> None:
