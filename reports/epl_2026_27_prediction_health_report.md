@@ -1,6 +1,6 @@
 # Prediction Health Report
 
-Generated: 2026-10-22T00:41:31.087718+00:00
+Generated: 2026-10-22T00:52:35.082021+00:00
 
 **3 failures, 2 warnings, 21 informational** (out of 26 findings).
 
@@ -13,8 +13,8 @@ Generated: 2026-10-22T00:41:31.087718+00:00
 | INFO | 3. Calibration / accuracy drift | epl | 70 completed matches scored: accuracy=51.4%, multiclass Brier=0.596 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | WARN | 3. Calibration / accuracy drift | epl | 1 high-confidence (>=70%) miss(es): EPL2627_MW05_049_NottinghamForest_CoventryCity (predicted home_win @82%, actual away_win) |
 | INFO | 1. Internal consistency | la_liga | all 380 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| FAIL | 2. Freshness & provenance | la_liga | 11 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): LALIGA2627_MW06_057_LevanteUD_AthleticClub, LALIGA2627_MW08_076_MálagaCF_RCDEspanyoldeBarcelona, LALIGA2627_MW08_078_RayoVallecano_AthleticClub, LALIGA2627_MW08_071_DeportivoAlavés_AtléticodeMadrid, LALIGA2627_MW08_074_FCBarcelona_GetafeCF ... |
-| INFO | 3. Calibration / accuracy drift | la_liga | 79 completed matches scored: accuracy=54.4%, multiclass Brier=0.540 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| FAIL | 2. Freshness & provenance | la_liga | 10 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): LALIGA2627_MW08_076_MálagaCF_RCDEspanyoldeBarcelona, LALIGA2627_MW08_078_RayoVallecano_AthleticClub, LALIGA2627_MW08_071_DeportivoAlavés_AtléticodeMadrid, LALIGA2627_MW08_074_FCBarcelona_GetafeCF, LALIGA2627_MW08_079_RealMadrid_VillarrealCF ... |
+| INFO | 3. Calibration / accuracy drift | la_liga | 80 completed matches scored: accuracy=53.8%, multiclass Brier=0.543 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | ligue_1 | all 306 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | ligue_1 | 63 completed matches scored: accuracy=57.1%, multiclass Brier=0.582 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | nba | all 1200 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
@@ -25,8 +25,8 @@ Generated: 2026-10-22T00:41:31.087718+00:00
 | INFO | 1. Internal consistency | serie_a | all 380 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | serie_a | 70 completed matches scored: accuracy=58.6%, multiclass Brier=0.541 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | ucl | all 144 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| FAIL | 2. Freshness & provenance | ucl | 18 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): UCL2627_MW03_109_Fenerbahce_SlaviaPraha, UCL2627_MW03_110_SabahFK_BorussiaDortmund, UCL2627_MW03_111_ParisSaint-Germain_Barcelona, UCL2627_MW03_112_Liverpool_Villarreal, UCL2627_MW03_113_ManchesterCity_AEKAthens ... |
-| INFO | 3. Calibration / accuracy drift | ucl | 36 completed matches scored: accuracy=75.0%, multiclass Brier=0.481 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| FAIL | 2. Freshness & provenance | ucl | 9 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): UCL2627_MW03_118_Lille_Galatasaray, UCL2627_MW03_119_Como_ManchesterUnited, UCL2627_MW03_120_BayernMunich_Arsenal, UCL2627_MW03_121_RealMadrid_RBLeipzig, UCL2627_MW03_122_InterMilan_ShakhtarDonetsk ... |
+| INFO | 3. Calibration / accuracy drift | ucl | 45 completed matches scored: accuracy=71.1%, multiclass Brier=0.495 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | uecl | all 108 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | uecl | 18 completed matches scored: accuracy=66.7%, multiclass Brier=0.537 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | uel | all 144 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
