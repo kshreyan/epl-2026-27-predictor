@@ -113,8 +113,8 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
             f"distribution (not a discrete scoreline grid -- there isn't one for this model), at this "
             f"league's own real blowout threshold (lose by more than {threshold} points) -- see "
             f"reports/{league_id}_model_selection_report.md for how that threshold was derived. Uses "
-            f"{same_model_note}. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout "
-            "risk first, then breaks ties with real market price where one currently exists."
+            f"{same_model_note}. Each row's verdict (PICK +{threshold} / LEAN +{threshold} / PASS) gates on "
+            "absolute blowout risk first, then breaks ties with real market price where one currently exists."
         )
     else:
         engine_note = (
@@ -135,7 +135,16 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
     return df
 
 
-_VERDICT_RANK = {"PICK +2": 0, "LEAN +2": 1, "PASS": 2}
+def _verdict_rank(verdict: str) -> int:
+    """Ranks by verdict TIER, not the exact string -- "PICK +2" (soccer),
+    "PICK +14" (NFL) and "PICK +20" (NBA) are all the same tier here,
+    just at each league's own real threshold (see
+    compute_margin_survival.py's verdict())."""
+    if verdict.startswith("PICK +"):
+        return 0
+    if verdict.startswith("LEAN +"):
+        return 1
+    return 2
 
 
 def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
@@ -157,7 +166,7 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
 
     combined = pd.concat(frames, ignore_index=True)
     combined = combined[combined["verdict"] != "PASS"].copy()
-    combined["verdict_rank"] = combined["verdict"].map(_VERDICT_RANK)
+    combined["verdict_rank"] = combined["verdict"].map(_verdict_rank)
     # Within a verdict tier, real price value breaks ties (best value first);
     # rows with no real market (value_gap null) sort after ones that do,
     # then by lowest p_fail -- never let "no price to compare" outrank a
@@ -174,9 +183,11 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
         "generated_at": now_utc_iso(), "model_version": MODEL_VERSION, "season": "2026-27",
         "view": "best_verdict",
         "note": (
-            "Ranked by verdict first (Pick +2 before Lean +2 -- Pass is excluded here), then by real price "
-            "value where a real market exists, then by lowest blowout risk. The verdict pill on each row "
-            "already synthesizes risk and price -- this is not a separate signal, and still not advice."
+            "Ranked by verdict first (Pick before Lean -- Pass is excluded here), then by real price "
+            "value where a real market exists, then by lowest blowout risk. Each league's own verdict is at "
+            "its own real threshold (+2 goals for soccer/UEFA, +14 points for NFL, +20 points for NBA -- see "
+            "each row's own `threshold` field). The verdict pill on each row already synthesizes risk and "
+            "price -- this is not a separate signal, and still not advice."
         ),
         "record_count": len(combined),
         "data": _to_records(combined),

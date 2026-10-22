@@ -67,8 +67,10 @@ ELIGIBLE_DRAWS_AND = {(0, 1), (1, 0)}
 LOOKBACK_MATCHES = 38  # ~1 real season per team, time-ordered, no leakage (strictly before as_of_date)
 MIN_HISTORY_MATCHES = 10  # below this, historical-tail factor is withheld rather than computed on a thin sample
 
+THRESHOLD = 2  # goals -- this engine's real line for every domestic league it covers
+
 RISK_LABELS = [
-    (0.04, "ELITE +2 SURVIVAL"),
+    (0.04, "ELITE SURVIVAL"),
     (0.06, "VERY STRONG"),
     (0.09, "STRONG"),
     (0.14, "MODERATE"),
@@ -85,7 +87,7 @@ OUTPUT_COLUMNS = [
     "team_history_n_matches", "team_history_loss3plus_rate",
     "opponent_history_n_matches", "opponent_history_win3plus_rate",
     "real_line", "real_odds", "real_bookmaker", "cover_prob_at_real_line",
-    "implied_prob_at_real_line", "value_gap", "fair_plus2_decimal_odds", "verdict",
+    "implied_prob_at_real_line", "value_gap", "fair_plus2_decimal_odds", "threshold", "verdict",
     "why_text", "run_id", "model_version", "generated_at",
 ]
 
@@ -97,24 +99,29 @@ def risk_label(p_fail: float) -> str:
     return RISK_LABELS[-1][1]
 
 
-def verdict(label: str, value_gap: float | None) -> str:
+def verdict(label: str, value_gap: float | None, threshold: int) -> str:
     """Combines absolute blowout risk with real market price value where
     one exists -- risk gates the call first (a High Blowout Risk team is
     never a Pick just because its price looks generous), price only
     breaks ties within an acceptable risk tier. Same logic whether or
     not real market data exists for this fixture: with no real line,
-    value_gap is None and the call falls back to risk tier alone."""
-    safe_tier = label in ("ELITE +2 SURVIVAL", "VERY STRONG", "STRONG")
+    value_gap is None and the call falls back to risk tier alone.
+    `threshold` is this call's own real blowout line (2 goals for every
+    caller in this module; 14/20 points for NFL/NBA via
+    compute_margin_survival_team_sport.py, which imports this function
+    directly rather than duplicating it) -- the verdict string always
+    names the real number it's about, never a borrowed one."""
+    safe_tier = label in ("ELITE SURVIVAL", "VERY STRONG", "STRONG")
     moderate_tier = label == "MODERATE"
     if label == "HIGH BLOWOUT RISK":
         return "PASS"
     if value_gap is not None and value_gap <= -0.05:
         return "PASS"
     if safe_tier and (value_gap is None or value_gap >= -0.02):
-        return "PICK +2"
+        return f"PICK +{threshold}"
     if moderate_tier and (value_gap is None or value_gap >= 0):
-        return "LEAN +2"
-    return "PASS" if (value_gap is not None and value_gap < 0) else "LEAN +2"
+        return f"LEAN +{threshold}"
+    return "PASS" if (value_gap is not None and value_gap < 0) else f"LEAN +{threshold}"
 
 
 def margin_buckets(matrix: np.ndarray, perspective: str) -> dict:
@@ -353,7 +360,8 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
                 "cover_prob_at_real_line": cover_prob_at_real_line,
                 "implied_prob_at_real_line": implied_prob_at_real_line, "value_gap": value_gap,
                 "fair_plus2_decimal_odds": fair_plus2_decimal_odds,
-                "verdict": verdict(row_risk_label, value_gap),
+                "threshold": THRESHOLD,
+                "verdict": verdict(row_risk_label, value_gap, THRESHOLD),
                 "why_text": why_text(team, opponent, is_home, lam, mu, p_fail, team_tail_rate, team_tail_n,
                                       opp_blowout_rate, opp_blowout_n, rotation_note),
                 "run_id": meta.run_id, "model_version": MODEL_VERSION, "generated_at": generated_at,

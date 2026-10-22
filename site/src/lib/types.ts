@@ -250,7 +250,13 @@ export interface MarginSurvivalRow {
   implied_prob_at_real_line: number | null
   value_gap: number | null
   fair_plus2_decimal_odds: number | null
-  verdict: 'PICK +2' | 'LEAN +2' | 'PASS'
+  // This league's own real blowout line (2 goals for soccer/UEFA, 14
+  // points for NFL, 20 points for NBA -- see
+  // compute_margin_survival.py's THRESHOLD / compute_margin_survival_
+  // team_sport.py's MARGIN_THRESHOLD). `verdict` is formatted from this
+  // same real number, never a borrowed "+2".
+  threshold: number
+  verdict: `PICK +${number}` | `LEAN +${number}` | 'PASS'
   why_text: string
   data_confidence?: 'high' | 'moderate' | 'low'
   league_display_name?: string

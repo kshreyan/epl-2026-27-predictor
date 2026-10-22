@@ -56,7 +56,7 @@ export function Plus2TeamCard({ row }: { row: MarginSurvivalRow }) {
     <div className="space-y-2 border border-[var(--color-border)] p-2.5">
       <div className="flex items-center justify-between gap-2">
         <span className="text-[12px] font-medium">
-          {row.team} <span className="text-[var(--color-text-faint)]">+2.0</span>
+          {row.team} <span className="text-[var(--color-text-faint)]">+{row.threshold}.0</span>
         </span>
         <VerdictPill verdict={row.verdict} />
       </div>
@@ -71,7 +71,7 @@ export function Plus2TeamCard({ row }: { row: MarginSurvivalRow }) {
           <div className="font-medium">{pct(row.p_push)}</div>
         </div>
         <div>
-          <div className="text-[var(--color-text-faint)]">3+ Loss</div>
+          <div className="text-[var(--color-text-faint)]">{row.threshold + 1}+ Loss</div>
           <div className="font-medium" style={{ color: row.p_fail > 0.09 ? '#e05252' : undefined }}>{pct(row.p_fail)}</div>
         </div>
       </div>
@@ -79,7 +79,7 @@ export function Plus2TeamCard({ row }: { row: MarginSurvivalRow }) {
         <RiskLabelBadge label={row.risk_label} />
       </div>
       <details className="text-[11px]">
-        <summary className="cursor-pointer text-[var(--color-text-faint)]">Why +2?</summary>
+        <summary className="cursor-pointer text-[var(--color-text-faint)]">Why +{row.threshold}?</summary>
         <div className="mt-2 space-y-2">
           <p className="text-[var(--color-text-faint)]">{row.why_text}</p>
           <ValueBox row={row} />
@@ -92,7 +92,7 @@ export function Plus2TeamCard({ row }: { row: MarginSurvivalRow }) {
           </div>
           <p className="text-[10px] text-[var(--color-text-faint)]">
             Lineup and in-game tactical-resilience factors are not modeled -- no real per-match data source for
-            either exists in this project. Theoretical fair +2 price from this model:{' '}
+            either exists in this project. Theoretical fair +{row.threshold} price from this model:{' '}
             <span className="tnum">{row.fair_plus2_decimal_odds ?? 'n/a'}</span> decimal. The verdict above combines
             absolute blowout risk with real market price where one exists -- it is a synthesis of the numbers on
             this card, not separate advice.
@@ -105,9 +105,10 @@ export function Plus2TeamCard({ row }: { row: MarginSurvivalRow }) {
 
 export function Plus2Section({ home, away }: { home?: MarginSurvivalRow; away?: MarginSurvivalRow }) {
   if (!home && !away) return null
+  const threshold = (home ?? away)!.threshold
   return (
     <div className="space-y-2 md:col-span-2">
-      <h3 className="text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">+2 Margin Survival</h3>
+      <h3 className="text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">+{threshold} Margin Survival</h3>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {home && <Plus2TeamCard row={home} />}
         {away && <Plus2TeamCard row={away} />}

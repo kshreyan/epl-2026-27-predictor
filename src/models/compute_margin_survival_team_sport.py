@@ -81,11 +81,11 @@ MARGIN_THRESHOLD = {"nfl": 14, "nba": 20}
 # so each sport gets its own real bands rather than forcing one scale.
 RISK_LABELS = {
     "nfl": [
-        (0.12, "ELITE +2 SURVIVAL"), (0.13, "VERY STRONG"), (0.18, "STRONG"), (0.19, "MODERATE"),
+        (0.12, "ELITE SURVIVAL"), (0.13, "VERY STRONG"), (0.18, "STRONG"), (0.19, "MODERATE"),
         (float("inf"), "HIGH BLOWOUT RISK"),
     ],
     "nba": [
-        (0.08, "ELITE +2 SURVIVAL"), (0.09, "VERY STRONG"), (0.11, "STRONG"), (0.14, "MODERATE"),
+        (0.08, "ELITE SURVIVAL"), (0.09, "VERY STRONG"), (0.11, "STRONG"), (0.14, "MODERATE"),
         (float("inf"), "HIGH BLOWOUT RISK"),
     ],
 }
@@ -100,7 +100,7 @@ OUTPUT_COLUMNS = [
     "team_history_n_matches", "team_history_loss3plus_rate",
     "opponent_history_n_matches", "opponent_history_win3plus_rate",
     "real_line", "real_odds", "real_bookmaker", "cover_prob_at_real_line",
-    "implied_prob_at_real_line", "value_gap", "fair_plus2_decimal_odds", "verdict",
+    "implied_prob_at_real_line", "value_gap", "fair_plus2_decimal_odds", "threshold", "verdict",
     "why_text", "run_id", "model_version", "generated_at",
 ]
 
@@ -268,7 +268,8 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
                 "cover_prob_at_real_line": cover_prob_at_real_line,
                 "implied_prob_at_real_line": implied_prob_at_real_line, "value_gap": value_gap,
                 "fair_plus2_decimal_odds": fair_plus2_decimal_odds,
-                "verdict": verdict(row_risk_label, value_gap),
+                "threshold": threshold,
+                "verdict": verdict(row_risk_label, value_gap, threshold),
                 "why_text": why_text(cfg.display_name, league_id, team, opponent, team_mean, sigma, p_fail, threshold, using_winning_model),
                 "run_id": meta.run_id, "model_version": MODEL_VERSION, "generated_at": generated_at,
             })

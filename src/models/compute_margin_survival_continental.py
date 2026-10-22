@@ -51,6 +51,7 @@ from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.compute_margin_survival import (  # noqa: E402
     ELIGIBLE_DRAWS_AND,
     OUTPUT_COLUMNS,
+    THRESHOLD,
     margin_buckets,
     percentile_score,
     risk_label,
@@ -219,7 +220,8 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
                 "cover_prob_at_real_line": cover_prob_at_real_line,
                 "implied_prob_at_real_line": implied_prob_at_real_line, "value_gap": value_gap,
                 "fair_plus2_decimal_odds": fair_plus2_decimal_odds,
-                "verdict": verdict(row_risk_label, value_gap),
+                "threshold": THRESHOLD,
+                "verdict": verdict(row_risk_label, value_gap, THRESHOLD),
                 "why_text": why_text_continental(cfg.display_name, league_id, team, opponent, lam, mu, p_fail,
                                                   team_tail_rate, team_tail_n, opp_blowout_rate, opp_blowout_n),
                 "run_id": meta.run_id, "model_version": MODEL_VERSION, "generated_at": generated_at,

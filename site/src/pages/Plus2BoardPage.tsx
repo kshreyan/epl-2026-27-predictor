@@ -20,10 +20,12 @@ export function Plus2BoardPage() {
       <div className="space-y-1">
         <h1 className="text-[15px] font-semibold">Top 20 +2 Margin Survival Opportunities</h1>
         <p className="max-w-3xl text-[12px] text-[var(--color-text-faint)]">
-          Every team, every match, every league, every gameweek gets a real P(lose by 3+) read and a verdict
-          (<strong>Pick +2</strong> / <strong>Lean +2</strong> / Pass) that combines that risk with real market
-          price where one currently exists. Ranked by verdict first, then by real price value, then by lowest
-          blowout risk -- Pass is excluded from this board entirely.
+          Every team, every match, every league, every gameweek gets a real blowout-risk read and a verdict
+          (<strong>Pick</strong> / <strong>Lean</strong> / Pass) that combines that risk with real market price
+          where one currently exists -- each at that league's own real threshold (+2 goals for soccer/UEFA, +14
+          points for NFL, +20 points for NBA; see each row's own verdict and the expanded "why" text). Ranked by
+          verdict first, then by real price value, then by lowest blowout risk -- Pass is excluded from this
+          board entirely.
         </p>
         {data.note && <p className="max-w-3xl text-[11px] italic text-[var(--color-text-faint)]">{data.note}</p>}
       </div>
@@ -45,7 +47,7 @@ export function Plus2BoardPage() {
                 <th className="px-2 py-2">H/A</th>
                 <th className="px-2 py-2">Kickoff</th>
                 <th className="px-2 py-2">Predicted</th>
-                <th className="px-2 py-2">3+ Loss</th>
+                <th className="px-2 py-2">Blowout Loss</th>
                 <th className="px-2 py-2">Real line</th>
                 <th className="px-2 py-2">Value gap</th>
               </tr>
