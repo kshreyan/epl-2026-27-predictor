@@ -9,17 +9,14 @@ real scoring scale, backed by real research, not guessed:**
   -- 3 and 7 occur as the real final margin far more often than any
   other number (confirmed via direct research: ~14-15% of games by
   exactly 3, ~9% by exactly 7) because scoring is built from 3-point
-  field goals and 7-point touchdowns. **But 7 is not the right line
-  for THIS product specifically** -- checked directly against the real
-  backtested margin distribution (see backtest_team_sport.py's report):
-  the real median NFL margin is already 8 points, so "> 7" is roughly a
-  coin flip, not a rare tail event the way soccer's "+2 goals" is. The
-  threshold here is **margin of defeat > 17** -- a real "three-score
-  game," the common real NFL commentary term for a genuine blowout --
-  which lands at the real ~75-80th percentile of historical margins,
-  matching the same percentile-based reasoning used for NBA below (not
-  an arbitrary pick, and not the spread-setting key number, which
-  answers a different real question).
+  field goals and 7-point touchdowns. The real median NFL margin is
+  already 8 points, so a line anywhere near a single score is close to
+  a coin flip, not a rare tail event the way soccer's "+2 goals" is.
+  The threshold here is **margin of defeat > 14** -- two full
+  touchdowns (2 x 7), still built from the sport's own real scoring
+  unit -- which lands at the real **~70th percentile** of real
+  historical absolute margins (checked directly: p70 = 14.0 across
+  1,452 real historical games; ~29.5% of real games exceed it).
 - **NBA**: real research confirms the NBA has "no key numbers of real
   consequence" (near-continuous scoring). No borrowed number -- the
   threshold (**> 20 points**) comes from this league's own real
@@ -69,22 +66,22 @@ from src.models.point_margin_model import fit_point_margin_model, predict_margin
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
 # Real, sport-correct blowout threshold (points) -- see module docstring.
-MARGIN_THRESHOLD = {"nfl": 17, "nba": 20}
+MARGIN_THRESHOLD = {"nfl": 14, "nba": 20}
 
-# New real bands, same 5-tier shape as soccer's engine, calibrated to
-# each sport's OWN real p_fail scale -- NOT a first guess: computed
-# directly from the real p_fail distribution across every real
-# historical game in each sport's own backtest sample (2,718 real NFL
-# team-games, 12,306 real NBA team-games), using each sport's own
-# MARGIN_THRESHOLD above, roughly at the real 20th/40th/60th/80th
-# percentiles (NFL: 0.075/0.093/0.125/0.141; NBA: 0.060/0.082/0.100/
-# 0.118 at those same percentiles) -- close enough in scale after the
-# real threshold recalibration above that one shared set of round-
-# number bands fits both honestly, same discipline as soccer's own
-# bands being reasonable round numbers rather than a precise formula.
+# Real bands, same 5-tier shape as soccer's engine, calibrated to each
+# sport's OWN real p_fail scale -- NOT a first guess: computed directly
+# from the real p_fail distribution across every real historical game
+# in each sport's own backtest sample (2,904 real NFL team-games at the
+# 14-point threshold, 12,312 real NBA team-games at the 20-point
+# threshold), at the real 20th/40th/60th/80th percentiles (NFL:
+# 0.120/0.128/0.178/0.189; NBA: 0.069/0.082/0.100/0.118). NFL's own
+# bands are now meaningfully different in scale from NBA's (a 14-point
+# line sits much closer to the middle of NFL's margin distribution than
+# a 20-point line does for NBA's) -- no longer a shared set fits both,
+# so each sport gets its own real bands rather than forcing one scale.
 RISK_LABELS = {
     "nfl": [
-        (0.08, "ELITE +2 SURVIVAL"), (0.09, "VERY STRONG"), (0.11, "STRONG"), (0.14, "MODERATE"),
+        (0.12, "ELITE +2 SURVIVAL"), (0.13, "VERY STRONG"), (0.18, "STRONG"), (0.19, "MODERATE"),
         (float("inf"), "HIGH BLOWOUT RISK"),
     ],
     "nba": [
@@ -130,7 +127,7 @@ def margin_buckets(mean: float, sigma: float, threshold: int) -> dict:
     discrete win/draw/lose_1/lose_2/lose_3/lose_4plus scoreline
     buckets (there's no discrete scoreline grid here, only a
     continuous margin). `threshold` is this sport's real blowout line
-    (7 for NFL, 20 for NBA)."""
+    (14 for NFL, 20 for NBA)."""
     win = float(1 - norm.cdf(0, loc=mean, scale=sigma))
     # "push" = losing by approximately exactly `threshold` (within the
     # real discrete-score rounding band, same ±0.5 convention

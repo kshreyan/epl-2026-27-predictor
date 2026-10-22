@@ -1,6 +1,6 @@
 # Prediction Health Report
 
-Generated: 2026-10-22T00:52:35.082021+00:00
+Generated: 2026-10-22T02:08:35.964248+00:00
 
 **3 failures, 2 warnings, 21 informational** (out of 26 findings).
 
@@ -18,7 +18,7 @@ Generated: 2026-10-22T00:52:35.082021+00:00
 | INFO | 1. Internal consistency | ligue_1 | all 306 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | ligue_1 | 63 completed matches scored: accuracy=57.1%, multiclass Brier=0.582 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | nba | all 1200 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| FAIL | 2. Freshness & provenance | nba | 8 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): NBA2627_W01_401909834_OrlandoMagic_AtlantaHawks, NBA2627_W01_401909835_WashingtonWizards_MilwaukeeBucks, NBA2627_W01_401909836_BrooklynNets_CharlotteHornets, NBA2627_W01_401909837_TorontoRaptors_ChicagoBulls, NBA2627_W01_401909091_MiamiHeat_MinnesotaTimberwolves ... |
+| FAIL | 2. Freshness & provenance | nba | 10 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): NBA2627_W01_401909834_OrlandoMagic_AtlantaHawks, NBA2627_W01_401909835_WashingtonWizards_MilwaukeeBucks, NBA2627_W01_401909836_BrooklynNets_CharlotteHornets, NBA2627_W01_401909837_TorontoRaptors_ChicagoBulls, NBA2627_W01_401909091_MiamiHeat_MinnesotaTimberwolves ... |
 | INFO | 3. Calibration / accuracy drift | nba | 3 completed matches scored: accuracy=66.7%, multiclass Brier=0.488 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | nfl | all 272 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | nfl | 93 completed matches scored: accuracy=50.5%, multiclass Brier=0.507 (lower is better, 0=perfect, 0.667=uniform guessing) |

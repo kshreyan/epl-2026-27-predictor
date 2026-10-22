@@ -32,6 +32,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.dashboard.build_dashboard_json import _to_records, _write_json  # noqa: E402
 from src.leagues import load_league_config  # noqa: E402
 from src.models.compute_margin_survival import MARGIN_SURVIVAL_LEAGUE_IDS  # noqa: E402
+from src.models.compute_margin_survival_team_sport import MARGIN_THRESHOLD  # noqa: E402
 from src.models.point_margin_model import should_use_point_margin_model  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
 
@@ -99,7 +100,7 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
             "blowout risk first, then breaks ties with real market price where one currently exists."
         )
     elif league_id in TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS:
-        threshold = {"nfl": 17, "nba": 20}[league_id]
+        threshold = MARGIN_THRESHOLD[league_id]
         same_model_note = (
             "the same point-margin model used for this league's own moneyline prediction"
             if should_use_point_margin_model(league_id) else
