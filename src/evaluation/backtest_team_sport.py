@@ -1,9 +1,9 @@
-"""Rolling-origin backtest for NFL/NBA, real historical data (see
-collect_espn_historical.py -- 5 real prior seasons each, 1,359 real
-NFL games / 6,153 real NBA games).
+"""Rolling-origin backtest for NFL/NBA/NHL/NCAA Football, real
+historical data (see collect_espn_historical.py -- 5 real prior
+seasons each).
 
 Walks forward through every real historical game in chronological
-order (across all 5 real seasons combined, not held out season by
+order (across all real seasons combined, not held out season by
 season -- same discipline as the domestic soccer backtest), refitting
 the point-margin model (src/models/point_margin_model.py) every
 CHUNK_SIZE real games using only real data strictly before that point,
@@ -11,7 +11,8 @@ then scores that chunk. The very first chunk has no real prior data
 and is not scored, same convention every other backtest in this
 project uses.
 
-Compares three real candidates, not one assumed winner:
+Compares three real candidates for every league, not one assumed
+winner:
 - **Point-margin model** (Elo + the real fitted margin regression --
   see point_margin_model.py).
 - **Elo-only, win-probability-via-logistic baseline** (the standard
@@ -23,15 +24,25 @@ Compares three real candidates, not one assumed winner:
   real historical home-win-rate alone, no team strength at all -- the
   floor any real model must clear.
 
+**NHL gets a real fourth candidate**: Dixon-Coles (reusing
+scoreline_models.py as-is), since real NHL scoring is low and discrete
+like soccer's, unlike NFL's/NBA's/NCAA Football's point totals -- not
+assumed to win, same empirical discipline as every other candidate
+here. The real final score (post-OT/shootout) is what gets modeled --
+a real draw is structurally impossible in it (confirmed directly: an
+NHL game's real final score is never tied), so Dixon-Coles' own
+`draw`-probability-via-diagonal naturally comes out at or near zero
+rather than needing special handling.
+
 Also reports the real historical margin-of-victory distribution
-(mean, std, percentiles) -- NBA has no real betting "key numbers"
-(confirmed via direct research, unlike NFL's real 3/7), so its +2-
-Margin-Survival-equivalent threshold must come from this real
-distribution, not an assumed number. See
-compute_margin_survival_team_sport.py.
+(mean, std, percentiles) -- most of these sports have no real betting
+"key number" the way NFL's real 3/7 are (confirmed via direct
+research), so each league's own +2-Margin-Survival-equivalent
+threshold comes from this real distribution, not an assumed number.
+See compute_margin_survival_team_sport.py.
 
 Run: python -m src.evaluation.backtest_team_sport --league nfl
-(also accepts nba)
+(also accepts nba, nhl, ncaaf)
 """
 from __future__ import annotations
 
@@ -47,10 +58,19 @@ from src.evaluation.backtest import brier_row, log_loss_row, rps  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.baselines import elo_only_probabilities  # noqa: E402
 from src.models.point_margin_model import fit_point_margin_model, outcome_probabilities  # noqa: E402
+from src.models.scoreline_models import fit_dixon_coles_model, match_lambdas, outcome_probabilities as dc_outcome_probabilities, score_matrix  # noqa: E402
 
 CHUNK_SIZE = 15
-ALLOWS_TIES = {"nfl": True, "nba": False}
+ALLOWS_TIES = {"nfl": True, "nba": False, "nhl": False, "ncaaf": False}
+# Only NHL's real scoring scale is low/discrete enough for Dixon-Coles
+# to make real sense as a candidate -- see module docstring.
+DIXON_COLES_CANDIDATE_LEAGUES = {"nhl"}
 ELO_K_FACTOR = 20.0
+# NHL's real max combined score comfortably exceeds soccer's default
+# grid (confirmed directly: real NHL games up to 11 goals for one
+# team, vs soccer's 0-8 grid) -- a wider grid for this sport only.
+NHL_MAX_GOALS_GRID = 14
+DC_HALF_LIFE_DAYS = 425.0  # same real half-life soccer's own Dixon-Coles fit uses, no sport-specific real calibration done here yet
 # Below this, fitting a 2-parameter regression (slope, intercept) is
 # numerically unstable (confirmed directly: too few, too-similar real
 # elo_diff values make np.polyfit's SVD fail to converge) and not
@@ -75,6 +95,8 @@ def main(league_id: str) -> None:
 
     df = pd.read_csv(historical_path, parse_dates=["date"])
     df = df.dropna(subset=["home_score", "away_score"]).sort_values("date").reset_index(drop=True)
+    use_dc = league_id in DIXON_COLES_CANDIDATE_LEAGUES
+    dc_teams_universe = sorted(set(df["home_team"]) | set(df["away_team"])) if use_dc else []
 
     rows = []
     n_chunks = int(np.ceil(len(df) / CHUNK_SIZE))
@@ -91,6 +113,11 @@ def main(league_id: str) -> None:
         flat_home_win_rate = float((train_pool["home_score"] > train_pool["away_score"]).mean())
         flat_draw_rate = float((train_pool["home_score"] == train_pool["away_score"]).mean()) if allows_ties else 0.0
         flat_away_win_rate = 1 - flat_home_win_rate - flat_draw_rate
+
+        dc_fit = None
+        if use_dc:
+            train_pool_goals = train_pool.rename(columns={"home_score": "home_goals", "away_score": "away_goals"})
+            dc_fit = fit_dixon_coles_model(train_pool_goals, dc_teams_universe, as_of_date, half_life_days=DC_HALF_LIFE_DAYS)
 
         for _, m in chunk.iterrows():
             home, away = m["home_team"], m["away_team"]
@@ -115,7 +142,7 @@ def main(league_id: str) -> None:
             elo_probs = {"home_win": elo_h, "draw": elo_d, "away_win": elo_a}
             flat_probs = {"home_win": flat_home_win_rate, "draw": flat_draw_rate, "away_win": flat_away_win_rate}
 
-            rows.append({
+            row = {
                 "date": m["date"].strftime("%Y-%m-%d"), "home_team": home, "away_team": away,
                 "actual_home_score": int(m["home_score"]), "actual_away_score": int(m["away_score"]),
                 "actual_margin": int(actual_margin), "actual_result": actual,
@@ -125,18 +152,42 @@ def main(league_id: str) -> None:
                 "pm_log_loss": log_loss_row(pm_probs, actual), "pm_brier": brier_row(pm_probs, actual), "pm_rps": rps(pm_probs, actual),
                 "elo_log_loss": log_loss_row(elo_probs, actual), "elo_brier": brier_row(elo_probs, actual), "elo_rps": rps(elo_probs, actual),
                 "flat_log_loss": log_loss_row(flat_probs, actual), "flat_brier": brier_row(flat_probs, actual), "flat_rps": rps(flat_probs, actual),
-            })
+            }
+
+            if use_dc and home in dc_fit.team_index and away in dc_fit.team_index:
+                lam, mu = match_lambdas(dc_fit, home, away)
+                matrix = score_matrix(lam, mu, dc_fit.rho, max_goals=NHL_MAX_GOALS_GRID)
+                dc_h, dc_d, dc_a = dc_outcome_probabilities(matrix)
+                dc_probs = {"home_win": dc_h, "draw": dc_d, "away_win": dc_a}
+                row.update({
+                    "dc_home_win": dc_h, "dc_draw": dc_d, "dc_away_win": dc_a,
+                    "dc_log_loss": log_loss_row(dc_probs, actual), "dc_brier": brier_row(dc_probs, actual), "dc_rps": rps(dc_probs, actual),
+                })
+
+            rows.append(row)
 
     match_results = pd.DataFrame(rows)
     out_match_results.parent.mkdir(parents=True, exist_ok=True)
     match_results.to_csv(out_match_results, index=False)
     print(f"Wrote {len(match_results)} real scored backtest games to {out_match_results}")
 
+    candidate_models = ["pm", "elo", "flat"] + (["dc"] if use_dc else [])
+    model_names = {
+        "pm": "Point-margin model (Elo + margin regression)", "elo": "Elo-only win probability",
+        "flat": "Flat/home-field-only baseline", "dc": "Dixon-Coles (real scoreline grid)",
+    }
     comparison_rows = []
-    for model in ["pm", "elo", "flat"]:
+    for model in candidate_models:
+        # dc's own n_matches can be slightly lower than the other
+        # candidates' (a team's very first real appearance in the
+        # backtest has no DC fit yet, same real cold-start every Elo-
+        # based candidate here also has, just surfaced as a null row
+        # instead of a neutral-rating fallback) -- real matches scored,
+        # not padded to match the other candidates' count.
+        n_scored = int(match_results[f"{model}_log_loss"].notna().sum())
         comparison_rows.append({
-            "model": {"pm": "Point-margin model (Elo + margin regression)", "elo": "Elo-only win probability", "flat": "Flat/home-field-only baseline"}[model],
-            "n_matches": len(match_results),
+            "model": model_names[model],
+            "n_matches": n_scored,
             "log_loss": match_results[f"{model}_log_loss"].mean(),
             "brier_score": match_results[f"{model}_brier"].mean(),
             "ranked_probability_score": match_results[f"{model}_rps"].mean(),
@@ -156,14 +207,21 @@ def main(league_id: str) -> None:
     out_report.parent.mkdir(parents=True, exist_ok=True)
     with open(out_report, "w") as f:
         f.write(f"# {cfg.display_name} Model Selection Report\n\n")
+        dc_note = (
+            " A fourth real candidate, Dixon-Coles (src/models/scoreline_models.py, reused as-is), is also "
+            "compared here since this sport's real scoring is low/discrete like soccer's, unlike NFL/NBA/NCAA "
+            "Football -- not assumed to win, same empirical discipline as every other candidate."
+            if use_dc else
+            " Soccer's Dixon-Coles/Poisson scoreline grid is NOT a candidate here -- it does not fit this "
+            "sport's real scoring scale (confirmed directly, same reasoning as NFL/NBA)."
+        )
         f.write(
             f"Real rolling-origin backtest on {len(match_results)} real historical games "
             f"({df['date'].min().date()} to {df['date'].max().date()}, refit every {CHUNK_SIZE} real games using "
             f"only data strictly before that point -- no future leakage). Candidates compared honestly, not "
             f"assumed: the point-margin model (src/models/point_margin_model.py: Elo + a real fitted margin-of-"
-            f"victory regression, NOT soccer's Dixon-Coles/Poisson scoreline grid, which does not fit this "
-            f"sport's scoring scale), a plain Elo-only win-probability baseline, and a flat/home-field-only "
-            f"baseline.\n\n"
+            f"victory regression), a plain Elo-only win-probability baseline, and a flat/home-field-only "
+            f"baseline.{dc_note}\n\n"
         )
         f.write("## Model comparison (lower log loss / Brier / RPS is better)\n\n")
         f.write(comparison.to_markdown(index=False))
@@ -197,6 +255,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "nhl", "ncaaf"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

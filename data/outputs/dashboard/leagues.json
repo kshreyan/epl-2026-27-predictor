@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T09:54:22+00:00",
+  "generated_at": "2026-10-24T19:43:42+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
@@ -32,8 +32,20 @@
       "format": "points"
     },
     {
+      "league_id": "ncaaf",
+      "display_name": "NCAA Football",
+      "country": "United States",
+      "format": "points"
+    },
+    {
       "league_id": "nfl",
       "display_name": "NFL",
+      "country": "United States",
+      "format": "points"
+    },
+    {
+      "league_id": "nhl",
+      "display_name": "NHL",
       "country": "United States",
       "format": "points"
     },
@@ -60,6 +72,12 @@
       "display_name": "UEFA Europa League",
       "country": "Europe",
       "format": "swiss"
+    },
+    {
+      "league_id": "ufc",
+      "display_name": "UFC",
+      "country": "United States",
+      "format": "fight_card"
     }
   ]
 }

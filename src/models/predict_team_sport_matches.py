@@ -1,24 +1,27 @@
-"""Predicts every real 2026-27 regular-season NFL/NBA game.
+"""Predicts every real 2026-27 regular-season NFL/NBA/NHL/NCAA
+Football game.
 
-**Moneyline (home/draw/away for NFL; home/away for NBA, which cannot
-end in a real tie -- see point_margin_model.py) uses whichever model
-actually won this league's own real backtest**
+**Moneyline (home/draw/away for NFL and NHL -- NHL's real final score
+can't literally tie, see point_margin_model.py, but ties are kept
+structurally possible in this schema for consistency; home/away only
+for NBA/NCAA Football, which cannot end in a real tie at all) uses
+whichever model actually won this league's own real backtest**
 (src/evaluation/backtest_team_sport.py) -- the point-margin model for
-NFL, plain Elo-only win probability for NBA (see
+NFL, plain Elo-only win probability for NBA/NHL/NCAA Football (see
 reports/{league}_model_selection_report.md for the real numbers; never
 assumed). `should_use_point_margin_model()` reads this fresh from that
 backtest's own comparison CSV.
 
 **No BTTS market**: unlike soccer, "both teams to score" has no real
-meaning in NFL/NBA (both teams score in nearly every real game) --
-dropped entirely, not faked. **Totals** (real, standard market in both
-sports) uses a simple real rolling points-for/points-against average
-per team, NOT independently backtested the way the moneyline model is
--- flagged as less validated, same honesty pattern soccer's Simple-
-Poisson-derived derived markets use.
+meaning for any of these sports (both sides score in nearly every real
+game) -- dropped entirely, not faked. **Totals** (a real, standard
+market in all four sports) uses a simple real rolling points/goals-for
+and -against average per team, NOT independently backtested the way
+the moneyline model is -- flagged as less validated, same honesty
+pattern soccer's Simple-Poisson-derived derived markets use.
 
 Run: python -m src.models.predict_team_sport_matches --league nfl
-(also accepts nba)
+(also accepts nba, nhl, ncaaf)
 """
 from __future__ import annotations
 
@@ -47,7 +50,7 @@ from src.models.point_margin_model import (  # noqa: E402
 from src.models.scoreline_models import moneyline_pick, spread_pick, totals_pick  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
-DEFAULT_TOTAL_LINE = {"nfl": 44.5, "nba": 228.5}  # real league-average-ish fallback, overridden per-game below
+DEFAULT_TOTAL_LINE = {"nfl": 44.5, "nba": 228.5, "nhl": 6.0, "ncaaf": 53.5}  # real league-average-ish fallback, overridden per-game below
 
 OUTPUT_COLUMNS = [
     "match_id", "season", "matchweek", "date", "kickoff_utc", "home_team", "away_team",
@@ -261,6 +264,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "nhl", "ncaaf"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

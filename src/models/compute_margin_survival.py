@@ -99,18 +99,21 @@ def risk_label(p_fail: float) -> str:
     return RISK_LABELS[-1][1]
 
 
-def verdict(label: str, value_gap: float | None, threshold: int) -> str:
+def verdict(label: str, value_gap: float | None, tag: str) -> str:
     """Combines absolute blowout risk with real market price value where
     one exists -- risk gates the call first (a High Blowout Risk team is
     never a Pick just because its price looks generous), price only
     breaks ties within an acceptable risk tier. Same logic whether or
     not real market data exists for this fixture: with no real line,
     value_gap is None and the call falls back to risk tier alone.
-    `threshold` is this call's own real blowout line (2 goals for every
-    caller in this module; 14/20 points for NFL/NBA via
-    compute_margin_survival_team_sport.py, which imports this function
-    directly rather than duplicating it) -- the verdict string always
-    names the real number it's about, never a borrowed one."""
+    `tag` is this call's own real blowout line, already formatted as
+    the ready-to-display suffix: "+2" for every caller in this module,
+    "+14"/"+20"/a league's own real backtested number for NFL/NBA/NHL/
+    NCAA Football via compute_margin_survival_team_sport.py, and
+    "DISTANCE" for UFC via compute_margin_survival_ufc.py -- UFC has no
+    real numeric margin to put a "+" in front of (see that module's
+    docstring). The verdict string always names the real thing it's
+    about, never a borrowed one."""
     safe_tier = label in ("ELITE SURVIVAL", "VERY STRONG", "STRONG")
     moderate_tier = label == "MODERATE"
     if label == "HIGH BLOWOUT RISK":
@@ -118,10 +121,10 @@ def verdict(label: str, value_gap: float | None, threshold: int) -> str:
     if value_gap is not None and value_gap <= -0.05:
         return "PASS"
     if safe_tier and (value_gap is None or value_gap >= -0.02):
-        return f"PICK +{threshold}"
+        return f"PICK {tag}"
     if moderate_tier and (value_gap is None or value_gap >= 0):
-        return f"LEAN +{threshold}"
-    return "PASS" if (value_gap is not None and value_gap < 0) else f"LEAN +{threshold}"
+        return f"LEAN {tag}"
+    return "PASS" if (value_gap is not None and value_gap < 0) else f"LEAN {tag}"
 
 
 def margin_buckets(matrix: np.ndarray, perspective: str) -> dict:
@@ -361,7 +364,7 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
                 "implied_prob_at_real_line": implied_prob_at_real_line, "value_gap": value_gap,
                 "fair_plus2_decimal_odds": fair_plus2_decimal_odds,
                 "threshold": THRESHOLD,
-                "verdict": verdict(row_risk_label, value_gap, THRESHOLD),
+                "verdict": verdict(row_risk_label, value_gap, f"+{THRESHOLD}"),
                 "why_text": why_text(team, opponent, is_home, lam, mu, p_fail, team_tail_rate, team_tail_n,
                                       opp_blowout_rate, opp_blowout_n, rotation_note),
                 "run_id": meta.run_id, "model_version": MODEL_VERSION, "generated_at": generated_at,

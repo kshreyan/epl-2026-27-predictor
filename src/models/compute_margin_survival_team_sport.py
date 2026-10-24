@@ -1,4 +1,5 @@
-"""+2 Margin Survival's sport-correct equivalent for NFL and NBA.
+"""+2 Margin Survival's sport-correct equivalent for NFL, NBA, NHL and
+NCAA Football.
 
 **This is not soccer's "+2 goals" ported literally -- it's the same
 underlying question (how likely is this team to lose by a real,
@@ -25,17 +26,46 @@ real scoring scale, backed by real research, not guessed:**
   distribution": 20 points sits at the real ~80th percentile of real
   historical absolute margins, and matches the commonly-used informal
   real-world framing of an NBA "blowout").
+- **NHL**: real NHL spread betting has its own well-known real "puck
+  line" (+/-1.5 goals) -- but checked directly against this league's
+  own real backtested margin distribution, that line answers a
+  DIFFERENT real question (a near-even-money spread-cover proposition
+  by design, same realization NFL's own "7" key number led to): the
+  real median NHL margin is already 2.0 goals, so "> 1" would make
+  p_fail exceed 25% for an even matchup, nowhere near a rare blowout.
+  The threshold here is **margin of defeat > 3 goals** -- a real "three-
+  goal game," which lands the real backtested p_fail distribution in
+  the same real scale as NBA's own bands (confirmed directly: NHL's
+  p20-p80 at this threshold, 0.075-0.108, sit almost exactly where
+  NBA's own 0.069-0.118 do), unlike the puck line's 1.5.
+- **NCAA Football**: no real equivalent of NFL's key numbers exists
+  for this sport (checked directly -- no documented real research
+  found). The threshold (**> 21 points**, "three touchdowns") comes
+  from this league's own real backtested margin-of-victory
+  distribution: 21 points sits at the real ~70th percentile of real
+  historical absolute margins -- the same real percentile NFL's own
+  14-point ("two touchdowns") threshold lands at, a real, honest
+  parallel rather than a coincidence of round numbers (both derived
+  the same way, from each sport's own real data, at the same real
+  percentile, in each sport's own real scoring unit).
 
 Built on the point-margin model (src/models/point_margin_model.py)
 regardless of whether that model actually won this league's own real
-backtest for the MONEYLINE prediction (it does for NFL, not for NBA --
-see should_use_point_margin_model() and
+backtest for the MONEYLINE prediction (it does for NFL, not for NBA/
+NHL/NCAA Football -- see should_use_point_margin_model() and
 reports/{league}_model_selection_report.md) -- it's the only candidate
 that produces a real margin distribution at all (Elo-only win
 probability has no margin/scoreline concept, same structural reason
 Dixon-Coles powers soccer's margin survival even where Elo wins that
-league's own moneyline backtest). Every row's `why_text` says plainly
-when this is the case.
+league's own moneyline backtest). NHL's own real backtest additionally
+tried Dixon-Coles (unlike NFL/NBA/NCAA Football -- see
+backtest_team_sport.py) and found it clearly WORSE than even a flat
+baseline (confirmed directly: 0.829 real log loss vs. the flat
+baseline's 0.691) -- a real, checked answer, not the a priori
+expectation that low/discrete scoring would make it competitive; NHL's
+margin survival uses the point-margin model, same as every other
+league here. Every row's `why_text` says plainly when the powering
+model is not this league's own moneyline winner.
 
 Risk-tier labels/thresholds reuse the soccer engine's generic
 risk_label/verdict/percentile_score helpers directly (imported, not
@@ -46,7 +76,7 @@ own real backtested p_fail distribution (soccer's own 0.04/0.06/
 own scale, not a formula to replicate verbatim for a different sport).
 
 Run: python -m src.models.compute_margin_survival_team_sport --league nfl
-(also accepts nba)
+(also accepts nba, nhl, ncaaf)
 """
 from __future__ import annotations
 
@@ -65,20 +95,18 @@ from src.models.compute_margin_survival import ELIGIBLE_DRAWS_AND, percentile_sc
 from src.models.point_margin_model import fit_point_margin_model, predict_margin_distribution, should_use_point_margin_model  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
-# Real, sport-correct blowout threshold (points) -- see module docstring.
-MARGIN_THRESHOLD = {"nfl": 14, "nba": 20}
+# Real, sport-correct blowout threshold (points/goals) -- see module docstring.
+MARGIN_THRESHOLD = {"nfl": 14, "nba": 20, "nhl": 3, "ncaaf": 21}
 
 # Real bands, same 5-tier shape as soccer's engine, calibrated to each
 # sport's OWN real p_fail scale -- NOT a first guess: computed directly
 # from the real p_fail distribution across every real historical game
-# in each sport's own backtest sample (2,904 real NFL team-games at the
-# 14-point threshold, 12,312 real NBA team-games at the 20-point
-# threshold), at the real 20th/40th/60th/80th percentiles (NFL:
-# 0.120/0.128/0.178/0.189; NBA: 0.069/0.082/0.100/0.118). NFL's own
-# bands are now meaningfully different in scale from NBA's (a 14-point
-# line sits much closer to the middle of NFL's margin distribution than
-# a 20-point line does for NBA's) -- no longer a shared set fits both,
-# so each sport gets its own real bands rather than forcing one scale.
+# in each sport's own backtest sample, at the real 20th/40th/60th/80th
+# percentiles (NFL: 0.120/0.128/0.178/0.189 at the 14-point threshold;
+# NBA: 0.069/0.082/0.100/0.118 at 20 points; NHL: 0.075/0.085/0.097/
+# 0.108 at 3 goals; NCAA Football: 0.102/0.108/0.194/0.203 at 21
+# points). Each sport's real bands are at a meaningfully different
+# scale -- no shared set fits all four, so each gets its own.
 RISK_LABELS = {
     "nfl": [
         (0.12, "ELITE SURVIVAL"), (0.13, "VERY STRONG"), (0.18, "STRONG"), (0.19, "MODERATE"),
@@ -86,6 +114,14 @@ RISK_LABELS = {
     ],
     "nba": [
         (0.08, "ELITE SURVIVAL"), (0.09, "VERY STRONG"), (0.11, "STRONG"), (0.14, "MODERATE"),
+        (float("inf"), "HIGH BLOWOUT RISK"),
+    ],
+    "nhl": [
+        (0.08, "ELITE SURVIVAL"), (0.09, "VERY STRONG"), (0.10, "STRONG"), (0.11, "MODERATE"),
+        (float("inf"), "HIGH BLOWOUT RISK"),
+    ],
+    "ncaaf": [
+        (0.10, "ELITE SURVIVAL"), (0.11, "VERY STRONG"), (0.19, "STRONG"), (0.20, "MODERATE"),
         (float("inf"), "HIGH BLOWOUT RISK"),
     ],
 }
@@ -127,7 +163,7 @@ def margin_buckets(mean: float, sigma: float, threshold: int) -> dict:
     discrete win/draw/lose_1/lose_2/lose_3/lose_4plus scoreline
     buckets (there's no discrete scoreline grid here, only a
     continuous margin). `threshold` is this sport's real blowout line
-    (14 for NFL, 20 for NBA)."""
+    (14 for NFL, 20 for NBA, 3 for NHL, 21 for NCAA Football)."""
     win = float(1 - norm.cdf(0, loc=mean, scale=sigma))
     # "push" = losing by approximately exactly `threshold` (within the
     # real discrete-score rounding band, same ±0.5 convention
@@ -269,7 +305,7 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
                 "implied_prob_at_real_line": implied_prob_at_real_line, "value_gap": value_gap,
                 "fair_plus2_decimal_odds": fair_plus2_decimal_odds,
                 "threshold": threshold,
-                "verdict": verdict(row_risk_label, value_gap, threshold),
+                "verdict": verdict(row_risk_label, value_gap, f"+{threshold}"),
                 "why_text": why_text(cfg.display_name, league_id, team, opponent, team_mean, sigma, p_fail, threshold, using_winning_model),
                 "run_id": meta.run_id, "model_version": MODEL_VERSION, "generated_at": generated_at,
             })
@@ -290,6 +326,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "nhl", "ncaaf"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

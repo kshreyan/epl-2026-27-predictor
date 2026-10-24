@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDashboardJson } from '../lib/useDashboardData'
-import type { Top20MarginSurvivalPayload } from '../lib/types'
+import type { MarginSurvivalRow, Top20MarginSurvivalPayload } from '../lib/types'
 import { formatKickoff, pct } from '../lib/format'
 import { PageState } from '../components/PageState'
 import { VerdictPill } from '../components/MarginBar'
@@ -53,46 +53,68 @@ export function Plus2BoardPage() {
               </tr>
             </thead>
             <tbody>
-              {data.data.map((row) => (
-                <>
-                  <tr
-                    key={row.match_id + row.team}
-                    className="cursor-pointer border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-panel)]"
-                    onClick={() => setExpandedId((id) => (id === row.match_id + row.team ? null : row.match_id + row.team))}
-                  >
-                    <td className="px-2 py-2">{row.rank}</td>
-                    <td className="px-2 py-2"><VerdictPill verdict={row.verdict} /></td>
-                    <td className="px-2 py-2 font-medium">{row.team}</td>
-                    <td className="px-2 py-2 text-[var(--color-text-faint)]">{row.opponent}</td>
-                    <td className="px-2 py-2">
-                      <Link
-                        to={`/${row.league_id}/fixtures`}
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-[var(--color-accent)] hover:underline"
-                      >
-                        {row.league_display_name}
-                      </Link>
-                    </td>
-                    <td className="px-2 py-2">{row.is_home ? 'H' : 'A'}</td>
-                    <td className="px-2 py-2 text-[var(--color-text-faint)]">{formatKickoff(row.kickoff_utc)}</td>
-                    <td className="px-2 py-2">{row.predicted_score_model_only}</td>
-                    <td className="px-2 py-2">{pct(row.p_fail)}</td>
-                    <td className="px-2 py-2 text-[var(--color-text-faint)]">
-                      {row.real_line === null ? '—' : `${row.real_line >= 0 ? '+' : ''}${row.real_line} @ ${row.real_odds?.toFixed(2)}`}
-                    </td>
-                    <td className="px-2 py-2" style={{ color: (row.value_gap ?? 0) > 0.02 ? 'var(--color-positive)' : (row.value_gap ?? 0) < -0.02 ? '#e05252' : undefined }}>
-                      {row.value_gap === null ? '—' : `${row.value_gap >= 0 ? '+' : ''}${(row.value_gap * 100).toFixed(1)}pp`}
-                    </td>
-                  </tr>
-                  {expandedId === row.match_id + row.team && (
-                    <tr className="border-b border-[var(--color-border)] bg-[var(--color-panel)]">
-                      <td colSpan={11} className="px-3 py-3 text-[11px] text-[var(--color-text-faint)]">
-                        {row.why_text}
+              {data.data.map((row) => {
+                // UFC's real row shape has no team/is_home/predicted_score
+                // (an individual fight has no team or home/away, and no
+                // real score to predict -- see UfcMarginSurvivalRow).
+                const isUfc = row.league_id === 'ufc'
+                const name = isUfc ? (row as { fighter: string }).fighter : (row as { team: string }).team
+                const rowKey = row.match_id + name
+                const fixturesPath = isUfc ? `/ufc/fightcard` : `/${row.league_id}/fixtures`
+                const predicted = isUfc ? '—' : (row as { predicted_score_model_only: string }).predicted_score_model_only
+                return (
+                  <>
+                    <tr
+                      key={rowKey}
+                      className="cursor-pointer border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-panel)]"
+                      onClick={() => setExpandedId((id) => (id === rowKey ? null : rowKey))}
+                    >
+                      <td className="px-2 py-2">{row.rank}</td>
+                      <td className="px-2 py-2"><VerdictPill verdict={row.verdict} /></td>
+                      <td className="px-2 py-2 font-medium">{name}</td>
+                      <td className="px-2 py-2 text-[var(--color-text-faint)]">{row.opponent}</td>
+                      <td className="px-2 py-2">
+                        <Link
+                          to={fixturesPath}
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-[var(--color-accent)] hover:underline"
+                        >
+                          {row.league_display_name}
+                        </Link>
                       </td>
+                      <td className="px-2 py-2">{isUfc ? '—' : (row as { is_home: boolean }).is_home ? 'H' : 'A'}</td>
+                      <td className="px-2 py-2 text-[var(--color-text-faint)]">{formatKickoff(row.kickoff_utc)}</td>
+                      <td className="px-2 py-2">{predicted}</td>
+                      <td className="px-2 py-2">{pct(row.p_fail)}</td>
+                      {(() => {
+                        // UFC has no real spread market at all (see
+                        // UfcMarginSurvivalRow) -- real_line/real_odds/
+                        // value_gap simply don't exist on that row shape.
+                        const realLine = isUfc ? null : (row as MarginSurvivalRow).real_line
+                        const realOdds = isUfc ? null : (row as MarginSurvivalRow).real_odds
+                        const valueGap = isUfc ? null : (row as MarginSurvivalRow).value_gap
+                        return (
+                          <>
+                            <td className="px-2 py-2 text-[var(--color-text-faint)]">
+                              {realLine === null ? '—' : `${realLine >= 0 ? '+' : ''}${realLine} @ ${realOdds?.toFixed(2)}`}
+                            </td>
+                            <td className="px-2 py-2" style={{ color: (valueGap ?? 0) > 0.02 ? 'var(--color-positive)' : (valueGap ?? 0) < -0.02 ? '#e05252' : undefined }}>
+                              {valueGap === null ? '—' : `${valueGap >= 0 ? '+' : ''}${(valueGap * 100).toFixed(1)}pp`}
+                            </td>
+                          </>
+                        )
+                      })()}
                     </tr>
-                  )}
-                </>
-              ))}
+                    {expandedId === rowKey && (
+                      <tr className="border-b border-[var(--color-border)] bg-[var(--color-panel)]">
+                        <td colSpan={11} className="px-3 py-3 text-[11px] text-[var(--color-text-faint)]">
+                          {row.why_text}
+                        </td>
+                      </tr>
+                    )}
+                  </>
+                )
+              })}
             </tbody>
           </table>
         </div>

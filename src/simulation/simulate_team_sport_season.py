@@ -1,18 +1,23 @@
-"""Monte Carlo simulation of the rest of the real NFL/NBA regular
+"""Monte Carlo simulation of the rest of the real NFL/NBA/NHL regular
 season, producing the real playoff picture: make-playoffs probability,
-win-division probability, and a real seed distribution per team.
+win-division probability, and a real seed distribution per team. NCAA
+Football gets a genuinely different real target instead (see below).
 
 **Scope boundary: this simulates who makes the playoffs and as what
-seed, not the playoff bracket itself** (no simulated Super Bowl/NBA
-champion) -- a distinct follow-on, same as how the soccer knockout
-bracket was a separate ask after the base UCL/UEL/UECL build.
+seed, not the playoff bracket itself** (no simulated Super Bowl/NBA/
+Stanley Cup champion) -- a distinct follow-on, same as how the soccer
+knockout bracket was a separate ask after the base UCL/UEL/UECL build.
 
-Real divisions/conferences are hardcoded below (stable public facts,
-unchanged in years -- same discipline as hardcoding a real club roster
-in team_names.py, not derived from a fragile API ID chain -- ESPN's
-own team-group IDs resolve to division/conference names only through
-a separate, undocumented lookup, confirmed directly not worth the
-fragility for a fact this stable).
+Real NFL/NBA/NHL divisions/conferences are hardcoded below (stable
+public facts, unchanged in years -- same discipline as hardcoding a
+real club roster in team_names.py, not derived from a fragile API ID
+chain -- ESPN's own team-group IDs resolve to division/conference
+names only through a separate, undocumented lookup, confirmed directly
+not worth the fragility for a fact this stable). **NCAA Football's
+real conference groupings are NOT hardcoded** -- fetched live from
+ESPN at run time (espn_api.fetch_real_fbs_conferences()), since real
+conference realignment is a recurring event in college sports, unlike
+these three sports' stable structure.
 
 Real seeding rules (confirmed directly via research, not assumed):
 - **NFL**: 7 seeds per conference -- the 4 division winners (seeded
@@ -23,15 +28,31 @@ Real seeding rules (confirmed directly via research, not assumed):
   (reported here as a single "play-in zone" probability, since
   simulating the actual play-in games is outside this build's scope);
   11th and below are eliminated.
+- **NHL**: 8 seeds per conference -- the top 3 teams in each of the
+  conference's 2 real divisions (6 total) plus the next 2 best
+  remaining records in the conference regardless of division (2 real
+  wildcards). Seeded 1-2 (the two division winners, ranked against
+  each other), 3-6 (the remaining division qualifiers, ranked by real
+  record), 7-8 (the two wildcards) -- a real, disclosed simplification
+  of the official NHL seeding procedure's own real tiebreaker details,
+  same spirit as this module's other tiebreaker simplifications.
+- **NCAA Football has no real seeding formula to simulate** -- the
+  real 12-team College Football Playoff is committee-selected, not a
+  standings formula, and this project will not fabricate a substitute
+  for human judgment (see config/leagues.yaml's NCAA Football note).
+  Instead this module reports a real, honestly-computable target for
+  this sport: each team's real conference win-loss projection and
+  `prob_bowl_eligible` = P(finish the season with 6 or more real wins,
+  the real NCAA bowl-eligibility rule).
 
-Every simulated game (including NBA, where the Elo-only model
-separately won that league's own real moneyline backtest -- see
-predict_team_sport_matches.py) is drawn from the point-margin model's
-own Normal(mean, sigma) distribution, not whichever model won that
-league's moneyline backtest: simulating a real, tiebreaker-relevant
-point differential needs a real margin model, and Elo-only has no
-margin concept at all -- same reasoning compute_margin_survival_team_sport.py
-already uses.
+Every simulated game (including NBA/NHL/NCAA Football, where the
+Elo-only model separately won each league's own real moneyline
+backtest -- see predict_team_sport_matches.py) is drawn from the
+point-margin model's own Normal(mean, sigma) distribution, not
+whichever model won that league's moneyline backtest: simulating a
+real, tiebreaker-relevant point differential needs a real margin
+model, and Elo-only has no margin concept at all -- same reasoning
+compute_margin_survival_team_sport.py already uses.
 
 Real tiebreakers used: win percentage (a tie counts as half a win),
 then real point differential, then a fixed deterministic fallback
@@ -47,7 +68,7 @@ discloses (does not propagate rating uncertainty the way the domestic
 Dixon-Coles season simulator does).
 
 Run: python -m src.simulation.simulate_team_sport_season --league nfl
-(also accepts nba)
+(also accepts nba, nhl, ncaaf)
 """
 from __future__ import annotations
 
@@ -59,10 +80,13 @@ import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
+from src.data_collection.espn_api import fetch_real_fbs_conferences  # noqa: E402
 from src.evaluation.backtest_team_sport import ALLOWS_TIES, ELO_K_FACTOR  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.point_margin_model import fit_point_margin_model, predict_margin_distribution  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
+
+BOWL_ELIGIBLE_WINS = 6  # real NCAA rule: 6+ real wins in a real season makes a team bowl-eligible
 
 N_TRIALS = 10000
 RNG_SEED = 20261021  # fixed seed -- reproducible trial-to-trial, not re-randomized on every re-run
@@ -94,10 +118,22 @@ CONFERENCES = {
             "Southwest": ["Dallas Mavericks", "Houston Rockets", "Memphis Grizzlies", "New Orleans Pelicans", "San Antonio Spurs"],
         },
     },
+    "nhl": {
+        "Eastern": {
+            "Atlantic": ["Boston Bruins", "Buffalo Sabres", "Detroit Red Wings", "Florida Panthers", "Montreal Canadiens", "Ottawa Senators", "Tampa Bay Lightning", "Toronto Maple Leafs"],
+            "Metropolitan": ["Carolina Hurricanes", "Columbus Blue Jackets", "New Jersey Devils", "New York Islanders", "New York Rangers", "Philadelphia Flyers", "Pittsburgh Penguins", "Washington Capitals"],
+        },
+        "Western": {
+            "Central": ["Chicago Blackhawks", "Colorado Avalanche", "Dallas Stars", "Minnesota Wild", "Nashville Predators", "St. Louis Blues", "Utah Mammoth", "Winnipeg Jets"],
+            "Pacific": ["Anaheim Ducks", "Calgary Flames", "Edmonton Oilers", "Los Angeles Kings", "San Jose Sharks", "Seattle Kraken", "Vancouver Canucks", "Vegas Golden Knights"],
+        },
+    },
 }
 
-DIRECT_SEEDS = {"nfl": 4, "nba": 6}  # NFL: 4 division winners seeded 1-4; NBA: top 6 seeded 1-6
-TOTAL_SEEDS = {"nfl": 7, "nba": 8}  # NFL: 7 total (4 division + 3 wildcard); NBA: 8 after the real play-in
+DIRECT_SEEDS = {"nfl": 4, "nba": 6, "nhl": 6}  # NFL: 4 division winners seeded 1-4; NBA: top 6 seeded 1-6; NHL: the 6 division qualifiers seeded 1-6 (see nhl_seeding())
+TOTAL_SEEDS = {"nfl": 7, "nba": 8, "nhl": 8}  # NFL: 7 total (4 division + 3 wildcard); NBA: 8 after the real play-in; NHL: 8 (6 division + 2 wildcard)
+NHL_DIVISION_QUALIFIERS = 3  # top 3 per real division auto-qualify
+NHL_WILDCARDS = 2  # next 2 best remaining records in the conference, regardless of division
 
 
 def team_division_conference(league_id: str) -> tuple[dict[str, str], dict[str, str]]:
@@ -131,7 +167,32 @@ def nfl_seeding(conf_teams: list[str], team_division: dict[str, str], win_pct: d
     return division_winners_ranked + wildcards_ranked
 
 
-def main(league_id: str) -> None:
+def nhl_seeding(conf_teams: list[str], team_division: dict[str, str], win_pct: dict[str, float], point_diff: dict[str, float]) -> list[str]:
+    """Real NHL rule (a disclosed simplification of the official
+    tiebreaker/seeding minutiae, see module docstring): the top
+    NHL_DIVISION_QUALIFIERS in each of the conference's 2 real
+    divisions (6 total) qualify directly, ranked 1-6 (the 2 division
+    winners first, ranked against each other, then the remaining 4
+    division qualifiers by real record); the next NHL_WILDCARDS best
+    remaining records in the conference are the real wildcards,
+    seeded 7-8."""
+    divisions_in_conf = sorted(set(team_division[t] for t in conf_teams))
+    division_winners, other_qualifiers = [], []
+    for div in divisions_in_conf:
+        div_teams = [t for t in conf_teams if team_division[t] == div]
+        ranked_div = rank_conference(div_teams, win_pct, point_diff)
+        division_winners.append(ranked_div[0])
+        other_qualifiers.extend(ranked_div[1:NHL_DIVISION_QUALIFIERS])
+    division_winners_ranked = rank_conference(division_winners, win_pct, point_diff)
+    other_qualifiers_ranked = rank_conference(other_qualifiers, win_pct, point_diff)
+
+    qualified = set(division_winners) | set(other_qualifiers)
+    remaining = [t for t in conf_teams if t not in qualified]
+    wildcards_ranked = rank_conference(remaining, win_pct, point_diff)[:NHL_WILDCARDS]
+    return division_winners_ranked + other_qualifiers_ranked + wildcards_ranked
+
+
+def main_seeded_playoff(league_id: str) -> None:
     cfg = load_league_config(league_id)
     allows_ties = ALLOWS_TIES[league_id]
     historical_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "historical_matches.csv")
@@ -211,6 +272,11 @@ def main(league_id: str) -> None:
                 for div in divisions:
                     div_teams = [t for t in conf_teams if team_division[t] == div]
                     division_winner_count[rank_conference(div_teams, win_pct, point_diff)[0]] += 1
+            elif league_id == "nhl":
+                ranked = nhl_seeding(conf_teams, team_division, win_pct, point_diff)
+                for div in divisions:
+                    div_teams = [t for t in conf_teams if team_division[t] == div]
+                    division_winner_count[rank_conference(div_teams, win_pct, point_diff)[0]] += 1
             else:
                 ranked = rank_conference(conf_teams, win_pct, point_diff)
 
@@ -229,7 +295,7 @@ def main(league_id: str) -> None:
             "prob_make_playoffs": round(playoff_zone_count[t] / N_TRIALS, 4),
             "prob_direct_seed": round(direct_count[t] / N_TRIALS, 4),
         }
-        if league_id == "nfl":
+        if league_id in ("nfl", "nhl"):
             row["prob_win_division"] = round(division_winner_count[t] / N_TRIALS, 4)
         for seed in range(1, TOTAL_SEEDS[league_id] + 1):
             row[f"prob_seed_{seed}"] = round(seed_counts[t][seed] / N_TRIALS, 4)
@@ -244,9 +310,140 @@ def main(league_id: str) -> None:
     print(f"Wrote {len(out_df)} team playoff-picture rows to {out_path}")
 
 
+def main_ncaaf_bowl_eligibility() -> None:
+    """NCAA Football's own real target -- see module docstring for why
+    this is NOT a seeded-playoff simulation: real conference win-loss
+    projection (conference games only, the real basis for actual
+    conference standings) and `prob_bowl_eligible` = P(finish the real
+    season with BOWL_ELIGIBLE_WINS (6) or more real total wins)."""
+    cfg = load_league_config("ncaaf")
+    allows_ties = ALLOWS_TIES["ncaaf"]
+    historical_path = REPO_ROOT / "data" / "raw" / league_path("ncaaf", "historical_matches.csv")
+    fixtures_path = REPO_ROOT / "data" / "raw" / league_path("ncaaf", "2026_27_fixtures.csv")
+    real_results_path = REPO_ROOT / "data" / "raw" / league_path("ncaaf", "2026_27_real_results.csv")
+    out_path = REPO_ROOT / "data" / "outputs" / league_path("ncaaf", "2026_27_playoff_picture.csv")
+
+    conferences = fetch_real_fbs_conferences()
+    team_conference = {t["display_name"]: conf for conf, roster in conferences.items() for t in roster}
+
+    historical = pd.read_csv(historical_path, parse_dates=["date"])
+    fixtures = pd.read_csv(fixtures_path)
+    real_results = pd.read_csv(real_results_path) if real_results_path.exists() else pd.DataFrame(columns=["match_id", "home_goals", "away_goals"])
+    results_by_id = real_results.set_index("match_id") if not real_results.empty else real_results
+
+    teams = sorted(set(fixtures["home_team"]) | set(fixtures["away_team"]))
+    # A handful of real teams can be mid-transition between divisions
+    # (e.g. a real independent not yet assigned a real conference this
+    # season) -- grouped under a real "Unaffiliated" bucket rather than
+    # dropped, so every real team with real fixtures still gets a row.
+    for t in teams:
+        team_conference.setdefault(t, "Unaffiliated")
+
+    base_wins = {t: 0.0 for t in teams}
+    base_games = {t: 0 for t in teams}
+    base_conf_wins = {t: 0.0 for t in teams}
+    base_conf_games = {t: 0 for t in teams}
+    remaining_fixtures = []
+    completed_rows = []
+    for _, fx in fixtures.iterrows():
+        home, away = fx["home_team"], fx["away_team"]
+        same_conf = team_conference.get(home) == team_conference.get(away)
+        if fx["match_id"] in results_by_id.index:
+            rr = results_by_id.loc[fx["match_id"]]
+            hg, ag = int(rr["home_goals"]), int(rr["away_goals"])
+            base_games[home] += 1; base_games[away] += 1
+            if same_conf:
+                base_conf_games[home] += 1; base_conf_games[away] += 1
+            if hg > ag:
+                base_wins[home] += 1
+                if same_conf:
+                    base_conf_wins[home] += 1
+            elif hg < ag:
+                base_wins[away] += 1
+                if same_conf:
+                    base_conf_wins[away] += 1
+            else:
+                base_wins[home] += 0.5; base_wins[away] += 0.5
+                if same_conf:
+                    base_conf_wins[home] += 0.5; base_conf_wins[away] += 0.5
+            completed_rows.append({"date": pd.Timestamp(fx["date"]), "home_team": home, "away_team": away, "home_score": hg, "away_score": ag})
+        else:
+            remaining_fixtures.append((home, away, same_conf))
+
+    if completed_rows:
+        historical = pd.concat([historical, pd.DataFrame(completed_rows)], ignore_index=True)
+
+    fit = fit_point_margin_model(historical, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
+    print(f"{cfg.display_name}: {len(remaining_fixtures)} real remaining games, {N_TRIALS} trials")
+
+    rng = np.random.default_rng(RNG_SEED)
+    bowl_eligible_count = {t: 0 for t in teams}
+    total_wins_sum = {t: 0.0 for t in teams}
+    conf_best_record_count = {t: 0 for t in teams}
+
+    for _ in range(N_TRIALS):
+        wins = dict(base_wins)
+        conf_wins = dict(base_conf_wins)
+        conf_games = dict(base_conf_games)
+
+        for home, away, same_conf in remaining_fixtures:
+            mean, sigma = predict_margin_distribution(fit, home, away)
+            margin = rng.normal(mean, sigma)
+            margin_int = round(margin)
+            if margin_int > 0:
+                wins[home] += 1
+                if same_conf:
+                    conf_wins[home] += 1
+            else:
+                wins[away] += 1
+                if same_conf:
+                    conf_wins[away] += 1
+            if same_conf:
+                conf_games[home] += 1; conf_games[away] += 1
+
+        for t in teams:
+            total_wins_sum[t] += wins[t]
+            if wins[t] >= BOWL_ELIGIBLE_WINS:
+                bowl_eligible_count[t] += 1
+
+        for conf in conferences:
+            conf_teams = [t for t in teams if team_conference.get(t) == conf]
+            if not conf_teams:
+                continue
+            conf_win_pct = {t: (conf_wins[t] / conf_games[t] if conf_games[t] else 0.0) for t in conf_teams}
+            best = max(conf_teams, key=lambda t: (conf_win_pct[t], t))
+            conf_best_record_count[best] += 1
+
+    rows = []
+    for t in teams:
+        rows.append({
+            "team": t, "conference": team_conference.get(t, "Unaffiliated"),
+            "current_wins": base_wins[t], "current_games": base_games[t],
+            "current_conference_win_pct": round(base_conf_wins[t] / base_conf_games[t], 4) if base_conf_games[t] else None,
+            "mean_projected_final_wins": round(total_wins_sum[t] / N_TRIALS, 2),
+            "prob_bowl_eligible": round(bowl_eligible_count[t] / N_TRIALS, 4),
+            "prob_best_conference_record": round(conf_best_record_count[t] / N_TRIALS, 4),
+        })
+
+    out_df = pd.DataFrame(rows).sort_values(["conference", "prob_bowl_eligible"], ascending=[True, False]).reset_index(drop=True)
+    out_df.insert(0, "n_trials", N_TRIALS)
+    out_df["generated_at"] = now_utc_iso()
+    out_df["model_version"] = MODEL_VERSION
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_df.to_csv(out_path, index=False)
+    print(f"Wrote {len(out_df)} team bowl-eligibility rows to {out_path}")
+
+
+def main(league_id: str) -> None:
+    if league_id == "ncaaf":
+        main_ncaaf_bowl_eligibility()
+    else:
+        main_seeded_playoff(league_id)
+
+
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "nhl", "ncaaf"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

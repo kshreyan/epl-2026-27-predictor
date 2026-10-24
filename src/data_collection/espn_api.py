@@ -1,9 +1,9 @@
 """Shared real-data fetch helpers for ESPN's public site API
 (site.api.espn.com), the single real source this project uses for both
-current-season fixtures AND historical results for NFL and NBA -- no
-`fixturedownload.com` equivalent exists for American team sports (see
-config/leagues.yaml). Verified directly accessible this session, real
-schedule/score data, no auth required.
+current-season fixtures AND historical results for NFL, NBA, NHL and
+NCAA Football -- no `fixturedownload.com` equivalent exists for
+American team sports (see config/leagues.yaml). Verified directly
+accessible this session, real schedule/score data, no auth required.
 
 Uses the per-TEAM schedule endpoint
 (sports/{sport}/{league}/teams/{id}/schedule?season=YYYY), not a
@@ -33,15 +33,58 @@ import requests
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.leagues import load_league_config  # noqa: E402
 
-ESPN_SPORT_PATH = {"nfl": "football/nfl", "nba": "basketball/nba"}
+ESPN_SPORT_PATH = {
+    "nfl": "football/nfl", "nba": "basketball/nba",
+    "nhl": "hockey/nhl", "ncaaf": "football/college-football",
+}
 HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+
+def fetch_real_fbs_conferences() -> dict[str, list[dict]]:
+    """Real FBS conference -> [{"id", "display_name"}] for every real
+    team in it, straight from ESPN's own live standings -- confirmed
+    directly this session as the only reliable real source for this
+    (the generic /teams?groups=80 endpoint does NOT actually filter to
+    FBS -- confirmed directly, it silently includes real Division III
+    teams like Amherst). Recurses through each conference's real
+    sub-structure (most conferences list teams directly; some, e.g. the
+    real Sun Belt Conference this season, nest them one level deeper
+    under real East/West divisions) rather than assuming a fixed depth,
+    since that nesting is itself a real fact that varies by conference
+    and season, not something to hardcode. Not hardcoded like NFL/NBA's
+    stable divisions (see simulate_team_sport_season.py) because real
+    conference realignment is a recurring event in college sports --
+    fetched fresh every call."""
+    resp = requests.get(
+        "https://site.api.espn.com/apis/v2/sports/football/college-football/standings",
+        params={"group": "80"}, headers=HEADERS, timeout=30,
+    )
+    resp.raise_for_status()
+    root = resp.json()
+
+    def _collect(node: dict) -> list[dict]:
+        teams = []
+        for entry in node.get("standings", {}).get("entries", []):
+            teams.append({"id": entry["team"]["id"], "display_name": entry["team"]["displayName"]})
+        for child in node.get("children", []):
+            teams.extend(_collect(child))
+        return teams
+
+    return {conf["name"]: _collect(conf) for conf in root["children"]}
 
 
 def fetch_real_teams(league_id: str) -> list[dict]:
     """Real team id -> displayName, straight from ESPN -- no hardcoded
     roster (unlike team_names.py's CANONICAL_TEAMS, which still owns
     the canonical spelling and alias resolution; this is just id
-    discovery)."""
+    discovery). NCAA Football uses fetch_real_fbs_conferences() instead
+    of the generic /teams endpoint -- see that function's docstring for
+    why (the generic endpoint's groups filter doesn't reliably isolate
+    FBS)."""
+    if league_id == "ncaaf":
+        teams = [t for roster in fetch_real_fbs_conferences().values() for t in roster]
+        seen: dict[str, dict] = {t["id"]: t for t in teams}  # a handful of teams appear in more than one FBS feed this season (e.g. independents); de-duplicate by real team id
+        return list(seen.values())
     sport_path = ESPN_SPORT_PATH[league_id]
     resp = requests.get(
         f"https://site.api.espn.com/apis/site/v2/sports/{sport_path}/teams",
@@ -61,7 +104,15 @@ def fetch_real_season_games(league_id: str, season: int) -> list[dict]:
     cfg = load_league_config(league_id)
     sport_path = ESPN_SPORT_PATH[league_id]
     teams = fetch_real_teams(league_id)
-    if len(teams) != cfg.n_teams:
+    # NCAA Football's real FBS roster isn't a fixed closed set the way
+    # NFL/NBA/NHL's is -- real transitioning programs join/leave FBS
+    # mid-cycle, so cfg.n_teams is a real recent snapshot, not an
+    # eternal constant; a wide sanity band catches a genuinely broken
+    # fetch without false-alarming on normal roster drift.
+    if league_id == "ncaaf":
+        if not (100 <= len(teams) <= 150):
+            raise ValueError(f"Expected roughly 100-150 real FBS teams from ESPN, got {len(teams)}. Refusing to proceed.")
+    elif len(teams) != cfg.n_teams:
         raise ValueError(
             f"Expected {cfg.n_teams} real {league_id} teams from ESPN, got {len(teams)}. "
             f"Refusing to proceed with a team list that doesn't match the real league."

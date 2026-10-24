@@ -312,3 +312,19 @@ nfl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T09:53:19+00:
 nba_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T09:53:19+00:00,4712,True,2026-10-24T09:53:20+00:00,1151 real bookmaker/market rows; rest are honest unavailable sentinels.
 nfl_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-24T09:53:46+00:00,272,True,2026-10-24T09:53:51+00:00,NFL 2026-27 real schedule from ESPN's site API (season=2026).
 nba_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-24T09:53:57+00:00,1200,True,2026-10-24T09:54:02+00:00,NBA 2026-27 real schedule from ESPN's site API (season=2027).
+nhl_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:06:16+00:00,1344,True,2026-10-24T19:06:24+00:00,NHL 2026-27 real schedule from ESPN's site API (season=2027).
+nhl_historical_matches,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:06:49+00:00,6560,True,2026-10-24T19:07:35+00:00,"NHL, 5 real prior regular seasons from ESPN's site API."
+ncaaf_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:10:17+00:00,761,True,2026-10-24T19:10:48+00:00,NCAA Football 2026-27 real schedule from ESPN's site API (season=2026).
+ncaaf_historical_matches,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:10:54+00:00,3725,True,2026-10-24T19:13:52+00:00,"NCAA Football, 5 real prior regular seasons from ESPN's site API."
+ufc_2026_27_fight_card,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:15:17+00:00,212,True,2026-10-24T19:15:17+00:00,"UFC real fight-card window [2026-08-25, 2027-04-22] from ESPN's site API."
+ufc_historical_fights,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:15:21+00:00,3297,True,2026-10-24T19:15:23+00:00,"UFC, 6 real prior calendar years from ESPN's site API."
+ufc_2026_27_fight_card,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:25:51+00:00,212,True,2026-10-24T19:25:51+00:00,"UFC real fight-card window [2026-08-25, 2027-04-22] from ESPN's site API."
+ufc_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:25:55+00:00,781,True,2026-10-24T19:25:56+00:00,160 real bookmaker/market rows; rest are honest unavailable sentinels.
+nhl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:31:07+00:00,5497,True,2026-10-24T19:31:07+00:00,1516 real bookmaker/market rows; rest are honest unavailable sentinels.
+ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:31:07+00:00,4782,True,2026-10-24T19:31:08+00:00,2631 real bookmaker/market rows; rest are honest unavailable sentinels.
+nhl_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:40:47+00:00,1344,True,2026-10-24T19:41:04+00:00,NHL 2026-27 real schedule from ESPN's site API (season=2027).
+ufc_2026_27_fight_card,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:41:04+00:00,212,True,2026-10-24T19:41:05+00:00,"UFC real fight-card window [2026-08-25, 2027-04-22] from ESPN's site API."
+ncaaf_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:41:15+00:00,761,True,2026-10-24T19:41:56+00:00,NCAA Football 2026-27 real schedule from ESPN's site API (season=2026).
+nhl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:42:11+00:00,5457,True,2026-10-24T19:42:11+00:00,1476 real bookmaker/market rows; rest are honest unavailable sentinels.
+ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:42:18+00:00,4699,True,2026-10-24T19:42:19+00:00,2545 real bookmaker/market rows; rest are honest unavailable sentinels.
+ufc_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:43:13+00:00,781,True,2026-10-24T19:43:13+00:00,160 real bookmaker/market rows; rest are honest unavailable sentinels.

@@ -286,42 +286,81 @@ def build_knockout_json(league_id: str) -> None:
 
 
 def build_playoff_picture_json(league_id: str) -> None:
-    """Only for a "points"-format league (NFL/NBA) with a real season/
-    playoff-picture simulation (see simulate_team_sport_season.py's
-    module docstring for the real scope boundary and limitations every
-    consumer of this file must surface) -- no-ops with an explicit
-    status if that simulation hasn't been run yet."""
+    """Only for a "points"-format league with a real season simulation
+    (see simulate_team_sport_season.py's module docstring for the real
+    scope boundary and limitations every consumer of this file must
+    surface) -- no-ops with an explicit status if that simulation
+    hasn't been run yet. NCAA Football's real output shape is
+    genuinely different (conference win-loss projection + real bowl
+    eligibility, not a seeded playoff picture -- that sport has no
+    real seeding FORMULA to simulate, see that module's docstring) and
+    is sorted/annotated differently here."""
     out_name = league_path(league_id, "playoff_picture.json")
     csv_path = OUT_DIR / league_path(league_id, "2026_27_playoff_picture.csv")
     if not csv_path.exists():
         _write_json(out_name, _envelope(
             league_id, [], status="not_yet_available",
-            note="No season/playoff-picture simulation exists yet -- run simulate_team_sport_season.py first.",
+            note="No season simulation exists yet -- run simulate_team_sport_season.py first.",
         ))
         return
-    df = pd.read_csv(csv_path).sort_values(["conference", "prob_make_playoffs"], ascending=[True, False])
+    df = pd.read_csv(csv_path)
     n_trials = int(df["n_trials"].iloc[0]) if "n_trials" in df.columns and not df.empty else None
-    _write_json(out_name, _envelope(
-        league_id, _to_records(df), status="real", n_trials=n_trials,
-        note=(
+    if league_id == "ncaaf":
+        df = df.sort_values(["conference", "prob_bowl_eligible"], ascending=[True, False])
+        note = (
+            "Monte Carlo simulation of the rest of the real regular season -- real conference win-loss "
+            "projection and P(finish with 6+ real wins) = real bowl eligibility. NOT a playoff-seeding "
+            "simulation: the real 12-team College Football Playoff is committee-selected, not a standings "
+            "formula, so this project does not fabricate a substitute for that real human judgment. Does not "
+            "propagate rating uncertainty between trials -- read as a rough directional guide, not a precise "
+            "forecast. See simulate_team_sport_season.py's module docstring for the full, real list of "
+            "simplifications."
+        )
+    else:
+        df = df.sort_values(["conference", "prob_make_playoffs"], ascending=[True, False])
+        note = (
             "Monte Carlo simulation of the rest of the real regular season -- who makes the playoffs and as "
             "what seed, NOT the playoff bracket itself (no simulated champion). Does not propagate rating "
             "uncertainty between trials -- read as a rough directional guide, not a precise forecast. See "
             "simulate_team_sport_season.py's module docstring for the full, real list of simplifications."
+        )
+    _write_json(out_name, _envelope(league_id, _to_records(df), status="real", n_trials=n_trials, note=note))
+
+
+def build_ufc_rankings_json() -> None:
+    """Real, model-derived fighter power rankings per weight class (see
+    rank_ufc_fighters.py's module docstring -- explicitly not a claim
+    to reproduce the real official UFC rankings panel)."""
+    csv_path = OUT_DIR / league_path("ufc", "fighter_rankings.csv")
+    if not csv_path.exists():
+        _write_json("ufc_fighter_rankings.json", _envelope(
+            "ufc", [], status="not_yet_available",
+            note="No fighter rankings exist yet -- run rank_ufc_fighters.py first.",
+        ))
+        return
+    df = pd.read_csv(csv_path).sort_values(["weight_class", "rank"])
+    _write_json("ufc_fighter_rankings.json", _envelope(
+        "ufc", _to_records(df), status="real",
+        note=(
+            "This project's own real, backtested Elo rating per weight class (see "
+            "reports/ufc_model_selection_report.md) -- NOT the real official UFC rankings panel, which is "
+            "voted on by media, not a formula. Grouped by each fighter's most recent real weight class; the "
+            "rating itself is one real global number per fighter (see fighter_elo_model.py)."
         ),
     ))
 
 
 def build_match_level_outputs(league_id: str) -> None:
     """For any non-single_table league (see LeagueConfig.format: "swiss"
-    for the UEFA club competitions, "points" for NFL/NBA): everything
-    build_all_for_league() builds EXCEPT the five table-shaped outputs
-    (expected_table/position_distribution/title_race/top4_race/
-    relegation_race, none of which applies to a partial Swiss-phase
-    schedule or a conference/division-seeded sport the same way) and
-    match_explanations (a separate, not-yet-built per-match narrative
-    feature for these leagues -- its build function has no missing-file
-    guard, unlike the four below)."""
+    for the UEFA club competitions, "points" for NFL/NBA/NHL/NCAA
+    Football, "fight_card" for UFC): everything build_all_for_league()
+    builds EXCEPT the five table-shaped outputs (expected_table/
+    position_distribution/title_race/top4_race/relegation_race, none
+    of which applies to a partial Swiss-phase schedule, a conference/
+    division-seeded sport, or an individual-fighter sport the same way)
+    and match_explanations (a separate, not-yet-built per-match
+    narrative feature for these leagues -- its build function has no
+    missing-file guard, unlike the four below)."""
     cfg = load_league_config(league_id)
     build_match_predictions_json(league_id)
     build_model_market_disagreements_json(league_id)
@@ -331,6 +370,8 @@ def build_match_level_outputs(league_id: str) -> None:
         build_knockout_json(league_id)
     elif cfg.format == "points":
         build_playoff_picture_json(league_id)
+    elif cfg.format == "fight_card":
+        build_ufc_rankings_json()
 
 
 def main(league_id: str | None = None) -> None:

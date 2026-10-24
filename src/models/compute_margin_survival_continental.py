@@ -221,7 +221,7 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
                 "implied_prob_at_real_line": implied_prob_at_real_line, "value_gap": value_gap,
                 "fair_plus2_decimal_odds": fair_plus2_decimal_odds,
                 "threshold": THRESHOLD,
-                "verdict": verdict(row_risk_label, value_gap, THRESHOLD),
+                "verdict": verdict(row_risk_label, value_gap, f"+{THRESHOLD}"),
                 "why_text": why_text_continental(cfg.display_name, league_id, team, opponent, lam, mu, p_fail,
                                                   team_tail_rate, team_tail_n, opp_blowout_rate, opp_blowout_n),
                 "run_id": meta.run_id, "model_version": MODEL_VERSION, "generated_at": generated_at,

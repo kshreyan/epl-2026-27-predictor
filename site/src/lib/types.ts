@@ -56,6 +56,25 @@ export interface PlayoffPicturePayload extends Envelope<PlayoffPictureRow> {
   n_trials?: number | null
 }
 
+// NCAA Football's real shape (simulate_team_sport_season.py's
+// main_ncaaf_bowl_eligibility()) is genuinely different from the
+// seeded-playoff shape above -- no real seeding formula exists for
+// this sport (the real CFP is committee-selected), so this reports
+// conference win-loss projection and real bowl eligibility instead.
+// Served from the SAME ufc_playoff_picture.json-style endpoint
+// (`${leagueId}_playoff_picture.json`) -- StandingsPage picks the
+// right row shape to render by checking for `prob_bowl_eligible`.
+export type BowlEligibilityRow = {
+  team: string
+  conference: string
+  current_wins: number
+  current_games: number
+  current_conference_win_pct: number | null
+  mean_projected_final_wins: number
+  prob_bowl_eligible: number
+  prob_best_conference_record: number
+} & Record<string, string | number | null>
+
 export interface ExpectedTableRow {
   team: string
   expected_position: number
@@ -273,6 +292,48 @@ export interface MarginSurvivalPayload extends Envelope<MarginSurvivalRow> {
   verdict_tally?: Record<string, number>
 }
 
+// UFC's real margin-survival shape ("Distance Survival", see
+// compute_margin_survival_ufc.py) -- fighter/opponent, not team/
+// opponent; no is_home (a real individual fight has no home/away);
+// threshold is always null (no real points/goals margin for this
+// sport, see MarginSurvivalRow's own `threshold` field for contrast).
+export interface UfcMarginSurvivalRow {
+  match_id: string
+  league_id: 'ufc'
+  season: string
+  event_id: string
+  event_name: string
+  date: string
+  kickoff_utc: string
+  status: string
+  fighter: string
+  opponent: string
+  weight_class: string
+  win_prob: number
+  p_cover: number
+  p_push: number
+  p_fail: number
+  p_survive: number
+  risk_label: string
+  threshold: null
+  verdict: 'PICK DISTANCE' | 'LEAN DISTANCE' | 'PASS'
+  why_text: string
+  fighter_elo: number
+  opponent_elo: number
+  fighter_n_historical_fights: number
+  data_confidence?: 'high' | 'moderate' | 'low'
+  league_display_name?: string
+  rank?: number
+  run_id: string
+  model_version: string
+  generated_at: string
+}
+
+// The cross-league Top-20 board mixes every covered league's own real
+// row shape -- team-sport/soccer rows (MarginSurvivalRow) and UFC's
+// own real shape (UfcMarginSurvivalRow) side by side; components that
+// render this list read whichever fields exist on a given row (see
+// Plus2BoardPage.tsx).
 export interface Top20MarginSurvivalPayload {
   generated_at: string
   model_version: string
@@ -280,6 +341,53 @@ export interface Top20MarginSurvivalPayload {
   view: string
   note?: string
   record_count: number
-  data: MarginSurvivalRow[]
+  data: (MarginSurvivalRow | UfcMarginSurvivalRow)[]
+}
+
+export interface UfcFightRow {
+  match_id: string
+  season: string
+  event_id: string
+  event_name: string
+  date: string
+  kickoff_utc: string
+  status: string
+  fighter_a: string
+  fighter_b: string
+  weight_class: string
+  scheduled_rounds: number
+  actual_winner: string
+  actual_method: string
+  actual_finish_round: string
+  fighter_a_win_prob: number
+  fighter_b_win_prob: number
+  moneyline_pick: string
+  predicted_outcome: 'Decision' | 'Finish'
+  fighter_a_distance_survival_prob: number
+  fighter_b_distance_survival_prob: number
+  fighter_a_elo: number
+  fighter_b_elo: number
+  confidence: number
+  upset_risk: number
+  data_quality_score: number
+  market_available: boolean
+  market_fighter_a_odds: number | null
+  market_fighter_b_odds: number | null
+  injury_data_available: boolean
+  lineup_data_available: boolean
+  run_id: string
+  model_version: string
+  generated_at: string
+}
+
+export interface UfcRankingRow {
+  weight_class: string
+  rank: number
+  fighter: string
+  elo: number
+  n_real_fights_total: number
+  last_real_fight_date: string
+  generated_at: string
+  model_version: string
 }
 

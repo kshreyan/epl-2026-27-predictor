@@ -1,5 +1,6 @@
-"""Collect real historical NFL/NBA results from ESPN's site API (see
-espn_api.py for source rationale), several real past regular seasons.
+"""Collect real historical NFL/NBA/NHL/NCAA Football results from
+ESPN's site API (see espn_api.py for source rationale), several real
+past regular seasons.
 
 Columns are named `home_score`/`away_score`, not `home_goals`/
 `away_goals` -- these are real POINTS, not goals, and this project
@@ -14,7 +15,7 @@ No play-by-play/box-score stats (passing yards, shooting splits, etc.)
 not estimate what it can't source for real.
 
 Run: python -m src.data_collection.collect_espn_historical --league nfl
-(also accepts nba)
+(also accepts nba, nhl, ncaaf)
 """
 from __future__ import annotations
 
@@ -26,7 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.data_collection.espn_api import fetch_real_season_games  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
-from src.utils.team_names import normalize_team_name  # noqa: E402
+from src.utils.team_names import is_known_team, normalize_team_name  # noqa: E402
 from src.utils.versioning import log_data_version, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -34,7 +35,12 @@ SOURCE_NAME = "site.api.espn.com"
 
 # ESPN's own season-year convention (see collect_espn_schedule.py) --
 # the N most recent real COMPLETED seasons before the current one.
-CURRENT_SEASON = {"nfl": 2026, "nba": 2027}
+CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "nhl": 2027, "ncaaf": 2026}
+# NBA/NHL label a season by its real END year (e.g. espn_season=2027 is
+# the real "2026-27" season) -- the split "2026-27"-style label is only
+# meaningful for those two; NFL/NCAAF use a real single START-year
+# label already.
+END_YEAR_CONVENTION_LEAGUES = {"nba", "nhl"}
 N_PRIOR_SEASONS = 5
 
 OUTPUT_COLUMNS = [
@@ -58,11 +64,17 @@ def main(league_id: str) -> None:
     fetch_ts = now_utc_iso()
     for espn_season in seasons:
         games = fetch_real_season_games(league_id, espn_season)
-        season_label = f"{espn_season - 1}-{str(espn_season)[2:]}" if league_id == "nba" else f"{espn_season}"
+        season_label = f"{espn_season - 1}-{str(espn_season)[2:]}" if league_id in END_YEAR_CONVENTION_LEAGUES else f"{espn_season}"
         n_this_season = 0
+        n_skipped_cross_division = 0
         for g in games:
             if not g["completed"] or g["home_score"] is None or g["away_score"] is None:
                 continue  # a real past season should be fully played out; skip rather than fabricate
+            # See collect_espn_schedule.py's equivalent check -- real
+            # FBS-vs-FCS "buy games" are out of this project's real scope.
+            if league_id == "ncaaf" and not (is_known_team(g["home_team"], league_id) and is_known_team(g["away_team"], league_id)):
+                n_skipped_cross_division += 1
+                continue
             home = normalize_team_name(g["home_team"], league_id=league_id)
             away = normalize_team_name(g["away_team"], league_id=league_id)
             dt_utc = datetime.fromisoformat(g["date"].replace("Z", "+00:00"))
@@ -78,7 +90,8 @@ def main(league_id: str) -> None:
                 "notes": UNAVAILABLE_NOTE,
             })
             n_this_season += 1
-        print(f"  season={espn_season} ({season_label}): {n_this_season} real completed games")
+        skip_note = f" (skipped {n_skipped_cross_division} FBS-vs-FCS)" if n_skipped_cross_division else ""
+        print(f"  season={espn_season} ({season_label}): {n_this_season} real completed games{skip_note}")
 
     rows.sort(key=lambda r: r["date"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -98,6 +111,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "nhl", "ncaaf"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

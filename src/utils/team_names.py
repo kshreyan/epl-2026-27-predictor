@@ -556,6 +556,95 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "San Antonio Spurs": [], "Toronto Raptors": [], "Utah Jazz": [],
         "Washington Wizards": [],
     },
+    # Canonical spelling is ESPN's own team displayName, same discipline
+    # as "nfl"/"nba" above. Cross-referenced directly against The Odds
+    # API's live event list (icehockey_nhl): two real spelling
+    # differences found (an accented "Montréal" and "St Louis" without
+    # the period); every other team matched exactly.
+    "nhl": {
+        "Anaheim Ducks": [], "Boston Bruins": [], "Buffalo Sabres": [],
+        "Calgary Flames": [], "Carolina Hurricanes": [], "Chicago Blackhawks": [],
+        "Colorado Avalanche": [], "Columbus Blue Jackets": [], "Dallas Stars": [],
+        "Detroit Red Wings": [], "Edmonton Oilers": [], "Florida Panthers": [],
+        "Los Angeles Kings": [], "Minnesota Wild": [],
+        "Montreal Canadiens": ["Montréal Canadiens"],
+        "Nashville Predators": [], "New Jersey Devils": [], "New York Islanders": [],
+        "New York Rangers": [], "Ottawa Senators": [], "Philadelphia Flyers": [],
+        "Pittsburgh Penguins": [], "San Jose Sharks": [], "Seattle Kraken": [],
+        "St. Louis Blues": ["St Louis Blues"],
+        "Tampa Bay Lightning": [], "Toronto Maple Leafs": [],
+        # Real franchise relocation/rename: the Arizona Coyotes
+        # relocated and rebranded as the Utah Mammoth (originally "Utah
+        # Hockey Club") in 2024 -- real historical seasons under the
+        # old name are the same real franchise, not a different team.
+        "Utah Mammoth": ["Arizona Coyotes", "Utah Hockey Club"],
+        "Vancouver Canucks": [], "Vegas Golden Knights": [], "Washington Capitals": [],
+        "Winnipeg Jets": [],
+    },
+    # Canonical spelling is ESPN's own team displayName, same discipline
+    # as the other American team sports above -- generated directly
+    # from ESPN's own real, live FBS conference standings this session
+    # (espn_api.py's fetch_real_fbs_conferences(), 138 real teams, see
+    # config/leagues.yaml's note on why this roster isn't a fixed
+    # closed set the way NFL/NBA/NHL's is). Not cross-referenced
+    # against The Odds API team-by-team the way the smaller closed
+    # rosters above were -- 138 teams makes that impractical by hand;
+    # a real Odds API spelling mismatch for any one team surfaces as
+    # that one fixture simply getting no real market odds (the same
+    # "flagged unavailable, never guessed" fallback collect_odds.py
+    # already uses everywhere), not a silent wrong number.
+    "ncaaf": {
+        "Air Force Falcons": [], "Akron Zips": [], "Alabama Crimson Tide": [],
+        "App State Mountaineers": [], "Arizona State Sun Devils": [], "Arizona Wildcats": [],
+        "Arkansas Razorbacks": [], "Arkansas State Red Wolves": [], "Army Black Knights": [],
+        "Auburn Tigers": [], "BYU Cougars": [], "Ball State Cardinals": [],
+        "Baylor Bears": [], "Boise State Broncos": [], "Boston College Eagles": [],
+        "Bowling Green Falcons": [], "Buffalo Bulls": [], "California Golden Bears": [],
+        "Central Michigan Chippewas": [], "Charlotte 49ers": [], "Cincinnati Bearcats": [],
+        "Clemson Tigers": [], "Coastal Carolina Chanticleers": [], "Colorado Buffaloes": [],
+        "Colorado State Rams": [], "Delaware Blue Hens": [], "Duke Blue Devils": [],
+        "East Carolina Pirates": [], "Eastern Michigan Eagles": [],
+        "Florida Atlantic Owls": [], "Florida Gators": [],
+        "Florida International Panthers": [], "Florida State Seminoles": [],
+        "Fresno State Bulldogs": [], "Georgia Bulldogs": [], "Georgia Southern Eagles": [],
+        "Georgia State Panthers": [], "Georgia Tech Yellow Jackets": [],
+        "Hawai'i Rainbow Warriors": [], "Houston Cougars": [], "Illinois Fighting Illini": [],
+        "Indiana Hoosiers": [], "Iowa Hawkeyes": [], "Iowa State Cyclones": [],
+        "Jacksonville State Gamecocks": [], "James Madison Dukes": [], "Kansas Jayhawks": [],
+        "Kansas State Wildcats": [], "Kennesaw State Owls": [],
+        "Kent State Golden Flashes": [], "Kentucky Wildcats": [], "LSU Tigers": [],
+        "Liberty Flames": [], "Louisiana Ragin' Cajuns": [], "Louisiana Tech Bulldogs": [],
+        "Louisville Cardinals": [], "Marshall Thundering Herd": [], "Maryland Terrapins": [],
+        "Massachusetts Minutemen": [], "Memphis Tigers": [], "Miami (OH) RedHawks": [],
+        "Miami Hurricanes": [], "Michigan State Spartans": [], "Michigan Wolverines": [],
+        "Middle Tennessee Blue Raiders": [], "Minnesota Golden Gophers": [],
+        "Mississippi State Bulldogs": [], "Missouri State Bears": [], "Missouri Tigers": [],
+        "NC State Wolfpack": [], "Navy Midshipmen": [], "Nebraska Cornhuskers": [],
+        "Nevada Wolf Pack": [], "New Mexico Lobos": [], "New Mexico State Aggies": [],
+        "North Carolina Tar Heels": [], "North Dakota State Bison": [],
+        "North Texas Mean Green": [], "Northern Illinois Huskies": [],
+        "Northwestern Wildcats": [], "Notre Dame Fighting Irish": [], "Ohio Bobcats": [],
+        "Ohio State Buckeyes": [], "Oklahoma Sooners": [], "Oklahoma State Cowboys": [],
+        "Old Dominion Monarchs": [], "Ole Miss Rebels": [], "Oregon Ducks": [],
+        "Oregon State Beavers": [], "Penn State Nittany Lions": [], "Pittsburgh Panthers": [],
+        "Purdue Boilermakers": [], "Rice Owls": [], "Rutgers Scarlet Knights": [],
+        "SMU Mustangs": [], "Sacramento State Hornets": [], "Sam Houston Bearkats": [],
+        "San Diego State Aztecs": [], "San José State Spartans": [],
+        "South Alabama Jaguars": [], "South Carolina Gamecocks": [],
+        "South Florida Bulls": [], "Southern Miss Golden Eagles": [], "Stanford Cardinal": [],
+        "Syracuse Orange": [], "TCU Horned Frogs": [], "Temple Owls": [],
+        "Tennessee Volunteers": [], "Texas A&M Aggies": [], "Texas Longhorns": [],
+        "Texas State Bobcats": [], "Texas Tech Red Raiders": [], "Toledo Rockets": [],
+        "Troy Trojans": [], "Tulane Green Wave": [], "Tulsa Golden Hurricane": [],
+        "UAB Blazers": [], "UCF Knights": [], "UCLA Bruins": [], "UConn Huskies": [],
+        "UL Monroe Warhawks": [], "UNLV Rebels": [], "USC Trojans": [], "UTEP Miners": [],
+        "UTSA Roadrunners": [], "Utah State Aggies": [], "Utah Utes": [],
+        "Vanderbilt Commodores": [], "Virginia Cavaliers": [], "Virginia Tech Hokies": [],
+        "Wake Forest Demon Deacons": [], "Washington Huskies": [],
+        "Washington State Cougars": [], "West Virginia Mountaineers": [],
+        "Western Kentucky Hilltoppers": [], "Western Michigan Broncos": [],
+        "Wisconsin Badgers": [], "Wyoming Cowboys": [],
+    },
 }
 
 _ALIAS_TO_CANONICAL: dict[str, dict[str, str]] = {}
@@ -576,13 +665,41 @@ EPL_2026_27_CLUBS: list[str] = sorted([
 ])
 
 
+# UFC has no canonical fighter-name table by design (see this module's
+# ncaaf comment and config/leagues.yaml's UFC note) -- a roster of
+# hundreds of active real fighters makes a hand-maintained alias list
+# impractical, unlike every closed, small, stable team roster above.
+# is_known_team()/normalize_team_name() both pass a real UFC fighter
+# name through unchanged rather than raising -- ESPN's own `fullName`
+# is treated as already canonical; a real spelling mismatch against a
+# different real source (e.g. The Odds API) surfaces as that one fight
+# simply getting no real market odds, never a guessed mapping.
+NO_CANONICAL_TABLE_LEAGUES = {"ufc"}
+
+
+def is_known_team(raw_name: str, league_id: str) -> bool:
+    """True if `raw_name` resolves to a known canonical team/alias for
+    this league -- a non-raising check for callers that need to skip a
+    real but out-of-scope opponent (e.g. an FCS "buy game" opponent on
+    an NCAA Football FBS team's real schedule) rather than treat it as
+    a data error the way normalize_team_name's KeyError does."""
+    if league_id in NO_CANONICAL_TABLE_LEAGUES:
+        return True
+    table = _ALIAS_TO_CANONICAL.get(league_id, {})
+    return raw_name.strip().lower() in table
+
+
 def normalize_team_name(raw_name: str, league_id: str = "epl") -> str:
     """Map any known source variant of a club name to its canonical full
     name, within the given league's own alias table.
 
     Raises KeyError for unrecognized names rather than silently
-    guessing, per the project's no-fabrication data rules.
+    guessing, per the project's no-fabrication data rules -- except
+    for a league in NO_CANONICAL_TABLE_LEAGUES (see that constant),
+    which passes the real name through unchanged by design.
     """
+    if league_id in NO_CANONICAL_TABLE_LEAGUES:
+        return raw_name.strip()
     if league_id not in _ALIAS_TO_CANONICAL:
         raise KeyError(f"No canonical team table for league_id '{league_id}'.")
     key = raw_name.strip().lower()
