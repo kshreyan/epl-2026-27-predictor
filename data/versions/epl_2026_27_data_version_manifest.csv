@@ -328,3 +328,21 @@ ncaaf_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-24T19:41:15+0
 nhl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:42:11+00:00,5457,True,2026-10-24T19:42:11+00:00,1476 real bookmaker/market rows; rest are honest unavailable sentinels.
 ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:42:18+00:00,4699,True,2026-10-24T19:42:19+00:00,2545 real bookmaker/market rows; rest are honest unavailable sentinels.
 ufc_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-24T19:43:13+00:00,781,True,2026-10-24T19:43:13+00:00,160 real bookmaker/market rows; rest are honest unavailable sentinels.
+epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:50+00:00,2526,True,2026-10-25T10:14:50+00:00,1463 real bookmaker/market rows; rest are honest unavailable sentinels.
+la_liga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:50+00:00,1737,True,2026-10-25T10:14:50+00:00,624 real bookmaker/market rows; rest are honest unavailable sentinels.
+serie_a_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:50+00:00,1720,True,2026-10-25T10:14:51+00:00,604 real bookmaker/market rows; rest are honest unavailable sentinels.
+bundesliga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:51+00:00,1213,True,2026-10-25T10:14:51+00:00,310 real bookmaker/market rows; rest are honest unavailable sentinels.
+ligue_1_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:51+00:00,1990,True,2026-10-25T10:14:51+00:00,1120 real bookmaker/market rows; rest are honest unavailable sentinels.
+ucl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:52+00:00,1613,True,2026-10-25T10:14:52+00:00,1235 real bookmaker/market rows; rest are honest unavailable sentinels.
+uel_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:52+00:00,1091,True,2026-10-25T10:14:52+00:00,713 real bookmaker/market rows; rest are honest unavailable sentinels.
+uecl_2026_27_real_odds,2026-08-18.phase1,none_available,2026-10-25T10:14:52+00:00,324,False,2026-10-25T10:14:52+00:00,0 real bookmaker/market rows; rest are honest unavailable sentinels.
+nfl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:53+00:00,2788,True,2026-10-25T10:14:53+00:00,2053 real bookmaker/market rows; rest are honest unavailable sentinels.
+nba_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:53+00:00,4577,True,2026-10-25T10:14:53+00:00,1013 real bookmaker/market rows; rest are honest unavailable sentinels.
+nhl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:54+00:00,4504,True,2026-10-25T10:14:54+00:00,487 real bookmaker/market rows; rest are honest unavailable sentinels.
+ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:54+00:00,3033,True,2026-10-25T10:14:54+00:00,864 real bookmaker/market rows; rest are honest unavailable sentinels.
+ufc_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-25T10:14:54+00:00,810,True,2026-10-25T10:14:55+00:00,191 real bookmaker/market rows; rest are honest unavailable sentinels.
+nfl_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-25T10:15:34+00:00,272,True,2026-10-25T10:15:37+00:00,NFL 2026-27 real schedule from ESPN's site API (season=2026).
+nba_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-25T10:15:47+00:00,1200,True,2026-10-25T10:15:49+00:00,NBA 2026-27 real schedule from ESPN's site API (season=2027).
+nhl_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-25T10:16:22+00:00,1344,True,2026-10-25T10:16:26+00:00,NHL 2026-27 real schedule from ESPN's site API (season=2027).
+ncaaf_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-10-25T10:16:59+00:00,761,True,2026-10-25T10:17:12+00:00,NCAA Football 2026-27 real schedule from ESPN's site API (season=2026).
+ufc_2026_27_fight_card,2026-08-18.phase1,site.api.espn.com,2026-10-25T10:17:28+00:00,208,True,2026-10-25T10:17:28+00:00,"UFC real fight-card window [2026-08-26, 2027-04-23] from ESPN's site API."

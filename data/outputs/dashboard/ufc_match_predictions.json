@@ -1,185 +1,10 @@
 {
   "league": "ufc",
-  "generated_at": "2026-10-24T19:43:42+00:00",
+  "generated_at": "2026-10-25T10:17:32+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
-  "record_count": 212,
+  "record_count": 208,
   "data": [
-    {
-      "match_id": "UFC2627_600060734_401907065",
-      "season": "2026-27",
-      "event_id": 600060734,
-      "event_name": "Dana White's Contender Series: Season 10, Week 3",
-      "date": "2026-08-25",
-      "kickoff_utc": "2026-08-25T23:00:00+00:00",
-      "status": "completed",
-      "fighter_a": "Carlos Petruzzella",
-      "fighter_b": "Nick Galanti",
-      "weight_class": "Middleweight",
-      "scheduled_rounds": 3,
-      "actual_winner": "Nick Galanti",
-      "actual_method": "finish",
-      "actual_finish_round": 1.0,
-      "fighter_a_win_prob": 0.4496,
-      "fighter_b_win_prob": 0.5504,
-      "moneyline_pick": "Nick Galanti",
-      "predicted_outcome": "Finish",
-      "fighter_a_distance_survival_prob": 0.7087,
-      "fighter_b_distance_survival_prob": 0.762,
-      "fighter_a_elo": 1488.0,
-      "fighter_b_elo": 1523.1,
-      "confidence": 0.5504,
-      "upset_risk": 0.4496,
-      "data_quality_score": 0.3,
-      "market_available": false,
-      "market_fighter_a_odds": null,
-      "market_fighter_b_odds": null,
-      "injury_data_available": false,
-      "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
-      "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
-    },
-    {
-      "match_id": "UFC2627_600060734_401907064",
-      "season": "2026-27",
-      "event_id": 600060734,
-      "event_name": "Dana White's Contender Series: Season 10, Week 3",
-      "date": "2026-08-25",
-      "kickoff_utc": "2026-08-25T23:00:00+00:00",
-      "status": "completed",
-      "fighter_a": "Ronald Humphrey",
-      "fighter_b": "Alexis Miranda",
-      "weight_class": "Welterweight",
-      "scheduled_rounds": 3,
-      "actual_winner": "Ronald Humphrey",
-      "actual_method": "finish",
-      "actual_finish_round": 1.0,
-      "fighter_a_win_prob": 0.5345,
-      "fighter_b_win_prob": 0.4655,
-      "moneyline_pick": "Ronald Humphrey",
-      "predicted_outcome": "Finish",
-      "fighter_a_distance_survival_prob": 0.7536,
-      "fighter_b_distance_survival_prob": 0.7171,
-      "fighter_a_elo": 1512.0,
-      "fighter_b_elo": 1488.0,
-      "confidence": 0.5345,
-      "upset_risk": 0.4655,
-      "data_quality_score": 0.3,
-      "market_available": false,
-      "market_fighter_a_odds": null,
-      "market_fighter_b_odds": null,
-      "injury_data_available": false,
-      "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
-      "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
-    },
-    {
-      "match_id": "UFC2627_600060734_401907063",
-      "season": "2026-27",
-      "event_id": 600060734,
-      "event_name": "Dana White's Contender Series: Season 10, Week 3",
-      "date": "2026-08-25",
-      "kickoff_utc": "2026-08-25T23:00:00+00:00",
-      "status": "completed",
-      "fighter_a": "Gary Balletto",
-      "fighter_b": "Sean Clancy Jr.",
-      "weight_class": "Welterweight",
-      "scheduled_rounds": 3,
-      "actual_winner": "Sean Clancy Jr.",
-      "actual_method": "finish",
-      "actual_finish_round": 2.0,
-      "fighter_a_win_prob": 0.4655,
-      "fighter_b_win_prob": 0.5345,
-      "moneyline_pick": "Sean Clancy Jr.",
-      "predicted_outcome": "Finish",
-      "fighter_a_distance_survival_prob": 0.7171,
-      "fighter_b_distance_survival_prob": 0.7536,
-      "fighter_a_elo": 1488.0,
-      "fighter_b_elo": 1512.0,
-      "confidence": 0.5345,
-      "upset_risk": 0.4655,
-      "data_quality_score": 0.3,
-      "market_available": false,
-      "market_fighter_a_odds": null,
-      "market_fighter_b_odds": null,
-      "injury_data_available": false,
-      "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
-      "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
-    },
-    {
-      "match_id": "UFC2627_600060734_401907018",
-      "season": "2026-27",
-      "event_id": 600060734,
-      "event_name": "Dana White's Contender Series: Season 10, Week 3",
-      "date": "2026-08-25",
-      "kickoff_utc": "2026-08-25T23:00:00+00:00",
-      "status": "completed",
-      "fighter_a": "Mario Piazzon",
-      "fighter_b": "Guilherme Uriel",
-      "weight_class": "Heavyweight",
-      "scheduled_rounds": 3,
-      "actual_winner": "Guilherme Uriel",
-      "actual_method": "finish",
-      "actual_finish_round": 1.0,
-      "fighter_a_win_prob": 0.4976,
-      "fighter_b_win_prob": 0.5024,
-      "moneyline_pick": "Guilherme Uriel",
-      "predicted_outcome": "Finish",
-      "fighter_a_distance_survival_prob": 0.7341,
-      "fighter_b_distance_survival_prob": 0.7366,
-      "fighter_a_elo": 1499.2,
-      "fighter_b_elo": 1500.8,
-      "confidence": 0.5024,
-      "upset_risk": 0.4976,
-      "data_quality_score": 0.3,
-      "market_available": false,
-      "market_fighter_a_odds": null,
-      "market_fighter_b_odds": null,
-      "injury_data_available": false,
-      "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
-      "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
-    },
-    {
-      "match_id": "UFC2627_600060734_401891538",
-      "season": "2026-27",
-      "event_id": 600060734,
-      "event_name": "Dana White's Contender Series: Season 10, Week 3",
-      "date": "2026-08-25",
-      "kickoff_utc": "2026-08-25T23:00:00+00:00",
-      "status": "completed",
-      "fighter_a": "Bella Mir",
-      "fighter_b": "Alex Apodaca",
-      "weight_class": "W Bantamweight",
-      "scheduled_rounds": 3,
-      "actual_winner": "Alex Apodaca",
-      "actual_method": "decision",
-      "actual_finish_round": 3.0,
-      "fighter_a_win_prob": 0.4655,
-      "fighter_b_win_prob": 0.5345,
-      "moneyline_pick": "Alex Apodaca",
-      "predicted_outcome": "Finish",
-      "fighter_a_distance_survival_prob": 0.7171,
-      "fighter_b_distance_survival_prob": 0.7536,
-      "fighter_a_elo": 1488.0,
-      "fighter_b_elo": 1512.0,
-      "confidence": 0.5345,
-      "upset_risk": 0.4655,
-      "data_quality_score": 0.3,
-      "market_available": false,
-      "market_fighter_a_odds": null,
-      "market_fighter_b_odds": null,
-      "injury_data_available": false,
-      "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
-      "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
-    },
     {
       "match_id": "UFC2627_600060620_401913545",
       "season": "2026-27",
@@ -211,9 +36,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401905191",
@@ -246,9 +71,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401913544",
@@ -281,9 +106,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401913543",
@@ -316,9 +141,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401898005",
@@ -351,9 +176,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401887537",
@@ -386,9 +211,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401905190",
@@ -421,9 +246,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401913129",
@@ -456,9 +281,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401914040",
@@ -491,9 +316,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401887536",
@@ -526,9 +351,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401891333",
@@ -561,9 +386,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401887535",
@@ -596,9 +421,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060620_401887532",
@@ -631,9 +456,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060735_401911592",
@@ -666,9 +491,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060735_401911591",
@@ -701,9 +526,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060735_401911590",
@@ -736,9 +561,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060735_401911589",
@@ -771,9 +596,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060735_401891539",
@@ -806,9 +631,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401913130",
@@ -841,9 +666,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401902948",
@@ -876,9 +701,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401911287",
@@ -911,9 +736,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401914474",
@@ -946,9 +771,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401916275",
@@ -981,9 +806,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401911288",
@@ -1016,9 +841,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401875227",
@@ -1051,9 +876,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401902947",
@@ -1086,9 +911,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401911289",
@@ -1121,9 +946,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401898007",
@@ -1156,9 +981,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401914473",
@@ -1191,9 +1016,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401898006",
@@ -1226,9 +1051,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401911286",
@@ -1261,9 +1086,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600059993_401875226",
@@ -1296,9 +1121,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060736_401916066",
@@ -1331,9 +1156,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060736_401916065",
@@ -1366,9 +1191,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060736_401916056",
@@ -1401,9 +1226,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060736_401891540",
@@ -1436,9 +1261,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060736_401914107",
@@ -1471,9 +1296,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401897736",
@@ -1506,9 +1331,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401916464",
@@ -1541,9 +1366,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401913547",
@@ -1576,9 +1401,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401916463",
@@ -1611,9 +1436,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401914463",
@@ -1646,9 +1471,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401905193",
@@ -1681,9 +1506,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401897732",
@@ -1716,9 +1541,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401905192",
@@ -1751,9 +1576,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401897733",
@@ -1786,9 +1611,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401897734",
@@ -1821,9 +1646,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401908491",
@@ -1856,9 +1681,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401897731",
@@ -1891,9 +1716,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060772_401914462",
@@ -1926,9 +1751,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060737_401918032",
@@ -1961,9 +1786,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060737_401918031",
@@ -1996,9 +1821,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060737_401918030",
@@ -2031,9 +1856,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060737_401918029",
@@ -2066,9 +1891,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060737_401891541",
@@ -2101,9 +1926,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905382",
@@ -2136,9 +1961,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401903511",
@@ -2171,9 +1996,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905381",
@@ -2206,9 +2031,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905385",
@@ -2241,9 +2066,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905386",
@@ -2276,9 +2101,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905380",
@@ -2311,9 +2136,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905379",
@@ -2346,9 +2171,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905378",
@@ -2381,9 +2206,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401903510",
@@ -2416,9 +2241,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905376",
@@ -2451,9 +2276,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401905375",
@@ -2486,9 +2311,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060963_401903509",
@@ -2521,9 +2346,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060738_401921412",
@@ -2556,9 +2381,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060738_401921411",
@@ -2591,9 +2416,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060738_401921410",
@@ -2626,9 +2451,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060738_401921409",
@@ -2661,9 +2486,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060738_401891542",
@@ -2696,9 +2521,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914472",
@@ -2731,9 +2556,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914469",
@@ -2766,9 +2591,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914466",
@@ -2801,9 +2626,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914470",
@@ -2836,9 +2661,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914467",
@@ -2871,9 +2696,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401911631",
@@ -2906,9 +2731,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914468",
@@ -2941,9 +2766,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914464",
@@ -2976,9 +2801,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914465",
@@ -3011,9 +2836,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401924683",
@@ -3046,9 +2871,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401914471",
@@ -3081,9 +2906,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061266_401911630",
@@ -3116,9 +2941,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060739_401923732",
@@ -3151,9 +2976,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060739_401923731",
@@ -3186,9 +3011,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060739_401923730",
@@ -3221,9 +3046,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060739_401891663",
@@ -3256,9 +3081,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401907089",
@@ -3291,9 +3116,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401912275",
@@ -3326,9 +3151,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401917346",
@@ -3361,9 +3186,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401926808",
@@ -3396,9 +3221,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401912274",
@@ -3431,9 +3256,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401922306",
@@ -3466,9 +3291,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401927906",
@@ -3501,9 +3326,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401912277",
@@ -3536,9 +3361,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401912276",
@@ -3571,9 +3396,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401907088",
@@ -3606,9 +3431,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401917345",
@@ -3641,9 +3466,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401917347",
@@ -3676,9 +3501,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401907087",
@@ -3711,9 +3536,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061182_401912278",
@@ -3746,9 +3571,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060740_401891664",
@@ -3781,9 +3606,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060740_401928605",
@@ -3816,9 +3641,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060740_401928604",
@@ -3851,9 +3676,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060740_401928603",
@@ -3886,9 +3711,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060740_401928606",
@@ -3921,9 +3746,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401924511",
@@ -3956,9 +3781,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401924512",
@@ -3991,9 +3816,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401927418",
@@ -4026,9 +3851,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401927420",
@@ -4061,9 +3886,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401927419",
@@ -4096,9 +3921,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401916277",
@@ -4131,9 +3956,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401927417",
@@ -4166,9 +3991,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401927421",
@@ -4201,9 +4026,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401927416",
@@ -4236,9 +4061,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401924510",
@@ -4271,9 +4096,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401927415",
@@ -4306,9 +4131,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061541_401916276",
@@ -4341,9 +4166,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060741_401928740",
@@ -4376,9 +4201,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060741_401928739",
@@ -4411,9 +4236,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060741_401928738",
@@ -4446,9 +4271,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060741_401928737",
@@ -4481,9 +4306,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060741_401891665",
@@ -4516,9 +4341,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401919643",
@@ -4551,9 +4376,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401908373",
@@ -4586,9 +4411,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401914039",
@@ -4621,9 +4446,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401929675",
@@ -4656,9 +4481,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401929676",
@@ -4691,9 +4516,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401911807",
@@ -4726,9 +4551,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401908371",
@@ -4761,9 +4586,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401905374",
@@ -4796,9 +4621,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401909783",
@@ -4831,9 +4656,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401908372",
@@ -4866,9 +4691,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401923630",
@@ -4901,9 +4726,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401897729",
@@ -4936,9 +4761,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600060773_401897388",
@@ -4971,9 +4796,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401930917",
@@ -5006,9 +4831,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401930916",
@@ -5041,9 +4866,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401930915",
@@ -5076,9 +4901,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401930357",
@@ -5111,9 +4936,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401928047",
@@ -5146,9 +4971,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401911640",
@@ -5181,9 +5006,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401911638",
@@ -5216,9 +5041,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401911639",
@@ -5251,9 +5076,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401911637",
@@ -5286,9 +5111,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401929495",
@@ -5321,9 +5146,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401911635",
@@ -5356,9 +5181,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401911634",
@@ -5367,14 +5192,14 @@
       "event_name": "UFC 333: Volkanovski vs. Evloev",
       "date": "2026-10-24",
       "kickoff_utc": "2026-10-24T18:00:00+00:00",
-      "status": "scheduled",
+      "status": "completed",
       "fighter_a": "Lone'er Kavanagh",
       "fighter_b": "Ramazan Temirov",
       "weight_class": "Flyweight",
       "scheduled_rounds": 3,
-      "actual_winner": null,
-      "actual_method": null,
-      "actual_finish_round": null,
+      "actual_winner": "Lone'er Kavanagh",
+      "actual_method": "finish",
+      "actual_finish_round": 1.0,
       "fighter_a_win_prob": 0.4772,
       "fighter_b_win_prob": 0.5228,
       "moneyline_pick": "Ramazan Temirov",
@@ -5391,9 +5216,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401911633",
@@ -5402,14 +5227,14 @@
       "event_name": "UFC 333: Volkanovski vs. Evloev",
       "date": "2026-10-24",
       "kickoff_utc": "2026-10-24T18:00:00+00:00",
-      "status": "scheduled",
+      "status": "completed",
       "fighter_a": "Petr Yan",
       "fighter_b": "Merab Dvalishvili",
       "weight_class": "Bantamweight",
       "scheduled_rounds": 5,
-      "actual_winner": null,
-      "actual_method": null,
-      "actual_finish_round": null,
+      "actual_winner": "Petr Yan",
+      "actual_method": "decision",
+      "actual_finish_round": 5.0,
       "fighter_a_win_prob": 0.413,
       "fighter_b_win_prob": 0.587,
       "moneyline_pick": "Merab Dvalishvili",
@@ -5421,14 +5246,14 @@
       "confidence": 0.587,
       "upset_risk": 0.413,
       "data_quality_score": 0.3,
-      "market_available": true,
-      "market_fighter_a_odds": 1.7,
-      "market_fighter_b_odds": 2.2,
+      "market_available": false,
+      "market_fighter_a_odds": null,
+      "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061267_401911632",
@@ -5437,14 +5262,14 @@
       "event_name": "UFC 333: Volkanovski vs. Evloev",
       "date": "2026-10-24",
       "kickoff_utc": "2026-10-24T18:00:00+00:00",
-      "status": "scheduled",
+      "status": "completed",
       "fighter_a": "Alexander Volkanovski",
       "fighter_b": "Movsar Evloev",
       "weight_class": "Featherweight",
       "scheduled_rounds": 5,
-      "actual_winner": null,
-      "actual_method": null,
-      "actual_finish_round": null,
+      "actual_winner": "Alexander Volkanovski",
+      "actual_method": "finish",
+      "actual_finish_round": 2.0,
       "fighter_a_win_prob": 0.4416,
       "fighter_b_win_prob": 0.5584,
       "moneyline_pick": "Movsar Evloev",
@@ -5461,9 +5286,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401931617",
@@ -5496,9 +5321,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401914105",
@@ -5531,9 +5356,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401931616",
@@ -5566,9 +5391,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401928105",
@@ -5597,13 +5422,13 @@
       "upset_risk": 0.4866,
       "data_quality_score": 0.3,
       "market_available": true,
-      "market_fighter_a_odds": 3.11,
-      "market_fighter_b_odds": 1.39,
+      "market_fighter_a_odds": 3.2,
+      "market_fighter_b_odds": 1.38,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401914106",
@@ -5636,9 +5461,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401928109",
@@ -5671,9 +5496,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401928106",
@@ -5706,9 +5531,9 @@
       "market_fighter_b_odds": 2.57,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401928108",
@@ -5741,9 +5566,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401931615",
@@ -5772,13 +5597,13 @@
       "upset_risk": 0.4513,
       "data_quality_score": 0.3,
       "market_available": true,
-      "market_fighter_a_odds": 1.42,
-      "market_fighter_b_odds": 3.0,
+      "market_fighter_a_odds": 1.43,
+      "market_fighter_b_odds": 2.93,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401928107",
@@ -5807,13 +5632,13 @@
       "upset_risk": 0.4649,
       "data_quality_score": 0.3,
       "market_available": true,
-      "market_fighter_a_odds": 1.42,
-      "market_fighter_b_odds": 3.0,
+      "market_fighter_a_odds": 1.38,
+      "market_fighter_b_odds": 3.2,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401928104",
@@ -5842,13 +5667,13 @@
       "upset_risk": 0.4386,
       "data_quality_score": 0.3,
       "market_available": true,
-      "market_fighter_a_odds": 2.61,
-      "market_fighter_b_odds": 1.53,
+      "market_fighter_a_odds": 3.12,
+      "market_fighter_b_odds": 1.39,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401931555",
@@ -5881,9 +5706,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061420_401921310",
@@ -5916,9 +5741,9 @@
       "market_fighter_b_odds": 1.77,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928118",
@@ -5951,9 +5776,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928116",
@@ -5986,9 +5811,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928114",
@@ -6021,9 +5846,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401911642",
@@ -6056,9 +5881,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928120",
@@ -6091,9 +5916,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928115",
@@ -6126,9 +5951,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928121",
@@ -6161,9 +5986,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928112",
@@ -6196,9 +6021,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928113",
@@ -6231,9 +6056,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928117",
@@ -6266,9 +6091,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928119",
@@ -6301,9 +6126,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401928111",
@@ -6336,9 +6161,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061268_401911641",
@@ -6371,9 +6196,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401913648",
@@ -6406,9 +6231,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922646",
@@ -6441,9 +6266,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922645",
@@ -6476,9 +6301,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922644",
@@ -6511,9 +6336,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922643",
@@ -6546,9 +6371,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922642",
@@ -6581,9 +6406,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401913647",
@@ -6616,9 +6441,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922641",
@@ -6651,9 +6476,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922640",
@@ -6686,9 +6511,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922639",
@@ -6721,9 +6546,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401922638",
@@ -6756,9 +6581,9 @@
       "market_fighter_b_odds": 2.7,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061400_401913646",
@@ -6791,9 +6616,9 @@
       "market_fighter_b_odds": 3.15,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401927856",
@@ -6826,9 +6651,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401927855",
@@ -6861,9 +6686,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401927854",
@@ -6896,9 +6721,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401927853",
@@ -6931,9 +6756,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401927852",
@@ -6966,9 +6791,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401927851",
@@ -7001,9 +6826,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401922278",
@@ -7036,9 +6861,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401927850",
@@ -7071,9 +6896,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061665_401922277",
@@ -7106,9 +6931,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061401_401930356",
@@ -7141,9 +6966,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061401_401930355",
@@ -7176,9 +7001,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061401_401913651",
@@ -7211,9 +7036,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061401_401913650",
@@ -7246,9 +7071,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061401_401928327",
@@ -7281,9 +7106,9 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600061401_401913649",
@@ -7316,15 +7141,15 @@
       "market_fighter_b_odds": 2.24,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600062191_401930623",
       "season": "2026-27",
       "event_id": 600062191,
-      "event_name": "UFC 336",
+      "event_name": "UFC 336: Van vs. Kape",
       "date": "2027-01-30",
       "kickoff_utc": "2027-01-30T22:00:00+00:00",
       "status": "scheduled",
@@ -7351,15 +7176,15 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600062191_401930621",
       "season": "2026-27",
       "event_id": 600062191,
-      "event_name": "UFC 336",
+      "event_name": "UFC 336: Van vs. Kape",
       "date": "2027-01-31",
       "kickoff_utc": "2027-01-31T00:00:00+00:00",
       "status": "scheduled",
@@ -7386,44 +7211,79 @@
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
     },
     {
       "match_id": "UFC2627_600062191_401930620",
       "season": "2026-27",
       "event_id": 600062191,
-      "event_name": "UFC 336",
+      "event_name": "UFC 336: Van vs. Kape",
       "date": "2027-01-31",
       "kickoff_utc": "2027-01-31T02:00:00+00:00",
       "status": "scheduled",
-      "fighter_a": "TBA",
-      "fighter_b": "Opponent TBA",
-      "weight_class": null,
+      "fighter_a": "Carlos Prates",
+      "fighter_b": "Michael Morales",
+      "weight_class": "Welterweight",
       "scheduled_rounds": 5,
       "actual_winner": null,
       "actual_method": null,
       "actual_finish_round": null,
-      "fighter_a_win_prob": 0.5,
-      "fighter_b_win_prob": 0.5,
-      "moneyline_pick": "Opponent TBA",
+      "fighter_a_win_prob": 0.4887,
+      "fighter_b_win_prob": 0.5113,
+      "moneyline_pick": "Michael Morales",
       "predicted_outcome": "Finish",
-      "fighter_a_distance_survival_prob": 0.7354,
-      "fighter_b_distance_survival_prob": 0.7354,
-      "fighter_a_elo": 1500.0,
-      "fighter_b_elo": 1500.0,
-      "confidence": 0.5,
-      "upset_risk": 0.5,
+      "fighter_a_distance_survival_prob": 0.7049,
+      "fighter_b_distance_survival_prob": 0.6263,
+      "fighter_a_elo": 1579.7,
+      "fighter_b_elo": 1587.6,
+      "confidence": 0.5113,
+      "upset_risk": 0.4887,
       "data_quality_score": 0.3,
       "market_available": false,
       "market_fighter_a_odds": null,
       "market_fighter_b_odds": null,
       "injury_data_available": false,
       "lineup_data_available": false,
-      "run_id": "predict_ufc_20261024T194314Z_9f629378",
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-10-24T19:43:14+00:00"
+      "generated_at": "2026-10-25T10:17:28+00:00"
+    },
+    {
+      "match_id": "UFC2627_600062191_401931631",
+      "season": "2026-27",
+      "event_id": 600062191,
+      "event_name": "UFC 336: Van vs. Kape",
+      "date": "2027-01-31",
+      "kickoff_utc": "2027-01-31T02:00:00+00:00",
+      "status": "scheduled",
+      "fighter_a": "Joshua Van",
+      "fighter_b": "Manel Kape",
+      "weight_class": "Flyweight",
+      "scheduled_rounds": 5,
+      "actual_winner": null,
+      "actual_method": null,
+      "actual_finish_round": null,
+      "fighter_a_win_prob": 0.5694,
+      "fighter_b_win_prob": 0.4306,
+      "moneyline_pick": "Joshua Van",
+      "predicted_outcome": "Decision",
+      "fighter_a_distance_survival_prob": 0.7245,
+      "fighter_b_distance_survival_prob": 0.8965,
+      "fighter_a_elo": 1610.8,
+      "fighter_b_elo": 1562.3,
+      "confidence": 0.5694,
+      "upset_risk": 0.4306,
+      "data_quality_score": 0.3,
+      "market_available": false,
+      "market_fighter_a_odds": null,
+      "market_fighter_b_odds": null,
+      "injury_data_available": false,
+      "lineup_data_available": false,
+      "run_id": "predict_ufc_20261025T101728Z_29aed451",
+      "model_version": "0.1.0-phase1",
+      "generated_at": "2026-10-25T10:17:28+00:00"
     }
   ]
 }
