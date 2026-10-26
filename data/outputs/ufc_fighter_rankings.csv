@@ -1,174 +1,174 @@
 weight_class,rank,fighter,elo,n_real_fights_total,last_real_fight_date,generated_at,model_version
-Bantamweight,1,Farid Basharat,1589.5,8,2026-07-11,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,2,Mario Bautista,1587.7,12,2026-07-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,3,Merab Dvalishvili,1586.1,10,2025-12-07,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,4,Raul Rosas Jr.,1575.2,9,2026-09-27,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,5,Sean O'Malley,1569.8,10,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,6,Aiemann Zahabi,1565.8,8,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,7,Umar Nurmagomedov,1564.8,10,2026-08-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,8,Payton Talbott,1562.6,8,2026-10-04,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,9,Daniel Marcos,1557.0,7,2025-11-08,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,10,David Martinez,1555.3,5,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,11,Montel Jackson,1552.7,9,2026-09-26,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,12,Brady Hiestand,1547.0,6,2026-09-26,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,13,Song Yadong,1546.0,12,2026-08-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,14,Elijah Smith,1545.9,4,2026-03-14,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Bantamweight,15,Chris Gutierrez,1541.4,10,2025-10-04,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Catch Weight,1,Tim Elliott,1534.7,9,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Catch Weight,2,Charles Johnson,1526.0,16,2026-08-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Catch Weight,3,Édgar Cháirez,1502.2,8,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Catch Weight,4,Ernesta Kareckaite,1500.0,4,2026-02-28,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Catch Weight,5,Chris Weidman,1478.5,4,2024-12-07,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Catch Weight,6,James Llontop,1476.4,4,2024-11-17,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Catch Weight,7,Matt Schnell,1468.4,9,2026-06-06,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Catch Weight,8,Brian Ortega,1468.1,5,2025-08-23,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,1,Movsar Evloev,1580.2,7,2026-03-21,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,2,Pat Sabatini,1577.8,11,2026-05-09,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,3,Jean Silva,1576.2,9,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,4,Lerone Murphy,1573.9,9,2026-03-21,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,5,Joanderson Brito,1565.1,12,2026-09-19,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,6,Sean Woodson,1564.0,8,2026-08-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,7,Steve Garcia,1563.8,10,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,8,Vinicius Oliveira,1556.9,7,2026-06-21,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,9,Aljamain Sterling,1554.4,9,2026-04-26,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,10,Marcus McGhee,1554.1,7,2026-10-03,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,11,Nathaniel Wood,1551.8,9,2026-09-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,12,Melquizael Costa,1547.3,10,2026-05-17,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,13,Tommy McMillen,1547.2,4,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,14,Mairon Santos,1547.1,4,2025-12-06,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Featherweight,15,Chepe Mariscal,1547.0,6,2025-11-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,1,Joshua Van,1610.8,12,2026-09-20,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,2,Muhammad Mokaev,1578.5,7,2024-07-28,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,3,Asu Almabayev,1566.9,8,2026-06-27,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,4,Alexandre Pantoja,1565.0,10,2026-09-20,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,5,Tatsuro Taira,1563.7,10,2026-05-10,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,6,Manel Kape,1562.3,11,2026-06-21,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,7,Andre Lima,1551.6,7,2026-08-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,8,Ramazan Temirov,1536.8,3,2026-07-25,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,9,Imanol Rodriguez,1535.6,3,2026-10-03,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,10,Tagir Ulanbekov,1534.2,7,2025-11-22,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,11,Alessandro Costa,1532.8,9,2026-07-11,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,12,Brandon Royval,1529.7,10,2026-07-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,13,Sumudaerji,1525.6,8,2026-08-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,14,Rei Tsuruya,1524.3,4,2026-08-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Flyweight,15,Allan Nascimento,1523.2,6,2026-06-20,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,1,Alex Pereira,1577.1,13,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,2,Vitor Petrino,1574.2,11,2026-08-23,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,3,Alexander Volkov,1574.1,12,2026-10-24,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,4,Martin Buday,1572.3,9,2025-07-26,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,5,Waldo Cortes Acosta,1563.6,15,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,6,Ciryl Gane,1561.0,9,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,7,Tom Aspinall,1559.0,7,2024-07-28,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,8,Sergei Pavlovich,1558.8,9,2026-05-30,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,9,Josh Hokit,1557.4,5,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,10,Mario Pinto,1557.1,5,2026-09-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,11,Jailton Almeida,1555.4,12,2026-02-08,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,12,Valter Walker,1546.2,6,2026-07-25,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,13,Brando Peričić,1535.3,3,2026-05-02,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,14,Anthony Wint,1534.8,3,2026-10-03,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Heavyweight,15,Marcos Rogerio de Lima,1533.6,7,2024-02-18,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,1,Carlos Ulberg,1599.2,11,2026-04-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,2,Magomed Ankalaev,1578.6,9,2026-07-25,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,3,Navajo Stirling,1575.4,7,2026-08-01,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,4,Alonzo Menifield,1562.2,14,2026-09-20,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,5,Abdul-Rakhman Yakhyaev,1554.1,5,2026-10-24,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,6,Azamat Murzakanov,1549.8,9,2026-10-24,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,7,Modestas Bukauskas,1546.4,12,2026-09-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,8,Philipe Lins,1545.9,4,2024-03-09,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,9,Reinier de Ridder,1539.0,7,2026-08-23,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,10,Dustin Jacoby,1538.6,14,2026-07-25,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,11,Khalil Rountree Jr.,1534.5,9,2025-10-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,12,Iwo Baraniewski,1532.6,5,2026-09-20,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,13,Dominick Reyes,1531.2,8,2026-10-24,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,14,Jiří Procházka,1528.7,8,2026-04-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Light Heavyweight,15,Billy Elekana,1524.6,4,2026-02-01,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,1,Arman Tsarukyan,1590.3,10,2026-09-20,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,2,Quillan Salkilld,1580.9,7,2026-08-09,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,3,Grant Dawson,1575.8,11,2026-10-24,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,4,Paddy Pimblett,1573.8,9,2026-07-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,5,Ilia Topuria,1566.8,8,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,6,Tom Nolan,1558.1,7,2026-06-07,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,7,Chris Padilla,1557.7,5,2026-08-22,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,8,MarQuel Mederos,1556.4,5,2026-08-23,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,9,Benoît Saint Denis,1555.5,13,2026-07-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,10,Justin Gaethje,1553.2,8,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,11,Charles Oliveira,1551.2,10,2026-03-08,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,12,Mateusz Gamrot,1550.7,13,2026-08-09,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,13,Esteban Ribovics,1547.0,10,2026-10-04,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,14,Chris Duncan,1546.2,10,2026-04-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Lightweight,15,Renato Moicano,1545.9,10,2026-04-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,1,Brendan Allen,1605.1,16,2026-10-11,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,2,Caio Borralho,1594.4,11,2026-03-08,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,3,Gregory Rodrigues,1589.0,14,2026-08-23,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,4,Dricus Du Plessis,1586.9,10,2026-07-19,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,5,Joe Pyfer,1575.7,9,2026-03-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,6,Nassourdine Imavov,1573.9,10,2025-09-06,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,7,Bo Nickal,1572.8,9,2026-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,8,Anthony Hernandez,1566.8,10,2026-08-23,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,9,Sean Strickland,1561.4,13,2026-05-10,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,10,Christian Leroy Duncan,1558.5,11,2026-10-11,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,11,Ikram Aliskerov,1558.3,7,2026-06-27,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,12,Khamzat Chimaev,1558.0,7,2026-05-10,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,13,Shara Magomedov,1557.3,7,2026-06-27,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,14,Michael Page,1552.8,6,2026-09-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Middleweight,15,Ateba Gautier,1551.7,7,2026-10-04,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,1,Ailin Perez,1570.2,8,2026-09-27,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,2,Joselyne Edwards,1557.4,13,2026-04-26,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,3,Luana Santos,1556.9,7,2026-06-20,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,4,Norma Dumont,1551.8,11,2026-09-27,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,5,Raquel Pennington,1544.0,6,2024-10-06,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,6,Jacqueline Cavalcanti,1543.0,6,2026-05-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,7,Kayla Harrison,1536.1,3,2025-06-08,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,8,Bia Mesquita,1534.8,3,2026-06-20,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,9,Luana Carolina,1518.8,8,2025-09-27,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,10,Ketlen Vieira,1518.2,9,2026-05-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,11,Yana Santos,1514.0,7,2025-10-04,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,12,Irene Aldana,1513.4,5,2024-09-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,13,Chelsea Chandler,1513.0,7,2026-10-17,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,14,Nora Cornolle,1512.9,7,2026-09-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Bantamweight,15,Julianna Peña,1512.7,5,2025-06-08,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,1,Natalia Silva,1599.0,9,2026-10-04,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,2,Jasmine Jasudavicius,1586.3,14,2026-10-18,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,3,Erin Blanchfield,1566.7,10,2026-10-18,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,4,Manon Fiorot,1565.1,10,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,5,Valentina Shevchenko,1561.8,7,2025-11-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,6,Maycee Barber,1555.8,9,2026-03-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,7,Casey O'Neill,1553.9,9,2026-09-19,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,8,Alexa Grasso,1550.2,8,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,9,Wang Cong,1536.2,7,2026-10-04,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,10,Dione Barbosa,1534.9,7,2026-07-18,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,11,Veronica Hardy,1534.9,5,2025-10-04,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,12,Miranda Maverick,1533.7,11,2025-06-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,13,Karine Silva,1530.5,9,2026-04-19,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,14,Zhang Weili,1528.1,8,2025-11-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Flyweight,15,JJ Aldrich,1527.8,11,2026-09-12,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,1,Denise Gomes,1567.2,10,2026-08-29,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,2,Alexia Thainara,1557.6,5,2026-08-09,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,3,Virna Jandiroba,1557.5,9,2026-04-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,4,Iasmin Lucindo,1547.6,8,2026-10-24,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,5,Gillian Robertson,1545.9,12,2026-08-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,6,Piera Rodriguez,1545.0,8,2026-03-14,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,7,Loopy Godínez,1541.3,16,2026-10-11,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,8,Mackenzie Dern,1540.0,11,2026-08-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,9,Fatima Kline,1538.0,5,2026-07-19,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,10,Tatiana Suarez,1537.4,5,2026-04-11,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,11,Talita Alencar,1535.6,5,2026-04-25,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,12,Jaqueline Amorim,1535.4,7,2026-05-30,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,13,Stephanie Luciano,1523.3,4,2026-08-01,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,14,Josefine Knutsson,1521.5,4,2024-12-15,2026-10-25T10:17:31+00:00,0.1.0-phase1
-W Strawweight,15,Yazmin Jauregui,1520.9,6,2026-09-26,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,1,Islam Makhachev,1624.4,11,2026-08-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,2,Michael Morales,1587.6,8,2025-11-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,3,Ian Machado Garry,1585.2,12,2026-08-16,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,4,Mike Malott,1583.9,10,2026-10-18,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,5,Carlos Prates,1579.7,9,2026-05-02,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,6,Gabriel Bonfim,1579.5,9,2026-06-07,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,7,Bryan Battle,1576.9,9,2024-12-08,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,8,Jack Della Maddalena,1574.0,11,2026-05-02,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,9,Shavkat Rakhmonov,1570.3,6,2024-12-08,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,10,Rinat Fakhretdinov,1569.1,6,2025-09-06,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,11,Jacobe Smith,1555.1,5,2026-10-03,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,12,Uroš Medić,1554.6,11,2026-08-01,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,13,Sean Brady,1548.6,8,2026-05-10,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,14,Jonathan Micallef,1547.4,4,2026-05-02,2026-10-25T10:17:31+00:00,0.1.0-phase1
-Welterweight,15,Daniil Donchenko,1546.5,4,2026-09-05,2026-10-25T10:17:31+00:00,0.1.0-phase1
+Bantamweight,1,Farid Basharat,1589.5,8,2026-07-11,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,2,Mario Bautista,1587.7,12,2026-07-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,3,Merab Dvalishvili,1586.1,10,2025-12-07,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,4,Raul Rosas Jr.,1575.2,9,2026-09-27,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,5,Sean O'Malley,1569.8,10,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,6,Aiemann Zahabi,1565.8,8,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,7,Umar Nurmagomedov,1564.8,10,2026-08-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,8,Payton Talbott,1562.6,8,2026-10-04,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,9,Daniel Marcos,1557.0,7,2025-11-08,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,10,David Martinez,1555.3,5,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,11,Montel Jackson,1552.7,9,2026-09-26,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,12,Brady Hiestand,1547.0,6,2026-09-26,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,13,Song Yadong,1546.0,12,2026-08-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,14,Elijah Smith,1545.9,4,2026-03-14,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Bantamweight,15,Chris Gutierrez,1541.4,10,2025-10-04,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Catch Weight,1,Tim Elliott,1534.7,9,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Catch Weight,2,Charles Johnson,1526.0,16,2026-08-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Catch Weight,3,Édgar Cháirez,1502.2,8,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Catch Weight,4,Ernesta Kareckaite,1500.0,4,2026-02-28,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Catch Weight,5,Chris Weidman,1478.5,4,2024-12-07,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Catch Weight,6,James Llontop,1476.4,4,2024-11-17,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Catch Weight,7,Matt Schnell,1468.4,9,2026-06-06,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Catch Weight,8,Brian Ortega,1468.1,5,2025-08-23,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,1,Movsar Evloev,1580.2,7,2026-03-21,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,2,Pat Sabatini,1577.8,11,2026-05-09,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,3,Jean Silva,1576.2,9,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,4,Lerone Murphy,1573.9,9,2026-03-21,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,5,Joanderson Brito,1565.1,12,2026-09-19,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,6,Sean Woodson,1564.0,8,2026-08-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,7,Steve Garcia,1563.8,10,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,8,Vinicius Oliveira,1556.9,7,2026-06-21,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,9,Aljamain Sterling,1554.4,9,2026-04-26,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,10,Marcus McGhee,1554.1,7,2026-10-03,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,11,Nathaniel Wood,1551.8,9,2026-09-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,12,Melquizael Costa,1547.3,10,2026-05-17,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,13,Tommy McMillen,1547.2,4,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,14,Mairon Santos,1547.1,4,2025-12-06,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Featherweight,15,Chepe Mariscal,1547.0,6,2025-11-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,1,Joshua Van,1610.8,12,2026-09-20,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,2,Muhammad Mokaev,1578.5,7,2024-07-28,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,3,Asu Almabayev,1566.9,8,2026-06-27,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,4,Alexandre Pantoja,1565.0,10,2026-09-20,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,5,Tatsuro Taira,1563.7,10,2026-05-10,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,6,Manel Kape,1562.3,11,2026-06-21,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,7,Andre Lima,1551.6,7,2026-08-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,8,Ramazan Temirov,1536.8,3,2026-07-25,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,9,Imanol Rodriguez,1535.6,3,2026-10-03,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,10,Tagir Ulanbekov,1534.2,7,2025-11-22,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,11,Alessandro Costa,1532.8,9,2026-07-11,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,12,Brandon Royval,1529.7,10,2026-07-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,13,Sumudaerji,1525.6,8,2026-08-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,14,Rei Tsuruya,1524.3,4,2026-08-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Flyweight,15,Allan Nascimento,1523.2,6,2026-06-20,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,1,Alex Pereira,1577.1,13,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,2,Vitor Petrino,1574.2,11,2026-08-23,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,3,Alexander Volkov,1574.1,12,2026-10-24,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,4,Martin Buday,1572.3,9,2025-07-26,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,5,Waldo Cortes Acosta,1563.6,15,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,6,Ciryl Gane,1561.0,9,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,7,Tom Aspinall,1559.0,7,2024-07-28,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,8,Sergei Pavlovich,1558.8,9,2026-05-30,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,9,Josh Hokit,1557.4,5,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,10,Mario Pinto,1557.1,5,2026-09-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,11,Jailton Almeida,1555.4,12,2026-02-08,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,12,Valter Walker,1546.2,6,2026-07-25,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,13,Brando Peričić,1535.3,3,2026-05-02,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,14,Anthony Wint,1534.8,3,2026-10-03,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Heavyweight,15,Marcos Rogerio de Lima,1533.6,7,2024-02-18,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,1,Carlos Ulberg,1599.2,11,2026-04-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,2,Magomed Ankalaev,1578.6,9,2026-07-25,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,3,Navajo Stirling,1575.4,7,2026-08-01,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,4,Alonzo Menifield,1562.2,14,2026-09-20,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,5,Abdul-Rakhman Yakhyaev,1554.1,5,2026-10-24,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,6,Azamat Murzakanov,1549.8,9,2026-10-24,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,7,Modestas Bukauskas,1546.4,12,2026-09-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,8,Philipe Lins,1545.9,4,2024-03-09,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,9,Reinier de Ridder,1539.0,7,2026-08-23,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,10,Dustin Jacoby,1538.6,14,2026-07-25,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,11,Khalil Rountree Jr.,1534.5,9,2025-10-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,12,Iwo Baraniewski,1532.6,5,2026-09-20,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,13,Dominick Reyes,1531.2,8,2026-10-24,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,14,Jiří Procházka,1528.7,8,2026-04-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Light Heavyweight,15,Billy Elekana,1524.6,4,2026-02-01,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,1,Arman Tsarukyan,1590.3,10,2026-09-20,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,2,Quillan Salkilld,1580.9,7,2026-08-09,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,3,Grant Dawson,1575.8,11,2026-10-24,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,4,Paddy Pimblett,1573.8,9,2026-07-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,5,Ilia Topuria,1566.8,8,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,6,Tom Nolan,1558.1,7,2026-06-07,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,7,Chris Padilla,1557.7,5,2026-08-22,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,8,MarQuel Mederos,1556.4,5,2026-08-23,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,9,Benoît Saint Denis,1555.5,13,2026-07-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,10,Justin Gaethje,1553.2,8,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,11,Charles Oliveira,1551.2,10,2026-03-08,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,12,Mateusz Gamrot,1550.7,13,2026-08-09,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,13,Esteban Ribovics,1547.0,10,2026-10-04,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,14,Chris Duncan,1546.2,10,2026-04-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Lightweight,15,Renato Moicano,1545.9,10,2026-04-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,1,Brendan Allen,1605.1,16,2026-10-11,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,2,Caio Borralho,1594.4,11,2026-03-08,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,3,Gregory Rodrigues,1589.0,14,2026-08-23,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,4,Dricus Du Plessis,1586.9,10,2026-07-19,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,5,Joe Pyfer,1575.7,9,2026-03-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,6,Nassourdine Imavov,1573.9,10,2025-09-06,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,7,Bo Nickal,1572.8,9,2026-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,8,Anthony Hernandez,1566.8,10,2026-08-23,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,9,Sean Strickland,1561.4,13,2026-05-10,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,10,Christian Leroy Duncan,1558.5,11,2026-10-11,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,11,Ikram Aliskerov,1558.3,7,2026-06-27,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,12,Khamzat Chimaev,1558.0,7,2026-05-10,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,13,Shara Magomedov,1557.3,7,2026-06-27,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,14,Michael Page,1552.8,6,2026-09-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Middleweight,15,Ateba Gautier,1551.7,7,2026-10-04,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,1,Ailin Perez,1570.2,8,2026-09-27,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,2,Joselyne Edwards,1557.4,13,2026-04-26,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,3,Luana Santos,1556.9,7,2026-06-20,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,4,Norma Dumont,1551.8,11,2026-09-27,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,5,Raquel Pennington,1544.0,6,2024-10-06,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,6,Jacqueline Cavalcanti,1543.0,6,2026-05-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,7,Kayla Harrison,1536.1,3,2025-06-08,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,8,Bia Mesquita,1534.8,3,2026-06-20,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,9,Luana Carolina,1518.8,8,2025-09-27,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,10,Ketlen Vieira,1518.2,9,2026-05-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,11,Yana Santos,1514.0,7,2025-10-04,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,12,Irene Aldana,1513.4,5,2024-09-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,13,Chelsea Chandler,1513.0,7,2026-10-17,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,14,Nora Cornolle,1512.9,7,2026-09-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Bantamweight,15,Julianna Peña,1512.7,5,2025-06-08,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,1,Natalia Silva,1599.0,9,2026-10-04,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,2,Jasmine Jasudavicius,1586.3,14,2026-10-18,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,3,Erin Blanchfield,1566.7,10,2026-10-18,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,4,Manon Fiorot,1565.1,10,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,5,Valentina Shevchenko,1561.8,7,2025-11-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,6,Maycee Barber,1555.8,9,2026-03-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,7,Casey O'Neill,1553.9,9,2026-09-19,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,8,Alexa Grasso,1550.2,8,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,9,Wang Cong,1536.2,7,2026-10-04,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,10,Dione Barbosa,1534.9,7,2026-07-18,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,11,Veronica Hardy,1534.9,5,2025-10-04,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,12,Miranda Maverick,1533.7,11,2025-06-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,13,Karine Silva,1530.5,9,2026-04-19,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,14,Zhang Weili,1528.1,8,2025-11-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Flyweight,15,JJ Aldrich,1527.8,11,2026-09-12,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,1,Denise Gomes,1567.2,10,2026-08-29,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,2,Alexia Thainara,1557.6,5,2026-08-09,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,3,Virna Jandiroba,1557.5,9,2026-04-05,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,4,Iasmin Lucindo,1547.6,8,2026-10-24,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,5,Gillian Robertson,1545.9,12,2026-08-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,6,Piera Rodriguez,1545.0,8,2026-03-14,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,7,Loopy Godínez,1541.3,16,2026-10-11,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,8,Mackenzie Dern,1540.0,11,2026-08-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,9,Fatima Kline,1538.0,5,2026-07-19,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,10,Tatiana Suarez,1537.4,5,2026-04-11,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,11,Talita Alencar,1535.6,5,2026-04-25,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,12,Jaqueline Amorim,1535.4,7,2026-05-30,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,13,Stephanie Luciano,1523.3,4,2026-08-01,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,14,Josefine Knutsson,1521.5,4,2024-12-15,2026-10-26T11:41:28+00:00,0.1.0-phase1
+W Strawweight,15,Yazmin Jauregui,1520.9,6,2026-09-26,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,1,Islam Makhachev,1624.4,11,2026-08-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,2,Michael Morales,1587.6,8,2025-11-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,3,Ian Machado Garry,1585.2,12,2026-08-16,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,4,Mike Malott,1583.9,10,2026-10-18,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,5,Carlos Prates,1579.7,9,2026-05-02,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,6,Gabriel Bonfim,1579.5,9,2026-06-07,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,7,Bryan Battle,1576.9,9,2024-12-08,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,8,Jack Della Maddalena,1574.0,11,2026-05-02,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,9,Shavkat Rakhmonov,1570.3,6,2024-12-08,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,10,Rinat Fakhretdinov,1569.1,6,2025-09-06,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,11,Jacobe Smith,1555.1,5,2026-10-03,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,12,Uroš Medić,1554.6,11,2026-08-01,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,13,Sean Brady,1548.6,8,2026-05-10,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,14,Jonathan Micallef,1547.4,4,2026-05-02,2026-10-26T11:41:28+00:00,0.1.0-phase1
+Welterweight,15,Daniil Donchenko,1546.5,4,2026-09-05,2026-10-26T11:41:28+00:00,0.1.0-phase1

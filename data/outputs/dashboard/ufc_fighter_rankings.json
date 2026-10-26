@@ -1,6 +1,6 @@
 {
   "league": "ufc",
-  "generated_at": "2026-10-25T10:17:32+00:00",
+  "generated_at": "2026-10-26T11:41:29+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 173,
@@ -14,7 +14,7 @@
       "elo": 1589.5,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-07-11",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -24,7 +24,7 @@
       "elo": 1587.7,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-07-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -34,7 +34,7 @@
       "elo": 1586.1,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2025-12-07",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -44,7 +44,7 @@
       "elo": 1575.2,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-09-27",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -54,7 +54,7 @@
       "elo": 1569.8,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -64,7 +64,7 @@
       "elo": 1565.8,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -74,7 +74,7 @@
       "elo": 1564.8,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-08-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -84,7 +84,7 @@
       "elo": 1562.6,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-10-04",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -94,7 +94,7 @@
       "elo": 1557.0,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2025-11-08",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -104,7 +104,7 @@
       "elo": 1555.3,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -114,7 +114,7 @@
       "elo": 1552.7,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-09-26",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -124,7 +124,7 @@
       "elo": 1547.0,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2026-09-26",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -134,7 +134,7 @@
       "elo": 1546.0,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-08-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -144,7 +144,7 @@
       "elo": 1545.9,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2026-03-14",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -154,7 +154,7 @@
       "elo": 1541.4,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2025-10-04",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -164,7 +164,7 @@
       "elo": 1534.7,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -174,7 +174,7 @@
       "elo": 1526.0,
       "n_real_fights_total": 16,
       "last_real_fight_date": "2026-08-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -184,7 +184,7 @@
       "elo": 1502.2,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -194,7 +194,7 @@
       "elo": 1500.0,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2026-02-28",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -204,7 +204,7 @@
       "elo": 1478.5,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2024-12-07",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -214,7 +214,7 @@
       "elo": 1476.4,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2024-11-17",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -224,7 +224,7 @@
       "elo": 1468.4,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-06-06",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -234,7 +234,7 @@
       "elo": 1468.1,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2025-08-23",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -244,7 +244,7 @@
       "elo": 1580.2,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-03-21",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -254,7 +254,7 @@
       "elo": 1577.8,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-05-09",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -264,7 +264,7 @@
       "elo": 1576.2,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -274,7 +274,7 @@
       "elo": 1573.9,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-03-21",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -284,7 +284,7 @@
       "elo": 1565.1,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-09-19",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -294,7 +294,7 @@
       "elo": 1564.0,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-08-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -304,7 +304,7 @@
       "elo": 1563.8,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -314,7 +314,7 @@
       "elo": 1556.9,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-06-21",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -324,7 +324,7 @@
       "elo": 1554.4,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-04-26",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -334,7 +334,7 @@
       "elo": 1554.1,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-10-03",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -344,7 +344,7 @@
       "elo": 1551.8,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-09-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -354,7 +354,7 @@
       "elo": 1547.3,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-05-17",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -364,7 +364,7 @@
       "elo": 1547.2,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -374,7 +374,7 @@
       "elo": 1547.1,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2025-12-06",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -384,7 +384,7 @@
       "elo": 1547.0,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2025-11-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -394,7 +394,7 @@
       "elo": 1610.8,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-09-20",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -404,7 +404,7 @@
       "elo": 1578.5,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2024-07-28",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -414,7 +414,7 @@
       "elo": 1566.9,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-06-27",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -424,7 +424,7 @@
       "elo": 1565.0,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-09-20",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -434,7 +434,7 @@
       "elo": 1563.7,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-05-10",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -444,7 +444,7 @@
       "elo": 1562.3,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-06-21",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -454,7 +454,7 @@
       "elo": 1551.6,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-08-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -464,7 +464,7 @@
       "elo": 1536.8,
       "n_real_fights_total": 3,
       "last_real_fight_date": "2026-07-25",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -474,7 +474,7 @@
       "elo": 1535.6,
       "n_real_fights_total": 3,
       "last_real_fight_date": "2026-10-03",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -484,7 +484,7 @@
       "elo": 1534.2,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2025-11-22",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -494,7 +494,7 @@
       "elo": 1532.8,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-07-11",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -504,7 +504,7 @@
       "elo": 1529.7,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-07-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -514,7 +514,7 @@
       "elo": 1525.6,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-08-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -524,7 +524,7 @@
       "elo": 1524.3,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2026-08-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -534,7 +534,7 @@
       "elo": 1523.2,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2026-06-20",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -544,7 +544,7 @@
       "elo": 1577.1,
       "n_real_fights_total": 13,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -554,7 +554,7 @@
       "elo": 1574.2,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-08-23",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -564,7 +564,7 @@
       "elo": 1574.1,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-10-24",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -574,7 +574,7 @@
       "elo": 1572.3,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2025-07-26",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -584,7 +584,7 @@
       "elo": 1563.6,
       "n_real_fights_total": 15,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -594,7 +594,7 @@
       "elo": 1561.0,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -604,7 +604,7 @@
       "elo": 1559.0,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2024-07-28",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -614,7 +614,7 @@
       "elo": 1558.8,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-05-30",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -624,7 +624,7 @@
       "elo": 1557.4,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -634,7 +634,7 @@
       "elo": 1557.1,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-09-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -644,7 +644,7 @@
       "elo": 1555.4,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-02-08",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -654,7 +654,7 @@
       "elo": 1546.2,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2026-07-25",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -664,7 +664,7 @@
       "elo": 1535.3,
       "n_real_fights_total": 3,
       "last_real_fight_date": "2026-05-02",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -674,7 +674,7 @@
       "elo": 1534.8,
       "n_real_fights_total": 3,
       "last_real_fight_date": "2026-10-03",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -684,7 +684,7 @@
       "elo": 1533.6,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2024-02-18",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -694,7 +694,7 @@
       "elo": 1599.2,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-04-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -704,7 +704,7 @@
       "elo": 1578.6,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-07-25",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -714,7 +714,7 @@
       "elo": 1575.4,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-08-01",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -724,7 +724,7 @@
       "elo": 1562.2,
       "n_real_fights_total": 14,
       "last_real_fight_date": "2026-09-20",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -734,7 +734,7 @@
       "elo": 1554.1,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-10-24",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -744,7 +744,7 @@
       "elo": 1549.8,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-10-24",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -754,7 +754,7 @@
       "elo": 1546.4,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-09-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -764,7 +764,7 @@
       "elo": 1545.9,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2024-03-09",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -774,7 +774,7 @@
       "elo": 1539.0,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-08-23",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -784,7 +784,7 @@
       "elo": 1538.6,
       "n_real_fights_total": 14,
       "last_real_fight_date": "2026-07-25",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -794,7 +794,7 @@
       "elo": 1534.5,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2025-10-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -804,7 +804,7 @@
       "elo": 1532.6,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-09-20",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -814,7 +814,7 @@
       "elo": 1531.2,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-10-24",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -824,7 +824,7 @@
       "elo": 1528.7,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-04-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -834,7 +834,7 @@
       "elo": 1524.6,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2026-02-01",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -844,7 +844,7 @@
       "elo": 1590.3,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-09-20",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -854,7 +854,7 @@
       "elo": 1580.9,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-08-09",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -864,7 +864,7 @@
       "elo": 1575.8,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-10-24",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -874,7 +874,7 @@
       "elo": 1573.8,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-07-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -884,7 +884,7 @@
       "elo": 1566.8,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -894,7 +894,7 @@
       "elo": 1558.1,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-06-07",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -904,7 +904,7 @@
       "elo": 1557.7,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-08-22",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -914,7 +914,7 @@
       "elo": 1556.4,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-08-23",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -924,7 +924,7 @@
       "elo": 1555.5,
       "n_real_fights_total": 13,
       "last_real_fight_date": "2026-07-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -934,7 +934,7 @@
       "elo": 1553.2,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -944,7 +944,7 @@
       "elo": 1551.2,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-03-08",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -954,7 +954,7 @@
       "elo": 1550.7,
       "n_real_fights_total": 13,
       "last_real_fight_date": "2026-08-09",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -964,7 +964,7 @@
       "elo": 1547.0,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-10-04",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -974,7 +974,7 @@
       "elo": 1546.2,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-04-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -984,7 +984,7 @@
       "elo": 1545.9,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-04-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -994,7 +994,7 @@
       "elo": 1605.1,
       "n_real_fights_total": 16,
       "last_real_fight_date": "2026-10-11",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1004,7 +1004,7 @@
       "elo": 1594.4,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-03-08",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1014,7 +1014,7 @@
       "elo": 1589.0,
       "n_real_fights_total": 14,
       "last_real_fight_date": "2026-08-23",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1024,7 +1024,7 @@
       "elo": 1586.9,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-07-19",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1034,7 +1034,7 @@
       "elo": 1575.7,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-03-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1044,7 +1044,7 @@
       "elo": 1573.9,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2025-09-06",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1054,7 +1054,7 @@
       "elo": 1572.8,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1064,7 +1064,7 @@
       "elo": 1566.8,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-08-23",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1074,7 +1074,7 @@
       "elo": 1561.4,
       "n_real_fights_total": 13,
       "last_real_fight_date": "2026-05-10",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1084,7 +1084,7 @@
       "elo": 1558.5,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-10-11",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1094,7 +1094,7 @@
       "elo": 1558.3,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-06-27",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1104,7 +1104,7 @@
       "elo": 1558.0,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-05-10",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1114,7 +1114,7 @@
       "elo": 1557.3,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-06-27",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1124,7 +1124,7 @@
       "elo": 1552.8,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2026-09-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1134,7 +1134,7 @@
       "elo": 1551.7,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-10-04",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1144,7 +1144,7 @@
       "elo": 1570.2,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-09-27",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1154,7 +1154,7 @@
       "elo": 1557.4,
       "n_real_fights_total": 13,
       "last_real_fight_date": "2026-04-26",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1164,7 +1164,7 @@
       "elo": 1556.9,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-06-20",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1174,7 +1174,7 @@
       "elo": 1551.8,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-09-27",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1184,7 +1184,7 @@
       "elo": 1544.0,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2024-10-06",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1194,7 +1194,7 @@
       "elo": 1543.0,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2026-05-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1204,7 +1204,7 @@
       "elo": 1536.1,
       "n_real_fights_total": 3,
       "last_real_fight_date": "2025-06-08",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1214,7 +1214,7 @@
       "elo": 1534.8,
       "n_real_fights_total": 3,
       "last_real_fight_date": "2026-06-20",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1224,7 +1224,7 @@
       "elo": 1518.8,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2025-09-27",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1234,7 +1234,7 @@
       "elo": 1518.2,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-05-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1244,7 +1244,7 @@
       "elo": 1514.0,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2025-10-04",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1254,7 +1254,7 @@
       "elo": 1513.4,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2024-09-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1264,7 +1264,7 @@
       "elo": 1513.0,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-10-17",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1274,7 +1274,7 @@
       "elo": 1512.9,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-09-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1284,7 +1284,7 @@
       "elo": 1512.7,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2025-06-08",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1294,7 +1294,7 @@
       "elo": 1599.0,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-10-04",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1304,7 +1304,7 @@
       "elo": 1586.3,
       "n_real_fights_total": 14,
       "last_real_fight_date": "2026-10-18",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1314,7 +1314,7 @@
       "elo": 1566.7,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-10-18",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1324,7 +1324,7 @@
       "elo": 1565.1,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1334,7 +1334,7 @@
       "elo": 1561.8,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2025-11-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1344,7 +1344,7 @@
       "elo": 1555.8,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-03-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1354,7 +1354,7 @@
       "elo": 1553.9,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-09-19",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1364,7 +1364,7 @@
       "elo": 1550.2,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1374,7 +1374,7 @@
       "elo": 1536.2,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-10-04",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1384,7 +1384,7 @@
       "elo": 1534.9,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-07-18",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1394,7 +1394,7 @@
       "elo": 1534.9,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2025-10-04",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1404,7 +1404,7 @@
       "elo": 1533.7,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2025-06-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1414,7 +1414,7 @@
       "elo": 1530.5,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-04-19",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1424,7 +1424,7 @@
       "elo": 1528.1,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2025-11-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1434,7 +1434,7 @@
       "elo": 1527.8,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-09-12",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1444,7 +1444,7 @@
       "elo": 1567.2,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-08-29",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1454,7 +1454,7 @@
       "elo": 1557.6,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-08-09",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1464,7 +1464,7 @@
       "elo": 1557.5,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-04-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1474,7 +1474,7 @@
       "elo": 1547.6,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-10-24",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1484,7 +1484,7 @@
       "elo": 1545.9,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-08-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1494,7 +1494,7 @@
       "elo": 1545.0,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-03-14",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1504,7 +1504,7 @@
       "elo": 1541.3,
       "n_real_fights_total": 16,
       "last_real_fight_date": "2026-10-11",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1514,7 +1514,7 @@
       "elo": 1540.0,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-08-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1524,7 +1524,7 @@
       "elo": 1538.0,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-07-19",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1534,7 +1534,7 @@
       "elo": 1537.4,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-04-11",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1544,7 +1544,7 @@
       "elo": 1535.6,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-04-25",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1554,7 +1554,7 @@
       "elo": 1535.4,
       "n_real_fights_total": 7,
       "last_real_fight_date": "2026-05-30",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1564,7 +1564,7 @@
       "elo": 1523.3,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2026-08-01",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1574,7 +1574,7 @@
       "elo": 1521.5,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2024-12-15",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1584,7 +1584,7 @@
       "elo": 1520.9,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2026-09-26",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1594,7 +1594,7 @@
       "elo": 1624.4,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-08-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1604,7 +1604,7 @@
       "elo": 1587.6,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2025-11-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1614,7 +1614,7 @@
       "elo": 1585.2,
       "n_real_fights_total": 12,
       "last_real_fight_date": "2026-08-16",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1624,7 +1624,7 @@
       "elo": 1583.9,
       "n_real_fights_total": 10,
       "last_real_fight_date": "2026-10-18",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1634,7 +1634,7 @@
       "elo": 1579.7,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-05-02",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1644,7 +1644,7 @@
       "elo": 1579.5,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2026-06-07",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1654,7 +1654,7 @@
       "elo": 1576.9,
       "n_real_fights_total": 9,
       "last_real_fight_date": "2024-12-08",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1664,7 +1664,7 @@
       "elo": 1574.0,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-05-02",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1674,7 +1674,7 @@
       "elo": 1570.3,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2024-12-08",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1684,7 +1684,7 @@
       "elo": 1569.1,
       "n_real_fights_total": 6,
       "last_real_fight_date": "2025-09-06",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1694,7 +1694,7 @@
       "elo": 1555.1,
       "n_real_fights_total": 5,
       "last_real_fight_date": "2026-10-03",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1704,7 +1704,7 @@
       "elo": 1554.6,
       "n_real_fights_total": 11,
       "last_real_fight_date": "2026-08-01",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1714,7 +1714,7 @@
       "elo": 1548.6,
       "n_real_fights_total": 8,
       "last_real_fight_date": "2026-05-10",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1724,7 +1724,7 @@
       "elo": 1547.4,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2026-05-02",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1734,7 +1734,7 @@
       "elo": 1546.5,
       "n_real_fights_total": 4,
       "last_real_fight_date": "2026-09-05",
-      "generated_at": "2026-10-25T10:17:31+00:00",
+      "generated_at": "2026-10-26T11:41:28+00:00",
       "model_version": "0.1.0-phase1"
     }
   ]
