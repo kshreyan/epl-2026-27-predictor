@@ -38,19 +38,12 @@ class LeagueConfig:
     # Conference League's 36-team league phase, 8 or 6 games each) --
     # table/races/season-simulation dashboard building does not apply
     # and must not run for these; see single_table_league_ids() below.
-    # "points": a real points-scored (not goals) team sport (NFL, NBA,
-    # NHL, NCAA Football) -- also excluded from single_table_league_ids()
-    # (goal-difference-tiebreak table logic doesn't apply); gets its own
-    # real-rules season simulator instead (simulate_team_sport_season.py
-    # -- a real playoff-picture for NFL/NBA/NHL, a real conference-
-    # standings/bowl-eligibility projection for NCAA Football, which has
-    # no real playoff-seeding FORMULA to simulate). "fight_card": UFC --
-    # not a team sport at all (individual fighters, no schedule/table);
-    # n_teams has no real meaning for this format (always 0). Match
-    # predictions and a sport-correct +2 Margin Survival equivalent
-    # apply to every format the same way (see
-    # src/models/compute_margin_survival_ufc.py for fight_card's own
-    # real "Distance Survival" version).
+    # A "points" format (real American team sports -- NFL, NBA, NCAA
+    # Football, NHL) and a "fight_card" format (UFC) previously existed
+    # here and were removed in full (NHL/UFC 2026-10-25, NFL/NBA/NCAA
+    # Football 2026-10-26) at the user's request -- re-adding any of
+    # them needs redoing the collection/model wiring from scratch (see
+    # config/leagues.yaml's removal note).
     format: str = "single_table"
     # None for a competition fixturedownload.com genuinely has no real
     # coverage for (e.g. American team sports) -- collect_fixtures.py/

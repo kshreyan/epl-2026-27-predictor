@@ -14,11 +14,9 @@ export function ScorelineDistribution({ scorelines }: { scorelines: ScorelineEnt
           tickLine={false}
         />
         <YAxis
-          // NFL/NBA's real top-10 scorelines are each ~0.1-0.2% (points
-          // scoring is far more spread out than soccer's), so rounding to
-          // a whole percent (fine for soccer's larger per-scoreline
-          // shares) would show "0%" on every tick -- show real precision
-          // below 1%, whole percent at or above it.
+          // A long-tail scoreline can be well under 1% -- rounding to a
+          // whole percent would show "0%" on that tick, so show real
+          // precision below 1%, whole percent at or above it.
           tickFormatter={(v: number) => {
             const pct = v * 100
             return `${pct < 1 ? pct.toFixed(2) : Math.round(pct)}%`

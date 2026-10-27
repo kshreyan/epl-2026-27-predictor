@@ -2,13 +2,11 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { formatGeneratedAt } from '../lib/format'
 import { useDashboardJson } from '../lib/useDashboardData'
 
-interface LeagueEntry { league_id: string; display_name: string; country: string; format: 'single_table' | 'swiss' | 'points' | 'fight_card' }
+interface LeagueEntry { league_id: string; display_name: string; country: string; format: 'single_table' | 'swiss' }
 interface LeaguesManifest { leagues: LeagueEntry[] }
 
-// "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase),
-// "points" (NFL/NBA/NHL/NCAA Football, a real conference/division-
-// seeded sport) and "fight_card" (UFC, not a team sport at all) all
-// have no goal-difference table/races -- see LeagueConfig.format in
+// "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) has
+// no goal-difference table/races -- see LeagueConfig.format in
 // src/leagues.py.
 const SINGLE_TABLE_NAV = [
   { to: 'table', label: 'Table' },
@@ -23,33 +21,20 @@ const SWISS_NAV = [
   { to: 'performance', label: 'Model' },
   { to: 'plus2', label: '+2 Board' },
 ]
-const POINTS_NAV = [
-  { to: 'fixtures', label: 'Fixtures' },
-  { to: 'standings', label: 'Standings' },
-  { to: 'performance', label: 'Model' },
-  { to: 'plus2', label: '+2 Board' },
-]
-const FIGHT_CARD_NAV = [
-  { to: 'fightcard', label: 'Fight Card' },
-  { to: 'rankings', label: 'Rankings' },
-  { to: 'performance', label: 'Model' },
-  { to: 'plus2', label: '+2 Board' },
-]
 const NAV_BY_FORMAT: Record<LeagueEntry['format'], typeof SINGLE_TABLE_NAV> = {
-  single_table: SINGLE_TABLE_NAV, swiss: SWISS_NAV, points: POINTS_NAV, fight_card: FIGHT_CARD_NAV,
+  single_table: SINGLE_TABLE_NAV, swiss: SWISS_NAV,
 }
 
 function LeagueSwitcher({ leagueId, leagues }: { leagueId: string; leagues: LeagueEntry[] }) {
   const location = useLocation()
-  // Preserve the current tab (table/races/fixtures/standings/
-  // fightcard/performance/...) when switching competitions, e.g.
-  // /epl/fixtures -> /la_liga/fixtures -- except a tab that doesn't
-  // exist for the TARGET league's own real nav (e.g. staying on
-  // "table" when switching to a "swiss"/"points"/"fight_card"-format
-  // competition, or "rankings" when switching away from UFC), which
-  // falls back to that format's own first real tab instead of a dead
-  // route. Checked against the target's own nav list directly, not a
-  // hardcoded "only tabs" set, so this stays correct as formats are added.
+  // Preserve the current tab (table/races/fixtures/performance/...)
+  // when switching competitions, e.g. /epl/fixtures -> /la_liga/fixtures
+  // -- except a tab that doesn't exist for the TARGET league's own
+  // real nav (e.g. staying on "table" when switching to a "swiss"-
+  // format competition), which falls back to that format's own first
+  // real tab instead of a dead route. Checked against the target's own
+  // nav list directly, not a hardcoded "only tabs" set, so this stays
+  // correct as formats are added.
   const currentTab = location.pathname.split('/')[2] || 'table'
   if (leagues.length <= 1) return null
   return (

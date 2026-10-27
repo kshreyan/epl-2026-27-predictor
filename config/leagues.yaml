@@ -23,51 +23,17 @@
 # reports/{league}_model_selection_report.md) +2 Margin Survival cover
 # the 144/144/108 real league-phase matches only.
 #
-# NFL and NBA (added 2026-10-21): `format: points` -- real American
-# team sports, scored in points not goals. No fixturedownload_slug/
-# football_data_code (neither source covers these) -- fixtures AND
-# historical results both come from ESPN's public site API
-# (site.api.espn.com), confirmed directly accessible, via
-# collect_espn_schedule.py/collect_espn_historical.py, not
-# collect_fixtures.py. The Dixon-Coles/Poisson scoreline grid
-# (scoreline_models.py) does not fit these sports' scoring scale
-# (10-40+ points for NFL, 90-130+ for NBA, vs soccer's 0-8 goals) --
-# predictions use src/models/point_margin_model.py (Elo + a real
-# fitted margin-of-victory regression) instead. Real divisions/
-# conferences are hardcoded in simulate_team_sport_season.py (stable
-# public facts, unchanged in years -- same discipline as hardcoding a
-# real club roster in team_names.py), not derived from an API.
-#
-# NHL and NCAA Football (added 2026-10-24): `format: points`, the
-# exact same real American-team-sport pattern as NFL/NBA above --
-# fixtures/historical results from ESPN's site API
-# (collect_espn_schedule.py/collect_espn_historical.py), predictions
-# from src/models/point_margin_model.py. NHL's real scoring is low and
-# discrete like soccer's, so its own real backtest (unlike NFL/NBA's)
-# also tries Dixon-Coles as a candidate -- see
-# reports/nhl_model_selection_report.md for which one actually won.
-# NCAA Football's real FBS conference groupings (134 teams, 11
-# conferences) are fetched live from ESPN's own standings endpoint at
-# build time, not hardcoded, since conference realignment is a real
-# recurring event in college sports (unlike NFL/NBA's stable
-# divisions) -- see src/data_collection/espn_api.py's
-# fetch_real_fbs_conferences(). NCAA Football has no real playoff-
-# seeding FORMULA (the 12-team CFP is committee-selected, not
-# standings math) -- its season simulation reports real conference
-# win-loss projections and bowl-eligibility probability
-# (P(finish 6+ wins)) instead of a fabricated seeding claim.
-#
-# UFC (added 2026-10-24): `format: fight_card` -- not a team sport, a
-# genuinely different real structure (individual fighters, no
-# schedule/table). n_teams is 0 (no real meaning for this format).
-# Real fixtures/historical fight results come from ESPN's MMA API
-# (src/data_collection/espn_mma_api.py), grouped by real EVENT (fight
-# card), not matchweek. No continuous score margin exists for a single
-# fight, so +2 Margin Survival's real equivalent here is "Distance
-# Survival" -- P(fighter is finished by KO/TKO/submission) vs. P(fight
-# reaches a real judges' decision) -- see
-# src/models/fight_distance_model.py and
-# src/models/compute_margin_survival_ufc.py.
+# NFL, NBA, NCAA Football, NHL and UFC were previously supported here
+# (added 2026-10-21 through 2026-10-24, all removed 2026-10-26 at the
+# user's request) -- the real American-team-sport pattern (`format:
+# points`, ESPN's site API for fixtures/historical results,
+# src/models/point_margin_model.py's Elo + margin regression) and
+# UFC's genuinely different `format: fight_card` (individual fighters,
+# a real "Distance Survival" model) are both gone in full: backend
+# collectors/models/backtests/simulators, frontend pages/nav, workflow
+# steps, and all committed data -- re-adding any of them needs redoing
+# the collection/model wiring from scratch, same as the MLS/Nations
+# League precedent below.
 #
 # MLS and UEFA Nations League were previously supported here (bespoke
 # collectors/Elo-only models, `format: groups`/`single_table` with a
@@ -160,54 +126,3 @@ leagues:
     match_id_prefix: UECL
     format: swiss
     expected_fixture_count: 108
-
-  - league_id: nfl
-    display_name: NFL
-    country: United States
-    odds_api_sport_key: americanfootball_nfl
-    timezone: America/New_York
-    n_teams: 32
-    match_id_prefix: NFL
-    format: points
-
-  - league_id: nba
-    display_name: NBA
-    country: United States
-    odds_api_sport_key: basketball_nba
-    timezone: America/New_York
-    n_teams: 30
-    match_id_prefix: NBA
-    format: points
-
-  - league_id: nhl
-    display_name: NHL
-    country: United States
-    odds_api_sport_key: icehockey_nhl
-    timezone: America/New_York
-    n_teams: 32
-    match_id_prefix: NHL
-    format: points
-
-  - league_id: ncaaf
-    display_name: NCAA Football
-    country: United States
-    odds_api_sport_key: americanfootball_ncaaf
-    timezone: America/New_York
-    # Real, live FBS team count confirmed via ESPN's own standings feed
-    # this session (138, not the often-cited round "134" -- real
-    # transitioning programs shift this slightly season to season).
-    # collect_espn_schedule.py sanity-checks against a wide band, not
-    # exact equality, since this roster genuinely isn't fixed the way
-    # NFL/NBA/NHL's is -- see espn_api.py's fetch_real_season_games().
-    n_teams: 138
-    match_id_prefix: NCAAF
-    format: points
-
-  - league_id: ufc
-    display_name: UFC
-    country: United States
-    odds_api_sport_key: mma_mixed_martial_arts
-    timezone: America/New_York
-    n_teams: 0
-    match_id_prefix: UFC
-    format: fight_card

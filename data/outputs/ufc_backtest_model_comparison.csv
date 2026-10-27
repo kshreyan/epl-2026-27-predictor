@@ -1,6 +1,0 @@
-model,n_fights,log_loss,brier_score
-Fighter Elo (win model),3237,0.6840287529664109,0.49092546539893905
-Flat 50/50 baseline,3237,0.6931471805599452,0.5
-"Distance-survival blend (equal_blend, weight=0.5)",3237,0.7332536546737349,0.49317443212390044
-"Distance-survival blend (fighter_only, weight=1.0)",3237,1.0842722149000514,0.5113931692823368
-"Distance-survival blend (opponent_only, weight=0.0)",3237,1.3471470539016286,0.51719836594893

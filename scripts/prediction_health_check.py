@@ -94,18 +94,7 @@ def check_internal_consistency(league: str, rows: list[dict]) -> None:
             except ValueError:
                 bad_result_score += 1
 
-        # UFC has no real home_goals/away_goals concept (no score at
-        # all for an individual fight) -- its real completed-result
-        # signal is actual_winner (see predict_ufc_fights.py), checked
-        # separately rather than forcing the goals-based shape.
-        if league == "ufc":
-            if r.get("status") == "completed":
-                if not r.get("actual_winner"):
-                    bad_completed += 1
-            elif r.get("status") == "scheduled":
-                if r.get("actual_winner"):
-                    bad_scheduled += 1
-        elif r.get("status") == "completed":
+        if r.get("status") == "completed":
             if r.get("actual_home_goals") is None or r.get("actual_away_goals") is None:
                 bad_completed += 1
             else:
@@ -166,49 +155,7 @@ def check_freshness(league: str, payload: dict, rows: list[dict], now: datetime)
         )
 
 
-def check_ufc_calibration(league: str, rows: list[dict]) -> None:
-    """UFC's real schema has no actual_result/home_win_prob_model_only
-    columns (no home/away, no draw -- see predict_ufc_fights.py) --
-    scored against actual_winner/fighter_a_win_prob/fighter_b_win_prob
-    instead of the shared team-sport check above."""
-    completed = [r for r in rows if r.get("status") == "completed" and r.get("actual_winner")]
-    if not completed:
-        flag("3. Calibration / accuracy drift", "INFO", league, "no completed fights yet -- nothing to score")
-        return
-
-    correct = 0
-    brier_sum = 0.0
-    high_conf_misses = []
-    for r in completed:
-        p_a = r.get("fighter_a_win_prob")
-        if p_a is None:
-            continue
-        predicted_winner = r["fighter_a"] if p_a >= 0.5 else r["fighter_b"]
-        if predicted_winner == r["actual_winner"]:
-            correct += 1
-        actual_a_won = 1.0 if r["actual_winner"] == r["fighter_a"] else 0.0
-        brier_sum += (p_a - actual_a_won) ** 2
-        p_predicted = max(p_a, 1 - p_a)
-        if p_predicted >= 0.7 and predicted_winner != r["actual_winner"]:
-            high_conf_misses.append((r["match_id"], predicted_winner, r["actual_winner"], p_predicted))
-
-    n = len(completed)
-    accuracy = correct / n
-    brier = brier_sum / n
-    flag(
-        "3. Calibration / accuracy drift", "INFO", league,
-        f"{n} completed fights scored: accuracy={accuracy:.1%}, Brier={brier:.3f} (lower is better, 0=perfect, 0.25=coin flip)",
-    )
-    if high_conf_misses:
-        detail = "; ".join(f"{mid} (predicted {pw} @{pp:.0%}, actual {aw})" for mid, pw, aw, pp in high_conf_misses[:3])
-        flag("3. Calibration / accuracy drift", "WARN", league, f"{len(high_conf_misses)} high-confidence (>=70%) miss(es): {detail}")
-
-
 def check_calibration(league: str, rows: list[dict]) -> None:
-    if league == "ufc":
-        check_ufc_calibration(league, rows)
-        return
-
     completed = [r for r in rows if r.get("status") == "completed" and r.get("actual_result")]
     if not completed:
         flag("3. Calibration / accuracy drift", "INFO", league, "no completed matches yet -- nothing to score")

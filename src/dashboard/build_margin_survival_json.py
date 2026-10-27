@@ -32,8 +32,6 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.dashboard.build_dashboard_json import _to_records, _write_json  # noqa: E402
 from src.leagues import load_league_config  # noqa: E402
 from src.models.compute_margin_survival import MARGIN_SURVIVAL_LEAGUE_IDS  # noqa: E402
-from src.models.compute_margin_survival_team_sport import MARGIN_THRESHOLD  # noqa: E402
-from src.models.point_margin_model import should_use_point_margin_model  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
 
 OUT_DIR = REPO_ROOT / "data" / "outputs"
@@ -48,29 +46,8 @@ TOP20_SIZE = 20
 # is written per-league so this distinction is never glossed over.
 CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel", "uecl"]
 
-# NFL/NBA/NHL/NCAA Football (see compute_margin_survival_team_sport.py's
-# module docstring): a sport-correct equivalent, not soccer's "+2
-# goals" ported literally -- each league's own real threshold is
-# anchored to its own real research/backtested margin distribution,
-# never a borrowed number (see that module's docstring for the real
-# per-league reasoning).
-TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "nhl", "ncaaf"]
-
-# UFC (see compute_margin_survival_ufc.py's module docstring): the
-# real "Distance Survival" equivalent -- not a points/goals threshold
-# at all (no continuous score margin exists for an individual fight).
-UFC_MARGIN_SURVIVAL_LEAGUE_IDS = ["ufc"]
-
 
 def _confidence(row: pd.Series) -> str:
-    # NFL/NBA/NHL/NCAA Football margin survival (compute_margin_survival_
-    # team_sport.py) does not compute a real historical-tail factor
-    # (team_history_n_matches/opponent_history_n_matches are always
-    # null for these leagues -- a real, disclosed limitation, not a
-    # bug); UFC's own schema (compute_margin_survival_ufc.py) doesn't
-    # have these columns at all -- .get() treats a missing column the
-    # same honest way as a null one. "low" is the honest answer either
-    # way, not a crash.
     team_n, opponent_n = row.get("team_history_n_matches"), row.get("opponent_history_n_matches")
     if pd.isna(team_n) or pd.isna(opponent_n):
         return "low"
@@ -106,34 +83,6 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
             "verdicts with real caution. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute "
             "blowout risk first, then breaks ties with real market price where one currently exists."
         )
-    elif league_id in TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS:
-        threshold = MARGIN_THRESHOLD[league_id]
-        same_model_note = (
-            "the same point-margin model used for this league's own moneyline prediction"
-            if should_use_point_margin_model(league_id) else
-            "NOT the same model as this league's moneyline prediction, which is Elo-only -- the real backtest "
-            f"found Elo beats the point-margin model here (see reports/{league_id}_model_selection_report.md). "
-            "Treat these verdicts with real caution"
-        )
-        engine_note = (
-            f"Every team in every game: P_cover/P_push/P_fail read off a real fitted Normal margin "
-            f"distribution (not a discrete scoreline grid -- there isn't one for this model), at this "
-            f"league's own real blowout threshold (lose by more than {threshold} points) -- see "
-            f"reports/{league_id}_model_selection_report.md for how that threshold was derived. Uses "
-            f"{same_model_note}. Each row's verdict (PICK +{threshold} / LEAN +{threshold} / PASS) gates on "
-            "absolute blowout risk first, then breaks ties with real market price where one currently exists."
-        )
-    elif league_id in UFC_MARGIN_SURVIVAL_LEAGUE_IDS:
-        engine_note = (
-            "\"Distance Survival\" -- UFC's real equivalent of +2 Margin Survival: an individual fight has no "
-            "continuous score margin, so P_fail here is this fighter's own real modeled probability of being "
-            "finished (KO/TKO/submission) rather than surviving to a real judges' decision, from this "
-            "project's own real fighter Elo and a real backtested per-fighter stoppage-rate blend (see "
-            "reports/ufc_model_selection_report.md). P_push is always 0 -- no real analogue to \"exactly at "
-            "the threshold\" exists for a binary finish/no-finish outcome. Each row's verdict (PICK DISTANCE / "
-            "LEAN DISTANCE / PASS) gates on absolute stoppage risk first; UFC has no real spread market to "
-            "break ties with real price (the real market here is moneyline-only), so price never applies."
-        )
     else:
         engine_note = (
             "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same "
@@ -153,16 +102,7 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
     return df
 
 
-def _verdict_rank(verdict: str) -> int:
-    """Ranks by verdict TIER, not the exact string -- "PICK +2" (soccer),
-    "PICK +14" (NFL), "PICK +20" (NBA) and "PICK DISTANCE" (UFC) are
-    all the same tier here, just at each league's own real tag (see
-    compute_margin_survival.py's verdict())."""
-    if verdict.startswith("PICK "):
-        return 0
-    if verdict.startswith("LEAN "):
-        return 1
-    return 2
+_VERDICT_RANK = {"PICK +2": 0, "LEAN +2": 1, "PASS": 2}
 
 
 def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
@@ -184,7 +124,7 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
 
     combined = pd.concat(frames, ignore_index=True)
     combined = combined[combined["verdict"] != "PASS"].copy()
-    combined["verdict_rank"] = combined["verdict"].map(_verdict_rank)
+    combined["verdict_rank"] = combined["verdict"].map(_VERDICT_RANK)
     # Within a verdict tier, real price value breaks ties (best value first);
     # rows with no real market (value_gap null) sort after ones that do,
     # then by lowest p_fail -- never let "no price to compare" outrank a
@@ -201,12 +141,9 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
         "generated_at": now_utc_iso(), "model_version": MODEL_VERSION, "season": "2026-27",
         "view": "best_verdict",
         "note": (
-            "Ranked by verdict first (Pick before Lean -- Pass is excluded here), then by real price "
-            "value where a real market exists, then by lowest blowout risk. Each league's own verdict is at "
-            "its own real threshold (+2 goals for soccer/UEFA, +14 points for NFL, +20 for NBA, +3 for NHL, "
-            "+21 for NCAA Football, or \"DISTANCE\" for UFC, which has no real points/goals margin -- see "
-            "each row's own `threshold` field, null for UFC). The verdict pill on each row already "
-            "synthesizes risk and price -- this is not a separate signal, and still not advice."
+            "Ranked by verdict first (Pick +2 before Lean +2 -- Pass is excluded here), then by real price "
+            "value where a real market exists, then by lowest blowout risk. The verdict pill on each row "
+            "already synthesizes risk and price -- this is not a separate signal, and still not advice."
         ),
         "record_count": len(combined),
         "data": _to_records(combined),
@@ -217,7 +154,7 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
 def main() -> None:
     all_leagues = {
         lid: build_league_margin_survival_json(lid)
-        for lid in MARGIN_SURVIVAL_LEAGUE_IDS + CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS + TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS + UFC_MARGIN_SURVIVAL_LEAGUE_IDS
+        for lid in MARGIN_SURVIVAL_LEAGUE_IDS + CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS
     }
     build_top20(all_leagues)
 
