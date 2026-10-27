@@ -35,3 +35,15 @@ matchweek,scope,track,model,n_matches,log_loss,brier,rps,generated_at
 6,cumulative,preseason,production,0,,,,2026-10-20T10:33:23+00:00
 6,cumulative,preseason,dc_raw,0,,,,2026-10-20T10:33:23+00:00
 6,cumulative,preseason,market,0,,,,2026-10-20T10:33:23+00:00
+7,matchweek_7,operational,production,9,1.0577,0.6334,0.2342,2026-10-27T11:11:27+00:00
+7,matchweek_7,operational,dc_raw,9,1.0607,0.6427,0.2449,2026-10-27T11:11:27+00:00
+7,matchweek_7,operational,market,4,0.912,0.5277,0.1123,2026-10-27T11:11:27+00:00
+7,cumulative,operational,production,36,1.0455,0.6326,0.2272,2026-10-27T11:11:27+00:00
+7,cumulative,operational,dc_raw,36,1.0757,0.6449,0.2346,2026-10-27T11:11:27+00:00
+7,cumulative,operational,market,19,1.0589,0.6436,0.208,2026-10-27T11:11:27+00:00
+7,matchweek_7,preseason,production,0,,,,2026-10-27T11:11:27+00:00
+7,matchweek_7,preseason,dc_raw,0,,,,2026-10-27T11:11:27+00:00
+7,matchweek_7,preseason,market,0,,,,2026-10-27T11:11:27+00:00
+7,cumulative,preseason,production,0,,,,2026-10-27T11:11:27+00:00
+7,cumulative,preseason,dc_raw,0,,,,2026-10-27T11:11:27+00:00
+7,cumulative,preseason,market,0,,,,2026-10-27T11:11:27+00:00

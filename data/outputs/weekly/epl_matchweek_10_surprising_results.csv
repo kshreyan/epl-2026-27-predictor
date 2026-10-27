@@ -1,0 +1,11 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+LALIGA2627_MW10_097_RayoVallecano_ElcheCF,10,Rayo Vallecano,Elche CF,away_win,0.2134,0.518,0.2686,0.2134,1.5446,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_095_FCBarcelona_RealMadrid,10,FC Barcelona,Real Madrid,away_win,0.218,0.5704,0.2116,0.218,1.5233,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_091_DeportivoAlavés_MálagaCF,10,Deportivo Alavés,Málaga CF,draw,0.2403,0.6069,0.2403,0.1529,1.4259,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_094_CeltaVigo_RealBetis,10,Celta Vigo,Real Betis,draw,0.2881,0.3708,0.2881,0.3411,1.2444,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_096_R.RacingClub_RCDEspanyoldeBarcelona,10,R. Racing Club,RCD Espanyol de Barcelona,home_win,0.3962,0.3962,0.2788,0.325,0.9258,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_100_ValenciaCF_VillarrealCF,10,Valencia CF,Villarreal CF,away_win,0.4163,0.2993,0.2844,0.4163,0.8763,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_099_SevillaFC_CAOsasuna,10,Sevilla FC,CA Osasuna,home_win,0.5006,0.5006,0.2776,0.2218,0.6919,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_092_AthleticClub_GetafeCF,10,Athletic Club,Getafe CF,home_win,0.5192,0.5192,0.2856,0.1952,0.6555,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_098_RealSociedad_LevanteUD,10,Real Sociedad,Levante UD,home_win,0.5483,0.5483,0.2428,0.2089,0.6009,2026-10-27T11:09:57+00:00
+LALIGA2627_MW10_093_AtléticodeMadrid_RCDeportivo,10,Atlético de Madrid,RC Deportivo,home_win,0.7513,0.7513,0.1568,0.0919,0.286,2026-10-27T11:09:57+00:00
