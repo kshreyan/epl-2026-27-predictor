@@ -234,11 +234,17 @@ def main(league_id: str) -> None:
     calibration_classes = ["home_win", "away_win"]
     calibration_summary_path = REPO_ROOT / "data" / "outputs" / f"{league_id}_2026_27_calibration_summary.csv"
     if calibration_summary_path.exists():
-        pm_backtest_path = REPO_ROOT / "data" / "outputs" / f"{league_id}_backtest_match_results.csv"
-        if pm_backtest_path.exists():
-            pm_backtest_df = pd.read_csv(pm_backtest_path)
-            pm_backtest_df = pm_backtest_df[pm_backtest_df["actual_result"] != "draw"].reset_index(drop=True)
-            calibrators = fit_calibrators(pm_backtest_df, classes=calibration_classes, raw_col_prefix="pm_")
+        calibration_backtest_path = REPO_ROOT / "data" / "outputs" / f"{league_id}_backtest_match_results.csv"
+        if calibration_backtest_path.exists():
+            calibration_backtest_df = pd.read_csv(calibration_backtest_path)
+            calibration_backtest_df = calibration_backtest_df[calibration_backtest_df["actual_result"] != "draw"].reset_index(drop=True)
+            # Calibrate whichever model actually won this league's own
+            # real moneyline backtest (use_point_margin, computed
+            # above) -- calibrating the LOSING model's raw probabilities
+            # and applying that mapping to the WINNING model's live
+            # output would be a real mismatch, not a cosmetic one.
+            calibration_prefix = "pm_" if use_point_margin else "elo_"
+            calibrators = fit_calibrators(calibration_backtest_df, classes=calibration_classes, raw_col_prefix=calibration_prefix)
 
     meta = make_run_metadata(prefix=f"predict_{league_id}", season="2026-27")
     generated_at = now_utc_iso()

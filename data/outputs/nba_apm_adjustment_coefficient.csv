@@ -1,0 +1,3 @@
+train_fraction,coefficient,significant,ci_low,ci_high,n_games,all_slices_significant,generated_at
+0.7,24.42503,True,0.01079,52.71557,370,False,2026-10-28T20:24:31+00:00
+0.8,24.94661,False,-11.23527,60.67859,247,False,2026-10-28T20:24:31+00:00

@@ -1,0 +1,2 @@
+devig_method,n_matches,model_log_loss,blend_log_loss,ci_low,ci_high,blend_significant,season_wins,n_seasons,generated_at
+power,973,0.61351,0.58214,0.02266,0.04008,True,1,1,2026-10-28T20:26:38+00:00
