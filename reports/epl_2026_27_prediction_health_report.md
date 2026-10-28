@@ -1,8 +1,8 @@
 # Prediction Health Report
 
-Generated: 2026-10-27T00:31:52.548021+00:00
+Generated: 2026-10-28T19:18:59.075482+00:00
 
-**5 failures, 2 warnings, 17 informational** (out of 24 findings).
+**5 failures, 4 warnings, 25 informational** (out of 34 findings).
 
 | Severity | Section | League | Finding |
 |---|---|---|---|
@@ -20,8 +20,18 @@ Generated: 2026-10-27T00:31:52.548021+00:00
 | INFO | 1. Internal consistency | ligue_1 | all 306 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | FAIL | 2. Freshness & provenance | ligue_1 | 9 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): LIGUE12627_MW08_066_StadeBrestois29_OGCNice, LIGUE12627_MW08_072_ToulouseFC_EstacTroyes, LIGUE12627_MW08_067_RCLens_ParisFC, LIGUE12627_MW08_069_ASMonaco_LOSCLille, LIGUE12627_MW08_064_AngersSCO_FCLorient ... |
 | INFO | 3. Calibration / accuracy drift | ligue_1 | 63 completed matches scored: accuracy=57.1%, multiclass Brier=0.582 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| INFO | 1. Internal consistency | nba | all 1200 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
+| INFO | 3. Calibration / accuracy drift | nba | 56 completed matches scored: accuracy=71.4%, multiclass Brier=0.321 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| WARN | 3. Calibration / accuracy drift | nba | 1 high-confidence (>=70%) miss(es): NBA2627_W01_401909876_DenverNuggets_GoldenStateWarriors (predicted home_win @77%, actual away_win) |
+| INFO | 1. Internal consistency | ncaaf | all 761 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
+| INFO | 3. Calibration / accuracy drift | ncaaf | 446 completed matches scored: accuracy=73.1%, multiclass Brier=0.421 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| INFO | 1. Internal consistency | nfl | all 272 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
+| INFO | 3. Calibration / accuracy drift | nfl | 107 completed matches scored: accuracy=48.6%, multiclass Brier=0.509 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| INFO | 1. Internal consistency | nhl | all 1344 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
+| INFO | 3. Calibration / accuracy drift | nhl | 198 completed matches scored: accuracy=60.6%, multiclass Brier=0.458 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| WARN | 3. Calibration / accuracy drift | nhl | 2 high-confidence (>=70%) miss(es): NHL2627_W01_401891804_EdmontonOilers_VancouverCanucks (predicted home_win @76%, actual away_win); NHL2627_W03_401892534_CalgaryFlames_CarolinaHurricanes (predicted away_win @73%, actual home_win) |
 | INFO | 1. Internal consistency | serie_a | all 380 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| FAIL | 2. Freshness & provenance | serie_a | 10 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): SERIEA2627_MW08_079_Torino_Monza, SERIEA2627_MW08_072_Cagliari_Bologna, SERIEA2627_MW08_073_Como_Sassuolo, SERIEA2627_MW08_078_Napoli_Roma, SERIEA2627_MW08_076_Lazio_Parma ... |
+| FAIL | 2. Freshness & provenance | serie_a | 16 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): SERIEA2627_MW08_079_Torino_Monza, SERIEA2627_MW08_072_Cagliari_Bologna, SERIEA2627_MW08_073_Como_Sassuolo, SERIEA2627_MW08_078_Napoli_Roma, SERIEA2627_MW08_076_Lazio_Parma ... |
 | INFO | 3. Calibration / accuracy drift | serie_a | 70 completed matches scored: accuracy=58.6%, multiclass Brier=0.541 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | ucl | all 144 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | ucl | 54 completed matches scored: accuracy=68.5%, multiclass Brier=0.496 (lower is better, 0=perfect, 0.667=uniform guessing) |

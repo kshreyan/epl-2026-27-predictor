@@ -87,28 +87,35 @@ def test_percentile_score_empty_reference_is_neutral():
 
 def test_verdict_high_risk_is_always_pass_even_with_great_price():
     # A generous price never rescues a High Blowout Risk team -- risk gates first.
-    assert verdict("HIGH BLOWOUT RISK", 0.30, THRESHOLD) == "PASS"
-    assert verdict("HIGH BLOWOUT RISK", None, THRESHOLD) == "PASS"
+    assert verdict("HIGH BLOWOUT RISK", 0.30, f"+{THRESHOLD}") == "PASS"
+    assert verdict("HIGH BLOWOUT RISK", None, f"+{THRESHOLD}") == "PASS"
 
 
 def test_verdict_safe_tier_with_fair_or_better_price_is_pick():
-    assert verdict("ELITE SURVIVAL", None, THRESHOLD) == "PICK +2"
-    assert verdict("VERY STRONG", 0.01, THRESHOLD) == "PICK +2"
-    assert verdict("STRONG", -0.02, THRESHOLD) == "PICK +2"
+    assert verdict("ELITE SURVIVAL", None, f"+{THRESHOLD}") == "PICK +2"
+    assert verdict("VERY STRONG", 0.01, f"+{THRESHOLD}") == "PICK +2"
+    assert verdict("STRONG", -0.02, f"+{THRESHOLD}") == "PICK +2"
 
 
 def test_verdict_safe_tier_with_bad_price_is_not_a_free_pick():
-    assert verdict("STRONG", -0.10, THRESHOLD) == "PASS"
+    assert verdict("STRONG", -0.10, f"+{THRESHOLD}") == "PASS"
 
 
 def test_verdict_moderate_tier_needs_nonnegative_value():
-    assert verdict("MODERATE", None, THRESHOLD) == "LEAN +2"
-    assert verdict("MODERATE", 0.01, THRESHOLD) == "LEAN +2"
-    assert verdict("MODERATE", -0.10, THRESHOLD) == "PASS"
+    assert verdict("MODERATE", None, f"+{THRESHOLD}") == "LEAN +2"
+    assert verdict("MODERATE", 0.01, f"+{THRESHOLD}") == "LEAN +2"
+    assert verdict("MODERATE", -0.10, f"+{THRESHOLD}") == "PASS"
 
 
 def test_verdict_large_negative_value_gap_is_always_pass():
-    assert verdict("ELITE SURVIVAL", -0.06, THRESHOLD) == "PASS"
+    assert verdict("ELITE SURVIVAL", -0.06, f"+{THRESHOLD}") == "PASS"
+
+
+def test_verdict_uses_the_real_threshold_it_is_given():
+    # A different league's own real threshold (e.g. NFL's 14, NBA's 20)
+    # must show up in the verdict string itself, not a borrowed "+2".
+    assert verdict("ELITE SURVIVAL", None, "+14") == "PICK +14"
+    assert verdict("MODERATE", None, "+20") == "LEAN +20"
 
 
 MARGIN_SURVIVAL_PATH = REPO_ROOT / "data" / "outputs" / "epl_2026_27_margin_survival.csv"

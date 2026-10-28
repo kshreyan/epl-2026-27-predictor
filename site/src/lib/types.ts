@@ -34,6 +34,47 @@ export interface KnockoutProbabilityPayload extends Envelope<KnockoutProbability
   n_trials?: number | null
 }
 
+// NFL has prob_seed_1..7 + prob_win_division; NBA has prob_seed_1..8,
+// no prob_win_division (no real division-winner concept drives NBA
+// seeding) -- a flexible index, same convention PositionDistributionRow
+// already uses for a similarly per-league-shaped row, read with the
+// getSeedProbability helper in lib/format.ts rather than a precise
+// (and awkward-in-TS) type.
+export type PlayoffPictureRow = {
+  team: string
+  conference: string
+  division: string
+  current_win_pct: number | null
+  current_point_diff: number
+  prob_make_playoffs: number
+  prob_direct_seed: number
+} & Record<string, string | number | null>
+
+export interface PlayoffPicturePayload extends Envelope<PlayoffPictureRow> {
+  status?: string
+  note?: string
+  n_trials?: number | null
+}
+
+// NCAA Football's real shape (simulate_team_sport_season.py's
+// main_ncaaf_bowl_eligibility()) is genuinely different from the
+// seeded-playoff shape above -- no real seeding formula exists for
+// this sport (the real CFP is committee-selected), so this reports
+// conference win-loss projection and real bowl eligibility instead.
+// Served from the same `${leagueId}_playoff_picture.json` endpoint --
+// StandingsPage picks the right row shape to render by checking for
+// `prob_bowl_eligible`.
+export type BowlEligibilityRow = {
+  team: string
+  conference: string
+  current_wins: number
+  current_games: number
+  current_conference_win_pct: number | null
+  mean_projected_final_wins: number
+  prob_bowl_eligible: number
+  prob_best_conference_record: number
+} & Record<string, string | number | null>
+
 export interface ExpectedTableRow {
   team: string
   expected_position: number
@@ -228,9 +269,11 @@ export interface MarginSurvivalRow {
   implied_prob_at_real_line: number | null
   value_gap: number | null
   fair_plus2_decimal_odds: number | null
-  // This league's own real blowout line (2 goals, every league here --
-  // see compute_margin_survival.py's THRESHOLD). `verdict` is formatted
-  // from this same real number.
+  // This league's own real blowout line (2 goals for soccer/UEFA, 14
+  // points for NFL, 20 points for NBA -- see
+  // compute_margin_survival.py's THRESHOLD / compute_margin_survival_
+  // team_sport.py's MARGIN_THRESHOLD). `verdict` is formatted from this
+  // same real number, never a borrowed "+2".
   threshold: number
   verdict: `PICK +${number}` | `LEAN +${number}` | 'PASS'
   why_text: string

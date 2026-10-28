@@ -1,9 +1,9 @@
 {
   "league": "serie_a",
-  "generated_at": "2026-10-28T11:44:29+00:00",
+  "generated_at": "2026-10-28T19:18:47+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
-  "record_count": 39,
+  "record_count": 32,
   "status": "real",
   "note": "model_* is the raw (uncalibrated) Dixon-Coles probability; market_* is the real, de-vigged market-consensus probability. Sorted by max_class_disagreement descending.",
   "data": [
@@ -59,13 +59,13 @@
       "match_id": "SERIEA2627_MW09_085_Monza_Napoli",
       "home_team": "Monza",
       "away_team": "Napoli",
-      "model_home_win_prob": 0.1014,
-      "model_draw_prob": 0.1545,
-      "model_away_win_prob": 0.7441,
-      "market_home_win_prob": 0.2182,
-      "market_draw_prob": 0.2412,
-      "market_away_win_prob": 0.5406,
-      "max_class_disagreement": 0.2035
+      "model_home_win_prob": 0.105,
+      "model_draw_prob": 0.1674,
+      "model_away_win_prob": 0.7275,
+      "market_home_win_prob": 0.2353,
+      "market_draw_prob": 0.2545,
+      "market_away_win_prob": 0.5103,
+      "max_class_disagreement": 0.2172
     },
     {
       "match_id": "SERIEA2627_MW06_056_Lazio_Monza",
@@ -92,18 +92,6 @@
       "max_class_disagreement": 0.1627
     },
     {
-      "match_id": "SERIEA2627_MW10_092_Bologna_Monza",
-      "home_team": "Bologna",
-      "away_team": "Monza",
-      "model_home_win_prob": 0.6895,
-      "model_draw_prob": 0.1766,
-      "model_away_win_prob": 0.1339,
-      "market_home_win_prob": 0.5355,
-      "market_draw_prob": 0.2527,
-      "market_away_win_prob": 0.2117,
-      "max_class_disagreement": 0.154
-    },
-    {
       "match_id": "SERIEA2627_MW08_074_Genoa_Venezia",
       "home_team": "Genoa",
       "away_team": "Venezia",
@@ -114,30 +102,6 @@
       "market_draw_prob": 0.2796,
       "market_away_win_prob": 0.2667,
       "max_class_disagreement": 0.153
-    },
-    {
-      "match_id": "SERIEA2627_MW10_093_Como_Venezia",
-      "home_team": "Como",
-      "away_team": "Venezia",
-      "model_home_win_prob": 0.8367,
-      "model_draw_prob": 0.1186,
-      "model_away_win_prob": 0.0447,
-      "market_home_win_prob": 0.6977,
-      "market_draw_prob": 0.1744,
-      "market_away_win_prob": 0.1279,
-      "max_class_disagreement": 0.139
-    },
-    {
-      "match_id": "SERIEA2627_MW10_095_Juventus_Napoli",
-      "home_team": "Juventus",
-      "away_team": "Napoli",
-      "model_home_win_prob": 0.3819,
-      "model_draw_prob": 0.2873,
-      "model_away_win_prob": 0.3308,
-      "market_home_win_prob": 0.5186,
-      "market_draw_prob": 0.2618,
-      "market_away_win_prob": 0.2197,
-      "max_class_disagreement": 0.1367
     },
     {
       "match_id": "SERIEA2627_MW07_064_Juventus_Lazio",
@@ -174,6 +138,18 @@
       "market_draw_prob": 0.2165,
       "market_away_win_prob": 0.657,
       "max_class_disagreement": 0.0794
+    },
+    {
+      "match_id": "SERIEA2627_MW09_088_Sassuolo_Lazio",
+      "home_team": "Sassuolo",
+      "away_team": "Lazio",
+      "model_home_win_prob": 0.2817,
+      "model_draw_prob": 0.2562,
+      "model_away_win_prob": 0.4622,
+      "market_home_win_prob": 0.3356,
+      "market_draw_prob": 0.2769,
+      "market_away_win_prob": 0.3875,
+      "max_class_disagreement": 0.0747
     },
     {
       "match_id": "SERIEA2627_MW06_058_Napoli_Frosinone",
@@ -248,64 +224,28 @@
       "max_class_disagreement": 0.0527
     },
     {
-      "match_id": "SERIEA2627_MW10_096_Lazio_Cagliari",
-      "home_team": "Lazio",
-      "away_team": "Cagliari",
-      "model_home_win_prob": 0.5539,
-      "model_draw_prob": 0.2573,
-      "model_away_win_prob": 0.1888,
-      "market_home_win_prob": 0.6027,
-      "market_draw_prob": 0.2359,
-      "market_away_win_prob": 0.1614,
-      "max_class_disagreement": 0.0488
-    },
-    {
-      "match_id": "SERIEA2627_MW10_094_Frosinone_Torino",
-      "home_team": "Frosinone",
-      "away_team": "Torino",
-      "model_home_win_prob": 0.4175,
-      "model_draw_prob": 0.2189,
-      "model_away_win_prob": 0.3637,
-      "market_home_win_prob": 0.4296,
-      "market_draw_prob": 0.253,
-      "market_away_win_prob": 0.3174,
-      "max_class_disagreement": 0.0463
-    },
-    {
-      "match_id": "SERIEA2627_MW10_097_Lecce_Genoa",
-      "home_team": "Lecce",
-      "away_team": "Genoa",
-      "model_home_win_prob": 0.3052,
-      "model_draw_prob": 0.3116,
-      "model_away_win_prob": 0.3832,
-      "market_home_win_prob": 0.3482,
-      "market_draw_prob": 0.304,
-      "market_away_win_prob": 0.3478,
-      "max_class_disagreement": 0.043
-    },
-    {
-      "match_id": "SERIEA2627_MW09_082_Frosinone_Lecce",
-      "home_team": "Frosinone",
-      "away_team": "Lecce",
-      "model_home_win_prob": 0.5267,
-      "model_draw_prob": 0.2278,
-      "model_away_win_prob": 0.2455,
-      "market_home_win_prob": 0.5654,
-      "market_draw_prob": 0.2289,
-      "market_away_win_prob": 0.2057,
-      "max_class_disagreement": 0.0398
-    },
-    {
       "match_id": "SERIEA2627_MW09_083_Genoa_Juventus",
       "home_team": "Genoa",
       "away_team": "Juventus",
+      "model_home_win_prob": 0.2057,
+      "model_draw_prob": 0.2654,
+      "model_away_win_prob": 0.5289,
+      "market_home_win_prob": 0.1781,
+      "market_draw_prob": 0.2509,
+      "market_away_win_prob": 0.571,
+      "max_class_disagreement": 0.0421
+    },
+    {
+      "match_id": "SERIEA2627_MW09_089_Torino_Como",
+      "home_team": "Torino",
+      "away_team": "Como",
       "model_home_win_prob": 0.2004,
-      "model_draw_prob": 0.268,
-      "model_away_win_prob": 0.5316,
-      "market_home_win_prob": 0.1795,
-      "market_draw_prob": 0.2556,
-      "market_away_win_prob": 0.5649,
-      "max_class_disagreement": 0.0333
+      "model_draw_prob": 0.2403,
+      "model_away_win_prob": 0.5593,
+      "market_home_win_prob": 0.2189,
+      "market_draw_prob": 0.2551,
+      "market_away_win_prob": 0.5261,
+      "max_class_disagreement": 0.0332
     },
     {
       "match_id": "SERIEA2627_MW06_057_Lecce_Bologna",
@@ -356,18 +296,6 @@
       "max_class_disagreement": 0.0267
     },
     {
-      "match_id": "SERIEA2627_MW09_089_Torino_Como",
-      "home_team": "Torino",
-      "away_team": "Como",
-      "model_home_win_prob": 0.1953,
-      "model_draw_prob": 0.2373,
-      "model_away_win_prob": 0.5674,
-      "market_home_win_prob": 0.2057,
-      "market_draw_prob": 0.2497,
-      "market_away_win_prob": 0.5446,
-      "max_class_disagreement": 0.0228
-    },
-    {
       "match_id": "SERIEA2627_MW06_054_Genoa_Fiorentina",
       "home_team": "Genoa",
       "away_team": "Fiorentina",
@@ -380,18 +308,6 @@
       "max_class_disagreement": 0.0215
     },
     {
-      "match_id": "SERIEA2627_MW09_086_Parma_Udinese",
-      "home_team": "Parma",
-      "away_team": "Udinese",
-      "model_home_win_prob": 0.3089,
-      "model_draw_prob": 0.2957,
-      "model_away_win_prob": 0.3954,
-      "market_home_win_prob": 0.3201,
-      "market_draw_prob": 0.303,
-      "market_away_win_prob": 0.3769,
-      "max_class_disagreement": 0.0185
-    },
-    {
       "match_id": "SERIEA2627_MW05_047_Parma_Genoa",
       "home_team": "Parma",
       "away_team": "Genoa",
@@ -402,6 +318,18 @@
       "market_draw_prob": 0.3131,
       "market_away_win_prob": 0.38,
       "max_class_disagreement": 0.017
+    },
+    {
+      "match_id": "SERIEA2627_MW09_086_Parma_Udinese",
+      "home_team": "Parma",
+      "away_team": "Udinese",
+      "model_home_win_prob": 0.3024,
+      "model_draw_prob": 0.2968,
+      "model_away_win_prob": 0.4008,
+      "market_home_win_prob": 0.3191,
+      "market_draw_prob": 0.2934,
+      "market_away_win_prob": 0.3875,
+      "max_class_disagreement": 0.0167
     },
     {
       "match_id": "SERIEA2627_MW05_041_Bologna_Torino",
@@ -428,30 +356,6 @@
       "max_class_disagreement": 0.0152
     },
     {
-      "match_id": "SERIEA2627_MW10_099_Sassuolo_Fiorentina",
-      "home_team": "Sassuolo",
-      "away_team": "Fiorentina",
-      "model_home_win_prob": 0.3884,
-      "model_draw_prob": 0.2498,
-      "model_away_win_prob": 0.3618,
-      "market_home_win_prob": 0.3786,
-      "market_draw_prob": 0.2642,
-      "market_away_win_prob": 0.3572,
-      "max_class_disagreement": 0.0144
-    },
-    {
-      "match_id": "SERIEA2627_MW09_088_Sassuolo_Lazio",
-      "home_team": "Sassuolo",
-      "away_team": "Lazio",
-      "model_home_win_prob": 0.2752,
-      "model_draw_prob": 0.2555,
-      "model_away_win_prob": 0.4693,
-      "market_home_win_prob": 0.2796,
-      "market_draw_prob": 0.2643,
-      "market_away_win_prob": 0.4561,
-      "max_class_disagreement": 0.0132
-    },
-    {
       "match_id": "SERIEA2627_MW07_069_Udinese_Lecce",
       "home_team": "Udinese",
       "away_team": "Lecce",
@@ -474,6 +378,18 @@
       "market_draw_prob": 0.1997,
       "market_away_win_prob": 0.1489,
       "max_class_disagreement": 0.0123
+    },
+    {
+      "match_id": "SERIEA2627_MW09_082_Frosinone_Lecce",
+      "home_team": "Frosinone",
+      "away_team": "Lecce",
+      "model_home_win_prob": 0.4908,
+      "model_draw_prob": 0.2533,
+      "model_away_win_prob": 0.2559,
+      "market_home_win_prob": 0.4907,
+      "market_draw_prob": 0.253,
+      "market_away_win_prob": 0.2563,
+      "max_class_disagreement": 0.0004
     }
   ]
 }

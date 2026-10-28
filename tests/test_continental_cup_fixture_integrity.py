@@ -14,7 +14,12 @@ from src.utils.team_names import CANONICAL_TEAMS  # noqa: E402
 # differently-shaped integrity checks here rather than
 # test_fixture_integrity.py's round-robin assertions, which don't apply
 # to a real partial schedule (each team plays only 8 or 6 of the other
-# 35 teams, not all of them).
+# 35 teams, not all of them). Scoped specifically to format=="swiss",
+# not just "non-single_table" -- NFL/NBA (format=="points") are also
+# excluded from single_table_league_ids() but have a real, different
+# season shape (no expected_fixture_count override, no 18-match-per-
+# round structure) and get their own integrity test instead
+# (test_team_sport_fixture_integrity.py).
 CONTINENTAL_CUP_LEAGUE_IDS = [lid for lid in all_league_ids() if load_league_config(lid).format == "swiss"]
 
 

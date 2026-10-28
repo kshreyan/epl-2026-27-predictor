@@ -73,7 +73,7 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: |
-          for league in epl la_liga serie_a bundesliga ligue_1 ucl uel uecl; do
+          for league in epl la_liga serie_a bundesliga ligue_1 ucl uel uecl nfl nba nhl ncaaf; do
             python -m src.data_collection.collect_odds --league "$league"
           done
 
@@ -96,6 +96,27 @@ jobs:
             python -m src.data_collection.fetch_continental_cup_live_results --league "$league"
             python -m src.models.predict_continental_cup_matches --league "$league"
             python -m src.models.compute_margin_survival_continental --league "$league"
+          done
+
+      # NFL/NBA/NHL/NCAA Football (see predict_team_sport_matches.py):
+      # same "no lock, just re-fetch and recompute fresh" pattern as
+      # the UEFA club competitions above -- ESPN's own schedule
+      # endpoint doubles as the real-results source
+      # (collect_espn_schedule.py), so one fetch covers both the real
+      # schedule and any newly-completed real games. The season
+      # simulation (simulate_team_sport_season.py) is real but not
+      # cheap (NBA's ~20s for 10,000 trials over ~1,200 remaining real
+      # games; NCAA Football also fetches its real conference
+      # groupings live from ESPN every run, see
+      # espn_api.fetch_real_fbs_conferences()) -- still run daily,
+      # same cadence as everything else here.
+      - name: Refresh NFL/NBA/NHL/NCAA Football predictions
+        run: |
+          for league in nfl nba nhl ncaaf; do
+            python -m src.data_collection.collect_espn_schedule --league "$league"
+            python -m src.models.predict_team_sport_matches --league "$league"
+            python -m src.models.compute_margin_survival_team_sport --league "$league"
+            python -m src.simulation.simulate_team_sport_season --league "$league"
           done
 
       - name: Rebuild dashboard JSON

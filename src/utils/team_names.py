@@ -513,6 +513,130 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "Vitoria SC": ["Vitória SC", "Vitória Guimarães"],
         "HSK Zrinjski": ["Zrinjski", "HŠK Zrinjski Mostar"],
     },
+    "nfl": {
+        "Arizona Cardinals": [], "Atlanta Falcons": [], "Baltimore Ravens": [],
+        "Buffalo Bills": [], "Carolina Panthers": [], "Chicago Bears": [],
+        "Cincinnati Bengals": [], "Cleveland Browns": [], "Dallas Cowboys": [],
+        "Denver Broncos": [], "Detroit Lions": [], "Green Bay Packers": [],
+        "Houston Texans": [], "Indianapolis Colts": [], "Jacksonville Jaguars": [],
+        "Kansas City Chiefs": [], "Las Vegas Raiders": [], "Los Angeles Chargers": [],
+        "Los Angeles Rams": [], "Miami Dolphins": [], "Minnesota Vikings": [],
+        "New England Patriots": [], "New Orleans Saints": [], "New York Giants": [],
+        "New York Jets": [], "Philadelphia Eagles": [], "Pittsburgh Steelers": [],
+        "San Francisco 49ers": [], "Seattle Seahawks": [], "Tampa Bay Buccaneers": [],
+        "Tennessee Titans": [],
+        # Real historical name: ESPN's own schedule data uses the short
+        # "Washington" (not "Washington Commanders") for this team in
+        # several real past seasons -- confirmed directly across 2021-2026.
+        "Washington Commanders": ["Washington"],
+    },
+    # Canonical spelling is ESPN's own team displayName, same discipline
+    # as "nfl" above. Cross-referenced directly against The Odds API's
+    # live event list (basketball_nba): one real spelling difference
+    # found (ESPN's short "LA Clippers" vs the Odds API's full "Los
+    # Angeles Clippers"); every other team matched exactly.
+    "nba": {
+        "Atlanta Hawks": [], "Boston Celtics": [], "Brooklyn Nets": [],
+        "Charlotte Hornets": [], "Chicago Bulls": [], "Cleveland Cavaliers": [],
+        "Dallas Mavericks": [], "Denver Nuggets": [], "Detroit Pistons": [],
+        "Golden State Warriors": [], "Houston Rockets": [], "Indiana Pacers": [],
+        "LA Clippers": ["Los Angeles Clippers"], "Los Angeles Lakers": [],
+        "Memphis Grizzlies": [], "Miami Heat": [], "Milwaukee Bucks": [],
+        "Minnesota Timberwolves": [], "New Orleans Pelicans": [], "New York Knicks": [],
+        "Oklahoma City Thunder": [], "Orlando Magic": [], "Philadelphia 76ers": [],
+        "Phoenix Suns": [], "Portland Trail Blazers": [], "Sacramento Kings": [],
+        "San Antonio Spurs": [], "Toronto Raptors": [], "Utah Jazz": [],
+        "Washington Wizards": [],
+    },
+    # Canonical spelling is ESPN's own team displayName, same discipline
+    # as "nfl"/"nba" above. Cross-referenced directly against The Odds
+    # API's live event list (icehockey_nhl): two real spelling
+    # differences found (an accented "Montréal" and "St Louis" without
+    # the period); every other team matched exactly.
+    "nhl": {
+        "Anaheim Ducks": [], "Boston Bruins": [], "Buffalo Sabres": [],
+        "Calgary Flames": [], "Carolina Hurricanes": [], "Chicago Blackhawks": [],
+        "Colorado Avalanche": [], "Columbus Blue Jackets": [], "Dallas Stars": [],
+        "Detroit Red Wings": [], "Edmonton Oilers": [], "Florida Panthers": [],
+        "Los Angeles Kings": [], "Minnesota Wild": [],
+        "Montreal Canadiens": ["Montréal Canadiens"],
+        "Nashville Predators": [], "New Jersey Devils": [], "New York Islanders": [],
+        "New York Rangers": [], "Ottawa Senators": [], "Philadelphia Flyers": [],
+        "Pittsburgh Penguins": [], "San Jose Sharks": [], "Seattle Kraken": [],
+        "St. Louis Blues": ["St Louis Blues"],
+        "Tampa Bay Lightning": [], "Toronto Maple Leafs": [],
+        # Real franchise relocation/rename: the Arizona Coyotes
+        # relocated and rebranded as the Utah Mammoth (originally "Utah
+        # Hockey Club") in 2024 -- real historical seasons under the
+        # old name are the same real franchise, not a different team.
+        "Utah Mammoth": ["Arizona Coyotes", "Utah Hockey Club"],
+        "Vancouver Canucks": [], "Vegas Golden Knights": [], "Washington Capitals": [],
+        "Winnipeg Jets": [],
+    },
+    # Canonical spelling is ESPN's own team displayName, same discipline
+    # as the other American team sports above -- generated directly
+    # from ESPN's own real, live FBS conference standings this session
+    # (espn_api.py's fetch_real_fbs_conferences(), 138 real teams, see
+    # config/leagues.yaml's note on why this roster isn't a fixed
+    # closed set the way NFL/NBA/NHL's is). Not cross-referenced
+    # against The Odds API team-by-team the way the smaller closed
+    # rosters above were -- 138 teams makes that impractical by hand;
+    # a real Odds API spelling mismatch for any one team surfaces as
+    # that one fixture simply getting no real market odds (the same
+    # "flagged unavailable, never guessed" fallback collect_odds.py
+    # already uses everywhere), not a silent wrong number.
+    "ncaaf": {
+        "Air Force Falcons": [], "Akron Zips": [], "Alabama Crimson Tide": [],
+        "App State Mountaineers": [], "Arizona State Sun Devils": [], "Arizona Wildcats": [],
+        "Arkansas Razorbacks": [], "Arkansas State Red Wolves": [], "Army Black Knights": [],
+        "Auburn Tigers": [], "BYU Cougars": [], "Ball State Cardinals": [],
+        "Baylor Bears": [], "Boise State Broncos": [], "Boston College Eagles": [],
+        "Bowling Green Falcons": [], "Buffalo Bulls": [], "California Golden Bears": [],
+        "Central Michigan Chippewas": [], "Charlotte 49ers": [], "Cincinnati Bearcats": [],
+        "Clemson Tigers": [], "Coastal Carolina Chanticleers": [], "Colorado Buffaloes": [],
+        "Colorado State Rams": [], "Delaware Blue Hens": [], "Duke Blue Devils": [],
+        "East Carolina Pirates": [], "Eastern Michigan Eagles": [],
+        "Florida Atlantic Owls": [], "Florida Gators": [],
+        "Florida International Panthers": [], "Florida State Seminoles": [],
+        "Fresno State Bulldogs": [], "Georgia Bulldogs": [], "Georgia Southern Eagles": [],
+        "Georgia State Panthers": [], "Georgia Tech Yellow Jackets": [],
+        "Hawai'i Rainbow Warriors": [], "Houston Cougars": [], "Illinois Fighting Illini": [],
+        "Indiana Hoosiers": [], "Iowa Hawkeyes": [], "Iowa State Cyclones": [],
+        "Jacksonville State Gamecocks": [], "James Madison Dukes": [], "Kansas Jayhawks": [],
+        "Kansas State Wildcats": [], "Kennesaw State Owls": [],
+        "Kent State Golden Flashes": [], "Kentucky Wildcats": [], "LSU Tigers": [],
+        "Liberty Flames": [], "Louisiana Ragin' Cajuns": [], "Louisiana Tech Bulldogs": [],
+        "Louisville Cardinals": [], "Marshall Thundering Herd": [], "Maryland Terrapins": [],
+        "Massachusetts Minutemen": [], "Memphis Tigers": [], "Miami (OH) RedHawks": [],
+        "Miami Hurricanes": [], "Michigan State Spartans": [], "Michigan Wolverines": [],
+        "Middle Tennessee Blue Raiders": [], "Minnesota Golden Gophers": [],
+        "Mississippi State Bulldogs": [], "Missouri State Bears": [], "Missouri Tigers": [],
+        "NC State Wolfpack": [], "Navy Midshipmen": [], "Nebraska Cornhuskers": [],
+        "Nevada Wolf Pack": [], "New Mexico Lobos": [], "New Mexico State Aggies": [],
+        "North Carolina Tar Heels": [], "North Dakota State Bison": [],
+        "North Texas Mean Green": [], "Northern Illinois Huskies": [],
+        "Northwestern Wildcats": [], "Notre Dame Fighting Irish": [], "Ohio Bobcats": [],
+        "Ohio State Buckeyes": [], "Oklahoma Sooners": [], "Oklahoma State Cowboys": [],
+        "Old Dominion Monarchs": [], "Ole Miss Rebels": [], "Oregon Ducks": [],
+        "Oregon State Beavers": [], "Penn State Nittany Lions": [], "Pittsburgh Panthers": [],
+        "Purdue Boilermakers": [], "Rice Owls": [], "Rutgers Scarlet Knights": [],
+        "SMU Mustangs": [], "Sacramento State Hornets": [], "Sam Houston Bearkats": [],
+        "San Diego State Aztecs": [], "San José State Spartans": [],
+        "South Alabama Jaguars": [], "South Carolina Gamecocks": [],
+        "South Florida Bulls": [], "Southern Miss Golden Eagles": [], "Stanford Cardinal": [],
+        "Syracuse Orange": [], "TCU Horned Frogs": [], "Temple Owls": [],
+        "Tennessee Volunteers": [], "Texas A&M Aggies": [], "Texas Longhorns": [],
+        "Texas State Bobcats": [], "Texas Tech Red Raiders": [], "Toledo Rockets": [],
+        "Troy Trojans": [], "Tulane Green Wave": [], "Tulsa Golden Hurricane": [],
+        "UAB Blazers": [], "UCF Knights": [], "UCLA Bruins": [], "UConn Huskies": [],
+        "UL Monroe Warhawks": [], "UNLV Rebels": [], "USC Trojans": [], "UTEP Miners": [],
+        "UTSA Roadrunners": [], "Utah State Aggies": [], "Utah Utes": [],
+        "Vanderbilt Commodores": [], "Virginia Cavaliers": [], "Virginia Tech Hokies": [],
+        "Wake Forest Demon Deacons": [], "Washington Huskies": [],
+        "Washington State Cougars": [], "West Virginia Mountaineers": [],
+        "Western Kentucky Hilltoppers": [], "Western Michigan Broncos": [],
+        "Wisconsin Badgers": [], "Wyoming Cowboys": [],
+    },
 }
 
 _ALIAS_TO_CANONICAL: dict[str, dict[str, str]] = {}
@@ -531,6 +655,16 @@ EPL_2026_27_CLUBS: list[str] = sorted([
     "Liverpool", "Manchester City", "Manchester United", "Newcastle United",
     "Nottingham Forest", "Sunderland", "Tottenham Hotspur",
 ])
+
+
+def is_known_team(raw_name: str, league_id: str) -> bool:
+    """True if `raw_name` resolves to a known canonical team/alias for
+    this league -- a non-raising check for callers that need to skip a
+    real but out-of-scope opponent (e.g. an FCS "buy game" opponent on
+    an NCAA Football FBS team's real schedule) rather than treat it as
+    a data error the way normalize_team_name's KeyError does."""
+    table = _ALIAS_TO_CANONICAL.get(league_id, {})
+    return raw_name.strip().lower() in table
 
 
 def normalize_team_name(raw_name: str, league_id: str = "epl") -> str:

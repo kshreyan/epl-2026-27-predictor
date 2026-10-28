@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T11:44:29+00:00",
+  "generated_at": "2026-10-28T19:18:47+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
@@ -24,6 +24,30 @@
       "display_name": "Ligue 1",
       "country": "France",
       "format": "single_table"
+    },
+    {
+      "league_id": "nba",
+      "display_name": "NBA",
+      "country": "United States",
+      "format": "points"
+    },
+    {
+      "league_id": "ncaaf",
+      "display_name": "NCAA Football",
+      "country": "United States",
+      "format": "points"
+    },
+    {
+      "league_id": "nfl",
+      "display_name": "NFL",
+      "country": "United States",
+      "format": "points"
+    },
+    {
+      "league_id": "nhl",
+      "display_name": "NHL",
+      "country": "United States",
+      "format": "points"
     },
     {
       "league_id": "serie_a",

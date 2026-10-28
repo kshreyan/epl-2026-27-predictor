@@ -38,12 +38,10 @@ class LeagueConfig:
     # Conference League's 36-team league phase, 8 or 6 games each) --
     # table/races/season-simulation dashboard building does not apply
     # and must not run for these; see single_table_league_ids() below.
-    # A "points" format (real American team sports -- NFL, NBA, NCAA
-    # Football, NHL) and a "fight_card" format (UFC) previously existed
-    # here and were removed in full (NHL/UFC 2026-10-25, NFL/NBA/NCAA
-    # Football 2026-10-26) at the user's request -- re-adding any of
-    # them needs redoing the collection/model wiring from scratch (see
-    # config/leagues.yaml's removal note).
+    # "points" (NFL, NBA, NCAA Football, NHL -- re-added 2026-10-28
+    # after a prior full removal on 2026-10-26): real American team
+    # sports, scored in points not goals -- see config/leagues.yaml's
+    # note for the real data sources and model each one uses.
     format: str = "single_table"
     # None for a competition fixturedownload.com genuinely has no real
     # coverage for (e.g. American team sports) -- collect_fixtures.py/
