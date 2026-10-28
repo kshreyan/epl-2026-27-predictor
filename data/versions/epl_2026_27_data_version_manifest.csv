@@ -378,3 +378,5 @@ ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-28T19:06:49+0
 ncaaf_historical_matches,2026-08-18.phase1,site.api.espn.com,2026-10-28T19:06:39+00:00,3725,True,2026-10-28T19:09:35+00:00,"NCAA Football, 5 real prior regular seasons from ESPN's site API."
 nfl_2026_27_fixtures,2026-08-18.phase1,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00,272,True,2026-10-28T19:24:56+00:00,NFL 2026-27 real schedule + historical from nflverse's nfldata repository.
 nfl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-28T19:25:47+00:00,2853,True,2026-10-28T19:25:48+00:00,2124 real bookmaker/market rows; rest are honest unavailable sentinels.
+nhl_2026_27_fixtures,2026-08-18.phase1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,1344,True,2026-10-28T19:54:28+00:00,NHL 2026-27 real schedule + historical from the NHL's own official public API.
+nhl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-28T19:57:35+00:00,5197,True,2026-10-28T19:57:35+00:00,1210 real bookmaker/market rows; rest are honest unavailable sentinels.

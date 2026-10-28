@@ -1,0 +1,2 @@
+coefficient,significant,ci_low,ci_high,prior_season,held_out_season,n_games,generated_at
+-0.31719,False,-0.71825,0.09606,2024,2025,1312,2026-10-28T20:08:44+00:00

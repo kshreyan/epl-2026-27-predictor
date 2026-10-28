@@ -213,6 +213,14 @@ def main_seeded_playoff(league_id: str) -> None:
     base_wins = {t: 0.0 for t in teams}
     base_games = {t: 0 for t in teams}
     base_point_diff = {t: 0 for t in teams}
+    # Real NHL points standings (2 for any win, 1 for a real OT/shootout
+    # loss, 0 for a real regulation loss) -- NOT the same as win_pct,
+    # which this module used uniformly for every "points"-format league
+    # until this fix (a real correctness gap: an NHL team with several
+    # real OT-loss points finishes ABOVE a team with the same win count
+    # but all-regulation losses, something plain win_pct can't express).
+    # Unused for NFL/NBA/NCAA Football, which have no real equivalent.
+    base_points = {t: 0 for t in teams}
     remaining_fixtures = []
     completed_rows = []
     for _, fx in fixtures.iterrows():
@@ -224,16 +232,38 @@ def main_seeded_playoff(league_id: str) -> None:
             base_point_diff[home] += hg - ag; base_point_diff[away] += ag - hg
             if hg > ag:
                 base_wins[home] += 1
+                loser_pts = 1 if (league_id == "nhl" and rr.get("period_type") in ("OT", "SO")) else 0
+                base_points[home] += 2; base_points[away] += loser_pts
             elif hg < ag:
                 base_wins[away] += 1
+                loser_pts = 1 if (league_id == "nhl" and rr.get("period_type") in ("OT", "SO")) else 0
+                base_points[away] += 2; base_points[home] += loser_pts
             else:
                 base_wins[home] += 0.5; base_wins[away] += 0.5
+                base_points[home] += 1; base_points[away] += 1
             completed_rows.append({"date": pd.Timestamp(fx["date"]), "home_team": home, "away_team": away, "home_score": hg, "away_score": ag})
         else:
             remaining_fixtures.append((fx["home_team"], fx["away_team"]))
 
     if completed_rows:
         historical = pd.concat([historical, pd.DataFrame(completed_rows)], ignore_index=True)
+
+    # Real structural fact, confirmed directly against this league's own
+    # real historical data: an NHL game that reaches OT/shootout can
+    # only ever end with a real 1-goal final margin (the extra period
+    # ends on the next real goal) -- a |margin| >= 2 game is ALWAYS
+    # real regulation. Among real 1-goal games specifically, this
+    # league's own real historical rate of going to OT/shootout is
+    # computed fresh here, never assumed, so a simulated 1-goal game
+    # can be probabilistically resolved to the real points this sport
+    # actually awards for an OT/shootout loss.
+    p_ot_so_given_one_goal = 0.0
+    if league_id == "nhl":
+        hist_scored = historical.dropna(subset=["home_score", "away_score"])
+        if "period_type" in hist_scored.columns:
+            one_goal = hist_scored[(hist_scored["home_score"] - hist_scored["away_score"]).abs() == 1]
+            if len(one_goal):
+                p_ot_so_given_one_goal = float(one_goal["period_type"].isin(["OT", "SO"]).mean())
 
     fit = fit_point_margin_model(historical, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
     print(f"{cfg.display_name}: {len(remaining_fixtures)} real remaining games, {N_TRIALS} trials")
@@ -245,9 +275,9 @@ def main_seeded_playoff(league_id: str) -> None:
     seed_counts = {t: {s: 0 for s in range(1, TOTAL_SEEDS[league_id] + 1)} for t in teams}
 
     for _ in range(N_TRIALS):
-        win_pct = {t: base_wins[t] / base_games[t] if base_games[t] else 0.0 for t in teams}
         games_played = dict(base_games)
         wins = dict(base_wins)
+        points = dict(base_points)
         point_diff = dict(base_point_diff)
 
         for home, away in remaining_fixtures:
@@ -258,12 +288,22 @@ def main_seeded_playoff(league_id: str) -> None:
                 wins[home] += 0.5; wins[away] += 0.5
             elif margin_int > 0:
                 wins[home] += 1
+                if league_id == "nhl":
+                    is_ot_so = abs(margin_int) == 1 and rng.random() < p_ot_so_given_one_goal
+                    points[home] += 2; points[away] += 1 if is_ot_so else 0
             else:
                 wins[away] += 1
+                if league_id == "nhl":
+                    is_ot_so = abs(margin_int) == 1 and rng.random() < p_ot_so_given_one_goal
+                    points[away] += 2; points[home] += 1 if is_ot_so else 0
             point_diff[home] += margin_int; point_diff[away] -= margin_int
             games_played[home] += 1; games_played[away] += 1
 
         win_pct = {t: wins[t] / games_played[t] if games_played[t] else 0.0 for t in teams}
+        if league_id == "nhl":
+            # Real NHL standings sort on points percentage (max 2 points
+            # per game), not plain win_pct -- see base_points above.
+            win_pct = {t: points[t] / (2 * games_played[t]) if games_played[t] else 0.0 for t in teams}
 
         for conf, divisions in CONFERENCES[league_id].items():
             conf_teams = [t for div_teams in divisions.values() for t in div_teams]
@@ -295,6 +335,12 @@ def main_seeded_playoff(league_id: str) -> None:
             "prob_make_playoffs": round(playoff_zone_count[t] / N_TRIALS, 4),
             "prob_direct_seed": round(direct_count[t] / N_TRIALS, 4),
         }
+        if league_id == "nhl":
+            # Real NHL standings points (2/1/0 -- see base_points above),
+            # a genuinely different real stat from current_win_pct, never
+            # relabeled under that name.
+            row["current_points"] = base_points[t]
+            row["current_points_pct"] = round(base_points[t] / (2 * base_games[t]), 4) if base_games[t] else None
         if league_id in ("nfl", "nhl"):
             row["prob_win_division"] = round(division_winner_count[t] / N_TRIALS, 4)
         for seed in range(1, TOTAL_SEEDS[league_id] + 1):

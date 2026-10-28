@@ -1,6 +1,6 @@
 {
   "league": "nhl",
-  "generated_at": "2026-10-28T19:46:13+00:00",
+  "generated_at": "2026-10-28T20:09:34+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 4,
@@ -11,30 +11,30 @@
     {
       "model": "Elo-only win probability",
       "n_matches": 6515,
-      "log_loss": 0.6765694135,
-      "brier_score": 0.4831033676,
-      "ranked_probability_score": 0.2415516838
+      "log_loss": 0.6763842314,
+      "brier_score": 0.4829067865,
+      "ranked_probability_score": 0.2414533932
     },
     {
       "model": "Point-margin model (Elo + margin regression)",
       "n_matches": 6515,
-      "log_loss": 0.6823673437,
-      "brier_score": 0.4892864968,
-      "ranked_probability_score": 0.2446432484
+      "log_loss": 0.681863696,
+      "brier_score": 0.4887647415,
+      "ranked_probability_score": 0.2443823707
     },
     {
       "model": "Flat/home-field-only baseline",
       "n_matches": 6515,
-      "log_loss": 0.6910740129,
-      "brier_score": 0.4979214501,
-      "ranked_probability_score": 0.2489607251
+      "log_loss": 0.6912093892,
+      "brier_score": 0.4980508117,
+      "ranked_probability_score": 0.2490254059
     },
     {
       "model": "Dixon-Coles (real scoreline grid)",
       "n_matches": 6515,
-      "log_loss": 0.8293830549,
-      "brier_score": 0.5091401986,
-      "ranked_probability_score": 0.2443674055
+      "log_loss": 0.8304589872,
+      "brier_score": 0.5092299643,
+      "ranked_probability_score": 0.2444070218
     }
   ]
 }

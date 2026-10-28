@@ -1,199 +1,199 @@
-match_id,home_goals,away_goals,source_name,source_timestamp
-NHL2627_W01_401891773_CarolinaHurricanes_FloridaPanthers,0,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891827_TorontoMapleLeafs_MontrealCanadiens,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891774_BostonBruins_NewYorkRangers,3,0,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891804_EdmontonOilers_VancouverCanucks,5,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891775_VegasGoldenKnights_ChicagoBlackhawks,5,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892431_TorontoMapleLeafs_NewYorkIslanders,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891821_PhiladelphiaFlyers_PittsburghPenguins,0,7,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891780_ColoradoAvalanche_LosAngelesKings,8,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891781_ColumbusBlueJackets_BuffaloSabres,6,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891817_NewJerseyDevils_PhiladelphiaFlyers,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891819_NewYorkRangers_TampaBayLightning,5,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891816_NashvillePredators_MinnesotaWild,1,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891777_CalgaryFlames_SeattleKraken,1,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891828_UtahMammoth_ChicagoBlackhawks,6,0,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891829_VancouverCanucks_EdmontonOilers,7,9,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891823_SanJoseSharks_FloridaPanthers,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891803_DetroitRedWings_NewYorkRangers,0,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892432_CarolinaHurricanes_WashingtonCapitals,2,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891831_WinnipegJets_BostonBruins,3,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891782_DallasStars_St.LouisBlues,0,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892433_VegasGoldenKnights_AnaheimDucks,3,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891776_BuffaloSabres_ChicagoBlackhawks,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892435_PhiladelphiaFlyers_CarolinaHurricanes,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892436_ColumbusBlueJackets_UtahMammoth,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892437_EdmontonOilers_SeattleKraken,3,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891822_PittsburghPenguins_MontrealCanadiens,6,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892434_TorontoMapleLeafs_OttawaSenators,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891826_TampaBayLightning_WashingtonCapitals,3,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891818_NewYorkIslanders_NewJerseyDevils,6,0,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891814_MinnesotaWild_BostonBruins,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892438_NashvillePredators_DallasStars,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892439_ColoradoAvalanche_St.LouisBlues,6,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892440_VancouverCanucks_CalgaryFlames,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892441_SanJoseSharks_LosAngelesKings,5,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892442_DetroitRedWings_WinnipegJets,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892443_NewYorkRangers_UtahMammoth,4,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891778_AnaheimDucks_FloridaPanthers,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401891824_SeattleKraken_CalgaryFlames,6,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892444_VancouverCanucks_VegasGoldenKnights,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892445_TampaBayLightning_PhiladelphiaFlyers,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892446_BostonBruins_OttawaSenators,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892447_PittsburghPenguins_WinnipegJets,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W01_401892448_DallasStars_SanJoseSharks,5,0,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892453_BuffaloSabres_MinnesotaWild,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401891815_MontrealCanadiens_CarolinaHurricanes,4,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892450_DetroitRedWings_OttawaSenators,5,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892449_TorontoMapleLeafs_NashvillePredators,5,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892451_NewJerseyDevils_UtahMammoth,3,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892452_NewYorkRangers_NewYorkIslanders,5,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401891779_ChicagoBlackhawks_St.LouisBlues,4,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892454_SeattleKraken_VegasGoldenKnights,2,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401891806_LosAngelesKings_FloridaPanthers,1,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892455_WinnipegJets_ColoradoAvalanche,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401891830_WashingtonCapitals_PittsburghPenguins,5,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892456_AnaheimDucks_EdmontonOilers,2,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892457_BostonBruins_UtahMammoth,6,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892458_BuffaloSabres_DallasStars,0,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892461_CarolinaHurricanes_VancouverCanucks,7,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892460_TampaBayLightning_MinnesotaWild,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892459_MontrealCanadiens_NashvillePredators,2,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401891820_OttawaSenators_PhiladelphiaFlyers,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892462_NewYorkIslanders_ChicagoBlackhawks,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401891825_St.LouisBlues_SanJoseSharks,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892463_CalgaryFlames_ColoradoAvalanche,3,7,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892464_VegasGoldenKnights_TorontoMapleLeafs,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892467_ColumbusBlueJackets_PittsburghPenguins,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892465_DetroitRedWings_SeattleKraken,3,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892466_WashingtonCapitals_NewYorkRangers,3,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892468_WinnipegJets_AnaheimDucks,1,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892469_BostonBruins_PhiladelphiaFlyers,5,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892470_NewJerseyDevils_VancouverCanucks,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892471_SanJoseSharks_EdmontonOilers,1,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401891805_FloridaPanthers_MinnesotaWild,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892472_BuffaloSabres_UtahMammoth,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892476_ChicagoBlackhawks_CarolinaHurricanes,2,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892478_ColoradoAvalanche_TorontoMapleLeafs,3,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892477_St.LouisBlues_ColumbusBlueJackets,5,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892475_PittsburghPenguins_DallasStars,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892473_MontrealCanadiens_DetroitRedWings,1,0,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892474_OttawaSenators_NashvillePredators,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892479_NewYorkIslanders_TampaBayLightning,3,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892480_CalgaryFlames_AnaheimDucks,2,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892481_VegasGoldenKnights_LosAngelesKings,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892482_WashingtonCapitals_SeattleKraken,3,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892483_NewYorkRangers_VancouverCanucks,6,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892484_PhiladelphiaFlyers_CarolinaHurricanes,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892485_BuffaloSabres_FloridaPanthers,5,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892486_NewJerseyDevils_OttawaSenators,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W02_401892487_MinnesotaWild_VegasGoldenKnights,4,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892488_DetroitRedWings_NewJerseyDevils,4,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892489_ColumbusBlueJackets_FloridaPanthers,3,7,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892490_MontrealCanadiens_BuffaloSabres,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892491_CarolinaHurricanes_WashingtonCapitals,4,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892492_PhiladelphiaFlyers_SeattleKraken,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892493_NewYorkRangers_TampaBayLightning,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892494_OttawaSenators_St.LouisBlues,2,7,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892495_NewYorkIslanders_VancouverCanucks,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892496_ChicagoBlackhawks_PittsburghPenguins,5,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892497_WinnipegJets_MinnesotaWild,5,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892498_DallasStars_ColoradoAvalanche,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892499_NashvillePredators_VegasGoldenKnights,2,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892500_UtahMammoth_TorontoMapleLeafs,5,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892501_AnaheimDucks_CalgaryFlames,2,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892502_LosAngelesKings_EdmontonOilers,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892503_SanJoseSharks_BostonBruins,3,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892504_WashingtonCapitals_MontrealCanadiens,5,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892505_ColoradoAvalanche_DallasStars,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892506_TorontoMapleLeafs_BuffaloSabres,4,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892510_FloridaPanthers_VancouverCanucks,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892511_NewJerseyDevils_NewYorkRangers,7,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892507_OttawaSenators_NewYorkIslanders,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892509_TampaBayLightning_SeattleKraken,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892508_DetroitRedWings_PhiladelphiaFlyers,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892512_ChicagoBlackhawks_WinnipegJets,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892514_MinnesotaWild_St.LouisBlues,5,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892513_NashvillePredators_SanJoseSharks,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892515_EdmontonOilers_UtahMammoth,2,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892516_VegasGoldenKnights_CalgaryFlames,6,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892517_ColoradoAvalanche_PittsburghPenguins,5,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892518_AnaheimDucks_BostonBruins,2,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892519_WashingtonCapitals_NewJerseyDevils,4,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892520_WinnipegJets_CarolinaHurricanes,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892521_TampaBayLightning_VancouverCanucks,4,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892522_FloridaPanthers_SeattleKraken,8,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892524_MontrealCanadiens_BuffaloSabres,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892528_ChicagoBlackhawks_DallasStars,0,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892527_ColumbusBlueJackets_NewYorkRangers,1,0,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892525_DetroitRedWings_SanJoseSharks,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892523_TorontoMapleLeafs_NewYorkIslanders,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892526_PhiladelphiaFlyers_OttawaSenators,3,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892529_NashvillePredators_St.LouisBlues,5,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892530_LosAngelesKings_BostonBruins,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892531_UtahMammoth_EdmontonOilers,2,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892532_VegasGoldenKnights_PittsburghPenguins,6,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892533_MinnesotaWild_ColumbusBlueJackets,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892534_CalgaryFlames_CarolinaHurricanes,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892535_NewYorkRangers_AnaheimDucks,5,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892536_PhiladelphiaFlyers_ColoradoAvalanche,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892537_TorontoMapleLeafs_SanJoseSharks,3,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W03_401892538_UtahMammoth_PittsburghPenguins,5,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892541_NewYorkIslanders_AnaheimDucks,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892540_NewJerseyDevils_ColoradoAvalanche,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892543_ColumbusBlueJackets_TorontoMapleLeafs,2,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892542_WashingtonCapitals_LosAngelesKings,2,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892539_MontrealCanadiens_SanJoseSharks,3,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892545_DallasStars_BostonBruins,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892544_St.LouisBlues_WinnipegJets,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892546_EdmontonOilers_MinnesotaWild,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892547_SeattleKraken_DetroitRedWings,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892548_VancouverCanucks_CarolinaHurricanes,3,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892549_VegasGoldenKnights_TampaBayLightning,2,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892550_BuffaloSabres_PhiladelphiaFlyers,1,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892551_OttawaSenators_FloridaPanthers,5,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892555_NewJerseyDevils_AnaheimDucks,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892552_BostonBruins_NashvillePredators,6,0,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892556_PittsburghPenguins_FloridaPanthers,4,0,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892553_TorontoMapleLeafs_NewYorkRangers,5,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892554_OttawaSenators_SanJoseSharks,2,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892557_NewYorkIslanders_LosAngelesKings,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892559_DallasStars_WinnipegJets,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892558_St.LouisBlues_VegasGoldenKnights,6,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892560_CalgaryFlames_MinnesotaWild,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892561_EdmontonOilers_CarolinaHurricanes,6,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892563_VancouverCanucks_DetroitRedWings,2,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892562_SeattleKraken_UtahMammoth,5,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892564_ChicagoBlackhawks_MontrealCanadiens,1,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892565_ColoradoAvalanche_TampaBayLightning,6,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892566_PhiladelphiaFlyers_AnaheimDucks,4,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892567_NewJerseyDevils_LosAngelesKings,3,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892568_BostonBruins_SanJoseSharks,6,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892571_WashingtonCapitals_BuffaloSabres,4,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892573_St.LouisBlues_CarolinaHurricanes,0,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892572_ColumbusBlueJackets_VegasGoldenKnights,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892574_EdmontonOilers_TorontoMapleLeafs,2,7,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892570_PittsburghPenguins_NashvillePredators,3,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892569_OttawaSenators_NewYorkRangers,7,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892575_UtahMammoth_TampaBayLightning,5,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892576_CalgaryFlames_DetroitRedWings,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892577_SeattleKraken_MinnesotaWild,1,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892578_ChicagoBlackhawks_FloridaPanthers,2,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892579_DallasStars_NewYorkIslanders,6,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401891807_WinnipegJets_MontrealCanadiens,1,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892580_NashvillePredators_ColoradoAvalanche,6,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892581_VancouverCanucks_MinnesotaWild,2,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892582_NewYorkRangers_LosAngelesKings,3,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892583_CalgaryFlames_TorontoMapleLeafs,5,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W04_401892584_EdmontonOilers_DetroitRedWings,3,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892585_PhiladelphiaFlyers_ColumbusBlueJackets,3,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892586_CarolinaHurricanes_BostonBruins,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892587_ChicagoBlackhawks_LosAngelesKings,2,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892590_DallasStars_NewJerseyDevils,1,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892591_WinnipegJets_FloridaPanthers,1,5,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892588_St.LouisBlues_MontrealCanadiens,0,2,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892589_NashvillePredators_NewYorkIslanders,3,4,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892592_UtahMammoth_MinnesotaWild,1,3,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892594_AnaheimDucks_VancouverCanucks,5,6,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892593_VegasGoldenKnights_OttawaSenators,4,1,site.api.espn.com,2026-10-28T19:03:55+00:00
-NHL2627_W05_401892595_SanJoseSharks_BuffaloSabres,0,2,site.api.espn.com,2026-10-28T19:03:55+00:00
+match_id,home_goals,away_goals,source_name,source_timestamp,period_type
+NHL2627_W01_2026020001,0,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020002,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020003,3,0,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020004,5,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020005,5,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020008,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020006,0,7,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020007,8,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020011,6,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020009,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020010,5,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020012,1,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020014,1,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020013,6,0,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020015,7,9,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020016,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020017,0,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020018,2,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020019,3,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020020,0,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020021,3,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020022,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020025,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020027,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020028,3,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020026,6,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020023,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020024,3,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020029,6,0,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020031,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020030,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020032,6,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020033,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020034,5,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020035,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020036,4,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020037,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W01_2026020038,6,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020039,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020040,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020041,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020042,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W01_2026020043,5,0,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020049,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W02_2026020045,4,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020046,5,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020047,3,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020044,5,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W02_2026020048,5,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020050,4,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020051,2,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020052,1,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020054,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020053,5,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020055,2,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020056,6,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020057,0,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020061,7,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020060,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020058,2,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020059,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020062,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020063,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W02_2026020064,3,7,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020065,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W02_2026020068,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W02_2026020066,3,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020067,3,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020069,1,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020070,5,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020071,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020072,1,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020073,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020074,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020078,2,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020079,5,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020080,3,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020077,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W02_2026020075,1,0,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W02_2026020076,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W02_2026020081,3,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020082,2,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020083,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W02_2026020084,3,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020085,6,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020086,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020087,5,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020088,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W02_2026020089,4,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020090,4,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W03_2026020091,3,7,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020092,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W03_2026020093,4,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020094,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W03_2026020095,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020096,2,7,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020097,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020098,5,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020099,5,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020100,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020101,2,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020102,5,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020103,2,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020104,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020105,3,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020106,5,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020107,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W03_2026020108,4,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W03_2026020112,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W03_2026020113,7,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020109,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W03_2026020111,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W03_2026020110,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020114,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W03_2026020116,5,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020115,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W03_2026020117,2,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020118,6,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020119,5,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020120,2,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020121,4,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020122,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020123,4,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020124,8,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020126,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W03_2026020129,1,0,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W03_2026020130,0,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020127,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W03_2026020125,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020128,3,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020131,5,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020132,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020133,2,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020134,6,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020135,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020136,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020137,5,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020138,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020139,3,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W03_2026020140,5,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020143,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020145,2,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020142,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020144,2,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020141,3,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020147,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020146,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020148,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020149,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W04_2026020150,3,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020151,2,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020152,1,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020153,5,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020157,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020154,6,0,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020158,4,0,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020155,5,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020156,2,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020159,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020161,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020160,6,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020163,6,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W04_2026020162,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020165,2,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020164,5,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020166,1,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020167,6,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020168,4,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020169,3,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020170,6,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020173,4,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020175,0,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020174,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020176,2,7,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020172,3,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020171,7,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020177,5,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W04_2026020178,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020179,1,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020180,2,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020181,6,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020182,1,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020183,6,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020184,2,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020185,3,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020186,5,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W04_2026020187,3,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W05_2026020188,3,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W05_2026020189,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W05_2026020190,2,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W05_2026020193,1,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W05_2026020194,1,5,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W05_2026020191,0,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W05_2026020192,3,4,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,SO
+NHL2627_W05_2026020195,1,3,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W05_2026020197,5,6,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,OT
+NHL2627_W05_2026020196,4,1,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
+NHL2627_W05_2026020198,0,2,api-web.nhle.com (NHL's official public API),2026-10-28T19:53:28+00:00,REG
