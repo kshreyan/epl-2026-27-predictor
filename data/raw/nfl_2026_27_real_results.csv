@@ -1,108 +1,108 @@
 match_id,home_goals,away_goals,source_name,source_timestamp
-NFL2627_W01_401872656_SeattleSeahawks_NewEnglandPatriots,13,10,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872657_LosAngelesRams_SanFrancisco49ers,7,27,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872658_PittsburghSteelers_AtlantaFalcons,20,13,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872659_IndianapolisColts_BaltimoreRavens,23,41,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872660_HoustonTexans_BuffaloBills,31,36,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872661_CarolinaPanthers_ChicagoBears,37,59,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872925_CincinnatiBengals_TampaBayBuccaneers,33,27,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872922_JacksonvilleJaguars_ClevelandBrowns,34,10,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872923_DetroitLions_NewOrleansSaints,31,30,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872924_TennesseeTitans_NewYorkJets,10,23,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872926_LosAngelesChargers_ArizonaCardinals,14,26,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872927_MinnesotaVikings_GreenBayPackers,39,22,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872928_LasVegasRaiders_MiamiDolphins,27,13,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872929_PhiladelphiaEagles_WashingtonCommanders,24,22,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872930_NewYorkGiants_DallasCowboys,28,20,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W01_401872931_KansasCityChiefs_DenverBroncos,31,10,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872932_BuffaloBills_DetroitLions,41,31,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872933_AtlantaFalcons_CarolinaPanthers,3,34,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872938_BaltimoreRavens_NewOrleansSaints,17,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872937_ChicagoBears_MinnesotaVikings,3,9,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872934_HoustonTexans_CincinnatiBengals,6,20,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872935_TampaBayBuccaneers_ClevelandBrowns,19,23,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872936_NewYorkJets_GreenBayPackers,17,20,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872946_NewEnglandPatriots_PittsburghSteelers,20,3,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872939_TennesseeTitans_PhiladelphiaEagles,20,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872940_DenverBroncos_JacksonvilleJaguars,20,13,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872941_LosAngelesChargers_LasVegasRaiders,14,26,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872943_ArizonaCardinals_SeattleSeahawks,7,31,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872944_DallasCowboys_WashingtonCommanders,37,20,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872942_SanFrancisco49ers_MiamiDolphins,35,13,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872945_KansasCityChiefs_IndianapolisColts,33,30,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W02_401872947_LosAngelesRams_NewYorkGiants,28,6,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872948_GreenBayPackers_AtlantaFalcons,14,35,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872953_BuffaloBills_LosAngelesChargers,24,16,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872949_ClevelandBrowns_CarolinaPanthers,21,18,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872950_PittsburghSteelers_CincinnatiBengals,30,27,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872954_DetroitLions_NewYorkJets,31,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872951_IndianapolisColts_HoustonTexans,19,17,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872957_JacksonvilleJaguars_NewEnglandPatriots,35,6,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872952_MiamiDolphins_KansasCityChiefs,10,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872956_NewYorkGiants_TennesseeTitans,12,7,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872955_WashingtonCommanders_SeattleSeahawks,33,31,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872958_SanFrancisco49ers_ArizonaCardinals,36,30,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872959_TampaBayBuccaneers_MinnesotaVikings,16,23,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872960_DallasCowboys_BaltimoreRavens,31,34,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872961_NewOrleansSaints_LasVegasRaiders,27,35,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872962_DenverBroncos_LosAngelesRams,30,26,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W03_401872963_ChicagoBears_PhiladelphiaEagles,27,7,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872964_ClevelandBrowns_PittsburghSteelers,27,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872965_WashingtonCommanders_IndianapolisColts,13,30,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872966_NewYorkGiants_ArizonaCardinals,36,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872973_BaltimoreRavens_TennesseeTitans,24,18,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872971_BuffaloBills_NewEnglandPatriots,26,29,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872972_ChicagoBears_NewYorkJets,23,12,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872969_CincinnatiBengals_JacksonvilleJaguars,17,22,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872967_HoustonTexans_DallasCowboys,30,34,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872968_TampaBayBuccaneers_GreenBayPackers,14,17,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872970_PhiladelphiaEagles_LosAngelesRams,20,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872974_MinnesotaVikings_MiamiDolphins,15,10,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872975_SanFrancisco49ers_DenverBroncos,24,14,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872976_LasVegasRaiders_KansasCityChiefs,27,30,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872977_SeattleSeahawks_LosAngelesChargers,30,23,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872978_CarolinaPanthers_DetroitLions,32,26,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W04_401872979_NewOrleansSaints_AtlantaFalcons,24,45,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872980_DallasCowboys_TampaBayBuccaneers,16,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872981_JacksonvilleJaguars_PhiladelphiaEagles,19,17,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872990_GreenBayPackers_ChicagoBears,31,7,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872982_MiamiDolphins_CincinnatiBengals,24,31,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872983_NewYorkJets_ClevelandBrowns,17,12,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872984_TennesseeTitans_HoustonTexans,3,26,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872985_PittsburghSteelers_IndianapolisColts,34,22,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872986_NewEnglandPatriots_LasVegasRaiders,45,17,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872987_NewOrleansSaints_MinnesotaVikings,13,23,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872988_WashingtonCommanders_NewYorkGiants,27,27,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872989_LosAngelesChargers_DenverBroncos,17,23,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872991_ArizonaCardinals_DetroitLions,21,45,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872992_SeattleSeahawks_SanFrancisco49ers,29,32,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872993_AtlantaFalcons_BaltimoreRavens,23,30,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W05_401872994_LosAngelesRams_BuffaloBills,34,37,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401872995_DenverBroncos_SeattleSeahawks,17,14,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401872996_JacksonvilleJaguars_HoustonTexans,31,34,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401872999_AtlantaFalcons_ChicagoBears,23,31,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401872997_ClevelandBrowns_BaltimoreRavens,13,10,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401872998_PhiladelphiaEagles_CarolinaPanthers,14,25,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873003_IndianapolisColts_TennesseeTitans,20,26,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873001_NewEnglandPatriots_NewYorkJets,26,19,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873000_NewYorkGiants_NewOrleansSaints,27,34,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873002_TampaBayBuccaneers_PittsburghSteelers,19,26,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873004_LosAngelesRams_ArizonaCardinals,16,18,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873005_LasVegasRaiders_BuffaloBills,30,33,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873006_KansasCityChiefs_LosAngelesChargers,22,6,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873007_GreenBayPackers_DallasCowboys,23,13,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W06_401873008_SanFrancisco49ers_WashingtonCommanders,23,17,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873010_ChicagoBears_NewEnglandPatriots,30,24,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873011_NewOrleansSaints_PittsburghSteelers,10,16,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873017_AtlantaFalcons_SanFrancisco49ers,29,20,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873012_BaltimoreRavens_CincinnatiBengals,13,35,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873018_CarolinaPanthers_TampaBayBuccaneers,13,43,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873013_TennesseeTitans_ClevelandBrowns,24,27,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873016_HoustonTexans_NewYorkGiants,21,27,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873014_MinnesotaVikings_IndianapolisColts,16,10,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873015_NewYorkJets_MiamiDolphins,25,28,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873019_ArizonaCardinals_DenverBroncos,16,30,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873020_DetroitLions_GreenBayPackers,20,17,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873021_LasVegasRaiders_LosAngelesRams,21,35,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873022_SeattleSeahawks_KansasCityChiefs,20,3,site.api.espn.com,2026-10-28T19:03:41+00:00
-NFL2627_W07_401873009_PhiladelphiaEagles_DallasCowboys,21,38,site.api.espn.com,2026-10-28T19:03:41+00:00
+NFL2627_W01_2026_01_NE_SEA,13,10,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_SF_LA,7,27,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_CHI_CAR,37,59,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_TB_CIN,33,27,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_NO_DET,31,30,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_BUF_HOU,31,36,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_BAL_IND,23,41,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_CLE_JAX,34,10,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_ATL_PIT,20,13,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_NYJ_TEN,10,23,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_ARI_LAC,14,26,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_MIA_LV,27,13,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_GB_MIN,39,22,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_WAS_PHI,24,22,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_DAL_NYG,28,20,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W01_2026_01_DEN_KC,31,10,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_DET_BUF,41,31,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_CAR_ATL,3,34,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_NO_BAL,17,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_MIN_CHI,3,9,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_CIN_HOU,6,20,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_PIT_NE,20,3,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_GB_NYJ,17,20,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_CLE_TB,19,23,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_PHI_TEN,20,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_JAX_DEN,20,13,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_LV_LAC,14,26,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_SEA_ARI,7,31,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_WAS_DAL,37,20,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_MIA_SF,35,13,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_IND_KC,33,30,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W02_2026_02_NYG_LA,28,6,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_ATL_GB,14,35,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_LAC_BUF,24,16,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_CAR_CLE,21,18,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_NYJ_DET,31,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_HOU_IND,19,17,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_NE_JAX,35,6,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_KC_MIA,10,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_TEN_NYG,12,7,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_CIN_PIT,30,27,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_SEA_WAS,33,31,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_ARI_SF,36,30,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_MIN_TB,16,23,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_BAL_DAL,31,34,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_LV_NO,27,35,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_LA_DEN,30,26,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W03_2026_03_PHI_CHI,27,7,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_PIT_CLE,27,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_IND_WAS,13,30,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_TEN_BAL,24,18,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_NE_BUF,26,29,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_NYJ_CHI,23,12,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_JAX_CIN,17,22,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_DAL_HOU,30,34,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_ARI_NYG,36,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_LA_PHI,20,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_GB_TB,14,17,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_MIA_MIN,15,10,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_KC_LV,27,30,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_LAC_SEA,30,23,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_DEN_SF,24,14,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_DET_CAR,32,26,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W04_2026_04_ATL_NO,24,45,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_TB_DAL,16,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_PHI_JAX,19,17,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_CHI_GB,31,7,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_CIN_MIA,24,31,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_LV_NE,45,17,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_MIN_NO,13,23,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_CLE_NYJ,17,12,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_IND_PIT,34,22,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_HOU_TEN,3,26,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_NYG_WAS,27,27,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_DEN_LAC,17,23,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_DET_ARI,21,45,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_SF_SEA,29,32,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_BAL_ATL,23,30,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W05_2026_05_BUF_LA,34,37,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_SEA_DEN,17,14,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_HOU_JAX,31,34,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_CHI_ATL,23,31,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_BAL_CLE,13,10,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_TEN_IND,20,26,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_NYJ_NE,26,19,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_NO_NYG,27,34,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_CAR_PHI,14,25,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_PIT_TB,19,26,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_ARI_LA,16,18,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_LAC_KC,22,6,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_BUF_LV,30,33,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_DAL_GB,23,13,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W06_2026_06_WAS_SF,23,17,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_NE_CHI,30,24,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_PIT_NO,10,16,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_SF_ATL,29,20,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_CIN_BAL,13,35,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_TB_CAR,13,43,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_NYG_HOU,21,27,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_IND_MIN,16,10,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_MIA_NYJ,25,28,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_CLE_TEN,24,27,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_DEN_ARI,16,30,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_GB_DET,20,17,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_LA_LV,21,35,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_KC_SEA,20,3,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00
+NFL2627_W07_2026_07_DAL_PHI,21,38,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-10-28T19:24:56+00:00

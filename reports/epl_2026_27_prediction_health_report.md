@@ -1,8 +1,8 @@
 # Prediction Health Report
 
-Generated: 2026-10-28T19:18:59.075482+00:00
+Generated: 2026-10-28T19:46:40.948141+00:00
 
-**5 failures, 4 warnings, 25 informational** (out of 34 findings).
+**5 failures, 5 warnings, 25 informational** (out of 35 findings).
 
 | Severity | Section | League | Finding |
 |---|---|---|---|
@@ -26,12 +26,13 @@ Generated: 2026-10-28T19:18:59.075482+00:00
 | INFO | 1. Internal consistency | ncaaf | all 761 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | ncaaf | 446 completed matches scored: accuracy=73.1%, multiclass Brier=0.421 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | nfl | all 272 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| INFO | 3. Calibration / accuracy drift | nfl | 107 completed matches scored: accuracy=48.6%, multiclass Brier=0.509 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| INFO | 3. Calibration / accuracy drift | nfl | 107 completed matches scored: accuracy=69.2%, multiclass Brier=0.446 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| WARN | 3. Calibration / accuracy drift | nfl | 5 high-confidence (>=70%) miss(es): NFL2627_W01_2026_01_ARI_LAC (predicted home_win @75%, actual away_win); NFL2627_W02_2026_02_CAR_ATL (predicted home_win @75%, actual away_win); NFL2627_W02_2026_02_NO_BAL (predicted home_win @75%, actual away_win); NFL2627_W04_2026_04_NE_BUF (predicted home_win @75%, actual away_win); NFL2627_W06_2026_06_ARI_LA (predicted home_win @75%, actual away_win) |
 | INFO | 1. Internal consistency | nhl | all 1344 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | nhl | 198 completed matches scored: accuracy=60.6%, multiclass Brier=0.458 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | WARN | 3. Calibration / accuracy drift | nhl | 2 high-confidence (>=70%) miss(es): NHL2627_W01_401891804_EdmontonOilers_VancouverCanucks (predicted home_win @76%, actual away_win); NHL2627_W03_401892534_CalgaryFlames_CarolinaHurricanes (predicted away_win @73%, actual home_win) |
 | INFO | 1. Internal consistency | serie_a | all 380 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| FAIL | 2. Freshness & provenance | serie_a | 16 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): SERIEA2627_MW08_079_Torino_Monza, SERIEA2627_MW08_072_Cagliari_Bologna, SERIEA2627_MW08_073_Como_Sassuolo, SERIEA2627_MW08_078_Napoli_Roma, SERIEA2627_MW08_076_Lazio_Parma ... |
+| FAIL | 2. Freshness & provenance | serie_a | 18 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): SERIEA2627_MW08_079_Torino_Monza, SERIEA2627_MW08_072_Cagliari_Bologna, SERIEA2627_MW08_073_Como_Sassuolo, SERIEA2627_MW08_078_Napoli_Roma, SERIEA2627_MW08_076_Lazio_Parma ... |
 | INFO | 3. Calibration / accuracy drift | serie_a | 70 completed matches scored: accuracy=58.6%, multiclass Brier=0.541 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | ucl | all 144 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | ucl | 54 completed matches scored: accuracy=68.5%, multiclass Brier=0.496 (lower is better, 0=perfect, 0.667=uniform guessing) |

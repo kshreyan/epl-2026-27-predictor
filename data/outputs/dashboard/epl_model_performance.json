@@ -1,6 +1,6 @@
 {
   "league": "epl",
-  "generated_at": "2026-10-28T19:18:47+00:00",
+  "generated_at": "2026-10-28T19:46:12+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 4,
@@ -252,7 +252,7 @@
     "raw_log_loss": 0.9865,
     "calibrated_log_loss": 0.97,
     "n_matches": 2660,
-    "generated_at": "2026-08-18T10:34:47+00:00"
+    "generated_at": "2026-10-28T19:44:05+00:00"
   },
   "ensemble_per_season_comparison": [
     {

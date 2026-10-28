@@ -1,18 +1,18 @@
 # NFL Model Selection Report
 
-Real rolling-origin backtest on 1329 real historical games (2021-09-10 to 2026-01-05, refit every 15 real games using only data strictly before that point -- no future leakage). Candidates compared honestly, not assumed: the point-margin model (src/models/point_margin_model.py: Elo + a real fitted margin-of-victory regression), a plain Elo-only win-probability baseline, and a flat/home-field-only baseline. Soccer's Dixon-Coles/Poisson scoreline grid is NOT a candidate here -- it does not fit this sport's real scoring scale (confirmed directly, same reasoning as NFL/NBA).
+Real rolling-origin backtest on 1314 real historical games (2021-09-09 to 2026-01-04, refit every 15 real games using only data strictly before that point -- no future leakage). Candidates compared honestly, not assumed: the point-margin model (src/models/point_margin_model.py: Elo + a real fitted margin-of-victory regression), a plain Elo-only win-probability baseline, and a flat/home-field-only baseline. Soccer's Dixon-Coles/Poisson scoreline grid is NOT a candidate here -- it does not fit this sport's real scoring scale (confirmed directly, same reasoning as NFL/NBA).
 
 ## Model comparison (lower log loss / Brier / RPS is better)
 
 | model                                        |   n_matches |   log_loss |   brier_score |   ranked_probability_score |
 |:---------------------------------------------|------------:|-----------:|--------------:|---------------------------:|
-| Point-margin model (Elo + margin regression) |        1329 |   0.701077 |      0.476258 |                   0.236329 |
-| Flat/home-field-only baseline                |        1329 |   0.725639 |      0.50027  |                   0.24863  |
-| Elo-only win probability                     |        1329 |   0.896264 |      0.528785 |                   0.239634 |
+| Point-margin model (Elo + margin regression) |        1314 |   0.720375 |      0.494597 |                   0.245481 |
+| Flat/home-field-only baseline                |        1314 |   0.725868 |      0.500176 |                   0.248566 |
+| Elo-only win probability                     |        1314 |   0.897447 |      0.529577 |                   0.240052 |
 
 ## Selected model
 
-**Point-margin model (Elo + margin regression)** has the lowest backtest log loss (0.7011) and is used as the primary model for 2026-27 predictions.
+**Point-margin model (Elo + margin regression)** has the lowest backtest log loss (0.7204) and is used as the primary model for 2026-27 predictions.
 
 ## Real historical margin-of-victory distribution (absolute, points)
 

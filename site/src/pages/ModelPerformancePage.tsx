@@ -18,8 +18,8 @@ export function ModelPerformancePage({ leagueId }: { leagueId: string }) {
         <h2 className="mb-1 text-[11px] uppercase tracking-wider text-[var(--color-text-faint)]">Primary model</h2>
         <p>
           <span className="text-[var(--color-accent)]">{best?.model}</span> -- lowest backtest log loss on{' '}
-          <span className="tnum">{best?.n_matches}</span> real historical matches (2019/20-2025/26, rolling-origin, no
-          random splitting).
+          <span className="tnum">{best?.n_matches}</span> real historical matches (rolling-origin, no random
+          splitting).
         </p>
         {ensembleSeasons > 0 && (
           <p className="mt-2 text-[var(--color-text-faint)]">

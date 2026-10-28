@@ -44,10 +44,17 @@ N_BINS = 10
 MIN_SAMPLES_FOR_ISOTONIC = 500
 
 
-def fit_calibrators(backtest_df: pd.DataFrame) -> dict[str, IsotonicRegression | None]:
+def fit_calibrators(backtest_df: pd.DataFrame, classes: list[str] = CLASSES, raw_col_prefix: str = "dc_") -> dict[str, IsotonicRegression | None]:
+    """`raw_col_prefix` lets a non-soccer caller (e.g. NFL's real
+    point-margin-model columns, prefixed `pm_` in
+    nfl_backtest_match_results.csv, not Dixon-Coles' `dc_`) reuse this
+    same isotonic-calibration machinery without duplicating it --
+    `classes` likewise lets a 2-outcome sport (no real draw) skip the
+    draw class entirely rather than calibrating a column that doesn't
+    exist for it."""
     calibrators = {}
-    for cls in CLASSES:
-        raw = backtest_df[f"dc_{_col_suffix(cls)}"]
+    for cls in classes:
+        raw = backtest_df[f"{raw_col_prefix}{_col_suffix(cls)}"]
         target = (backtest_df["actual_result"] == cls).astype(int)
         if len(backtest_df) < MIN_SAMPLES_FOR_ISOTONIC:
             calibrators[cls] = None  # not enough data: fall back to raw probabilities
@@ -62,20 +69,20 @@ def _col_suffix(cls: str) -> str:
     return {"home_win": "home_win", "draw": "draw", "away_win": "away_win"}[cls]
 
 
-def apply_calibration(calibrators: dict, raw_probs: dict[str, float]) -> dict[str, float]:
+def apply_calibration(calibrators: dict, raw_probs: dict[str, float], classes: list[str] = CLASSES) -> dict[str, float]:
     calibrated = {}
-    for cls in CLASSES:
+    for cls in classes:
         cal = calibrators.get(cls)
         raw = raw_probs[cls]
         calibrated[cls] = float(cal.predict([raw])[0]) if cal is not None else raw
     total = sum(calibrated.values())
     if total <= 0:
-        return {cls: 1 / 3 for cls in CLASSES}
+        return {cls: 1 / len(classes) for cls in classes}
     return {cls: v / total for cls, v in calibrated.items()}
 
 
-def _reliability_table(backtest_df: pd.DataFrame, cls: str) -> pd.DataFrame:
-    raw = backtest_df[f"dc_{_col_suffix(cls)}"]
+def _reliability_table(backtest_df: pd.DataFrame, cls: str, raw_col_prefix: str = "dc_") -> pd.DataFrame:
+    raw = backtest_df[f"{raw_col_prefix}{_col_suffix(cls)}"]
     target = (backtest_df["actual_result"] == cls).astype(int)
     bins = np.linspace(0, 1, N_BINS + 1)
     bin_idx = np.clip(np.digitize(raw, bins) - 1, 0, N_BINS - 1)
@@ -94,12 +101,12 @@ def _reliability_table(backtest_df: pd.DataFrame, cls: str) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def expected_calibration_error(backtest_df: pd.DataFrame, calibrators: dict) -> float:
+def expected_calibration_error(backtest_df: pd.DataFrame, calibrators: dict, classes: list[str] = CLASSES, raw_col_prefix: str = "dc_") -> float:
     """ECE on the top predicted class, using calibrated probabilities."""
     errors, weights = [], []
     for _, row in backtest_df.iterrows():
-        raw_probs = {cls: row[f"dc_{_col_suffix(cls)}"] for cls in CLASSES}
-        cal_probs = apply_calibration(calibrators, raw_probs)
+        raw_probs = {cls: row[f"{raw_col_prefix}{_col_suffix(cls)}"] for cls in classes}
+        cal_probs = apply_calibration(calibrators, raw_probs, classes=classes)
         top_cls = max(cal_probs, key=cal_probs.get)
         confidence = cal_probs[top_cls]
         correct = 1.0 if row["actual_result"] == top_cls else 0.0

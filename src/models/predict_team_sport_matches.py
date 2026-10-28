@@ -30,15 +30,22 @@ import json
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 from scipy.stats import norm
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
+from src.calibration.calibrate_probabilities import apply_calibration, fit_calibrators  # noqa: E402
 from src.evaluation.backtest_team_sport import ALLOWS_TIES, ELO_K_FACTOR  # noqa: E402
+from src.evaluation.closing_line_value import append_odds_snapshot  # noqa: E402
+from src.evaluation.hash_chained_ledger import append_prediction  # noqa: E402
+from src.features.build_market_features import log_odds_average_binary  # noqa: E402
+from src.features.market_devig import DEVIG_METHODS, select_devig_method  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.baselines import elo_only_probabilities  # noqa: E402
 from src.models.compute_margin_survival_team_sport import cover_probability_at_line  # noqa: E402
+from src.models.nfl_qb_rating import fit_qb_elo, qb_adjustment, shrink_qb_ratings  # noqa: E402
 from src.models.point_margin_model import (  # noqa: E402
     fit_point_margin_model,
     outcome_probabilities,
@@ -94,25 +101,56 @@ def team_rolling_score_avgs(df: pd.DataFrame, team: str, league_avg: float) -> t
     return float(sf.mean()), float(sa.mean())
 
 
-def load_market_odds(odds_path: Path) -> dict[str, dict]:
+def load_market_odds(odds_path: Path, league_id: str) -> dict[str, dict]:
+    """Real h2h market odds per match_id, de-vigged per real bookmaker
+    row with this league's own real backtested-best method (see
+    backtest_market_devig.py), then averaged across every real
+    bookmaker in logit space -- the same "don't just take the first
+    quote" discipline build_market_features.py already established for
+    soccer, generalized here to a 2-outcome market (no real draw price
+    exists for NFL/NBA/NHL/NCAA Football's real h2h market -- confirmed
+    directly, 0 of 815 real NFL h2h rows this session had one)."""
+    devig_fn = DEVIG_METHODS[select_devig_method(league_id)]
+    rows_by_match: dict[str, list[tuple[float, float, float, float]]] = {}
+    if odds_path.exists():
+        with open(odds_path, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                if row["market_type"] != "h2h" or row["is_real_data"] != "True":
+                    continue
+                if not row["current_home_odds"] or not row["current_away_odds"]:
+                    continue
+                home_odds, away_odds = float(row["current_home_odds"]), float(row["current_away_odds"])
+                fair_home, fair_away = devig_fn((home_odds, away_odds))
+                rows_by_match.setdefault(row["match_id"], []).append((home_odds, away_odds, fair_home, fair_away))
+
     out: dict[str, dict] = {}
-    if not odds_path.exists():
-        return out
-    with open(odds_path, newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            if row["market_type"] != "h2h" or row["is_real_data"] != "True":
-                continue
-            mid = row["match_id"]
-            if mid in out:
-                continue
-            if not row["current_home_odds"] or not row["current_away_odds"]:
-                continue
-            out[mid] = {
-                "home": float(row["current_home_odds"]),
-                "draw": float(row["current_draw_odds"]) if row.get("current_draw_odds") else None,
-                "away": float(row["current_away_odds"]),
-            }
+    for match_id, book_rows in rows_by_match.items():
+        fair_home_probs = [r[2] for r in book_rows]
+        blended_home_prob = log_odds_average_binary(fair_home_probs)
+        out[match_id] = {
+            # Real representative decimal odds for display (mean across every
+            # real bookmaker quoting this match) -- NOT a probability.
+            "home": round(float(np.mean([r[0] for r in book_rows])), 3),
+            "away": round(float(np.mean([r[1] for r in book_rows])), 3),
+            # Real de-vigged fair probability, averaged across bookmakers in
+            # logit space -- what the market blend below actually uses.
+            "home_fair_prob": blended_home_prob, "away_fair_prob": 1 - blended_home_prob,
+            "n_bookmakers": len(book_rows),
+        }
     return out
+
+
+def should_apply_market_blend(league_id: str) -> bool:
+    """Whether THIS league's own real backtest (backtest_nfl_market_blend
+    .py-style module) found a statistically significant edge from
+    blending the model with the real market -- never assumed. Defaults
+    to False (model-only) if that backtest hasn't been run yet for
+    this league, the same "no evidence, no blend" discipline
+    market_blend_model.py already established for soccer."""
+    path = REPO_ROOT / "data" / "outputs" / f"{league_id}_market_blend_comparison.csv"
+    if not path.exists():
+        return False
+    return bool(pd.read_csv(path).iloc[0]["blend_significant"])
 
 
 def load_real_results(path: Path) -> dict[str, dict]:
@@ -149,8 +187,10 @@ def main(league_id: str) -> None:
 
     historical = pd.read_csv(historical_path, parse_dates=["date"])
     fixtures = pd.read_csv(fixtures_path)
-    market_odds = load_market_odds(odds_path)
+    market_odds = load_market_odds(odds_path, league_id)
     real_results = load_real_results(real_results_path)
+    apply_blend = should_apply_market_blend(league_id)
+    devig_method = select_devig_method(league_id)
 
     if real_results:
         completed_rows = []
@@ -161,6 +201,7 @@ def main(league_id: str) -> None:
             completed_rows.append({
                 "date": pd.Timestamp(fx["date"]), "home_team": fx["home_team"], "away_team": fx["away_team"],
                 "home_score": rr["home_goals"], "away_score": rr["away_goals"],
+                "home_qb_name": fx.get("home_qb_name", ""), "away_qb_name": fx.get("away_qb_name", ""),
             })
         if completed_rows:
             historical = pd.concat([historical, pd.DataFrame(completed_rows)], ignore_index=True)
@@ -168,12 +209,48 @@ def main(league_id: str) -> None:
     fit = fit_point_margin_model(historical, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
     league_avg_points = float(pd.concat([historical["home_score"], historical["away_score"]]).mean())
 
+    # QB-rating adjustment (see nfl_qb_rating.py/backtest_nfl_qb_adjustment.py)
+    # -- only for a league with real per-QB data (NFL, via nflverse) AND
+    # only if its own real held-out-season backtest found the signal
+    # significant; never assumed, and silently skipped (team-only
+    # prediction) for any league/fixture without both real pieces.
+    qb_shrunk_ratings: dict[str, float] = {}
+    qb_coefficient = 0.0
+    if "home_qb_name" in historical.columns:
+        coef_path = REPO_ROOT / "data" / "outputs" / f"{league_id}_qb_adjustment_coefficient.csv"
+        if coef_path.exists():
+            coef_row = pd.read_csv(coef_path).iloc[0]
+            if bool(coef_row["significant"]):
+                qb_coefficient = float(coef_row["coefficient"])
+                raw_qb_ratings, qb_n_starts = fit_qb_elo(historical)
+                qb_shrunk_ratings = shrink_qb_ratings(raw_qb_ratings, qb_n_starts)
+
+    # Real isotonic calibration (see calibrate_nfl_probabilities.py) --
+    # only if that league's own real calibration backtest has actually
+    # been run; refit fresh here each call, same "cheap, no stale
+    # artifact" pattern market_blend_model.py already established for
+    # soccer's own calibrators.
+    calibrators = {}
+    calibration_classes = ["home_win", "away_win"]
+    calibration_summary_path = REPO_ROOT / "data" / "outputs" / f"{league_id}_2026_27_calibration_summary.csv"
+    if calibration_summary_path.exists():
+        pm_backtest_path = REPO_ROOT / "data" / "outputs" / f"{league_id}_backtest_match_results.csv"
+        if pm_backtest_path.exists():
+            pm_backtest_df = pd.read_csv(pm_backtest_path)
+            pm_backtest_df = pm_backtest_df[pm_backtest_df["actual_result"] != "draw"].reset_index(drop=True)
+            calibrators = fit_calibrators(pm_backtest_df, classes=calibration_classes, raw_col_prefix="pm_")
+
     meta = make_run_metadata(prefix=f"predict_{league_id}", season="2026-27")
     generated_at = now_utc_iso()
     rows = []
     for _, fx in fixtures.iterrows():
         home, away = fx["home_team"], fx["away_team"]
         mean, sigma = predict_margin_distribution(fit, home, away)
+
+        if qb_shrunk_ratings:
+            adj = qb_adjustment(fx.get("home_qb_name"), fx.get("away_qb_name"), qb_shrunk_ratings)
+            if adj is not None:
+                mean += qb_coefficient * adj
 
         if use_point_margin:
             home_win, draw, away_win = outcome_probabilities(mean, sigma, allows_ties)
@@ -186,6 +263,16 @@ def main(league_id: str) -> None:
             else:
                 total = eh + ea
                 home_win, draw, away_win = eh / total, 0.0, ea / total
+
+        if calibrators:
+            two_way_total = home_win + away_win
+            raw_probs = {
+                "home_win": home_win / two_way_total if two_way_total > 0 else 0.5,
+                "away_win": away_win / two_way_total if two_way_total > 0 else 0.5,
+            }
+            calibrated = apply_calibration(calibrators, raw_probs, classes=calibration_classes)
+            home_win = calibrated["home_win"] * (1 - draw)
+            away_win = calibrated["away_win"] * (1 - draw)
 
         home_sf, home_sa = team_rolling_score_avgs(historical, home, league_avg_points)
         away_sf, away_sa = team_rolling_score_avgs(historical, away, league_avg_points)
@@ -212,6 +299,22 @@ def main(league_id: str) -> None:
         rr = real_results.get(fx["match_id"])
         confidence = max(home_win, draw, away_win)
 
+        blend_home_win = blend_draw = blend_away_win = ""
+        market_blend_applied = False
+        if apply_blend and odds is not None:
+            # Real market has no real draw price (see load_market_odds) --
+            # renormalize the model's own home/away share to 2-way before
+            # blending, then rescale back down so the model's own real
+            # draw estimate (the market has no real signal on tie risk)
+            # still accounts for its own share of the final 3 probabilities.
+            two_way_total = home_win + away_win
+            model_home_2way = home_win / two_way_total if two_way_total > 0 else 0.5
+            blended_home_2way = log_odds_average_binary([model_home_2way, odds["home_fair_prob"]])
+            blend_home_win = round(blended_home_2way * (1 - draw), 4)
+            blend_away_win = round((1 - blended_home_2way) * (1 - draw), 4)
+            blend_draw = round(draw, 4)
+            market_blend_applied = True
+
         rows.append({
             "match_id": fx["match_id"], "season": fx["season"], "matchweek": fx["matchweek"],
             "date": fx["date"], "kickoff_utc": fx["kickoff_utc"], "home_team": home, "away_team": away,
@@ -226,13 +329,15 @@ def main(league_id: str) -> None:
             "predicted_result_model_only": predicted_result, "predicted_result_market_integrated": "",
             "home_win_prob_model_only": round(home_win, 4), "draw_prob_model_only": round(draw, 4),
             "away_win_prob_model_only": round(away_win, 4),
-            "home_win_prob_market_integrated": "", "draw_prob_market_integrated": "", "away_win_prob_market_integrated": "",
+            "home_win_prob_market_integrated": blend_home_win, "draw_prob_market_integrated": blend_draw,
+            "away_win_prob_market_integrated": blend_away_win,
             "moneyline_pick": moneyline_pick(home_win, draw, away_win, home, away),
             "btts_pick": "", "totals_pick": totals_pick(over_prob, total_line),
             "spread_pick": spread_pick(home_cover_prob, handicap_line, home, away),
             "top_10_scorelines_model_only_json": json.dumps(top_n_scorelines(mean_total, mean, fit.sigma, n=10)),
             "top_10_scorelines_market_integrated_json": "",
-            "market_available": odds is not None, "closing_market_available": False, "market_blend_applied": False,
+            "market_available": odds is not None, "closing_market_available": False,
+            "market_blend_applied": market_blend_applied,
             "btts_yes_prob_model_only": "", "btts_no_prob_model_only": "",
             "total_goals_line_model_only": total_line, "over_prob_model_only": round(over_prob, 4),
             "under_prob_model_only": round(under_prob, 4), "totals_blend_applied": False,
@@ -244,11 +349,36 @@ def main(league_id: str) -> None:
             "away_elo": round(fit.elo_run.final_ratings.get(away, 1500.0), 1),
             "confidence": round(confidence, 4), "upset_risk": round(1 - confidence, 4),
             "data_quality_score": DATA_QUALITY_SCORE,
-            "market_home_odds": odds["home"] if odds else "", "market_draw_odds": (odds["draw"] if odds and odds.get("draw") else ""),
+            "market_home_odds": odds["home"] if odds else "",
+            # No real draw price exists for these sports' h2h market (confirmed directly, see load_market_odds).
+            "market_draw_odds": "",
             "market_away_odds": odds["away"] if odds else "",
             "moneyline_model_source": moneyline_source_note, "derived_markets_model_source": derived_markets_source_note,
             "run_id": meta.run_id, "model_version": MODEL_VERSION, "generated_at": generated_at,
         })
+
+        # Real audit trail + CLV history: only for a fixture not yet
+        # completed (a pre-kickoff prediction, the only kind that can
+        # ever be honestly scored or have real future closing-line
+        # history) -- matches prediction_ledger.py's own leak-safe
+        # discipline for soccer, generalized here via the new
+        # hash-chained ledger (see hash_chained_ledger.py).
+        if rr is None:
+            append_prediction(league_id, {
+                "match_id": fx["match_id"], "kickoff_utc": fx["kickoff_utc"], "prediction_timestamp": generated_at,
+                "model_version": MODEL_VERSION, "run_id": meta.run_id,
+                "model_home_win_prob": home_win, "model_draw_prob": draw, "model_away_win_prob": away_win,
+                "market_home_win_prob": odds["home_fair_prob"] if odds else None,
+                "market_away_win_prob": odds["away_fair_prob"] if odds else None,
+                "blended_home_win_prob": blend_home_win or None, "blended_draw_prob": blend_draw or None,
+                "blended_away_win_prob": blend_away_win or None,
+            })
+            if odds is not None:
+                append_odds_snapshot(league_id, [{
+                    "match_id": fx["match_id"], "snapshot_timestamp": generated_at, "kickoff_utc": fx["kickoff_utc"],
+                    "home_fair_prob": odds["home_fair_prob"], "away_fair_prob": odds["away_fair_prob"],
+                    "devig_method": devig_method, "run_id": meta.run_id,
+                }])
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", newline="", encoding="utf-8") as f:

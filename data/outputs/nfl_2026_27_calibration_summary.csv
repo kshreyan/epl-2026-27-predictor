@@ -1,0 +1,2 @@
+method,ece,raw_log_loss,calibrated_log_loss,n_matches,generated_at
+isotonic,0.002,0.7115,0.67,1310,2026-10-28T19:46:03+00:00

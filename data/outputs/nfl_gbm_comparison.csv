@@ -1,0 +1,2 @@
+gbm_log_loss,pm_log_loss,significant,best_params,held_out_season,generated_at
+0.68997,0.6783,False,"{'num_leaves': 8, 'learning_rate': 0.010019163947823312, 'min_child_samples': 36, 'n_estimators': 47}",2025,2026-10-28T19:43:01+00:00
