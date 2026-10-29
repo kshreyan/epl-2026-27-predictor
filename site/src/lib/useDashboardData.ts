@@ -11,7 +11,17 @@ export function useDashboardJson<T>(filename: string): { data: T | null; error: 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    fetch(`${import.meta.env.BASE_URL}data/${filename}`)
+    // `cache: 'no-cache'` -- NOT the default fetch cache mode, and NOT
+    // `no-store`: this still lets the browser keep a stored copy (and
+    // GitHub Pages return a cheap 304 when nothing changed), but
+    // forces a real revalidation request every load rather than
+    // silently reusing a response for its real 10-minute max-age (the
+    // GitHub Pages CDN's own real Cache-Control header on these JSON
+    // files) -- confirmed directly this session as the real cause of
+    // a brand-new league appearing deployed and correct (verified via
+    // a no-store fetch) but not showing up in the app for several
+    // minutes after deploy.
+    fetch(`${import.meta.env.BASE_URL}data/${filename}`, { cache: 'no-cache' })
       .then((res) => {
         if (!res.ok) throw new Error(`${filename}: HTTP ${res.status}`)
         return res.json()
