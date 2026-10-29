@@ -7,6 +7,7 @@ import { ScorelineDistribution } from '../components/ScorelineDistribution'
 import { FinalScore } from '../components/FinalScore'
 import { Plus2Section } from '../components/Plus2Panel'
 import { PageState } from '../components/PageState'
+import { PickMoneylineBadge } from '../components/MarginBar'
 
 function ProbBar({ home, draw, away }: { home: number; draw: number; away: number }) {
   return (
@@ -41,8 +42,12 @@ function MatchRow({ match, margin }: { match: MatchPredictionRow; margin?: { hom
         className="grid w-full grid-cols-[100px_1fr_80px_140px_auto] items-center gap-3 px-2 pt-2 text-left hover:bg-[var(--color-panel)]"
       >
         <span className="tnum text-[11px] text-[var(--color-text-faint)]">{formatKickoff(match.kickoff_utc)}</span>
-        <span className="text-[12px]">
-          {match.home_team} <span className="text-[var(--color-text-faint)]">v</span> {match.away_team}
+        <span className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[12px]">
+          <span>{match.home_team}</span>
+          {margin?.home?.pick_moneyline && <PickMoneylineBadge />}
+          <span className="text-[var(--color-text-faint)]">v</span>
+          <span>{match.away_team}</span>
+          {margin?.away?.pick_moneyline && <PickMoneylineBadge />}
         </span>
         <span className="text-center">
           <span className="tnum block text-[13px] font-medium text-[var(--color-accent)]">
