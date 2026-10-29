@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T05:34:51+00:00",
+  "generated_at": "2026-10-29T06:02:12+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "view": "best_verdict",
@@ -870,7 +870,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "moderate",
-      "pick_moneyline": false,
+      "pick_moneyline": true,
       "league_display_name": "UEFA Champions League"
     },
     {
@@ -1023,7 +1023,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false,
+      "pick_moneyline": true,
       "league_display_name": "UEFA Champions League"
     }
   ]

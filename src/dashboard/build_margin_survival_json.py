@@ -57,7 +57,20 @@ CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel", "uecl"]
 TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "nhl", "ncaaf"]
 
 
-QUARTILE_FRACTION = 0.25  # "top"/"bottom" of a real current table, for the Pick Moneyline signal below
+# Pick Moneyline's real-standings gate below. "Top" stays a strict
+# quartile (the elite/pick side should be a genuine contender, not just
+# above-average) -- nobody disputed that side. "Bottom" was ALSO a
+# strict quartile at first, but that's too narrow for what "far away in
+# the real standings" actually means: confirmed directly this session
+# with a real example (La Liga, Real Madrid 3rd vs Racing Santander
+# 13th of 20 -- Racing isn't in the bottom quartile (ranks 16-20), but
+# a 10-place real gap, half the league apart, is still a real, clear
+# mismatch that deserves the label). Loosened to the real bottom HALF
+# of the table instead -- this only ADDS matches a strict bottom
+# quartile missed, it never removes one a bottom quartile already
+# caught (bottom quartile is a subset of bottom half).
+TOP_FRACTION = 0.25
+BOTTOM_FRACTION = 0.5
 
 
 def _live_predictions(league_id: str) -> pd.DataFrame:
@@ -130,15 +143,16 @@ def _real_current_standings(preds: pd.DataFrame, league_id: str) -> pd.DataFrame
 
 def _table_position(table: pd.DataFrame, team: str) -> str | None:
     """"top"/"bottom"/"mid", or None for a team with no real games
-    played yet this season (never guessed)."""
+    played yet this season (never guessed). "top" = real top quartile;
+    "bottom" = real bottom HALF (see TOP_FRACTION/BOTTOM_FRACTION
+    above for why these aren't symmetric)."""
     row = table[table["team"] == team] if not table.empty else table
     if row.empty or row.iloc[0]["played"] == 0:
         return None
     rank, n = int(row.iloc[0]["rank"]), int(row.iloc[0]["n_teams"])
-    quartile = max(1, round(n * QUARTILE_FRACTION))
-    if rank <= quartile:
+    if rank <= max(1, round(n * TOP_FRACTION)):
         return "top"
-    if rank > n - quartile:
+    if rank > n - max(1, round(n * BOTTOM_FRACTION)):
         return "bottom"
     return "mid"
 
@@ -159,10 +173,9 @@ def _flag_pick_moneyline(df: pd.DataFrame, table: pd.DataFrame, preds: pd.DataFr
     HIGH BLOWOUT RISK, this team's own predicted score beats the
     opponent's own predicted score, AND the real current standings
     (see _real_current_standings above) place this team in the real
-    top quartile and the opponent in the real bottom quartile. A
-    genuine convergence of model risk tier, model scoreline, and real
-    external league position -- any one of those alone does not set
-    the flag.
+    top quartile and the opponent in the real bottom half. A genuine
+    convergence of model risk tier, model scoreline, and real external
+    league position -- any one of those alone does not set the flag.
 
     Checked across EVERY real upcoming fixture in the league (not just
     the next round/slate) -- by design: this is a complete, thorough
@@ -349,7 +362,7 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
     (see that function's docstring for why). The compound signal: an
     ELITE SURVIVAL real PICK verdict, a HIGH BLOWOUT RISK opponent, a
     better own predicted scoreline, and a real top-quartile-vs-bottom-
-    quartile current-standings gap, all at once."""
+    half current-standings gap, all at once."""
     frames = []
     for league_id, df in all_leagues.items():
         if df.empty or "pick_moneyline" not in df.columns:
@@ -367,7 +380,7 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
             "note": (
                 "No upcoming match in any covered league currently has this compound signal: a real ELITE "
                 "SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a better own predicted scoreline, and "
-                "a real top-quartile-vs-bottom-quartile gap in the current real standings, all at once."
+                "a real top-quartile-vs-bottom-half gap in the current real standings, all at once."
             ),
         })
         return
@@ -380,7 +393,7 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
             "Each row is the FAVORED team in a match where: this team has a real ELITE SURVIVAL PICK verdict, "
             "its opponent is HIGH BLOWOUT RISK, this team's own predicted scoreline is higher, and the real "
             "current league standings (computed directly from this season's own real completed results) "
-            "place this team in the real top quartile and its opponent in the real bottom quartile. A "
+            "place this team in the real top quartile and its opponent in the real bottom half. A "
             "convergence signal across risk tier, model scoreline, and real external league position -- "
             "not advice, and not a guarantee. A fixture far in the future carries real uncertainty of its "
             "own (form, injuries, and lineups can all change before kickoff) -- see each row's own date."

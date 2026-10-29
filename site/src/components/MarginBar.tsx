@@ -100,7 +100,7 @@ export function PickMoneylineBadge() {
     <span
       className="whitespace-nowrap rounded-sm px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide"
       style={{ backgroundColor: 'var(--color-accent)', color: '#241a05' }}
-      title="Real ELITE SURVIVAL PICK verdict vs. a HIGH BLOWOUT RISK opponent, a better own predicted scoreline, and a real top-quartile-vs-bottom-quartile gap in the current standings -- all at once."
+      title="Real ELITE SURVIVAL PICK verdict vs. a HIGH BLOWOUT RISK opponent, a better own predicted scoreline, and a real top-quartile-vs-bottom-half gap in the current standings -- all at once."
     >
       Pick Moneyline
     </span>

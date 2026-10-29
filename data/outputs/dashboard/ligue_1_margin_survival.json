@@ -1,6 +1,6 @@
 {
   "league": "ligue_1",
-  "generated_at": "2026-10-29T05:34:48+00:00",
+  "generated_at": "2026-10-29T06:02:09+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 612,
@@ -9,7 +9,7 @@
     "PASS": 125,
     "LEAN +2": 98
   },
-  "pick_moneyline_count": 14,
+  "pick_moneyline_count": 27,
   "engine_note": "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same backtested Dixon-Coles score matrix used for this league's own moneyline predictions -- not a separate multi-model ensemble. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists (most fixtures have none yet -- bookmakers only post close to kickoff).",
   "data": [
     {
@@ -9026,7 +9026,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW11_091_RCLens_ToulouseFC",
@@ -10937,7 +10937,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW13_112_ASMonaco_AngersSCO",
@@ -11133,7 +11133,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW13_114_StadeRennaisFC_StadeBrestois29",
@@ -13338,7 +13338,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW16_137_AJAuxerre_EstacTroyes",
@@ -13681,7 +13681,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW16_140_ASMonaco_StadeBrestois29",
@@ -14661,7 +14661,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW17_150_ParisSaint-Germain_AJAuxerre",
@@ -18189,7 +18189,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW21_186_ParisSaint-Germain_StadeBrestois29",
@@ -20394,7 +20394,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW24_209_StadeBrestois29_LOSCLille",
@@ -26029,7 +26029,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW30_266_ParisSaint-Germain_AngersSCO",
@@ -27597,7 +27597,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW32_282_LOSCLille_AngersSCO",
@@ -27989,7 +27989,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW32_286_ParisSaint-Germain_OGCNice",
@@ -29753,7 +29753,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW34_304_ParisSaint-Germain_ToulouseFC",
@@ -29851,7 +29851,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:35+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LIGUE12627_MW34_305_StadeRennaisFC_AngersSCO",

@@ -9,11 +9,9 @@ import { PickMoneylineBadge, VerdictPill } from '../components/MarginBar'
 // Spotlight list for the compound "Pick Moneyline" signal (see
 // build_margin_survival_json.py's _flag_pick_moneyline()): a real
 // ELITE SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a better
-// own predicted scoreline, AND a real top-quartile-vs-bottom-quartile
-// gap in the current standings, all at once, scoped to each league's
-// own next real upcoming round/slate (never the full remaining
-// season -- far-future form/injuries/lineups would make that noise,
-// not signal).
+// own predicted scoreline, AND a real top-quartile-vs-bottom-half gap
+// in the current standings, all at once -- checked across every real
+// upcoming fixture in every league, not just the next round/slate.
 function PickMoneylineSpotlight() {
   const { data, error, loading } = useDashboardJson<PickMoneylinePayload>('pick_moneyline.json')
   if (loading || error || !data || data.data.length === 0) return null

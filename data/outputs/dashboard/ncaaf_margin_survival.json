@@ -1,6 +1,6 @@
 {
   "league": "ncaaf",
-  "generated_at": "2026-10-29T05:34:51+00:00",
+  "generated_at": "2026-10-29T06:02:12+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 1522,
@@ -9,7 +9,7 @@
     "PASS": 483,
     "LEAN +21": 217
   },
-  "pick_moneyline_count": 13,
+  "pick_moneyline_count": 27,
   "engine_note": "Every team in every game: P_cover/P_push/P_fail read off a real fitted Normal margin distribution (not a discrete scoreline grid -- there isn't one for this model), at this league's own real blowout threshold (lose by more than 21 points) -- see reports/ncaaf_model_selection_report.md for how that threshold was derived. Uses NOT the same model as this league's moneyline prediction, which is Elo-only -- the real backtest found Elo beats the point-margin model here (see reports/ncaaf_model_selection_report.md). Treat these verdicts with real caution. Each row's verdict (PICK +21 / LEAN +21 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists.",
   "data": [
     {
@@ -50137,7 +50137,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W10_401856855_ArizonaWildcats_TCUHornedFrogs",
@@ -55037,7 +55037,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W10_401860912_OregonStateBeavers_TexasStateBobcats",
@@ -55429,7 +55429,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W11_401866463_ToledoRockets_MassachusettsMinutemen",
@@ -56017,7 +56017,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W11_401858526_UCLABruins_IllinoisFightingIllini",
@@ -56899,7 +56899,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W11_401858299_VirginiaTechHokies_StanfordCardinal",
@@ -60721,7 +60721,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W11_401858294_NotreDameFightingIrish_BostonCollegeEagles",
@@ -60819,7 +60819,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W11_401871061_LibertyFlames_MiddleTennesseeBlueRaiders",
@@ -68365,7 +68365,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W13_401856879_TexasTechRedRaiders_TCUHornedFrogs",
@@ -69737,7 +69737,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W13_401862840_UTSARoadrunners_TulsaGoldenHurricane",
@@ -70129,7 +70129,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W13_401858311_MiamiHurricanes_BostonCollegeEagles",
@@ -70423,7 +70423,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W13_401858317_VirginiaTechHokies_VirginiaCavaliers",
@@ -71207,7 +71207,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W13_401856873_ArizonaWildcats_ArizonaStateSunDevils",
@@ -71795,7 +71795,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W13_401858538_IndianaHoosiers_PurdueBoilermakers",
@@ -71893,7 +71893,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NCAAF2627_W13_401858537_NorthwesternWildcats_IllinoisFightingIllini",

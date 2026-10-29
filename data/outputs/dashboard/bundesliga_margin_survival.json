@@ -1,6 +1,6 @@
 {
   "league": "bundesliga",
-  "generated_at": "2026-10-29T05:34:48+00:00",
+  "generated_at": "2026-10-29T06:02:09+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 612,
@@ -9,7 +9,7 @@
     "PASS": 155,
     "LEAN +2": 84
   },
-  "pick_moneyline_count": 13,
+  "pick_moneyline_count": 34,
   "engine_note": "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same backtested Dixon-Coles score matrix used for this league's own moneyline predictions -- not a separate multi-model ensemble. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists (most fixtures have none yet -- bookmakers only post close to kickoff).",
   "data": [
     {
@@ -8683,7 +8683,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW10_089_Bayer04Leverkusen_SCPaderborn07",
@@ -8781,7 +8781,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW10_090_FCBayernM\u00fcnchen_1.FCK\u00f6ln",
@@ -9222,7 +9222,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW11_095_1.FSVMainz05_1.FCUnionBerlin",
@@ -10545,7 +10545,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW12_108_FCBayernM\u00fcnchen_SCPaderborn07",
@@ -11280,7 +11280,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW13_116_VfBStuttgart_1.FCUnionBerlin",
@@ -12113,7 +12113,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW14_124_Bayer04Leverkusen_EintrachtFrankfurt",
@@ -14612,7 +14612,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW17_150_Bayer04Leverkusen_FCSchalke04",
@@ -15396,7 +15396,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW18_158_BorussiaM\u00f6nchengladbach_RBLeipzig",
@@ -16425,7 +16425,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW19_168_Sport-ClubFreiburg_SCPaderborn07",
@@ -16621,7 +16621,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW19_170_BorussiaDortmund_TSGHoffenheim",
@@ -16866,7 +16866,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW20_173_FCSchalke04_1.FCUnionBerlin",
@@ -21031,7 +21031,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW24_215_Bayer04Leverkusen_TSGHoffenheim",
@@ -22795,7 +22795,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW26_233_Bayer04Leverkusen_1.FCK\u00f6ln",
@@ -23040,7 +23040,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW27_236_1.FCK\u00f6ln_FCBayernM\u00fcnchen",
@@ -23138,7 +23138,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW27_237_HamburgerSV_SVWerderBremen",
@@ -24657,7 +24657,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW28_252_FCBayernM\u00fcnchen_HamburgerSV",
@@ -24804,7 +24804,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW29_254_SVWerderBremen_EintrachtFrankfurt",
@@ -26421,7 +26421,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW30_270_FCBayernM\u00fcnchen_TSGHoffenheim",
@@ -27989,7 +27989,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW32_286_Bayer04Leverkusen_HamburgerSV",
@@ -29067,7 +29067,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW33_297_BorussiaDortmund_1.FCK\u00f6ln",
@@ -29949,7 +29949,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:46:10+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "BUNDESLIGA2627_MW34_306_FCBayernM\u00fcnchen_EintrachtFrankfurt",
