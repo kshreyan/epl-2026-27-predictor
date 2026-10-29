@@ -283,7 +283,7 @@ export interface MarginSurvivalRow {
   // True only on the favored team's own row, checked across every real
   // upcoming fixture (not just the next round/slate): a real ELITE
   // SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a better own
-  // predicted scoreline, AND a real top-quartile-vs-bottom-half gap in
+  // predicted scoreline, AND a real top-third-vs-bottom-half gap in
   // the current real standings, all at once -- see
   // build_margin_survival_json.py's _flag_pick_moneyline().
   pick_moneyline?: boolean
