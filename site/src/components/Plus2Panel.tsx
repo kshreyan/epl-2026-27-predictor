@@ -1,6 +1,6 @@
 import type { MarginSurvivalRow } from '../lib/types'
 import { pct } from '../lib/format'
-import { MarginBar, RiskLabelBadge, VerdictPill } from './MarginBar'
+import { MarginBar, PickMoneylineBadge, RiskLabelBadge, VerdictPill } from './MarginBar'
 
 function FactorRow({ label, score }: { label: string; score: number | null }) {
   return (
@@ -77,6 +77,7 @@ export function Plus2TeamCard({ row }: { row: MarginSurvivalRow }) {
       </div>
       <div className="flex items-center gap-2">
         <RiskLabelBadge label={row.risk_label} />
+        {row.pick_moneyline && <PickMoneylineBadge />}
       </div>
       <details className="text-[11px]">
         <summary className="cursor-pointer text-[var(--color-text-faint)]">Why +{row.threshold}?</summary>

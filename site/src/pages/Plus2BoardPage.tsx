@@ -1,10 +1,50 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDashboardJson } from '../lib/useDashboardData'
-import type { Top20MarginSurvivalPayload } from '../lib/types'
+import type { PickMoneylinePayload, Top20MarginSurvivalPayload } from '../lib/types'
 import { formatKickoff, pct } from '../lib/format'
 import { PageState } from '../components/PageState'
-import { VerdictPill } from '../components/MarginBar'
+import { PickMoneylineBadge, VerdictPill } from '../components/MarginBar'
+
+// Spotlight list for the compound "Pick Moneyline" signal (see
+// build_margin_survival_json.py's _flag_pick_moneyline()): a real
+// ELITE SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a better
+// own predicted scoreline, AND a real top-quartile-vs-bottom-quartile
+// gap in the current standings, all at once, scoped to each league's
+// own next real upcoming round/slate (never the full remaining
+// season -- far-future form/injuries/lineups would make that noise,
+// not signal).
+function PickMoneylineSpotlight() {
+  const { data, error, loading } = useDashboardJson<PickMoneylinePayload>('pick_moneyline.json')
+  if (loading || error || !data || data.data.length === 0) return null
+
+  return (
+    <div className="space-y-2">
+      <h2 className="text-[13px] font-semibold">Pick Moneyline</h2>
+      {data.note && <p className="max-w-3xl text-[11px] italic text-[var(--color-text-faint)]">{data.note}</p>}
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {data.data.map((row) => (
+          <Link
+            key={row.match_id + row.team}
+            to={`/${row.league_id}/fixtures`}
+            className="block space-y-1.5 border border-[var(--color-border)] p-2.5 hover:bg-[var(--color-panel)]"
+          >
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[11px] font-medium text-[var(--color-text-faint)]">{row.league_display_name}</span>
+              <PickMoneylineBadge />
+            </div>
+            <div className="text-[13px] font-medium">
+              {row.team} <span className="text-[var(--color-text-faint)]">({row.predicted_score_model_only})</span>
+            </div>
+            <div className="text-[11px] text-[var(--color-text-faint)]">
+              vs {row.opponent} -- {formatKickoff(row.kickoff_utc)}
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 // Cross-league, not scoped to any one competition -- reachable from any
 // league's tab bar, same pattern as InternationalBreakPage.
@@ -17,6 +57,7 @@ export function Plus2BoardPage() {
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-6">
+      <PickMoneylineSpotlight />
       <div className="space-y-1">
         <h1 className="text-[15px] font-semibold">Top 20 +2 Margin Survival Opportunities</h1>
         <p className="max-w-3xl text-[12px] text-[var(--color-text-faint)]">

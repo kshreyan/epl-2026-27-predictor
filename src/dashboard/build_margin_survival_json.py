@@ -57,6 +57,150 @@ CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel", "uecl"]
 TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "nhl", "ncaaf"]
 
 
+QUARTILE_FRACTION = 0.25  # "top"/"bottom" of a real current table, for the Pick Moneyline signal below
+
+
+def _live_predictions(league_id: str) -> pd.DataFrame:
+    """data/outputs/{league}_2026_27_match_predictions.csv, indexed by
+    match_id -- this is the one file in each league's pipeline that is
+    reliably kept in sync with real results (status flips to
+    "completed" and actual_home_goals/actual_away_goals get filled in
+    as real games conclude). The raw per-sport fixtures.csv that
+    compute_margin_survival_team_sport.py reads its own "status"/"date"
+    columns from is NOT reliably updated this way for the 4 points-
+    format team sports -- confirmed directly this session: NCAA
+    Football's raw fixtures.csv still marks literally every one of its
+    761 rows "scheduled", including ones from Week 1 (early September)
+    that have obviously already been played by late October. Anything
+    that needs to know whether a match has REALLY already happened
+    must use this file, never margin_survival's own status/date."""
+    path = OUT_DIR / f"{league_id}_2026_27_match_predictions.csv"
+    if not path.exists():
+        return pd.DataFrame(columns=["status", "date", "home_team", "away_team", "actual_home_goals", "actual_away_goals"])
+    return pd.read_csv(path).set_index("match_id")
+
+
+def _real_current_standings(preds: pd.DataFrame, league_id: str) -> pd.DataFrame:
+    """Real current-season table built directly from this league's own
+    real completed results (status == "completed",
+    actual_home_goals/actual_away_goals) in `preds` (see
+    _live_predictions above) -- the same already-collected real data
+    (football-data.co.uk / ESPN / nflverse / NHL api-web, per league)
+    this entire pipeline already treats as authoritative, never a
+    separate external standings lookup. Ranked by points-per-game
+    (goal-difference tiebreak) for single_table/swiss leagues, win
+    percentage (point-diff tiebreak) for the 4 points-format team
+    sports -- mid-season-fair either way, not raw totals, so a team
+    that has simply played fewer games isn't penalized for it."""
+    if preds.empty:
+        return pd.DataFrame(columns=["team", "rank", "n_teams", "played"])
+    completed = preds[preds["status"] == "completed"].dropna(subset=["actual_home_goals", "actual_away_goals"])
+
+    stats: dict[str, dict] = {}
+
+    def bump(team: str, gf: float, ga: float) -> None:
+        s = stats.setdefault(team, {"played": 0, "wins": 0, "points": 0, "diff": 0.0})
+        s["played"] += 1
+        s["diff"] += gf - ga
+        if gf > ga:
+            s["wins"] += 1
+            s["points"] += 3
+        elif gf == ga:
+            s["points"] += 1
+
+    for _, row in completed.iterrows():
+        bump(row["home_team"], row["actual_home_goals"], row["actual_away_goals"])
+        bump(row["away_team"], row["actual_away_goals"], row["actual_home_goals"])
+
+    is_points_format = league_id in TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS
+    rows = [
+        {
+            "team": team,
+            "sort_key": (s["wins"] / s["played"] if is_points_format else s["points"] / s["played"]),
+            "diff": s["diff"],
+            "played": s["played"],
+        }
+        for team, s in stats.items()
+    ]
+    table = pd.DataFrame(rows).sort_values(["sort_key", "diff"], ascending=False).reset_index(drop=True)
+    table["rank"] = table.index + 1
+    table["n_teams"] = len(table)
+    return table
+
+
+def _table_position(table: pd.DataFrame, team: str) -> str | None:
+    """"top"/"bottom"/"mid", or None for a team with no real games
+    played yet this season (never guessed)."""
+    row = table[table["team"] == team] if not table.empty else table
+    if row.empty or row.iloc[0]["played"] == 0:
+        return None
+    rank, n = int(row.iloc[0]["rank"]), int(row.iloc[0]["n_teams"])
+    quartile = max(1, round(n * QUARTILE_FRACTION))
+    if rank <= quartile:
+        return "top"
+    if rank > n - quartile:
+        return "bottom"
+    return "mid"
+
+
+def _parse_own_score(predicted_score_model_only, is_home: bool) -> tuple[int, int] | None:
+    """predicted_score_model_only is stored home-away, the same string
+    for both team rows of a match -- split into (this team's own
+    score, opponent's own score)."""
+    if not isinstance(predicted_score_model_only, str) or "-" not in predicted_score_model_only:
+        return None
+    h, a = (int(x) for x in predicted_score_model_only.split("-"))
+    return (h, a) if is_home else (a, h)
+
+
+def _flag_pick_moneyline(df: pd.DataFrame, table: pd.DataFrame, preds: pd.DataFrame) -> pd.Series:
+    """True on a team's own row exactly when, for the NEXT real
+    upcoming round/slate in this league: that team has a real ELITE
+    SURVIVAL PICK verdict, its opponent in that same match is HIGH
+    BLOWOUT RISK, this team's own predicted score beats the opponent's
+    own predicted score, AND the real current standings (see
+    _real_current_standings above) place this team in the real top
+    quartile and the opponent in the real bottom quartile. A genuine
+    convergence of model risk tier, model scoreline, and real external
+    league position -- any one of those alone does not set the flag.
+
+    "Next round" is read from `preds` (the live-tracked predictions
+    file), NOT from df's own status/matchweek -- see _live_predictions'
+    docstring for why those can be stale for the 4 points-format team
+    sports."""
+    flags = pd.Series(False, index=df.index)
+    if preds.empty:
+        return flags
+    live_status = df["match_id"].map(preds["status"])
+    live_matchweek = df["match_id"].map(preds["matchweek"])
+    scheduled = df[live_status == "scheduled"]
+    if scheduled.empty or table.empty:
+        return flags
+    next_mw = live_matchweek.loc[scheduled.index].min()
+    next_round = scheduled[live_matchweek.loc[scheduled.index] == next_mw]
+
+    for match_id, grp in next_round.groupby("match_id"):
+        if len(grp) != 2:
+            continue
+        blowout = grp[grp["risk_label"] == "HIGH BLOWOUT RISK"]
+        elite = grp[(grp["risk_label"] == "ELITE SURVIVAL") & (grp["verdict"].str.startswith("PICK", na=False))]
+        if blowout.empty or elite.empty:
+            continue
+        b_idx, e_idx = blowout.index[0], elite.index[0]
+        if b_idx == e_idx:
+            continue
+        b, e = df.loc[b_idx], df.loc[e_idx]
+
+        b_score = _parse_own_score(b["predicted_score_model_only"], bool(b["is_home"]))
+        e_score = _parse_own_score(e["predicted_score_model_only"], bool(e["is_home"]))
+        if b_score is None or e_score is None or not (b_score[0] < e_score[0]):
+            continue
+
+        if _table_position(table, e["team"]) == "top" and _table_position(table, b["team"]) == "bottom":
+            flags.loc[e_idx] = True
+    return flags
+
+
 def _confidence(row: pd.Series) -> str:
     team_n, opponent_n = row.get("team_history_n_matches"), row.get("opponent_history_n_matches")
     # NFL/NBA/NHL/NCAA Football margin survival (compute_margin_survival_
@@ -88,6 +232,8 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
 
     df = pd.read_csv(path)
     df["data_confidence"] = df.apply(_confidence, axis=1)
+    live_preds = _live_predictions(league_id)
+    df["pick_moneyline"] = _flag_pick_moneyline(df, _real_current_standings(live_preds, league_id), live_preds)
 
     tally = df["verdict"].value_counts().to_dict()
     if league_id in CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS:
@@ -128,6 +274,7 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
         "league": league_id, "generated_at": now_utc_iso(), "model_version": MODEL_VERSION,
         "season": "2026-27", "record_count": len(df),
         "verdict_tally": tally,
+        "pick_moneyline_count": int(df["pick_moneyline"].sum()),
         "engine_note": engine_note,
         "data": _to_records(df),
     }
@@ -195,12 +342,60 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
     _write_json("top20_margin_survival.json", payload)
 
 
+def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
+    """Cross-league spotlight list of every row _flag_pick_moneyline()
+    set True, scoped to each league's own next scheduled round/slate
+    (see that function's docstring) -- the compound signal from this
+    session's request: an ELITE SURVIVAL real PICK verdict, a HIGH
+    BLOWOUT RISK opponent, a better own predicted scoreline, and a real
+    top-quartile-vs-bottom-quartile current-standings gap, all at once."""
+    frames = []
+    for league_id, df in all_leagues.items():
+        if df.empty or "pick_moneyline" not in df.columns:
+            continue
+        hits = df[df["pick_moneyline"]].copy()
+        if hits.empty:
+            continue
+        hits["league_display_name"] = load_league_config(league_id).display_name
+        frames.append(hits)
+
+    if not frames:
+        _write_json("pick_moneyline.json", {
+            "generated_at": now_utc_iso(), "model_version": MODEL_VERSION, "season": "2026-27",
+            "record_count": 0, "data": [],
+            "note": (
+                "No match in the next scheduled round/slate of any covered league currently has this "
+                "compound signal: a real ELITE SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a "
+                "better own predicted scoreline, and a real top-quartile-vs-bottom-quartile gap in the "
+                "current real standings, all at once."
+            ),
+        })
+        return
+
+    combined = pd.concat(frames, ignore_index=True).sort_values("date").reset_index(drop=True)
+    payload = {
+        "generated_at": now_utc_iso(), "model_version": MODEL_VERSION, "season": "2026-27",
+        "note": (
+            "Each row is the FAVORED team in a match where, for the next scheduled round/slate in its "
+            "league: this team has a real ELITE SURVIVAL PICK verdict, its opponent is HIGH BLOWOUT RISK, "
+            "this team's own predicted scoreline is higher, and the real current league standings "
+            "(computed directly from this season's own real completed results) place this team in the "
+            "real top quartile and its opponent in the real bottom quartile. A convergence signal across "
+            "risk tier, model scoreline, and real external league position -- not advice, and not a guarantee."
+        ),
+        "record_count": len(combined),
+        "data": _to_records(combined),
+    }
+    _write_json("pick_moneyline.json", payload)
+
+
 def main() -> None:
     all_leagues = {
         lid: build_league_margin_survival_json(lid)
         for lid in MARGIN_SURVIVAL_LEAGUE_IDS + CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS + TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS
     }
     build_top20(all_leagues)
+    build_pick_moneyline_board(all_leagues)
 
 
 if __name__ == "__main__":

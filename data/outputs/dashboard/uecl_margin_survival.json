@@ -1,6 +1,6 @@
 {
   "league": "uecl",
-  "generated_at": "2026-10-29T04:50:27+00:00",
+  "generated_at": "2026-10-29T05:22:30+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 216,
@@ -9,6 +9,7 @@
     "PASS": 64,
     "LEAN +2": 17
   },
+  "pick_moneyline_count": 2,
   "engine_note": "Every team in every match, every round: P_cover/P_push/P_fail read directly off this competition's own separately-fit Dixon-Coles score matrix -- NOT the same model as this competition's moneyline prediction, which is Elo-only (the real backtest found Elo clearly beats Dixon-Coles here -- see reports/uecl_model_selection_report.md). Treat these verdicts with real caution. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists.",
   "data": [
     {
@@ -57,7 +58,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_055_Gent_AGFAarhus",
@@ -105,7 +107,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_056_Panathinaikos_BoracBanjaLuka",
@@ -153,7 +156,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "moderate"
+      "data_confidence": "moderate",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_056_Panathinaikos_BoracBanjaLuka",
@@ -201,7 +205,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "moderate"
+      "data_confidence": "moderate",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_057_FCLugano_CrvenaZvezda",
@@ -249,7 +254,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_057_FCLugano_CrvenaZvezda",
@@ -297,7 +303,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_058_KuPSKuopio_Trabzonspor",
@@ -345,7 +352,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_058_KuPSKuopio_Trabzonspor",
@@ -393,7 +401,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_059_UniversitateaCraiova_Getafe",
@@ -441,7 +450,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_059_UniversitateaCraiova_Getafe",
@@ -489,7 +499,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_060_RigaFC_FCKairat",
@@ -537,7 +548,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_060_RigaFC_FCKairat",
@@ -585,7 +597,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_061_HajdukSplit_Ajax",
@@ -633,7 +646,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_061_HajdukSplit_Ajax",
@@ -681,7 +695,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_062_CSKASofia_ASMonaco",
@@ -729,7 +744,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_062_CSKASofia_ASMonaco",
@@ -777,7 +793,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_063_Mjallby_InterClubd'Escaldes",
@@ -825,7 +842,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_063_Mjallby_InterClubd'Escaldes",
@@ -873,7 +891,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_064_KFEgnatia_FCMidtjylland",
@@ -921,7 +940,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_064_KFEgnatia_FCMidtjylland",
@@ -969,7 +989,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_065_Atalanta_Pafos",
@@ -1017,7 +1038,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_065_Atalanta_Pafos",
@@ -1065,7 +1087,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_066_SCFreiburg_Jablonec",
@@ -1113,7 +1136,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_066_SCFreiburg_Jablonec",
@@ -1161,7 +1185,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_067_FCCopenhagen_SCBraga",
@@ -1209,7 +1234,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_067_FCCopenhagen_SCBraga",
@@ -1257,7 +1283,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_068_Brighton_KaunoZalgiris",
@@ -1305,7 +1332,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_068_Brighton_KaunoZalgiris",
@@ -1353,7 +1381,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_069_FCTwente_FCThun",
@@ -1401,7 +1430,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_069_FCTwente_FCThun",
@@ -1449,7 +1479,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_070_Sint-Truidense_FCIberia1999",
@@ -1497,7 +1528,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_070_Sint-Truidense_FCIberia1999",
@@ -1545,7 +1577,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_071_SKBrann_LincolnRedImps",
@@ -1593,7 +1626,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_071_SKBrann_LincolnRedImps",
@@ -1641,7 +1675,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_072_Hearts_FCNordsjaelland",
@@ -1689,7 +1724,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW01_072_Hearts_FCNordsjaelland",
@@ -1737,7 +1773,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_073_FCKairat_Panathinaikos",
@@ -1785,7 +1822,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_073_FCKairat_Panathinaikos",
@@ -1833,7 +1871,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_074_CrvenaZvezda_FCCopenhagen",
@@ -1881,7 +1920,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_074_CrvenaZvezda_FCCopenhagen",
@@ -1929,7 +1969,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_075_Pafos_RigaFC",
@@ -1977,7 +2018,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_075_Pafos_RigaFC",
@@ -2025,7 +2067,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_076_Getafe_FCLugano",
@@ -2073,7 +2116,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_076_Getafe_FCLugano",
@@ -2121,7 +2165,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_077_Trabzonspor_Hearts",
@@ -2169,7 +2214,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_077_Trabzonspor_Hearts",
@@ -2217,7 +2263,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_078_Jablonec_Brighton",
@@ -2265,7 +2312,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_078_Jablonec_Brighton",
@@ -2313,7 +2361,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_079_FCNordsjaelland_CSKASofia",
@@ -2361,7 +2410,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_079_FCNordsjaelland_CSKASofia",
@@ -2409,7 +2459,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_080_InterClubd'Escaldes_UniversitateaCraiova",
@@ -2457,7 +2508,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_080_InterClubd'Escaldes_UniversitateaCraiova",
@@ -2505,7 +2557,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_081_KaunoZalgiris_SKBrann",
@@ -2553,7 +2606,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_081_KaunoZalgiris_SKBrann",
@@ -2601,7 +2655,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_082_FCIberia1999_Mjallby",
@@ -2649,7 +2704,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_082_FCIberia1999_Mjallby",
@@ -2697,7 +2753,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_083_SCBraga_Gent",
@@ -2745,7 +2802,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_083_SCBraga_Gent",
@@ -2793,7 +2851,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_084_Ajax_Atalanta",
@@ -2841,7 +2900,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_084_Ajax_Atalanta",
@@ -2889,7 +2949,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_085_ASMonaco_SCFreiburg",
@@ -2937,7 +2998,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_085_ASMonaco_SCFreiburg",
@@ -2985,7 +3047,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_086_FCMidtjylland_Sint-Truidense",
@@ -3033,7 +3096,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_086_FCMidtjylland_Sint-Truidense",
@@ -3081,7 +3145,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_087_LincolnRedImps_FCTwente",
@@ -3129,7 +3194,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_087_LincolnRedImps_FCTwente",
@@ -3177,7 +3243,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_088_BoracBanjaLuka_KuPSKuopio",
@@ -3225,7 +3292,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "moderate"
+      "data_confidence": "moderate",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_088_BoracBanjaLuka_KuPSKuopio",
@@ -3273,7 +3341,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "moderate"
+      "data_confidence": "moderate",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_089_AGFAarhus_KFEgnatia",
@@ -3321,7 +3390,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_089_AGFAarhus_KFEgnatia",
@@ -3369,7 +3439,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_090_FCThun_HajdukSplit",
@@ -3417,7 +3488,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW02_090_FCThun_HajdukSplit",
@@ -3465,7 +3537,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_091_Atalanta_FCKairat",
@@ -3513,7 +3586,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_091_Atalanta_FCKairat",
@@ -3561,7 +3635,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_092_FCMidtjylland_Ajax",
@@ -3609,7 +3684,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_092_FCMidtjylland_Ajax",
@@ -3657,7 +3733,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_093_CrvenaZvezda_InterClubd'Escaldes",
@@ -3705,7 +3782,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_093_CrvenaZvezda_InterClubd'Escaldes",
@@ -3753,7 +3831,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_094_KuPSKuopio_Gent",
@@ -3801,7 +3880,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "moderate"
+      "data_confidence": "moderate",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_094_KuPSKuopio_Gent",
@@ -3849,7 +3929,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "moderate"
+      "data_confidence": "moderate",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_095_LincolnRedImps_HajdukSplit",
@@ -3897,7 +3978,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_095_LincolnRedImps_HajdukSplit",
@@ -3945,7 +4027,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": true
     },
     {
       "match_id": "UECL2627_MW03_096_Trabzonspor_SCFreiburg",
@@ -3993,7 +4076,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_096_Trabzonspor_SCFreiburg",
@@ -4041,7 +4125,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_097_AGFAarhus_SCBraga",
@@ -4089,7 +4174,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_097_AGFAarhus_SCBraga",
@@ -4137,7 +4223,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_098_FCThun_Hearts",
@@ -4185,7 +4272,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_098_FCThun_Hearts",
@@ -4233,7 +4321,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_099_Mjallby_BoracBanjaLuka",
@@ -4281,7 +4370,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_099_Mjallby_BoracBanjaLuka",
@@ -4329,7 +4419,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_100_ASMonaco_FCNordsjaelland",
@@ -4377,7 +4468,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_100_ASMonaco_FCNordsjaelland",
@@ -4425,7 +4517,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_101_FCCopenhagen_FCIberia1999",
@@ -4473,7 +4566,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_101_FCCopenhagen_FCIberia1999",
@@ -4521,7 +4615,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_102_Panathinaikos_CSKASofia",
@@ -4569,7 +4664,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_102_Panathinaikos_CSKASofia",
@@ -4617,7 +4713,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_103_FCLugano_KaunoZalgiris",
@@ -4665,7 +4762,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": true
     },
     {
       "match_id": "UECL2627_MW03_103_FCLugano_KaunoZalgiris",
@@ -4713,7 +4811,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_104_Getafe_Brighton",
@@ -4761,7 +4860,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_104_Getafe_Brighton",
@@ -4809,7 +4909,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_105_FCTwente_Pafos",
@@ -4857,7 +4958,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_105_FCTwente_Pafos",
@@ -4905,7 +5007,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_106_Sint-Truidense_SKBrann",
@@ -4953,7 +5056,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_106_Sint-Truidense_SKBrann",
@@ -5001,7 +5105,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_107_UniversitateaCraiova_KFEgnatia",
@@ -5049,7 +5154,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_107_UniversitateaCraiova_KFEgnatia",
@@ -5097,7 +5203,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_108_RigaFC_Jablonec",
@@ -5145,7 +5252,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_108_RigaFC_Jablonec",
@@ -5193,7 +5301,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_001_FCKairat_Mjallby",
@@ -5241,7 +5350,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_001_FCKairat_Mjallby",
@@ -5289,7 +5399,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_002_Ajax_FCThun",
@@ -5337,7 +5448,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_002_Ajax_FCThun",
@@ -5385,7 +5497,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_003_Pafos_FCMidtjylland",
@@ -5433,7 +5546,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_003_Pafos_FCMidtjylland",
@@ -5481,7 +5595,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_004_Brighton_UniversitateaCraiova",
@@ -5529,7 +5644,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_004_Brighton_UniversitateaCraiova",
@@ -5577,7 +5693,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_005_SKBrann_AGFAarhus",
@@ -5625,7 +5742,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_005_SKBrann_AGFAarhus",
@@ -5673,7 +5791,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_006_Hearts_ASMonaco",
@@ -5721,7 +5840,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_006_Hearts_ASMonaco",
@@ -5769,7 +5889,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_007_Jablonec_FCLugano",
@@ -5817,7 +5938,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_007_Jablonec_FCLugano",
@@ -5865,7 +5987,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_008_KaunoZalgiris_RigaFC",
@@ -5913,7 +6036,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_008_KaunoZalgiris_RigaFC",
@@ -5961,7 +6085,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_009_FCIberia1999_Getafe",
@@ -6009,7 +6134,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_009_FCIberia1999_Getafe",
@@ -6057,7 +6183,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_010_KFEgnatia_LincolnRedImps",
@@ -6105,7 +6232,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_010_KFEgnatia_LincolnRedImps",
@@ -6153,7 +6281,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_011_SCBraga_KuPSKuopio",
@@ -6201,7 +6330,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_011_SCBraga_KuPSKuopio",
@@ -6249,7 +6379,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_012_SCFreiburg_FCTwente",
@@ -6297,7 +6428,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_012_SCFreiburg_FCTwente",
@@ -6345,7 +6477,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_013_Gent_CrvenaZvezda",
@@ -6393,7 +6526,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_013_Gent_CrvenaZvezda",
@@ -6441,7 +6575,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_014_BoracBanjaLuka_Atalanta",
@@ -6489,7 +6624,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_014_BoracBanjaLuka_Atalanta",
@@ -6537,7 +6673,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_015_HajdukSplit_Sint-Truidense",
@@ -6585,7 +6722,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_015_HajdukSplit_Sint-Truidense",
@@ -6633,7 +6771,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_016_FCNordsjaelland_Panathinaikos",
@@ -6681,7 +6820,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_016_FCNordsjaelland_Panathinaikos",
@@ -6729,7 +6869,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_017_InterClubd'Escaldes_FCCopenhagen",
@@ -6777,7 +6918,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_017_InterClubd'Escaldes_FCCopenhagen",
@@ -6825,7 +6967,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_018_CSKASofia_Trabzonspor",
@@ -6873,7 +7016,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_018_CSKASofia_Trabzonspor",
@@ -6921,7 +7065,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_019_FCKairat_UniversitateaCraiova",
@@ -6969,7 +7114,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_019_FCKairat_UniversitateaCraiova",
@@ -7017,7 +7163,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_020_SCFreiburg_Panathinaikos",
@@ -7065,7 +7212,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_020_SCFreiburg_Panathinaikos",
@@ -7113,7 +7261,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_021_FCCopenhagen_FCLugano",
@@ -7161,7 +7310,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "moderate"
+      "data_confidence": "moderate",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_021_FCCopenhagen_FCLugano",
@@ -7209,7 +7359,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "moderate"
+      "data_confidence": "moderate",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_022_Getafe_InterClubd'Escaldes",
@@ -7257,7 +7408,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_022_Getafe_InterClubd'Escaldes",
@@ -7305,7 +7457,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_023_KuPSKuopio_CSKASofia",
@@ -7353,7 +7506,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_023_KuPSKuopio_CSKASofia",
@@ -7401,7 +7555,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_024_LincolnRedImps_FCMidtjylland",
@@ -7449,7 +7604,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_024_LincolnRedImps_FCMidtjylland",
@@ -7497,7 +7653,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_025_SKBrann_SCBraga",
@@ -7545,7 +7702,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_025_SKBrann_SCBraga",
@@ -7593,7 +7751,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_026_Trabzonspor_Jablonec",
@@ -7641,7 +7800,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_026_Trabzonspor_Jablonec",
@@ -7689,7 +7849,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_027_RigaFC_Atalanta",
@@ -7737,7 +7898,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_027_RigaFC_Atalanta",
@@ -7785,7 +7947,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_028_FCIberia1999_CrvenaZvezda",
@@ -7833,7 +7996,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_028_FCIberia1999_CrvenaZvezda",
@@ -7881,7 +8045,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_029_Brighton_ASMonaco",
@@ -7929,7 +8094,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_029_Brighton_ASMonaco",
@@ -7977,7 +8143,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_030_Sint-Truidense_Ajax",
@@ -8025,7 +8192,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_030_Sint-Truidense_Ajax",
@@ -8073,7 +8241,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_031_Hearts_BoracBanjaLuka",
@@ -8121,7 +8290,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_031_Hearts_BoracBanjaLuka",
@@ -8169,7 +8339,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_032_HajdukSplit_FCNordsjaelland",
@@ -8217,7 +8388,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_032_HajdukSplit_FCNordsjaelland",
@@ -8265,7 +8437,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_033_AGFAarhus_FCTwente",
@@ -8313,7 +8486,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_033_AGFAarhus_FCTwente",
@@ -8361,7 +8535,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_034_FCThun_Gent",
@@ -8409,7 +8584,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_034_FCThun_Gent",
@@ -8457,7 +8633,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_035_Mjallby_Pafos",
@@ -8505,7 +8682,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_035_Mjallby_Pafos",
@@ -8553,7 +8731,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_036_KFEgnatia_KaunoZalgiris",
@@ -8601,7 +8780,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_036_KFEgnatia_KaunoZalgiris",
@@ -8649,7 +8829,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_037_Atalanta_Mjallby",
@@ -8697,7 +8878,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_037_Atalanta_Mjallby",
@@ -8745,7 +8927,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_038_SCBraga_KFEgnatia",
@@ -8793,7 +8976,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_038_SCBraga_KFEgnatia",
@@ -8841,7 +9025,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_039_Ajax_Getafe",
@@ -8889,7 +9074,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_039_Ajax_Getafe",
@@ -8937,7 +9123,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_040_ASMonaco_LincolnRedImps",
@@ -8985,7 +9172,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_040_ASMonaco_LincolnRedImps",
@@ -9033,7 +9221,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_041_FCMidtjylland_HajdukSplit",
@@ -9081,7 +9270,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_041_FCMidtjylland_HajdukSplit",
@@ -9129,7 +9319,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_042_CrvenaZvezda_Trabzonspor",
@@ -9177,7 +9368,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_042_CrvenaZvezda_Trabzonspor",
@@ -9225,7 +9417,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_043_Gent_SKBrann",
@@ -9273,7 +9466,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_043_Gent_SKBrann",
@@ -9321,7 +9515,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_044_Panathinaikos_Brighton",
@@ -9369,7 +9564,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_044_Panathinaikos_Brighton",
@@ -9417,7 +9613,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_045_Pafos_Hearts",
@@ -9465,7 +9662,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_045_Pafos_Hearts",
@@ -9513,7 +9711,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_046_FCLugano_Sint-Truidense",
@@ -9561,7 +9760,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_046_FCLugano_Sint-Truidense",
@@ -9609,7 +9809,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_047_FCTwente_FCKairat",
@@ -9657,7 +9858,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_047_FCTwente_FCKairat",
@@ -9705,7 +9907,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_048_BoracBanjaLuka_RigaFC",
@@ -9753,7 +9956,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_048_BoracBanjaLuka_RigaFC",
@@ -9801,7 +10005,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_049_UniversitateaCraiova_FCCopenhagen",
@@ -9849,7 +10054,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_049_UniversitateaCraiova_FCCopenhagen",
@@ -9897,7 +10103,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_050_Jablonec_FCIberia1999",
@@ -9945,7 +10152,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_050_Jablonec_FCIberia1999",
@@ -9993,7 +10201,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_051_FCNordsjaelland_KuPSKuopio",
@@ -10041,7 +10250,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_051_FCNordsjaelland_KuPSKuopio",
@@ -10089,7 +10299,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_052_InterClubd'Escaldes_AGFAarhus",
@@ -10137,7 +10348,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_052_InterClubd'Escaldes_AGFAarhus",
@@ -10185,7 +10397,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_053_CSKASofia_FCThun",
@@ -10233,7 +10446,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_053_CSKASofia_FCThun",
@@ -10281,7 +10495,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_054_KaunoZalgiris_SCFreiburg",
@@ -10329,7 +10544,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_054_KaunoZalgiris_SCFreiburg",
@@ -10377,7 +10593,8 @@
       "run_id": "margin_survival_continental_20261028T114427Z_4ec018e2",
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
-      "data_confidence": "low"
+      "data_confidence": "low",
+      "pick_moneyline": false
     }
   ]
 }

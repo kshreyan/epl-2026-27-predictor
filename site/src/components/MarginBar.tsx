@@ -89,3 +89,20 @@ export function VerdictPill({ verdict }: { verdict: string }) {
     </span>
   )
 }
+
+// Set only on the favored team's own row by _flag_pick_moneyline() in
+// build_margin_survival_json.py -- a convergence of risk tier, model
+// scoreline, AND real current standings, all at once, not a separate
+// model signal of its own. See that function's docstring for the
+// exact 4 conditions.
+export function PickMoneylineBadge() {
+  return (
+    <span
+      className="whitespace-nowrap rounded-sm px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide"
+      style={{ backgroundColor: 'var(--color-accent)', color: '#241a05' }}
+      title="Real ELITE SURVIVAL PICK verdict vs. a HIGH BLOWOUT RISK opponent, a better own predicted scoreline, and a real top-quartile-vs-bottom-quartile gap in the current standings -- all at once."
+    >
+      Pick Moneyline
+    </span>
+  )
+}

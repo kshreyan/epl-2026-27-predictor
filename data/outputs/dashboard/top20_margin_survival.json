@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T04:50:27+00:00",
+  "generated_at": "2026-10-29T05:22:31+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "view": "best_verdict",
@@ -54,6 +54,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Europa League"
     },
     {
@@ -104,6 +105,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Conference League"
     },
     {
@@ -154,6 +156,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
+      "pick_moneyline": true,
       "league_display_name": "UEFA Europa League"
     },
     {
@@ -204,6 +207,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Conference League"
     },
     {
@@ -254,6 +258,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Europa League"
     },
     {
@@ -304,6 +309,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "NCAA Football"
     },
     {
@@ -354,6 +360,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Europa League"
     },
     {
@@ -404,6 +411,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
       "data_confidence": "low",
+      "pick_moneyline": true,
       "league_display_name": "UEFA Conference League"
     },
     {
@@ -454,6 +462,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
       "data_confidence": "low",
+      "pick_moneyline": true,
       "league_display_name": "UEFA Conference League"
     },
     {
@@ -504,6 +513,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
+      "pick_moneyline": true,
       "league_display_name": "UEFA Europa League"
     },
     {
@@ -554,6 +564,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Europa League"
     },
     {
@@ -604,6 +615,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "NBA"
     },
     {
@@ -654,6 +666,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Champions League"
     },
     {
@@ -704,6 +717,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Champions League"
     },
     {
@@ -754,6 +768,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "NCAA Football"
     },
     {
@@ -804,6 +819,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Europa League"
     },
     {
@@ -854,6 +870,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "moderate",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Champions League"
     },
     {
@@ -904,6 +921,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:27+00:00",
       "data_confidence": "moderate",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Conference League"
     },
     {
@@ -954,6 +972,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:45+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "NCAA Football"
     },
     {
@@ -1004,6 +1023,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "low",
+      "pick_moneyline": false,
       "league_display_name": "UEFA Champions League"
     }
   ]

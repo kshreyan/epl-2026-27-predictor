@@ -280,6 +280,13 @@ export interface MarginSurvivalRow {
   data_confidence?: 'high' | 'moderate' | 'low'
   league_display_name?: string
   rank?: number
+  // True only on the favored team's own row, only for the next real
+  // upcoming round/slate in this league: a real ELITE SURVIVAL PICK
+  // verdict, a HIGH BLOWOUT RISK opponent, a better own predicted
+  // scoreline, AND a real top-quartile-vs-bottom-quartile gap in the
+  // current real standings, all at once -- see
+  // build_margin_survival_json.py's _flag_pick_moneyline().
+  pick_moneyline?: boolean
   run_id: string
   model_version: string
   generated_at: string
@@ -290,6 +297,7 @@ export interface MarginSurvivalPayload extends Envelope<MarginSurvivalRow> {
   status?: string
   note?: string
   verdict_tally?: Record<string, number>
+  pick_moneyline_count?: number
 }
 
 export interface Top20MarginSurvivalPayload {
@@ -297,6 +305,15 @@ export interface Top20MarginSurvivalPayload {
   model_version: string
   season: string
   view: string
+  note?: string
+  record_count: number
+  data: MarginSurvivalRow[]
+}
+
+export interface PickMoneylinePayload {
+  generated_at: string
+  model_version: string
+  season: string
   note?: string
   record_count: number
   data: MarginSurvivalRow[]
