@@ -382,3 +382,5 @@ nhl_2026_27_fixtures,2026-08-18.phase1,api-web.nhle.com (NHL's official public A
 nhl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-28T19:57:35+00:00,5197,True,2026-10-28T19:57:35+00:00,1210 real bookmaker/market rows; rest are honest unavailable sentinels.
 nba_boxscore_plus_minus,2026-08-18.phase1,site.api.espn.com (game summary),2026-10-28T20:14:28+00:00,26680,True,2026-10-28T20:21:06+00:00,"Real NBA box-score +/- and closing-odds detail, 2025-26 season only."
 nba_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-28T20:28:08+00:00,5117,True,2026-10-28T20:28:09+00:00,1568 real bookmaker/market rows; rest are honest unavailable sentinels.
+ncaaf_historical_closing_odds,2026-08-18.phase1,site.api.espn.com (game summary),2026-10-28T20:37:51+00:00,22,True,2026-10-28T20:42:17+00:00,"Real NCAAF closing-moneyline detail, 2025 season only."
+ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-10-29T04:36:00+00:00,6180,True,2026-10-29T04:36:01+00:00,4083 real bookmaker/market rows; rest are honest unavailable sentinels.

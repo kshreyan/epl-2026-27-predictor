@@ -206,7 +206,22 @@ def main(league_id: str) -> None:
         if completed_rows:
             historical = pd.concat([historical, pd.DataFrame(completed_rows)], ignore_index=True)
 
-    fit = fit_point_margin_model(historical, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
+    # NCAA Football only: real conference-aware reversion (see
+    # elo_model.run_elo's team_group docstring), used for the margin
+    # distribution regardless of which model wins THIS league's own
+    # moneyline backtest (margin-survival/scorelines/spread always use
+    # the point-margin model's own real margin distribution -- see
+    # module docstring above) -- confirmed via a real paired-bootstrap
+    # test to beat the flat-reversion fit on this specific margin task
+    # (CI [+0.0023, +0.0029], 4/5 real seasons -- see
+    # reports/ncaaf_model_selection_report.md), never assumed.
+    team_group = None
+    if league_id == "ncaaf":
+        from src.data_collection.espn_api import fetch_real_fbs_conferences
+        conferences = fetch_real_fbs_conferences()
+        team_group = {t["display_name"]: conf for conf, roster in conferences.items() for t in roster}
+
+    fit = fit_point_margin_model(historical, allows_ties=allows_ties, k_factor=ELO_K_FACTOR, team_group=team_group)
     league_avg_points = float(pd.concat([historical["home_score"], historical["away_score"]]).mean())
 
     # QB-rating adjustment (see nfl_qb_rating.py/backtest_nfl_qb_adjustment.py)

@@ -225,7 +225,17 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
             if completed_rows:
                 df = pd.concat([df, pd.DataFrame(completed_rows)], ignore_index=True)
 
-    fit = fit_point_margin_model(df, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
+    # NCAA Football only: real conference-aware reversion -- confirmed
+    # via a real paired-bootstrap test to beat flat reversion on this
+    # specific margin task (see predict_team_sport_matches.py's own
+    # identical wiring and reports/ncaaf_model_selection_report.md).
+    team_group = None
+    if league_id == "ncaaf":
+        from src.data_collection.espn_api import fetch_real_fbs_conferences
+        conferences = fetch_real_fbs_conferences()
+        team_group = {t["display_name"]: conf for conf, roster in conferences.items() for t in roster}
+
+    fit = fit_point_margin_model(df, allows_ties=allows_ties, k_factor=ELO_K_FACTOR, team_group=team_group)
     using_winning_model = should_use_point_margin_model(league_id)
 
     real_spread_by_match: dict[str, pd.Series] = {}

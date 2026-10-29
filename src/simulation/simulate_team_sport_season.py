@@ -419,7 +419,13 @@ def main_ncaaf_bowl_eligibility() -> None:
     if completed_rows:
         historical = pd.concat([historical, pd.DataFrame(completed_rows)], ignore_index=True)
 
-    fit = fit_point_margin_model(historical, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
+    # Real conference-aware reversion -- confirmed via a real paired-
+    # bootstrap test to beat flat reversion for this league's own real
+    # margin task (see predict_team_sport_matches.py's identical wiring
+    # and reports/ncaaf_model_selection_report.md). Reuses this
+    # function's own already-fetched `team_conference` above rather
+    # than a second real API call.
+    fit = fit_point_margin_model(historical, allows_ties=allows_ties, k_factor=ELO_K_FACTOR, team_group=team_conference)
     print(f"{cfg.display_name}: {len(remaining_fixtures)} real remaining games, {N_TRIALS} trials")
 
     rng = np.random.default_rng(RNG_SEED)

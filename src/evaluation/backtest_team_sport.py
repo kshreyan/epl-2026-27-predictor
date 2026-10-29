@@ -98,6 +98,21 @@ def main(league_id: str) -> None:
     use_dc = league_id in DIXON_COLES_CANDIDATE_LEAGUES
     dc_teams_universe = sorted(set(df["home_team"]) | set(df["away_team"])) if use_dc else []
 
+    # NCAA Football only: real conference-level hierarchical shrinkage
+    # (see elo_model.run_elo's team_group docstring) -- fetched ONCE
+    # here (a real live API call), not inside the chunk loop below.
+    # Uses TODAY's real conference structure for every real historical
+    # season in this backtest, not each season's own real (and, for
+    # NCAA Football, genuinely different pre-2023-realignment) one --
+    # a real, disclosed simplification, the same one
+    # simulate_team_sport_season.py's team_division_conference()
+    # already makes for this league's live standings.
+    team_group = None
+    if league_id == "ncaaf":
+        from src.data_collection.espn_api import fetch_real_fbs_conferences
+        conferences = fetch_real_fbs_conferences()
+        team_group = {t["display_name"]: conf for conf, roster in conferences.items() for t in roster}
+
     rows = []
     n_chunks = int(np.ceil(len(df) / CHUNK_SIZE))
     for c in range(n_chunks):
@@ -110,6 +125,12 @@ def main(league_id: str) -> None:
             continue
 
         pm_fit = fit_point_margin_model(train_pool, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
+        # NCAA Football only: a real, SEPARATE candidate using
+        # conference-aware reversion (see team_group above), scored
+        # alongside the flat-reversion pm_fit above rather than
+        # replacing it -- never assumed to win, same "let the real
+        # backtest decide" discipline as every other candidate here.
+        pmc_fit = fit_point_margin_model(train_pool, allows_ties=allows_ties, k_factor=ELO_K_FACTOR, team_group=team_group) if team_group else None
         flat_home_win_rate = float((train_pool["home_score"] > train_pool["away_score"]).mean())
         flat_draw_rate = float((train_pool["home_score"] == train_pool["away_score"]).mean()) if allows_ties else 0.0
         flat_away_win_rate = 1 - flat_home_win_rate - flat_draw_rate
@@ -154,6 +175,17 @@ def main(league_id: str) -> None:
                 "flat_log_loss": log_loss_row(flat_probs, actual), "flat_brier": brier_row(flat_probs, actual), "flat_rps": rps(flat_probs, actual),
             }
 
+            if pmc_fit is not None:
+                rc_home = pmc_fit.elo_run.final_ratings.get(home, 1500.0)
+                rc_away = pmc_fit.elo_run.final_ratings.get(away, 1500.0)
+                mean_c = pmc_fit.slope * (rc_home - rc_away) + pmc_fit.intercept
+                pmc_h, pmc_d, pmc_a = outcome_probabilities(mean_c, pmc_fit.sigma, allows_ties)
+                pmc_probs = {"home_win": pmc_h, "draw": pmc_d, "away_win": pmc_a}
+                row.update({
+                    "pmc_home_win": pmc_h, "pmc_draw": pmc_d, "pmc_away_win": pmc_a,
+                    "pmc_log_loss": log_loss_row(pmc_probs, actual), "pmc_brier": brier_row(pmc_probs, actual), "pmc_rps": rps(pmc_probs, actual),
+                })
+
             if use_dc and home in dc_fit.team_index and away in dc_fit.team_index:
                 lam, mu = match_lambdas(dc_fit, home, away)
                 matrix = score_matrix(lam, mu, dc_fit.rho, max_goals=NHL_MAX_GOALS_GRID)
@@ -171,10 +203,11 @@ def main(league_id: str) -> None:
     match_results.to_csv(out_match_results, index=False)
     print(f"Wrote {len(match_results)} real scored backtest games to {out_match_results}")
 
-    candidate_models = ["pm", "elo", "flat"] + (["dc"] if use_dc else [])
+    candidate_models = ["pm", "elo", "flat"] + (["dc"] if use_dc else []) + (["pmc"] if team_group else [])
     model_names = {
         "pm": "Point-margin model (Elo + margin regression)", "elo": "Elo-only win probability",
         "flat": "Flat/home-field-only baseline", "dc": "Dixon-Coles (real scoreline grid)",
+        "pmc": "Point-margin model (conference-aware reversion)",
     }
     comparison_rows = []
     for model in candidate_models:
@@ -215,6 +248,14 @@ def main(league_id: str) -> None:
             " Soccer's Dixon-Coles/Poisson scoreline grid is NOT a candidate here -- it does not fit this "
             "sport's real scoring scale (confirmed directly, same reasoning as NFL/NBA)."
         )
+        if team_group:
+            dc_note += (
+                " A real conference-aware variant of the point-margin model is also compared (season-reversion "
+                "toward each team's own real conference mean -- see elo_model.run_elo's team_group docstring -- "
+                "instead of the full real league-wide mean), since this sport's real strength gap between "
+                "conferences (e.g. the SEC vs. a Group of 5 conference) is large and persistent -- never "
+                "assumed to beat the flat-reversion version."
+            )
         f.write(
             f"Real rolling-origin backtest on {len(match_results)} real historical games "
             f"({df['date'].min().date()} to {df['date'].max().date()}, refit every {CHUNK_SIZE} real games using "

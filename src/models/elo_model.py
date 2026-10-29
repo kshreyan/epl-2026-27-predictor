@@ -64,6 +64,7 @@ def run_elo(
     k_factor: float = K_FACTOR,
     home_advantage: float = HOME_ADVANTAGE,
     season_reversion: float = SEASON_REVERSION,
+    team_group: dict[str, str] | None = None,
 ) -> EloRun:
     """Run the Elo engine sequentially over chronologically sorted matches.
 
@@ -73,7 +74,16 @@ def run_elo(
     2026-27 promoted clubs) rather than using the flat/offset default.
     `promoted_offset` is added to `INITIAL_RATING` for any team seen
     for the first time and not present in `seed_ratings`.
-    """
+
+    `team_group` (e.g. a real conference mapping) is None by default --
+    every existing caller's exact real behavior is unchanged (reversion
+    toward the single real league-wide mean). When supplied, a team
+    reverts toward its own real GROUP's mean instead of the full
+    league's (a real, hierarchical conference-level effect -- e.g.
+    NCAA Football's real SEC-vs-Group-of-5 strength gap persists
+    strongly season to season, which a single league-wide mean
+    flattens away). A team whose group has no other rated teams yet
+    falls back to the real league-wide mean (never a guessed value)."""
     matches = matches.sort_values("date").reset_index(drop=True)
     ratings: dict[str, float] = dict(seed_ratings or {})
     last_season: dict[str, str] = {}
@@ -87,8 +97,13 @@ def run_elo(
             if team not in ratings:
                 ratings[team] = INITIAL_RATING + promoted_offset
             elif last_season.get(team) not in (None, season):
-                league_mean = sum(ratings.values()) / len(ratings)
-                ratings[team] = ratings[team] * (1 - season_reversion) + league_mean * season_reversion
+                if team_group is not None and team in team_group:
+                    group = team_group[team]
+                    group_ratings = [ratings[t] for t in ratings if team_group.get(t) == group]
+                    reversion_target = sum(group_ratings) / len(group_ratings) if group_ratings else sum(ratings.values()) / len(ratings)
+                else:
+                    reversion_target = sum(ratings.values()) / len(ratings)
+                ratings[team] = ratings[team] * (1 - season_reversion) + reversion_target * season_reversion
             last_season[team] = season
 
         r_home, r_away = ratings[home], ratings[away]

@@ -73,16 +73,21 @@ def _as_goals(df: pd.DataFrame) -> pd.DataFrame:
 def fit_point_margin_model(
     historical_df: pd.DataFrame, allows_ties: bool,
     k_factor: float = 20.0, home_advantage_elo: float = 0.0,
+    team_group: dict[str, str] | None = None,
 ) -> PointMarginFit:
     """`historical_df` must have real date/season/home_team/away_team/
     home_score/away_score columns, sorted or not (run_elo sorts
     internally). `home_advantage_elo` is passed as 0 deliberately: this
     model's own `intercept` already captures real home-field advantage
     in points directly (a cleaner, sport-native unit than folding it
-    into the Elo update itself, which would double-count it here)."""
+    into the Elo update itself, which would double-count it here).
+    `team_group` (e.g. real conference membership) is passed straight
+    through to run_elo() -- None (the default) reproduces every
+    existing caller's exact real behavior unchanged; see that
+    function's own docstring for what supplying it does."""
     df = historical_df.dropna(subset=["home_score", "away_score"]).copy()
     elo_df = _as_goals(df)
-    elo_run = run_elo(elo_df, k_factor=k_factor, home_advantage=home_advantage_elo)
+    elo_run = run_elo(elo_df, k_factor=k_factor, home_advantage=home_advantage_elo, team_group=team_group)
 
     hist = elo_run.history.copy()
     hist["elo_diff"] = hist["home_elo_pre"] - hist["away_elo_pre"]
