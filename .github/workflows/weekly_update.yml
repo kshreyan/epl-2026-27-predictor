@@ -66,6 +66,19 @@ jobs:
       - name: Run fast test suite (safety check before touching real data)
         run: python -m pytest tests/ -q -m "not slow"
 
+      # Fixtures refreshed BEFORE odds below: each real match_id is
+      # derived from that real source's own real game id, so refreshing
+      # fixtures first (not after) means the odds step always joins
+      # against the real match_ids that are actually on disk today, not
+      # a stale set from a prior run.
+      - name: Refresh NFL/NBA/NHL/NCAA Football fixtures
+        run: |
+          python -m src.data_collection.collect_nflverse
+          python -m src.data_collection.collect_nhl_apiweb
+          for league in nba ncaaf; do
+            python -m src.data_collection.collect_espn_schedule --league "$league"
+          done
+
       # One iteration per active league (config/leagues.yaml) -- adding a
       # new league there needs no workflow change, just adding its id to
       # this list. "epl" alone reproduces exactly what this step always did.
@@ -99,11 +112,9 @@ jobs:
           done
 
       # NFL/NBA/NHL/NCAA Football (see predict_team_sport_matches.py):
-      # same "no lock, just re-fetch and recompute fresh" pattern as
-      # the UEFA club competitions above -- ESPN's own schedule
-      # endpoint doubles as the real-results source
-      # (collect_espn_schedule.py), so one fetch covers both the real
-      # schedule and any newly-completed real games. The season
+      # same "no lock, just recompute fresh" pattern as the UEFA club
+      # competitions above (real fixtures already refreshed above, see
+      # "Refresh NFL/NBA/NHL/NCAA Football fixtures"). The season
       # simulation (simulate_team_sport_season.py) is real but not
       # cheap (NBA's ~20s for 10,000 trials over ~1,200 remaining real
       # games; NCAA Football also fetches its real conference
@@ -113,7 +124,6 @@ jobs:
       - name: Refresh NFL/NBA/NHL/NCAA Football predictions
         run: |
           for league in nfl nba nhl ncaaf; do
-            python -m src.data_collection.collect_espn_schedule --league "$league"
             python -m src.models.predict_team_sport_matches --league "$league"
             python -m src.models.compute_margin_survival_team_sport --league "$league"
             python -m src.simulation.simulate_team_sport_season --league "$league"

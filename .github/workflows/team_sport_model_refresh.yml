@@ -1,0 +1,127 @@
+name: Weekly team-sport model refresh (NFL/NBA/NHL/NCAA Football)
+
+# Re-runs the REAL model-selection/calibration backtests for the four
+# "points"-format leagues (see src/evaluation/backtest_team_sport.py
+# and its sport-specific siblings) on a real weekly cadence, separate
+# from weekly_update.yml's daily prediction refresh -- these backtests
+# are real but not cheap (NHL's own, which also tries Dixon-Coles, is
+# the slowest at several real minutes), and which real model/de-vig
+# method/calibration currently wins is a periodic question, not a
+# daily one (the same "gated, not continuous" discipline
+# recalibration_gate.py already established for soccer).
+#
+# Deliberately does NOT re-run collect_espn_nba_game_detail.py or
+# collect_espn_ncaaf_odds.py here: those bounded, cost-disclosed
+# per-game collectors (~1,200-1,300 real API calls each) pull detail
+# for "the most recent COMPLETE season" -- that real season doesn't
+# change week to week, only when a new one finishes, so re-fetching it
+# weekly would be real, wasted cost for no real new information. A
+# season boundary is a real, infrequent event; re-running those two
+# collectors by hand (or via workflow_dispatch here) when one occurs
+# is the honest cadence for them, not weekly.
+#
+# This workflow only updates real model-selection/calibration
+# ARTIFACTS (reports/*.md, data/outputs/*_comparison.csv,
+# *_calibration_*.csv, *_coefficient.csv) and commits them --
+# weekly_update.yml's own next daily run picks up the fresh artifacts
+# automatically (predict_team_sport_matches.py reads them fresh every
+# call, never a stale cached decision), so this workflow does not
+# duplicate the dashboard-JSON-rebuild/deploy-trigger steps itself.
+on:
+  schedule:
+    - cron: "0 9 * * 0" # weekly, Sunday 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: team-sport-model-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run fast test suite (safety check before touching real data)
+        run: python -m pytest tests/ -q -m "not slow"
+
+      # Real rolling-origin model-selection backtest, all four leagues
+      # -- NCAA Football's also compares the real conference-aware
+      # reversion variant (see elo_model.run_elo); NHL's also compares
+      # Dixon-Coles (the slowest real candidate here, several minutes).
+      - name: Re-run model-selection backtests
+        run: |
+          for league in nfl nba nhl ncaaf; do
+            python -m src.evaluation.backtest_team_sport --league "$league"
+          done
+
+      # NFL: real de-vig method selection + model/market blend (both
+      # use nflverse's real embedded closing moneylines, already on
+      # disk from the daily fixture refresh -- no new real API cost).
+      - name: Re-run NFL market backtests
+        run: |
+          python -m src.evaluation.backtest_market_devig --league nfl
+          python -m src.evaluation.backtest_nfl_market_blend --league nfl
+          python -m src.evaluation.backtest_nfl_qb_adjustment --league nfl
+
+      # NHL: real goalie GSAx signal test (re-fetches MoneyPuck's real
+      # season-summary file each run -- a handful of real HTTP calls,
+      # not the bounded per-game collectors noted above).
+      - name: Re-run NHL goalie-adjustment backtest
+        run: python -m src.evaluation.backtest_nhl_goalie_adjustment --league nhl
+
+      # NBA: real rest-day test (derived purely from real dates already
+      # on disk) + real market/APM tests (reuse the already-collected
+      # real box-score/odds detail from collect_espn_nba_game_detail.py
+      # -- see the module note above for why that collector itself is
+      # not re-run here).
+      - name: Re-run NBA adjustment and market backtests
+        run: |
+          python -m src.evaluation.backtest_nba_rest_adjustment --league nba
+          python -m src.evaluation.backtest_nba_apm_adjustment --league nba
+          python -m src.evaluation.backtest_nba_market --league nba
+
+      # Real isotonic calibration, refit on each league's freshly
+      # rerun backtest above.
+      - name: Re-run calibration
+        run: |
+          python -m src.calibration.calibrate_nfl_probabilities --league nfl
+          python -m src.calibration.calibrate_nba_probabilities --league nba
+          python -m src.calibration.calibrate_ncaaf_probabilities --league ncaaf
+
+      # Real PSI/KS drift check on each league's own winning model's
+      # predicted-probability distribution (see drift_detection.py) --
+      # a genuine finding either way gets committed below, never acted
+      # on automatically (a flagged "significant" drift is for human
+      # review, not an automatic retrain -- the same discipline
+      # recalibration_gate.py's own gated process already follows).
+      - name: Re-run drift detection
+        run: |
+          for league in nfl nba nhl ncaaf; do
+            python -m src.evaluation.drift_detection --league "$league"
+          done
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes -- nothing to commit."
+          else
+            git commit -m "Automated weekly team-sport model refresh: re-run backtests and calibration"
+            git push
+          fi

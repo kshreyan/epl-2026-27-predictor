@@ -1,0 +1,2 @@
+league_id,column,n_earlier,n_later,split_date,psi,psi_severity,ks_statistic,ks_pvalue,earlier_mean,earlier_std,later_mean,later_std,generated_at
+ncaaf,elo_home_win,1840,1840,2023-10-22,0.0754,none,0.0614,0.0019,0.5099,0.1584,0.5113,0.1893,2026-10-29T04:46:48+00:00

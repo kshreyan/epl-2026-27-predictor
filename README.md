@@ -157,6 +157,95 @@ python run_pipeline.py --season 2026-27 --mode weekly_update --matchweek 1 --res
 - `reports/epl_2026_27_data_audit.md` -- what's real vs. flagged
 - `reports/epl_2026_27_model_report.md` -- methodology and limitations
 
+## Multi-sport expansion: NFL, NBA, NHL, NCAA Football
+
+Beyond EPL and the other seven soccer competitions this repo covers
+(La Liga, Serie A, Bundesliga, Ligue 1, UEFA Champions/Europa/
+Conference League -- see `config/leagues.yaml`), four American team
+sports share this same real-data-only pipeline, each with its own
+real backtested model, real "+2 Margin Survival" equivalent, and a
+real heavy-stack layer (de-vig methods, player-level signals,
+calibration, a hash-chained audit ledger, drift detection) added on
+top where a real backtest found a genuine edge -- and left out,
+explicitly documented, where it didn't.
+
+**Core team-sport pattern** (`src/models/point_margin_model.py`): Elo
++ a real fitted margin-of-victory regression, NOT soccer's Dixon-
+Coles/Poisson grid (confirmed directly not to fit these sports'
+scoring scale). Every league's own real rolling-origin backtest
+(`src/evaluation/backtest_team_sport.py`) decides which real model
+actually wins the moneyline -- never assumed:
+
+| League | Data source | Winning moneyline model | Real +2-equivalent threshold |
+|---|---|---|---|
+| NFL | `nflverse` (real closing lines, weather, rest, QB names) | Point-margin model | +14 points |
+| NBA | ESPN site API | Elo-only | +20 points |
+| NHL | NHL's own official API (`api-web.nhle.com`) | Elo-only | +3 goals |
+| NCAA Football | ESPN site API | Elo-only (conference-aware point-margin wins the narrower margin task) | +21 points |
+
+**Real heavy-stack additions, each gated on its own real backtest
+result -- adopted where significant, explicitly left out where not**:
+
+- **Hash-chained prediction ledger** (`src/evaluation/hash_chained_ledger.py`,
+  SQLite + sha256, both stdlib): every pre-kickoff prediction is
+  appended with each row's hash depending on the previous row's, so
+  tampering with or deleting history is detectable
+  (`python -m src.evaluation.hash_chained_ledger --verify --league <id>`).
+- **Market de-vig**: Shin's method and the power method added
+  alongside the existing proportional-normalization one
+  (`src/features/market_devig.py`); each league's own real backtest
+  against real historical closing lines picks the winner (power, for
+  both NFL and NBA). NHL and NCAA Football have no real historical
+  closing-line source confirmed (checked directly, not assumed) --
+  de-vig/blend is honestly not built for them yet.
+- **Model+market blend**: a real, paired-bootstrap-tested logit blend,
+  live for NFL and NBA (both found significant); not applied for NHL/
+  NCAA Football for the same real-data-source reason above.
+- **Player-level signals**: NFL gets a per-QB Elo-style rating with
+  empirical shrinkage (real, significant -- `src/models/nfl_qb_rating.py`);
+  NHL gets a real goalie GSAx signal from MoneyPuck (tested, **not**
+  significant, not wired in -- `src/models/nhl_goalie_rating.py`); NBA
+  gets a real box-score-informed adjusted-plus-minus signal (game-
+  level Ridge regression, not true stint-level RAPM -- tested on two
+  different real splits, confirmed significant on only one, so **not**
+  wired in -- `src/models/nba_apm_model.py`).
+- **Real conference-aware hierarchical shrinkage** (NCAA Football
+  only): `elo_model.run_elo`'s optional `team_group` parameter reverts
+  a team toward its own real conference's mean instead of the full
+  league-wide one -- real, paired-bootstrap-confirmed to improve the
+  margin-prediction task specifically, now live.
+- **Calibration**: isotonic regression (reusing
+  `src/calibration/calibrate_probabilities.py`'s now-generalized
+  core) for NFL, NBA, and NCAA Football.
+- **Drift detection** (`src/evaluation/drift_detection.py`): real PSI/
+  KS checks comparing each league's own backtested model's predicted-
+  probability distribution between the earlier and later halves of
+  its real backtest window -- flagged for human review, never acted
+  on automatically (NFL shows a real, notable shift worth investigating
+  further; NBA/NHL/NCAA Football do not).
+
+**Automation**: `.github/workflows/weekly_update.yml` runs daily
+(real fixture/odds refresh, predictions, margin survival, season
+simulation); `.github/workflows/team_sport_model_refresh.yml` runs
+weekly (the heavier real backtests, de-vig/blend tests, calibration,
+and drift checks -- model selection is a periodic question, not a
+daily one, same discipline `recalibration_gate.py` already
+established for soccer).
+
+**Known, disclosed limitations** (never silently assumed away): no
+CFBD API key was supplied, so NCAA Football has no real recruiting/
+transfer-portal/returning-production data and stays on ESPN; no real
+model-derived CFP-seeding simulation was built (the real 12-team CFP
+is committee-selected, not a standings formula -- this project does
+not fabricate a substitute for that real human judgment, see
+`config/leagues.yaml`'s note); NBA's adjusted-plus-minus and NHL's
+goalie signal are real but did not clear this project's own
+significance bar and are not live. Full detail in each league's own
+`reports/{league}_model_selection_report.md`,
+`reports/{league}_calibration_report.md`,
+`reports/{league}_market_blend_report.md`, and the player/conference-
+specific adjustment reports.
+
 ## Project layout
 
 See `reports/epl_2026_27_model_report.md` for full methodology.

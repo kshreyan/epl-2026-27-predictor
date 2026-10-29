@@ -1,0 +1,2 @@
+league_id,column,n_earlier,n_later,split_date,psi,psi_severity,ks_statistic,ks_pvalue,earlier_mean,earlier_std,later_mean,later_std,generated_at
+nhl,elo_home_win,3257,3258,2024-01-15,0.0228,none,0.0326,0.0615,0.4976,0.1517,0.4994,0.1386,2026-10-29T04:46:47+00:00

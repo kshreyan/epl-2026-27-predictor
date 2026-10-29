@@ -1,0 +1,2 @@
+league_id,column,n_earlier,n_later,split_date,psi,psi_severity,ks_statistic,ks_pvalue,earlier_mean,earlier_std,later_mean,later_std,generated_at
+nba,elo_home_win,3054,3054,2024-01-23,0.0853,none,0.0652,0.0,0.4985,0.2045,0.4976,0.2419,2026-10-29T04:46:46+00:00

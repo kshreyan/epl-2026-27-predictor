@@ -1,0 +1,2 @@
+league_id,column,n_earlier,n_later,split_date,psi,psi_severity,ks_statistic,ks_pvalue,earlier_mean,earlier_std,later_mean,later_std,generated_at
+nfl,pm_home_win,657,657,2023-11-19,0.8318,significant,0.3714,0.0,0.5212,0.043,0.5433,0.0243,2026-10-29T04:46:39+00:00
