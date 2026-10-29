@@ -1,14 +1,12 @@
-name: Weekly team-sport model refresh (NFL/NBA/NHL/NCAA Football)
+name: Weekly team-sport model refresh (NFL/NBA/NCAA Football)
 
-# Re-runs the REAL model-selection/calibration backtests for the four
+# Re-runs the REAL model-selection/calibration backtests for the three
 # "points"-format leagues (see src/evaluation/backtest_team_sport.py
 # and its sport-specific siblings) on a real weekly cadence, separate
-# from weekly_update.yml's daily prediction refresh -- these backtests
-# are real but not cheap (NHL's own, which also tries Dixon-Coles, is
-# the slowest at several real minutes), and which real model/de-vig
-# method/calibration currently wins is a periodic question, not a
-# daily one (the same "gated, not continuous" discipline
-# recalibration_gate.py already established for soccer).
+# from weekly_update.yml's daily prediction refresh -- which real
+# model/de-vig method/calibration currently wins is a periodic
+# question, not a daily one (the same "gated, not continuous"
+# discipline recalibration_gate.py already established for soccer).
 #
 # Deliberately does NOT re-run collect_espn_nba_game_detail.py or
 # collect_espn_ncaaf_odds.py here: those bounded, cost-disclosed
@@ -58,13 +56,12 @@ jobs:
       - name: Run fast test suite (safety check before touching real data)
         run: python -m pytest tests/ -q -m "not slow"
 
-      # Real rolling-origin model-selection backtest, all four leagues
+      # Real rolling-origin model-selection backtest, all three leagues
       # -- NCAA Football's also compares the real conference-aware
-      # reversion variant (see elo_model.run_elo); NHL's also compares
-      # Dixon-Coles (the slowest real candidate here, several minutes).
+      # reversion variant (see elo_model.run_elo).
       - name: Re-run model-selection backtests
         run: |
-          for league in nfl nba nhl ncaaf; do
+          for league in nfl nba ncaaf; do
             python -m src.evaluation.backtest_team_sport --league "$league"
           done
 
@@ -76,12 +73,6 @@ jobs:
           python -m src.evaluation.backtest_market_devig --league nfl
           python -m src.evaluation.backtest_nfl_market_blend --league nfl
           python -m src.evaluation.backtest_nfl_qb_adjustment --league nfl
-
-      # NHL: real goalie GSAx signal test (re-fetches MoneyPuck's real
-      # season-summary file each run -- a handful of real HTTP calls,
-      # not the bounded per-game collectors noted above).
-      - name: Re-run NHL goalie-adjustment backtest
-        run: python -m src.evaluation.backtest_nhl_goalie_adjustment --league nhl
 
       # NBA: real rest-day test (derived purely from real dates already
       # on disk) + real market/APM tests (reuse the already-collected
@@ -110,7 +101,7 @@ jobs:
       # recalibration_gate.py's own gated process already follows).
       - name: Re-run drift detection
         run: |
-          for league in nfl nba nhl ncaaf; do
+          for league in nfl nba ncaaf; do
             python -m src.evaluation.drift_detection --league "$league"
           done
 

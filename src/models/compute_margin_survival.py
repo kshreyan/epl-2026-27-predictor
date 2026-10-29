@@ -109,7 +109,7 @@ def verdict(label: str, value_gap: float | None, tag: str) -> str:
     `tag` is this call's own real blowout line, already formatted as
     the ready-to-display suffix: "+2" for every caller in this module,
     and "+14"/"+20"/a league's own real backtested number for NFL/NBA/
-    NHL/NCAA Football via compute_margin_survival_team_sport.py. The
+    NCAA Football via compute_margin_survival_team_sport.py. The
     verdict string always names the real thing it's about, never a
     borrowed one."""
     safe_tier = label in ("ELITE SURVIVAL", "VERY STRONG", "STRONG")

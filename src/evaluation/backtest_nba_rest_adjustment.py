@@ -5,7 +5,7 @@ winner of NBA's own moneyline backtest -- see backtest_team_sport.py)?
 Fits a logistic regression of the real outcome on [logit(Elo-only's
 own real probability), rest_diff] and checks whether the rest_diff
 coefficient's real bootstrap CI excludes zero -- never assumed to
-help, same methodology as the NFL QB test / NHL goalie test.
+help, same methodology as the NFL QB test.
 
 Run: python -m src.evaluation.backtest_nba_rest_adjustment
 """

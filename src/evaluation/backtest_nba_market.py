@@ -8,7 +8,7 @@ pickcenter), so this is its own real script rather than forcing
 backtest_market_devig.py's NFL-shaped assumptions onto a different
 real source.
 
-Also computes real CLV directly: unlike Phase 1's NFL/NHL sources
+Also computes real CLV directly: unlike Phase 1's NFL source
 (which needed multiple real daily polls to ever have two real
 snapshots to compare), ESPN's real game summary already retains both
 a real OPEN and a real CLOSE moneyline per game in one real fetch --

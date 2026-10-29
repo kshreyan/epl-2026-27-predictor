@@ -549,36 +549,11 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "Washington Wizards": [],
     },
     # Canonical spelling is ESPN's own team displayName, same discipline
-    # as "nfl"/"nba" above. Cross-referenced directly against The Odds
-    # API's live event list (icehockey_nhl): two real spelling
-    # differences found (an accented "Montréal" and "St Louis" without
-    # the period); every other team matched exactly.
-    "nhl": {
-        "Anaheim Ducks": [], "Boston Bruins": [], "Buffalo Sabres": [],
-        "Calgary Flames": [], "Carolina Hurricanes": [], "Chicago Blackhawks": [],
-        "Colorado Avalanche": [], "Columbus Blue Jackets": [], "Dallas Stars": [],
-        "Detroit Red Wings": [], "Edmonton Oilers": [], "Florida Panthers": [],
-        "Los Angeles Kings": [], "Minnesota Wild": [],
-        "Montreal Canadiens": ["Montréal Canadiens"],
-        "Nashville Predators": [], "New Jersey Devils": [], "New York Islanders": [],
-        "New York Rangers": [], "Ottawa Senators": [], "Philadelphia Flyers": [],
-        "Pittsburgh Penguins": [], "San Jose Sharks": [], "Seattle Kraken": [],
-        "St. Louis Blues": ["St Louis Blues"],
-        "Tampa Bay Lightning": [], "Toronto Maple Leafs": [],
-        # Real franchise relocation/rename: the Arizona Coyotes
-        # relocated and rebranded as the Utah Mammoth (originally "Utah
-        # Hockey Club") in 2024 -- real historical seasons under the
-        # old name are the same real franchise, not a different team.
-        "Utah Mammoth": ["Arizona Coyotes", "Utah Hockey Club"],
-        "Vancouver Canucks": [], "Vegas Golden Knights": [], "Washington Capitals": [],
-        "Winnipeg Jets": [],
-    },
-    # Canonical spelling is ESPN's own team displayName, same discipline
     # as the other American team sports above -- generated directly
     # from ESPN's own real, live FBS conference standings this session
     # (espn_api.py's fetch_real_fbs_conferences(), 138 real teams, see
     # config/leagues.yaml's note on why this roster isn't a fixed
-    # closed set the way NFL/NBA/NHL's is). Not cross-referenced
+    # closed set the way NFL/NBA's is). Not cross-referenced
     # against The Odds API team-by-team the way the smaller closed
     # rosters above were -- 138 teams makes that impractical by hand;
     # a real Odds API spelling mismatch for any one team surfaces as

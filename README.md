@@ -157,11 +157,11 @@ python run_pipeline.py --season 2026-27 --mode weekly_update --matchweek 1 --res
 - `reports/epl_2026_27_data_audit.md` -- what's real vs. flagged
 - `reports/epl_2026_27_model_report.md` -- methodology and limitations
 
-## Multi-sport expansion: NFL, NBA, NHL, NCAA Football
+## Multi-sport expansion: NFL, NBA, NCAA Football
 
 Beyond EPL and the other seven soccer competitions this repo covers
 (La Liga, Serie A, Bundesliga, Ligue 1, UEFA Champions/Europa/
-Conference League -- see `config/leagues.yaml`), four American team
+Conference League -- see `config/leagues.yaml`), three American team
 sports share this same real-data-only pipeline, each with its own
 real backtested model, real "+2 Margin Survival" equivalent, and a
 real heavy-stack layer (de-vig methods, player-level signals,
@@ -180,7 +180,6 @@ actually wins the moneyline -- never assumed:
 |---|---|---|---|
 | NFL | `nflverse` (real closing lines, weather, rest, QB names) | Point-margin model | +14 points |
 | NBA | ESPN site API | Elo-only | +20 points |
-| NHL | NHL's own official API (`api-web.nhle.com`) | Elo-only | +3 goals |
 | NCAA Football | ESPN site API | Elo-only (conference-aware point-margin wins the narrower margin task) | +21 points |
 
 **Real heavy-stack additions, each gated on its own real backtest
@@ -195,17 +194,15 @@ result -- adopted where significant, explicitly left out where not**:
   alongside the existing proportional-normalization one
   (`src/features/market_devig.py`); each league's own real backtest
   against real historical closing lines picks the winner (power, for
-  both NFL and NBA). NHL and NCAA Football have no real historical
-  closing-line source confirmed (checked directly, not assumed) --
-  de-vig/blend is honestly not built for them yet.
+  both NFL and NBA). NCAA Football has no real historical closing-line
+  source confirmed (checked directly, not assumed) -- de-vig/blend is
+  honestly not built for it yet.
 - **Model+market blend**: a real, paired-bootstrap-tested logit blend,
-  live for NFL and NBA (both found significant); not applied for NHL/
-  NCAA Football for the same real-data-source reason above.
+  live for NFL and NBA (both found significant); not applied for NCAA
+  Football for the same real-data-source reason above.
 - **Player-level signals**: NFL gets a per-QB Elo-style rating with
   empirical shrinkage (real, significant -- `src/models/nfl_qb_rating.py`);
-  NHL gets a real goalie GSAx signal from MoneyPuck (tested, **not**
-  significant, not wired in -- `src/models/nhl_goalie_rating.py`); NBA
-  gets a real box-score-informed adjusted-plus-minus signal (game-
+  NBA gets a real box-score-informed adjusted-plus-minus signal (game-
   level Ridge regression, not true stint-level RAPM -- tested on two
   different real splits, confirmed significant on only one, so **not**
   wired in -- `src/models/nba_apm_model.py`).
@@ -222,7 +219,7 @@ result -- adopted where significant, explicitly left out where not**:
   probability distribution between the earlier and later halves of
   its real backtest window -- flagged for human review, never acted
   on automatically (NFL shows a real, notable shift worth investigating
-  further; NBA/NHL/NCAA Football do not).
+  further; NBA/NCAA Football do not).
 
 **Automation**: `.github/workflows/weekly_update.yml` runs daily
 (real fixture/odds refresh, predictions, margin survival, season
@@ -238,9 +235,9 @@ transfer-portal/returning-production data and stays on ESPN; no real
 model-derived CFP-seeding simulation was built (the real 12-team CFP
 is committee-selected, not a standings formula -- this project does
 not fabricate a substitute for that real human judgment, see
-`config/leagues.yaml`'s note); NBA's adjusted-plus-minus and NHL's
-goalie signal are real but did not clear this project's own
-significance bar and are not live. Full detail in each league's own
+`config/leagues.yaml`'s note); NBA's adjusted-plus-minus signal is
+real but did not clear this project's own significance bar on one of
+two splits and is not live. Full detail in each league's own
 `reports/{league}_model_selection_report.md`,
 `reports/{league}_calibration_report.md`,
 `reports/{league}_market_blend_report.md`, and the player/conference-

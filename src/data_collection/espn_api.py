@@ -1,6 +1,6 @@
 """Shared real-data fetch helpers for ESPN's public site API
 (site.api.espn.com), the single real source this project uses for both
-current-season fixtures AND historical results for NFL, NBA, NHL and
+current-season fixtures AND historical results for NFL, NBA, and
 NCAA Football -- no `fixturedownload.com` equivalent exists for
 American team sports (see config/leagues.yaml). Verified directly
 accessible this session, real schedule/score data, no auth required.
@@ -35,7 +35,7 @@ from src.leagues import load_league_config  # noqa: E402
 
 ESPN_SPORT_PATH = {
     "nfl": "football/nfl", "nba": "basketball/nba",
-    "nhl": "hockey/nhl", "ncaaf": "football/college-football",
+    "ncaaf": "football/college-football",
 }
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
@@ -105,7 +105,7 @@ def fetch_real_season_games(league_id: str, season: int) -> list[dict]:
     sport_path = ESPN_SPORT_PATH[league_id]
     teams = fetch_real_teams(league_id)
     # NCAA Football's real FBS roster isn't a fixed closed set the way
-    # NFL/NBA/NHL's is -- real transitioning programs join/leave FBS
+    # NFL/NBA's is -- real transitioning programs join/leave FBS
     # mid-cycle, so cfg.n_teams is a real recent snapshot, not an
     # eternal constant; a wide sanity band catches a genuinely broken
     # fetch without false-alarming on normal roster drift.

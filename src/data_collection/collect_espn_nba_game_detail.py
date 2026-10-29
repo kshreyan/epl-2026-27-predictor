@@ -22,9 +22,9 @@ Writes two real outputs:
 2. `nba_historical_closing_odds.csv` -- one row per real game with a
    real posted moneyline (match_id, home_moneyline_open/close,
    away_moneyline_open/close) for the de-vig/blend backtest and CLV
-   (a real per-game open-vs-close pair, unlike Phase 1's NFL/NHL
-   sources which needed multiple daily polls to ever have two real
-   snapshots to compare).
+   (a real per-game open-vs-close pair, unlike Phase 1's NFL source
+   which needed multiple daily polls to ever have two real snapshots
+   to compare).
 
 Run: python -m src.data_collection.collect_espn_nba_game_detail
 """

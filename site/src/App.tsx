@@ -36,7 +36,7 @@ function LeagueRoutes() {
   const { data: manifest } = useDashboardJson<{ leagues: { league_id: string; format: string }[] }>('leagues.json')
   const format = manifest?.leagues.find((l) => l.league_id === leagueId)?.format
   // "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) and
-  // "points" (NFL/NBA/NHL/NCAA Football, a real conference/division-
+  // "points" (NFL/NBA/NCAA Football, a real conference/division-
   // seeded sport, not a goal-difference table) both have no table/
   // races tab to land on -- an unknown sub-path for either goes to
   // Fixtures instead of a route that would 404 its data. Defaults to
@@ -60,7 +60,7 @@ function LeagueRoutes() {
             {/* "swiss"-format leagues only (UCL/UEL/UECL) -- see
                 simulate_continental_cup_knockout.py. */}
             <Route path="knockout" element={<KnockoutPage leagueId={leagueId} />} />
-            {/* "points"-format leagues only (NFL/NBA/NHL/NCAA Football)
+            {/* "points"-format leagues only (NFL/NBA/NCAA Football)
                 -- see simulate_team_sport_season.py. */}
             <Route path="standings" element={<StandingsPage leagueId={leagueId} />} />
             <Route path="*" element={<Navigate to={`/${leagueId}/${defaultTab}`} replace />} />

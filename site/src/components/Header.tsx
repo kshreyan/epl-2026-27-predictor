@@ -6,7 +6,7 @@ interface LeagueEntry { league_id: string; display_name: string; country: string
 interface LeaguesManifest { leagues: LeagueEntry[] }
 
 // "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) and
-// "points" (NFL/NBA/NHL/NCAA Football, a real conference/division-
+// "points" (NFL/NBA/NCAA Football, a real conference/division-
 // seeded sport) both have no goal-difference table/races -- see
 // LeagueConfig.format in src/leagues.py.
 const SINGLE_TABLE_NAV = [

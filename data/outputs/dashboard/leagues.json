@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T04:50:26+00:00",
+  "generated_at": "2026-10-29T07:14:24+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
@@ -40,12 +40,6 @@
     {
       "league_id": "nfl",
       "display_name": "NFL",
-      "country": "United States",
-      "format": "points"
-    },
-    {
-      "league_id": "nhl",
-      "display_name": "NHL",
       "country": "United States",
       "format": "points"
     },

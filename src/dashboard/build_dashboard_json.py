@@ -329,7 +329,7 @@ def build_playoff_picture_json(league_id: str) -> None:
 
 def build_match_level_outputs(league_id: str) -> None:
     """For any non-single_table league (see LeagueConfig.format: "swiss"
-    for the UEFA club competitions, "points" for NFL/NBA/NHL/NCAA
+    for the UEFA club competitions, "points" for NFL/NBA/NCAA
     Football): everything build_all_for_league() builds EXCEPT the five
     table-shaped outputs (expected_table/position_distribution/
     title_race/top4_race/relegation_race, none of which applies to a

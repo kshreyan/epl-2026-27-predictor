@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T06:40:37+00:00",
+  "generated_at": "2026-10-29T07:14:44+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "note": "Every real upcoming fixture in every covered league was scanned, not just the next round/slate. Each row is the FAVORED team in a match where: this team has a real ELITE SURVIVAL PICK verdict, its opponent is HIGH BLOWOUT RISK, this team's own predicted scoreline is higher, and the real current league standings (computed directly from this season's own real completed results) place this team in the real top third and its opponent in the real bottom half. A convergence signal across risk tier, model scoreline, and real external league position -- not advice, and not a guarantee. A fixture far in the future carries real uncertainty of its own (form, injuries, and lineups can all change before kickoff) -- see each row's own date.",

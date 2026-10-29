@@ -1,6 +1,6 @@
-"""Collect real historical NFL/NBA/NHL/NCAA Football results from
-ESPN's site API (see espn_api.py for source rationale), several real
-past regular seasons.
+"""Collect real historical NFL/NBA/NCAA Football results from ESPN's
+site API (see espn_api.py for source rationale), several real past
+regular seasons.
 
 Columns are named `home_score`/`away_score`, not `home_goals`/
 `away_goals` -- these are real POINTS, not goals, and this project
@@ -15,7 +15,7 @@ No play-by-play/box-score stats (passing yards, shooting splits, etc.)
 not estimate what it can't source for real.
 
 Run: python -m src.data_collection.collect_espn_historical --league nfl
-(also accepts nba, nhl, ncaaf)
+(also accepts nba, ncaaf)
 """
 from __future__ import annotations
 
@@ -35,12 +35,12 @@ SOURCE_NAME = "site.api.espn.com"
 
 # ESPN's own season-year convention (see collect_espn_schedule.py) --
 # the N most recent real COMPLETED seasons before the current one.
-CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "nhl": 2027, "ncaaf": 2026}
-# NBA/NHL label a season by its real END year (e.g. espn_season=2027 is
+CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "ncaaf": 2026}
+# NBA labels a season by its real END year (e.g. espn_season=2027 is
 # the real "2026-27" season) -- the split "2026-27"-style label is only
-# meaningful for those two; NFL/NCAAF use a real single START-year
-# label already.
-END_YEAR_CONVENTION_LEAGUES = {"nba", "nhl"}
+# meaningful there; NFL/NCAAF use a real single START-year label
+# already.
+END_YEAR_CONVENTION_LEAGUES = {"nba"}
 N_PRIOR_SEASONS = 5
 
 OUTPUT_COLUMNS = [
@@ -111,6 +111,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "nhl", "ncaaf"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

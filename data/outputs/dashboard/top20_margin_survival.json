@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-29T06:40:37+00:00",
+  "generated_at": "2026-10-29T07:14:44+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "view": "best_verdict",
-  "note": "Ranked by verdict first (Pick before Lean -- Pass is excluded here), then by real price value where a real market exists, then by lowest blowout risk. Each league's own verdict is at its own real threshold (+2 goals for soccer/UEFA, +14 points for NFL, +20 for NBA, +3 for NHL, +21 for NCAA Football -- see each row's own `threshold` field). The verdict pill on each row already synthesizes risk and price -- this is not a separate signal, and still not advice.",
+  "note": "Ranked by verdict first (Pick before Lean -- Pass is excluded here), then by real price value where a real market exists, then by lowest blowout risk. Each league's own verdict is at its own real threshold (+2 goals for soccer/UEFA, +14 points for NFL, +20 for NBA, +21 for NCAA Football -- see each row's own `threshold` field). The verdict pill on each row already synthesizes risk and price -- this is not a separate signal, and still not advice.",
   "record_count": 20,
   "data": [
     {

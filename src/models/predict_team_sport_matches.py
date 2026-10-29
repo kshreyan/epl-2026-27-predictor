@@ -1,27 +1,25 @@
-"""Predicts every real 2026-27 regular-season NFL/NBA/NHL/NCAA
-Football game.
+"""Predicts every real 2026-27 regular-season NFL/NBA/NCAA Football
+game.
 
-**Moneyline (home/draw/away for NFL and NHL -- NHL's real final score
-can't literally tie, see point_margin_model.py, but ties are kept
-structurally possible in this schema for consistency; home/away only
-for NBA/NCAA Football, which cannot end in a real tie at all) uses
-whichever model actually won this league's own real backtest**
-(src/evaluation/backtest_team_sport.py) -- the point-margin model for
-NFL, plain Elo-only win probability for NBA/NHL/NCAA Football (see
-reports/{league}_model_selection_report.md for the real numbers; never
-assumed). `should_use_point_margin_model()` reads this fresh from that
-backtest's own comparison CSV.
+**Moneyline (home/draw/away for NFL, which keeps ties structurally
+possible in this schema; home/away only for NBA/NCAA Football, which
+cannot end in a real tie at all) uses whichever model actually won
+this league's own real backtest** (src/evaluation/backtest_team_sport
+.py) -- the point-margin model for NFL, plain Elo-only win probability
+for NBA/NCAA Football (see reports/{league}_model_selection_report.md
+for the real numbers; never assumed). `should_use_point_margin_model()`
+reads this fresh from that backtest's own comparison CSV.
 
 **No BTTS market**: unlike soccer, "both teams to score" has no real
 meaning for any of these sports (both sides score in nearly every real
 game) -- dropped entirely, not faked. **Totals** (a real, standard
-market in all four sports) uses a simple real rolling points/goals-for
+market in all three sports) uses a simple real rolling points/goals-for
 and -against average per team, NOT independently backtested the way
 the moneyline model is -- flagged as less validated, same honesty
 pattern soccer's Simple-Poisson-derived derived markets use.
 
 Run: python -m src.models.predict_team_sport_matches --league nfl
-(also accepts nba, nhl, ncaaf)
+(also accepts nba, ncaaf)
 """
 from __future__ import annotations
 
@@ -57,7 +55,7 @@ from src.models.point_margin_model import (  # noqa: E402
 from src.models.scoreline_models import moneyline_pick, spread_pick, totals_pick  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
-DEFAULT_TOTAL_LINE = {"nfl": 44.5, "nba": 228.5, "nhl": 6.0, "ncaaf": 53.5}  # real league-average-ish fallback, overridden per-game below
+DEFAULT_TOTAL_LINE = {"nfl": 44.5, "nba": 228.5, "ncaaf": 53.5}  # real league-average-ish fallback, overridden per-game below
 
 OUTPUT_COLUMNS = [
     "match_id", "season", "matchweek", "date", "kickoff_utc", "home_team", "away_team",
@@ -108,7 +106,7 @@ def load_market_odds(odds_path: Path, league_id: str) -> dict[str, dict]:
     bookmaker in logit space -- the same "don't just take the first
     quote" discipline build_market_features.py already established for
     soccer, generalized here to a 2-outcome market (no real draw price
-    exists for NFL/NBA/NHL/NCAA Football's real h2h market -- confirmed
+    exists for NFL/NBA/NCAA Football's real h2h market -- confirmed
     directly, 0 of 815 real NFL h2h rows this session had one)."""
     devig_fn = DEVIG_METHODS[select_devig_method(league_id)]
     rows_by_match: dict[str, list[tuple[float, float, float, float]]] = {}
@@ -415,6 +413,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "nhl", "ncaaf"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

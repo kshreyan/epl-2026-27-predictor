@@ -23,14 +23,15 @@
 # reports/{league}_model_selection_report.md) +2 Margin Survival cover
 # the 144/144/108 real league-phase matches only.
 #
-# NFL, NBA, NCAA Football, and NHL (re-added 2026-10-28, after a prior
-# removal on 2026-10-26): `format: points` -- real American team
-# sports, scored in points not goals. No fixturedownload_slug/
-# football_data_code (neither source covers these). NFL's real
-# fixtures/historical/EPA data comes from nflverse (richer than ESPN's
-# site API -- real closing lines, weather, rest days, QB names already
-# included); NBA/NHL/NCAA Football still use ESPN's public site API
-# (site.api.espn.com) via collect_espn_schedule.py/
+# NFL, NBA, and NCAA Football (re-added 2026-10-28, after a prior
+# removal on 2026-10-26; NHL was part of that re-addition too but was
+# removed again on 2026-10-29 at the user's request): `format: points`
+# -- real American team sports, scored in points not goals. No
+# fixturedownload_slug/football_data_code (neither source covers
+# these). NFL's real fixtures/historical/EPA data comes from nflverse
+# (richer than ESPN's site API -- real closing lines, weather, rest
+# days, QB names already included); NBA/NCAA Football still use ESPN's
+# public site API (site.api.espn.com) via collect_espn_schedule.py/
 # collect_espn_historical.py, not collect_fixtures.py, since
 # stats.nba.com/nba_api was unreachable (bot-protected) from this
 # project's environment when re-verified. The Dixon-Coles/Poisson
@@ -40,9 +41,7 @@
 # own real backtest compares against newer heavy-stack candidates
 # (LightGBM, Bayesian/Laplace ratings -- see
 # reports/{league}_model_selection_report.md for which one actually
-# won). NHL's real scoring is low and discrete like soccer's, so its
-# own real backtest also tries Dixon-Coles as a candidate. NCAA
-# Football's real FBS conference groupings are fetched live from
+# won). NCAA Football's real FBS conference groupings are fetched live from
 # ESPN's own standings endpoint at build time, not hardcoded (conference
 # realignment is a real recurring event in college sports); NCAA
 # Football has no real playoff-seeding FORMULA (the 12-team CFP is
@@ -165,15 +164,6 @@ leagues:
     match_id_prefix: NBA
     format: points
 
-  - league_id: nhl
-    display_name: NHL
-    country: United States
-    odds_api_sport_key: icehockey_nhl
-    timezone: America/New_York
-    n_teams: 32
-    match_id_prefix: NHL
-    format: points
-
   - league_id: ncaaf
     display_name: NCAA Football
     country: United States
@@ -183,7 +173,7 @@ leagues:
     # feed, re-verified at re-addition time, not assumed from the prior
     # build. collect_espn_schedule.py sanity-checks against a wide
     # band, not exact equality, since this roster genuinely isn't fixed
-    # the way NFL/NBA/NHL's is -- see espn_api.py's
+    # the way NFL/NBA's is -- see espn_api.py's
     # fetch_real_season_games().
     n_teams: 138
     match_id_prefix: NCAAF

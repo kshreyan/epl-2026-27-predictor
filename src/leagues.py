@@ -38,7 +38,7 @@ class LeagueConfig:
     # Conference League's 36-team league phase, 8 or 6 games each) --
     # table/races/season-simulation dashboard building does not apply
     # and must not run for these; see single_table_league_ids() below.
-    # "points" (NFL, NBA, NCAA Football, NHL -- re-added 2026-10-28
+    # "points" (NFL, NBA, NCAA Football -- re-added 2026-10-28
     # after a prior full removal on 2026-10-26): real American team
     # sports, scored in points not goals -- see config/leagues.yaml's
     # note for the real data sources and model each one uses.

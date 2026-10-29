@@ -48,13 +48,13 @@ TOP20_SIZE = 20
 # is written per-league so this distinction is never glossed over.
 CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel", "uecl"]
 
-# NFL/NBA/NHL/NCAA Football (see compute_margin_survival_team_sport.py's
+# NFL/NBA/NCAA Football (see compute_margin_survival_team_sport.py's
 # module docstring): a sport-correct equivalent, not soccer's "+2
 # goals" ported literally -- each league's own real threshold is
 # anchored to its own real research/backtested margin distribution,
 # never a borrowed number (see that module's docstring for the real
 # per-league reasoning).
-TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "nhl", "ncaaf"]
+TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "ncaaf"]
 
 
 # Pick Moneyline's real-standings gate below. Both brackets started as
@@ -100,8 +100,8 @@ def _real_current_standings(preds: pd.DataFrame, league_id: str) -> pd.DataFrame
     real completed results (status == "completed",
     actual_home_goals/actual_away_goals) in `preds` (see
     _live_predictions above) -- the same already-collected real data
-    (football-data.co.uk / ESPN / nflverse / NHL api-web, per league)
-    this entire pipeline already treats as authoritative, never a
+    (football-data.co.uk / ESPN / nflverse, per league) this entire
+    pipeline already treats as authoritative, never a
     separate external standings lookup. Ranked by points-per-game
     (goal-difference tiebreak) for single_table/swiss leagues, win
     percentage (point-diff tiebreak) for the 4 points-format team
@@ -218,7 +218,7 @@ def _flag_pick_moneyline(df: pd.DataFrame, table: pd.DataFrame, preds: pd.DataFr
 
 def _confidence(row: pd.Series) -> str:
     team_n, opponent_n = row.get("team_history_n_matches"), row.get("opponent_history_n_matches")
-    # NFL/NBA/NHL/NCAA Football margin survival (compute_margin_survival_
+    # NFL/NBA/NCAA Football margin survival (compute_margin_survival_
     # team_sport.py) does not compute a real historical-tail factor
     # (team_history_n_matches/opponent_history_n_matches are always
     # null for these leagues -- a real, disclosed limitation, not a
@@ -347,7 +347,7 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
         "note": (
             "Ranked by verdict first (Pick before Lean -- Pass is excluded here), then by real price "
             "value where a real market exists, then by lowest blowout risk. Each league's own verdict is at "
-            "its own real threshold (+2 goals for soccer/UEFA, +14 points for NFL, +20 for NBA, +3 for NHL, "
+            "its own real threshold (+2 goals for soccer/UEFA, +14 points for NFL, +20 for NBA, "
             "+21 for NCAA Football -- see each row's own `threshold` field). The verdict pill on each row "
             "already synthesizes risk and price -- this is not a separate signal, and still not advice."
         ),

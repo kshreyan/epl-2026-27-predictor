@@ -7,7 +7,7 @@ real file already carries rest days, real closing spread/moneyline/
 total lines and odds, weather (temp/wind/roof/surface), and starting
 QB names -- fields ESPN's schedule endpoint does not expose at all.
 Replaces collect_espn_schedule.py/collect_espn_historical.py for NFL
-only; NBA/NHL/NCAA Football are unaffected and keep using ESPN.
+only; NBA/NCAA Football are unaffected and keep using ESPN.
 
 Output schema matches collect_espn_schedule.py/collect_espn_historical
 .py's real column contract exactly (match_id/season/matchweek/...) so

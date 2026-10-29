@@ -1,5 +1,5 @@
-"""Collect the real current-season schedule for NFL/NBA/NHL/NCAA
-Football from ESPN's site API (see espn_api.py for why this source,
+"""Collect the real current-season schedule for NFL/NBA/NCAA Football
+from ESPN's site API (see espn_api.py for why this source,
 not fixturedownload.com or Basketball-Reference). Writes two real
 outputs from the SAME fetch (no
 second pass needed, unlike the continental-cup leagues' separate
@@ -18,18 +18,18 @@ already returns real scores inline):
 ESPN's own season-year convention differs by sport and does NOT match
 either one uniformly: NFL and NCAA Football seasons are labeled by
 their START year (e.g. "season=2026" is the real Sept 2026-Feb 2027
-NFL season), NBA and NHL by their END year (e.g. "season=2027" is the
-real Oct 2026-Apr 2027 season) -- confirmed directly for all four, not
+NFL season), NBA by its END year (e.g. "season=2027" is the real Oct
+2026-Apr 2027 season) -- confirmed directly for all three, not
 assumed. ESPN_CURRENT_SEASON below translates this project's "2026-27"
 season label to each sport's own real convention.
 
-No `matchweek` concept exists for NBA or NHL (confirmed directly: no
-`week` field anywhere in the real schedule data for either, unlike
-NFL's and NCAA Football's real official week numbers) -- a synthetic
-calendar-week number (days since the real season's first game // 7) is
-used instead, purely for the same UI pagination `FixturesPage.tsx`
-already does for every other league; documented here as synthetic, not
-an official NBA/NHL schedule concept.
+No `matchweek` concept exists for NBA (confirmed directly: no `week`
+field anywhere in the real schedule data, unlike NFL's and NCAA
+Football's real official week numbers) -- a synthetic calendar-week
+number (days since the real season's first game // 7) is used
+instead, purely for the same UI pagination `FixturesPage.tsx` already
+does for every other league; documented here as synthetic, not an
+official NBA schedule concept.
 
 Real, honest limitation: ESPN's real game count for a season collected
 this early can be lower than the real full-season total (confirmed
@@ -49,7 +49,7 @@ team's real official win total can therefore differ slightly from the
 subset this project tracks if they beat an FCS opponent this season.
 
 Run: python -m src.data_collection.collect_espn_schedule --league nfl
-(also accepts nba, nhl, ncaaf)
+(also accepts nba, ncaaf)
 """
 from __future__ import annotations
 
@@ -68,7 +68,7 @@ from src.utils.versioning import log_data_version, now_utc_iso  # noqa: E402
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SOURCE_NAME = "site.api.espn.com"
 SEASON_LABEL = "2026-27"
-ESPN_CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "nhl": 2027, "ncaaf": 2026}
+ESPN_CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "ncaaf": 2026}
 
 FIXTURES_COLUMNS = [
     "match_id", "season", "matchweek", "date", "kickoff_utc", "kickoff_local",
@@ -161,6 +161,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "nhl", "ncaaf"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)
