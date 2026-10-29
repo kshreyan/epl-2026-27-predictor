@@ -1,6 +1,6 @@
 {
   "league": "nba",
-  "generated_at": "2026-10-29T05:22:31+00:00",
+  "generated_at": "2026-10-29T05:34:50+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 2400,
@@ -9,7 +9,7 @@
     "LEAN +20": 559,
     "PASS": 139
   },
-  "pick_moneyline_count": 1,
+  "pick_moneyline_count": 46,
   "engine_note": "Every team in every game: P_cover/P_push/P_fail read off a real fitted Normal margin distribution (not a discrete scoreline grid -- there isn't one for this model), at this league's own real blowout threshold (lose by more than 20 points) -- see reports/nba_model_selection_report.md for how that threshold was derived. Uses NOT the same model as this league's moneyline prediction, which is Elo-only -- the real backtest found Elo beats the point-margin model here (see reports/nba_model_selection_report.md). Treat these verdicts with real caution. Each row's verdict (PICK +20 / LEAN +20 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists.",
   "data": [
     {
@@ -10741,7 +10741,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W03_401909924_BostonCeltics_MilwaukeeBucks",
@@ -17601,7 +17601,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W04_401909301_HoustonRockets_UtahJazz",
@@ -22697,7 +22697,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W05_401909310_OklahomaCityThunder_NewOrleansPelicans",
@@ -26617,7 +26617,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W06_401909329_TorontoRaptors_BrooklynNets",
@@ -26715,7 +26715,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W06_401909327_DetroitPistons_MilwaukeeBucks",
@@ -30831,7 +30831,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W07_401910082_OklahomaCityThunder_BrooklynNets",
@@ -31811,7 +31811,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W07_401910089_PortlandTrailBlazers_UtahJazz",
@@ -33281,7 +33281,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W08_401910105_DetroitPistons_BrooklynNets",
@@ -35535,7 +35535,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W09_401910127_OklahomaCityThunder_SacramentoKings",
@@ -35633,7 +35633,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W09_401910128_HoustonRockets_MilwaukeeBucks",
@@ -36417,7 +36417,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W09_401910136_BostonCeltics_UtahJazz",
@@ -44747,7 +44747,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W11_401910216_OklahomaCityThunder_MilwaukeeBucks",
@@ -44845,7 +44845,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W11_401910217_PortlandTrailBlazers_BrooklynNets",
@@ -45139,7 +45139,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W11_401910220_DetroitPistons_NewOrleansPelicans",
@@ -47785,7 +47785,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W11_401910247_OklahomaCityThunder_UtahJazz",
@@ -48863,7 +48863,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W11_401910258_OklahomaCityThunder_SacramentoKings",
@@ -52293,7 +52293,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W12_401910293_TorontoRaptors_UtahJazz",
@@ -53665,7 +53665,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W12_401910306_DetroitPistons_UtahJazz",
@@ -56409,7 +56409,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W13_401910336_Philadelphia76ers_BrooklynNets",
@@ -57585,7 +57585,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W13_401910347_OklahomaCityThunder_UtahJazz",
@@ -57781,7 +57781,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W13_401910349_PortlandTrailBlazers_SacramentoKings",
@@ -58075,7 +58075,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W13_401910352_BostonCeltics_BrooklynNets",
@@ -66503,7 +66503,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W15_401910434_HoustonRockets_NewOrleansPelicans",
@@ -68953,7 +68953,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W15_401910459_DetroitPistons_SacramentoKings",
@@ -69247,7 +69247,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W15_401910463_OklahomaCityThunder_ChicagoBulls",
@@ -70423,7 +70423,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W16_401910474_DetroitPistons_ChicagoBulls",
@@ -71599,7 +71599,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W16_401910486_HoustonRockets_UtahJazz",
@@ -75127,7 +75127,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W16_401910523_Philadelphia76ers_BrooklynNets",
@@ -77773,7 +77773,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W17_401910549_HoustonRockets_SacramentoKings",
@@ -80125,7 +80125,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W17_401910573_PortlandTrailBlazers_ChicagoBulls",
@@ -86299,7 +86299,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W19_401910633_DetroitPistons_ChicagoBulls",
@@ -88161,7 +88161,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W20_401910651_HoustonRockets_NewOrleansPelicans",
@@ -91199,7 +91199,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W20_401910682_Philadelphia76ers_UtahJazz",
@@ -93453,7 +93453,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W21_401910705_DetroitPistons_MilwaukeeBucks",
@@ -94923,7 +94923,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W21_401910720_DetroitPistons_BrooklynNets",
@@ -96883,7 +96883,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W22_401910740_BostonCeltics_SacramentoKings",
@@ -98059,7 +98059,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W22_401910752_HoustonRockets_BrooklynNets",
@@ -100705,7 +100705,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W22_401910779_BostonCeltics_NewOrleansPelicans",
@@ -105605,7 +105605,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W23_401910829_PortlandTrailBlazers_MilwaukeeBucks",
@@ -110407,7 +110407,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W24_401910878_PortlandTrailBlazers_UtahJazz",
@@ -110603,7 +110603,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W24_401910880_OklahomaCityThunder_NewOrleansPelicans",
@@ -111387,7 +111387,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W24_401910888_HoustonRockets_ChicagoBulls",
@@ -113641,7 +113641,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W25_401910911_TorontoRaptors_BrooklynNets",
@@ -114033,7 +114033,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W25_401910915_HoustonRockets_SacramentoKings",
@@ -116287,7 +116287,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:43:05+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NBA2627_W25_401910937_BostonCeltics_MilwaukeeBucks",

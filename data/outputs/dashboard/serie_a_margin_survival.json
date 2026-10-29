@@ -1,6 +1,6 @@
 {
   "league": "serie_a",
-  "generated_at": "2026-10-29T05:22:30+00:00",
+  "generated_at": "2026-10-29T05:34:48+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 760,
@@ -9,7 +9,7 @@
     "PASS": 152,
     "LEAN +2": 98
   },
-  "pick_moneyline_count": 1,
+  "pick_moneyline_count": 17,
   "engine_note": "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same backtested Dixon-Coles score matrix used for this league's own moneyline predictions -- not a separate multi-model ensemble. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists (most fixtures have none yet -- bookmakers only post close to kickoff).",
   "data": [
     {
@@ -9173,7 +9173,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW10_093_Como_Venezia",
@@ -12113,7 +12113,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW13_124_Internazionale_Genoa",
@@ -17650,7 +17650,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW19_181_Bologna_Genoa",
@@ -19414,7 +19414,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW20_199_Sassuolo_Monza",
@@ -20149,7 +20149,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW21_206_Internazionale_Venezia",
@@ -20541,7 +20541,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW21_210_Roma_Udinese",
@@ -20933,7 +20933,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW22_214_Lazio_Venezia",
@@ -23285,7 +23285,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW24_238_Roma_Parma",
@@ -23824,7 +23824,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW25_244_Juventus_Bologna",
@@ -25343,7 +25343,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW26_259_Roma_Venezia",
@@ -26470,7 +26470,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW28_271_Bologna_Napoli",
@@ -26715,7 +26715,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW28_273_Como_Udinese",
@@ -28822,7 +28822,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW30_295_Lecce_Lazio",
@@ -34310,7 +34310,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW36_351_Bologna_Frosinone",
@@ -36270,7 +36270,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW38_371_Bologna_Parma",
@@ -36515,7 +36515,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:45:46+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "SERIEA2627_MW38_373_Como_Genoa",

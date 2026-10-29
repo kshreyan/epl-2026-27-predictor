@@ -154,32 +154,32 @@ def _parse_own_score(predicted_score_model_only, is_home: bool) -> tuple[int, in
 
 
 def _flag_pick_moneyline(df: pd.DataFrame, table: pd.DataFrame, preds: pd.DataFrame) -> pd.Series:
-    """True on a team's own row exactly when, for the NEXT real
-    upcoming round/slate in this league: that team has a real ELITE
-    SURVIVAL PICK verdict, its opponent in that same match is HIGH
-    BLOWOUT RISK, this team's own predicted score beats the opponent's
-    own predicted score, AND the real current standings (see
-    _real_current_standings above) place this team in the real top
-    quartile and the opponent in the real bottom quartile. A genuine
-    convergence of model risk tier, model scoreline, and real external
-    league position -- any one of those alone does not set the flag.
+    """True on a team's own row exactly when: that team has a real
+    ELITE SURVIVAL PICK verdict, its opponent in that same match is
+    HIGH BLOWOUT RISK, this team's own predicted score beats the
+    opponent's own predicted score, AND the real current standings
+    (see _real_current_standings above) place this team in the real
+    top quartile and the opponent in the real bottom quartile. A
+    genuine convergence of model risk tier, model scoreline, and real
+    external league position -- any one of those alone does not set
+    the flag.
 
-    "Next round" is read from `preds` (the live-tracked predictions
-    file), NOT from df's own status/matchweek -- see _live_predictions'
-    docstring for why those can be stale for the 4 points-format team
-    sports."""
+    Checked across EVERY real upcoming fixture in the league (not just
+    the next round/slate) -- by design: this is a complete, thorough
+    scan for the compound signal wherever it currently holds, not a
+    near-term-only shortlist. "Upcoming" is read from `preds` (the
+    live-tracked predictions file), NOT from df's own status/matchweek
+    -- see _live_predictions' docstring for why those can be stale for
+    the 4 points-format team sports."""
     flags = pd.Series(False, index=df.index)
     if preds.empty:
         return flags
     live_status = df["match_id"].map(preds["status"])
-    live_matchweek = df["match_id"].map(preds["matchweek"])
     scheduled = df[live_status == "scheduled"]
     if scheduled.empty or table.empty:
         return flags
-    next_mw = live_matchweek.loc[scheduled.index].min()
-    next_round = scheduled[live_matchweek.loc[scheduled.index] == next_mw]
 
-    for match_id, grp in next_round.groupby("match_id"):
+    for match_id, grp in scheduled.groupby("match_id"):
         if len(grp) != 2:
             continue
         blowout = grp[grp["risk_label"] == "HIGH BLOWOUT RISK"]
@@ -344,11 +344,12 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
 
 def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
     """Cross-league spotlight list of every row _flag_pick_moneyline()
-    set True, scoped to each league's own next scheduled round/slate
-    (see that function's docstring) -- the compound signal from this
-    session's request: an ELITE SURVIVAL real PICK verdict, a HIGH
-    BLOWOUT RISK opponent, a better own predicted scoreline, and a real
-    top-quartile-vs-bottom-quartile current-standings gap, all at once."""
+    set True -- a complete, thorough scan of EVERY real upcoming
+    fixture in every covered league, not just the next round/slate
+    (see that function's docstring for why). The compound signal: an
+    ELITE SURVIVAL real PICK verdict, a HIGH BLOWOUT RISK opponent, a
+    better own predicted scoreline, and a real top-quartile-vs-bottom-
+    quartile current-standings gap, all at once."""
     frames = []
     for league_id, df in all_leagues.items():
         if df.empty or "pick_moneyline" not in df.columns:
@@ -364,10 +365,9 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
             "generated_at": now_utc_iso(), "model_version": MODEL_VERSION, "season": "2026-27",
             "record_count": 0, "data": [],
             "note": (
-                "No match in the next scheduled round/slate of any covered league currently has this "
-                "compound signal: a real ELITE SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a "
-                "better own predicted scoreline, and a real top-quartile-vs-bottom-quartile gap in the "
-                "current real standings, all at once."
+                "No upcoming match in any covered league currently has this compound signal: a real ELITE "
+                "SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a better own predicted scoreline, and "
+                "a real top-quartile-vs-bottom-quartile gap in the current real standings, all at once."
             ),
         })
         return
@@ -376,12 +376,14 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
     payload = {
         "generated_at": now_utc_iso(), "model_version": MODEL_VERSION, "season": "2026-27",
         "note": (
-            "Each row is the FAVORED team in a match where, for the next scheduled round/slate in its "
-            "league: this team has a real ELITE SURVIVAL PICK verdict, its opponent is HIGH BLOWOUT RISK, "
-            "this team's own predicted scoreline is higher, and the real current league standings "
-            "(computed directly from this season's own real completed results) place this team in the "
-            "real top quartile and its opponent in the real bottom quartile. A convergence signal across "
-            "risk tier, model scoreline, and real external league position -- not advice, and not a guarantee."
+            "Every real upcoming fixture in every covered league was scanned, not just the next round/slate. "
+            "Each row is the FAVORED team in a match where: this team has a real ELITE SURVIVAL PICK verdict, "
+            "its opponent is HIGH BLOWOUT RISK, this team's own predicted scoreline is higher, and the real "
+            "current league standings (computed directly from this season's own real completed results) "
+            "place this team in the real top quartile and its opponent in the real bottom quartile. A "
+            "convergence signal across risk tier, model scoreline, and real external league position -- "
+            "not advice, and not a guarantee. A fixture far in the future carries real uncertainty of its "
+            "own (form, injuries, and lineups can all change before kickoff) -- see each row's own date."
         ),
         "record_count": len(combined),
         "data": _to_records(combined),

@@ -1,6 +1,6 @@
 {
   "league": "ucl",
-  "generated_at": "2026-10-29T05:22:30+00:00",
+  "generated_at": "2026-10-29T05:34:49+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 288,
@@ -9,7 +9,7 @@
     "PASS": 116,
     "LEAN +2": 26
   },
-  "pick_moneyline_count": 3,
+  "pick_moneyline_count": 7,
   "engine_note": "Every team in every match, every round: P_cover/P_push/P_fail read directly off this competition's own separately-fit Dixon-Coles score matrix -- NOT the same model as this competition's moneyline prediction, which is Elo-only (the real backtest found Elo clearly beats Dixon-Coles here -- see reports/ucl_model_selection_report.md). Treat these verdicts with real caution. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists.",
   "data": [
     {
@@ -7850,7 +7850,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UCL2627_MW05_009_Como_AEKAthens",
@@ -7899,7 +7899,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UCL2627_MW05_009_Como_AEKAthens",
@@ -9957,7 +9957,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UCL2627_MW06_030_Liverpool_Porto",
@@ -13926,7 +13926,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:10+00:00",
       "data_confidence": "moderate",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UCL2627_MW08_071_SlovanBratislava_InterMilan",

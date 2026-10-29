@@ -1,6 +1,6 @@
 {
   "league": "epl",
-  "generated_at": "2026-10-29T05:22:30+00:00",
+  "generated_at": "2026-10-29T05:34:47+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 760,
@@ -9,7 +9,7 @@
     "PASS": 140,
     "LEAN +2": 122
   },
-  "pick_moneyline_count": 0,
+  "pick_moneyline_count": 16,
   "engine_note": "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same backtested Dixon-Coles score matrix used for this league's own moneyline predictions -- not a separate multi-model ensemble. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists (most fixtures have none yet -- bookmakers only post close to kickoff).",
   "data": [
     {
@@ -12407,7 +12407,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW13_127_Liverpool_Sunderland",
@@ -14857,7 +14857,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW16_152_Arsenal_ManchesterUnited",
@@ -15984,7 +15984,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW17_164_Everton_Sunderland",
@@ -18287,7 +18287,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW19_187_Liverpool_CoventryCity",
@@ -20247,7 +20247,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW21_207_Liverpool_CrystalPalace",
@@ -20345,7 +20345,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW21_208_ManchesterCity_NottinghamForest",
@@ -23726,7 +23726,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW25_243_CrystalPalace_Brentford",
@@ -26617,7 +26617,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW28_272_Arsenal_CrystalPalace",
@@ -26911,7 +26911,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW28_275_Chelsea_CoventryCity",
@@ -27842,7 +27842,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW29_285_CrystalPalace_Fulham",
@@ -28479,7 +28479,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW30_291_Arsenal_Sunderland",
@@ -28675,7 +28675,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW30_293_Brighton&HoveAlbion_CoventryCity",
@@ -29165,7 +29165,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW30_298_ManchesterCity_ManchesterUnited",
@@ -29802,7 +29802,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW31_305_CrystalPalace_Everton",
@@ -31125,7 +31125,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW32_318_ManchesterCity_CrystalPalace",
@@ -34359,7 +34359,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:56+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "EPL2627_MW36_351_Arsenal_NottinghamForest",

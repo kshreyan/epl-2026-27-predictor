@@ -1,6 +1,6 @@
 {
   "league": "nfl",
-  "generated_at": "2026-10-29T05:22:30+00:00",
+  "generated_at": "2026-10-29T05:34:49+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 544,
@@ -9,7 +9,7 @@
     "LEAN +14": 143,
     "PASS": 87
   },
-  "pick_moneyline_count": 0,
+  "pick_moneyline_count": 8,
   "engine_note": "Every team in every game: P_cover/P_push/P_fail read off a real fitted Normal margin distribution (not a discrete scoreline grid -- there isn't one for this model), at this league's own real blowout threshold (lose by more than 14 points) -- see reports/nfl_model_selection_report.md for how that threshold was derived. Uses the same point-margin model used for this league's own moneyline prediction. Each row's verdict (PICK +14 / LEAN +14 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists.",
   "data": [
     {
@@ -14857,7 +14857,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:42:55+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NFL2627_W11_2026_11_MIA_BUF",
@@ -15053,7 +15053,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:42:55+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NFL2627_W11_2026_11_NO_CHI",
@@ -15347,7 +15347,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:42:55+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NFL2627_W11_2026_11_ARI_KC",
@@ -18483,7 +18483,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:42:55+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NFL2627_W13_2026_13_MIA_DEN",
@@ -22795,7 +22795,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:42:55+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NFL2627_W16_2026_16_WAS_MIN",
@@ -23873,7 +23873,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:42:55+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NFL2627_W17_2026_17_IND_CLE",
@@ -24951,7 +24951,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:42:55+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NFL2627_W17_2026_17_PHI_SF",
@@ -25637,7 +25637,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-29T04:42:55+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "NFL2627_W18_2026_18_LAC_DEN",

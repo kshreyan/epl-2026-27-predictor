@@ -1,6 +1,6 @@
 {
   "league": "uel",
-  "generated_at": "2026-10-29T05:22:30+00:00",
+  "generated_at": "2026-10-29T05:34:49+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 288,
@@ -9,7 +9,7 @@
     "PASS": 105,
     "LEAN +2": 23
   },
-  "pick_moneyline_count": 2,
+  "pick_moneyline_count": 12,
   "engine_note": "Every team in every match, every round: P_cover/P_push/P_fail read directly off this competition's own separately-fit Dixon-Coles score matrix -- NOT the same model as this competition's moneyline prediction, which is Elo-only (the real backtest found Elo clearly beats Dixon-Coles here -- see reports/uel_model_selection_report.md). Treat these verdicts with real caution. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists.",
   "data": [
     {
@@ -7360,7 +7360,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW05_004_UnionSaint-Gilloise_LechPoznan",
@@ -7409,7 +7409,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW05_004_UnionSaint-Gilloise_LechPoznan",
@@ -7801,7 +7801,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW05_008_Besiktas_HapoelBeerSheva",
@@ -8095,7 +8095,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW05_011_Ferencvaros_Celje",
@@ -9516,7 +9516,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW06_026_FCArarat-Armenia_N.E.C.",
@@ -10300,7 +10300,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW06_034_Bournemouth_ViktoriaPlzen",
@@ -10349,7 +10349,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW06_034_Bournemouth_ViktoriaPlzen",
@@ -11378,7 +11378,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW07_045_FCArarat-Armenia_Celje",
@@ -12995,7 +12995,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "moderate",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW08_061_UnionSaint-Gilloise_Celtic",
@@ -13387,7 +13387,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-10-28T11:44:19+00:00",
       "data_confidence": "low",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "UEL2627_MW08_065_Bournemouth_HapoelBeerSheva",
