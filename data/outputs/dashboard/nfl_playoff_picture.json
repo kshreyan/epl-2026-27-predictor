@@ -1,6 +1,6 @@
 {
   "league": "nfl",
-  "generated_at": "2026-10-30T11:46:18+00:00",
+  "generated_at": "2026-10-31T11:19:58+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 32,
@@ -25,7 +25,7 @@
       "prob_seed_5": 0.0461,
       "prob_seed_6": 0.0467,
       "prob_seed_7": 0.0498,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -45,7 +45,7 @@
       "prob_seed_5": 0.1025,
       "prob_seed_6": 0.0871,
       "prob_seed_7": 0.0729,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -65,7 +65,7 @@
       "prob_seed_5": 0.0048,
       "prob_seed_6": 0.011,
       "prob_seed_7": 0.0201,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -85,7 +85,7 @@
       "prob_seed_5": 0.1674,
       "prob_seed_6": 0.1388,
       "prob_seed_7": 0.1096,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -105,7 +105,7 @@
       "prob_seed_5": 0.141,
       "prob_seed_6": 0.1038,
       "prob_seed_7": 0.0912,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -125,7 +125,7 @@
       "prob_seed_5": 0.1506,
       "prob_seed_6": 0.1428,
       "prob_seed_7": 0.1227,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -145,7 +145,7 @@
       "prob_seed_5": 0.1482,
       "prob_seed_6": 0.1399,
       "prob_seed_7": 0.117,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -165,7 +165,7 @@
       "prob_seed_5": 0.0736,
       "prob_seed_6": 0.0908,
       "prob_seed_7": 0.0963,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -185,7 +185,7 @@
       "prob_seed_5": 0.1025,
       "prob_seed_6": 0.117,
       "prob_seed_7": 0.1174,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -205,7 +205,7 @@
       "prob_seed_5": 0.0324,
       "prob_seed_6": 0.0514,
       "prob_seed_7": 0.0703,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -225,7 +225,7 @@
       "prob_seed_5": 0.0068,
       "prob_seed_6": 0.0154,
       "prob_seed_7": 0.0286,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -245,7 +245,7 @@
       "prob_seed_5": 0.0045,
       "prob_seed_6": 0.0113,
       "prob_seed_7": 0.024,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -265,7 +265,7 @@
       "prob_seed_5": 0.0111,
       "prob_seed_6": 0.0261,
       "prob_seed_7": 0.0402,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -285,7 +285,7 @@
       "prob_seed_5": 0.0055,
       "prob_seed_6": 0.0104,
       "prob_seed_7": 0.024,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -305,7 +305,7 @@
       "prob_seed_5": 0.0008,
       "prob_seed_6": 0.0029,
       "prob_seed_7": 0.0079,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -325,7 +325,7 @@
       "prob_seed_5": 0.0022,
       "prob_seed_6": 0.0046,
       "prob_seed_7": 0.008,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -345,7 +345,7 @@
       "prob_seed_5": 0.1939,
       "prob_seed_6": 0.097,
       "prob_seed_7": 0.0583,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -365,7 +365,7 @@
       "prob_seed_5": 0.0584,
       "prob_seed_6": 0.0619,
       "prob_seed_7": 0.0556,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -385,7 +385,7 @@
       "prob_seed_5": 0.2356,
       "prob_seed_6": 0.1759,
       "prob_seed_7": 0.1245,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -405,7 +405,7 @@
       "prob_seed_5": 0.0098,
       "prob_seed_6": 0.0266,
       "prob_seed_7": 0.0393,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -425,7 +425,7 @@
       "prob_seed_5": 0.1683,
       "prob_seed_6": 0.1632,
       "prob_seed_7": 0.1368,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -445,7 +445,7 @@
       "prob_seed_5": 0.1654,
       "prob_seed_6": 0.1767,
       "prob_seed_7": 0.1487,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -465,7 +465,7 @@
       "prob_seed_5": 0.0904,
       "prob_seed_6": 0.1164,
       "prob_seed_7": 0.1238,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -485,7 +485,7 @@
       "prob_seed_5": 0.0036,
       "prob_seed_6": 0.0113,
       "prob_seed_7": 0.0249,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -505,7 +505,7 @@
       "prob_seed_5": 0.0034,
       "prob_seed_6": 0.0122,
       "prob_seed_7": 0.0261,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -525,7 +525,7 @@
       "prob_seed_5": 0.0165,
       "prob_seed_6": 0.034,
       "prob_seed_7": 0.0596,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -545,7 +545,7 @@
       "prob_seed_5": 0.0371,
       "prob_seed_6": 0.0701,
       "prob_seed_7": 0.0877,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -565,7 +565,7 @@
       "prob_seed_5": 0.003,
       "prob_seed_6": 0.0074,
       "prob_seed_7": 0.0176,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -585,7 +585,7 @@
       "prob_seed_5": 0.0011,
       "prob_seed_6": 0.0052,
       "prob_seed_7": 0.0152,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -605,7 +605,7 @@
       "prob_seed_5": 0.0045,
       "prob_seed_6": 0.0141,
       "prob_seed_7": 0.0271,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -625,7 +625,7 @@
       "prob_seed_5": 0.0022,
       "prob_seed_6": 0.0096,
       "prob_seed_7": 0.0218,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -645,7 +645,7 @@
       "prob_seed_5": 0.0068,
       "prob_seed_6": 0.0184,
       "prob_seed_7": 0.033,
-      "generated_at": "2026-10-30T11:45:48+00:00",
+      "generated_at": "2026-10-31T11:19:05+00:00",
       "model_version": "0.1.0-phase1"
     }
   ]
