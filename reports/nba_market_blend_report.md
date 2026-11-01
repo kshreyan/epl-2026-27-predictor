@@ -1,6 +1,6 @@
 # NBA Model+Market Blend Report
 
-Generated: 2026-10-28T20:26:38+00:00
+Generated: 2026-11-01T15:48:57+00:00
 
 Real backtest on 973 real games with a real closing moneyline (ESPN game-summary pickcenter): Elo-only's own real probability vs. a 50/50 logit-space blend with the real closing line, de-vigged by this league's own real backtested-best method (**power**).
 

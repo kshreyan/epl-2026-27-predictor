@@ -1,6 +1,6 @@
 # NBA Calibration Report
 
-Generated: 2026-10-28T20:27:14+00:00
+Generated: 2026-11-01T15:49:04+00:00
 
 Calibration method: **isotonic** (isotonic regression per outcome class, fit on 6108 real backtest games; minimum 500 real samples required).
 
