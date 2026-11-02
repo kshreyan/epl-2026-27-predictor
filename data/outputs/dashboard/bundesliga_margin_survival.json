@@ -1,6 +1,6 @@
 {
   "league": "bundesliga",
-  "generated_at": "2026-11-01T12:12:42+00:00",
+  "generated_at": "2026-11-02T01:51:07+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 612,
@@ -9,7 +9,7 @@
     "PASS": 153,
     "LEAN +2": 85
   },
-  "pick_moneyline_count": 42,
+  "pick_moneyline_count": 37,
   "engine_note": "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same backtested Dixon-Coles score matrix used for this league's own moneyline predictions -- not a separate multi-model ensemble. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists (most fixtures have none yet -- bookmakers only post close to kickoff).",
   "data": [
     {
@@ -15396,7 +15396,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:12:08+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "BUNDESLIGA2627_MW18_158_BorussiaM\u00f6nchengladbach_RBLeipzig",
@@ -16425,7 +16425,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:12:08+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "BUNDESLIGA2627_MW19_168_Sport-ClubFreiburg_SCPaderborn07",
@@ -18728,7 +18728,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:12:08+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "BUNDESLIGA2627_MW22_192_SVWerderBremen_BorussiaDortmund",
@@ -28381,7 +28381,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:12:08+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "BUNDESLIGA2627_MW33_290_SVWerderBremen_FCSchalke04",
@@ -29851,7 +29851,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:12:08+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "BUNDESLIGA2627_MW34_305_RBLeipzig_TSGHoffenheim",
