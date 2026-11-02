@@ -1,10 +1,10 @@
 match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
-LIGUE12627_MW08_072_ToulouseFC_EstacTroyes,8,Toulouse FC,Estac Troyes,draw,0.2233,0.6528,0.2233,0.1239,1.4992,2026-10-27T11:12:05+00:00
-LIGUE12627_MW08_065_AJAuxerre_LeMansFC,8,AJ Auxerre,Le Mans FC,draw,0.2335,0.5002,0.2335,0.2664,1.4546,2026-10-27T11:12:05+00:00
-LIGUE12627_MW08_069_ASMonaco_LOSCLille,8,AS Monaco,LOSC Lille,draw,0.2796,0.4153,0.2796,0.3051,1.2744,2026-10-27T11:12:05+00:00
-LIGUE12627_MW08_066_StadeBrestois29_OGCNice,8,Stade Brestois 29,OGC Nice,away_win,0.2963,0.4481,0.2557,0.2963,1.2164,2026-10-27T11:12:05+00:00
-LIGUE12627_MW08_064_AngersSCO_FCLorient,8,Angers SCO,FC Lorient,draw,0.297,0.3029,0.297,0.4001,1.214,2026-10-27T11:12:05+00:00
-LIGUE12627_MW08_067_RCLens_ParisFC,8,RC Lens,Paris FC,home_win,0.4663,0.4663,0.2517,0.282,0.7629,2026-10-27T11:12:05+00:00
-LIGUE12627_MW08_071_StadeRennaisFC_RCStrasbourgAlsace,8,Stade Rennais FC,RC Strasbourg Alsace,home_win,0.5238,0.5238,0.2108,0.2654,0.6466,2026-10-27T11:12:05+00:00
-LIGUE12627_MW08_068_OlympiquedeMarseille_HavreAthleticClub,8,Olympique de Marseille,Havre Athletic Club,home_win,0.6333,0.6333,0.2063,0.1604,0.4568,2026-10-27T11:12:05+00:00
-LIGUE12627_MW08_070_ParisSaint-Germain_OlympiqueLyonnais,8,Paris Saint-Germain,Olympique Lyonnais,home_win,0.6426,0.6426,0.1858,0.1717,0.4422,2026-10-27T11:12:05+00:00
+BUNDESLIGA2627_MW08_072_FCBayernMünchen_BorussiaDortmund,8,FC Bayern München,Borussia Dortmund,draw,0.1968,0.6594,0.1968,0.1438,1.6256,2026-11-02T13:58:57+00:00
+BUNDESLIGA2627_MW08_071_Bayer04Leverkusen_VfBStuttgart,8,Bayer 04 Leverkusen,VfB Stuttgart,away_win,0.2064,0.5371,0.2565,0.2064,1.5779,2026-11-02T13:58:57+00:00
+BUNDESLIGA2627_MW08_067_BorussiaMönchengladbach_SCPaderborn07,8,Borussia Mönchengladbach,SC Paderborn 07,draw,0.2329,0.5482,0.2329,0.2189,1.4571,2026-11-02T13:58:57+00:00
+BUNDESLIGA2627_MW08_068_1.FCUnionBerlin_1.FCKöln,8,1. FC Union Berlin,1. FC Köln,draw,0.2616,0.4166,0.2616,0.3219,1.3409,2026-11-02T13:58:57+00:00
+BUNDESLIGA2627_MW08_066_SVWerderBremen_TSGHoffenheim,8,SV Werder Bremen,TSG Hoffenheim,home_win,0.3411,0.3411,0.2758,0.3831,1.0756,2026-11-02T13:58:57+00:00
+BUNDESLIGA2627_MW08_069_FCAugsburg_Sport-ClubFreiburg,8,FC Augsburg,Sport-Club Freiburg,away_win,0.342,0.3765,0.2815,0.342,1.0729,2026-11-02T13:58:57+00:00
+BUNDESLIGA2627_MW08_064_SVElversberg_1.FSVMainz05,8,SV Elversberg,1. FSV Mainz 05,home_win,0.4079,0.4079,0.2841,0.308,0.8967,2026-11-02T13:58:57+00:00
+BUNDESLIGA2627_MW08_065_FCSchalke04_RBLeipzig,8,FC Schalke 04,RB Leipzig,away_win,0.5389,0.229,0.2321,0.5389,0.6182,2026-11-02T13:58:57+00:00
+BUNDESLIGA2627_MW08_070_EintrachtFrankfurt_HamburgerSV,8,Eintracht Frankfurt,Hamburger SV,home_win,0.5638,0.5638,0.2238,0.2125,0.5731,2026-11-02T13:58:57+00:00

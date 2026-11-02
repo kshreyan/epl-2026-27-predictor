@@ -1,6 +1,6 @@
 {
   "league": "ncaaf",
-  "generated_at": "2026-11-01T12:10:24+00:00",
+  "generated_at": "2026-11-02T14:00:38+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 4,
@@ -172,7 +172,7 @@
     "raw_log_loss": 0.5923,
     "calibrated_log_loss": 0.567,
     "n_matches": 3680,
-    "generated_at": "2026-10-29T04:36:44+00:00"
+    "generated_at": "2026-11-01T15:49:08+00:00"
   },
   "ensemble_per_season_comparison": [],
   "data": [
