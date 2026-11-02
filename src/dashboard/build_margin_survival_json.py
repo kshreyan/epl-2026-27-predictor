@@ -74,19 +74,6 @@ TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "ncaaf"]
 TOP_FRACTION = 1 / 3
 BOTTOM_FRACTION = 0.5
 
-# Pick Moneyline's 3-way win-probability gate: the real fair baseline
-# for a 3-outcome (win/draw/loss) market is 1/3 each -- "significantly"
-# more/less than that (not just a bare ">"/"<", which a near-coin-flip
-# match could still clear) needs a real buffer either side.
-# SIGNIFICANCE_MARGIN=0.10 was chosen by checking its real effect on
-# the already-flagged population, not guessed: a bare >1/3/<1/3 lets
-# 245 of 383 real matches through; a 10-point buffer each side tightens
-# that to 220 -- a real, meaningful cut (excludes matches where the
-# "losing" side or the draw is still close to a fair three-way
-# coin-flip), not a no-op.
-FAIR_THIRD_PROB = 1 / 3
-SIGNIFICANCE_MARGIN = 0.10
-
 
 def _live_predictions(league_id: str) -> pd.DataFrame:
     """data/outputs/{league}_2026_27_match_predictions.csv, indexed by
@@ -182,55 +169,15 @@ def _parse_own_score(predicted_score_model_only, is_home: bool) -> tuple[int, in
     return (h, a) if is_home else (a, h)
 
 
-def _real_moneyline_probs(preds: pd.DataFrame, match_id: str, is_home: bool) -> tuple[float, float, float] | None:
-    """(this team's real moneyline win prob, real draw prob, opponent's
-    real moneyline win prob) from `preds`' own
-    home_win_prob_model_only/draw_prob_model_only/
-    away_win_prob_model_only -- the REAL probabilities `moneyline_pick`
-    itself is based on, read fresh per match rather than reused from
-    the margin-survival engine's own win_prob/draw_prob.
-
-    This distinction is NOT cosmetic: for UCL/UEL/UECL (Dixon-Coles
-    powers margin survival there, but the real backtest found Elo
-    clearly wins the actual moneyline -- see compute_margin_survival_
-    continental.py) and for NBA/NCAA Football (the point-margin model
-    powers margin survival, but Elo-only real-backtest-wins the
-    moneyline there -- see compute_margin_survival_team_sport.py),
-    these two numbers can disagree sharply. Confirmed directly this
-    session on a real fixture (UCL MW4, Como vs RC Lens): margin
-    survival's own win_prob had Como at 78% and ELITE SURVIVAL, but
-    the REAL moneyline model -- the one real backtesting actually
-    found best for this league -- had Como at just 39%, a near
-    three-way toss-up (RC Lens 37%, draw 24%). Pick Moneyline's whole
-    point is "a significant real win probability", so it must read
-    the real moneyline model's own number, never the (sometimes
-    weaker, always different) model that happens to power the +2
-    engine for that league."""
-    if match_id not in preds.index:
-        return None
-    row = preds.loc[match_id]
-    home_win, draw, away_win = row.get("home_win_prob_model_only"), row.get("draw_prob_model_only"), row.get("away_win_prob_model_only")
-    if pd.isna(home_win) or pd.isna(draw) or pd.isna(away_win):
-        return None
-    return (home_win, draw, away_win) if is_home else (away_win, draw, home_win)
-
-
 def _flag_pick_moneyline(df: pd.DataFrame, table: pd.DataFrame, preds: pd.DataFrame) -> pd.Series:
     """True on a team's own row exactly when: that team has a real
     ELITE SURVIVAL PICK verdict, its opponent in that same match is
     HIGH BLOWOUT RISK, this team's own predicted score beats the
-    opponent's own predicted score, the real current standings (see
-    _real_current_standings above) place this team in the real top
-    third and the opponent in the real bottom half, AND this team's
-    REAL moneyline win probability (see _real_moneyline_probs above --
-    NOT margin survival's own win_prob, which can come from a
-    different, sometimes-weaker model) is significantly above the
-    fair 1/3 baseline while the real draw and the opponent's real
-    moneyline win probability are both significantly below it (see
-    FAIR_THIRD_PROB/SIGNIFICANCE_MARGIN above) -- a genuine
-    convergence of model risk tier, model scoreline, real external
-    league position, AND the real moneyline model's own 3-way win
-    probability, never any one of those alone.
+    opponent's own predicted score, AND the real current standings
+    (see _real_current_standings above) place this team in the real
+    top third and the opponent in the real bottom half. A genuine
+    convergence of model risk tier, model scoreline, and real external
+    league position -- any one of those alone does not set the flag.
 
     Checked across EVERY real upcoming fixture in the league (not just
     the next round/slate) -- by design: this is a complete, thorough
@@ -264,24 +211,8 @@ def _flag_pick_moneyline(df: pd.DataFrame, table: pd.DataFrame, preds: pd.DataFr
         if b_score is None or e_score is None or not (b_score[0] < e_score[0]):
             continue
 
-        if not (_table_position(table, e["team"]) == "top" and _table_position(table, b["team"]) == "bottom"):
-            continue
-
-        # The REAL moneyline model's own win/draw probabilities -- see
-        # _real_moneyline_probs' docstring for why this must NOT be
-        # margin survival's own win_prob/draw_prob for every league.
-        real_probs = _real_moneyline_probs(preds, match_id, bool(e["is_home"]))
-        if real_probs is None:
-            continue
-        e_win, e_draw, b_win = real_probs
-        if not (
-            e_win >= FAIR_THIRD_PROB + SIGNIFICANCE_MARGIN
-            and e_draw <= FAIR_THIRD_PROB - SIGNIFICANCE_MARGIN
-            and b_win <= FAIR_THIRD_PROB - SIGNIFICANCE_MARGIN
-        ):
-            continue
-
-        flags.loc[e_idx] = True
+        if _table_position(table, e["team"]) == "top" and _table_position(table, b["team"]) == "bottom":
+            flags.loc[e_idx] = True
     return flags
 
 
@@ -432,9 +363,8 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
     fixture in every covered league, not just the next round/slate
     (see that function's docstring for why). The compound signal: an
     ELITE SURVIVAL real PICK verdict, a HIGH BLOWOUT RISK opponent, a
-    better own predicted scoreline, a real top-third-vs-bottom-half
-    current-standings gap, and a real 3-way win probability
-    significantly clear of the fair 1/3 baseline, all at once."""
+    better own predicted scoreline, and a real top-third-vs-bottom-
+    half current-standings gap, all at once."""
     frames = []
     for league_id, df in all_leagues.items():
         if df.empty or "pick_moneyline" not in df.columns:
@@ -451,9 +381,8 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
             "record_count": 0, "data": [],
             "note": (
                 "No upcoming match in any covered league currently has this compound signal: a real ELITE "
-                "SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a better own predicted scoreline, a "
-                "real top-third-vs-bottom-half gap in the current real standings, and a real 3-way win "
-                "probability significantly clear of the fair 1/3 baseline, all at once."
+                "SURVIVAL PICK verdict, a HIGH BLOWOUT RISK opponent, a better own predicted scoreline, and "
+                "a real top-third-vs-bottom-half gap in the current real standings, all at once."
             ),
         })
         return
@@ -466,13 +395,10 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
             "Each row is the FAVORED team in a match where: this team has a real ELITE SURVIVAL PICK verdict, "
             "its opponent is HIGH BLOWOUT RISK, this team's own predicted scoreline is higher, and the real "
             "current league standings (computed directly from this season's own real completed results) "
-            "place this team in the real top third and its opponent in the real bottom half, and this "
-            "team's own real win probability is significantly above the fair 1/3 baseline while the draw "
-            "and the opponent's win probability are both significantly below it. A convergence signal "
-            "across risk tier, model scoreline, real external league position, and the model's own 3-way "
-            "win probability -- not advice, and not a guarantee. A fixture far in the future carries real "
-            "uncertainty of its own (form, injuries, and lineups can all change before kickoff) -- see "
-            "each row's own date."
+            "place this team in the real top third and its opponent in the real bottom half. A "
+            "convergence signal across risk tier, model scoreline, and real external league position -- "
+            "not advice, and not a guarantee. A fixture far in the future carries real uncertainty of its "
+            "own (form, injuries, and lineups can all change before kickoff) -- see each row's own date."
         ),
         "record_count": len(combined),
         "data": _to_records(combined),
