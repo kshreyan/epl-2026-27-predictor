@@ -1,6 +1,6 @@
 {
   "league": "uecl",
-  "generated_at": "2026-11-02T01:51:07+00:00",
+  "generated_at": "2026-11-02T02:01:42+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 216,
@@ -9,7 +9,7 @@
     "PASS": 63,
     "LEAN +2": 17
   },
-  "pick_moneyline_count": 13,
+  "pick_moneyline_count": 1,
   "engine_note": "Every team in every match, every round: P_cover/P_push/P_fail read directly off this competition's own separately-fit Dixon-Coles score matrix -- NOT the same model as this competition's moneyline prediction, which is Elo-only (the real backtest found Elo clearly beats Dixon-Coles here -- see reports/uecl_model_selection_report.md). Treat these verdicts with real caution. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists.",
   "data": [
     {
@@ -4028,7 +4028,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_096_Trabzonspor_SCFreiburg",
@@ -4469,7 +4469,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_100_ASMonaco_FCNordsjaelland",
@@ -4567,7 +4567,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_101_FCCopenhagen_FCIberia1999",
@@ -4665,7 +4665,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_102_Panathinaikos_CSKASofia",
@@ -4959,7 +4959,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW03_105_FCTwente_Pafos",
@@ -6968,7 +6968,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW04_018_CSKASofia_Trabzonspor",
@@ -7801,7 +7801,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_026_Trabzonspor_Jablonec",
@@ -8389,7 +8389,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_032_HajdukSplit_FCNordsjaelland",
@@ -8536,7 +8536,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW05_034_FCThun_Gent",
@@ -9173,7 +9173,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_040_ASMonaco_LincolnRedImps",
@@ -9320,7 +9320,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_042_CrvenaZvezda_Trabzonspor",
@@ -9859,7 +9859,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-01T12:09:21+00:00",
       "data_confidence": "low",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "UECL2627_MW06_047_FCTwente_FCKairat",
