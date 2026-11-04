@@ -48,7 +48,16 @@ def devig_shin(decimal_odds: tuple[float, ...]) -> tuple[float, ...]:
     Shin's method. Falls back to simple proportional normalization if
     the real book has (near) zero overround (B <= 1 + 1e-9) -- Shin's
     z-root is only meaningfully defined for a real positive overround,
-    and a (near-)fair raw book needs no correction in the first place."""
+    and a (near-)fair raw book needs no correction in the first place.
+    ALSO falls back the same way if brentq can't bracket a real root
+    at all (ValueError: "f(a) and f(b) must have different signs") --
+    confirmed directly this session as a real production break: one
+    malformed real quote (implied probability >= 1, i.e. a decimal
+    odds value at or below 1.0 -- not a valid real market price, but a
+    real data glitch from an upstream source this project does not
+    control) can push the residual positive at both ends of the
+    bracket, and this function must never let one bad real quote crash
+    the entire weekly pipeline for every league."""
     raw_probs = [1.0 / o for o in decimal_odds]
     b = sum(raw_probs)
     if b <= 1.0 + 1e-9:
@@ -61,14 +70,19 @@ def devig_shin(decimal_odds: tuple[float, ...]) -> tuple[float, ...]:
     # there is still overround to remove); z just under 1 drives every
     # fair probability toward its own raw share's extreme -- the real
     # root sits inside (0, 1) for any real positive overround.
-    z = brentq(residual, 0.0, 1.0 - 1e-9, xtol=1e-10)
+    try:
+        z = brentq(residual, 0.0, 1.0 - 1e-9, xtol=1e-10)
+    except ValueError:
+        return tuple(p / b for p in raw_probs)
     return tuple(_shin_fair_probs(raw_probs, z))
 
 
 def devig_power(decimal_odds: tuple[float, ...]) -> tuple[float, ...]:
     """Fair (de-vigged) probabilities for an n-outcome market via the
     power method. Falls back to proportional normalization the same
-    way devig_shin() does for a (near-)zero-overround book."""
+    way devig_shin() does for a (near-)zero-overround book, AND the
+    same way for an unbracketable root (see devig_shin's docstring --
+    the identical real failure mode applies here too)."""
     raw_probs = [1.0 / o for o in decimal_odds]
     b = sum(raw_probs)
     if b <= 1.0 + 1e-9:
@@ -83,7 +97,10 @@ def devig_power(decimal_odds: tuple[float, ...]) -> tuple[float, ...]:
     # documented "favorite-longshot bias" correction this method is
     # for). Bounded well above 1 is enough for any real bookmaker
     # overround seen in practice (a few percent).
-    k = brentq(residual, 1.0, 50.0, xtol=1e-10)
+    try:
+        k = brentq(residual, 1.0, 50.0, xtol=1e-10)
+    except ValueError:
+        return tuple(p / b for p in raw_probs)
     return tuple(p**k for p in raw_probs)
 
 

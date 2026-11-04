@@ -54,6 +54,23 @@ def test_devig_methods_agree_closely_for_a_small_realistic_overround():
     assert power[0] == pytest.approx(multiplicative[0], abs=0.01)
 
 
+@pytest.mark.parametrize("devig_fn", [devig_shin, devig_power])
+def test_devig_methods_fall_back_on_a_malformed_real_quote(devig_fn):
+    # Reproduces a real production break (2026-11-03 weekly-update
+    # failure): a decimal odds value at or below 1.0 is not a valid
+    # real market price (implied probability >= 1), but a real
+    # upstream data glitch this project doesn't control can still
+    # produce one. Before the fix, devig_power's brentq call raised
+    # ValueError("f(a) and f(b) must have different signs") on this
+    # exact shape and crashed the entire weekly pipeline for every
+    # league. Must fall back to proportional normalization instead of
+    # raising.
+    malformed_odds = (0.99, 2.30)
+    fair = devig_fn(malformed_odds)
+    assert sum(fair) == pytest.approx(1.0, abs=1e-6)
+    assert fair[0] > fair[1]  # the malformed (near-certain) side still reads as the favorite
+
+
 def test_devig_methods_handle_three_outcome_markets():
     # A real 1X2-shaped book (home/draw/away), confirms the n-outcome
     # (not just binary) solver path works.
