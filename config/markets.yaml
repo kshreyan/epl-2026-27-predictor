@@ -40,13 +40,24 @@
 #     prices; free tier caps real history at 365 days and rate-limits
 #     aggressively -- confirmed directly, see that collector's
 #     docstring)
-# Explicitly OUT of
-# scope, never faked: India fixed income & credit (re-checked directly
-# 2026-11-05 across both of RBI's data-portal domains, data.rbi.org.in
-# and dbie.rbihub.in, plus FBIL and CCIL -- all are JS-rendered SPAs
-# with no data in the raw HTML and no exposed free API; the only real
-# "API" options found are paid third-party scrapers, which don't meet
-# this project's zero-paid-dependency bar), and India alternatives (no
+# india_fixed_income_credit does NOT come from RBI directly (re-checked
+# twice: neither of RBI's own data-portal domains, data.rbi.org.in nor
+# dbie.rbihub.in, nor FBIL nor CCIL, expose a free data API -- all are
+# JS-rendered SPAs with nothing in the raw HTML; the only "API" options
+# found anywhere are paid third-party scrapers). It comes from FRED
+# instead, which republishes India's own real OECD-sourced interest-
+# rate series for free -- confirmed directly 2026-11-05. Two real
+# series only (a 3-month interbank rate and a 10-year G-Sec yield; no
+# real credit-spread series for India was found on FRED, so "credit"
+# in this market's name is aspirational for India specifically, unlike
+# the US version which has real credit spreads). Both series are
+# MONTHLY, not daily (FRED/OECD does not publish a daily India series
+# for free) -- compute_market_tail_risk.py's `frequency: monthly`
+# genuinely changes the real horizon/history/checkpoint cadence for
+# this one market rather than forcing monthly data through a 5-
+# trading-day window it can't fill.
+#
+# Explicitly OUT of scope, never faked: India alternatives (no
 # India-specific free, publicly-fetchable proxy exists -- AIFs are not
 # exchange-traded the way US liquid-alt funds are).
 #
@@ -272,3 +283,20 @@
   # to-INR conversion.
   source: yahoo_chart
   tickers: [GOLDBEES.NS, SILVERBEES.NS]
+
+- market_id: india_fixed_income_credit
+  display_name: India Fixed Income & Credit
+  country: India
+  asset_class: fixed_income_credit
+  currency: INR
+  # FRED/OECD's own real India interest-rate series -- confirmed
+  # directly, free, no key. Monthly, not daily (see this file's module
+  # docstring for why) -- `frequency: monthly` tells
+  # backtest_market_tail_risk.py/compute_market_tail_risk.py to use a
+  # genuinely different real horizon/history/checkpoint cadence for
+  # this market. No real India credit-spread series was found on FRED.
+  source: fred
+  frequency: monthly
+  tickers:
+    - INDIR3TIB01STM   # 3-month interbank rate
+    - INDIRLTLT01STM   # 10-year government bond (G-Sec) yield

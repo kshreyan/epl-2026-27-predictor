@@ -43,7 +43,7 @@ from scipy.stats import norm
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
-from src.evaluation.backtest_market_tail_risk import EWMA_LAMBDA, HORIZON_DAYS, MIN_HISTORY_DAYS, ewma_daily_vol, level_series  # noqa: E402
+from src.evaluation.backtest_market_tail_risk import EWMA_LAMBDA, FREQUENCY_PARAMS, ewma_daily_vol, level_series  # noqa: E402
 from src.markets import load_market_config, market_path  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
@@ -62,6 +62,7 @@ THRESHOLD = {
     "india_digital_assets": 0.070946,
     "india_real_assets": 0.018188,
     "india_commodities": 0.030210,
+    "india_fixed_income_credit": 0.172,  # real percentage-point yield change over 1 real month, not a %-return -- see docstring
 }
 
 RISK_LABELS = {
@@ -120,11 +121,15 @@ RISK_LABELS = {
         (0.0311, "ELITE SURVIVAL"), (0.1007, "VERY STRONG"), (0.1571, "STRONG"), (0.2128, "MODERATE"),
         (float("inf"), "HIGH BLOWOUT RISK"),
     ],
+    "india_fixed_income_credit": [
+        (0.1334, "ELITE SURVIVAL"), (0.1758, "VERY STRONG"), (0.2147, "STRONG"), (0.2823, "MODERATE"),
+        (float("inf"), "HIGH BLOWOUT RISK"),
+    ],
 }
 
 OUTPUT_COLUMNS = [
     "market_id", "ticker", "as_of_date", "current_price", "currency",
-    "sigma_daily", "sigma_horizon", "horizon_days", "threshold",
+    "sigma_daily", "sigma_horizon", "horizon_days", "horizon_label", "threshold",
     "p_survive", "p_fail", "risk_label", "why_text",
     "run_id", "model_version", "generated_at",
 ]
@@ -137,21 +142,25 @@ def _risk_label(market_id: str, p_fail: float) -> str:
     return RISK_LABELS[market_id][-1][1]
 
 
-def _why_text(ticker: str, sigma_horizon: float, threshold: float, p_fail: float, is_fred: bool) -> str:
+def _why_text(ticker: str, sigma_horizon: float, threshold: float, p_fail: float, is_fred: bool, horizon_label: str) -> str:
     unit = "percentage points of yield/spread" if is_fred else ""
     sigma_display = f"{sigma_horizon:.3f} {unit}".strip() if is_fred else f"{sigma_horizon:.2%}"
     threshold_display = f"{threshold:.3f} {unit}".strip() if is_fred else f"{threshold:.2%}"
     return (
-        f"Real EWMA-fitted {HORIZON_DAYS}-trading-day volatility for {ticker}: {sigma_display} "
+        f"Real EWMA-fitted {horizon_label} volatility for {ticker}: {sigma_display} "
         f"(zero drift assumed -- this is a volatility read, not a directional call). "
         f"Net modeled probability of a real move worse than -{threshold_display} over the next "
-        f"{HORIZON_DAYS} trading days: {p_fail:.1%}."
+        f"{horizon_label}: {p_fail:.1%}."
     )
 
 
 def compute_for_market(market_id: str) -> pd.DataFrame:
     cfg = load_market_config(market_id)
     threshold = THRESHOLD[market_id]
+    params = FREQUENCY_PARAMS[cfg.frequency]
+    min_history, horizon = params["min_history"], params["horizon"]
+    horizon_label = f"{horizon}-trading-day" if cfg.frequency == "daily" else f"{horizon}-month"
+    horizon_short = f"{horizon}d" if cfg.frequency == "daily" else f"{horizon}mo"  # compact form for the site's own UI
     path = REPO_ROOT / "data" / "raw" / market_path(market_id, "historical_prices.csv")
     df = pd.read_csv(path, parse_dates=["date"])
 
@@ -161,11 +170,11 @@ def compute_for_market(market_id: str) -> pd.DataFrame:
     rows = []
     for ticker in cfg.tickers:
         t = df[df["ticker"] == ticker].sort_values("date").reset_index(drop=True)
-        if len(t) < MIN_HISTORY_DAYS:
+        if len(t) < min_history:
             continue  # too thin a real history to fit a trustworthy EWMA vol -- skipped, not guessed
         diffs = np.diff(level_series(t["close"].values, cfg.source))
-        sigma_daily = ewma_daily_vol(diffs, lam=EWMA_LAMBDA)
-        sigma_horizon = sigma_daily * np.sqrt(HORIZON_DAYS)
+        sigma_period = ewma_daily_vol(diffs, lam=EWMA_LAMBDA)
+        sigma_horizon = sigma_period * np.sqrt(horizon)
         p_fail = float(norm.cdf(-threshold, loc=0.0, scale=sigma_horizon))
         p_survive = 1 - p_fail
         label = _risk_label(market_id, p_fail)
@@ -173,10 +182,10 @@ def compute_for_market(market_id: str) -> pd.DataFrame:
         rows.append({
             "market_id": market_id, "ticker": ticker, "as_of_date": t["date"].iloc[-1].strftime("%Y-%m-%d"),
             "current_price": round(float(t["close"].iloc[-1]), 4), "currency": t["currency"].iloc[-1],
-            "sigma_daily": round(sigma_daily, 6), "sigma_horizon": round(sigma_horizon, 6),
-            "horizon_days": HORIZON_DAYS, "threshold": round(threshold, 6),
+            "sigma_daily": round(sigma_period, 6), "sigma_horizon": round(sigma_horizon, 6),
+            "horizon_days": horizon, "horizon_label": horizon_short, "threshold": round(threshold, 6),
             "p_survive": round(p_survive, 4), "p_fail": round(p_fail, 4), "risk_label": label,
-            "why_text": _why_text(ticker, sigma_horizon, threshold, p_fail, is_fred=(cfg.source == "fred")),
+            "why_text": _why_text(ticker, sigma_horizon, threshold, p_fail, is_fred=(cfg.source == "fred"), horizon_label=horizon_label),
             "run_id": meta.run_id, "model_version": MODEL_VERSION, "generated_at": generated_at,
         })
 

@@ -2,7 +2,7 @@
 
 Real rolling-origin backtest, 684 real (ticker, checkpoint) pairs across 12 real tickers (2022-02-02 to 2026-10-09), EWMA (lambda=0.94) daily volatility scaled to a real 5-trading-day horizon, zero real drift assumed (disclosed limitation -- short-horizon expected return is not reliably estimable from history alone).
 
-**Real adverse threshold** (p75 of pooled real |5-day return|): **4.5732%** -- a real top-quartile-sized move for this market's own history, not borrowed from any other asset class or sport.
+**Real adverse threshold** (p75 of pooled real |5-trading-day return|): **4.5732%** -- a real top-quartile-sized move for this market's own history, not borrowed from any other asset class or sport.
 
 ## Real risk-tier cutoffs (this market's own real backtested p_fail percentiles)
 
@@ -27,4 +27,4 @@ Real rolling-origin backtest, 684 real (ticker, checkpoint) pairs across 12 real
 
 - Zero-drift assumption: this engine sizes real volatility risk only, never claims a directional edge.
 - EWMA is a real, standard, single-model choice -- not compared here against a real GARCH candidate (a real future improvement, same "never assume, always check" discipline this project applies elsewhere, just not yet run for this market).
-- Monthly (21-trading-day) checkpoint stride is a real compute-cost choice, not a claim that real volatility is constant between checkpoints.
+- A checkpoint every 21 real daily observation(s) is a real compute-cost choice, not a claim that real volatility is constant between checkpoints.

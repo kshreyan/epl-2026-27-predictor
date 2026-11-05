@@ -4,7 +4,7 @@
   "country": "India",
   "asset_class": "commodities",
   "currency": "INR",
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 2,
   "risk_tier_tally": {
@@ -22,14 +22,15 @@
       "sigma_daily": 0.013089,
       "sigma_horizon": 0.029268,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.03021,
       "p_survive": 0.849,
       "p_fail": 0.151,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for GOLDBEES.NS: 2.93% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.02% over the next 5 trading days: 15.1%.",
-      "run_id": "market_tail_risk_20261105T103000Z_88d6744b",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for GOLDBEES.NS: 2.93% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.02% over the next 5-trading-day: 15.1%.",
+      "run_id": "market_tail_risk_20261105T105426Z_f062c478",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:30:00+00:00"
+      "generated_at": "2026-11-05T10:54:26+00:00"
     },
     {
       "market_id": "india_commodities",
@@ -40,14 +41,15 @@
       "sigma_daily": 0.022821,
       "sigma_horizon": 0.051029,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.03021,
       "p_survive": 0.7231,
       "p_fail": 0.2769,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for SILVERBEES.NS: 5.10% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.02% over the next 5 trading days: 27.7%.",
-      "run_id": "market_tail_risk_20261105T103000Z_88d6744b",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for SILVERBEES.NS: 5.10% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.02% over the next 5-trading-day: 27.7%.",
+      "run_id": "market_tail_risk_20261105T105426Z_f062c478",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:30:00+00:00"
+      "generated_at": "2026-11-05T10:54:26+00:00"
     }
   ]
 }

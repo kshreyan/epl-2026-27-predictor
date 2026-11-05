@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "markets": [
     {
       "market_id": "india_commodities",
@@ -18,6 +18,12 @@
       "display_name": "India Equities",
       "country": "India",
       "asset_class": "equities"
+    },
+    {
+      "market_id": "india_fixed_income_credit",
+      "display_name": "India Fixed Income & Credit",
+      "country": "India",
+      "asset_class": "fixed_income_credit"
     },
     {
       "market_id": "india_fx",

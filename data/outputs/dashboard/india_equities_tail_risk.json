@@ -4,7 +4,7 @@
   "country": "India",
   "asset_class": "equities",
   "currency": "INR",
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 30,
   "risk_tier_tally": {
@@ -24,14 +24,15 @@
       "sigma_daily": 0.027793,
       "sigma_horizon": 0.062146,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.7125,
       "p_fail": 0.2875,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for RELIANCE.NS: 6.21% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 28.8%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for RELIANCE.NS: 6.21% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 28.8%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -42,14 +43,15 @@
       "sigma_daily": 0.019933,
       "sigma_horizon": 0.044571,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.7828,
       "p_fail": 0.2172,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for TCS.NS: 4.46% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 21.7%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for TCS.NS: 4.46% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 21.7%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -60,14 +62,15 @@
       "sigma_daily": 0.016756,
       "sigma_horizon": 0.037468,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8238,
       "p_fail": 0.1762,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for HDFCBANK.NS: 3.75% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 17.6%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for HDFCBANK.NS: 3.75% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 17.6%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -78,14 +81,15 @@
       "sigma_daily": 0.017396,
       "sigma_horizon": 0.038899,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8148,
       "p_fail": 0.1852,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for ICICIBANK.NS: 3.89% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 18.5%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for ICICIBANK.NS: 3.89% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 18.5%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -96,14 +100,15 @@
       "sigma_daily": 0.022785,
       "sigma_horizon": 0.050949,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.753,
       "p_fail": 0.247,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for INFY.NS: 5.09% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 24.7%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for INFY.NS: 5.09% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 24.7%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -114,14 +119,15 @@
       "sigma_daily": 0.01474,
       "sigma_horizon": 0.03296,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8548,
       "p_fail": 0.1452,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for HINDUNILVR.NS: 3.30% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 14.5%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for HINDUNILVR.NS: 3.30% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 14.5%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -132,14 +138,15 @@
       "sigma_daily": 0.016736,
       "sigma_horizon": 0.037422,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8241,
       "p_fail": 0.1759,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for ITC.NS: 3.74% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 17.6%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for ITC.NS: 3.74% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 17.6%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -150,14 +157,15 @@
       "sigma_daily": 0.014417,
       "sigma_horizon": 0.032238,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8601,
       "p_fail": 0.1399,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for SBIN.NS: 3.22% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 14.0%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for SBIN.NS: 3.22% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 14.0%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -168,14 +176,15 @@
       "sigma_daily": 0.016609,
       "sigma_horizon": 0.037139,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8259,
       "p_fail": 0.1741,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for BHARTIARTL.NS: 3.71% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 17.4%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for BHARTIARTL.NS: 3.71% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 17.4%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -186,14 +195,15 @@
       "sigma_daily": 0.015588,
       "sigma_horizon": 0.034855,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8413,
       "p_fail": 0.1587,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for KOTAKBANK.NS: 3.49% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 15.9%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for KOTAKBANK.NS: 3.49% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 15.9%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -204,14 +214,15 @@
       "sigma_daily": 0.014311,
       "sigma_horizon": 0.032001,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8619,
       "p_fail": 0.1381,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for LT.NS: 3.20% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 13.8%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for LT.NS: 3.20% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 13.8%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -222,14 +233,15 @@
       "sigma_daily": 0.01668,
       "sigma_horizon": 0.037297,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8249,
       "p_fail": 0.1751,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for AXISBANK.NS: 3.73% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 17.5%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for AXISBANK.NS: 3.73% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 17.5%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -240,14 +252,15 @@
       "sigma_daily": 0.025288,
       "sigma_horizon": 0.056547,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.7311,
       "p_fail": 0.2689,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAJFINANCE.NS: 5.65% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 26.9%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAJFINANCE.NS: 5.65% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 26.9%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -258,14 +271,15 @@
       "sigma_daily": 0.018253,
       "sigma_horizon": 0.040814,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8034,
       "p_fail": 0.1966,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for ASIANPAINT.NS: 4.08% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 19.7%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for ASIANPAINT.NS: 4.08% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 19.7%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -276,14 +290,15 @@
       "sigma_daily": 0.019319,
       "sigma_horizon": 0.043198,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.79,
       "p_fail": 0.21,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for MARUTI.NS: 4.32% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 21.0%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for MARUTI.NS: 4.32% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 21.0%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -294,14 +309,15 @@
       "sigma_daily": 0.01191,
       "sigma_horizon": 0.026631,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.9046,
       "p_fail": 0.0954,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for SUNPHARMA.NS: 2.66% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 9.5%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for SUNPHARMA.NS: 2.66% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 9.5%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -312,14 +328,15 @@
       "sigma_daily": 0.016257,
       "sigma_horizon": 0.036353,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8311,
       "p_fail": 0.1689,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for TITAN.NS: 3.64% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 16.9%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for TITAN.NS: 3.64% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 16.9%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -330,14 +347,15 @@
       "sigma_daily": 0.01738,
       "sigma_horizon": 0.038863,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.815,
       "p_fail": 0.185,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for ULTRACEMCO.NS: 3.89% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 18.5%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for ULTRACEMCO.NS: 3.89% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 18.5%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -348,14 +366,15 @@
       "sigma_daily": 0.022051,
       "sigma_horizon": 0.049308,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.7601,
       "p_fail": 0.2399,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for NESTLEIND.NS: 4.93% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 24.0%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for NESTLEIND.NS: 4.93% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 24.0%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -366,14 +385,15 @@
       "sigma_daily": 0.021111,
       "sigma_horizon": 0.047206,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.7698,
       "p_fail": 0.2302,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for WIPRO.NS: 4.72% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 23.0%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for WIPRO.NS: 4.72% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 23.0%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -384,14 +404,15 @@
       "sigma_daily": 0.019748,
       "sigma_horizon": 0.044157,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.785,
       "p_fail": 0.215,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for HCLTECH.NS: 4.42% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 21.5%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for HCLTECH.NS: 4.42% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 21.5%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -402,14 +423,15 @@
       "sigma_daily": 0.018232,
       "sigma_horizon": 0.040767,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8036,
       "p_fail": 0.1964,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for M&M.NS: 4.08% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 19.6%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for M&M.NS: 4.08% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 19.6%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -420,14 +442,15 @@
       "sigma_daily": 0.016762,
       "sigma_horizon": 0.037481,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8237,
       "p_fail": 0.1763,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAJAJ-AUTO.NS: 3.75% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 17.6%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAJAJ-AUTO.NS: 3.75% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 17.6%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -438,14 +461,15 @@
       "sigma_daily": 0.015354,
       "sigma_horizon": 0.034332,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8449,
       "p_fail": 0.1551,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for POWERGRID.NS: 3.43% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 15.5%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for POWERGRID.NS: 3.43% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 15.5%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -456,14 +480,15 @@
       "sigma_daily": 0.012725,
       "sigma_horizon": 0.028454,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8896,
       "p_fail": 0.1104,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for NTPC.NS: 2.85% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 11.0%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for NTPC.NS: 2.85% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 11.0%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -474,14 +499,15 @@
       "sigma_daily": 0.014543,
       "sigma_horizon": 0.032518,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.858,
       "p_fail": 0.142,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for ONGC.NS: 3.25% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 14.2%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for ONGC.NS: 3.25% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 14.2%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -492,14 +518,15 @@
       "sigma_daily": 0.01828,
       "sigma_horizon": 0.040876,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.803,
       "p_fail": 0.197,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for TATASTEEL.NS: 4.09% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 19.7%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for TATASTEEL.NS: 4.09% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 19.7%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -510,14 +537,15 @@
       "sigma_daily": 0.024202,
       "sigma_horizon": 0.054117,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.7402,
       "p_fail": 0.2598,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for ADANIENT.NS: 5.41% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 26.0%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for ADANIENT.NS: 5.41% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 26.0%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -528,14 +556,15 @@
       "sigma_daily": 0.017477,
       "sigma_horizon": 0.039079,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.8137,
       "p_fail": 0.1863,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAJAJFINSV.NS: 3.91% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 18.6%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAJAJFINSV.NS: 3.91% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 18.6%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     },
     {
       "market_id": "india_equities",
@@ -546,14 +575,15 @@
       "sigma_daily": 0.021559,
       "sigma_horizon": 0.048208,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.034842,
       "p_survive": 0.7651,
       "p_fail": 0.2349,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for JSWSTEEL.NS: 4.82% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5 trading days: 23.5%.",
-      "run_id": "market_tail_risk_20261105T100134Z_28736287",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for JSWSTEEL.NS: 4.82% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.48% over the next 5-trading-day: 23.5%.",
+      "run_id": "market_tail_risk_20261105T105421Z_99aeea0b",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:34+00:00"
+      "generated_at": "2026-11-05T10:54:21+00:00"
     }
   ]
 }

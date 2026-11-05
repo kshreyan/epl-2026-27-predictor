@@ -331,6 +331,10 @@ export interface MarketTailRiskRow {
   sigma_daily: number
   sigma_horizon: number
   horizon_days: number
+  // Compact real display form, e.g. "5d" (daily-frequency markets) or
+  // "1mo" (india_fixed_income_credit -- FRED/OECD only publishes that
+  // series monthly) -- use this for UI text, never assume "d".
+  horizon_label: string
   threshold: number
   p_survive: number
   p_fail: number

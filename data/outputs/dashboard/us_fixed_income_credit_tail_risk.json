@@ -4,7 +4,7 @@
   "country": "USA",
   "asset_class": "fixed_income_credit",
   "currency": "USD",
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 5,
   "risk_tier_tally": {
@@ -24,14 +24,15 @@
       "sigma_daily": 0.024461,
       "sigma_horizon": 0.054696,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.12,
       "p_survive": 0.9859,
       "p_fail": 0.0141,
       "risk_label": "ELITE SURVIVAL",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for DGS3MO: 0.055 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5 trading days: 1.4%.",
-      "run_id": "market_tail_risk_20261105T100128Z_83c33aef",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for DGS3MO: 0.055 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5-trading-day: 1.4%.",
+      "run_id": "market_tail_risk_20261105T105415Z_f1d8c660",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:28+00:00"
+      "generated_at": "2026-11-05T10:54:15+00:00"
     },
     {
       "market_id": "us_fixed_income_credit",
@@ -42,14 +43,15 @@
       "sigma_daily": 0.053655,
       "sigma_horizon": 0.119975,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.12,
       "p_survive": 0.8414,
       "p_fail": 0.1586,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for DGS2: 0.120 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5 trading days: 15.9%.",
-      "run_id": "market_tail_risk_20261105T100128Z_83c33aef",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for DGS2: 0.120 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5-trading-day: 15.9%.",
+      "run_id": "market_tail_risk_20261105T105415Z_f1d8c660",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:28+00:00"
+      "generated_at": "2026-11-05T10:54:15+00:00"
     },
     {
       "market_id": "us_fixed_income_credit",
@@ -60,14 +62,15 @@
       "sigma_daily": 0.055462,
       "sigma_horizon": 0.124018,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.12,
       "p_survive": 0.8334,
       "p_fail": 0.1666,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for DGS10: 0.124 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5 trading days: 16.7%.",
-      "run_id": "market_tail_risk_20261105T100128Z_83c33aef",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for DGS10: 0.124 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5-trading-day: 16.7%.",
+      "run_id": "market_tail_risk_20261105T105415Z_f1d8c660",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:28+00:00"
+      "generated_at": "2026-11-05T10:54:15+00:00"
     },
     {
       "market_id": "us_fixed_income_credit",
@@ -78,14 +81,15 @@
       "sigma_daily": 0.078593,
       "sigma_horizon": 0.175739,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.12,
       "p_survive": 0.7526,
       "p_fail": 0.2474,
       "risk_label": "HIGH BLOWOUT RISK",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAMLH0A0HYM2: 0.176 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5 trading days: 24.7%.",
-      "run_id": "market_tail_risk_20261105T100128Z_83c33aef",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAMLH0A0HYM2: 0.176 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5-trading-day: 24.7%.",
+      "run_id": "market_tail_risk_20261105T105415Z_f1d8c660",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:28+00:00"
+      "generated_at": "2026-11-05T10:54:15+00:00"
     },
     {
       "market_id": "us_fixed_income_credit",
@@ -96,14 +100,15 @@
       "sigma_daily": 0.017369,
       "sigma_horizon": 0.038838,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.12,
       "p_survive": 0.999,
       "p_fail": 0.001,
       "risk_label": "ELITE SURVIVAL",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAMLC0A0CM: 0.039 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5 trading days: 0.1%.",
-      "run_id": "market_tail_risk_20261105T100128Z_83c33aef",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for BAMLC0A0CM: 0.039 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.120 percentage points of yield/spread over the next 5-trading-day: 0.1%.",
+      "run_id": "market_tail_risk_20261105T105415Z_f1d8c660",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:28+00:00"
+      "generated_at": "2026-11-05T10:54:15+00:00"
     }
   ]
 }

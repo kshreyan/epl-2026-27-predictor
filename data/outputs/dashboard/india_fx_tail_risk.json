@@ -4,7 +4,7 @@
   "country": "India",
   "asset_class": "fx",
   "currency": "INR",
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 4,
   "risk_tier_tally": {
@@ -23,14 +23,15 @@
       "sigma_daily": 0.002576,
       "sigma_horizon": 0.00576,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.00919,
       "p_survive": 0.9447,
       "p_fail": 0.0553,
       "risk_label": "ELITE SURVIVAL",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDINR: 0.58% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5 trading days: 5.5%.",
-      "run_id": "market_tail_risk_20261105T100135Z_c16f684d",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDINR: 0.58% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5-trading-day: 5.5%.",
+      "run_id": "market_tail_risk_20261105T105422Z_c30a5cd0",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:35+00:00"
+      "generated_at": "2026-11-05T10:54:22+00:00"
     },
     {
       "market_id": "india_fx",
@@ -41,14 +42,15 @@
       "sigma_daily": 0.00372,
       "sigma_horizon": 0.008317,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.00919,
       "p_survive": 0.8654,
       "p_fail": 0.1346,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for EURINR: 0.83% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5 trading days: 13.5%.",
-      "run_id": "market_tail_risk_20261105T100135Z_c16f684d",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for EURINR: 0.83% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5-trading-day: 13.5%.",
+      "run_id": "market_tail_risk_20261105T105422Z_c30a5cd0",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:35+00:00"
+      "generated_at": "2026-11-05T10:54:22+00:00"
     },
     {
       "market_id": "india_fx",
@@ -59,14 +61,15 @@
       "sigma_daily": 0.003056,
       "sigma_horizon": 0.006834,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.00919,
       "p_survive": 0.9106,
       "p_fail": 0.0894,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for GBPINR: 0.68% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5 trading days: 8.9%.",
-      "run_id": "market_tail_risk_20261105T100135Z_c16f684d",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for GBPINR: 0.68% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5-trading-day: 8.9%.",
+      "run_id": "market_tail_risk_20261105T105422Z_c30a5cd0",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:35+00:00"
+      "generated_at": "2026-11-05T10:54:22+00:00"
     },
     {
       "market_id": "india_fx",
@@ -77,14 +80,15 @@
       "sigma_daily": 0.004126,
       "sigma_horizon": 0.009226,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.00919,
       "p_survive": 0.8404,
       "p_fail": 0.1596,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for JPYINR: 0.92% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5 trading days: 16.0%.",
-      "run_id": "market_tail_risk_20261105T100135Z_c16f684d",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for JPYINR: 0.92% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5-trading-day: 16.0%.",
+      "run_id": "market_tail_risk_20261105T105422Z_c30a5cd0",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:35+00:00"
+      "generated_at": "2026-11-05T10:54:22+00:00"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "country": "India",
   "asset_class": "real_assets",
   "currency": "INR",
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 4,
   "risk_tier_tally": {
@@ -23,14 +23,15 @@
       "sigma_daily": 0.007992,
       "sigma_horizon": 0.01787,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.018188,
       "p_survive": 0.8456,
       "p_fail": 0.1544,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for EMBASSY.NS: 1.79% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -1.82% over the next 5 trading days: 15.4%.",
-      "run_id": "market_tail_risk_20261105T100138Z_93e90596",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for EMBASSY.NS: 1.79% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -1.82% over the next 5-trading-day: 15.4%.",
+      "run_id": "market_tail_risk_20261105T105424Z_ab557bf1",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:38+00:00"
+      "generated_at": "2026-11-05T10:54:25+00:00"
     },
     {
       "market_id": "india_real_assets",
@@ -41,14 +42,15 @@
       "sigma_daily": 0.00728,
       "sigma_horizon": 0.01628,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.018188,
       "p_survive": 0.8681,
       "p_fail": 0.1319,
       "risk_label": "ELITE SURVIVAL",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for MINDSPACE.NS: 1.63% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -1.82% over the next 5 trading days: 13.2%.",
-      "run_id": "market_tail_risk_20261105T100138Z_93e90596",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for MINDSPACE.NS: 1.63% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -1.82% over the next 5-trading-day: 13.2%.",
+      "run_id": "market_tail_risk_20261105T105424Z_ab557bf1",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:38+00:00"
+      "generated_at": "2026-11-05T10:54:25+00:00"
     },
     {
       "market_id": "india_real_assets",
@@ -59,14 +61,15 @@
       "sigma_daily": 0.010579,
       "sigma_horizon": 0.023656,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.018188,
       "p_survive": 0.779,
       "p_fail": 0.221,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for BIRET.NS: 2.37% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -1.82% over the next 5 trading days: 22.1%.",
-      "run_id": "market_tail_risk_20261105T100138Z_93e90596",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for BIRET.NS: 2.37% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -1.82% over the next 5-trading-day: 22.1%.",
+      "run_id": "market_tail_risk_20261105T105424Z_ab557bf1",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:38+00:00"
+      "generated_at": "2026-11-05T10:54:25+00:00"
     },
     {
       "market_id": "india_real_assets",
@@ -77,14 +80,15 @@
       "sigma_daily": 0.008582,
       "sigma_horizon": 0.019191,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.018188,
       "p_survive": 0.8284,
       "p_fail": 0.1716,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for NXST.NS: 1.92% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -1.82% over the next 5 trading days: 17.2%.",
-      "run_id": "market_tail_risk_20261105T100138Z_93e90596",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for NXST.NS: 1.92% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -1.82% over the next 5-trading-day: 17.2%.",
+      "run_id": "market_tail_risk_20261105T105424Z_ab557bf1",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:38+00:00"
+      "generated_at": "2026-11-05T10:54:25+00:00"
     }
   ]
 }

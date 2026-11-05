@@ -4,7 +4,7 @@
   "country": "USA",
   "asset_class": "real_assets",
   "currency": "USD",
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 3,
   "risk_tier_tally": {
@@ -23,14 +23,15 @@
       "sigma_daily": 0.012176,
       "sigma_horizon": 0.027226,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.029269,
       "p_survive": 0.8588,
       "p_fail": 0.1412,
       "risk_label": "MODERATE",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for VNQ: 2.72% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -2.93% over the next 5 trading days: 14.1%.",
-      "run_id": "market_tail_risk_20261105T100132Z_d7200d9f",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for VNQ: 2.72% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -2.93% over the next 5-trading-day: 14.1%.",
+      "run_id": "market_tail_risk_20261105T105418Z_af597dad",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:32+00:00"
+      "generated_at": "2026-11-05T10:54:18+00:00"
     },
     {
       "market_id": "us_real_assets",
@@ -41,14 +42,15 @@
       "sigma_daily": 0.008345,
       "sigma_horizon": 0.01866,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.029269,
       "p_survive": 0.9416,
       "p_fail": 0.0584,
       "risk_label": "ELITE SURVIVAL",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for IFRA: 1.87% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -2.93% over the next 5 trading days: 5.8%.",
-      "run_id": "market_tail_risk_20261105T100132Z_d7200d9f",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for IFRA: 1.87% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -2.93% over the next 5-trading-day: 5.8%.",
+      "run_id": "market_tail_risk_20261105T105418Z_af597dad",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:32+00:00"
+      "generated_at": "2026-11-05T10:54:18+00:00"
     },
     {
       "market_id": "us_real_assets",
@@ -59,14 +61,15 @@
       "sigma_daily": 0.010705,
       "sigma_horizon": 0.023937,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.029269,
       "p_survive": 0.8893,
       "p_fail": 0.1107,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for CUT: 2.39% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -2.93% over the next 5 trading days: 11.1%.",
-      "run_id": "market_tail_risk_20261105T100132Z_d7200d9f",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for CUT: 2.39% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -2.93% over the next 5-trading-day: 11.1%.",
+      "run_id": "market_tail_risk_20261105T105418Z_af597dad",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:32+00:00"
+      "generated_at": "2026-11-05T10:54:18+00:00"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "country": "India",
   "asset_class": "digital_assets",
   "currency": "INR",
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 6,
   "risk_tier_tally": {
@@ -23,14 +23,15 @@
       "sigma_daily": 0.017602,
       "sigma_horizon": 0.039359,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.070946,
       "p_survive": 0.9643,
       "p_fail": 0.0357,
       "risk_label": "ELITE SURVIVAL",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for bitcoin: 3.94% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5 trading days: 3.6%.",
-      "run_id": "market_tail_risk_20261105T100136Z_974c64a0",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for bitcoin: 3.94% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5-trading-day: 3.6%.",
+      "run_id": "market_tail_risk_20261105T105423Z_699c9b6c",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:36+00:00"
+      "generated_at": "2026-11-05T10:54:23+00:00"
     },
     {
       "market_id": "india_digital_assets",
@@ -41,14 +42,15 @@
       "sigma_daily": 0.022761,
       "sigma_horizon": 0.050896,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.070946,
       "p_survive": 0.9183,
       "p_fail": 0.0817,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for ethereum: 5.09% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5 trading days: 8.2%.",
-      "run_id": "market_tail_risk_20261105T100136Z_974c64a0",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for ethereum: 5.09% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5-trading-day: 8.2%.",
+      "run_id": "market_tail_risk_20261105T105423Z_699c9b6c",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:36+00:00"
+      "generated_at": "2026-11-05T10:54:23+00:00"
     },
     {
       "market_id": "india_digital_assets",
@@ -59,14 +61,15 @@
       "sigma_daily": 0.023899,
       "sigma_horizon": 0.053439,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.070946,
       "p_survive": 0.9078,
       "p_fail": 0.0922,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for solana: 5.34% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5 trading days: 9.2%.",
-      "run_id": "market_tail_risk_20261105T100136Z_974c64a0",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for solana: 5.34% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5-trading-day: 9.2%.",
+      "run_id": "market_tail_risk_20261105T105423Z_699c9b6c",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:36+00:00"
+      "generated_at": "2026-11-05T10:54:23+00:00"
     },
     {
       "market_id": "india_digital_assets",
@@ -77,14 +80,15 @@
       "sigma_daily": 0.031693,
       "sigma_horizon": 0.070867,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.070946,
       "p_survive": 0.8416,
       "p_fail": 0.1584,
       "risk_label": "STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for cardano: 7.09% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5 trading days: 15.8%.",
-      "run_id": "market_tail_risk_20261105T100136Z_974c64a0",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for cardano: 7.09% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5-trading-day: 15.8%.",
+      "run_id": "market_tail_risk_20261105T105423Z_699c9b6c",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:36+00:00"
+      "generated_at": "2026-11-05T10:54:23+00:00"
     },
     {
       "market_id": "india_digital_assets",
@@ -95,14 +99,15 @@
       "sigma_daily": 0.024203,
       "sigma_horizon": 0.05412,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.070946,
       "p_survive": 0.9051,
       "p_fail": 0.0949,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for ripple: 5.41% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5 trading days: 9.5%.",
-      "run_id": "market_tail_risk_20261105T100136Z_974c64a0",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for ripple: 5.41% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5-trading-day: 9.5%.",
+      "run_id": "market_tail_risk_20261105T105423Z_699c9b6c",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:36+00:00"
+      "generated_at": "2026-11-05T10:54:23+00:00"
     },
     {
       "market_id": "india_digital_assets",
@@ -113,14 +118,15 @@
       "sigma_daily": 0.024615,
       "sigma_horizon": 0.05504,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.070946,
       "p_survive": 0.9013,
       "p_fail": 0.0987,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for dogecoin: 5.50% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5 trading days: 9.9%.",
-      "run_id": "market_tail_risk_20261105T100136Z_974c64a0",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for dogecoin: 5.50% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -7.09% over the next 5-trading-day: 9.9%.",
+      "run_id": "market_tail_risk_20261105T105423Z_699c9b6c",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:36+00:00"
+      "generated_at": "2026-11-05T10:54:23+00:00"
     }
   ]
 }

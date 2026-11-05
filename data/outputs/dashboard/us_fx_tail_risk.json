@@ -4,7 +4,7 @@
   "country": "USA",
   "asset_class": "fx",
   "currency": "USD",
-  "generated_at": "2026-11-05T10:30:00+00:00",
+  "generated_at": "2026-11-05T10:54:27+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 7,
   "risk_tier_tally": {
@@ -22,14 +22,15 @@
       "sigma_daily": 0.00345,
       "sigma_horizon": 0.007715,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.009928,
       "p_survive": 0.9009,
       "p_fail": 0.0991,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDEUR: 0.77% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5 trading days: 9.9%.",
-      "run_id": "market_tail_risk_20261105T100129Z_aaa4ae45",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDEUR: 0.77% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5-trading-day: 9.9%.",
+      "run_id": "market_tail_risk_20261105T105416Z_3069b0ac",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:29+00:00"
+      "generated_at": "2026-11-05T10:54:16+00:00"
     },
     {
       "market_id": "us_fx",
@@ -40,14 +41,15 @@
       "sigma_daily": 0.003254,
       "sigma_horizon": 0.007276,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.009928,
       "p_survive": 0.9138,
       "p_fail": 0.0862,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDGBP: 0.73% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5 trading days: 8.6%.",
-      "run_id": "market_tail_risk_20261105T100129Z_aaa4ae45",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDGBP: 0.73% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5-trading-day: 8.6%.",
+      "run_id": "market_tail_risk_20261105T105416Z_3069b0ac",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:29+00:00"
+      "generated_at": "2026-11-05T10:54:16+00:00"
     },
     {
       "market_id": "us_fx",
@@ -58,14 +60,15 @@
       "sigma_daily": 0.003681,
       "sigma_horizon": 0.00823,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.009928,
       "p_survive": 0.8861,
       "p_fail": 0.1139,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDJPY: 0.82% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5 trading days: 11.4%.",
-      "run_id": "market_tail_risk_20261105T100129Z_aaa4ae45",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDJPY: 0.82% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5-trading-day: 11.4%.",
+      "run_id": "market_tail_risk_20261105T105416Z_3069b0ac",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:29+00:00"
+      "generated_at": "2026-11-05T10:54:16+00:00"
     },
     {
       "market_id": "us_fx",
@@ -76,14 +79,15 @@
       "sigma_daily": 0.002369,
       "sigma_horizon": 0.005297,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.009928,
       "p_survive": 0.9695,
       "p_fail": 0.0305,
       "risk_label": "ELITE SURVIVAL",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDCAD: 0.53% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5 trading days: 3.0%.",
-      "run_id": "market_tail_risk_20261105T100129Z_aaa4ae45",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDCAD: 0.53% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5-trading-day: 3.0%.",
+      "run_id": "market_tail_risk_20261105T105416Z_3069b0ac",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:29+00:00"
+      "generated_at": "2026-11-05T10:54:16+00:00"
     },
     {
       "market_id": "us_fx",
@@ -94,14 +98,15 @@
       "sigma_daily": 0.003971,
       "sigma_horizon": 0.008879,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.009928,
       "p_survive": 0.8682,
       "p_fail": 0.1318,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDAUD: 0.89% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5 trading days: 13.2%.",
-      "run_id": "market_tail_risk_20261105T100129Z_aaa4ae45",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDAUD: 0.89% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5-trading-day: 13.2%.",
+      "run_id": "market_tail_risk_20261105T105416Z_3069b0ac",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:29+00:00"
+      "generated_at": "2026-11-05T10:54:16+00:00"
     },
     {
       "market_id": "us_fx",
@@ -112,14 +117,15 @@
       "sigma_daily": 0.003764,
       "sigma_horizon": 0.008417,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.009928,
       "p_survive": 0.8809,
       "p_fail": 0.1191,
       "risk_label": "VERY STRONG",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDCHF: 0.84% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5 trading days: 11.9%.",
-      "run_id": "market_tail_risk_20261105T100129Z_aaa4ae45",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDCHF: 0.84% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5-trading-day: 11.9%.",
+      "run_id": "market_tail_risk_20261105T105416Z_3069b0ac",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:29+00:00"
+      "generated_at": "2026-11-05T10:54:16+00:00"
     },
     {
       "market_id": "us_fx",
@@ -130,14 +136,15 @@
       "sigma_daily": 0.001041,
       "sigma_horizon": 0.002329,
       "horizon_days": 5,
+      "horizon_label": "5d",
       "threshold": 0.009928,
       "p_survive": 1.0,
       "p_fail": 0.0,
       "risk_label": "ELITE SURVIVAL",
-      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDCNY: 0.23% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5 trading days: 0.0%.",
-      "run_id": "market_tail_risk_20261105T100129Z_aaa4ae45",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for USDCNY: 0.23% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.99% over the next 5-trading-day: 0.0%.",
+      "run_id": "market_tail_risk_20261105T105416Z_3069b0ac",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-05T10:01:29+00:00"
+      "generated_at": "2026-11-05T10:54:16+00:00"
     }
   ]
 }

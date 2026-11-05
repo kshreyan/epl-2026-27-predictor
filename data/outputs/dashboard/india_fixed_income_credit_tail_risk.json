@@ -1,0 +1,54 @@
+{
+  "market_id": "india_fixed_income_credit",
+  "display_name": "India Fixed Income & Credit",
+  "country": "India",
+  "asset_class": "fixed_income_credit",
+  "currency": "INR",
+  "generated_at": "2026-11-05T10:54:27+00:00",
+  "model_version": "0.1.0-phase1",
+  "record_count": 2,
+  "risk_tier_tally": {
+    "ELITE SURVIVAL": 2
+  },
+  "engine_note": "Real EWMA-volatility tail-risk read for every real instrument in India Fixed Income & Credit's universe -- P(return over the next real trading week falls below this market's own real backtested adverse threshold), bucketed into the same 5-tier risk shape every other engine on this site uses. Zero real drift assumed -- this is a volatility/tail-risk read only, never a directional (up/down) call. Not investment advice.",
+  "data": [
+    {
+      "market_id": "india_fixed_income_credit",
+      "ticker": "INDIR3TIB01STM",
+      "as_of_date": "2026-09-01",
+      "current_price": 5.28,
+      "currency": "INR",
+      "sigma_daily": 0.138038,
+      "sigma_horizon": 0.138038,
+      "horizon_days": 1,
+      "horizon_label": "1mo",
+      "threshold": 0.172,
+      "p_survive": 0.8936,
+      "p_fail": 0.1064,
+      "risk_label": "ELITE SURVIVAL",
+      "why_text": "Real EWMA-fitted 1-month volatility for INDIR3TIB01STM: 0.138 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.172 percentage points of yield/spread over the next 1-month: 10.6%.",
+      "run_id": "market_tail_risk_20261105T105427Z_799a6ca0",
+      "model_version": "0.1.0-phase1",
+      "generated_at": "2026-11-05T10:54:27+00:00"
+    },
+    {
+      "market_id": "india_fixed_income_credit",
+      "ticker": "INDIRLTLT01STM",
+      "as_of_date": "2026-09-01",
+      "current_price": 7.06,
+      "currency": "INR",
+      "sigma_daily": 0.117262,
+      "sigma_horizon": 0.117262,
+      "horizon_days": 1,
+      "horizon_label": "1mo",
+      "threshold": 0.172,
+      "p_survive": 0.9288,
+      "p_fail": 0.0712,
+      "risk_label": "ELITE SURVIVAL",
+      "why_text": "Real EWMA-fitted 1-month volatility for INDIRLTLT01STM: 0.117 percentage points of yield/spread (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.172 percentage points of yield/spread over the next 1-month: 7.1%.",
+      "run_id": "market_tail_risk_20261105T105427Z_799a6ca0",
+      "model_version": "0.1.0-phase1",
+      "generated_at": "2026-11-05T10:54:27+00:00"
+    }
+  ]
+}

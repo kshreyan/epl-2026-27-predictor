@@ -30,11 +30,11 @@ function TailRiskCard({ row, isFixedIncome }: { row: MarketTailRiskRow; isFixedI
       </div>
       <div className="tnum grid grid-cols-2 gap-2 border-t border-[var(--color-border)] pt-2 text-[11px]">
         <div>
-          <div className="text-[var(--color-text-faint)]">Survive {row.horizon_days}d</div>
+          <div className="text-[var(--color-text-faint)]">Survive {row.horizon_label}</div>
           <div className="font-medium">{pct(row.p_survive)}</div>
         </div>
         <div>
-          <div className="text-[var(--color-text-faint)]">Fail {row.horizon_days}d</div>
+          <div className="text-[var(--color-text-faint)]">Fail {row.horizon_label}</div>
           <div className="font-medium" style={{ color: row.p_fail > 0.2 ? '#e05252' : undefined }}>{pct(row.p_fail)}</div>
         </div>
       </div>
@@ -43,7 +43,7 @@ function TailRiskCard({ row, isFixedIncome }: { row: MarketTailRiskRow; isFixedI
           <p>{row.why_text}</p>
           <p className="tnum">
             Adverse threshold: -{isFixedIncome ? `${row.threshold.toFixed(3)} pts` : pct(row.threshold)} over{' '}
-            {row.horizon_days} trading days.
+            {row.horizon_label === '1mo' ? 'the next real month' : `${row.horizon_days} trading days`}.
           </p>
         </div>
       )}

@@ -25,6 +25,15 @@ class MarketConfig:
     currency: str
     source: str
     tickers: tuple[str, ...]
+    # "daily" (default) for every real market with real daily data
+    # (Yahoo/Frankfurter/CoinGecko, and most FRED series). "monthly"
+    # for a real series FRED only publishes monthly (confirmed for
+    # India's own interest-rate series -- OECD-sourced, no real daily
+    # India G-Sec/interbank data is free anywhere) -- see
+    # backtest_market_tail_risk.py's FREQUENCY_PARAMS for how this
+    # changes the real horizon/history/checkpoint cadence rather than
+    # forcing monthly data through a daily-shaped window.
+    frequency: str = "daily"
 
 
 def _load_registry() -> dict[str, MarketConfig]:

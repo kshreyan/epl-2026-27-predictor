@@ -44,11 +44,27 @@ from src.markets import load_market_config, market_path  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
 EWMA_LAMBDA = 0.94  # RiskMetrics' real, standard, documented choice
-HORIZON_DAYS = 5  # one real trading week -- this engine's real, fixed horizon
+HORIZON_DAYS = 5  # one real trading week -- the real, fixed horizon for every "daily"-frequency market
 MIN_HISTORY_DAYS = 60  # below this, an EWMA vol estimate is too thin to trust (same discipline as MIN_HISTORY_MATCHES elsewhere in this project)
 CHECKPOINT_STRIDE_DAYS = 21  # ~1 real trading month between backtest checkpoints -- a real compute-cost choice, not a rigor shortcut
-ADVERSE_PERCENTILE = 75  # the real pooled |5-day return| percentile used as the "blowout" threshold -- a top-quartile-sized real move
+ADVERSE_PERCENTILE = 75  # the real pooled |horizon return| percentile used as the "blowout" threshold -- a top-quartile-sized real move
 RISK_TIER_PERCENTILES = [20, 40, 60, 80]  # same 5-tier shape as every other sport's engine, cut at THIS market's own real backtested p_fail percentiles
+
+# Real per-frequency parameters: "daily" markets get the HORIZON_DAYS/
+# MIN_HISTORY_DAYS/CHECKPOINT_STRIDE_DAYS above unchanged. "monthly"
+# markets (confirmed for india_fixed_income_credit -- FRED/OECD
+# publishes India's own interest-rate series monthly, no real daily
+# India G-Sec/interbank data is free anywhere) get a genuinely
+# different real cadence instead of forcing monthly data through a
+# 5-trading-day window it can't fill: horizon = the next real monthly
+# observation (not 5 of them), min_history = 24 real months (2 years)
+# before trusting an EWMA estimate, and EVERY real month is its own
+# checkpoint (stride=1) rather than skipping ~21 of them the way the
+# daily stride would if reused literally.
+FREQUENCY_PARAMS = {
+    "daily": {"min_history": MIN_HISTORY_DAYS, "stride": CHECKPOINT_STRIDE_DAYS, "horizon": HORIZON_DAYS},
+    "monthly": {"min_history": 24, "stride": 1, "horizon": 1},
+}
 
 
 def ewma_daily_vol(returns: np.ndarray, lam: float = EWMA_LAMBDA) -> float:
@@ -78,25 +94,27 @@ def level_series(close: np.ndarray, source: str) -> np.ndarray:
 
 def run_backtest(market_id: str) -> pd.DataFrame:
     cfg = load_market_config(market_id)
+    params = FREQUENCY_PARAMS[cfg.frequency]
+    min_history, stride, horizon = params["min_history"], params["stride"], params["horizon"]
     path = REPO_ROOT / "data" / "raw" / market_path(market_id, "historical_prices.csv")
     df = pd.read_csv(path, parse_dates=["date"])
 
     records = []
     for ticker in cfg.tickers:
         t = df[df["ticker"] == ticker].sort_values("date").reset_index(drop=True)
-        if len(t) < MIN_HISTORY_DAYS + HORIZON_DAYS:
+        if len(t) < min_history + horizon:
             continue
         level = level_series(t["close"].values, cfg.source)
-        diffs = np.diff(level)  # diffs[i] = real move realized ON DAY i+1 (log-return or yield-change, see level_series)
+        diffs = np.diff(level)  # diffs[i] = real move realized in PERIOD i+1 (log-return or yield-change, see level_series)
 
-        for i in range(MIN_HISTORY_DAYS, len(t) - HORIZON_DAYS, CHECKPOINT_STRIDE_DAYS):
+        for i in range(min_history, len(t) - horizon, stride):
             hist = diffs[:i]  # strictly before checkpoint i -- no leakage
-            sigma_daily = ewma_daily_vol(hist)
-            sigma_5d = sigma_daily * np.sqrt(HORIZON_DAYS)
-            realized_5d_return = level[i + HORIZON_DAYS] - level[i]  # the REAL forward move that actually happened
+            sigma_period = ewma_daily_vol(hist)
+            sigma_horizon = sigma_period * np.sqrt(horizon)
+            realized_return = level[i + horizon] - level[i]  # the REAL forward move that actually happened
             records.append({
-                "ticker": ticker, "date": t["date"].iloc[i], "sigma_5d": sigma_5d,
-                "realized_5d_return": realized_5d_return,
+                "ticker": ticker, "date": t["date"].iloc[i], "sigma_5d": sigma_horizon,
+                "realized_5d_return": realized_return,
             })
 
     bt = pd.DataFrame(records)
@@ -135,6 +153,10 @@ def main(market_id: str) -> None:
     out_bt.parent.mkdir(parents=True, exist_ok=True)
     bt.to_csv(out_bt, index=False)
 
+    params = FREQUENCY_PARAMS[cfg.frequency]
+    horizon_label = f"{params['horizon']}-trading-day" if cfg.frequency == "daily" else f"{params['horizon']}-month"
+    period_label = "daily" if cfg.frequency == "daily" else "monthly"
+
     out_report = REPO_ROOT / "reports" / f"{market_id}_tail_risk_backtest_report.md"
     out_report.parent.mkdir(parents=True, exist_ok=True)
     with open(out_report, "w") as f:
@@ -142,13 +164,14 @@ def main(market_id: str) -> None:
         f.write(
             f"Real rolling-origin backtest, {len(bt)} real (ticker, checkpoint) pairs across "
             f"{cfg.tickers.__len__()} real tickers ({bt['date'].min().date()} to {bt['date'].max().date()}), "
-            f"EWMA (lambda={EWMA_LAMBDA}) daily volatility scaled to a real {HORIZON_DAYS}-trading-day horizon, "
+            f"EWMA (lambda={EWMA_LAMBDA}) {period_label} volatility scaled to a real {horizon_label} horizon"
+            f"{' (FRED/OECD only publishes this series monthly -- no real daily India rate data is free anywhere, confirmed directly)' if cfg.frequency == 'monthly' else ''}, "
             f"zero real drift assumed (disclosed limitation -- short-horizon expected return is not reliably "
             f"estimable from history alone).\n\n"
         )
         threshold_display = f"{threshold:.3f} percentage points of yield/spread change" if cfg.source == "fred" else f"{threshold:.4%}"
         f.write(
-            f"**Real adverse threshold** (p{ADVERSE_PERCENTILE} of pooled real |{HORIZON_DAYS}-day "
+            f"**Real adverse threshold** (p{ADVERSE_PERCENTILE} of pooled real |{horizon_label} "
             f"{'yield/spread change' if cfg.source == 'fred' else 'return'}|): "
             f"**{threshold_display}** -- a real top-quartile-sized move for this market's own history, not "
             f"borrowed from any other asset class or sport.\n\n"
@@ -165,13 +188,13 @@ def main(market_id: str) -> None:
             "- EWMA is a real, standard, single-model choice -- not compared here against a real GARCH candidate "
             "(a real future improvement, same \"never assume, always check\" discipline this project applies "
             "elsewhere, just not yet run for this market).\n"
-            f"- Monthly ({CHECKPOINT_STRIDE_DAYS}-trading-day) checkpoint stride is a real compute-cost choice, "
-            "not a claim that real volatility is constant between checkpoints.\n"
+            f"- A checkpoint every {params['stride']} real {period_label} observation(s) is a real compute-cost "
+            "choice, not a claim that real volatility is constant between checkpoints.\n"
         )
     print(f"Wrote {len(bt)} backtest rows to {out_bt}")
     print(f"Real threshold: {threshold_display}; real risk-tier cutoffs: {cutoffs}")
     print(f"Wrote report to {out_report}")
-    log_experiment(meta, stage="backtest_market_tail_risk", notes=f"{market_id}: {len(bt)} rows, threshold={threshold:.4%}")
+    log_experiment(meta, stage="backtest_market_tail_risk", notes=f"{market_id}: {len(bt)} rows, threshold={threshold_display}")
 
 
 if __name__ == "__main__":
