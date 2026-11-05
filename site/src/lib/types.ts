@@ -319,3 +319,41 @@ export interface PickMoneylinePayload {
   data: MarginSurvivalRow[]
 }
 
+// Markets side's +2 Margin Survival equivalent -- a single real
+// instrument's own tail-risk read (see compute_market_tail_risk.py),
+// not a two-team matchup, so there's no opponent/is_home/verdict here.
+export interface MarketTailRiskRow {
+  market_id: string
+  ticker: string
+  as_of_date: string
+  current_price: number
+  currency: string
+  sigma_daily: number
+  sigma_horizon: number
+  horizon_days: number
+  threshold: number
+  p_survive: number
+  p_fail: number
+  risk_label: string
+  why_text: string
+  run_id: string
+  model_version: string
+  generated_at: string
+}
+
+export interface MarketTailRiskPayload {
+  market_id: string
+  display_name: string
+  country: string
+  asset_class: string
+  currency?: string
+  generated_at: string
+  model_version: string
+  record_count: number
+  risk_tier_tally?: Record<string, number>
+  engine_note?: string
+  status?: string
+  note?: string
+  data: MarketTailRiskRow[]
+}
+

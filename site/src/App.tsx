@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom'
+import { HashRouter, NavLink, Navigate, Route, Routes, useParams } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { useDashboardJson } from './lib/useDashboardData'
@@ -17,6 +17,9 @@ const ModelPerformancePage = lazy(() =>
 const Plus2BoardPage = lazy(() => import('./pages/Plus2BoardPage').then((m) => ({ default: m.Plus2BoardPage })))
 const KnockoutPage = lazy(() => import('./pages/KnockoutPage').then((m) => ({ default: m.KnockoutPage })))
 const StandingsPage = lazy(() => import('./pages/StandingsPage').then((m) => ({ default: m.StandingsPage })))
+const MarketTailRiskPage = lazy(() =>
+  import('./pages/MarketTailRiskPage').then((m) => ({ default: m.MarketTailRiskPage })),
+)
 
 // Every page reads its own leagueId from the route param and builds its
 // dashboard-JSON filename as `${leagueId}_<name>.json` -- one component
@@ -72,11 +75,81 @@ function LeagueRoutes() {
   )
 }
 
+// Markets side: a real instrument's own tail-risk read, not a two-team
+// matchup -- a deliberately separate, minimal route namespace from
+// `/:leagueId/*` rather than forcing it through the sports
+// LeagueSwitcher/table-races-fixtures nav shape it doesn't fit.
+interface MarketEntry { market_id: string; display_name: string; country: string; asset_class: string }
+interface MarketsManifest { markets: MarketEntry[] }
+
+// Two real country groups (USA Assets / India Assets), each listing
+// its own real asset classes -- reads config/markets.yaml's real
+// scope directly via markets.json, never hardcodes which asset
+// classes exist for which country (the 3 India gaps -- commodities,
+// fixed income & credit, alternatives -- are simply absent from the
+// real manifest, not greyed out or faked).
+function MarketSwitcher({ marketId, markets }: { marketId: string; markets: MarketEntry[] }) {
+  if (markets.length === 0) return null
+  const byCountry = new Map<string, MarketEntry[]>()
+  for (const m of markets) {
+    const list = byCountry.get(m.country) ?? []
+    list.push(m)
+    byCountry.set(m.country, list)
+  }
+  return (
+    <select
+      value={marketId}
+      onChange={(e) => {
+        window.location.hash = `#/markets/${e.target.value}`
+      }}
+      className="tnum rounded border border-[var(--color-border)] bg-[var(--color-panel)] px-2 py-1 text-[12px] text-[var(--color-text)]"
+    >
+      {[...byCountry.entries()].map(([country, group]) => (
+        <optgroup key={country} label={`${country} Assets`}>
+          {group.map((m) => (
+            <option key={m.market_id} value={m.market_id}>
+              {m.display_name}
+            </option>
+          ))}
+        </optgroup>
+      ))}
+    </select>
+  )
+}
+
+function MarketsRoutes() {
+  const { marketId = 'us_equities' } = useParams<{ marketId: string }>()
+  const { data: manifest } = useDashboardJson<MarketsManifest>('markets.json')
+  const markets = manifest?.markets ?? []
+  return (
+    <div className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-10 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-2.5">
+          <span className="text-[13px] font-semibold tracking-tight text-[var(--color-text)]">
+            Markets <span className="text-[var(--color-accent)]">2026</span>
+          </span>
+          <MarketSwitcher marketId={marketId} markets={markets} />
+          <NavLink to="/epl/table" className="ml-auto text-[12px] text-[var(--color-text-dim)] hover:text-[var(--color-text)]">
+            &larr; Back to soccer/sports predictor
+          </NavLink>
+        </div>
+      </header>
+      <main className="flex-1">
+        <Suspense fallback={<div className="px-4 py-16 text-center text-[12px] text-[var(--color-text-faint)]">Loading...</div>}>
+          <MarketTailRiskPage marketId={marketId} />
+        </Suspense>
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <HashRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/epl/table" replace />} />
+        <Route path="/markets/:marketId" element={<MarketsRoutes />} />
         <Route path="/:leagueId/*" element={<LeagueRoutes />} />
       </Routes>
     </HashRouter>

@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-11-05T10:02:03+00:00",
+  "markets": [
+    {
+      "market_id": "india_digital_assets",
+      "display_name": "India Digital Assets",
+      "country": "India",
+      "asset_class": "digital_assets"
+    },
+    {
+      "market_id": "india_equities",
+      "display_name": "India Equities",
+      "country": "India",
+      "asset_class": "equities"
+    },
+    {
+      "market_id": "india_fx",
+      "display_name": "India FX",
+      "country": "India",
+      "asset_class": "fx"
+    },
+    {
+      "market_id": "india_real_assets",
+      "display_name": "India Real Assets",
+      "country": "India",
+      "asset_class": "real_assets"
+    },
+    {
+      "market_id": "us_alternatives",
+      "display_name": "US Alternatives",
+      "country": "USA",
+      "asset_class": "alternatives"
+    },
+    {
+      "market_id": "us_commodities",
+      "display_name": "US Commodities",
+      "country": "USA",
+      "asset_class": "commodities"
+    },
+    {
+      "market_id": "us_digital_assets",
+      "display_name": "US Digital Assets",
+      "country": "USA",
+      "asset_class": "digital_assets"
+    },
+    {
+      "market_id": "us_equities",
+      "display_name": "US Equities",
+      "country": "USA",
+      "asset_class": "equities"
+    },
+    {
+      "market_id": "us_fixed_income_credit",
+      "display_name": "US Fixed Income & Credit",
+      "country": "USA",
+      "asset_class": "fixed_income_credit"
+    },
+    {
+      "market_id": "us_fx",
+      "display_name": "US FX",
+      "country": "USA",
+      "asset_class": "fx"
+    },
+    {
+      "market_id": "us_real_assets",
+      "display_name": "US Real Assets",
+      "country": "USA",
+      "asset_class": "real_assets"
+    }
+  ]
+}

@@ -100,6 +100,9 @@ export function Header({
           ))}
         </nav>
         <div className="ml-auto flex items-center gap-3 text-[11px] text-[var(--color-text-faint)]">
+          <NavLink to="/markets/us_equities" className="text-[var(--color-text-dim)] hover:text-[var(--color-text)]">
+            Markets &rarr;
+          </NavLink>
           {modelVersion && <span className="tnum">model {modelVersion}</span>}
           {generatedAt && <span className="tnum">as of {formatGeneratedAt(generatedAt)}</span>}
         </div>

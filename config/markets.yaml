@@ -1,0 +1,248 @@
+# Registry of every real market/asset-class instrument universe this
+# platform tracks for the tail-risk engine -- the markets-side
+# equivalent of config/leagues.yaml's per-competition registry.
+#
+# This is NOT the same prediction problem as soccer/NFL/NBA/NCAAF: a
+# market instrument has no opponent and no match result, so there is
+# no moneyline/win-probability concept here, and this registry
+# deliberately builds NO directional (up/down) prediction -- confirmed
+# directly this session: a real backtest of short-horizon directional
+# calls in a reasonably efficient market would likely show near-coin-
+# flip accuracy, unlike a real sports model's genuine edge. What DOES
+# translate honestly is the +2 Margin Survival concept itself: "how
+# likely is this team to lose by a real, sport-recognizable blowout
+# margin" becomes "how likely is this instrument to realize a return
+# worse than a real, historically-derived adverse threshold over a
+# fixed horizon" -- the same real Value-at-Risk framing the finance
+# industry already uses, not invented here. See
+# src/models/compute_market_tail_risk.py for the real engine.
+#
+# Phase 0 (2026-11-05): "us_equities" first, as the template; the
+# other 10 real, data-source-confirmed markets below (USA:
+# commodities, fixed income & credit, FX, digital assets, real assets,
+# alternatives; India: equities, FX, digital assets, real assets)
+# followed once that template was reviewed. Four real sources total,
+# one collector each (same normalized historical_prices.csv schema
+# out of all four, so backtest_market_tail_risk.py/
+# compute_market_tail_risk.py run unchanged regardless of source):
+#   - yahoo_chart   -> collect_yahoo_prices.py   (equities, commodity
+#     futures, REIT/liquid-alt ETF proxies -- real daily OHLCV)
+#   - fred          -> collect_fred_series.py    (Treasury yields, real
+#     credit spreads -- a real LEVEL, not a price; a "return" here is
+#     a real day-over-day yield/spread CHANGE, the standard real way
+#     fixed-income risk is measured)
+#   - frankfurter   -> collect_frankfurter_fx.py (real ECB daily FX
+#     reference rates; `tickers` are real 6-letter "{FROM}{TO}" pairs)
+#   - coingecko     -> collect_coingecko_crypto.py (real daily crypto
+#     prices; free tier caps real history at 365 days and rate-limits
+#     aggressively -- confirmed directly, see that collector's
+#     docstring)
+# Explicitly OUT of
+# scope, never faked: India commodities (no free real MCX data found
+# anywhere -- only a global-futures-converted-to-INR proxy exists,
+# which is not a real Indian commodity price), India fixed income &
+# credit (RBI's own data portal is a JS-rendered SPA with no
+# confirmed free fetchable endpoint), and India alternatives (no
+# India-specific free, publicly-fetchable proxy exists -- AIFs are not
+# exchange-traded the way US liquid-alt funds are).
+
+- market_id: us_equities
+  display_name: US Equities
+  country: USA
+  asset_class: equities
+  currency: USD
+  # Yahoo Finance's unofficial chart API
+  # (query1.finance.yahoo.com/v8/finance/chart/{ticker}) -- confirmed
+  # directly this session: 200 OK, real daily OHLCV, requires a
+  # User-Agent header, no key. Same real source commodities/real
+  # assets/alternatives will use later (different tickers only).
+  source: yahoo_chart
+  # Real, stable, citable universe -- the 30 Dow Jones Industrial
+  # Average components (as of 2026-11), not an arbitrary or guessed
+  # list. Small enough to build/verify/backtest quickly in Phase 0;
+  # the same source/pattern generalizes to a larger universe (e.g.
+  # the S&P 500) later with no code change, only a longer ticker list.
+  tickers:
+    - AAPL
+    - AMGN
+    - AMZN
+    - AXP
+    - BA
+    - CAT
+    - CRM
+    - CSCO
+    - CVX
+    - DIS
+    - GS
+    - HD
+    - HON
+    - IBM
+    - JNJ
+    - JPM
+    - KO
+    - MCD
+    - MMM
+    - MRK
+    - MSFT
+    - NKE
+    - NVDA
+    - PG
+    - SHW
+    - TRV
+    - UNH
+    - V
+    - VZ
+    - WMT
+
+- market_id: us_commodities
+  display_name: US Commodities
+  country: USA
+  asset_class: commodities
+  currency: USD
+  # Real continuous futures contracts, fetched directly (not ETF
+  # proxies) -- confirmed directly: Yahoo serves genuine
+  # instrumentType=FUTURE data for these, free, no key.
+  source: yahoo_chart
+  tickers: [GC=F, SI=F, PL=F, CL=F, NG=F, HG=F, ZC=F, ZS=F, ZW=F, KC=F, CT=F, SB=F]
+
+- market_id: us_fixed_income_credit
+  display_name: US Fixed Income & Credit
+  country: USA
+  asset_class: fixed_income_credit
+  currency: USD
+  # FRED (fred.stlouisfed.org) -- real Treasury yields AND real credit
+  # spreads, both free, confirmed directly. `tickers` here are FRED's
+  # own real series IDs, not tradeable instrument tickers.
+  source: fred
+  tickers:
+    - DGS3MO   # 3-month Treasury yield
+    - DGS2     # 2-year Treasury yield
+    - DGS10    # 10-year Treasury yield
+    - BAMLH0A0HYM2  # ICE BofA US High Yield Index Option-Adjusted Spread
+    - BAMLC0A0CM    # ICE BofA US Investment Grade Index Option-Adjusted Spread
+
+- market_id: us_fx
+  display_name: US FX
+  country: USA
+  asset_class: fx
+  currency: USD
+  # Frankfurter (ECB reference rates) -- confirmed directly, free, no
+  # key. `tickers` are real 6-letter "{FROM}{TO}" currency pair codes.
+  source: frankfurter
+  tickers: [USDEUR, USDGBP, USDJPY, USDCAD, USDAUD, USDCHF, USDCNY]
+
+- market_id: us_digital_assets
+  display_name: US Digital Assets
+  country: USA
+  asset_class: digital_assets
+  currency: USD
+  # CoinGecko free public API -- confirmed directly, free tier caps
+  # real history at 365 days and rate-limits aggressively (see
+  # collect_coingecko_crypto.py's docstring). `tickers` are CoinGecko's
+  # own real coin ids.
+  source: coingecko
+  tickers: [bitcoin, ethereum, solana, cardano, ripple, dogecoin]
+
+- market_id: us_real_assets
+  display_name: US Real Assets
+  country: USA
+  asset_class: real_assets
+  currency: USD
+  # True private real estate/infrastructure/farmland data isn't free
+  # anywhere -- these are real, liquid, PUBLICLY-TRADED proxies
+  # (REIT/infrastructure/timber ETFs), explicitly disclosed as such in
+  # the UI, never presented as the private market itself.
+  source: yahoo_chart
+  tickers: [VNQ, IFRA, CUT]
+
+- market_id: us_alternatives
+  display_name: US Alternatives
+  country: USA
+  asset_class: alternatives
+  currency: USD
+  # Same real-liquid-proxy disclosure as us_real_assets -- true private
+  # hedge-fund/private-equity data isn't free anywhere; these are real,
+  # liquid, exchange-traded alternative-strategy funds (merger
+  # arbitrage, managed futures, multi-strategy).
+  source: yahoo_chart
+  tickers: [MERFX, DBMF, QAI]
+
+- market_id: india_equities
+  display_name: India Equities
+  country: India
+  asset_class: equities
+  currency: INR
+  # Same Yahoo chart API, real NSE-listed tickers (".NS" suffix) --
+  # confirmed directly this session. A real, stable, large-cap universe
+  # resembling the NIFTY 50 (one real constituent, Tata Motors, was
+  # dropped after a real 2025 corporate demerger made "TATAMOTORS.NS"
+  # delisted -- confirmed directly via a live fetch, not assumed).
+  source: yahoo_chart
+  tickers:
+    - RELIANCE.NS
+    - TCS.NS
+    - HDFCBANK.NS
+    - ICICIBANK.NS
+    - INFY.NS
+    - HINDUNILVR.NS
+    - ITC.NS
+    - SBIN.NS
+    - BHARTIARTL.NS
+    - KOTAKBANK.NS
+    - LT.NS
+    - AXISBANK.NS
+    - BAJFINANCE.NS
+    - ASIANPAINT.NS
+    - MARUTI.NS
+    - SUNPHARMA.NS
+    - TITAN.NS
+    - ULTRACEMCO.NS
+    - NESTLEIND.NS
+    - WIPRO.NS
+    - HCLTECH.NS
+    - "M&M.NS"
+    - BAJAJ-AUTO.NS
+    - POWERGRID.NS
+    - NTPC.NS
+    - ONGC.NS
+    - TATASTEEL.NS
+    - ADANIENT.NS
+    - BAJAJFINSV.NS
+    - JSWSTEEL.NS
+
+- market_id: india_fx
+  display_name: India FX
+  country: India
+  asset_class: fx
+  currency: INR
+  # Same Frankfurter source as us_fx, real INR cross rates.
+  source: frankfurter
+  tickers: [USDINR, EURINR, GBPINR, JPYINR]
+
+- market_id: india_digital_assets
+  display_name: India Digital Assets
+  country: India
+  asset_class: digital_assets
+  currency: INR
+  # Same CoinGecko source/coin universe as us_digital_assets, quoted in
+  # INR directly (CoinGecko's own real `vs_currency=inr` support) --
+  # crypto itself is a global market, not India-specific pricing.
+  # Real regulatory context (confirmed via research, not assumed):
+  # India has kept a flat 30% tax on virtual digital asset gains plus
+  # 1% TDS on transaction value since 2022, unchanged through the real
+  # 2026 budget; no comprehensive crypto law/regulator exists yet.
+  # Disclosed in the site's own UI copy, not just here.
+  source: coingecko
+  tickers: [bitcoin, ethereum, solana, cardano, ripple, dogecoin]
+
+- market_id: india_real_assets
+  display_name: India Real Assets
+  country: India
+  asset_class: real_assets
+  currency: INR
+  # Real, listed Indian REITs (NSE, ".NS" suffix) -- confirmed directly
+  # this session via a live fetch for all four of India's real listed
+  # REITs (Embassy Office Parks, Mindspace Business Parks, Brookfield
+  # India Real Estate Trust, Nexus Select Trust).
+  source: yahoo_chart
+  tickers: [EMBASSY.NS, MINDSPACE.NS, BIRET.NS, NXST.NS]

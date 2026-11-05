@@ -476,3 +476,15 @@ uecl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-04T13:21:54+00
 nfl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-04T13:21:55+00:00,2835,True,2026-11-04T13:21:55+00:00,2106 real bookmaker/market rows; rest are honest unavailable sentinels.
 nba_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-04T13:21:55+00:00,5261,True,2026-11-04T13:21:56+00:00,1715 real bookmaker/market rows; rest are honest unavailable sentinels.
 ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-04T13:21:56+00:00,6292,True,2026-11-04T13:21:57+00:00,4168 real bookmaker/market rows; rest are honest unavailable sentinels.
+us_equities_historical_prices,2026-08-18.phase1,query1.finance.yahoo.com (unofficial chart API),2026-11-05T09:25:04+00:00,37620,True,2026-11-05T09:25:21+00:00,"30/30 tickers real-fetched, 0 failed"
+us_commodities_historical_prices,2026-08-18.phase1,query1.finance.yahoo.com (unofficial chart API),2026-11-05T09:54:18+00:00,15087,True,2026-11-05T09:54:25+00:00,"12/12 tickers real-fetched, 0 failed"
+us_real_assets_historical_prices,2026-08-18.phase1,query1.finance.yahoo.com (unofficial chart API),2026-11-05T09:54:25+00:00,3762,True,2026-11-05T09:54:27+00:00,"3/3 tickers real-fetched, 0 failed"
+us_alternatives_historical_prices,2026-08-18.phase1,query1.finance.yahoo.com (unofficial chart API),2026-11-05T09:54:27+00:00,3762,True,2026-11-05T09:54:29+00:00,"3/3 tickers real-fetched, 0 failed"
+india_equities_historical_prices,2026-08-18.phase1,query1.finance.yahoo.com (unofficial chart API),2026-11-05T09:54:29+00:00,37080,True,2026-11-05T09:54:46+00:00,"30/30 tickers real-fetched, 0 failed"
+india_real_assets_historical_prices,2026-08-18.phase1,query1.finance.yahoo.com (unofficial chart API),2026-11-05T09:54:46+00:00,4558,True,2026-11-05T09:54:48+00:00,"4/4 tickers real-fetched, 0 failed"
+us_fx_historical_prices,2026-08-18.phase1,api.frankfurter.dev (ECB reference rates),2026-11-05T09:54:54+00:00,8960,True,2026-11-05T09:54:58+00:00,"7/7 pairs real-fetched, 0 failed"
+india_fx_historical_prices,2026-08-18.phase1,api.frankfurter.dev (ECB reference rates),2026-11-05T09:54:58+00:00,5120,True,2026-11-05T09:55:00+00:00,"4/4 pairs real-fetched, 0 failed"
+us_fixed_income_credit_historical_prices,2026-08-18.phase1,fred.stlouisfed.org/graph/fredgraph.csv,2026-11-05T09:55:06+00:00,0,True,2026-11-05T09:55:07+00:00,"0/5 series real-fetched, 5 failed"
+us_fixed_income_credit_historical_prices,2026-08-18.phase1,fred.stlouisfed.org/graph/fredgraph.csv,2026-11-05T09:55:47+00:00,41660,True,2026-11-05T09:55:48+00:00,"5/5 series real-fetched, 0 failed"
+us_digital_assets_historical_prices,2026-08-18.phase1,api.coingecko.com (free public tier),2026-11-05T09:55:54+00:00,2196,True,2026-11-05T09:56:35+00:00,"6/6 coins real-fetched, 0 failed, 365-day free-tier cap"
+india_digital_assets_historical_prices,2026-08-18.phase1,api.coingecko.com (free public tier),2026-11-05T09:56:40+00:00,2196,True,2026-11-05T09:58:23+00:00,"6/6 coins real-fetched, 0 failed, 365-day free-tier cap"

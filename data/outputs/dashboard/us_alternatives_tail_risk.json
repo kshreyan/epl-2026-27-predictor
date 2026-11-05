@@ -1,0 +1,72 @@
+{
+  "market_id": "us_alternatives",
+  "display_name": "US Alternatives",
+  "country": "USA",
+  "asset_class": "alternatives",
+  "currency": "USD",
+  "generated_at": "2026-11-05T10:02:03+00:00",
+  "model_version": "0.1.0-phase1",
+  "record_count": 3,
+  "risk_tier_tally": {
+    "ELITE SURVIVAL": 1,
+    "HIGH BLOWOUT RISK": 1,
+    "STRONG": 1
+  },
+  "engine_note": "Real EWMA-volatility tail-risk read for every real instrument in US Alternatives's universe -- P(return over the next real trading week falls below this market's own real backtested adverse threshold), bucketed into the same 5-tier risk shape every other engine on this site uses. Zero real drift assumed -- this is a volatility/tail-risk read only, never a directional (up/down) call. Not investment advice.",
+  "data": [
+    {
+      "market_id": "us_alternatives",
+      "ticker": "MERFX",
+      "as_of_date": "2026-11-04",
+      "current_price": 17.73,
+      "currency": "USD",
+      "sigma_daily": 0.001384,
+      "sigma_horizon": 0.003096,
+      "horizon_days": 5,
+      "threshold": 0.009227,
+      "p_survive": 0.9986,
+      "p_fail": 0.0014,
+      "risk_label": "ELITE SURVIVAL",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for MERFX: 0.31% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5 trading days: 0.1%.",
+      "run_id": "market_tail_risk_20261105T100133Z_0bce9f9e",
+      "model_version": "0.1.0-phase1",
+      "generated_at": "2026-11-05T10:01:33+00:00"
+    },
+    {
+      "market_id": "us_alternatives",
+      "ticker": "DBMF",
+      "as_of_date": "2026-11-04",
+      "current_price": 31.49,
+      "currency": "USD",
+      "sigma_daily": 0.008993,
+      "sigma_horizon": 0.020108,
+      "horizon_days": 5,
+      "threshold": 0.009227,
+      "p_survive": 0.6768,
+      "p_fail": 0.3232,
+      "risk_label": "HIGH BLOWOUT RISK",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for DBMF: 2.01% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5 trading days: 32.3%.",
+      "run_id": "market_tail_risk_20261105T100133Z_0bce9f9e",
+      "model_version": "0.1.0-phase1",
+      "generated_at": "2026-11-05T10:01:33+00:00"
+    },
+    {
+      "market_id": "us_alternatives",
+      "ticker": "QAI",
+      "as_of_date": "2026-11-04",
+      "current_price": 35.71,
+      "currency": "USD",
+      "sigma_daily": 0.004356,
+      "sigma_horizon": 0.00974,
+      "horizon_days": 5,
+      "threshold": 0.009227,
+      "p_survive": 0.8283,
+      "p_fail": 0.1717,
+      "risk_label": "STRONG",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for QAI: 0.97% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -0.92% over the next 5 trading days: 17.2%.",
+      "run_id": "market_tail_risk_20261105T100133Z_0bce9f9e",
+      "model_version": "0.1.0-phase1",
+      "generated_at": "2026-11-05T10:01:33+00:00"
+    }
+  ]
+}
