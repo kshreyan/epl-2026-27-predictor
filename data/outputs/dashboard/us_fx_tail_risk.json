@@ -4,7 +4,7 @@
   "country": "USA",
   "asset_class": "fx",
   "currency": "USD",
-  "generated_at": "2026-11-05T10:02:03+00:00",
+  "generated_at": "2026-11-05T10:30:00+00:00",
   "model_version": "0.1.0-phase1",
   "record_count": 7,
   "risk_tier_tally": {

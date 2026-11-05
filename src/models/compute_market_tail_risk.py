@@ -61,6 +61,7 @@ THRESHOLD = {
     "india_fx": 0.009190,
     "india_digital_assets": 0.070946,
     "india_real_assets": 0.018188,
+    "india_commodities": 0.030210,
 }
 
 RISK_LABELS = {
@@ -106,6 +107,17 @@ RISK_LABELS = {
     ],
     "india_real_assets": [
         (0.1542, "ELITE SURVIVAL"), (0.1975, "VERY STRONG"), (0.2239, "STRONG"), (0.2573, "MODERATE"),
+        (float("inf"), "HIGH BLOWOUT RISK"),
+    ],
+    # Thinner real sample than every other market here (109 real
+    # (ticker,checkpoint) pairs from only 2 tickers, vs. 171-1972
+    # elsewhere) -- only 2 real liquid India commodity ETFs exist (see
+    # markets.yaml), so the real backtested calibration is noisier
+    # (non-monotonic across p_fail quintiles -- see this market's own
+    # tail_risk_backtest_report.md). Disclosed honestly, not hidden or
+    # padded with a fabricated third instrument.
+    "india_commodities": [
+        (0.0311, "ELITE SURVIVAL"), (0.1007, "VERY STRONG"), (0.1571, "STRONG"), (0.2128, "MODERATE"),
         (float("inf"), "HIGH BLOWOUT RISK"),
     ],
 }

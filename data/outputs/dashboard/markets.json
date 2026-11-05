@@ -1,6 +1,12 @@
 {
-  "generated_at": "2026-11-05T10:02:03+00:00",
+  "generated_at": "2026-11-05T10:30:00+00:00",
   "markets": [
+    {
+      "market_id": "india_commodities",
+      "display_name": "India Commodities",
+      "country": "India",
+      "asset_class": "commodities"
+    },
     {
       "market_id": "india_digital_assets",
       "display_name": "India Digital Assets",

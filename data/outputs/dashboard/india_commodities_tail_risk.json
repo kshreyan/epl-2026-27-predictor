@@ -1,0 +1,53 @@
+{
+  "market_id": "india_commodities",
+  "display_name": "India Commodities",
+  "country": "India",
+  "asset_class": "commodities",
+  "currency": "INR",
+  "generated_at": "2026-11-05T10:30:00+00:00",
+  "model_version": "0.1.0-phase1",
+  "record_count": 2,
+  "risk_tier_tally": {
+    "STRONG": 1,
+    "HIGH BLOWOUT RISK": 1
+  },
+  "engine_note": "Real EWMA-volatility tail-risk read for every real instrument in India Commodities's universe -- P(return over the next real trading week falls below this market's own real backtested adverse threshold), bucketed into the same 5-tier risk shape every other engine on this site uses. Zero real drift assumed -- this is a volatility/tail-risk read only, never a directional (up/down) call. Not investment advice.",
+  "data": [
+    {
+      "market_id": "india_commodities",
+      "ticker": "GOLDBEES.NS",
+      "as_of_date": "2026-11-05",
+      "current_price": 118.13,
+      "currency": "INR",
+      "sigma_daily": 0.013089,
+      "sigma_horizon": 0.029268,
+      "horizon_days": 5,
+      "threshold": 0.03021,
+      "p_survive": 0.849,
+      "p_fail": 0.151,
+      "risk_label": "STRONG",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for GOLDBEES.NS: 2.93% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.02% over the next 5 trading days: 15.1%.",
+      "run_id": "market_tail_risk_20261105T103000Z_88d6744b",
+      "model_version": "0.1.0-phase1",
+      "generated_at": "2026-11-05T10:30:00+00:00"
+    },
+    {
+      "market_id": "india_commodities",
+      "ticker": "SILVERBEES.NS",
+      "as_of_date": "2026-11-05",
+      "current_price": 177.87,
+      "currency": "INR",
+      "sigma_daily": 0.022821,
+      "sigma_horizon": 0.051029,
+      "horizon_days": 5,
+      "threshold": 0.03021,
+      "p_survive": 0.7231,
+      "p_fail": 0.2769,
+      "risk_label": "HIGH BLOWOUT RISK",
+      "why_text": "Real EWMA-fitted 5-trading-day volatility for SILVERBEES.NS: 5.10% (zero drift assumed -- this is a volatility read, not a directional call). Net modeled probability of a real move worse than -3.02% over the next 5 trading days: 27.7%.",
+      "run_id": "market_tail_risk_20261105T103000Z_88d6744b",
+      "model_version": "0.1.0-phase1",
+      "generated_at": "2026-11-05T10:30:00+00:00"
+    }
+  ]
+}

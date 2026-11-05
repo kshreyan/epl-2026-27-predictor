@@ -21,7 +21,10 @@
 # other 10 real, data-source-confirmed markets below (USA:
 # commodities, fixed income & credit, FX, digital assets, real assets,
 # alternatives; India: equities, FX, digital assets, real assets)
-# followed once that template was reviewed. Four real sources total,
+# followed once that template was reviewed; india_commodities followed
+# after a second, more thorough re-check of the India gaps (2026-11-05)
+# found a real source the first pass missed -- see its own entry
+# below. Four real sources total,
 # one collector each (same normalized historical_prices.csv schema
 # out of all four, so backtest_market_tail_risk.py/
 # compute_market_tail_risk.py run unchanged regardless of source):
@@ -38,13 +41,23 @@
 #     aggressively -- confirmed directly, see that collector's
 #     docstring)
 # Explicitly OUT of
-# scope, never faked: India commodities (no free real MCX data found
-# anywhere -- only a global-futures-converted-to-INR proxy exists,
-# which is not a real Indian commodity price), India fixed income &
-# credit (RBI's own data portal is a JS-rendered SPA with no
-# confirmed free fetchable endpoint), and India alternatives (no
+# scope, never faked: India fixed income & credit (re-checked directly
+# 2026-11-05 across both of RBI's data-portal domains, data.rbi.org.in
+# and dbie.rbihub.in, plus FBIL and CCIL -- all are JS-rendered SPAs
+# with no data in the raw HTML and no exposed free API; the only real
+# "API" options found are paid third-party scrapers, which don't meet
+# this project's zero-paid-dependency bar), and India alternatives (no
 # India-specific free, publicly-fetchable proxy exists -- AIFs are not
 # exchange-traded the way US liquid-alt funds are).
+#
+# india_commodities does NOT use true MCX futures (still no free
+# source for those, confirmed again 2026-11-05) -- it uses real,
+# liquid, India-exchange-listed GOLD/SILVER ETFs instead (the same
+# Yahoo chart API already used elsewhere), which is a genuinely real
+# India-traded commodity price, not a synthetic global-futures-to-INR
+# conversion. A real, honestly small 2-instrument universe (most other
+# "India gold ETF" tickers checked are redundant clones of the same
+# underlying gold price, not real diversification).
 
 - market_id: us_equities
   display_name: US Equities
@@ -246,3 +259,16 @@
   # India Real Estate Trust, Nexus Select Trust).
   source: yahoo_chart
   tickers: [EMBASSY.NS, MINDSPACE.NS, BIRET.NS, NXST.NS]
+
+- market_id: india_commodities
+  display_name: India Commodities
+  country: India
+  asset_class: commodities
+  currency: INR
+  # NOT true MCX futures (still no free source for those) -- real,
+  # liquid, India-exchange-listed commodity ETFs instead, confirmed
+  # directly via a live fetch. See this file's module docstring for
+  # why this is a more honest proxy than a synthetic global-futures-
+  # to-INR conversion.
+  source: yahoo_chart
+  tickers: [GOLDBEES.NS, SILVERBEES.NS]
