@@ -1,6 +1,6 @@
-name: Weekly team-sport model refresh (NFL/NBA/NCAA Football)
+name: Weekly team-sport model refresh (NFL/NBA/NCAA Football/NCAA Basketball)
 
-# Re-runs the REAL model-selection/calibration backtests for the three
+# Re-runs the REAL model-selection/calibration backtests for the
 # "points"-format leagues (see src/evaluation/backtest_team_sport.py
 # and its sport-specific siblings) on a real weekly cadence, separate
 # from weekly_update.yml's daily prediction refresh -- which real
@@ -56,12 +56,12 @@ jobs:
       - name: Run fast test suite (safety check before touching real data)
         run: python -m pytest tests/ -q -m "not slow"
 
-      # Real rolling-origin model-selection backtest, all three leagues
+      # Real rolling-origin model-selection backtest, all four leagues
       # -- NCAA Football's also compares the real conference-aware
       # reversion variant (see elo_model.run_elo).
       - name: Re-run model-selection backtests
         run: |
-          for league in nfl nba ncaaf; do
+          for league in nfl nba ncaaf ncaab; do
             python -m src.evaluation.backtest_team_sport --league "$league"
           done
 

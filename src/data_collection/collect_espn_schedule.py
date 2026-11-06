@@ -18,18 +18,21 @@ already returns real scores inline):
 ESPN's own season-year convention differs by sport and does NOT match
 either one uniformly: NFL and NCAA Football seasons are labeled by
 their START year (e.g. "season=2026" is the real Sept 2026-Feb 2027
-NFL season), NBA by its END year (e.g. "season=2027" is the real Oct
-2026-Apr 2027 season) -- confirmed directly for all three, not
-assumed. ESPN_CURRENT_SEASON below translates this project's "2026-27"
-season label to each sport's own real convention.
+NFL season), NBA and NCAA Basketball by their END year (e.g.
+"season=2027" is the real Oct/Nov 2026-Apr 2027 season) -- confirmed
+directly for all four, not assumed (NCAAB confirmed directly this
+session: season=2026 on the real team-schedule endpoint returned games
+starting 2025-11-04, i.e. the real 2025-26 season). ESPN_CURRENT_SEASON
+below translates this project's "2026-27" season label to each sport's
+own real convention.
 
-No `matchweek` concept exists for NBA (confirmed directly: no `week`
-field anywhere in the real schedule data, unlike NFL's and NCAA
-Football's real official week numbers) -- a synthetic calendar-week
-number (days since the real season's first game // 7) is used
-instead, purely for the same UI pagination `FixturesPage.tsx` already
-does for every other league; documented here as synthetic, not an
-official NBA schedule concept.
+No `matchweek` concept exists for NBA or NCAA Basketball (confirmed
+directly: no `week` field anywhere in either real schedule data,
+unlike NFL's and NCAA Football's real official week numbers) -- a
+synthetic calendar-week number (days since the real season's first
+game // 7) is used instead, purely for the same UI pagination
+`FixturesPage.tsx` already does for every other league; documented
+here as synthetic, not an official NBA/NCAAB schedule concept.
 
 Real, honest limitation: ESPN's real game count for a season collected
 this early can be lower than the real full-season total (confirmed
@@ -39,17 +42,19 @@ system) -- this collector reports the real count it found rather than
 enforcing an exact expected total the way collect_fixtures.py does for
 a soccer league's fully-published-in-advance fixture list.
 
-Real NCAA Football scope boundary: real FBS teams regularly schedule a
-handful of real FCS ("buy game") opponents (confirmed directly: ~15%
-of one real week's games). FCS is a separate, much larger division
-this project does not predict -- those real cross-division games are
-skipped (counted and reported, not silently dropped) rather than
-guessing a team mapping for a league CANONICAL_TEAMS doesn't cover. A
-team's real official win total can therefore differ slightly from the
-subset this project tracks if they beat an FCS opponent this season.
+Real college-sport scope boundary: real top-division teams in both
+NCAA Football and NCAA Basketball regularly schedule a handful of
+real lower-division ("buy game"/exhibition) opponents (confirmed
+directly for FBS football: ~15% of one real week's games). The lower
+division is a separate, much larger set of programs this project does
+not predict -- those real cross-division games are skipped (counted
+and reported, not silently dropped) rather than guessing a team
+mapping for a league CANONICAL_TEAMS doesn't cover. A team's real
+official win total can therefore differ slightly from the subset this
+project tracks if they beat a lower-division opponent this season.
 
 Run: python -m src.data_collection.collect_espn_schedule --league nfl
-(also accepts nba, ncaaf)
+(also accepts nba, ncaaf, ncaab)
 """
 from __future__ import annotations
 
@@ -68,7 +73,7 @@ from src.utils.versioning import log_data_version, now_utc_iso  # noqa: E402
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SOURCE_NAME = "site.api.espn.com"
 SEASON_LABEL = "2026-27"
-ESPN_CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "ncaaf": 2026}
+ESPN_CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "ncaaf": 2026, "ncaab": 2027}
 
 FIXTURES_COLUMNS = [
     "match_id", "season", "matchweek", "date", "kickoff_utc", "kickoff_local",
@@ -102,7 +107,7 @@ def main(league_id: str) -> None:
         # rather than crashing or guessing a mapping; every other
         # league keeps the hard-fail (an unrecognized name there is a
         # real data problem, not an expected cross-division game).
-        if league_id == "ncaaf" and not (is_known_team(g["home_team"], league_id) and is_known_team(g["away_team"], league_id)):
+        if league_id in ("ncaaf", "ncaab") and not (is_known_team(g["home_team"], league_id) and is_known_team(g["away_team"], league_id)):
             n_skipped_cross_division += 1
             continue
         home = normalize_team_name(g["home_team"], league_id=league_id)
@@ -142,7 +147,7 @@ def main(league_id: str) -> None:
         writer.writerows(fixture_rows)
     print(f"Wrote {len(fixture_rows)} real fixtures to {fixtures_path}")
     if n_skipped_cross_division:
-        print(f"  (skipped {n_skipped_cross_division} real FBS-vs-FCS cross-division games -- out of this project's real scope, see module docstring)")
+        print(f"  (skipped {n_skipped_cross_division} real cross-division games against a lower-division opponent -- out of this project's real scope, see module docstring)")
 
     with open(real_results_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=REAL_RESULTS_COLUMNS)
@@ -161,6 +166,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf", "ncaab"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

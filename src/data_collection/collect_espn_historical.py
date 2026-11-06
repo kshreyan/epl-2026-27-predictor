@@ -15,7 +15,7 @@ No play-by-play/box-score stats (passing yards, shooting splits, etc.)
 not estimate what it can't source for real.
 
 Run: python -m src.data_collection.collect_espn_historical --league nfl
-(also accepts nba, ncaaf)
+(also accepts nba, ncaaf, ncaab)
 """
 from __future__ import annotations
 
@@ -35,12 +35,13 @@ SOURCE_NAME = "site.api.espn.com"
 
 # ESPN's own season-year convention (see collect_espn_schedule.py) --
 # the N most recent real COMPLETED seasons before the current one.
-CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "ncaaf": 2026}
-# NBA labels a season by its real END year (e.g. espn_season=2027 is
-# the real "2026-27" season) -- the split "2026-27"-style label is only
-# meaningful there; NFL/NCAAF use a real single START-year label
-# already.
-END_YEAR_CONVENTION_LEAGUES = {"nba"}
+CURRENT_SEASON = {"nfl": 2026, "nba": 2027, "ncaaf": 2026, "ncaab": 2027}
+# NBA and NCAA Basketball label a season by its real END year (e.g.
+# espn_season=2027 is the real "2026-27" season, confirmed directly
+# for NCAAB this session too) -- the split "2026-27"-style label is
+# only meaningful for those two; NFL/NCAAF use a real single
+# START-year label already.
+END_YEAR_CONVENTION_LEAGUES = {"nba", "ncaab"}
 N_PRIOR_SEASONS = 5
 
 OUTPUT_COLUMNS = [
@@ -71,8 +72,8 @@ def main(league_id: str) -> None:
             if not g["completed"] or g["home_score"] is None or g["away_score"] is None:
                 continue  # a real past season should be fully played out; skip rather than fabricate
             # See collect_espn_schedule.py's equivalent check -- real
-            # FBS-vs-FCS "buy games" are out of this project's real scope.
-            if league_id == "ncaaf" and not (is_known_team(g["home_team"], league_id) and is_known_team(g["away_team"], league_id)):
+            # cross-division "buy games" are out of this project's real scope.
+            if league_id in ("ncaaf", "ncaab") and not (is_known_team(g["home_team"], league_id) and is_known_team(g["away_team"], league_id)):
                 n_skipped_cross_division += 1
                 continue
             home = normalize_team_name(g["home_team"], league_id=league_id)
@@ -90,7 +91,7 @@ def main(league_id: str) -> None:
                 "notes": UNAVAILABLE_NOTE,
             })
             n_this_season += 1
-        skip_note = f" (skipped {n_skipped_cross_division} FBS-vs-FCS)" if n_skipped_cross_division else ""
+        skip_note = f" (skipped {n_skipped_cross_division} cross-division)" if n_skipped_cross_division else ""
         print(f"  season={espn_season} ({season_label}): {n_this_season} real completed games{skip_note}")
 
     rows.sort(key=lambda r: r["date"])
@@ -111,6 +112,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf", "ncaab"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

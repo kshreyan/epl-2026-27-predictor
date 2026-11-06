@@ -54,7 +54,7 @@ CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel", "uecl"]
 # anchored to its own real research/backtested margin distribution,
 # never a borrowed number (see that module's docstring for the real
 # per-league reasoning).
-TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "ncaaf"]
+TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "ncaaf", "ncaab"]
 
 
 # Pick Moneyline's real-standings gate below. Both brackets started as

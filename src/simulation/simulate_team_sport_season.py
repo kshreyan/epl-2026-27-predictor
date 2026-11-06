@@ -15,7 +15,7 @@ ESPN's own team-group IDs resolve to division/conference names only
 through a separate, undocumented lookup, confirmed directly not worth
 the fragility for a fact this stable). **NCAA Football's real
 conference groupings are NOT hardcoded** -- fetched live from ESPN at
-run time (espn_api.fetch_real_fbs_conferences()), since real
+run time (espn_api.fetch_real_college_conferences("ncaaf")), since real
 conference realignment is a recurring event in college sports, unlike
 these two sports' stable structure.
 
@@ -72,7 +72,7 @@ import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
-from src.data_collection.espn_api import fetch_real_fbs_conferences  # noqa: E402
+from src.data_collection.espn_api import fetch_real_college_conferences  # noqa: E402
 from src.evaluation.backtest_team_sport import ALLOWS_TIES, ELO_K_FACTOR  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.point_margin_model import fit_point_margin_model, predict_margin_distribution  # noqa: E402
@@ -272,7 +272,7 @@ def main_ncaaf_bowl_eligibility() -> None:
     real_results_path = REPO_ROOT / "data" / "raw" / league_path("ncaaf", "2026_27_real_results.csv")
     out_path = REPO_ROOT / "data" / "outputs" / league_path("ncaaf", "2026_27_playoff_picture.csv")
 
-    conferences = fetch_real_fbs_conferences()
+    conferences = fetch_real_college_conferences("ncaaf")
     team_conference = {t["display_name"]: conf for conf, roster in conferences.items() for t in roster}
 
     historical = pd.read_csv(historical_path, parse_dates=["date"])

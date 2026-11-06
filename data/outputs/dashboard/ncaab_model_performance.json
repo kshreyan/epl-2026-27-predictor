@@ -1,0 +1,33 @@
+{
+  "league": "ncaab",
+  "generated_at": "2026-11-06T07:15:30+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 3,
+  "reliability_table": [],
+  "calibration_summary": null,
+  "ensemble_per_season_comparison": [],
+  "data": [
+    {
+      "model": "Elo-only win probability",
+      "n_matches": 27461,
+      "log_loss": 0.5798992469,
+      "brier_score": 0.3970406361,
+      "ranked_probability_score": 0.198520318
+    },
+    {
+      "model": "Point-margin model (Elo + margin regression)",
+      "n_matches": 27461,
+      "log_loss": 0.6452365116,
+      "brier_score": 0.4531954269,
+      "ranked_probability_score": 0.2265977134
+    },
+    {
+      "model": "Flat/home-field-only baseline",
+      "n_matches": 27461,
+      "log_loss": 0.6566917149,
+      "brier_score": 0.4638130771,
+      "ranked_probability_score": 0.2319065386
+    }
+  ]
+}

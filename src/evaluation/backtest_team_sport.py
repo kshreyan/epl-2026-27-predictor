@@ -49,7 +49,7 @@ from src.models.baselines import elo_only_probabilities  # noqa: E402
 from src.models.point_margin_model import fit_point_margin_model, outcome_probabilities  # noqa: E402
 
 CHUNK_SIZE = 15
-ALLOWS_TIES = {"nfl": True, "nba": False, "ncaaf": False}
+ALLOWS_TIES = {"nfl": True, "nba": False, "ncaaf": False, "ncaab": False}
 ELO_K_FACTOR = 20.0
 # Below this, fitting a 2-parameter regression (slope, intercept) is
 # numerically unstable (confirmed directly: too few, too-similar real
@@ -87,8 +87,8 @@ def main(league_id: str) -> None:
     # already makes for this league's live standings.
     team_group = None
     if league_id == "ncaaf":
-        from src.data_collection.espn_api import fetch_real_fbs_conferences
-        conferences = fetch_real_fbs_conferences()
+        from src.data_collection.espn_api import fetch_real_college_conferences
+        conferences = fetch_real_college_conferences("ncaaf")
         team_group = {t["display_name"]: conf for conf, roster in conferences.items() for t in roster}
 
     rows = []
@@ -102,7 +102,18 @@ def main(league_id: str) -> None:
         if len(train_pool) < MIN_TRAIN_GAMES:
             continue
 
-        pm_fit = fit_point_margin_model(train_pool, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
+        try:
+            pm_fit = fit_point_margin_model(train_pool, allows_ties=allows_ties, k_factor=ELO_K_FACTOR)
+        except np.linalg.LinAlgError:
+            # Real large-roster leagues (e.g. NCAA Basketball's 365
+            # real D1 teams) can still have a degenerate (zero-variance)
+            # real elo_diff this early -- most of a real opening slate
+            # is first-ever matchups, so MIN_TRAIN_GAMES games in can
+            # still mean every team sits at its real initial 1500
+            # rating. Skip this chunk rather than crash, same "too thin
+            # to compute" discipline as MIN_TRAIN_GAMES itself -- the
+            # next chunk's larger real train_pool resolves it.
+            continue
         # NCAA Football only: a real, SEPARATE candidate using
         # conference-aware reversion (see team_group above), scored
         # alongside the flat-reversion pm_fit above rather than
@@ -249,6 +260,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf", "ncaab"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

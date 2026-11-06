@@ -178,3 +178,20 @@ leagues:
     n_teams: 138
     match_id_prefix: NCAAF
     format: points
+
+  - league_id: ncaab
+    display_name: NCAA Basketball
+    country: United States
+    odds_api_sport_key: basketball_ncaab
+    timezone: America/New_York
+    # Real, live Division I team count -- confirmed via ESPN's own
+    # standings feed this session (365 teams via standings?group=50,
+    # 362 via the generic /teams roster endpoint -- the same small real
+    # discrepancy NCAA Football's FBS count already has). Like NCAAF,
+    # this roster isn't a fixed closed set (real D1 reclassification is
+    # a recurring event) -- collect_espn_schedule.py sanity-checks
+    # against a wide band (350-375), not exact equality -- see
+    # espn_api.py's fetch_real_season_games().
+    n_teams: 365
+    match_id_prefix: NCAAB
+    format: points

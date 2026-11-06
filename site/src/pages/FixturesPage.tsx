@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useDashboardJson } from '../lib/useDashboardData'
 import type { Envelope, MarginSurvivalPayload, MarginSurvivalRow, MatchPredictionRow } from '../lib/types'
 import { formatKickoff, pct } from '../lib/format'
@@ -33,10 +33,28 @@ function PickChip({ label, value }: { label: string; value: string }) {
   )
 }
 
-function MatchRow({ match, margin }: { match: MatchPredictionRow; margin?: { home?: MarginSurvivalRow; away?: MarginSurvivalRow } }) {
+function MatchRow({
+  match, margin, highlighted,
+}: { match: MatchPredictionRow; margin?: { home?: MarginSurvivalRow; away?: MarginSurvivalRow }; highlighted?: boolean }) {
   const [open, setOpen] = useState(false)
+  const rowRef = useRef<HTMLDivElement>(null)
+
+  // Team search (see FixturesPage's TeamSearch) lands here: a fresh
+  // MatchRow mount with highlighted=true (every matchweek switch
+  // remounts every row, keyed by match_id, so this always fires on
+  // the very first render of the target row, not a delayed catch-up).
+  useEffect(() => {
+    if (highlighted) {
+      setOpen(true)
+      rowRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }, [highlighted])
+
   return (
-    <div className="border-b border-[var(--color-border)] last:border-0">
+    <div
+      ref={rowRef}
+      className={`border-b border-[var(--color-border)] last:border-0 ${highlighted ? 'ring-1 ring-inset ring-[var(--color-accent)]' : ''}`}
+    >
       <button
         onClick={() => setOpen((o) => !o)}
         className="grid w-full grid-cols-[100px_1fr_80px_140px_auto] items-center gap-3 px-2 pt-2 text-left hover:bg-[var(--color-panel)]"
@@ -165,6 +183,22 @@ export function FixturesPage({ leagueId }: { leagueId: string }) {
   // below (marginByMatch just stays empty).
   const { data: marginData } = useDashboardJson<MarginSurvivalPayload>(`${leagueId}_margin_survival.json`)
   const [pickedMatchweek, setPickedMatchweek] = useState<number | null>(null)
+  const [searchText, setSearchText] = useState('')
+  const [searchError, setSearchError] = useState<string | null>(null)
+  const [highlightMatchId, setHighlightMatchId] = useState<string | null>(null)
+
+  // FixturesPage isn't remounted on a league switch (same route shape,
+  // `/:leagueId/*`, just a different param) -- confirmed directly this
+  // session: without this, a search/matchweek selection made in one
+  // league was silently carried over into whichever league the user
+  // switched to next, both via the LeagueSwitcher dropdown and direct
+  // URL navigation.
+  useEffect(() => {
+    setPickedMatchweek(null)
+    setSearchText('')
+    setSearchError(null)
+    setHighlightMatchId(null)
+  }, [leagueId])
 
   const marginByMatch = useMemo(() => {
     const map = new Map<string, { home?: MarginSurvivalRow; away?: MarginSurvivalRow }>()
@@ -198,30 +232,112 @@ export function FixturesPage({ leagueId }: { leagueId: string }) {
     [data, matchweek],
   )
 
+  // Every real team name this league has, across every real matchweek
+  // of the season (not just the one currently shown) -- feeds the
+  // search box's native <datalist> autocomplete.
+  const teamNames = useMemo(() => {
+    if (!data) return []
+    const names = new Set<string>()
+    for (const m of data.data) {
+      names.add(m.home_team)
+      names.add(m.away_team)
+    }
+    return [...names].sort()
+  }, [data])
+
+  // Searches every real matchweek this league has, not just the one
+  // currently shown -- if the team has more than one real match this
+  // season (every soccer team plays dozens), prefers the nearest real
+  // UPCOMING one (status != "completed"), same "show what's live and
+  // ahead, not already-played" preference defaultMatchweek above
+  // already uses; falls back to the most recent real completed match
+  // if the team has no upcoming fixture left.
+  function runSearch() {
+    const q = searchText.trim().toLowerCase()
+    setSearchError(null)
+    if (!data || !q) return
+    const found = data.data.filter(
+      (m) => m.home_team.toLowerCase().includes(q) || m.away_team.toLowerCase().includes(q),
+    )
+    if (found.length === 0) {
+      setSearchError(`No team matching "${searchText.trim()}" found in ${leagueId.toUpperCase()}.`)
+      setHighlightMatchId(null)
+      return
+    }
+    const upcoming = found.filter((m) => m.status !== 'completed').sort((a, b) => a.kickoff_utc.localeCompare(b.kickoff_utc))
+    const target = upcoming[0] ?? [...found].sort((a, b) => b.kickoff_utc.localeCompare(a.kickoff_utc))[0]
+    setPickedMatchweek(target.matchweek)
+    setHighlightMatchId(target.match_id)
+    // The ring/auto-scroll is a one-shot "you asked, here it is" cue,
+    // not a permanent marker -- fades after the row has had time to
+    // scroll into view and the user has seen it.
+    window.setTimeout(() => setHighlightMatchId(null), 4000)
+  }
+
   if (loading || error || !data) return <PageState loading={loading} error={error} />
 
   return (
     <div className="mx-auto max-w-6xl space-y-4 px-4 py-6">
-      <div className="flex items-center gap-2">
-        <label htmlFor="mw" className="text-[11px] uppercase tracking-wider text-[var(--color-text-faint)]">
-          Matchweek
-        </label>
-        <select
-          id="mw"
-          value={matchweek}
-          onChange={(e) => setPickedMatchweek(Number(e.target.value))}
-          className="tnum border border-[var(--color-border)] bg-[var(--color-panel)] px-2 py-1 text-[12px]"
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="flex items-center gap-2">
+          <label htmlFor="mw" className="text-[11px] uppercase tracking-wider text-[var(--color-text-faint)]">
+            Matchweek
+          </label>
+          <select
+            id="mw"
+            value={matchweek}
+            onChange={(e) => {
+              setPickedMatchweek(Number(e.target.value))
+              setHighlightMatchId(null)
+            }}
+            className="tnum border border-[var(--color-border)] bg-[var(--color-panel)] px-2 py-1 text-[12px]"
+          >
+            {matchweeks.map((mw) => (
+              <option key={mw} value={mw}>
+                MW {mw}
+              </option>
+            ))}
+          </select>
+        </div>
+        {/* Searches every real matchweek this league has, not just the
+            one currently shown -- jumps the matchweek selector above
+            to wherever the team's own real match actually is. */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            runSearch()
+          }}
+          className="flex items-center gap-2"
         >
-          {matchweeks.map((mw) => (
-            <option key={mw} value={mw}>
-              MW {mw}
-            </option>
-          ))}
-        </select>
+          <label htmlFor="team-search" className="text-[11px] uppercase tracking-wider text-[var(--color-text-faint)]">
+            Find team
+          </label>
+          <input
+            id="team-search"
+            type="text"
+            list={`team-search-list-${leagueId}`}
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            placeholder="e.g. Arsenal"
+            className="border border-[var(--color-border)] bg-[var(--color-panel)] px-2 py-1 text-[12px] text-[var(--color-text)] placeholder:text-[var(--color-text-faint)]"
+          />
+          <datalist id={`team-search-list-${leagueId}`}>
+            {teamNames.map((name) => (
+              <option key={name} value={name} />
+            ))}
+          </datalist>
+          <button
+            type="submit"
+            className="rounded-sm border border-[var(--color-border)] bg-[var(--color-panel)] px-2.5 py-1 text-[12px] text-[var(--color-accent)] hover:bg-[var(--color-border)]"
+          >
+            Search
+          </button>
+        </form>
+        {searchError && <span className="text-[11px] text-[#e05252]">{searchError}</span>}
       </div>
       <div className="border border-[var(--color-border)]">
         {matches.map((m) => (
-          <MatchRow key={m.match_id} match={m} margin={marginByMatch.get(m.match_id)} />
+          <MatchRow key={m.match_id} match={m} margin={marginByMatch.get(m.match_id)} highlighted={m.match_id === highlightMatchId} />
         ))}
       </div>
     </div>

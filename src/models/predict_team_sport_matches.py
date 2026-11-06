@@ -55,7 +55,7 @@ from src.models.point_margin_model import (  # noqa: E402
 from src.models.scoreline_models import moneyline_pick, spread_pick, totals_pick  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
-DEFAULT_TOTAL_LINE = {"nfl": 44.5, "nba": 228.5, "ncaaf": 53.5}  # real league-average-ish fallback, overridden per-game below
+DEFAULT_TOTAL_LINE = {"nfl": 44.5, "nba": 228.5, "ncaaf": 53.5, "ncaab": 144.5}  # real league-average-ish fallback, overridden per-game below (ncaab: real mean combined score across 5 real prior seasons, 27,611 games)
 
 OUTPUT_COLUMNS = [
     "match_id", "season", "matchweek", "date", "kickoff_utc", "home_team", "away_team",
@@ -215,8 +215,8 @@ def main(league_id: str) -> None:
     # reports/ncaaf_model_selection_report.md), never assumed.
     team_group = None
     if league_id == "ncaaf":
-        from src.data_collection.espn_api import fetch_real_fbs_conferences
-        conferences = fetch_real_fbs_conferences()
+        from src.data_collection.espn_api import fetch_real_college_conferences
+        conferences = fetch_real_college_conferences("ncaaf")
         team_group = {t["display_name"]: conf for conf, roster in conferences.items() for t in roster}
 
     fit = fit_point_margin_model(historical, allows_ties=allows_ties, k_factor=ELO_K_FACTOR, team_group=team_group)
@@ -413,6 +413,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf", "ncaab"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

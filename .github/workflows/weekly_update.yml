@@ -71,10 +71,10 @@ jobs:
       # fixtures first (not after) means the odds step always joins
       # against the real match_ids that are actually on disk today, not
       # a stale set from a prior run.
-      - name: Refresh NFL/NBA/NCAA Football fixtures
+      - name: Refresh NFL/NBA/NCAA Football/NCAA Basketball fixtures
         run: |
           python -m src.data_collection.collect_nflverse
-          for league in nba ncaaf; do
+          for league in nba ncaaf ncaab; do
             python -m src.data_collection.collect_espn_schedule --league "$league"
           done
 
@@ -85,7 +85,7 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: |
-          for league in epl la_liga serie_a bundesliga ligue_1 ucl uel uecl nfl nba ncaaf; do
+          for league in epl la_liga serie_a bundesliga ligue_1 ucl uel uecl nfl nba ncaaf ncaab; do
             python -m src.data_collection.collect_odds --league "$league"
           done
 
@@ -110,21 +110,34 @@ jobs:
             python -m src.models.compute_margin_survival_continental --league "$league"
           done
 
-      # NFL/NBA/NCAA Football (see predict_team_sport_matches.py): same
-      # "no lock, just recompute fresh" pattern as the UEFA club
-      # competitions above (real fixtures already refreshed above, see
-      # "Refresh NFL/NBA/NCAA Football fixtures"). The season
-      # simulation (simulate_team_sport_season.py) is real but not
-      # cheap (NBA's ~20s for 10,000 trials over ~1,200 remaining real
-      # games; NCAA Football also fetches its real conference
-      # groupings live from ESPN every run, see
-      # espn_api.fetch_real_fbs_conferences()) -- still run daily,
-      # same cadence as everything else here.
-      - name: Refresh NFL/NBA/NCAA Football predictions
+      # NFL/NBA/NCAA Football/NCAA Basketball (see
+      # predict_team_sport_matches.py): same "no lock, just recompute
+      # fresh" pattern as the UEFA club competitions above (real
+      # fixtures already refreshed above, see "Refresh NFL/NBA/NCAA
+      # Football/NCAA Basketball fixtures").
+      - name: Refresh NFL/NBA/NCAA Football/NCAA Basketball predictions
         run: |
-          for league in nfl nba ncaaf; do
+          for league in nfl nba ncaaf ncaab; do
             python -m src.models.predict_team_sport_matches --league "$league"
             python -m src.models.compute_margin_survival_team_sport --league "$league"
+          done
+
+      # The season simulation (simulate_team_sport_season.py) is real
+      # but not cheap (NBA's ~20s for 10,000 trials over ~1,200
+      # remaining real games; NCAA Football also fetches its real
+      # conference groupings live from ESPN every run, see
+      # espn_api.fetch_real_college_conferences()) -- still run daily,
+      # same cadence as everything else here. NCAA Basketball is
+      # deliberately NOT included: the real NCAA Tournament field is
+      # committee-selected (NET rankings, quad wins, not a standings
+      # formula) -- arguably even more subjective than NCAA Football's
+      # committee-selected CFP, which this project already refuses to
+      # fabricate a substitute for (see that module's docstring) -- so
+      # no equivalent at-large/seeding simulation is built for NCAAB
+      # either, consistent with that same real precedent.
+      - name: Refresh NFL/NBA/NCAA Football season simulation
+        run: |
+          for league in nfl nba ncaaf; do
             python -m src.simulation.simulate_team_sport_season --league "$league"
           done
 

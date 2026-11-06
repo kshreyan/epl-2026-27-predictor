@@ -1,5 +1,5 @@
-"""+2 Margin Survival's sport-correct equivalent for NFL, NBA, and
-NCAA Football.
+"""+2 Margin Survival's sport-correct equivalent for NFL, NBA, NCAA
+Football, and NCAA Basketball.
 
 **This is not soccer's "+2 goals" ported literally -- it's the same
 underlying question (how likely is this team to lose by a real,
@@ -36,11 +36,19 @@ real scoring scale, backed by real research, not guessed:**
   parallel rather than a coincidence of round numbers (both derived
   the same way, from each sport's own real data, at the same real
   percentile, in each sport's own real scoring unit).
+- **NCAA Basketball**: same real research finding as NBA applies here
+  too (near-continuous scoring from 2s/3s/free throws, confirmed
+  directly -- no documented real "key numbers" for this sport either).
+  The threshold (**> 20 points**) mirrors NBA's own informal real
+  "blowout" framing and lands almost exactly on this league's own real
+  backtested distribution too (checked directly: p80 = 19.0 across
+  27,461 real 2021-2026 games -- 20 is the nearest clean round number
+  above it, not a number borrowed from NBA without checking).
 
 Built on the point-margin model (src/models/point_margin_model.py)
 regardless of whether that model actually won this league's own real
 backtest for the MONEYLINE prediction (it does for NFL, not for NBA/
-NCAA Football -- see should_use_point_margin_model() and
+NCAA Football/NCAA Basketball -- see should_use_point_margin_model() and
 reports/{league}_model_selection_report.md) -- it's the only candidate
 that produces a real margin distribution at all (Elo-only win
 probability has no margin/scoreline concept, same structural reason
@@ -57,7 +65,7 @@ own real backtested p_fail distribution (soccer's own 0.04/0.06/
 own scale, not a formula to replicate verbatim for a different sport).
 
 Run: python -m src.models.compute_margin_survival_team_sport --league nfl
-(also accepts nba, ncaaf)
+(also accepts nba, ncaaf, ncaab)
 """
 from __future__ import annotations
 
@@ -77,7 +85,7 @@ from src.models.point_margin_model import fit_point_margin_model, predict_margin
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
 # Real, sport-correct blowout threshold (points/goals) -- see module docstring.
-MARGIN_THRESHOLD = {"nfl": 14, "nba": 20, "ncaaf": 21}
+MARGIN_THRESHOLD = {"nfl": 14, "nba": 20, "ncaaf": 21, "ncaab": 20}
 
 # Real bands, same 5-tier shape as soccer's engine, calibrated to each
 # sport's OWN real p_fail scale -- NOT a first guess: computed directly
@@ -85,9 +93,11 @@ MARGIN_THRESHOLD = {"nfl": 14, "nba": 20, "ncaaf": 21}
 # in each sport's own backtest sample, at the real 20th/40th/60th/80th
 # percentiles (NFL: 0.120/0.128/0.178/0.189 at the 14-point threshold;
 # NBA: 0.069/0.082/0.100/0.118 at 20 points; NCAA Football:
-# 0.102/0.108/0.194/0.203 at 21 points). Each sport's real bands are at
-# a meaningfully different scale -- no shared set fits all three, so
-# each gets its own.
+# 0.102/0.108/0.194/0.203 at 21 points; NCAA Basketball:
+# 0.036/0.040/0.133/0.145 at 20 points, computed across 27,461 real
+# 2021-2026 historical games' own point-margin-model p_fail values).
+# Each sport's real bands are at a meaningfully different scale -- no
+# shared set fits all four, so each gets its own.
 RISK_LABELS = {
     "nfl": [
         (0.12, "ELITE SURVIVAL"), (0.13, "VERY STRONG"), (0.18, "STRONG"), (0.19, "MODERATE"),
@@ -99,6 +109,10 @@ RISK_LABELS = {
     ],
     "ncaaf": [
         (0.10, "ELITE SURVIVAL"), (0.11, "VERY STRONG"), (0.19, "STRONG"), (0.20, "MODERATE"),
+        (float("inf"), "HIGH BLOWOUT RISK"),
+    ],
+    "ncaab": [
+        (0.036, "ELITE SURVIVAL"), (0.040, "VERY STRONG"), (0.133, "STRONG"), (0.145, "MODERATE"),
         (float("inf"), "HIGH BLOWOUT RISK"),
     ],
 }
@@ -208,8 +222,8 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
     # identical wiring and reports/ncaaf_model_selection_report.md).
     team_group = None
     if league_id == "ncaaf":
-        from src.data_collection.espn_api import fetch_real_fbs_conferences
-        conferences = fetch_real_fbs_conferences()
+        from src.data_collection.espn_api import fetch_real_college_conferences
+        conferences = fetch_real_college_conferences("ncaaf")
         team_group = {t["display_name"]: conf for conf, roster in conferences.items() for t in roster}
 
     fit = fit_point_margin_model(df, allows_ties=allows_ties, k_factor=ELO_K_FACTOR, team_group=team_group)
@@ -313,6 +327,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["nfl", "nba", "ncaaf", "ncaab"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

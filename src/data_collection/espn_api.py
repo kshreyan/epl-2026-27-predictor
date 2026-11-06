@@ -35,29 +35,40 @@ from src.leagues import load_league_config  # noqa: E402
 
 ESPN_SPORT_PATH = {
     "nfl": "football/nfl", "nba": "basketball/nba",
-    "ncaaf": "football/college-football",
+    "ncaaf": "football/college-football", "ncaab": "basketball/mens-college-basketball",
 }
+# The real ESPN "group" id that actually isolates the top real
+# division for each college sport (confirmed directly per sport, not
+# assumed to generalize: football's real FBS is group=80; basketball's
+# real Division I is group=50 -- the generic /teams?groups=X endpoint
+# does NOT reliably filter to either, confirmed directly for football,
+# so this real /standings?group=X path is used for both).
+COLLEGE_DIVISION_GROUP = {"ncaaf": "80", "ncaab": "50"}
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 
-def fetch_real_fbs_conferences() -> dict[str, list[dict]]:
-    """Real FBS conference -> [{"id", "display_name"}] for every real
-    team in it, straight from ESPN's own live standings -- confirmed
+def fetch_real_college_conferences(league_id: str) -> dict[str, list[dict]]:
+    """Real conference -> [{"id", "display_name"}] for every real team
+    in it, straight from ESPN's own live standings -- confirmed
     directly this session as the only reliable real source for this
-    (the generic /teams?groups=80 endpoint does NOT actually filter to
-    FBS -- confirmed directly, it silently includes real Division III
-    teams like Amherst). Recurses through each conference's real
-    sub-structure (most conferences list teams directly; some, e.g. the
-    real Sun Belt Conference this season, nest them one level deeper
-    under real East/West divisions) rather than assuming a fixed depth,
-    since that nesting is itself a real fact that varies by conference
-    and season, not something to hardcode. Not hardcoded like NFL/NBA's
-    stable divisions (see simulate_team_sport_season.py) because real
-    conference realignment is a recurring event in college sports --
-    fetched fresh every call."""
+    (the generic /teams?groups=X endpoint does NOT actually filter to
+    the real top division -- confirmed directly for football, it
+    silently includes real Division III teams like Amherst; the same
+    /standings?group=X path is used for both real college sports this
+    project covers for consistency). Recurses through each conference's
+    real sub-structure (most conferences list teams directly; some,
+    e.g. football's real Sun Belt Conference this season, nest them one
+    level deeper under real East/West divisions) rather than assuming a
+    fixed depth, since that nesting is itself a real fact that varies
+    by conference and season, not something to hardcode. Not hardcoded
+    like NFL/NBA's stable divisions (see simulate_team_sport_season.py)
+    because real conference realignment is a recurring event in college
+    sports -- fetched fresh every call."""
+    sport_path = ESPN_SPORT_PATH[league_id]
+    group = COLLEGE_DIVISION_GROUP[league_id]
     resp = requests.get(
-        "https://site.api.espn.com/apis/v2/sports/football/college-football/standings",
-        params={"group": "80"}, headers=HEADERS, timeout=30,
+        f"https://site.api.espn.com/apis/v2/sports/{sport_path}/standings",
+        params={"group": group}, headers=HEADERS, timeout=30,
     )
     resp.raise_for_status()
     root = resp.json()
@@ -77,13 +88,14 @@ def fetch_real_teams(league_id: str) -> list[dict]:
     """Real team id -> displayName, straight from ESPN -- no hardcoded
     roster (unlike team_names.py's CANONICAL_TEAMS, which still owns
     the canonical spelling and alias resolution; this is just id
-    discovery). NCAA Football uses fetch_real_fbs_conferences() instead
-    of the generic /teams endpoint -- see that function's docstring for
-    why (the generic endpoint's groups filter doesn't reliably isolate
-    FBS)."""
-    if league_id == "ncaaf":
-        teams = [t for roster in fetch_real_fbs_conferences().values() for t in roster]
-        seen: dict[str, dict] = {t["id"]: t for t in teams}  # a handful of teams appear in more than one FBS feed this season (e.g. independents); de-duplicate by real team id
+    discovery). The two real college sports use
+    fetch_real_college_conferences() instead of the generic /teams
+    endpoint -- see that function's docstring for why (the generic
+    endpoint's groups filter doesn't reliably isolate the real top
+    division)."""
+    if league_id in COLLEGE_DIVISION_GROUP:
+        teams = [t for roster in fetch_real_college_conferences(league_id).values() for t in roster]
+        seen: dict[str, dict] = {t["id"]: t for t in teams}  # a handful of teams appear in more than one conference feed some seasons (e.g. independents); de-duplicate by real team id
         return list(seen.values())
     sport_path = ESPN_SPORT_PATH[league_id]
     resp = requests.get(
@@ -105,13 +117,20 @@ def fetch_real_season_games(league_id: str, season: int) -> list[dict]:
     sport_path = ESPN_SPORT_PATH[league_id]
     teams = fetch_real_teams(league_id)
     # NCAA Football's real FBS roster isn't a fixed closed set the way
-    # NFL/NBA's is -- real transitioning programs join/leave FBS
-    # mid-cycle, so cfg.n_teams is a real recent snapshot, not an
-    # eternal constant; a wide sanity band catches a genuinely broken
-    # fetch without false-alarming on normal roster drift.
+    # NFL/NBA's is -- real transitioning programs join/leave the top
+    # division mid-cycle, so cfg.n_teams is a real recent snapshot, not
+    # an eternal constant; a wide sanity band catches a genuinely
+    # broken fetch without false-alarming on normal roster drift.
+    # NCAA Football real FBS is ~100-150 teams; NCAA Basketball real
+    # Division I is ~350-375 (confirmed directly: 365 via the real
+    # standings endpoint, 362 via the real /teams roster endpoint this
+    # session -- the same small real discrepancy FBS already has).
     if league_id == "ncaaf":
         if not (100 <= len(teams) <= 150):
             raise ValueError(f"Expected roughly 100-150 real FBS teams from ESPN, got {len(teams)}. Refusing to proceed.")
+    elif league_id == "ncaab":
+        if not (350 <= len(teams) <= 375):
+            raise ValueError(f"Expected roughly 350-375 real Division I teams from ESPN, got {len(teams)}. Refusing to proceed.")
     elif len(teams) != cfg.n_teams:
         raise ValueError(
             f"Expected {cfg.n_teams} real {league_id} teams from ESPN, got {len(teams)}. "
