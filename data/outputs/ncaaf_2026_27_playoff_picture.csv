@@ -1,139 +1,139 @@
 n_trials,team,conference,current_wins,current_games,current_conference_win_pct,mean_projected_final_wins,prob_bowl_eligible,prob_best_conference_record,generated_at,model_version
-10000,Memphis Tigers,American Conference,6.0,8,0.8,7.46,1.0,0.0594,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,UTSA Roadrunners,American Conference,6.0,7,1.0,8.06,1.0,0.5242,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,North Texas Mean Green,American Conference,5.0,7,1.0,7.04,0.9472,0.32,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,South Florida Bulls,American Conference,5.0,7,0.5,7.02,0.945,0.0095,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Army Black Knights,American Conference,4.0,7,0.6667,6.16,0.7473,0.0599,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Tulane Green Wave,American Conference,4.0,8,0.5,6.02,0.694,0.0083,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Florida Atlantic Owls,American Conference,4.0,7,0.5,5.97,0.6772,0.0012,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,East Carolina Pirates,American Conference,3.0,7,0.5,5.01,0.3137,0.0014,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Tulsa Golden Hurricane,American Conference,3.0,7,0.25,4.98,0.2994,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,UAB Blazers,American Conference,3.0,7,0.5,4.96,0.2961,0.0161,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Charlotte 49ers,American Conference,1.0,7,0.25,2.98,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Navy Midshipmen,American Conference,1.0,7,0.2,2.98,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Rice Owls,American Conference,0.0,7,0.0,1.97,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Temple Owls,American Conference,1.0,7,0.25,2.98,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Miami Hurricanes,Atlantic Coast Conference,7.0,7,1.0,9.17,1.0,0.6861,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Wake Forest Demon Deacons,Atlantic Coast Conference,7.0,8,0.8333,8.46,1.0,0.2422,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Virginia Tech Hokies,Atlantic Coast Conference,5.0,7,0.6,7.01,0.9403,0.0224,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,SMU Mustangs,Atlantic Coast Conference,5.0,7,0.6667,6.99,0.9379,0.0414,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Duke Blue Devils,Atlantic Coast Conference,5.0,7,0.6,6.85,0.9185,0.0033,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Pittsburgh Panthers,Atlantic Coast Conference,5.0,8,0.5,6.43,0.8608,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Clemson Tigers,Atlantic Coast Conference,4.0,7,0.6,5.98,0.6845,0.0019,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Louisville Cardinals,Atlantic Coast Conference,4.0,7,0.6667,5.87,0.6372,0.0027,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,NC State Wolfpack,Atlantic Coast Conference,3.0,7,0.4,5.0,0.3105,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,North Carolina Tar Heels,Atlantic Coast Conference,3.0,7,0.4,4.97,0.3007,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Syracuse Orange,Atlantic Coast Conference,3.0,7,0.3333,4.97,0.2981,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Boston College Eagles,Atlantic Coast Conference,3.0,7,0.4,4.95,0.2883,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Virginia Cavaliers,Atlantic Coast Conference,3.0,8,0.3333,4.56,0.1342,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Stanford Cardinal,Atlantic Coast Conference,3.0,8,0.3333,4.39,0.0971,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Florida State Seminoles,Atlantic Coast Conference,2.0,7,0.2,3.95,0.0566,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,California Golden Bears,Atlantic Coast Conference,2.0,8,0.3333,3.56,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Georgia Tech Yellow Jackets,Atlantic Coast Conference,1.0,7,0.2,2.89,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,BYU Cougars,Big 12 Conference,6.0,7,0.8,8.01,1.0,0.1025,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Texas Tech Red Raiders,Big 12 Conference,6.0,7,0.8,8.02,1.0,0.1142,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Utah Utes,Big 12 Conference,7.0,7,1.0,9.04,1.0,0.7219,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Arizona Wildcats,Big 12 Conference,5.0,7,0.6,7.17,0.9564,0.011,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Houston Cougars,Big 12 Conference,5.0,7,0.6,7.02,0.9413,0.0114,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Oklahoma State Cowboys,Big 12 Conference,4.0,7,0.6,6.0,0.6943,0.0132,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Baylor Bears,Big 12 Conference,4.0,7,0.6,6.0,0.6893,0.0141,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,West Virginia Mountaineers,Big 12 Conference,4.0,7,0.4,5.96,0.6817,0.0108,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Cincinnati Bearcats,Big 12 Conference,4.0,7,0.4,5.82,0.6171,0.0001,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,UCF Knights,Big 12 Conference,3.0,7,0.4,5.0,0.3094,0.0002,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,TCU Horned Frogs,Big 12 Conference,3.0,7,0.4,5.0,0.3085,0.0004,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Arizona State Sun Devils,Big 12 Conference,3.0,7,0.4,4.99,0.3083,0.0001,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Iowa State Cyclones,Big 12 Conference,3.0,7,0.4,5.0,0.3079,0.0001,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Kansas State Wildcats,Big 12 Conference,3.0,7,0.2,4.98,0.2981,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Colorado Buffaloes,Big 12 Conference,2.0,7,0.2,3.99,0.0583,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Kansas Jayhawks,Big 12 Conference,2.0,7,0.2,3.99,0.058,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Indiana Hoosiers,Big Ten Conference,7.0,8,0.8333,8.61,1.0,0.1336,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Ohio State Buckeyes,Big Ten Conference,6.0,8,0.8,8.17,1.0,0.1075,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,UCLA Bruins,Big Ten Conference,8.0,8,1.0,10.04,1.0,0.5778,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,USC Trojans,Big Ten Conference,7.0,9,0.6667,8.42,1.0,0.0939,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Iowa Hawkeyes,Big Ten Conference,5.0,7,0.6,7.03,0.9419,0.0059,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Northwestern Wildcats,Big Ten Conference,5.0,7,0.6,7.0,0.9403,0.0102,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Michigan Wolverines,Big Ten Conference,5.0,8,0.4,6.99,0.9395,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Wisconsin Badgers,Big Ten Conference,4.0,7,0.6,6.02,0.7009,0.0435,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Oregon Ducks,Big Ten Conference,4.0,7,0.6,6.03,0.6993,0.0114,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Penn State Nittany Lions,Big Ten Conference,4.0,8,0.2,6.03,0.699,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Washington Huskies,Big Ten Conference,4.0,7,0.4,6.01,0.6947,0.002,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Illinois Fighting Illini,Big Ten Conference,4.0,7,0.6,6.01,0.6925,0.0041,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Minnesota Golden Gophers,Big Ten Conference,4.0,7,0.6,5.96,0.6815,0.0098,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Nebraska Cornhuskers,Big Ten Conference,4.0,7,0.4,5.83,0.6177,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Purdue Boilermakers,Big Ten Conference,2.0,7,0.4,3.96,0.0564,0.0003,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Michigan State Spartans,Big Ten Conference,2.0,8,0.0,3.95,0.0549,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Maryland Terrapins,Big Ten Conference,1.0,7,0.0,2.96,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Rutgers Scarlet Knights,Big Ten Conference,1.0,7,0.2,2.99,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Liberty Flames,Conference USA,6.0,7,1.0,8.08,1.0,0.511,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Jacksonville State Gamecocks,Conference USA,5.0,7,1.0,7.04,0.943,0.3057,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Delaware Blue Hens,Conference USA,3.0,7,0.5,5.04,0.3255,0.0047,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Middle Tennessee Blue Raiders,Conference USA,3.0,7,0.5,4.99,0.3085,0.0307,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Missouri State Bears,Conference USA,2.0,7,0.5,3.99,0.0594,0.049,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Florida International Panthers,Conference USA,2.0,7,0.25,3.98,0.0562,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,New Mexico State Aggies,Conference USA,2.0,7,0.5,3.95,0.0561,0.0382,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Western Kentucky Hilltoppers,Conference USA,2.0,7,0.5,3.97,0.0521,0.0607,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Kennesaw State Owls,Conference USA,1.0,7,0.25,3.0,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Sam Houston Bearkats,Conference USA,0.0,7,0.0,1.94,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Notre Dame Fighting Irish,FBS Independents,7.0,8,,9.26,1.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,UConn Huskies,FBS Independents,3.0,7,,5.32,0.4386,1.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Ohio Bobcats,Mid-American Conference,6.0,8,1.0,7.59,1.0,0.5025,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Toledo Rockets,Mid-American Conference,6.0,8,0.8,7.62,1.0,0.2083,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Western Michigan Broncos,Mid-American Conference,5.0,8,0.8,6.61,0.9033,0.2543,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Buffalo Bulls,Mid-American Conference,4.0,7,0.8,5.45,0.4742,0.0333,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Miami (OH) RedHawks,Mid-American Conference,4.0,8,0.6,5.44,0.4709,0.0016,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Central Michigan Chippewas,Mid-American Conference,3.0,8,0.4,4.44,0.1051,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Massachusetts Minutemen,Mid-American Conference,3.0,7,0.4,4.42,0.1049,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Akron Zips,Mid-American Conference,0.0,8,0.0,1.53,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Ball State Cardinals,Mid-American Conference,2.0,8,0.4,3.55,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Bowling Green Falcons,Mid-American Conference,2.0,8,0.4,3.56,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Eastern Michigan Eagles,Mid-American Conference,3.0,9,0.5,3.99,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Kent State Golden Flashes,Mid-American Conference,2.0,8,0.4,3.4,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Sacramento State Hornets,Mid-American Conference,1.0,9,0.1429,1.83,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,New Mexico Lobos,Mountain West Conference,6.0,7,1.0,8.03,1.0,0.3994,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,North Dakota State Bison,Mountain West Conference,6.0,8,0.6667,7.46,1.0,0.0667,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,UNLV Rebels,Mountain West Conference,5.0,8,0.75,7.01,0.942,0.1695,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Air Force Falcons,Mountain West Conference,5.0,7,0.6,7.03,0.9419,0.0095,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Wyoming Cowboys,Mountain West Conference,4.0,7,0.8,5.96,0.6737,0.3444,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,San José State Spartans,Mountain West Conference,3.0,8,0.4,5.13,0.3562,0.0042,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Nevada Wolf Pack,Mountain West Conference,3.0,7,0.5,5.0,0.3087,0.0063,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Hawai'i Rainbow Warriors,Mountain West Conference,2.0,8,0.2,4.02,0.0618,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Northern Illinois Huskies,Mountain West Conference,0.0,7,0.0,1.95,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,UTEP Miners,Mountain West Conference,0.0,7,0.0,1.93,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Boise State Broncos,Pac-12 Conference,6.0,7,1.0,7.62,1.0,0.5479,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Fresno State Bulldogs,Pac-12 Conference,5.0,8,0.5,6.45,0.8654,0.009,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Oregon State Beavers,Pac-12 Conference,4.0,7,0.75,5.58,0.5403,0.2179,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Texas State Bobcats,Pac-12 Conference,3.0,7,0.5,4.59,0.1426,0.0592,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Utah State Aggies,Pac-12 Conference,3.0,7,0.5,4.41,0.1015,0.0449,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Colorado State Rams,Pac-12 Conference,2.0,7,0.25,3.39,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,San Diego State Aztecs,Pac-12 Conference,3.0,8,0.6,3.99,0.0,0.1211,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Washington State Cougars,Pac-12 Conference,0.0,8,0.0,0.98,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Alabama Crimson Tide,Southeastern Conference,6.0,8,0.6667,7.43,1.0,0.0173,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Georgia Bulldogs,Southeastern Conference,6.0,7,0.8333,8.03,1.0,0.2154,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Kentucky Wildcats,Southeastern Conference,6.0,7,0.8333,8.04,1.0,0.3231,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Ole Miss Rebels,Southeastern Conference,6.0,8,0.6667,7.6,1.0,0.1445,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Texas Longhorns,Southeastern Conference,6.0,8,0.6,7.87,1.0,0.0712,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Missouri Tigers,Southeastern Conference,5.0,7,0.6,7.16,0.9556,0.0774,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,LSU Tigers,Southeastern Conference,5.0,7,0.6,7.05,0.9442,0.0434,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Tennessee Volunteers,Southeastern Conference,5.0,7,0.6,7.02,0.942,0.0921,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,South Carolina Gamecocks,Southeastern Conference,4.0,7,0.5,6.08,0.7161,0.0132,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Florida Gators,Southeastern Conference,4.0,7,0.5,6.02,0.6991,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Oklahoma Sooners,Southeastern Conference,4.0,8,0.4,6.01,0.6955,0.0024,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Mississippi State Bulldogs,Southeastern Conference,4.0,8,0.3333,5.55,0.5252,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Auburn Tigers,Southeastern Conference,4.0,8,0.3333,5.41,0.4544,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Texas A&M Aggies,Southeastern Conference,3.0,7,0.2,4.93,0.2831,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Vanderbilt Commodores,Southeastern Conference,2.0,7,0.0,3.97,0.0574,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Arkansas Razorbacks,Southeastern Conference,2.0,7,0.2,3.94,0.0558,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,James Madison Dukes,Sun Belt Conference,6.0,8,0.6667,7.37,1.0,0.0495,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Louisiana Tech Bulldogs,Sun Belt Conference,5.0,7,1.0,7.04,0.9479,0.5942,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Louisiana Ragin' Cajuns,Sun Belt Conference,4.0,7,0.5,6.05,0.7134,0.0114,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Marshall Thundering Herd,Sun Belt Conference,4.0,7,0.5,6.04,0.7031,0.0386,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,App State Mountaineers,Sun Belt Conference,4.0,7,0.5,6.01,0.6912,0.0049,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Georgia Southern Eagles,Sun Belt Conference,3.0,7,0.75,5.02,0.3189,0.1059,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Arkansas State Red Wolves,Sun Belt Conference,3.0,7,0.5,5.0,0.3094,0.0088,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Troy Trojans,Sun Belt Conference,3.0,7,0.5,5.0,0.3079,0.076,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,South Alabama Jaguars,Sun Belt Conference,3.0,7,0.5,4.96,0.2931,0.0377,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Georgia State Panthers,Sun Belt Conference,3.0,7,0.25,4.94,0.2915,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Southern Miss Golden Eagles,Sun Belt Conference,2.0,7,0.5,4.04,0.0637,0.0619,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Coastal Carolina Chanticleers,Sun Belt Conference,2.0,7,0.5,4.01,0.0604,0.0062,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,Old Dominion Monarchs,Sun Belt Conference,1.0,8,0.1667,2.33,0.0,0.0,2026-11-05T13:36:13+00:00,0.1.0-phase1
-10000,UL Monroe Warhawks,Sun Belt Conference,1.0,7,0.25,2.94,0.0,0.0049,2026-11-05T13:36:13+00:00,0.1.0-phase1
+10000,Memphis Tigers,American Conference,6.0,8,0.8,7.48,1.0,0.0851,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,UTSA Roadrunners,American Conference,6.0,8,0.8,7.56,1.0,0.3645,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,North Texas Mean Green,American Conference,5.0,7,1.0,7.07,0.9481,0.4116,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,South Florida Bulls,American Conference,5.0,7,0.5,7.02,0.9426,0.0124,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Florida Atlantic Owls,American Conference,5.0,8,0.6,6.44,0.8657,0.003,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Army Black Knights,American Conference,4.0,7,0.6667,6.17,0.7521,0.0816,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Tulane Green Wave,American Conference,4.0,8,0.5,6.0,0.691,0.0137,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,East Carolina Pirates,American Conference,3.0,7,0.5,5.0,0.3106,0.0022,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Tulsa Golden Hurricane,American Conference,3.0,7,0.25,4.99,0.3098,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,UAB Blazers,American Conference,3.0,7,0.5,4.98,0.3008,0.0259,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Charlotte 49ers,American Conference,1.0,7,0.25,2.98,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Navy Midshipmen,American Conference,1.0,7,0.2,2.97,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Rice Owls,American Conference,0.0,7,0.0,1.94,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Temple Owls,American Conference,1.0,7,0.25,2.98,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Miami Hurricanes,Atlantic Coast Conference,7.0,7,1.0,9.17,1.0,0.6923,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Wake Forest Demon Deacons,Atlantic Coast Conference,7.0,8,0.8333,8.47,1.0,0.2405,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Virginia Tech Hokies,Atlantic Coast Conference,5.0,7,0.6,7.01,0.9433,0.0217,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,SMU Mustangs,Atlantic Coast Conference,5.0,7,0.6667,6.97,0.9381,0.0374,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Duke Blue Devils,Atlantic Coast Conference,5.0,7,0.6,6.85,0.9194,0.0033,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Pittsburgh Panthers,Atlantic Coast Conference,5.0,8,0.5,6.44,0.8643,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Clemson Tigers,Atlantic Coast Conference,4.0,7,0.6,5.98,0.6827,0.0025,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Louisville Cardinals,Atlantic Coast Conference,4.0,7,0.6667,5.88,0.6412,0.0023,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,NC State Wolfpack,Atlantic Coast Conference,3.0,7,0.4,5.01,0.3176,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Syracuse Orange,Atlantic Coast Conference,3.0,7,0.3333,4.97,0.3008,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,North Carolina Tar Heels,Atlantic Coast Conference,3.0,7,0.4,4.96,0.2969,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Boston College Eagles,Atlantic Coast Conference,3.0,7,0.4,4.94,0.2906,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Virginia Cavaliers,Atlantic Coast Conference,3.0,8,0.3333,4.57,0.1394,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Stanford Cardinal,Atlantic Coast Conference,3.0,8,0.3333,4.41,0.1018,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Florida State Seminoles,Atlantic Coast Conference,2.0,7,0.2,3.94,0.0476,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,California Golden Bears,Atlantic Coast Conference,2.0,8,0.3333,3.55,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Georgia Tech Yellow Jackets,Atlantic Coast Conference,1.0,7,0.2,2.87,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,BYU Cougars,Big 12 Conference,6.0,7,0.8,8.02,1.0,0.1082,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Texas Tech Red Raiders,Big 12 Conference,6.0,7,0.8,8.01,1.0,0.1112,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Utah Utes,Big 12 Conference,7.0,7,1.0,9.05,1.0,0.7197,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Arizona Wildcats,Big 12 Conference,5.0,7,0.6,7.16,0.9584,0.011,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Houston Cougars,Big 12 Conference,5.0,7,0.6,7.01,0.9406,0.0108,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Baylor Bears,Big 12 Conference,4.0,7,0.6,6.02,0.699,0.0157,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Oklahoma State Cowboys,Big 12 Conference,4.0,7,0.6,6.0,0.6909,0.0139,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,West Virginia Mountaineers,Big 12 Conference,4.0,7,0.4,5.99,0.6866,0.0086,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Cincinnati Bearcats,Big 12 Conference,4.0,7,0.4,5.82,0.6166,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,UCF Knights,Big 12 Conference,3.0,7,0.4,5.0,0.3155,0.0005,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Iowa State Cyclones,Big 12 Conference,3.0,7,0.4,5.0,0.3096,0.0001,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Arizona State Sun Devils,Big 12 Conference,3.0,7,0.4,4.99,0.3086,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,TCU Horned Frogs,Big 12 Conference,3.0,7,0.4,4.99,0.3037,0.0003,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Kansas State Wildcats,Big 12 Conference,3.0,7,0.2,4.96,0.2955,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Colorado Buffaloes,Big 12 Conference,2.0,7,0.2,4.0,0.0594,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Kansas Jayhawks,Big 12 Conference,2.0,7,0.2,3.97,0.0589,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Indiana Hoosiers,Big Ten Conference,7.0,8,0.8333,8.61,1.0,0.1374,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Ohio State Buckeyes,Big Ten Conference,6.0,8,0.8,8.17,1.0,0.1131,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,UCLA Bruins,Big Ten Conference,8.0,8,1.0,10.04,1.0,0.5753,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,USC Trojans,Big Ten Conference,7.0,9,0.6667,8.43,1.0,0.0924,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Iowa Hawkeyes,Big Ten Conference,5.0,7,0.6,7.06,0.9502,0.0068,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Michigan Wolverines,Big Ten Conference,5.0,8,0.4,7.02,0.9435,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Northwestern Wildcats,Big Ten Conference,5.0,7,0.6,6.99,0.9337,0.0085,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Penn State Nittany Lions,Big Ten Conference,4.0,8,0.2,6.01,0.6983,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Oregon Ducks,Big Ten Conference,4.0,7,0.6,6.02,0.6963,0.0112,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Washington Huskies,Big Ten Conference,4.0,7,0.4,6.02,0.6959,0.0017,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Wisconsin Badgers,Big Ten Conference,4.0,7,0.6,6.01,0.6948,0.039,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Illinois Fighting Illini,Big Ten Conference,4.0,7,0.6,5.99,0.6829,0.0049,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Minnesota Golden Gophers,Big Ten Conference,4.0,7,0.6,5.98,0.6804,0.0097,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Nebraska Cornhuskers,Big Ten Conference,4.0,7,0.4,5.81,0.6177,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Purdue Boilermakers,Big Ten Conference,2.0,7,0.4,3.96,0.0542,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Michigan State Spartans,Big Ten Conference,2.0,8,0.0,3.95,0.0511,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Maryland Terrapins,Big Ten Conference,1.0,7,0.0,2.96,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Rutgers Scarlet Knights,Big Ten Conference,1.0,7,0.2,2.98,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Liberty Flames,Conference USA,6.0,7,1.0,8.07,1.0,0.5163,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Jacksonville State Gamecocks,Conference USA,5.0,7,1.0,7.07,0.9488,0.3097,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Delaware Blue Hens,Conference USA,3.0,7,0.5,5.03,0.3174,0.0053,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Middle Tennessee Blue Raiders,Conference USA,3.0,7,0.5,4.99,0.3046,0.0323,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Florida International Panthers,Conference USA,2.0,7,0.25,3.97,0.0569,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Missouri State Bears,Conference USA,2.0,7,0.5,3.99,0.0566,0.0448,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Western Kentucky Hilltoppers,Conference USA,2.0,7,0.5,3.96,0.0529,0.0578,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,New Mexico State Aggies,Conference USA,2.0,7,0.5,3.95,0.0511,0.0337,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Kennesaw State Owls,Conference USA,1.0,7,0.25,3.03,0.0,0.0001,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Sam Houston Bearkats,Conference USA,0.0,7,0.0,1.93,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Notre Dame Fighting Irish,FBS Independents,7.0,8,,9.26,1.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,UConn Huskies,FBS Independents,3.0,7,,5.3,0.4319,1.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Ohio Bobcats,Mid-American Conference,6.0,8,1.0,7.6,1.0,0.5077,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Toledo Rockets,Mid-American Conference,6.0,8,0.8,7.62,1.0,0.2051,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Western Michigan Broncos,Mid-American Conference,5.0,8,0.8,6.62,0.9053,0.2514,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Buffalo Bulls,Mid-American Conference,4.0,7,0.8,5.45,0.4768,0.0339,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Miami (OH) RedHawks,Mid-American Conference,4.0,8,0.6,5.43,0.4617,0.0019,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Massachusetts Minutemen,Mid-American Conference,3.0,7,0.4,4.42,0.1041,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Central Michigan Chippewas,Mid-American Conference,3.0,8,0.4,4.44,0.1039,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Akron Zips,Mid-American Conference,0.0,8,0.0,1.52,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Ball State Cardinals,Mid-American Conference,2.0,8,0.4,3.55,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Bowling Green Falcons,Mid-American Conference,2.0,8,0.4,3.56,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Eastern Michigan Eagles,Mid-American Conference,3.0,9,0.5,3.98,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Kent State Golden Flashes,Mid-American Conference,2.0,8,0.4,3.41,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Sacramento State Hornets,Mid-American Conference,1.0,9,0.1429,1.81,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,New Mexico Lobos,Mountain West Conference,6.0,7,1.0,8.02,1.0,0.3891,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,North Dakota State Bison,Mountain West Conference,6.0,8,0.6667,7.45,1.0,0.0662,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Air Force Falcons,Mountain West Conference,5.0,7,0.6,7.05,0.9491,0.011,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,UNLV Rebels,Mountain West Conference,5.0,8,0.75,7.0,0.9398,0.1598,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Wyoming Cowboys,Mountain West Conference,4.0,7,0.8,5.99,0.6868,0.3625,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,San José State Spartans,Mountain West Conference,3.0,8,0.4,5.13,0.3642,0.0042,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Nevada Wolf Pack,Mountain West Conference,3.0,7,0.5,4.99,0.3092,0.0072,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Hawai'i Rainbow Warriors,Mountain West Conference,2.0,8,0.2,4.03,0.0651,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Northern Illinois Huskies,Mountain West Conference,0.0,7,0.0,1.95,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,UTEP Miners,Mountain West Conference,0.0,7,0.0,1.94,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Boise State Broncos,Pac-12 Conference,6.0,7,1.0,7.63,1.0,0.5551,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Fresno State Bulldogs,Pac-12 Conference,5.0,8,0.5,6.45,0.8697,0.0083,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Oregon State Beavers,Pac-12 Conference,4.0,7,0.75,5.56,0.5297,0.2161,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Texas State Bobcats,Pac-12 Conference,3.0,7,0.5,4.57,0.1431,0.0549,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Utah State Aggies,Pac-12 Conference,3.0,7,0.5,4.43,0.1053,0.0484,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Colorado State Rams,Pac-12 Conference,2.0,7,0.25,3.39,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,San Diego State Aztecs,Pac-12 Conference,3.0,8,0.6,3.98,0.0,0.1172,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Washington State Cougars,Pac-12 Conference,0.0,8,0.0,0.99,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Alabama Crimson Tide,Southeastern Conference,6.0,8,0.6667,7.43,1.0,0.0172,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Georgia Bulldogs,Southeastern Conference,6.0,7,0.8333,8.05,1.0,0.2148,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Kentucky Wildcats,Southeastern Conference,6.0,7,0.8333,8.05,1.0,0.3219,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Ole Miss Rebels,Southeastern Conference,6.0,8,0.6667,7.63,1.0,0.155,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Texas Longhorns,Southeastern Conference,6.0,8,0.6,7.88,1.0,0.0705,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Missouri Tigers,Southeastern Conference,5.0,7,0.6,7.16,0.9569,0.0755,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Tennessee Volunteers,Southeastern Conference,5.0,7,0.6,7.03,0.946,0.0874,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,LSU Tigers,Southeastern Conference,5.0,7,0.6,7.04,0.9447,0.0411,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,South Carolina Gamecocks,Southeastern Conference,4.0,7,0.5,6.07,0.7133,0.0145,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Florida Gators,Southeastern Conference,4.0,7,0.5,6.0,0.6864,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Oklahoma Sooners,Southeastern Conference,4.0,8,0.4,5.98,0.6836,0.0021,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Mississippi State Bulldogs,Southeastern Conference,4.0,8,0.3333,5.54,0.5165,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Auburn Tigers,Southeastern Conference,4.0,8,0.3333,5.41,0.4598,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Texas A&M Aggies,Southeastern Conference,3.0,7,0.2,4.95,0.2935,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Arkansas Razorbacks,Southeastern Conference,2.0,7,0.2,3.96,0.0595,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Vanderbilt Commodores,Southeastern Conference,2.0,7,0.0,3.97,0.0575,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,James Madison Dukes,Sun Belt Conference,7.0,9,0.7143,7.98,1.0,0.1146,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Louisiana Tech Bulldogs,Sun Belt Conference,5.0,7,1.0,7.05,0.9483,0.6232,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Marshall Thundering Herd,Sun Belt Conference,4.0,7,0.5,6.05,0.7087,0.0395,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Louisiana Ragin' Cajuns,Sun Belt Conference,4.0,7,0.5,6.03,0.6922,0.0151,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,App State Mountaineers,Sun Belt Conference,4.0,7,0.5,6.01,0.6881,0.003,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Georgia Southern Eagles,Sun Belt Conference,3.0,7,0.75,5.02,0.3184,0.082,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Arkansas State Red Wolves,Sun Belt Conference,3.0,7,0.5,5.01,0.3093,0.0069,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,South Alabama Jaguars,Sun Belt Conference,3.0,7,0.5,4.98,0.3,0.0369,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Troy Trojans,Sun Belt Conference,3.0,7,0.5,4.97,0.297,0.0648,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Georgia State Panthers,Sun Belt Conference,3.0,7,0.25,4.96,0.2914,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Coastal Carolina Chanticleers,Sun Belt Conference,2.0,7,0.5,4.01,0.0618,0.0081,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Old Dominion Monarchs,Sun Belt Conference,1.0,8,0.1667,2.35,0.0,0.0,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,Southern Miss Golden Eagles,Sun Belt Conference,2.0,8,0.4,3.41,0.0,0.0035,2026-11-06T13:21:24+00:00,0.1.0-phase1
+10000,UL Monroe Warhawks,Sun Belt Conference,1.0,7,0.25,2.94,0.0,0.0024,2026-11-06T13:21:24+00:00,0.1.0-phase1
