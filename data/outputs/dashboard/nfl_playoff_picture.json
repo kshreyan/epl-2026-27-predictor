@@ -1,6 +1,6 @@
 {
   "league": "nfl",
-  "generated_at": "2026-11-06T13:21:25+00:00",
+  "generated_at": "2026-11-07T12:03:27+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 32,
@@ -25,7 +25,7 @@
       "prob_seed_5": 0.0028,
       "prob_seed_6": 0.006,
       "prob_seed_7": 0.0084,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -45,7 +45,7 @@
       "prob_seed_5": 0.0759,
       "prob_seed_6": 0.0602,
       "prob_seed_7": 0.0543,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -65,7 +65,7 @@
       "prob_seed_5": 0.1672,
       "prob_seed_6": 0.1349,
       "prob_seed_7": 0.0866,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -85,7 +85,7 @@
       "prob_seed_5": 0.1167,
       "prob_seed_6": 0.0988,
       "prob_seed_7": 0.0883,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -105,7 +105,7 @@
       "prob_seed_5": 0.1586,
       "prob_seed_6": 0.1401,
       "prob_seed_7": 0.1088,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -125,7 +125,7 @@
       "prob_seed_5": 0.1325,
       "prob_seed_6": 0.1133,
       "prob_seed_7": 0.1079,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -145,7 +145,7 @@
       "prob_seed_5": 0.1383,
       "prob_seed_6": 0.1267,
       "prob_seed_7": 0.1304,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -165,7 +165,7 @@
       "prob_seed_5": 0.1195,
       "prob_seed_6": 0.1441,
       "prob_seed_7": 0.1439,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -185,7 +185,7 @@
       "prob_seed_5": 0.0449,
       "prob_seed_6": 0.0753,
       "prob_seed_7": 0.1028,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -205,7 +205,7 @@
       "prob_seed_5": 0.0244,
       "prob_seed_6": 0.0475,
       "prob_seed_7": 0.0755,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -225,7 +225,7 @@
       "prob_seed_5": 0.011,
       "prob_seed_6": 0.0246,
       "prob_seed_7": 0.0383,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -245,7 +245,7 @@
       "prob_seed_5": 0.0034,
       "prob_seed_6": 0.0121,
       "prob_seed_7": 0.019,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -265,7 +265,7 @@
       "prob_seed_5": 0.0018,
       "prob_seed_6": 0.0082,
       "prob_seed_7": 0.0155,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -285,7 +285,7 @@
       "prob_seed_5": 0.002,
       "prob_seed_6": 0.0048,
       "prob_seed_7": 0.0129,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -305,7 +305,7 @@
       "prob_seed_5": 0.0007,
       "prob_seed_6": 0.0017,
       "prob_seed_7": 0.0043,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -325,7 +325,7 @@
       "prob_seed_5": 0.0003,
       "prob_seed_6": 0.0017,
       "prob_seed_7": 0.0031,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -345,7 +345,7 @@
       "prob_seed_5": 0.0322,
       "prob_seed_6": 0.0504,
       "prob_seed_7": 0.0611,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -365,7 +365,7 @@
       "prob_seed_5": 0.2414,
       "prob_seed_6": 0.1458,
       "prob_seed_7": 0.0847,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -385,7 +385,7 @@
       "prob_seed_5": 0.2517,
       "prob_seed_6": 0.1712,
       "prob_seed_7": 0.1067,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -405,7 +405,7 @@
       "prob_seed_5": 0.005,
       "prob_seed_6": 0.0145,
       "prob_seed_7": 0.0301,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -425,7 +425,7 @@
       "prob_seed_5": 0.1978,
       "prob_seed_6": 0.1849,
       "prob_seed_7": 0.129,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -445,7 +445,7 @@
       "prob_seed_5": 0.1491,
       "prob_seed_6": 0.1757,
       "prob_seed_7": 0.1493,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -465,7 +465,7 @@
       "prob_seed_5": 0.0042,
       "prob_seed_6": 0.0107,
       "prob_seed_7": 0.0233,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -485,7 +485,7 @@
       "prob_seed_5": 0.0499,
       "prob_seed_6": 0.0791,
       "prob_seed_7": 0.1181,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -505,7 +505,7 @@
       "prob_seed_5": 0.0429,
       "prob_seed_6": 0.082,
       "prob_seed_7": 0.1126,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -525,7 +525,7 @@
       "prob_seed_5": 0.002,
       "prob_seed_6": 0.0087,
       "prob_seed_7": 0.0183,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -545,7 +545,7 @@
       "prob_seed_5": 0.0019,
       "prob_seed_6": 0.0074,
       "prob_seed_7": 0.0182,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -565,7 +565,7 @@
       "prob_seed_5": 0.0059,
       "prob_seed_6": 0.0205,
       "prob_seed_7": 0.0403,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -585,7 +585,7 @@
       "prob_seed_5": 0.0054,
       "prob_seed_6": 0.0151,
       "prob_seed_7": 0.0325,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -605,7 +605,7 @@
       "prob_seed_5": 0.0011,
       "prob_seed_6": 0.0043,
       "prob_seed_7": 0.0118,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -625,7 +625,7 @@
       "prob_seed_5": 0.009,
       "prob_seed_6": 0.0271,
       "prob_seed_7": 0.0563,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -645,7 +645,7 @@
       "prob_seed_5": 0.0005,
       "prob_seed_6": 0.0026,
       "prob_seed_7": 0.0077,
-      "generated_at": "2026-11-06T13:21:09+00:00",
+      "generated_at": "2026-11-07T12:02:59+00:00",
       "model_version": "0.1.0-phase1"
     }
   ]
