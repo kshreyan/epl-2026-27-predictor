@@ -1,6 +1,6 @@
 # NBA Rest-Day Adjustment Signal Report
 
-Generated: 2026-11-01T15:47:25+00:00
+Generated: 2026-11-08T15:58:43+00:00
 
 Real held-out-season test: real rest-day differential (capped at 5, derived purely from real game dates) tested against real season 2025-26's outcomes, on top of Elo-only (this league's own real moneyline backtest winner). n=1233 real games.
 

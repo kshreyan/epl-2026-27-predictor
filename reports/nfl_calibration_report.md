@@ -1,6 +1,6 @@
 # NFL Calibration Report
 
-Generated: 2026-11-01T15:48:59+00:00
+Generated: 2026-11-08T15:59:23+00:00
 
 Calibration method: **isotonic** (isotonic regression per outcome class, fit on 1310 real non-tie backtest games; minimum 500 real samples required).
 

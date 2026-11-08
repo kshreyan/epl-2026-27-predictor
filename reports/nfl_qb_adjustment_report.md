@@ -1,6 +1,6 @@
 # NFL QB Adjustment Signal Report
 
-Generated: 2026-11-01T15:46:59+00:00
+Generated: 2026-11-08T15:58:31+00:00
 
 Real held-out-season test: QB ratings fit on real seasons [2021, 2022, 2023, 2024] only, tested against real season 2025's own residual (actual margin - team-only point-margin model's predicted margin), n=272 real games with both starters known.
 

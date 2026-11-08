@@ -1,6 +1,6 @@
 # NFL De-Vig Method Selection Report
 
-Generated: 2026-11-01T15:46:49+00:00
+Generated: 2026-11-08T15:58:26+00:00
 
 Real backtest on 1359 real historical closing moneylines (American, converted to decimal) against real game outcomes -- each method's own fair probability for the team that actually won, scored by log loss, no model blended in.
 

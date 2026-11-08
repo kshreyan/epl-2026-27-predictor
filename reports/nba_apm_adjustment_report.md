@@ -1,6 +1,6 @@
 # NBA Box-Score APM Adjustment Signal Report
 
-Generated: 2026-11-01T15:48:55+00:00
+Generated: 2026-11-08T15:59:21+00:00
 
 Real within-season test (2025-26): real player ratings fit via Ridge regression on the real earlier portion of the season (by date), tested against the real later portion, on top of Elo-only (this league's own real moneyline backtest winner). Run on 2 real, different split points -- a single-slice bootstrap CI that happens to exclude zero is exactly the kind of fragile, noise-driven finding this project's own recalibration_gate.py requires confirmation on multiple real slices to guard against; both splits must independently show a real significant edge before this signal is wired into live predictions, never acted on from one slice alone.
 
