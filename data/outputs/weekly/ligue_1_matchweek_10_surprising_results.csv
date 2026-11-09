@@ -1,0 +1,10 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+LIGUE12627_MW10_086_LeMansFC_ASMonaco,10,Le Mans FC,AS Monaco,draw,0.2184,0.2171,0.2184,0.5645,1.5214,2026-11-09T14:34:39+00:00
+LIGUE12627_MW10_087_RCLens_OlympiquedeMarseille,10,RC Lens,Olympique de Marseille,away_win,0.2939,0.4729,0.2332,0.2939,1.2245,2026-11-09T14:34:39+00:00
+LIGUE12627_MW10_084_StadeBrestois29_OlympiqueLyonnais,10,Stade Brestois 29,Olympique Lyonnais,home_win,0.3057,0.3057,0.2699,0.4244,1.1852,2026-11-09T14:34:39+00:00
+LIGUE12627_MW10_089_StadeRennaisFC_LOSCLille,10,Stade Rennais FC,LOSC Lille,away_win,0.3329,0.4014,0.2658,0.3329,1.0999,2026-11-09T14:34:39+00:00
+LIGUE12627_MW10_085_HavreAthleticClub_FCLorient,10,Havre Athletic Club,FC Lorient,away_win,0.38,0.3346,0.2855,0.38,0.9676,2026-11-09T14:34:39+00:00
+LIGUE12627_MW10_090_ToulouseFC_RCStrasbourgAlsace,10,Toulouse FC,RC Strasbourg Alsace,home_win,0.4295,0.4295,0.2519,0.3185,0.8451,2026-11-09T14:34:39+00:00
+LIGUE12627_MW10_082_AngersSCO_OGCNice,10,Angers SCO,OGC Nice,away_win,0.4509,0.2668,0.2823,0.4509,0.7965,2026-11-09T14:34:39+00:00
+LIGUE12627_MW10_083_AJAuxerre_ParisFC,10,AJ Auxerre,Paris FC,away_win,0.5124,0.239,0.2486,0.5124,0.6686,2026-11-09T14:34:39+00:00
+LIGUE12627_MW10_088_ParisSaint-Germain_EstacTroyes,10,Paris Saint-Germain,Estac Troyes,home_win,1.0,1.0,0.0,0.0,-0.0,2026-11-09T14:34:39+00:00

@@ -1,0 +1,11 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+LALIGA2627_MW12_115_MálagaCF_R.RacingClub,12,Málaga CF,R. Racing Club,away_win,0.2395,0.5083,0.2522,0.2395,1.4292,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_112_CeltaVigo_LevanteUD,12,Celta Vigo,Levante UD,draw,0.2544,0.5319,0.2544,0.2137,1.3688,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_118_SevillaFC_DeportivoAlavés,12,Sevilla FC,Deportivo Alavés,draw,0.2816,0.4914,0.2816,0.227,1.2673,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_114_RCDEspanyoldeBarcelona_RCDeportivo,12,RCD Espanyol de Barcelona,RC Deportivo,draw,0.2849,0.4991,0.2849,0.216,1.2556,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_116_CAOsasuna_AthleticClub,12,CA Osasuna,Athletic Club,draw,0.3006,0.2878,0.3006,0.4116,1.202,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_111_AtléticodeMadrid_FCBarcelona,12,Atlético de Madrid,FC Barcelona,away_win,0.3974,0.3039,0.2987,0.3974,0.9228,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_113_ElcheCF_RealBetis,12,Elche CF,Real Betis,away_win,0.4242,0.2961,0.2797,0.4242,0.8576,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_117_RealSociedad_RayoVallecano,12,Real Sociedad,Rayo Vallecano,home_win,0.5296,0.5296,0.2516,0.2187,0.6356,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_120_VillarrealCF_GetafeCF,12,Villarreal CF,Getafe CF,home_win,0.6208,0.6208,0.2315,0.1477,0.4767,2026-11-09T14:31:39+00:00
+LALIGA2627_MW12_119_ValenciaCF_RealMadrid,12,Valencia CF,Real Madrid,away_win,0.6568,0.1401,0.2031,0.6568,0.4204,2026-11-09T14:31:39+00:00

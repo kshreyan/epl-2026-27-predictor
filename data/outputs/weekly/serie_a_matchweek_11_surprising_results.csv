@@ -1,0 +1,11 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+SERIEA2627_MW11_102_Fiorentina_Juventus,11,Fiorentina,Juventus,draw,0.2569,0.248,0.2569,0.4951,1.3591,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_109_Torino_Lecce,11,Torino,Lecce,draw,0.2745,0.5215,0.2745,0.204,1.2928,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_106_Napoli_Lazio,11,Napoli,Lazio,draw,0.2874,0.4289,0.2874,0.2837,1.2469,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_101_Cagliari_Frosinone,11,Cagliari,Frosinone,home_win,0.333,0.333,0.2992,0.3678,1.0996,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_110_Venezia_Udinese,11,Venezia,Udinese,home_win,0.3405,0.3405,0.2999,0.3595,1.0773,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_104_Internazionale_Como,11,Internazionale,Como,home_win,0.4817,0.4817,0.2847,0.2336,0.7304,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_107_Parma_Bologna,11,Parma,Bologna,away_win,0.4842,0.2375,0.2783,0.4842,0.7253,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_103_Genoa_Milan,11,Genoa,Milan,away_win,0.5496,0.2081,0.2423,0.5496,0.5986,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_105_Monza_Atalanta,11,Monza,Atalanta,away_win,0.5852,0.1705,0.2443,0.5852,0.5358,2026-11-09T14:32:46+00:00
+SERIEA2627_MW11_108_Roma_Sassuolo,11,Roma,Sassuolo,home_win,0.698,0.698,0.193,0.1091,0.3595,2026-11-09T14:32:46+00:00

@@ -556,3 +556,19 @@ nba_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-08T12:19:27+00:
 ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-08T12:19:27+00:00,2965,True,2026-11-08T12:19:27+00:00,802 real bookmaker/market rows; rest are honest unavailable sentinels.
 ncaab_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-08T12:19:27+00:00,16976,True,2026-11-08T12:19:28+00:00,775 real bookmaker/market rows; rest are honest unavailable sentinels.
 la_liga_2026_27_fixtures,2026-08-18.phase1,fixturedownload.com,2026-11-07T03:37:53+00:00,380,True,2026-11-07T03:37:53+00:00,La Liga 2026-27 fixture list from fixturedownload.com.
+nfl_2026_27_fixtures,2026-08-18.phase1,nflverse (raw.githubusercontent.com/nflverse/nfldata),2026-11-09T14:29:08+00:00,272,True,2026-11-09T14:29:08+00:00,NFL 2026-27 real schedule + historical from nflverse's nfldata repository.
+nba_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-11-09T14:29:08+00:00,1200,True,2026-11-09T14:29:10+00:00,NBA 2026-27 real schedule from ESPN's site API (season=2027).
+ncaaf_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-11-09T14:29:10+00:00,761,True,2026-11-09T14:29:21+00:00,NCAA Football 2026-27 real schedule from ESPN's site API (season=2026).
+ncaab_2026_27_fixtures,2026-08-18.phase1,site.api.espn.com,2026-11-09T14:29:21+00:00,5413,True,2026-11-09T14:29:50+00:00,NCAA Basketball 2026-27 real schedule from ESPN's site API (season=2027).
+epl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:50+00:00,1946,True,2026-11-09T14:29:51+00:00,866 real bookmaker/market rows; rest are honest unavailable sentinels.
+la_liga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:51+00:00,1483,True,2026-11-09T14:29:51+00:00,370 real bookmaker/market rows; rest are honest unavailable sentinels.
+serie_a_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:51+00:00,1636,True,2026-11-09T14:29:51+00:00,535 real bookmaker/market rows; rest are honest unavailable sentinels.
+bundesliga_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:51+00:00,1289,True,2026-11-09T14:29:52+00:00,398 real bookmaker/market rows; rest are honest unavailable sentinels.
+ligue_1_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:52+00:00,1591,True,2026-11-09T14:29:52+00:00,727 real bookmaker/market rows; rest are honest unavailable sentinels.
+ucl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:52+00:00,1512,True,2026-11-09T14:29:52+00:00,1134 real bookmaker/market rows; rest are honest unavailable sentinels.
+uel_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:52+00:00,955,True,2026-11-09T14:29:52+00:00,577 real bookmaker/market rows; rest are honest unavailable sentinels.
+uecl_2026_27_real_odds,2026-08-18.phase1,none_available,2026-11-09T14:29:53+00:00,324,False,2026-11-09T14:29:53+00:00,0 real bookmaker/market rows; rest are honest unavailable sentinels.
+nfl_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:53+00:00,2112,True,2026-11-09T14:29:53+00:00,1341 real bookmaker/market rows; rest are honest unavailable sentinels.
+nba_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:53+00:00,4681,True,2026-11-09T14:29:54+00:00,1120 real bookmaker/market rows; rest are honest unavailable sentinels.
+ncaaf_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:54+00:00,6444,True,2026-11-09T14:29:54+00:00,4341 real bookmaker/market rows; rest are honest unavailable sentinels.
+ncaab_2026_27_real_odds,2026-08-18.phase1,the-odds-api.com,2026-11-09T14:29:54+00:00,17399,True,2026-11-09T14:29:55+00:00,1229 real bookmaker/market rows; rest are honest unavailable sentinels.

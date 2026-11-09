@@ -1,0 +1,2 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+LIGUE12627_MW23_205_StadeRennaisFC_ParisSaint-Germain,23,Stade Rennais FC,Paris Saint-Germain,draw,0.2068,0.2305,0.2068,0.5627,1.576,2026-11-09T14:35:12+00:00

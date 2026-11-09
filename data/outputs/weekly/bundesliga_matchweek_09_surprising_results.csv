@@ -1,0 +1,10 @@
+match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
+BUNDESLIGA2627_MW09_073_SCPaderborn07_EintrachtFrankfurt,9,SC Paderborn 07,Eintracht Frankfurt,draw,0.2585,0.2767,0.2585,0.4647,1.3529,2026-11-09T14:33:45+00:00
+BUNDESLIGA2627_MW09_075_HamburgerSV_BorussiaMönchengladbach,9,Hamburger SV,Borussia Mönchengladbach,home_win,0.3612,0.3612,0.2942,0.3445,1.0183,2026-11-09T14:33:45+00:00
+BUNDESLIGA2627_MW09_074_1.FCKöln_Bayer04Leverkusen,9,1. FC Köln,Bayer 04 Leverkusen,away_win,0.5018,0.2304,0.2677,0.5018,0.6896,2026-11-09T14:33:45+00:00
+BUNDESLIGA2627_MW09_077_Sport-ClubFreiburg_1.FCUnionBerlin,9,Sport-Club Freiburg,1. FC Union Berlin,home_win,0.5348,0.5348,0.2649,0.2003,0.6259,2026-11-09T14:33:45+00:00
+BUNDESLIGA2627_MW09_078_TSGHoffenheim_FCSchalke04,9,TSG Hoffenheim,FC Schalke 04,home_win,0.5664,0.5664,0.2396,0.194,0.5685,2026-11-09T14:33:45+00:00
+BUNDESLIGA2627_MW09_079_VfBStuttgart_SVWerderBremen,9,VfB Stuttgart,SV Werder Bremen,home_win,0.5897,0.5897,0.2098,0.2005,0.5281,2026-11-09T14:33:45+00:00
+BUNDESLIGA2627_MW09_080_RBLeipzig_FCAugsburg,9,RB Leipzig,FC Augsburg,home_win,0.6471,0.6471,0.1932,0.1597,0.4353,2026-11-09T14:33:45+00:00
+BUNDESLIGA2627_MW09_076_1.FSVMainz05_FCBayernMünchen,9,1. FSV Mainz 05,FC Bayern München,away_win,0.6602,0.1373,0.2026,0.6602,0.4152,2026-11-09T14:33:45+00:00
+BUNDESLIGA2627_MW09_081_BorussiaDortmund_SVElversberg,9,Borussia Dortmund,SV Elversberg,home_win,0.6828,0.6828,0.1902,0.127,0.3816,2026-11-09T14:33:45+00:00
