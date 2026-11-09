@@ -81,6 +81,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.evaluation.backtest_team_sport import ALLOWS_TIES, ELO_K_FACTOR  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.compute_margin_survival import ELIGIBLE_DRAWS_AND, percentile_score, verdict  # noqa: E402
+from src.models.nfl_qb_rating import fit_qb_elo, qb_adjustment, shrink_qb_ratings  # noqa: E402
 from src.models.point_margin_model import fit_point_margin_model, predict_margin_distribution, should_use_point_margin_model  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, log_experiment, make_run_metadata, now_utc_iso  # noqa: E402
 
@@ -229,6 +230,24 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
     fit = fit_point_margin_model(df, allows_ties=allows_ties, k_factor=ELO_K_FACTOR, team_group=team_group)
     using_winning_model = should_use_point_margin_model(league_id)
 
+    # QB-rating adjustment (see nfl_qb_rating.py/backtest_nfl_qb_adjustment.py
+    # and predict_team_sport_matches.py's identical wiring) -- kept in sync
+    # with the moneyline prediction's own mean margin so the +N Margin
+    # Survival engine never silently disagrees with it for the same real
+    # fixture. Only for a league with real per-QB data (NFL, via nflverse)
+    # AND only if its own real held-out-season backtest found the signal
+    # significant; never assumed.
+    qb_shrunk_ratings: dict[str, float] = {}
+    qb_coefficient = 0.0
+    if "home_qb_name" in df.columns:
+        coef_path = REPO_ROOT / "data" / "outputs" / f"{league_id}_qb_adjustment_coefficient.csv"
+        if coef_path.exists():
+            coef_row = pd.read_csv(coef_path).iloc[0]
+            if bool(coef_row["significant"]):
+                qb_coefficient = float(coef_row["coefficient"])
+                raw_qb_ratings, qb_n_starts = fit_qb_elo(df)
+                qb_shrunk_ratings = shrink_qb_ratings(raw_qb_ratings, qb_n_starts)
+
     real_spread_by_match: dict[str, pd.Series] = {}
     if not real_odds_df.empty:
         spreads = real_odds_df[
@@ -247,6 +266,10 @@ def compute_for_league(league_id: str) -> pd.DataFrame:
     fixture_dists: dict[str, tuple[float, float]] = {}
     for match_id, fx in fx_by_id.iterrows():
         mean, sigma = predict_margin_distribution(fit, fx["home_team"], fx["away_team"])
+        if qb_shrunk_ratings:
+            adj = qb_adjustment(fx.get("home_qb_name"), fx.get("away_qb_name"), qb_shrunk_ratings)
+            if adj is not None:
+                mean += qb_coefficient * adj
         fixture_dists[match_id] = (mean, sigma)
         all_abs_margins.append(abs(mean))
 
