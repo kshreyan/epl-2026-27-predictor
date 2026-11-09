@@ -1,6 +1,6 @@
 {
   "league": "la_liga",
-  "generated_at": "2026-11-08T12:23:13+00:00",
+  "generated_at": "2026-11-09T05:20:40+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 380,
@@ -7819,8 +7819,8 @@
       "match_id": "LALIGA2627_MW08_078_RayoVallecano_AthleticClub",
       "season": "2026-27",
       "matchweek": 8,
-      "date": "2026-10-10",
-      "kickoff_utc": "2026-10-10T12:00:00+00:00",
+      "date": "2026-12-09",
+      "kickoff_utc": "2026-12-09T19:00:00+00:00",
       "home_team": "Rayo Vallecano",
       "away_team": "Athletic Club",
       "stadium": "Estadio de Vallecas",

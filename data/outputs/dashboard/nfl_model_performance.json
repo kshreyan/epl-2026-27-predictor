@@ -1,6 +1,6 @@
 {
   "league": "nfl",
-  "generated_at": "2026-11-08T12:23:15+00:00",
+  "generated_at": "2026-11-09T05:20:41+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 3,
@@ -172,7 +172,7 @@
     "raw_log_loss": 0.7115,
     "calibrated_log_loss": 0.67,
     "n_matches": 1310,
-    "generated_at": "2026-11-01T15:48:59+00:00"
+    "generated_at": "2026-11-08T15:59:23+00:00"
   },
   "ensemble_per_season_comparison": [],
   "data": [
