@@ -18,7 +18,7 @@ import src.utils.versioning as versioning  # noqa: E402
 import src.weekly_auto_update as weekly_auto_update  # noqa: E402
 from src.evaluation.prediction_ledger import append_to_ledger  # noqa: E402
 from src.update_after_matchweek import WeeklyUpdatePaths  # noqa: E402
-from src.weekly_auto_update import determine_newly_complete_matchweeks, run_auto_update  # noqa: E402
+from src.weekly_auto_update import determine_matchweeks_with_new_results, run_auto_update  # noqa: E402
 
 REAL_FIXTURES_PATH = REPO_ROOT / "data" / "raw" / "epl_2026_27_fixtures.csv"
 REAL_HISTORICAL_PATH = REPO_ROOT / "data" / "raw" / "epl_historical_matches.csv"
@@ -30,32 +30,54 @@ def _fixtures(rows):
     return pd.DataFrame([{"match_id": r[0], "matchweek": r[1]} for r in rows])
 
 
-def test_no_op_when_no_matchweek_is_fully_complete():
+def test_no_op_when_no_matchweek_has_any_new_result():
     fixtures = _fixtures([("m1", 1), ("m2", 1), ("m3", 2)])
-    live = pd.DataFrame({"match_id": ["m1"]})  # only 1 of matchweek 1's 2 matches done
+    live = pd.DataFrame({"match_id": []}, dtype=str)  # nothing available yet
     completed = pd.DataFrame(columns=["match_id"])
-    assert determine_newly_complete_matchweeks(fixtures, live, completed) == []
+    assert determine_matchweeks_with_new_results(fixtures, live, completed) == []
+
+
+def test_detects_a_matchweek_with_a_partial_real_result_a_single_postponed_match_must_not_block():
+    """The real incident this fix addresses: one of a matchweek's real
+    fixtures has no result yet (postponed, or just not reported yet),
+    but the other real results in that same round must not be blocked
+    from locking because of it."""
+    fixtures = _fixtures([("m1", 1), ("m2", 1), ("m3", 2)])
+    live = pd.DataFrame({"match_id": ["m1"]})  # only 1 of matchweek 1's 2 real fixtures has a result
+    completed = pd.DataFrame(columns=["match_id"])
+    assert determine_matchweeks_with_new_results(fixtures, live, completed) == [1]
 
 
 def test_detects_a_fully_complete_unlocked_matchweek():
     fixtures = _fixtures([("m1", 1), ("m2", 1), ("m3", 2)])
     live = pd.DataFrame({"match_id": ["m1", "m2"]})
     completed = pd.DataFrame(columns=["match_id"])
-    assert determine_newly_complete_matchweeks(fixtures, live, completed) == [1]
+    assert determine_matchweeks_with_new_results(fixtures, live, completed) == [1]
 
 
 def test_skips_a_matchweek_thats_already_locked():
     fixtures = _fixtures([("m1", 1), ("m2", 1)])
     live = pd.DataFrame({"match_id": ["m1", "m2"]})
     completed = pd.DataFrame({"match_id": ["m1", "m2"]})
-    assert determine_newly_complete_matchweeks(fixtures, live, completed) == []
+    assert determine_matchweeks_with_new_results(fixtures, live, completed) == []
+
+
+def test_still_reports_a_matchweek_with_one_real_result_locked_and_one_still_missing():
+    """A matchweek that was already partially locked (m1 real result
+    locked, m2's still missing) must be reported again once m2's own
+    real result finally appears -- never permanently skipped just
+    because SOME of its real results are already locked."""
+    fixtures = _fixtures([("m1", 1), ("m2", 1), ("m3", 2)])
+    live = pd.DataFrame({"match_id": ["m1", "m2"]})  # m2's real result just showed up
+    completed = pd.DataFrame({"match_id": ["m1"]})  # m1 was already locked on a prior run
+    assert determine_matchweeks_with_new_results(fixtures, live, completed) == [1]
 
 
 def test_returns_multiple_matchweeks_in_chronological_order():
     fixtures = _fixtures([("m1", 1), ("m2", 2), ("m3", 3)])
     live = pd.DataFrame({"match_id": ["m1", "m2", "m3"]})
     completed = pd.DataFrame(columns=["match_id"])
-    assert determine_newly_complete_matchweeks(fixtures, live, completed) == [1, 2, 3]
+    assert determine_matchweeks_with_new_results(fixtures, live, completed) == [1, 2, 3]
 
 
 @pytest.fixture(autouse=True)
@@ -131,3 +153,74 @@ def test_run_auto_update_locks_a_concluded_matchweek_end_to_end(tmp_paths, tmp_p
     # matchweek 1 is already locked.
     processed_again = run_auto_update(paths=tmp_paths)
     assert processed_again == []
+
+
+@pytest.mark.slow
+def test_run_auto_update_locks_a_partial_matchweek_then_catches_up_the_postponed_match(tmp_paths, tmp_path, monkeypatch):
+    """Regression test for the real incident this fix addresses: one of
+    matchweek 1's real fixtures has no result yet (standing in for a
+    real postponement, e.g. La Liga's real Rayo Vallecano v Athletic
+    Club). The OTHER already-decided real results in that same
+    matchweek must lock and score on the first run, not be blocked
+    waiting for it -- then the held-back match must itself lock, in a
+    later run, once its own real result finally appears."""
+    fixtures = pd.read_csv(REAL_FIXTURES_PATH)
+    mw1 = fixtures[fixtures["matchweek"] == 1]
+    held_back = mw1.iloc[0]
+    available_now = mw1.iloc[1:]
+
+    pred_rows = []
+    for _, fx in mw1.iterrows():
+        kickoff = pd.Timestamp(fx["kickoff_utc"])
+        pred_rows.append({
+            "match_id": fx["match_id"], "matchweek": fx["matchweek"],
+            "home_team": fx["home_team"], "away_team": fx["away_team"], "kickoff_utc": fx["kickoff_utc"],
+            "home_win_prob_model_only": 0.4, "draw_prob_model_only": 0.3, "away_win_prob_model_only": 0.3,
+            "dc_raw_home_win_prob": 0.4, "dc_raw_draw_prob": 0.3, "dc_raw_away_win_prob": 0.3,
+            "home_win_prob_market_integrated": "", "draw_prob_market_integrated": "", "away_win_prob_market_integrated": "",
+            "market_available": False, "prediction_mode": "preseason_mode", "run_id": "seed_run",
+            "model_version": "test", "generated_at": (kickoff - pd.Timedelta(days=7)).isoformat(),
+        })
+    append_to_ledger(pred_rows, tmp_paths.ledger)
+
+    # First run: every matchweek-1 match EXCEPT the held-back one has a
+    # real result available.
+    fake_live_results = pd.DataFrame({
+        "match_id": available_now["match_id"].tolist(),
+        "home_goals": [2] * len(available_now), "away_goals": [1] * len(available_now),
+        "source_name": ["football-data.co.uk"] * len(available_now),
+        "source_timestamp": ["2026-08-25T00:00:00+00:00"] * len(available_now),
+    })
+    monkeypatch.setattr(weekly_auto_update, "fetch_all_live_results", lambda fixtures_path, league_id="epl": fake_live_results)
+
+    processed = run_auto_update(paths=tmp_paths)
+
+    assert len(processed) == 1
+    assert processed[0]["matchweek"] == 1
+    assert processed[0]["n_results"] == len(available_now)  # NOT blocked by the one real fixture still missing
+
+    completed = pd.read_csv(tmp_paths.completed_2627)
+    assert set(completed["match_id"]) == set(available_now["match_id"])
+    assert held_back["match_id"] not in set(completed["match_id"])
+
+    # A same-data re-run must be a real no-op -- nothing new is available.
+    assert run_auto_update(paths=tmp_paths) == []
+
+    # The held-back match's own real result finally appears (standing in
+    # for the real postponed fixture eventually being played).
+    fake_live_results_all = pd.DataFrame({
+        "match_id": mw1["match_id"].tolist(),
+        "home_goals": [2] * len(mw1), "away_goals": [1] * len(mw1),
+        "source_name": ["football-data.co.uk"] * len(mw1),
+        "source_timestamp": ["2026-12-09T00:00:00+00:00"] * len(mw1),
+    })
+    monkeypatch.setattr(weekly_auto_update, "fetch_all_live_results", lambda fixtures_path, league_id="epl": fake_live_results_all)
+
+    processed_catchup = run_auto_update(paths=tmp_paths)
+
+    assert len(processed_catchup) == 1
+    assert processed_catchup[0]["matchweek"] == 1
+    assert processed_catchup[0]["n_results"] == 1  # only the previously-missing match is newly locked
+
+    completed_final = pd.read_csv(tmp_paths.completed_2627)
+    assert set(completed_final["match_id"]) == set(mw1["match_id"])  # the whole matchweek is locked now

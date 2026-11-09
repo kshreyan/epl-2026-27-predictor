@@ -192,6 +192,33 @@ def test_score_after_matchweek_scores_preseason_and_operational_separately(tmp_p
     assert set(result["reliability"]["track"]) == {"operational", "preseason"}
 
 
+def test_score_after_matchweek_names_surprising_results_file_by_league_not_hardcoded_epl(tmp_paths):
+    """Regression test: the surprising-results snapshot used to be
+    written to a literal `epl_matchweek_NN_surprising_results.csv`
+    regardless of which league's results were actually being scored --
+    every non-EPL league's call silently overwrote the same shared
+    file (confirmed directly: La Liga's real matchweek 8 catch-up
+    overwrote Bundesliga's real matchweek 8 file on 2026-11-09).
+    `weekly_dir` here is a league-agnostic tmp dir, so the real bug
+    would also manifest as the wrong filename even without a second
+    league colliding into it."""
+    tmp_paths.league_id = "la_liga"
+    kickoff = "2026-08-22T15:00:00+00:00"
+    # Two matches, scored far enough apart in predicted probability that
+    # most_surprising_results has a real result to rank.
+    rows = [("m1", 7, "H1", "A1", kickoff, 2, 0), ("m2", 7, "H2", "A2", kickoff, 0, 3)]
+    _write_fixtures_and_completed(tmp_paths, rows)
+    append_to_ledger([
+        _pred_row("m1", 7, "H1", "A1", kickoff, "2026-08-15T00:00:00+00:00", 0.6, 0.25, 0.15),
+        _pred_row("m2", 7, "H2", "A2", kickoff, "2026-08-15T00:00:00+00:00", 0.6, 0.25, 0.15),
+    ], tmp_paths.ledger)
+
+    score_after_matchweek(7, tmp_paths)
+
+    assert (tmp_paths.weekly_dir / "la_liga_matchweek_07_surprising_results.csv").exists()
+    assert not (tmp_paths.weekly_dir / "epl_matchweek_07_surprising_results.csv").exists()
+
+
 def test_score_after_matchweek_raises_if_operational_pre_kickoff_prediction_missing(tmp_paths):
     rows = [("m1", 1, "Home1", "Away1", "2026-08-22T15:00:00+00:00", 2, 0)]
     _write_fixtures_and_completed(tmp_paths, rows)

@@ -310,7 +310,7 @@ def score_after_matchweek(matchweek: int, paths, preseason_ledger_loader=load_pr
 
     if not surprising.empty:
         paths.weekly_dir.mkdir(parents=True, exist_ok=True)
-        surprising.to_csv(paths.weekly_dir / f"epl_matchweek_{matchweek:02d}_surprising_results.csv", index=False)
+        surprising.to_csv(paths.weekly_dir / f"{paths.league_id}_matchweek_{matchweek:02d}_surprising_results.csv", index=False)
 
     return {
         "weekly_scoring": weekly_scoring,
