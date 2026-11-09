@@ -92,6 +92,7 @@ jobs:
           python -m src.calibration.calibrate_nfl_probabilities --league nfl
           python -m src.calibration.calibrate_nba_probabilities --league nba
           python -m src.calibration.calibrate_ncaaf_probabilities --league ncaaf
+          python -m src.calibration.calibrate_ncaab_probabilities --league ncaab
 
       # Real PSI/KS drift check on each league's own winning model's
       # predicted-probability distribution (see drift_detection.py) --

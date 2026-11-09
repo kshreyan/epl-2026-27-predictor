@@ -1,9 +1,9 @@
 {
   "league": "la_liga",
-  "generated_at": "2026-11-09T05:45:38+00:00",
+  "generated_at": "2026-11-09T07:50:47+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
-  "record_count": 34,
+  "record_count": 38,
   "status": "real",
   "note": "model_* is the raw (uncalibrated) Dixon-Coles probability; market_* is the real, de-vigged market-consensus probability. Sorted by max_class_disagreement descending.",
   "data": [
@@ -104,18 +104,6 @@
       "max_class_disagreement": 0.0944
     },
     {
-      "match_id": "LALIGA2627_MW08_078_RayoVallecano_AthleticClub",
-      "home_team": "Rayo Vallecano",
-      "away_team": "Athletic Club",
-      "model_home_win_prob": 0.3899,
-      "model_draw_prob": 0.2948,
-      "model_away_win_prob": 0.3153,
-      "market_home_win_prob": 0.3142,
-      "market_draw_prob": 0.2786,
-      "market_away_win_prob": 0.4072,
-      "max_class_disagreement": 0.0919
-    },
-    {
       "match_id": "LALIGA2627_MW08_075_LevanteUD_SevillaFC",
       "home_team": "Levante UD",
       "away_team": "Sevilla FC",
@@ -186,6 +174,18 @@
       "market_draw_prob": 0.2496,
       "market_away_win_prob": 0.2097,
       "max_class_disagreement": 0.0709
+    },
+    {
+      "match_id": "LALIGA2627_MW13_129_RealMadrid_CeltaVigo",
+      "home_team": "Real Madrid",
+      "away_team": "Celta Vigo",
+      "model_home_win_prob": 0.7202,
+      "model_draw_prob": 0.1795,
+      "model_away_win_prob": 0.1003,
+      "market_home_win_prob": 0.7899,
+      "market_draw_prob": 0.132,
+      "market_away_win_prob": 0.0782,
+      "max_class_disagreement": 0.0697
     },
     {
       "match_id": "LALIGA2627_MW07_069_ValenciaCF_RealSociedad",
@@ -332,6 +332,18 @@
       "max_class_disagreement": 0.0324
     },
     {
+      "match_id": "LALIGA2627_MW13_130_SevillaFC_RealBetis",
+      "home_team": "Sevilla FC",
+      "away_team": "Real Betis",
+      "model_home_win_prob": 0.3586,
+      "model_draw_prob": 0.2542,
+      "model_away_win_prob": 0.3872,
+      "market_home_win_prob": 0.3266,
+      "market_draw_prob": 0.267,
+      "market_away_win_prob": 0.4065,
+      "max_class_disagreement": 0.032
+    },
+    {
       "match_id": "LALIGA2627_MW11_101_AthleticClub_RealSociedad",
       "home_team": "Athletic Club",
       "away_team": "Real Sociedad",
@@ -354,6 +366,18 @@
       "market_draw_prob": 0.1766,
       "market_away_win_prob": 0.2288,
       "max_class_disagreement": 0.0261
+    },
+    {
+      "match_id": "LALIGA2627_MW13_125_LevanteUD_ElcheCF",
+      "home_team": "Levante UD",
+      "away_team": "Elche CF",
+      "model_home_win_prob": 0.4634,
+      "model_draw_prob": 0.2427,
+      "model_away_win_prob": 0.2939,
+      "market_home_win_prob": 0.4397,
+      "market_draw_prob": 0.2527,
+      "market_away_win_prob": 0.3076,
+      "max_class_disagreement": 0.0237
     },
     {
       "match_id": "LALIGA2627_MW09_090_VillarrealCF_ElcheCF",
@@ -380,6 +404,18 @@
       "max_class_disagreement": 0.0147
     },
     {
+      "match_id": "LALIGA2627_MW13_128_RayoVallecano_ValenciaCF",
+      "home_team": "Rayo Vallecano",
+      "away_team": "Valencia CF",
+      "model_home_win_prob": 0.4623,
+      "model_draw_prob": 0.2864,
+      "model_away_win_prob": 0.2513,
+      "market_home_win_prob": 0.474,
+      "market_draw_prob": 0.2732,
+      "market_away_win_prob": 0.2527,
+      "max_class_disagreement": 0.0132
+    },
+    {
       "match_id": "LALIGA2627_MW09_088_RealMadrid_SevillaFC",
       "home_team": "Real Madrid",
       "away_team": "Sevilla FC",
@@ -402,6 +438,18 @@
       "market_draw_prob": 0.2494,
       "market_away_win_prob": 0.2243,
       "max_class_disagreement": 0.0106
+    },
+    {
+      "match_id": "LALIGA2627_MW13_123_FCBarcelona_VillarrealCF",
+      "home_team": "FC Barcelona",
+      "away_team": "Villarreal CF",
+      "model_home_win_prob": 0.7613,
+      "model_draw_prob": 0.1358,
+      "model_away_win_prob": 0.1029,
+      "market_home_win_prob": 0.7582,
+      "market_draw_prob": 0.1327,
+      "market_away_win_prob": 0.1091,
+      "max_class_disagreement": 0.0062
     },
     {
       "match_id": "LALIGA2627_MW10_100_ValenciaCF_VillarrealCF",

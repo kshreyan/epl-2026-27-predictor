@@ -1,6 +1,6 @@
 {
   "league": "la_liga",
-  "generated_at": "2026-11-09T05:45:40+00:00",
+  "generated_at": "2026-11-09T07:50:49+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 760,
@@ -9,7 +9,7 @@
     "PASS": 122,
     "LEAN +2": 109
   },
-  "pick_moneyline_count": 36,
+  "pick_moneyline_count": 37,
   "engine_note": "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same backtested Dixon-Coles score matrix used for this league's own moneyline predictions -- not a separate multi-model ensemble. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute blowout risk first, then breaks ties with real market price where one currently exists (most fixtures have none yet -- bookmakers only post close to kickoff).",
   "data": [
     {
@@ -7213,7 +7213,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "LALIGA2627_MW08_074_FCBarcelona_GetafeCF",
@@ -7605,7 +7605,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "LALIGA2627_MW08_072_RealBetis_CAOsasuna",
@@ -13485,7 +13485,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LALIGA2627_MW14_138_RealMadrid_DeportivoAlav\u00e9s",
@@ -16719,7 +16719,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LALIGA2627_MW18_171_RealBetis_DeportivoAlav\u00e9s",
@@ -19708,7 +19708,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LALIGA2627_MW21_202_AthleticClub_LevanteUD",
@@ -28038,7 +28038,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "LALIGA2627_MW29_287_RealSociedad_DeportivoAlav\u00e9s",
@@ -32399,7 +32399,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LALIGA2627_MW34_331_Atl\u00e9ticodeMadrid_DeportivoAlav\u00e9s",
@@ -34359,7 +34359,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": true
+      "pick_moneyline": false
     },
     {
       "match_id": "LALIGA2627_MW36_351_Atl\u00e9ticodeMadrid_RayoVallecano",
@@ -35388,7 +35388,7 @@
       "model_version": "0.1.0-phase1",
       "generated_at": "2026-11-08T12:24:07+00:00",
       "data_confidence": "high",
-      "pick_moneyline": false
+      "pick_moneyline": true
     },
     {
       "match_id": "LALIGA2627_MW37_362_Atl\u00e9ticodeMadrid_AthleticClub",
