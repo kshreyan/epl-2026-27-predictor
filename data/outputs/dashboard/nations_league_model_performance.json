@@ -1,0 +1,40 @@
+{
+  "league": "nations_league",
+  "generated_at": "2026-11-10T04:14:25+00:00",
+  "model_version": "0.1.0-phase1",
+  "season": "2026-27",
+  "record_count": 4,
+  "reliability_table": [],
+  "calibration_summary": null,
+  "ensemble_per_season_comparison": [],
+  "data": [
+    {
+      "model": "Elo-only, flat start",
+      "n_matches": 129,
+      "log_loss": 1.0305232788,
+      "brier_score": 0.6171067417,
+      "ranked_probability_score": 0.2154595238
+    },
+    {
+      "model": "Elo-only, domestic-Elo-seeded",
+      "n_matches": 129,
+      "log_loss": 1.0305232788,
+      "brier_score": 0.6171067417,
+      "ranked_probability_score": 0.2154595238
+    },
+    {
+      "model": "Dixon-Coles (main model)",
+      "n_matches": 129,
+      "log_loss": 1.1138905937,
+      "brier_score": 0.6530114985,
+      "ranked_probability_score": 0.2217953824
+    },
+    {
+      "model": "Simple Poisson baseline",
+      "n_matches": 129,
+      "log_loss": 1.5164224628,
+      "brier_score": 0.7592419906,
+      "ranked_probability_score": 0.2549635132
+    }
+  ]
+}

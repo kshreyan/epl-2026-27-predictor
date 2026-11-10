@@ -1,6 +1,6 @@
 {
   "league": "la_liga",
-  "generated_at": "2026-11-09T14:37:59+00:00",
+  "generated_at": "2026-11-10T04:14:25+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 4,
@@ -254,7 +254,57 @@
     "n_matches": 2660,
     "generated_at": "2026-09-16T07:16:07+00:00"
   },
-  "ensemble_per_season_comparison": [],
+  "ensemble_per_season_comparison": [
+    {
+      "season": "2019-20",
+      "n_matches": 380,
+      "dc_log_loss": 1.0026,
+      "ensemble_log_loss": 1.0044,
+      "ensemble_wins_season": false
+    },
+    {
+      "season": "2020-21",
+      "n_matches": 380,
+      "dc_log_loss": 1.0178,
+      "ensemble_log_loss": 1.0033,
+      "ensemble_wins_season": true
+    },
+    {
+      "season": "2021-22",
+      "n_matches": 380,
+      "dc_log_loss": 1.009,
+      "ensemble_log_loss": 0.9946,
+      "ensemble_wins_season": true
+    },
+    {
+      "season": "2022-23",
+      "n_matches": 380,
+      "dc_log_loss": 1.0065,
+      "ensemble_log_loss": 0.9952,
+      "ensemble_wins_season": true
+    },
+    {
+      "season": "2023-24",
+      "n_matches": 380,
+      "dc_log_loss": 0.9637,
+      "ensemble_log_loss": 0.9524,
+      "ensemble_wins_season": true
+    },
+    {
+      "season": "2024-25",
+      "n_matches": 380,
+      "dc_log_loss": 0.9722,
+      "ensemble_log_loss": 0.974,
+      "ensemble_wins_season": false
+    },
+    {
+      "season": "2025-26",
+      "n_matches": 380,
+      "dc_log_loss": 0.9872,
+      "ensemble_log_loss": 0.9759,
+      "ensemble_wins_season": true
+    }
+  ],
   "data": [
     {
       "model": "Dixon-Coles (main model)",

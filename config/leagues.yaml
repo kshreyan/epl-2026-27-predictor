@@ -146,6 +146,41 @@ leagues:
     format: swiss
     expected_fixture_count: 108
 
+  # UEFA Nations League (re-added 2026-11-09, after a prior removal on
+  # 2026-10-03; that removal was purely an automation gap -- daily
+  # weekly_update.yml never covered it, so results went stale -- not a
+  # real data or model problem, confirmed directly against this
+  # session's own re-verification of every real source below. Re-added
+  # on the existing generic continental-cup pipeline (predict_
+  # continental_cup_matches.py / backtest_continental_cup.py / compute_
+  # margin_survival_continental.py, already parameterized by --league
+  # for UCL/UEL/UECL) rather than reviving the old bespoke nations-
+  # league-only scripts -- confirmed directly those modules have zero
+  # Swiss-format-specific logic. `format: groups` (not `swiss`): a real
+  # 54-team field split into 4 divisions of round-robin groups of 4,
+  # not a partial single combined table -- no table/races/season-sim
+  # dashboard applies here either, same reasoning as swiss. Real
+  # historical coverage is genuinely thin: fixturedownload.com only
+  # publishes the 2024-25 cycle (167 real scored matches; one real
+  # abandoned fixture, Romania v Kosovo 2024-11-15, excluded, not
+  # fabricated) -- confirmed directly this session that 2018/2020/2022
+  # editions are still not published there, same as when this was first
+  # built. League-phase scope only (6 real matchdays) -- the real
+  # knockout bracket (quarterfinals/semis/final, March/June 2027) is
+  # not yet scheduled by UEFA as of this re-addition and is out of
+  # scope for the same reason UCL/UEL/UECL's own knockout stage is: no
+  # bracket-simulation capability exists in this pipeline.
+  - league_id: nations_league
+    display_name: UEFA Nations League
+    country: Europe
+    fixturedownload_slug: nations-league
+    odds_api_sport_key: soccer_uefa_nations_league
+    timezone: UTC
+    n_teams: 54
+    match_id_prefix: UNL
+    format: groups
+    expected_fixture_count: 156
+
   - league_id: nfl
     display_name: NFL
     country: United States

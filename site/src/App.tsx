@@ -38,15 +38,16 @@ function LeagueRoutes() {
   const { leagueId = 'epl' } = useParams<{ leagueId: string }>()
   const { data: manifest } = useDashboardJson<{ leagues: { league_id: string; format: string }[] }>('leagues.json')
   const format = manifest?.leagues.find((l) => l.league_id === leagueId)?.format
-  // "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) and
+  // "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase),
   // "points" (NFL/NBA/NCAA Football, a real conference/division-
-  // seeded sport, not a goal-difference table) both have no table/
-  // races tab to land on -- an unknown sub-path for either goes to
-  // Fixtures instead of a route that would 404 its data. Defaults to
-  // "table" while the manifest is still loading (every league,
-  // whatever its format, matched it correctly once -- a brief flash
-  // at worst).
-  const defaultTab = format === 'swiss' || format === 'points' ? 'fixtures' : 'table'
+  // seeded sport, not a goal-difference table), and "groups" (UEFA
+  // Nations League's real 54-team group-stage field, no combined
+  // table either) all have no table/races tab to land on -- an
+  // unknown sub-path for any of them goes to Fixtures instead of a
+  // route that would 404 its data. Defaults to "table" while the
+  // manifest is still loading (every league, whatever its format,
+  // matched it correctly once -- a brief flash at worst).
+  const defaultTab = format === 'swiss' || format === 'points' || format === 'groups' ? 'fixtures' : 'table'
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderData leagueId={leagueId} />

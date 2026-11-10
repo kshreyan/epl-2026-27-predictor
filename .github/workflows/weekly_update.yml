@@ -85,7 +85,7 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: |
-          for league in epl la_liga serie_a bundesliga ligue_1 ucl uel uecl nfl nba ncaaf ncaab; do
+          for league in epl la_liga serie_a bundesliga ligue_1 ucl uel uecl nations_league nfl nba ncaaf ncaab; do
             python -m src.data_collection.collect_odds --league "$league"
           done
 
@@ -95,16 +95,20 @@ jobs:
             python -m src.weekly_auto_update --league "$league"
           done
 
-      # UCL/UEL/UECL (see predict_continental_cup_matches.py): no
-      # matchweek-lock/refit mechanism exists for these yet (unlike
-      # weekly_auto_update.py above) -- every run just re-fetches
+      # UCL/UEL/UECL/Nations League (see predict_continental_cup_matches
+      # .py): no matchweek-lock/refit mechanism exists for these yet
+      # (unlike weekly_auto_update.py above) -- every run just re-fetches
       # whatever real league-phase results fixturedownload.com has and
       # recomputes fresh, the same "not gated on a lock" pattern the +2
       # engine below already uses. A genuine no-op on content (same
-      # predictions) on a day no real result changed.
-      - name: Refresh UEFA club competition predictions
+      # predictions) on a day no real result changed. Nations League
+      # re-added 2026-11-09 on this same generic pipeline -- its real
+      # 2026-10-03 removal was purely because this step never covered
+      # it (results went stale), not a data or model problem; this is
+      # the actual fix for that, not just a re-add.
+      - name: Refresh UEFA competition predictions
         run: |
-          for league in ucl uel uecl; do
+          for league in ucl uel uecl nations_league; do
             python -m src.data_collection.fetch_continental_cup_live_results --league "$league"
             python -m src.models.predict_continental_cup_matches --league "$league"
             python -m src.models.compute_margin_survival_continental --league "$league"

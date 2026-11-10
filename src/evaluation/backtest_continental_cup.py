@@ -1,11 +1,14 @@
-"""Rolling-origin backtest for a UEFA club competition (UCL, UEL,
-UECL), real 2024-25 + 2025-26 data. Generalizes the old, now-removed
-backtest_nations_league.py (one competition, one real cycle, no prior
-season to warm up on) to three competitions with two real cycles each
--- round 1 of the second real season (2025-26) can be fit on the FULL
-first real season (189/189/153 real matches, league phase + knockout),
-unlike Nations League's single-cycle case which had nothing to warm up
-on at all.
+"""Rolling-origin backtest for a UEFA competition (UCL, UEL, UECL, or
+Nations League). Generalizes the old, now-removed
+backtest_nations_league.py (one competition, one real cycle) to four
+competitions. UCL/UEL/UECL each have real 2024-25 + 2025-26 data under
+the current 36-team Swiss-model league phase -- round 1 of the second
+real season (2025-26) can be fit on the FULL first real season
+(189/189/153 real matches, league phase + knockout). Nations League
+(re-added 2026-11-09) is back to the single-cycle case: fixturedownload
+.com still only publishes its real 2024-25 cycle (confirmed directly
+this session), so its backtest round 1 has nothing to warm up on,
+exactly like the original.
 
 Walks forward through each competition's real LEAGUE-PHASE rounds only
 (round_number <= league_phase_rounds, i.e. excluding the knockout
@@ -186,19 +189,28 @@ def main(league_id: str) -> None:
 
     best = comparison.iloc[0]
     n_seeded = sum(1 for t in teams if t in domestic_seed)
+    real_seasons = sorted(df["season"].unique())
+    seasons_desc = (
+        f"only {len(real_seasons)} real cycle{'s' if len(real_seasons) != 1 else ''} "
+        f"({', '.join(real_seasons)}) to validate on"
+    )
+    format_desc = (
+        f"the current {cfg.n_teams}-team Swiss-model league phase" if cfg.format == "swiss"
+        else f"its real {cfg.n_teams}-team group-stage field"
+    )
     out_report.parent.mkdir(parents=True, exist_ok=True)
     with open(out_report, "w") as f:
         f.write(f"# {cfg.display_name} Model Selection Report\n\n")
         f.write(
-            f"**Genuinely thin backtest -- read with real caution.** {cfg.display_name} has only two real "
-            f"cycles (2024-25, 2025-26) to validate on under the current 36-team Swiss-model league phase -- "
-            f"versus 2,000+ real matches for each domestic league in this project. This backtest scores "
-            f"{len(match_results)} real LEAGUE-PHASE matches (every league-phase round after the very first, "
-            f"which has no real prior data to fit on); real knockout-round results from both historical "
-            f"cycles feed every model's fit but are not themselves scored (knockout-stage prediction is a "
-            f"separate, not-yet-built capability). Dixon-Coles/Elo/Simple-Poisson hyperparameters are reused "
-            f"unchanged from the domestic config (config/model_config.yaml); there is not enough real data "
-            f"here to independently tune them without overfitting to noise.\n\n"
+            f"**Genuinely thin backtest -- read with real caution.** {cfg.display_name} has {seasons_desc} "
+            f"under {format_desc} -- versus 2,000+ real matches for each domestic league in this project. "
+            f"This backtest scores {len(match_results)} real LEAGUE-PHASE matches (every league-phase round "
+            f"after the very first, which has no real prior data to fit on); real knockout-round results "
+            f"from the real historical cycle(s) feed every model's fit but are not themselves scored "
+            f"(knockout-stage prediction is a separate, not-yet-built capability). Dixon-Coles/Elo/Simple-"
+            f"Poisson hyperparameters are reused unchanged from the domestic config (config/model_config"
+            f".yaml); there is not enough real data here to independently tune them without overfitting to "
+            f"noise.\n\n"
         )
         f.write("## Model comparison (lower log loss / Brier / RPS is better)\n\n")
         f.write(comparison.to_markdown(index=False))
@@ -233,6 +245,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl", "nations_league"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

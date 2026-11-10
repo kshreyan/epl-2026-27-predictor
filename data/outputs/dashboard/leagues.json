@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T14:38:00+00:00",
+  "generated_at": "2026-11-10T04:14:26+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
@@ -24,6 +24,12 @@
       "display_name": "Ligue 1",
       "country": "France",
       "format": "single_table"
+    },
+    {
+      "league_id": "nations_league",
+      "display_name": "UEFA Nations League",
+      "country": "Europe",
+      "format": "groups"
     },
     {
       "league_id": "nba",

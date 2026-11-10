@@ -513,6 +513,29 @@ CANONICAL_TEAMS: dict[str, dict[str, list[str]]] = {
         "Vitoria SC": ["Vitória SC", "Vitória Guimarães"],
         "HSK Zrinjski": ["Zrinjski", "HŠK Zrinjski Mostar"],
     },
+    # Canonical spelling is fixturedownload.com's own team name (same
+    # source, same discipline, as every other competition in this
+    # project) -- generated directly from the real live 2026-27 feed
+    # this session, all 54 real UEFA member associations, cross-checked
+    # against the real 2024-25 historical feed (identical roster, no
+    # spelling drift between cycles).
+    "nations_league": {
+        "Albania": [], "Andorra": [], "Armenia": [], "Austria": [],
+        "Azerbaijan": [], "Belarus": [], "Belgium": [],
+        "Bosnia and Herzegovina": [], "Bulgaria": [], "Croatia": [],
+        "Cyprus": [], "Czechia": [], "Denmark": [], "England": [],
+        "Estonia": [], "Faroe Islands": [], "Finland": [], "France": [],
+        "Georgia": [], "Germany": [], "Gibraltar": [], "Greece": [],
+        "Hungary": [], "Iceland": [], "Israel": [], "Italy": [],
+        "Kazakhstan": [], "Kosovo": [], "Latvia": [], "Liechtenstein": [],
+        "Lithuania": [], "Luxembourg": [], "Malta": [], "Moldova": [],
+        "Montenegro": [], "Netherlands": [], "North Macedonia": [],
+        "Northern Ireland": [], "Norway": [], "Poland": [], "Portugal": [],
+        "Republic of Ireland": [], "Romania": [], "San Marino": [],
+        "Scotland": [], "Serbia": [], "Slovakia": [], "Slovenia": [],
+        "Spain": [], "Sweden": [], "Switzerland": [], "Türkiye": [],
+        "Ukraine": [], "Wales": [],
+    },
     "nfl": {
         "Arizona Cardinals": [], "Atlanta Falcons": [], "Baltimore Ravens": [],
         "Buffalo Bills": [], "Carolina Panthers": [], "Chicago Bears": [],

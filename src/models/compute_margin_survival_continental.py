@@ -243,6 +243,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl", "nations_league"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

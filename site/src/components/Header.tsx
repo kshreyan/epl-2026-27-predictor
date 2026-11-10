@@ -2,12 +2,13 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { formatGeneratedAt } from '../lib/format'
 import { useDashboardJson } from '../lib/useDashboardData'
 
-interface LeagueEntry { league_id: string; display_name: string; country: string; format: 'single_table' | 'swiss' | 'points' }
+interface LeagueEntry { league_id: string; display_name: string; country: string; format: 'single_table' | 'swiss' | 'points' | 'groups' }
 interface LeaguesManifest { leagues: LeagueEntry[] }
 
-// "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase) and
+// "swiss" (UCL/UEL/UECL's 36-team partial-schedule league phase),
 // "points" (NFL/NBA/NCAA Football, a real conference/division-
-// seeded sport) both have no goal-difference table/races -- see
+// seeded sport), and "groups" (UEFA Nations League's real 54-team
+// group-stage field) all have no goal-difference table/races -- see
 // LeagueConfig.format in src/leagues.py.
 const SINGLE_TABLE_NAV = [
   { to: 'table', label: 'Table' },
@@ -28,8 +29,16 @@ const POINTS_NAV = [
   { to: 'performance', label: 'Model' },
   { to: 'plus2', label: '+2 Board' },
 ]
+// No knockout bracket here (unlike SWISS_NAV): the real knockout stage
+// isn't scheduled by UEFA yet as of this build -- see config/
+// leagues.yaml's nations_league entry.
+const GROUPS_NAV = [
+  { to: 'fixtures', label: 'Fixtures' },
+  { to: 'performance', label: 'Model' },
+  { to: 'plus2', label: '+2 Board' },
+]
 const NAV_BY_FORMAT: Record<LeagueEntry['format'], typeof SINGLE_TABLE_NAV> = {
-  single_table: SINGLE_TABLE_NAV, swiss: SWISS_NAV, points: POINTS_NAV,
+  single_table: SINGLE_TABLE_NAV, swiss: SWISS_NAV, points: POINTS_NAV, groups: GROUPS_NAV,
 }
 
 function LeagueSwitcher({ leagueId, leagues }: { leagueId: string; leagues: LeagueEntry[] }) {
