@@ -1,6 +1,6 @@
 {
   "league": "ncaaf",
-  "generated_at": "2026-11-10T13:56:22+00:00",
+  "generated_at": "2026-11-11T13:05:57+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 138,
@@ -15,10 +15,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 0.8,
-      "mean_projected_final_wins": 7.45,
+      "mean_projected_final_wins": 7.46,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0518,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0547,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -28,10 +28,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 1.0,
-      "mean_projected_final_wins": 7.44,
+      "mean_projected_final_wins": 7.46,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.5195,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.5317,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -43,8 +43,8 @@
       "current_conference_win_pct": 0.8,
       "mean_projected_final_wins": 7.57,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.3277,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.3198,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -54,10 +54,10 @@
       "current_wins": 5.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 6.57,
-      "prob_bowl_eligible": 0.898,
+      "mean_projected_final_wins": 6.58,
+      "prob_bowl_eligible": 0.8939,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -67,10 +67,10 @@
       "current_wins": 5.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6,
-      "mean_projected_final_wins": 6.41,
-      "prob_bowl_eligible": 0.8568,
-      "prob_best_conference_record": 0.0009,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 6.42,
+      "prob_bowl_eligible": 0.8569,
+      "prob_best_conference_record": 0.0006,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -80,10 +80,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 5.59,
-      "prob_bowl_eligible": 0.5454,
+      "mean_projected_final_wins": 5.6,
+      "prob_bowl_eligible": 0.5524,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -93,10 +93,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 5.58,
-      "prob_bowl_eligible": 0.5409,
-      "prob_best_conference_record": 0.0613,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 5.59,
+      "prob_bowl_eligible": 0.5508,
+      "prob_best_conference_record": 0.0556,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -106,10 +106,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6,
-      "mean_projected_final_wins": 5.44,
-      "prob_bowl_eligible": 0.4698,
-      "prob_best_conference_record": 0.0008,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 5.43,
+      "prob_bowl_eligible": 0.4558,
+      "prob_best_conference_record": 0.0009,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -119,10 +119,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6,
-      "mean_projected_final_wins": 5.43,
-      "prob_bowl_eligible": 0.4684,
-      "prob_best_conference_record": 0.038,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 5.41,
+      "prob_bowl_eligible": 0.4504,
+      "prob_best_conference_record": 0.0367,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -132,10 +132,10 @@
       "current_wins": 4.0,
       "current_games": 9,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 5.41,
-      "prob_bowl_eligible": 0.449,
+      "mean_projected_final_wins": 5.4,
+      "prob_bowl_eligible": 0.4477,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -145,10 +145,10 @@
       "current_wins": 1.0,
       "current_games": 8,
       "current_conference_win_pct": 0.2,
-      "mean_projected_final_wins": 2.55,
+      "mean_projected_final_wins": 2.56,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -158,10 +158,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 3.43,
+      "mean_projected_final_wins": 3.41,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -171,10 +171,10 @@
       "current_wins": 0.0,
       "current_games": 8,
       "current_conference_win_pct": 0.0,
-      "mean_projected_final_wins": 1.57,
+      "mean_projected_final_wins": 1.55,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -184,10 +184,10 @@
       "current_wins": 1.0,
       "current_games": 8,
       "current_conference_win_pct": 0.2,
-      "mean_projected_final_wins": 2.55,
+      "mean_projected_final_wins": 2.56,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -197,10 +197,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 7.43,
+      "mean_projected_final_wins": 7.44,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.007,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0082,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -210,10 +210,10 @@
       "current_wins": 7.0,
       "current_games": 8,
       "current_conference_win_pct": 1.0,
-      "mean_projected_final_wins": 8.74,
+      "mean_projected_final_wins": 8.73,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.6741,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.6698,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -225,8 +225,8 @@
       "current_conference_win_pct": 0.7143,
       "mean_projected_final_wins": 7.42,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0689,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0755,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -238,8 +238,8 @@
       "current_conference_win_pct": 0.8333,
       "mean_projected_final_wins": 8.45,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.2405,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.2359,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -249,10 +249,10 @@
       "current_wins": 5.0,
       "current_games": 8,
       "current_conference_win_pct": 0.5,
-      "mean_projected_final_wins": 6.59,
-      "prob_bowl_eligible": 0.9004,
-      "prob_best_conference_record": 0.0003,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 6.58,
+      "prob_bowl_eligible": 0.897,
+      "prob_best_conference_record": 0.0004,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -263,9 +263,22 @@
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
       "mean_projected_final_wins": 6.57,
-      "prob_bowl_eligible": 0.8953,
-      "prob_best_conference_record": 0.0041,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.8935,
+      "prob_best_conference_record": 0.0035,
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Louisville Cardinals",
+      "conference": "Atlantic Coast Conference",
+      "current_wins": 5.0,
+      "current_games": 8,
+      "current_conference_win_pct": 0.7143,
+      "mean_projected_final_wins": 6.43,
+      "prob_bowl_eligible": 0.8651,
+      "prob_best_conference_record": 0.0067,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -276,22 +289,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.5,
       "mean_projected_final_wins": 6.42,
-      "prob_bowl_eligible": 0.8566,
+      "prob_bowl_eligible": 0.86,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Louisville Cardinals",
-      "conference": "Atlantic Coast Conference",
-      "current_wins": 5.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.7143,
-      "mean_projected_final_wins": 6.41,
-      "prob_bowl_eligible": 0.8563,
-      "prob_best_conference_record": 0.0051,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -302,9 +302,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.4,
       "mean_projected_final_wins": 5.6,
-      "prob_bowl_eligible": 0.5462,
+      "prob_bowl_eligible": 0.554,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -314,10 +314,10 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 4.58,
-      "prob_bowl_eligible": 0.1386,
+      "mean_projected_final_wins": 4.56,
+      "prob_bowl_eligible": 0.1374,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -328,35 +328,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
       "mean_projected_final_wins": 4.56,
-      "prob_bowl_eligible": 0.1349,
+      "prob_bowl_eligible": 0.1362,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Stanford Cardinal",
-      "conference": "Atlantic Coast Conference",
-      "current_wins": 3.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 4.41,
-      "prob_bowl_eligible": 0.1037,
-      "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Syracuse Orange",
-      "conference": "Atlantic Coast Conference",
-      "current_wins": 3.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.2857,
-      "mean_projected_final_wins": 4.41,
-      "prob_bowl_eligible": 0.102,
-      "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -367,9 +341,35 @@
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
       "mean_projected_final_wins": 4.41,
-      "prob_bowl_eligible": 0.1012,
+      "prob_bowl_eligible": 0.1043,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Syracuse Orange",
+      "conference": "Atlantic Coast Conference",
+      "current_wins": 3.0,
+      "current_games": 8,
+      "current_conference_win_pct": 0.2857,
+      "mean_projected_final_wins": 4.4,
+      "prob_bowl_eligible": 0.1024,
+      "prob_best_conference_record": 0.0,
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Stanford Cardinal",
+      "conference": "Atlantic Coast Conference",
+      "current_wins": 3.0,
+      "current_games": 8,
+      "current_conference_win_pct": 0.3333,
+      "mean_projected_final_wins": 4.42,
+      "prob_bowl_eligible": 0.1004,
+      "prob_best_conference_record": 0.0,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -379,10 +379,10 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 4.4,
-      "prob_bowl_eligible": 0.0975,
+      "mean_projected_final_wins": 4.39,
+      "prob_bowl_eligible": 0.0934,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -395,7 +395,7 @@
       "mean_projected_final_wins": 3.56,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -405,10 +405,10 @@
       "current_wins": 1.0,
       "current_games": 8,
       "current_conference_win_pct": 0.1667,
-      "mean_projected_final_wins": 2.35,
+      "mean_projected_final_wins": 2.36,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -420,8 +420,8 @@
       "current_conference_win_pct": 0.6667,
       "mean_projected_final_wins": 7.58,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0086,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0091,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -431,10 +431,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 7.57,
+      "mean_projected_final_wins": 7.58,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0066,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0075,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -444,10 +444,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 7.43,
+      "mean_projected_final_wins": 7.44,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0073,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0069,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -457,10 +457,10 @@
       "current_wins": 7.0,
       "current_games": 8,
       "current_conference_win_pct": 0.8333,
-      "mean_projected_final_wins": 8.43,
+      "mean_projected_final_wins": 8.44,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.1005,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.1025,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -472,8 +472,8 @@
       "current_conference_win_pct": 1.0,
       "mean_projected_final_wins": 9.45,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.8554,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.8505,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -483,10 +483,10 @@
       "current_wins": 5.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 6.57,
-      "prob_bowl_eligible": 0.8958,
-      "prob_best_conference_record": 0.0131,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 6.58,
+      "prob_bowl_eligible": 0.8924,
+      "prob_best_conference_record": 0.0162,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -497,9 +497,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
       "mean_projected_final_wins": 6.43,
-      "prob_bowl_eligible": 0.8659,
-      "prob_best_conference_record": 0.0085,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.8591,
+      "prob_best_conference_record": 0.0073,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -510,9 +510,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.5,
       "mean_projected_final_wins": 5.58,
-      "prob_bowl_eligible": 0.5396,
+      "prob_bowl_eligible": 0.538,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -522,23 +522,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 5.56,
-      "prob_bowl_eligible": 0.5354,
+      "mean_projected_final_wins": 5.55,
+      "prob_bowl_eligible": 0.5281,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Cincinnati Bearcats",
-      "conference": "Big 12 Conference",
-      "current_wins": 4.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 5.43,
-      "prob_bowl_eligible": 0.4593,
-      "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -548,10 +535,23 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.5,
-      "mean_projected_final_wins": 5.41,
-      "prob_bowl_eligible": 0.4577,
+      "mean_projected_final_wins": 5.43,
+      "prob_bowl_eligible": 0.4676,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Cincinnati Bearcats",
+      "conference": "Big 12 Conference",
+      "current_wins": 4.0,
+      "current_games": 8,
+      "current_conference_win_pct": 0.3333,
+      "mean_projected_final_wins": 5.42,
+      "prob_bowl_eligible": 0.463,
+      "prob_best_conference_record": 0.0,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -561,10 +561,10 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 4.58,
-      "prob_bowl_eligible": 0.1437,
+      "mean_projected_final_wins": 4.59,
+      "prob_bowl_eligible": 0.1473,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -575,9 +575,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
       "mean_projected_final_wins": 4.57,
-      "prob_bowl_eligible": 0.138,
+      "prob_bowl_eligible": 0.1407,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -587,10 +587,10 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.1667,
-      "mean_projected_final_wins": 4.41,
-      "prob_bowl_eligible": 0.0984,
+      "mean_projected_final_wins": 4.38,
+      "prob_bowl_eligible": 0.0922,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -603,7 +603,7 @@
       "mean_projected_final_wins": 3.56,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -616,7 +616,7 @@
       "mean_projected_final_wins": 3.42,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -626,10 +626,10 @@
       "current_wins": 7.0,
       "current_games": 8,
       "current_conference_win_pct": 0.8333,
-      "mean_projected_final_wins": 8.59,
+      "mean_projected_final_wins": 8.61,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0837,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0858,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -641,8 +641,8 @@
       "current_conference_win_pct": 0.6667,
       "mean_projected_final_wins": 7.59,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0066,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0067,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -652,10 +652,10 @@
       "current_wins": 6.0,
       "current_games": 9,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 7.57,
+      "mean_projected_final_wins": 7.6,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0074,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0066,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -665,10 +665,10 @@
       "current_wins": 9.0,
       "current_games": 9,
       "current_conference_win_pct": 1.0,
-      "mean_projected_final_wins": 10.58,
+      "mean_projected_final_wins": 10.6,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.7697,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.7739,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -680,8 +680,8 @@
       "current_conference_win_pct": 0.6667,
       "mean_projected_final_wins": 8.42,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0718,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0697,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -692,9 +692,9 @@
       "current_games": 9,
       "current_conference_win_pct": 0.3333,
       "mean_projected_final_wins": 6.61,
-      "prob_bowl_eligible": 0.9064,
+      "prob_bowl_eligible": 0.9068,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -705,9 +705,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
       "mean_projected_final_wins": 6.6,
-      "prob_bowl_eligible": 0.903,
+      "prob_bowl_eligible": 0.8992,
       "prob_best_conference_record": 0.0078,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -718,22 +718,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
       "mean_projected_final_wins": 6.44,
-      "prob_bowl_eligible": 0.866,
-      "prob_best_conference_record": 0.0482,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Michigan Wolverines",
-      "conference": "Big Ten Conference",
-      "current_wins": 5.0,
-      "current_games": 9,
-      "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 6.42,
-      "prob_bowl_eligible": 0.8608,
-      "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.8667,
+      "prob_best_conference_record": 0.0453,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -743,10 +730,10 @@
       "current_wins": 5.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 6.43,
-      "prob_bowl_eligible": 0.8598,
-      "prob_best_conference_record": 0.0048,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 6.42,
+      "prob_bowl_eligible": 0.8628,
+      "prob_best_conference_record": 0.0042,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -756,10 +743,23 @@
       "current_wins": 5.0,
       "current_games": 8,
       "current_conference_win_pct": 0.5,
-      "mean_projected_final_wins": 6.43,
-      "prob_bowl_eligible": 0.8581,
+      "mean_projected_final_wins": 6.41,
+      "prob_bowl_eligible": 0.8561,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Michigan Wolverines",
+      "conference": "Big Ten Conference",
+      "current_wins": 5.0,
+      "current_games": 9,
+      "current_conference_win_pct": 0.3333,
+      "mean_projected_final_wins": 6.41,
+      "prob_bowl_eligible": 0.8556,
+      "prob_best_conference_record": 0.0,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -769,23 +769,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 5.42,
-      "prob_bowl_eligible": 0.4616,
+      "mean_projected_final_wins": 5.41,
+      "prob_bowl_eligible": 0.4525,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Washington Huskies",
-      "conference": "Big Ten Conference",
-      "current_wins": 4.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 5.42,
-      "prob_bowl_eligible": 0.4582,
-      "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -796,9 +783,22 @@
       "current_games": 8,
       "current_conference_win_pct": 0.5,
       "mean_projected_final_wins": 5.4,
-      "prob_bowl_eligible": 0.4491,
+      "prob_bowl_eligible": 0.4518,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Washington Huskies",
+      "conference": "Big Ten Conference",
+      "current_wins": 4.0,
+      "current_games": 8,
+      "current_conference_win_pct": 0.3333,
+      "mean_projected_final_wins": 5.41,
+      "prob_bowl_eligible": 0.4506,
+      "prob_best_conference_record": 0.0,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -808,10 +808,10 @@
       "current_wins": 3.0,
       "current_games": 9,
       "current_conference_win_pct": 0.1667,
-      "mean_projected_final_wins": 4.56,
-      "prob_bowl_eligible": 0.138,
+      "mean_projected_final_wins": 4.57,
+      "prob_bowl_eligible": 0.1423,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -824,7 +824,7 @@
       "mean_projected_final_wins": 3.56,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -834,10 +834,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.3333,
-      "mean_projected_final_wins": 3.4,
+      "mean_projected_final_wins": 3.39,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -850,7 +850,7 @@
       "mean_projected_final_wins": 2.56,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -860,10 +860,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 1.0,
-      "mean_projected_final_wins": 7.45,
+      "mean_projected_final_wins": 7.43,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.2888,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.2751,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -873,10 +873,10 @@
       "current_wins": 7.0,
       "current_games": 8,
       "current_conference_win_pct": 1.0,
-      "mean_projected_final_wins": 8.6,
+      "mean_projected_final_wins": 8.61,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.6588,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.6723,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -887,9 +887,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.6,
       "mean_projected_final_wins": 5.43,
-      "prob_bowl_eligible": 0.4679,
-      "prob_best_conference_record": 0.0434,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.4599,
+      "prob_best_conference_record": 0.0439,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -900,9 +900,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.4,
       "mean_projected_final_wins": 4.58,
-      "prob_bowl_eligible": 0.1433,
+      "prob_bowl_eligible": 0.1467,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -913,9 +913,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.4,
       "mean_projected_final_wins": 4.42,
-      "prob_bowl_eligible": 0.1038,
+      "prob_bowl_eligible": 0.1028,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -925,10 +925,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.45,
+      "mean_projected_final_wins": 3.44,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -938,10 +938,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.56,
+      "mean_projected_final_wins": 3.57,
       "prob_bowl_eligible": 0.0,
-      "prob_best_conference_record": 0.0033,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0026,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -951,10 +951,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.41,
+      "mean_projected_final_wins": 3.4,
       "prob_bowl_eligible": 0.0,
-      "prob_best_conference_record": 0.0006,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0008,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -964,10 +964,10 @@
       "current_wins": 0.0,
       "current_games": 8,
       "current_conference_win_pct": 0.0,
-      "mean_projected_final_wins": 1.55,
+      "mean_projected_final_wins": 1.56,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -977,10 +977,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.54,
+      "mean_projected_final_wins": 3.55,
       "prob_bowl_eligible": 0.0,
-      "prob_best_conference_record": 0.0051,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0053,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -990,10 +990,10 @@
       "current_wins": 8.0,
       "current_games": 9,
       "current_conference_win_pct": null,
-      "mean_projected_final_wins": 9.62,
+      "mean_projected_final_wins": 9.63,
       "prob_bowl_eligible": 1.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1004,9 +1004,9 @@
       "current_games": 8,
       "current_conference_win_pct": null,
       "mean_projected_final_wins": 4.64,
-      "prob_bowl_eligible": 0.1581,
+      "prob_bowl_eligible": 0.1637,
       "prob_best_conference_record": 1.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1014,12 +1014,12 @@
       "team": "Ohio Bobcats",
       "conference": "Mid-American Conference",
       "current_wins": 6.0,
-      "current_games": 8,
-      "current_conference_win_pct": 1.0,
-      "mean_projected_final_wins": 7.57,
+      "current_games": 9,
+      "current_conference_win_pct": 0.8333,
+      "mean_projected_final_wins": 7.15,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.5042,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.2545,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1031,21 +1031,34 @@
       "current_conference_win_pct": 0.8,
       "mean_projected_final_wins": 7.59,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.2049,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.1391,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
       "n_trials": 10000,
       "team": "Western Michigan Broncos",
       "conference": "Mid-American Conference",
+      "current_wins": 6.0,
+      "current_games": 9,
+      "current_conference_win_pct": 0.8333,
+      "mean_projected_final_wins": 7.16,
+      "prob_bowl_eligible": 1.0,
+      "prob_best_conference_record": 0.5652,
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Miami (OH) RedHawks",
+      "conference": "Mid-American Conference",
       "current_wins": 5.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.8,
-      "mean_projected_final_wins": 6.6,
-      "prob_bowl_eligible": 0.8974,
-      "prob_best_conference_record": 0.2523,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "current_games": 9,
+      "current_conference_win_pct": 0.6667,
+      "mean_projected_final_wins": 5.86,
+      "prob_bowl_eligible": 0.6771,
+      "prob_best_conference_record": 0.0019,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1055,36 +1068,10 @@
       "current_wins": 4.0,
       "current_games": 7,
       "current_conference_win_pct": 0.8,
-      "mean_projected_final_wins": 5.46,
-      "prob_bowl_eligible": 0.4779,
-      "prob_best_conference_record": 0.0355,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Miami (OH) RedHawks",
-      "conference": "Mid-American Conference",
-      "current_wins": 4.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.6,
-      "mean_projected_final_wins": 5.41,
-      "prob_bowl_eligible": 0.455,
-      "prob_best_conference_record": 0.0031,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Massachusetts Minutemen",
-      "conference": "Mid-American Conference",
-      "current_wins": 3.0,
-      "current_games": 7,
-      "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 4.44,
-      "prob_bowl_eligible": 0.1083,
-      "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 5.44,
+      "prob_bowl_eligible": 0.4695,
+      "prob_best_conference_record": 0.0393,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1094,10 +1081,23 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 4.42,
-      "prob_bowl_eligible": 0.1078,
+      "mean_projected_final_wins": 4.43,
+      "prob_bowl_eligible": 0.1067,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Massachusetts Minutemen",
+      "conference": "Mid-American Conference",
+      "current_wins": 3.0,
+      "current_games": 7,
+      "current_conference_win_pct": 0.4,
+      "mean_projected_final_wins": 4.42,
+      "prob_bowl_eligible": 0.1022,
+      "prob_best_conference_record": 0.0,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1105,12 +1105,12 @@
       "team": "Akron Zips",
       "conference": "Mid-American Conference",
       "current_wins": 0.0,
-      "current_games": 8,
+      "current_games": 9,
       "current_conference_win_pct": 0.0,
-      "mean_projected_final_wins": 1.54,
+      "mean_projected_final_wins": 0.98,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1120,23 +1120,23 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.56,
+      "mean_projected_final_wins": 3.57,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
       "n_trials": 10000,
       "team": "Bowling Green Falcons",
       "conference": "Mid-American Conference",
-      "current_wins": 2.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.56,
+      "current_wins": 3.0,
+      "current_games": 9,
+      "current_conference_win_pct": 0.5,
+      "mean_projected_final_wins": 4.0,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1146,10 +1146,10 @@
       "current_wins": 3.0,
       "current_games": 9,
       "current_conference_win_pct": 0.5,
-      "mean_projected_final_wins": 4.01,
+      "mean_projected_final_wins": 3.98,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1157,12 +1157,12 @@
       "team": "Kent State Golden Flashes",
       "conference": "Mid-American Conference",
       "current_wins": 2.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.42,
+      "current_games": 9,
+      "current_conference_win_pct": 0.3333,
+      "mean_projected_final_wins": 3.0,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1172,10 +1172,10 @@
       "current_wins": 1.0,
       "current_games": 9,
       "current_conference_win_pct": 0.1429,
-      "mean_projected_final_wins": 1.83,
+      "mean_projected_final_wins": 1.82,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1188,7 +1188,7 @@
       "mean_projected_final_wins": 7.6,
       "prob_bowl_eligible": 1.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1200,8 +1200,8 @@
       "current_conference_win_pct": 1.0,
       "mean_projected_final_wins": 8.59,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.4904,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.4901,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1211,10 +1211,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 7.44,
+      "mean_projected_final_wins": 7.43,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0306,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0292,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1225,9 +1225,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.8333,
       "mean_projected_final_wins": 6.56,
-      "prob_bowl_eligible": 0.8906,
-      "prob_best_conference_record": 0.47,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.8943,
+      "prob_best_conference_record": 0.4712,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1238,9 +1238,9 @@
       "current_games": 9,
       "current_conference_win_pct": 0.6,
       "mean_projected_final_wins": 6.43,
-      "prob_bowl_eligible": 0.8635,
-      "prob_best_conference_record": 0.009,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.8605,
+      "prob_best_conference_record": 0.0095,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1251,9 +1251,9 @@
       "current_games": 9,
       "current_conference_win_pct": 0.5,
       "mean_projected_final_wins": 5.56,
-      "prob_bowl_eligible": 0.532,
+      "prob_bowl_eligible": 0.5343,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1264,9 +1264,9 @@
       "current_games": 9,
       "current_conference_win_pct": 0.3333,
       "mean_projected_final_wins": 4.6,
-      "prob_bowl_eligible": 0.1507,
+      "prob_bowl_eligible": 0.1447,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1277,9 +1277,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.4,
       "mean_projected_final_wins": 4.42,
-      "prob_bowl_eligible": 0.1049,
+      "prob_bowl_eligible": 0.1025,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1292,7 +1292,7 @@
       "mean_projected_final_wins": 1.56,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1302,10 +1302,10 @@
       "current_wins": 0.0,
       "current_games": 8,
       "current_conference_win_pct": 0.0,
-      "mean_projected_final_wins": 1.4,
+      "mean_projected_final_wins": 1.39,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1315,10 +1315,10 @@
       "current_wins": 7.0,
       "current_games": 8,
       "current_conference_win_pct": 1.0,
-      "mean_projected_final_wins": 8.16,
+      "mean_projected_final_wins": 8.17,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.8247,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.8272,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1328,10 +1328,10 @@
       "current_wins": 5.0,
       "current_games": 9,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 5.99,
-      "prob_bowl_eligible": 0.7524,
+      "mean_projected_final_wins": 6.01,
+      "prob_bowl_eligible": 0.7635,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1342,9 +1342,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.6,
       "mean_projected_final_wins": 5.17,
-      "prob_bowl_eligible": 0.3476,
-      "prob_best_conference_record": 0.0469,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.3447,
+      "prob_best_conference_record": 0.0474,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1355,9 +1355,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.6,
       "mean_projected_final_wins": 4.99,
-      "prob_bowl_eligible": 0.2372,
-      "prob_best_conference_record": 0.029,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.2408,
+      "prob_best_conference_record": 0.03,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1367,10 +1367,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6,
-      "mean_projected_final_wins": 4.86,
+      "mean_projected_final_wins": 4.85,
       "prob_bowl_eligible": 0.1838,
-      "prob_best_conference_record": 0.0328,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.031,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1380,10 +1380,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.2,
-      "mean_projected_final_wins": 2.85,
+      "mean_projected_final_wins": 2.84,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1393,10 +1393,10 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6,
-      "mean_projected_final_wins": 4.0,
+      "mean_projected_final_wins": 3.99,
       "prob_bowl_eligible": 0.0,
-      "prob_best_conference_record": 0.0666,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0644,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1409,7 +1409,7 @@
       "mean_projected_final_wins": 0.99,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1419,10 +1419,10 @@
       "current_wins": 7.0,
       "current_games": 9,
       "current_conference_win_pct": 0.7143,
-      "mean_projected_final_wins": 8.01,
+      "mean_projected_final_wins": 8.02,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0357,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0379,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1432,10 +1432,10 @@
       "current_wins": 7.0,
       "current_games": 8,
       "current_conference_win_pct": 0.8571,
-      "mean_projected_final_wins": 8.63,
+      "mean_projected_final_wins": 8.62,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.5631,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.5456,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1445,10 +1445,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 0.7143,
-      "mean_projected_final_wins": 7.61,
+      "mean_projected_final_wins": 7.59,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.1553,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.151,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1458,10 +1458,10 @@
       "current_wins": 6.0,
       "current_games": 9,
       "current_conference_win_pct": 0.5714,
-      "mean_projected_final_wins": 6.99,
+      "mean_projected_final_wins": 7.0,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0053,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0042,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1471,10 +1471,10 @@
       "current_wins": 6.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 7.41,
+      "mean_projected_final_wins": 7.46,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.0944,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.1019,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1484,23 +1484,10 @@
       "current_wins": 7.0,
       "current_games": 9,
       "current_conference_win_pct": 0.6667,
-      "mean_projected_final_wins": 8.43,
+      "mean_projected_final_wins": 8.45,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.1222,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Oklahoma Sooners",
-      "conference": "Southeastern Conference",
-      "current_wins": 5.0,
-      "current_games": 9,
-      "current_conference_win_pct": 0.5,
-      "mean_projected_final_wins": 6.59,
-      "prob_bowl_eligible": 0.9003,
-      "prob_best_conference_record": 0.0023,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.1319,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1511,9 +1498,22 @@
       "current_games": 8,
       "current_conference_win_pct": 0.5,
       "mean_projected_final_wins": 6.57,
-      "prob_bowl_eligible": 0.8971,
-      "prob_best_conference_record": 0.0074,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.9018,
+      "prob_best_conference_record": 0.006,
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Oklahoma Sooners",
+      "conference": "Southeastern Conference",
+      "current_wins": 5.0,
+      "current_games": 9,
+      "current_conference_win_pct": 0.5,
+      "mean_projected_final_wins": 6.6,
+      "prob_bowl_eligible": 0.8959,
+      "prob_best_conference_record": 0.003,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1524,9 +1524,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.5714,
       "mean_projected_final_wins": 6.44,
-      "prob_bowl_eligible": 0.8639,
-      "prob_best_conference_record": 0.0135,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.8659,
+      "prob_best_conference_record": 0.0175,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1537,9 +1537,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.5,
       "mean_projected_final_wins": 6.42,
-      "prob_bowl_eligible": 0.8579,
-      "prob_best_conference_record": 0.0008,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.8548,
+      "prob_best_conference_record": 0.001,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1550,9 +1550,9 @@
       "current_games": 9,
       "current_conference_win_pct": 0.4286,
       "mean_projected_final_wins": 5.84,
-      "prob_bowl_eligible": 0.6651,
+      "prob_bowl_eligible": 0.6611,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1562,10 +1562,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4286,
-      "mean_projected_final_wins": 5.42,
-      "prob_bowl_eligible": 0.4569,
+      "mean_projected_final_wins": 5.44,
+      "prob_bowl_eligible": 0.4716,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1576,9 +1576,9 @@
       "current_games": 9,
       "current_conference_win_pct": 0.2857,
       "mean_projected_final_wins": 5.0,
-      "prob_bowl_eligible": 0.2416,
+      "prob_bowl_eligible": 0.2443,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1588,10 +1588,10 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.1667,
-      "mean_projected_final_wins": 4.57,
-      "prob_bowl_eligible": 0.1355,
+      "mean_projected_final_wins": 4.54,
+      "prob_bowl_eligible": 0.1347,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1601,10 +1601,10 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.1667,
-      "mean_projected_final_wins": 4.56,
-      "prob_bowl_eligible": 0.132,
+      "mean_projected_final_wins": 4.53,
+      "prob_bowl_eligible": 0.1318,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1614,10 +1614,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.1667,
-      "mean_projected_final_wins": 3.57,
+      "mean_projected_final_wins": 3.55,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1627,10 +1627,10 @@
       "current_wins": 7.0,
       "current_games": 9,
       "current_conference_win_pct": 0.7143,
-      "mean_projected_final_wins": 7.98,
+      "mean_projected_final_wins": 8.0,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.04,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0448,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1642,8 +1642,8 @@
       "current_conference_win_pct": 1.0,
       "mean_projected_final_wins": 7.59,
       "prob_bowl_eligible": 1.0,
-      "prob_best_conference_record": 0.8504,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.851,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1653,10 +1653,10 @@
       "current_wins": 5.0,
       "current_games": 8,
       "current_conference_win_pct": 0.6,
-      "mean_projected_final_wins": 6.42,
-      "prob_bowl_eligible": 0.8566,
-      "prob_best_conference_record": 0.0095,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 6.43,
+      "prob_bowl_eligible": 0.864,
+      "prob_best_conference_record": 0.0078,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1666,10 +1666,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 5.59,
-      "prob_bowl_eligible": 0.5392,
-      "prob_best_conference_record": 0.0012,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 5.58,
+      "prob_bowl_eligible": 0.5399,
+      "prob_best_conference_record": 0.0007,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1679,10 +1679,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 5.56,
-      "prob_bowl_eligible": 0.534,
+      "mean_projected_final_wins": 5.57,
+      "prob_bowl_eligible": 0.5397,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1692,10 +1692,10 @@
       "current_wins": 4.0,
       "current_games": 8,
       "current_conference_win_pct": 0.8,
-      "mean_projected_final_wins": 5.45,
-      "prob_bowl_eligible": 0.4755,
-      "prob_best_conference_record": 0.0918,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 5.44,
+      "prob_bowl_eligible": 0.4717,
+      "prob_best_conference_record": 0.0896,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1706,9 +1706,9 @@
       "current_games": 8,
       "current_conference_win_pct": 0.4,
       "mean_projected_final_wins": 5.41,
-      "prob_bowl_eligible": 0.456,
+      "prob_bowl_eligible": 0.4548,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1718,23 +1718,10 @@
       "current_wins": 3.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 4.57,
-      "prob_bowl_eligible": 0.1413,
-      "prob_best_conference_record": 0.0018,
-      "generated_at": "2026-11-10T13:56:20+00:00",
-      "model_version": "0.1.0-phase1"
-    },
-    {
-      "n_trials": 10000,
-      "team": "Arkansas State Red Wolves",
-      "conference": "Sun Belt Conference",
-      "current_wins": 3.0,
-      "current_games": 8,
-      "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 4.44,
-      "prob_bowl_eligible": 0.1063,
-      "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "mean_projected_final_wins": 4.59,
+      "prob_bowl_eligible": 0.1473,
+      "prob_best_conference_record": 0.0012,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1745,9 +1732,22 @@
       "current_games": 8,
       "current_conference_win_pct": 0.4,
       "mean_projected_final_wins": 4.41,
-      "prob_bowl_eligible": 0.1002,
-      "prob_best_conference_record": 0.0013,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_bowl_eligible": 0.1036,
+      "prob_best_conference_record": 0.0014,
+      "generated_at": "2026-11-11T13:05:55+00:00",
+      "model_version": "0.1.0-phase1"
+    },
+    {
+      "n_trials": 10000,
+      "team": "Arkansas State Red Wolves",
+      "conference": "Sun Belt Conference",
+      "current_wins": 3.0,
+      "current_games": 8,
+      "current_conference_win_pct": 0.4,
+      "mean_projected_final_wins": 4.42,
+      "prob_bowl_eligible": 0.103,
+      "prob_best_conference_record": 0.0,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1757,10 +1757,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.42,
+      "mean_projected_final_wins": 3.41,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1770,10 +1770,10 @@
       "current_wins": 2.0,
       "current_games": 9,
       "current_conference_win_pct": 0.2857,
-      "mean_projected_final_wins": 2.97,
+      "mean_projected_final_wins": 2.98,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1783,10 +1783,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.41,
+      "mean_projected_final_wins": 3.4,
       "prob_bowl_eligible": 0.0,
       "prob_best_conference_record": 0.0022,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -1796,10 +1796,10 @@
       "current_wins": 2.0,
       "current_games": 8,
       "current_conference_win_pct": 0.4,
-      "mean_projected_final_wins": 3.57,
+      "mean_projected_final_wins": 3.58,
       "prob_bowl_eligible": 0.0,
-      "prob_best_conference_record": 0.0018,
-      "generated_at": "2026-11-10T13:56:20+00:00",
+      "prob_best_conference_record": 0.0013,
+      "generated_at": "2026-11-11T13:05:55+00:00",
       "model_version": "0.1.0-phase1"
     }
   ]
