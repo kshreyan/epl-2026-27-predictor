@@ -1,6 +1,6 @@
 # Model+Market Blend Backtest
 
-Generated: 2026-11-09T09:46:01+00:00
+Generated: 2026-11-14T10:44:09+00:00
 
 Evaluates whether a 50/50 log-odds blend of the model's own probability and the real market's de-vigged probability beats Dixon-Coles alone, using the exact same paired-bootstrap promotion bar the stacked ensemble was held to (10,000 resamples, 95% CI must exclude zero AND win a season majority). No blend weight is tuned -- an untuned 50/50 pool, tested once.
 

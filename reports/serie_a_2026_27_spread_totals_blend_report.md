@@ -1,5 +1,5 @@
 # Spread (Asian Handicap) and Totals (Over/Under 2.5) Market Blend Backtest
-Generated: 2026-09-16T19:05:18+00:00
+Generated: 2026-11-14T10:44:23+00:00
 Evaluates whether a 50/50 log-odds blend of the model's own probability and the real market's de-vigged probability beats model-only Dixon-Coles, using the same paired-bootstrap promotion bar the moneyline blend and stacked ensemble were held to (10,000 resamples, 95% CI must exclude zero AND win a season majority). No blend weight is tuned.
 
 ## Asian Handicap (spread)
