@@ -128,16 +128,31 @@ def fetch_live_results_csv(fd_code: str = "E0") -> str | None:
 
 def parse_live_results(csv_text: str, fixtures_df: pd.DataFrame, league_id: str = "epl") -> pd.DataFrame:
     """Maps every real, completed row in the live CSV to its match_id in
-    the real fixtures file via (home_team, away_team) -- unique within a
-    season. Raises on an unrecognized team name rather than silently
-    dropping the row (the same discipline `normalize_team_name` already
-    enforces) and raises if a completed match in the live feed has no
-    corresponding fixture (a real data-integrity problem worth seeing
-    immediately, not swallowing)."""
-    fixture_lookup = {
-        (row["home_team"], row["away_team"]): row["match_id"]
-        for _, row in fixtures_df.iterrows()
-    }
+    the real fixtures file via (home_team, away_team), falling back to
+    also matching on real date when that pair is genuinely ambiguous --
+    confirmed directly this session: Ligue 1's real 2026-27 calendar has
+    Stade Rennais FC hosting Paris Saint-Germain TWICE (round 1 and round
+    23), a real team-pair collision a team-name-only lookup silently
+    resolved to whichever fixture happened to win the dict, double-
+    counting one real result under two different real match_ids. Team-
+    name-only matching is kept as the default (not every real pair is
+    unique only by both team names -- a real postponed/rescheduled
+    fixture can genuinely drift from the date this project's own
+    fixtures.csv snapshot still has, and requiring an exact date match
+    for every row would make that real, already-handled case newly
+    fail here); date is only consulted to break a real tie among
+    multiple real fixtures sharing the same team pair. Raises on an
+    unrecognized team name rather than silently dropping the row (the
+    same discipline `normalize_team_name` already enforces), raises if
+    a completed match in the live feed has no corresponding fixture at
+    all (a real data-integrity problem worth seeing immediately, not
+    swallowing), and raises if a team-pair collision can't be resolved
+    by date either (never silently guesses which real fixture a result
+    belongs to)."""
+    fixture_lookup: dict[tuple[str, str], list[tuple[str, str]]] = {}
+    for _, row in fixtures_df.iterrows():
+        key = (row["home_team"], row["away_team"])
+        fixture_lookup.setdefault(key, []).append((row["match_id"], row["date"]))
 
     fetch_ts = now_utc_iso()
     rows = []
@@ -147,20 +162,36 @@ def parse_live_results(csv_text: str, fixtures_df: pd.DataFrame, league_id: str 
         away_raw = (row.get("AwayTeam") or "").strip()
         fthg = (row.get("FTHG") or "").strip()
         ftag = (row.get("FTAG") or "").strip()
+        date_raw = (row.get("Date") or "").strip()
         if not home_raw or not away_raw or fthg == "" or ftag == "":
             continue  # not yet played, or a trailing blank row
 
         home_team = normalize_team_name(home_raw, league_id=league_id)
         away_team = normalize_team_name(away_raw, league_id=league_id)
         key = (home_team, away_team)
-        if key not in fixture_lookup:
+        candidates = fixture_lookup.get(key)
+        if not candidates:
             raise ValueError(
                 f"Live result for {home_team} vs {away_team} has no matching fixture in "
                 f"the {league_id} fixtures file -- check for a postponement/rearrangement or a fixture-list bug."
             )
 
+        if len(candidates) == 1:
+            match_id = candidates[0][0]
+        else:
+            real_date = _parse_date(date_raw)
+            date_matches = [c for c in candidates if c[1] == real_date]
+            if len(date_matches) != 1:
+                raise ValueError(
+                    f"Live result for {home_team} vs {away_team} on {real_date} matches {len(candidates)} real "
+                    f"fixtures in the {league_id} fixtures file by team name alone (a genuine real repeat "
+                    f"fixture, e.g. a double round-robin quirk), and {len(date_matches)} of them also match this "
+                    f"real date -- refusing to guess which real match_id this result belongs to."
+                )
+            match_id = date_matches[0][0]
+
         rows.append({
-            "match_id": fixture_lookup[key],
+            "match_id": match_id,
             "home_goals": int(fthg),
             "away_goals": int(ftag),
             "source_name": SOURCE_NAME,

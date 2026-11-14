@@ -15,8 +15,18 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.data_collection.fetch_live_results import fetch_live_results_csv, parse_live_results  # noqa: E402
 
 FIXTURES = pd.DataFrame([
-    {"match_id": "m1", "matchweek": 1, "home_team": "Arsenal", "away_team": "Coventry City", "kickoff_utc": "2026-08-21T19:00:00+00:00"},
-    {"match_id": "m2", "matchweek": 1, "home_team": "Hull City", "away_team": "Manchester United", "kickoff_utc": "2026-08-22T11:30:00+00:00"},
+    {"match_id": "m1", "matchweek": 1, "home_team": "Arsenal", "away_team": "Coventry City", "date": "2026-08-21", "kickoff_utc": "2026-08-21T19:00:00+00:00"},
+    {"match_id": "m2", "matchweek": 1, "home_team": "Hull City", "away_team": "Manchester United", "date": "2026-08-22", "kickoff_utc": "2026-08-22T11:30:00+00:00"},
+])
+
+# A real repeat fixture: the same two teams meet twice in a season (a
+# real, confirmed Ligue 1 2026-27 quirk -- Stade Rennais FC hosts Paris
+# Saint-Germain in both round 1 and round 23) -- disambiguated by date,
+# not silently collapsed to whichever row a plain team-name dict lookup
+# happens to keep.
+REPEAT_FIXTURE_FIXTURES = pd.DataFrame([
+    {"match_id": "mw01", "matchweek": 1, "home_team": "Stade Rennais FC", "away_team": "Paris Saint-Germain", "date": "2026-08-23", "kickoff_utc": "2026-08-23T18:45:00+00:00"},
+    {"match_id": "mw23", "matchweek": 23, "home_team": "Stade Rennais FC", "away_team": "Paris Saint-Germain", "date": "2027-03-06", "kickoff_utc": "2027-03-06T00:00:00+00:00"},
 ])
 
 CSV_HEADER = "Div,Date,Time,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Referee\n"
@@ -52,6 +62,32 @@ def test_raises_if_completed_result_has_no_matching_fixture():
     csv_text = CSV_HEADER + "E0,21/08/2026,19:00,Arsenal,Liverpool,3,1,H,A Taylor\n"
     with pytest.raises(ValueError, match="no matching fixture"):
         parse_live_results(csv_text, FIXTURES)
+
+
+def test_disambiguates_a_real_repeat_fixture_by_date_instead_of_double_counting():
+    """Regression test for a real incident: Ligue 1's real 2026-27
+    calendar has Stade Rennais FC hosting Paris Saint-Germain twice
+    (round 1, 2026-08-23, and round 23, 2027-03-06). A team-name-only
+    lookup silently matched the real round-1 result to BOTH real
+    match_ids, double-counting it into round 23's (a fixture nine real
+    months in the future that hadn't been played at all) -- confirmed
+    directly in production on 2026-11-14. Must resolve to exactly the
+    one real match_id whose own real date matches the live result's
+    real date."""
+    csv_text = CSV_HEADER + "F1,23/08/2026,18:45,Rennes,Paris SG,2,2,D,Unknown\n"
+    results = parse_live_results(csv_text, REPEAT_FIXTURE_FIXTURES, league_id="ligue_1")
+    assert len(results) == 1
+    assert results.iloc[0]["match_id"] == "mw01"
+
+
+def test_raises_if_a_real_repeat_fixture_cant_be_resolved_by_date_either():
+    """The live result's own real date matches NEITHER real candidate --
+    a genuine data-integrity problem (e.g. a real postponement this
+    project's fixtures.csv snapshot doesn't know about yet for a
+    repeat-fixture pair) worth raising loudly, never silently guessed."""
+    csv_text = CSV_HEADER + "F1,01/01/2027,18:45,Rennes,Paris SG,1,1,D,Unknown\n"
+    with pytest.raises(ValueError, match="refusing to guess"):
+        parse_live_results(csv_text, REPEAT_FIXTURE_FIXTURES, league_id="ligue_1")
 
 
 def test_parses_multiple_completed_matches_in_one_call():
