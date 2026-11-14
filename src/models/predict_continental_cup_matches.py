@@ -4,23 +4,40 @@ League were removed 2026-11-14 -- fixturedownload.com (the only real
 source for either) has no deeper real history for them, unlike
 UCL/UEL, which can be backtested on 7-9 real seasons.
 
-**Moneyline (home/draw/away) is Elo-only**, not Dixon-Coles: the real
-backtest (src/evaluation/backtest_continental_cup.py) found Elo beats
-Dixon-Coles for both competitions -- see
-reports/{league}_model_selection_report.md. Elo is the trusted,
-backtested primary model; its real log loss here is close to domestic-
-league quality (EPL's own is 0.9865).
+**Moneyline (home/draw/away) uses whichever model this competition's
+own real backtest (src/evaluation/backtest_continental_cup.py,
+reports/{league}_model_selection_report.md) actually found wins --
+read fresh from data/outputs/{league}_backtest_model_comparison.csv
+every run, never hardcoded.** Confirmed directly 2026-11-14: after
+fixing a real stage-labeling bug that had silently zeroed out both
+competitions' 2024-25/2025-26 league-phase rows from scoring, UCL's
+backtest now has enough real league-phase data (944 matches) for
+Dixon-Coles to actually beat Elo; UEL (840 matches) still has flat-
+start Elo winning. Before that fix, this file hardcoded Elo-only for
+both, which happened to match UCL's own result too, on much thinner,
+wrongly-labeled data -- not something to trust going forward without
+re-checking the comparison file.
 
-**BTTS/spread/totals are Simple-Poisson-derived**, not Elo-derived:
-Elo alone gives no scoreline, only a 1X2 split, so it cannot power
-markets that need a real goal-expectation matrix. Simple Poisson was
-NOT separately backtested for these specific markets (only its
-moneyline log loss was scored, and it was clearly worse than Elo) --
-these three markets are therefore less validated than moneyline.
+**When Dixon-Coles is the primary model**, its own real scoreline
+matrix also powers BTTS/spread/totals (one real goal model, not two).
+**When Elo wins instead** (no real scoreline from Elo alone), BTTS/
+spread/totals fall back to a Simple-Poisson-derived scoreline, NOT
+independently backtested for those specific markets -- treat as less
+validated than the moneyline prediction in that case.
 
-Real current market odds (The Odds API) are attached for comparison
-only, never blended in: there is no real historical-odds source for
-this competition to validate a blend against.
+**Real current market odds (The Odds API) are blended in via the
+same 50/50 log-odds pool every other market in this project uses**
+(src.features.build_market_features.log_odds_average), but ONLY when
+this competition's own real backtest
+(backtest_continental_cup_market_blend.py,
+data/outputs/{league}_market_blend_comparison.csv) found that blend
+significant -- confirmed directly 2026-11-14 via a real ESPN-sourced
+closing-line collection (collect_espn_continental_cup_odds.py) that
+UEL's blend IS significant (CI [+0.037, +0.106], one real season)
+while UCL's is NOT yet (too few real league-phase matches with both a
+real backtest prediction and a real posted market line, 54 of them,
+CI crosses zero) -- re-checked fresh every run, same "no evidence, no
+blend" discipline as everywhere else in this project.
 
 Run: python -m src.models.predict_continental_cup_matches --league ucl
 (also accepts uel)
@@ -32,12 +49,14 @@ import json
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 from src.evaluation.backtest import team_rolling_goal_avgs  # noqa: E402
-from src.evaluation.backtest_continental_cup import ELO_HOME_ADVANTAGE, ELO_K_FACTOR  # noqa: E402
+from src.evaluation.backtest_continental_cup import ELO_HOME_ADVANTAGE, ELO_K_FACTOR, HALF_LIFE_DAYS, L2_REG  # noqa: E402
+from src.features.build_market_features import log_odds_average, remove_overround  # noqa: E402
 from src.leagues import league_path, load_league_config  # noqa: E402
 from src.models.baselines import elo_only_probabilities, simple_poisson_baseline  # noqa: E402
 from src.models.cross_competition_elo import cross_competition_seed_ratings, should_use_domestic_seed  # noqa: E402
@@ -46,6 +65,7 @@ from src.models.scoreline_models import (  # noqa: E402
     asian_handicap_home_cover_probability,
     btts_pick,
     btts_probability,
+    fit_dixon_coles_model,
     model_fair_handicap_line,
     moneyline_pick,
     outcome_probabilities,
@@ -104,6 +124,33 @@ def result_from_score(home_goals: int, away_goals: int) -> str:
     return "draw"
 
 
+def select_primary_model(league_id: str) -> str:
+    """Whichever model backtest_continental_cup.py's own real backtest
+    found wins for this competition -- read fresh from its real
+    comparison file (sorted ascending by log loss, so the first row is
+    the winner), never hardcoded. Raises if that backtest hasn't been
+    run yet for this league rather than silently defaulting to
+    something that was never actually validated."""
+    path = REPO_ROOT / "data" / "outputs" / f"{league_id}_backtest_model_comparison.csv"
+    if not path.exists():
+        raise FileNotFoundError(f"{path} not found -- run backtest_continental_cup.py --league {league_id} first")
+    return pd.read_csv(path).iloc[0]["model"]
+
+
+def should_apply_market_blend(league_id: str) -> bool:
+    """Whether THIS competition's own real backtest
+    (backtest_continental_cup_market_blend.py) found a statistically
+    significant edge from blending the model with the real market --
+    never assumed. Defaults to False (model-only) if that backtest
+    hasn't been run yet, the same "no evidence, no blend" discipline
+    predict_team_sport_matches.py and market_blend_model.py already
+    established."""
+    path = REPO_ROOT / "data" / "outputs" / f"{league_id}_market_blend_comparison.csv"
+    if not path.exists():
+        return False
+    return bool(pd.read_csv(path).iloc[0]["blend_significant"])
+
+
 def load_market_odds(odds_path: Path) -> dict[str, dict]:
     out: dict[str, dict] = {}
     if not odds_path.exists():
@@ -117,10 +164,17 @@ def load_market_odds(odds_path: Path) -> dict[str, dict]:
                 continue
             if not row["current_home_odds"] or not row["current_draw_odds"] or not row["current_away_odds"]:
                 continue
-            out[mid] = {
-                "home": float(row["current_home_odds"]), "draw": float(row["current_draw_odds"]),
-                "away": float(row["current_away_odds"]),
-            }
+            home_odds, draw_odds, away_odds = float(row["current_home_odds"]), float(row["current_draw_odds"]), float(row["current_away_odds"])
+            # Same real anomaly confirmed for NCAAB/NCAAF (see
+            # predict_team_sport_matches.load_market_odds): a real
+            # decimal odds of exactly 1.0 from one bookmaker is
+            # mathematically impossible -- skip this row (not yet seen
+            # for UCL/UEL, but the same real_odds.csv schema/source,
+            # so the same defense applies here too) and let a later
+            # real bookmaker row for this match_id be used instead.
+            if home_odds <= 1.0 or draw_odds <= 1.0 or away_odds <= 1.0:
+                continue
+            out[mid] = {"home": home_odds, "draw": draw_odds, "away": away_odds}
     return out
 
 
@@ -143,7 +197,10 @@ def main(league_id: str) -> None:
     real_results_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_real_results.csv")
     out_path = REPO_ROOT / "data" / "outputs" / league_path(league_id, "2026_27_match_predictions.csv")
 
+    primary_model = select_primary_model(league_id)
+    use_dc = primary_model.startswith("Dixon-Coles")
     use_domestic_seed = should_use_domestic_seed(league_id)
+    apply_market_blend = should_apply_market_blend(league_id)
     seed_note = (
         " Seeded from real domestic-league Elo where one exists (see src/models/cross_competition_elo.py) "
         "-- this competition's own real backtest found that helps here."
@@ -152,11 +209,20 @@ def main(league_id: str) -> None:
         "variant does NOT beat it here, unlike some of the other UEFA club competitions this project covers."
     )
     moneyline_source_note = (
-        f"Elo-only, real-backtested (best of up to 4 models tested on {cfg.display_name}'s real "
-        f"2024-25+2025-26 league-phase data -- see reports/{league_id}_model_selection_report.md)."
-        f"{seed_note}"
+        f"{'Dixon-Coles' if use_dc else 'Elo-only'}, real-backtested (best of up to 4 models tested on "
+        f"{cfg.display_name}'s real league-phase data -- see reports/{league_id}_model_selection_report.md)."
+        f"{'' if use_dc else seed_note}"
+        + (
+            " Model+market blend applied where a real current market line exists -- this competition's own "
+            "real backtest (backtest_continental_cup_market_blend.py) found that significant."
+            if apply_market_blend else
+            " Model-only: this competition's own real market-blend backtest did not find blending "
+            "significant (or hasn't been run yet)."
+        )
     )
     derived_markets_source_note = (
+        f"Dixon-Coles's own real scoreline matrix (the same model used for the moneyline above)."
+        if use_dc else
         "Simple-Poisson-derived scoreline (NOT independently backtested for BTTS/spread/totals specifically "
         f"-- its own moneyline log loss was clearly worse than Elo's -- see "
         f"reports/{league_id}_model_selection_report.md -- treat as less validated than the moneyline "
@@ -196,6 +262,11 @@ def main(league_id: str) -> None:
 
     league_avg_goals = float(pd.concat([historical["home_goals"], historical["away_goals"]]).mean())
 
+    dc_fit = None
+    if use_dc:
+        teams_universe = sorted(set(historical["home_team"]) | set(historical["away_team"]) | set(fixtures["home_team"]) | set(fixtures["away_team"]))
+        dc_fit = fit_dixon_coles_model(historical, teams_universe, pd.Timestamp.now(), half_life_days=HALF_LIFE_DAYS, l2_reg=L2_REG)
+
     meta = make_run_metadata(prefix=f"predict_{league_id}", season="2026-27")
     generated_at = now_utc_iso()
     rows = []
@@ -203,12 +274,28 @@ def main(league_id: str) -> None:
         home, away = fx["home_team"], fx["away_team"]
         r_home = ratings.get(home, 1500.0)
         r_away = ratings.get(away, 1500.0)
-        home_win, draw, away_win = elo_only_probabilities(r_home, r_away, ELO_HOME_ADVANTAGE)
 
-        h_gf, h_ga = team_rolling_goal_avgs(historical, home)
-        a_gf, a_ga = team_rolling_goal_avgs(historical, away)
-        lam, mu = simple_poisson_baseline(h_gf, h_ga, a_gf, a_ga, league_avg_goals)
-        matrix = score_matrix(lam, mu, rho=0.0)
+        if use_dc:
+            hi, ai = dc_fit.team_index[home], dc_fit.team_index[away]
+            lam = float(np.exp(dc_fit.home_advantage + dc_fit.attack[hi] - dc_fit.defense[ai]))
+            mu = float(np.exp(dc_fit.attack[ai] - dc_fit.defense[hi]))
+            matrix = score_matrix(lam, mu, dc_fit.rho)
+            home_win, draw, away_win = outcome_probabilities(matrix)
+        else:
+            home_win, draw, away_win = elo_only_probabilities(r_home, r_away, ELO_HOME_ADVANTAGE)
+            h_gf, h_ga = team_rolling_goal_avgs(historical, home)
+            a_gf, a_ga = team_rolling_goal_avgs(historical, away)
+            lam, mu = simple_poisson_baseline(h_gf, h_ga, a_gf, a_ga, league_avg_goals)
+            matrix = score_matrix(lam, mu, rho=0.0)
+
+        model_home_win, model_draw, model_away_win = home_win, draw, away_win
+        odds = market_odds.get(fx["match_id"])
+        market_blend_applied = False
+        if apply_market_blend and odds is not None:
+            market_no_vig = remove_overround((odds["home"], odds["draw"], odds["away"]))
+            home_win, draw, away_win = log_odds_average([(model_home_win, model_draw, model_away_win), market_no_vig])
+            market_blend_applied = True
+
         pred_ij = max(((i, j) for i in range(matrix.shape[0]) for j in range(matrix.shape[1])), key=lambda ij: matrix[ij[0], ij[1]])
         predicted_score = f"{pred_ij[0]}-{pred_ij[1]}"
 
@@ -217,8 +304,12 @@ def main(league_id: str) -> None:
         handicap_line = model_fair_handicap_line(matrix)
         home_cover_prob = asian_handicap_home_cover_probability(matrix, handicap_line)
 
-        odds = market_odds.get(fx["match_id"])
         rr = real_results.get(fx["match_id"])
+        # Confidence/the actual pick use the FINAL (blended, when
+        # applied) probabilities -- the blend, when this competition's
+        # own real backtest found it significant, is the better
+        # estimate, same as every other blended market in this
+        # project uses for its own real pick.
         confidence = max(home_win, draw, away_win)
 
         rows.append({
@@ -233,16 +324,18 @@ def main(league_id: str) -> None:
             "home_expected_goals_market_integrated": "", "away_expected_goals_market_integrated": "",
             "predicted_score_model_only": predicted_score, "predicted_score_market_integrated": "",
             "predicted_result_model_only": result_from_score(*pred_ij), "predicted_result_market_integrated": "",
-            "home_win_prob_model_only": round(home_win, 4), "draw_prob_model_only": round(draw, 4),
-            "away_win_prob_model_only": round(away_win, 4),
-            "home_win_prob_market_integrated": "", "draw_prob_market_integrated": "", "away_win_prob_market_integrated": "",
+            "home_win_prob_model_only": round(model_home_win, 4), "draw_prob_model_only": round(model_draw, 4),
+            "away_win_prob_model_only": round(model_away_win, 4),
+            "home_win_prob_market_integrated": round(home_win, 4) if market_blend_applied else "",
+            "draw_prob_market_integrated": round(draw, 4) if market_blend_applied else "",
+            "away_win_prob_market_integrated": round(away_win, 4) if market_blend_applied else "",
             "moneyline_pick": moneyline_pick(home_win, draw, away_win, home, away),
             "btts_pick": btts_pick(btts_yes), "totals_pick": totals_pick(over_prob, DEFAULT_TOTAL_GOALS_LINE),
             "spread_pick": spread_pick(home_cover_prob, handicap_line, home, away),
             "home_elo": round(r_home, 1), "away_elo": round(r_away, 1),
             "top_10_scorelines_model_only_json": json.dumps(top_n_scorelines(matrix, 10)),
             "top_10_scorelines_market_integrated_json": "",
-            "market_available": odds is not None, "closing_market_available": False, "market_blend_applied": False,
+            "market_available": odds is not None, "closing_market_available": False, "market_blend_applied": market_blend_applied,
             "btts_yes_prob_model_only": round(btts_yes, 4), "btts_no_prob_model_only": round(1 - btts_yes, 4),
             "total_goals_line_model_only": DEFAULT_TOTAL_GOALS_LINE,
             "over_prob_model_only": round(over_prob, 4), "under_prob_model_only": round(under_prob, 4),
@@ -267,7 +360,12 @@ def main(league_id: str) -> None:
 
     n_with_market = sum(1 for r in rows if r["market_available"])
     print(f"Wrote {len(rows)} predictions to {out_path} ({n_with_market} with real current market odds)")
-    log_experiment(meta, stage=f"predict_{league_id}_matches", notes=f"{len(rows)} fixtures, moneyline=elo_only, derived_markets=simple_poisson")
+    n_blended = sum(1 for r in rows if r["market_blend_applied"])
+    log_experiment(
+        meta, stage=f"predict_{league_id}_matches",
+        notes=f"{len(rows)} fixtures, moneyline={'dixon_coles' if use_dc else 'elo_only'}, "
+              f"derived_markets={'dixon_coles' if use_dc else 'simple_poisson'}, market_blend_applied={n_blended}",
+    )
 
 
 if __name__ == "__main__":

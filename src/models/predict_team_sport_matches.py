@@ -118,6 +118,18 @@ def load_market_odds(odds_path: Path, league_id: str) -> dict[str, dict]:
                 if not row["current_home_odds"] or not row["current_away_odds"]:
                     continue
                 home_odds, away_odds = float(row["current_home_odds"]), float(row["current_away_odds"])
+                # Real anomaly, confirmed directly this session: several
+                # bookmakers (paddypower, onexbet, fanatics, ...) post a
+                # real decimal odds of exactly 1.0 on extreme-mismatch
+                # NCAAB/NCAAF games -- a real price that is mathematically
+                # impossible (implies betting $100 to win $0), traced to
+                # The Odds API's own raw response for that bookmaker, not
+                # a bug in this collector. Skipping that one bookmaker's
+                # row rather than feeding it into the logit-space average,
+                # where it would dominate (logit(1 - 1e-9) is enormous
+                # compared to every sane bookmaker's own logit).
+                if home_odds <= 1.0 or away_odds <= 1.0:
+                    continue
                 fair_home, fair_away = devig_fn((home_odds, away_odds))
                 rows_by_match.setdefault(row["match_id"], []).append((home_odds, away_odds, fair_home, fair_away))
 

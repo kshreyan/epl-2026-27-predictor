@@ -112,19 +112,37 @@ UNAVAILABLE_NOTE = (
 )
 
 
-def stage_for_match(group: str | None) -> str:
+def stage_for_match(group: str | None, round_number: int, season_has_real_groups: bool, swiss_league_phase_rounds: int) -> str:
     """"league_phase" for every real group/round-robin-phase match,
-    "knockout" otherwise -- derived from the feed's own real `Group`
-    field (non-null exactly for group/league-phase matches, confirmed
-    directly across both the old 32/48-team group-stage era and the
-    new 36-team Swiss-model era), not from a round-number cutoff that
-    would differ by era."""
-    return "league_phase" if group else "knockout"
+    "knockout" otherwise.
+
+    For an old-format season (real `Group` values present on SOME of
+    its real rows -- the 32/48-team group-stage era), the feed's own
+    real `Group` field is the signal: non-null exactly for group-phase
+    matches, confirmed directly. A real round-number cutoff would be
+    wrong here anyway (group stage is rounds 1-6, not today's 1-8).
+
+    For a Swiss-model season (2024-25 onward), the feed's real `Group`
+    field is null on EVERY row -- league phase and knockout alike
+    (confirmed directly) -- so `Group` carries no signal there at all.
+    Caught the hard way: trusting `group` alone here silently labeled
+    every real 2024-25/2025-26 match "knockout", including the real
+    144 real league-phase matches each season, which emptied those two
+    seasons out of backtest_continental_cup.py's league-phase scoring
+    entirely without ever raising an error. `season_has_real_groups`
+    (computed once per season, from whether ANY of its real rows has a
+    non-null Group) is what decides which signal applies -- round
+    number is only ever trusted for a season already confirmed to be
+    Swiss-model, never as a global default."""
+    if season_has_real_groups:
+        return "league_phase" if group else "knockout"
+    return "league_phase" if round_number <= swiss_league_phase_rounds else "knockout"
 
 
 def main(league_id: str) -> None:
     cfg = load_league_config(league_id)
     output_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "historical_matches.csv")
+    swiss_league_phase_rounds = (cfg.expected_fixture_count or 0) // (cfg.n_teams // 2)
 
     rows = []
     for year in historical_season_years(league_id):
@@ -138,6 +156,7 @@ def main(league_id: str) -> None:
         raw_cache_path.parent.mkdir(parents=True, exist_ok=True)
         raw_cache_path.write_bytes(resp.content)
         matches = resp.json()
+        season_has_real_groups = any(m.get("Group") for m in matches)
 
         for m in matches:
             if m["HomeTeamScore"] is None or m["AwayTeamScore"] is None:
@@ -169,7 +188,8 @@ def main(league_id: str) -> None:
             rows.append({
                 "season": season_label, "match_id": match_id, "date": dt_utc.strftime("%Y-%m-%d"),
                 "home_team": home, "away_team": away,
-                "round_number": round_number, "stage": stage_for_match(m.get("Group")),
+                "round_number": round_number,
+                "stage": stage_for_match(m.get("Group"), round_number, season_has_real_groups, swiss_league_phase_rounds),
                 "home_goals": home_goals, "away_goals": away_goals, "result": result,
                 "home_xg": "", "away_xg": "",
                 "home_shots": "", "away_shots": "", "home_shots_on_target": "", "away_shots_on_target": "",

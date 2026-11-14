@@ -1,8 +1,8 @@
 # Prediction Health Report
 
-Generated: 2026-11-14T10:38:39.938380+00:00
+Generated: 2026-11-14T12:39:46.773907+00:00
 
-**3 failures, 6 warnings, 23 informational** (out of 32 findings).
+**3 failures, 7 warnings, 23 informational** (out of 33 findings).
 
 | Severity | Section | League | Finding |
 |---|---|---|---|
@@ -34,7 +34,8 @@ Generated: 2026-11-14T10:38:39.938380+00:00
 | INFO | 1. Internal consistency | serie_a | all 380 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | serie_a | 110 completed matches scored: accuracy=61.8%, multiclass Brier=0.523 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | ucl | all 144 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| INFO | 3. Calibration / accuracy drift | ucl | 72 completed matches scored: accuracy=73.6%, multiclass Brier=0.486 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| INFO | 3. Calibration / accuracy drift | ucl | 72 completed matches scored: accuracy=77.8%, multiclass Brier=0.374 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| WARN | 3. Calibration / accuracy drift | ucl | 3 high-confidence (>=70%) miss(es): UCL2627_MW02_100_Feyenoord_Como (predicted away_win @74%, actual home_win); UCL2627_MW03_123_SportingCP_LASK (predicted home_win @73%, actual away_win); UCL2627_MW04_136_Fenerbahce_Liverpool (predicted away_win @73%, actual home_win) |
 | INFO | 1. Internal consistency | uel | all 144 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| INFO | 3. Calibration / accuracy drift | uel | 72 completed matches scored: accuracy=51.4%, multiclass Brier=0.587 (lower is better, 0=perfect, 0.667=uniform guessing) |
+| INFO | 3. Calibration / accuracy drift | uel | 72 completed matches scored: accuracy=52.8%, multiclass Brier=0.572 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 4. Pipeline / site operational health | all | last 10 GitHub Actions runs all succeeded |
