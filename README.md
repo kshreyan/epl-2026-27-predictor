@@ -159,9 +159,9 @@ python run_pipeline.py --season 2026-27 --mode weekly_update --matchweek 1 --res
 
 ## Multi-sport expansion: NFL, NBA, NCAA Football
 
-Beyond EPL and the other seven soccer competitions this repo covers
-(La Liga, Serie A, Bundesliga, Ligue 1, UEFA Champions/Europa/
-Conference League -- see `config/leagues.yaml`), three American team
+Beyond EPL and the other six soccer competitions this repo covers
+(La Liga, Serie A, Bundesliga, Ligue 1, UEFA Champions League, UEFA
+Europa League -- see `config/leagues.yaml`), three American team
 sports share this same real-data-only pipeline, each with its own
 real backtested model, real "+2 Margin Survival" equivalent, and a
 real heavy-stack layer (de-vig methods, player-level signals,

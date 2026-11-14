@@ -3,13 +3,13 @@ modeling on top of the existing Dixon-Coles scoreline predictor.
 
 Scope (Phase 1, real-data-only): the 5 domestic leagues that have a
 real, backtested Dixon-Coles fit (2,660+ historical matches each). MLS
-and UEFA Nations League are deliberately excluded -- their own
-moneyline models are Elo-only because Dixon-Coles was found to badly
-overfit on their much smaller real backtest samples (see
-reports/nations_league_model_selection_report.md and the MLS backtest
-report); running a margin-tail model on top of an already-flagged
-"less validated" scoreline surface would manufacture false precision,
-which this module explicitly must not do.
+and UEFA Nations League (both since removed from this project
+entirely) were deliberately excluded even while they existed -- their
+own moneyline models were Elo-only because Dixon-Coles was found to
+badly overfit on their much smaller real backtest samples; running a
+margin-tail model on top of an already-flagged "less validated"
+scoreline surface would manufacture false precision, which this
+module explicitly must not do.
 
 This does NOT reduce to "predicted score is close, therefore safe" --
 that would be circular (see module docstring in the master prompt this

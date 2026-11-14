@@ -161,7 +161,7 @@ def main() -> None:
     seeds = cross_competition_seed_ratings()
     print(f"Computed real domestic Elo for {len(seeds)} clubs across {len(DOMESTIC_LEAGUE_IDS)} leagues.\n")
 
-    for league_id in ["ucl", "uel", "uecl"]:
+    for league_id in ["ucl", "uel"]:
         fixtures_path = REPO_ROOT / "data" / "raw" / f"{league_id}_2026_27_fixtures.csv"
         if not fixtures_path.exists():
             continue

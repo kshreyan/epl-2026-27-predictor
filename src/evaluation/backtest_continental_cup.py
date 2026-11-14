@@ -1,14 +1,12 @@
-"""Rolling-origin backtest for a UEFA competition (UCL, UEL, UECL, or
-Nations League). Generalizes the old, now-removed
-backtest_nations_league.py (one competition, one real cycle) to four
-competitions. UCL/UEL/UECL each have real 2024-25 + 2025-26 data under
-the current 36-team Swiss-model league phase -- round 1 of the second
-real season (2025-26) can be fit on the FULL first real season
-(189/189/153 real matches, league phase + knockout). Nations League
-(re-added 2026-11-09) is back to the single-cycle case: fixturedownload
-.com still only publishes its real 2024-25 cycle (confirmed directly
-this session), so its backtest round 1 has nothing to warm up on,
-exactly like the original.
+"""Rolling-origin backtest for a UEFA club competition (UCL or UEL).
+UECL and Nations League were removed 2026-11-14 -- fixturedownload.com
+(the only real source for either) has nothing older than their 2024-25
+cycle, so neither could be deepened the way UCL/UEL were. UCL has real
+data back to 2017-18 (9 real cycles, mixing the old group-stage format
+with the current 36-team Swiss-model league phase); UEL back to
+2019-20 (7 real cycles). Round 1 of each season after the first can be
+fit on every real prior season's full real history (league phase +
+knockout).
 
 Walks forward through each competition's real LEAGUE-PHASE rounds only
 (round_number <= league_phase_rounds, i.e. excluding the knockout
@@ -22,9 +20,8 @@ scope) but DO feed every model's own continuous rating/fit, same as
 any other real result.
 
 Seeded from real domestic-league Elo where one exists (see
-cross_competition_elo.py) -- not Nations League's real UEFA-tier seed,
-but the same idea: this competition's own 2-season sample is too thin
-to estimate 36 teams' relative strength well from nothing, and a club
+cross_competition_elo.py): even 7-9 real seasons is too thin to
+estimate 36 teams' relative strength well from nothing, and a club
 playing in one of the 5 domestic leagues this project tracks has a far
 better-informed real prior than a flat 1500. Leak-free: the seed is
 computed from domestic results strictly BEFORE this backtest's own
@@ -38,7 +35,7 @@ them without overfitting to noise, same discipline as every other
 thin-sample competition in this project.
 
 Run: python -m src.evaluation.backtest_continental_cup --league ucl
-(also accepts uel, uecl)
+(also accepts uel)
 """
 from __future__ import annotations
 
@@ -245,6 +242,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl", "nations_league"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

@@ -51,7 +51,7 @@ progresses and these numbers will sharpen for real as more of the
 season's actual uncertainty resolves.
 
 Run: python -m src.simulation.simulate_continental_cup_knockout --league ucl
-(also accepts uel, uecl)
+(also accepts uel)
 """
 from __future__ import annotations
 
@@ -330,6 +330,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

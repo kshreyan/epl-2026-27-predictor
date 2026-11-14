@@ -6,9 +6,8 @@ Not fetch_live_results.py: that script is football-data.co.uk's
 dedicated live-results feed, which only covers domestic leagues
 (LeagueConfig.football_data_code required). No such dedicated feed
 exists for UEFA club competitions -- fixturedownload.com's own feed is
-the only real source, and (same real limitation the old, now-removed
-collect_nations_league_historical.py noted for its competition) it has
-been observed to lag real-world completion by up to a day. Writing a
+the only real source, and it has been observed to lag real-world
+completion by up to a day. Writing a
 separate ledger (rather than trusting collect_fixtures.py's own
 `status` column, which this project's domestic collectors deliberately
 always set to "scheduled" and leave for the domestic live-results
@@ -16,7 +15,7 @@ pipeline to lock) keeps this real limitation explicit and keeps
 collect_fixtures.py's shared CSV schema unchanged for every league.
 
 Run: python -m src.data_collection.fetch_continental_cup_live_results --league ucl
-(also accepts uel, uecl)
+(also accepts uel)
 """
 from __future__ import annotations
 
@@ -72,6 +71,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl", "nations_league"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

@@ -1,14 +1,13 @@
 """Predicts every real 2026-27 league-phase fixture for a UEFA club
-competition (UCL, UEL, UECL). Generalizes the old, now-removed
-predict_nations_league_matches.py (one competition) to three,
-parameterized by --league.
+competition (UCL, UEL), parameterized by --league. UECL and Nations
+League were removed 2026-11-14 -- fixturedownload.com (the only real
+source for either) has no deeper real history for them, unlike
+UCL/UEL, which can be backtested on 7-9 real seasons.
 
 **Moneyline (home/draw/away) is Elo-only**, not Dixon-Coles: the real
 backtest (src/evaluation/backtest_continental_cup.py) found Elo beats
-Dixon-Coles clearly for all three competitions (log loss ~0.97-1.26
-for Elo vs ~1.07-1.26 for Dixon-Coles -- see
-reports/{league}_model_selection_report.md) -- the same pattern as the
-old Nations League backtest, though less extreme. Elo is the trusted,
+Dixon-Coles for both competitions -- see
+reports/{league}_model_selection_report.md. Elo is the trusted,
 backtested primary model; its real log loss here is close to domestic-
 league quality (EPL's own is 0.9865).
 
@@ -24,7 +23,7 @@ only, never blended in: there is no real historical-odds source for
 this competition to validate a blend against.
 
 Run: python -m src.models.predict_continental_cup_matches --league ucl
-(also accepts uel, uecl)
+(also accepts uel)
 """
 from __future__ import annotations
 
@@ -274,6 +273,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl", "nations_league"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

@@ -46,7 +46,7 @@ TOP20_SIZE = 20
 # surface this reads from is NOT this league's primary/best-validated
 # model, just the weaker of two real models tested. engine_note below
 # is written per-league so this distinction is never glossed over.
-CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel", "uecl", "nations_league"]
+CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel"]
 
 # NFL/NBA/NCAA Football (see compute_margin_survival_team_sport.py's
 # module docstring): a sport-correct equivalent, not soccer's "+2

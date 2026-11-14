@@ -1,8 +1,8 @@
 # Prediction Health Report
 
-Generated: 2026-11-14T10:16:20.796373+00:00
+Generated: 2026-11-14T10:38:39.938380+00:00
 
-**4 failures, 6 warnings, 27 informational** (out of 37 findings).
+**3 failures, 6 warnings, 23 informational** (out of 32 findings).
 
 | Severity | Section | League | Finding |
 |---|---|---|---|
@@ -16,9 +16,6 @@ Generated: 2026-11-14T10:16:20.796373+00:00
 | INFO | 3. Calibration / accuracy drift | la_liga | 119 completed matches scored: accuracy=55.5%, multiclass Brier=0.538 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | ligue_1 | all 306 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | ligue_1 | 90 completed matches scored: accuracy=56.7%, multiclass Brier=0.569 (lower is better, 0=perfect, 0.667=uniform guessing) |
-| INFO | 1. Internal consistency | nations_league | all 156 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| FAIL | 2. Freshness & provenance | nations_league | 18 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): UNL2627_MW05_027_Türkiye_Belgium, UNL2627_MW05_028_Armenia_Cyprus, UNL2627_MW05_029_Czechia_Spain, UNL2627_MW05_030_Albania_Finland, UNL2627_MW05_031_Montenegro_Latvia ... |
-| INFO | 3. Calibration / accuracy drift | nations_league | 104 completed matches scored: accuracy=54.8%, multiclass Brier=0.593 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | nba | all 1200 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | FAIL | 2. Freshness & provenance | nba | 9 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): NBA2627_W04_401909296_IndianaPacers_NewYorkKnicks, NBA2627_W04_401909297_OrlandoMagic_MilwaukeeBucks, NBA2627_W04_401909299_ChicagoBulls_AtlantaHawks, NBA2627_W04_401909298_MiamiHeat_ClevelandCavaliers, NBA2627_W04_401909300_NewOrleansPelicans_MemphisGrizzlies ... |
 | INFO | 3. Calibration / accuracy drift | nba | 174 completed matches scored: accuracy=74.7%, multiclass Brier=0.335 (lower is better, 0=perfect, 0.667=uniform guessing) |
@@ -38,8 +35,6 @@ Generated: 2026-11-14T10:16:20.796373+00:00
 | INFO | 3. Calibration / accuracy drift | serie_a | 110 completed matches scored: accuracy=61.8%, multiclass Brier=0.523 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | ucl | all 144 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | ucl | 72 completed matches scored: accuracy=73.6%, multiclass Brier=0.486 (lower is better, 0=perfect, 0.667=uniform guessing) |
-| INFO | 1. Internal consistency | uecl | all 108 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
-| INFO | 3. Calibration / accuracy drift | uecl | 54 completed matches scored: accuracy=63.0%, multiclass Brier=0.570 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | uel | all 144 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | uel | 72 completed matches scored: accuracy=51.4%, multiclass Brier=0.587 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 4. Pipeline / site operational health | all | last 10 GitHub Actions runs all succeeded |

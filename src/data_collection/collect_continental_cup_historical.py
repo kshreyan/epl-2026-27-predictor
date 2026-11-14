@@ -1,18 +1,16 @@
-"""Collect real historical results for a UEFA club competition (UCL,
-UEL, or UECL) as far back as fixturedownload.com's feed actually goes
-for each one -- confirmed live, not assumed: UCL back to 2017-18,
-UEL back to 2019-20, UECL only 2024-25/2025-26 (the competition itself
-only started 2021-22, and this source simply has no earlier UECL
-seasons under any feed slug -- a real source ceiling, not a format-
-change choice). The pre-2024-25 seasons used the old 32/48-team
-group-stage format rather than today's 36-team Swiss-model league
-phase, but the real match data (teams, scores, dates) is exactly as
-usable for Elo/Dixon-Coles fitting either way -- a goal is a goal
-regardless of which stage structure produced the fixture list, so
-this collector no longer draws a line at the format change. Generalizes
-the old, now-removed collect_nations_league_historical.py (one
-competition, one cycle) to three competitions, each as deep as the
-source allows.
+"""Collect real historical results for a UEFA club competition (UCL
+or UEL) as far back as fixturedownload.com's feed actually goes for
+each one -- confirmed live, not assumed: UCL back to 2017-18, UEL back
+to 2019-20. UECL was dropped from this collector 2026-11-14 (removed
+from the project entirely): the competition only started 2021-22, and
+this source has no UECL seasons before 2024-25 under any feed slug --
+a real source ceiling that left it stuck at 2 real seasons, far too
+thin to carry on its own. The pre-2024-25 UCL/UEL seasons used the old
+32/48-team group-stage format rather than today's 36-team Swiss-model
+league phase, but the real match data (teams, scores, dates) is
+exactly as usable for Elo/Dixon-Coles fitting either way -- a goal is
+a goal regardless of which stage structure produced the fixture list,
+so this collector doesn't draw a line at the format change.
 
 Source: fixturedownload.com's public JSON feed, the same source (and
 shape) the current-season fixtures collector uses, one season-slug per
@@ -40,7 +38,7 @@ scripts' own, separate decision -- this collector's only job is making
 the real data available, unfiltered.
 
 Run: python -m src.data_collection.collect_continental_cup_historical --league ucl
-(also accepts uel, uecl)
+(also accepts uel)
 """
 from __future__ import annotations
 
@@ -61,10 +59,8 @@ SOURCE_NAME = "fixturedownload.com"
 # Earliest real season year fixturedownload.com's feed actually has for
 # each competition -- confirmed live (HTTP 200 vs 404) across a wide
 # range of candidate years before picking these, not assumed from when
-# each competition itself started. UECL's own feed has nothing before
-# 2024 despite the competition existing since 2021-22 -- a real gap in
-# this specific source, not a format-change cutoff.
-EARLIEST_SEASON_YEAR = {"ucl": 2017, "uel": 2019, "uecl": 2024}
+# each competition itself started.
+EARLIEST_SEASON_YEAR = {"ucl": 2017, "uel": 2019}
 LATEST_SEASON_YEAR = 2025  # -> real 2025-26, the current season's most recent prior cycle
 
 # Confirmed real, individually-investigated exceptions to "every row in
@@ -222,6 +218,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel", "uecl"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)
