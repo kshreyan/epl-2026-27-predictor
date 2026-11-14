@@ -1,6 +1,6 @@
 {
   "league": "ligue_1",
-  "generated_at": "2026-11-13T13:34:19+00:00",
+  "generated_at": "2026-11-14T10:15:57+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 306,
@@ -21794,12 +21794,12 @@
       "home_team": "Stade Rennais FC",
       "away_team": "Paris Saint-Germain",
       "stadium": "Roazhon Park",
-      "status": "completed",
+      "status": "scheduled",
       "prediction_mode": "early_week_mode",
-      "actual_home_goals": 2.0,
-      "actual_away_goals": 2.0,
-      "actual_result": "draw",
-      "home_expected_goals_model_only": 1.342,
+      "actual_home_goals": null,
+      "actual_away_goals": null,
+      "actual_result": null,
+      "home_expected_goals_model_only": 1.341,
       "away_expected_goals_model_only": 2.277,
       "home_expected_goals_market_integrated": null,
       "away_expected_goals_market_integrated": null,
@@ -21813,64 +21813,64 @@
       "moneyline_pick": "Paris Saint-Germain",
       "dc_raw_home_win_prob": 0.214,
       "dc_raw_draw_prob": 0.2056,
-      "dc_raw_away_win_prob": 0.5803,
+      "dc_raw_away_win_prob": 0.5804,
       "home_win_prob_market_integrated": null,
       "draw_prob_market_integrated": null,
       "away_win_prob_market_integrated": null,
       "top_10_scorelines_model_only_json": [
         {
           "score": "1-2",
-          "probability": 0.093341
+          "probability": 0.093348
         },
         {
           "score": "1-1",
-          "probability": 0.086162
+          "probability": 0.086172
         },
         {
           "score": "1-3",
-          "probability": 0.070833
+          "probability": 0.070836
         },
         {
           "score": "0-2",
-          "probability": 0.069576
+          "probability": 0.069594
         },
         {
           "score": "2-2",
-          "probability": 0.062611
+          "probability": 0.062604
         },
         {
           "score": "0-1",
-          "probability": 0.056961
+          "probability": 0.056977
         },
         {
           "score": "2-1",
-          "probability": 0.055005
+          "probability": 0.054999
         },
         {
           "score": "0-3",
-          "probability": 0.052799
+          "probability": 0.052811
         },
         {
           "score": "2-3",
-          "probability": 0.047514
+          "probability": 0.047507
         },
         {
           "score": "1-4",
-          "probability": 0.040314
+          "probability": 0.040315
         }
       ],
       "top_10_scorelines_market_integrated_json": null,
-      "btts_yes_prob_model_only": 0.6669,
-      "btts_no_prob_model_only": 0.3331,
+      "btts_yes_prob_model_only": 0.6668,
+      "btts_no_prob_model_only": 0.3332,
       "btts_pick": "Yes",
       "total_goals_line_model_only": 2.5,
-      "over_prob_model_only": 0.7003,
-      "under_prob_model_only": 0.2997,
+      "over_prob_model_only": 0.7002,
+      "under_prob_model_only": 0.2998,
       "totals_blend_applied": false,
       "totals_pick": "Over 2.5",
       "handicap_line_model_only": 1.0,
-      "home_cover_prob_model_only": 0.5257,
-      "away_cover_prob_model_only": 0.4743,
+      "home_cover_prob_model_only": 0.5256,
+      "away_cover_prob_model_only": 0.4744,
       "handicap_blend_applied": false,
       "spread_pick": "Stade Rennais FC +1",
       "market_available": false,
@@ -21889,11 +21889,11 @@
       "confidence": 0.5627,
       "upset_risk": 0.4373,
       "data_quality_score": 0.2,
-      "run_id": "weekly_update_20261109T143428Z_041b8765",
+      "run_id": "ligue1_mw23_correction_v2_20261114T073133Z_1fe4244d",
       "data_version": "2026-08-18.phase1",
       "feature_version": "0.1.0-phase1",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-09T14:34:28+00:00"
+      "generated_at": "2026-11-14T07:31:33+00:00"
     },
     {
       "match_id": "LIGUE12627_MW23_199_AngersSCO_AJAuxerre",

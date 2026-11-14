@@ -1,26 +1,40 @@
 """Collect real historical results for a UEFA club competition (UCL,
-UEL, or UECL), two prior real seasons (2024-25, 2025-26) -- the only
-two cycles played under the current 36-team Swiss-model league phase
-(the format changed in 2024-25, so nothing older is comparable; see
-config/leagues.yaml). Generalizes the old, now-removed
-collect_nations_league_historical.py (one competition, one cycle) to
-three competitions, two cycles each.
+UEL, or UECL) as far back as fixturedownload.com's feed actually goes
+for each one -- confirmed live, not assumed: UCL back to 2017-18,
+UEL back to 2019-20, UECL only 2024-25/2025-26 (the competition itself
+only started 2021-22, and this source simply has no earlier UECL
+seasons under any feed slug -- a real source ceiling, not a format-
+change choice). The pre-2024-25 seasons used the old 32/48-team
+group-stage format rather than today's 36-team Swiss-model league
+phase, but the real match data (teams, scores, dates) is exactly as
+usable for Elo/Dixon-Coles fitting either way -- a goal is a goal
+regardless of which stage structure produced the fixture list, so
+this collector no longer draws a line at the format change. Generalizes
+the old, now-removed collect_nations_league_historical.py (one
+competition, one cycle) to three competitions, each as deep as the
+source allows.
 
 Source: fixturedownload.com's public JSON feed, the same source (and
-shape) the current-season fixtures collector uses, one and two years
-back (e.g. https://fixturedownload.com/feed/json/champions-league-2024
-and -2025). No football-data.co.uk coverage exists for any UEFA club
-competition (football_data_code is intentionally None in
-config/leagues.yaml) -- this is a bespoke collector, not
-collect_historical_results.py.
+shape) the current-season fixtures collector uses, one season-slug per
+real season (e.g. https://fixturedownload.com/feed/json/champions-league-2024).
+No football-data.co.uk coverage exists for any UEFA club competition
+(football_data_code is intentionally None in config/leagues.yaml) --
+this is a bespoke collector, not collect_historical_results.py.
 
-Pulls EVERY real match each season's feed has, not just the league
-phase -- the knockout rounds that followed it (confirmed real, fully
-scored: playoff round through the Final) are real signal about team
-strength too and are kept for fitting. `round_number` and `stage`
-columns let a consumer separate "league phase" (round<=8, or <=6 for
-UECL) from "knockout" matches explicitly rather than guessing from
-date alone. Whether/how predict_continental_cup_matches.py and
+Pulls EVERY real match each season's feed has, not just the league/
+group phase -- the knockout rounds that followed it (confirmed real,
+fully scored: playoff round through the Final) are real signal about
+team strength too and are kept for fitting. `round_number` and `stage`
+columns let a consumer separate the real round-robin phase from
+knockout matches explicitly. `stage` is derived from the feed's own
+real `Group` field (non-null for every real group/league-phase match,
+null for every real knockout match, confirmed directly across both
+the old group-stage era and the new Swiss-model era) rather than from
+a round-number cutoff -- round-number cutoffs differ by era (old-
+format group stage was rounds 1-6 for a group of 4; the new Swiss
+league phase is rounds 1-8) and guessing one from current-season
+config would silently mislabel every old season's knockout rounds 7-8
+as league phase. Whether/how predict_continental_cup_matches.py and
 backtest_continental_cup.py use the knockout rows is each of those
 scripts' own, separate decision -- this collector's only job is making
 the real data available, unfiltered.
@@ -44,7 +58,41 @@ from src.utils.versioning import log_data_version, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SOURCE_NAME = "fixturedownload.com"
-HISTORICAL_SEASON_YEARS = [2024, 2025]  # -> real 2024-25, 2025-26 cycles
+# Earliest real season year fixturedownload.com's feed actually has for
+# each competition -- confirmed live (HTTP 200 vs 404) across a wide
+# range of candidate years before picking these, not assumed from when
+# each competition itself started. UECL's own feed has nothing before
+# 2024 despite the competition existing since 2021-22 -- a real gap in
+# this specific source, not a format-change cutoff.
+EARLIEST_SEASON_YEAR = {"ucl": 2017, "uel": 2019, "uecl": 2024}
+LATEST_SEASON_YEAR = 2025  # -> real 2025-26, the current season's most recent prior cycle
+
+# Confirmed real, individually-investigated exceptions to "every row in
+# a concluded historical season has a real score" -- NOT a general
+# escape hatch (an unexpected unscored row outside this set still
+# raises below, exactly as before).
+KNOWN_UNSCORED_MATCH_NUMBERS = {
+    # 2019-20 Europa League Round-of-16 first leg, scheduled 2020-03-12,
+    # the exact date UEFA competitions shut down for COVID-19;
+    # fixturedownload.com's feed kept these two stale, never-played
+    # placeholder rows rather than removing them once UEFA restructured
+    # the rest of that season into condensed single-leg matches at
+    # neutral venues in August 2020 (confirmed: Sevilla did play, and
+    # eliminate, Roma for real that season, just not as this row's
+    # two-legged tie).
+    ("uel", 2019, 179): "Sevilla v Roma",
+    ("uel", 2019, 181): "Internazionale v Getafe",
+    # 2021-22 Europa League Round-of-16, both legs (2022-03-10 and
+    # -03-17): UEFA expelled every Russian club from its competitions
+    # following the February 2022 invasion of Ukraine, mid-tie; RB
+    # Leipzig advanced by walkover without playing either leg.
+    ("uel", 2021, 115): "Leipzig v Spartak Moskva",
+    ("uel", 2021, 125): "Spartak Moskva v Leipzig",
+}
+
+
+def historical_season_years(league_id: str) -> list[int]:
+    return list(range(EARLIEST_SEASON_YEAR[league_id], LATEST_SEASON_YEAR + 1))
 
 OUTPUT_COLUMNS = [
     "season", "match_id", "date", "home_team", "away_team",
@@ -68,17 +116,22 @@ UNAVAILABLE_NOTE = (
 )
 
 
-def stage_for_round(round_number: int, league_phase_rounds: int) -> str:
-    return "league_phase" if round_number <= league_phase_rounds else "knockout"
+def stage_for_match(group: str | None) -> str:
+    """"league_phase" for every real group/round-robin-phase match,
+    "knockout" otherwise -- derived from the feed's own real `Group`
+    field (non-null exactly for group/league-phase matches, confirmed
+    directly across both the old 32/48-team group-stage era and the
+    new 36-team Swiss-model era), not from a round-number cutoff that
+    would differ by era."""
+    return "league_phase" if group else "knockout"
 
 
 def main(league_id: str) -> None:
     cfg = load_league_config(league_id)
-    league_phase_rounds = (cfg.expected_fixture_count or 0) // (cfg.n_teams // 2)
     output_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "historical_matches.csv")
 
     rows = []
-    for year in HISTORICAL_SEASON_YEARS:
+    for year in historical_season_years(league_id):
         season_label = f"{year}-{str(year + 1)[2:]}"
         source_url = f"https://fixturedownload.com/feed/json/{cfg.fixturedownload_slug}-{year}"
         raw_cache_path = REPO_ROOT / "data" / "external" / f"fixturedownload_{league_id}_{year}.json"
@@ -92,11 +145,18 @@ def main(league_id: str) -> None:
 
         for m in matches:
             if m["HomeTeamScore"] is None or m["AwayTeamScore"] is None:
-                raise ValueError(
-                    f"Unexpected unscored real match in {cfg.display_name} {season_label}: "
-                    f"MatchNumber {m['MatchNumber']} ({m['HomeTeam']} v {m['AwayTeam']}). "
-                    f"Investigate before silently dropping it."
+                if (league_id, year, m["MatchNumber"]) not in KNOWN_UNSCORED_MATCH_NUMBERS:
+                    raise ValueError(
+                        f"Unexpected unscored real match in {cfg.display_name} {season_label}: "
+                        f"MatchNumber {m['MatchNumber']} ({m['HomeTeam']} v {m['AwayTeam']}). "
+                        f"Investigate before silently dropping it."
+                    )
+                print(
+                    f"Skipping known stale unscored row in {cfg.display_name} {season_label}: "
+                    f"MatchNumber {m['MatchNumber']} ({m['HomeTeam']} v {m['AwayTeam']}) -- see "
+                    f"KNOWN_UNSCORED_MATCH_NUMBERS."
                 )
+                continue
 
             home = normalize_team_name(m["HomeTeam"], league_id=league_id)
             away = normalize_team_name(m["AwayTeam"], league_id=league_id)
@@ -113,7 +173,7 @@ def main(league_id: str) -> None:
             rows.append({
                 "season": season_label, "match_id": match_id, "date": dt_utc.strftime("%Y-%m-%d"),
                 "home_team": home, "away_team": away,
-                "round_number": round_number, "stage": stage_for_round(round_number, league_phase_rounds),
+                "round_number": round_number, "stage": stage_for_match(m.get("Group")),
                 "home_goals": home_goals, "away_goals": away_goals, "result": result,
                 "home_xg": "", "away_xg": "",
                 "home_shots": "", "away_shots": "", "home_shots_on_target": "", "away_shots_on_target": "",
@@ -135,11 +195,13 @@ def main(league_id: str) -> None:
         writer.writeheader()
         writer.writerows(rows)
 
+    years = historical_season_years(league_id)
     n_league_phase = sum(1 for r in rows if r["stage"] == "league_phase")
     n_knockout = len(rows) - n_league_phase
     print(
         f"Wrote {len(rows)} real historical matches to {output_path} "
-        f"({n_league_phase} league phase, {n_knockout} knockout, across {HISTORICAL_SEASON_YEARS})"
+        f"({n_league_phase} league/group phase, {n_knockout} knockout, across real {years[0]}-{str(years[0]+1)[2:]} "
+        f"through {years[-1]}-{str(years[-1]+1)[2:]})"
     )
 
     log_data_version(
@@ -149,9 +211,10 @@ def main(league_id: str) -> None:
         row_count=len(rows),
         is_real_data=True,
         notes=(
-            f"{cfg.display_name}, real 2024-25 + 2025-26 cycles (the only two seasons under the "
-            f"current 36-team Swiss-model format) -- genuinely thin versus a domestic league's "
-            f"2,000+ real matches."
+            f"{cfg.display_name}, real {years[0]}-{str(years[0]+1)[2:]} through {years[-1]}-{str(years[-1]+1)[2:]} "
+            f"cycles ({len(years)} seasons, as far back as fixturedownload.com's feed goes for this competition) "
+            f"-- mixes the old group-stage format with the current 36-team Swiss-model league phase; `stage` "
+            f"distinguishes them per match via the feed's own real Group field, not a round-number guess."
         ),
     )
 

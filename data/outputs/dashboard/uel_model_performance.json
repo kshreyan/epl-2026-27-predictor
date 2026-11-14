@@ -1,6 +1,6 @@
 {
   "league": "uel",
-  "generated_at": "2026-11-13T13:34:20+00:00",
+  "generated_at": "2026-11-14T10:15:58+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 4,
@@ -9,32 +9,32 @@
   "ensemble_per_season_comparison": [],
   "data": [
     {
-      "model": "Elo-only, flat start",
-      "n_matches": 270,
-      "log_loss": 1.0009859594,
-      "brier_score": 0.5977621728,
-      "ranked_probability_score": 0.2178730397
+      "model": "Elo-only, domestic-Elo-seeded",
+      "n_matches": 552,
+      "log_loss": 1.0194032665,
+      "brier_score": 0.6109811994,
+      "ranked_probability_score": 0.2199960528
     },
     {
-      "model": "Elo-only, domestic-Elo-seeded",
-      "n_matches": 270,
-      "log_loss": 1.0103230408,
-      "brier_score": 0.6048136702,
-      "ranked_probability_score": 0.221270628
+      "model": "Elo-only, flat start",
+      "n_matches": 552,
+      "log_loss": 1.021461637,
+      "brier_score": 0.6123531169,
+      "ranked_probability_score": 0.2206537433
     },
     {
       "model": "Dixon-Coles (main model)",
-      "n_matches": 270,
-      "log_loss": 1.104990702,
-      "brier_score": 0.620259336,
-      "ranked_probability_score": 0.2265760736
+      "n_matches": 552,
+      "log_loss": 1.0719331273,
+      "brier_score": 0.6241001415,
+      "ranked_probability_score": 0.2254428933
     },
     {
       "model": "Simple Poisson baseline",
-      "n_matches": 270,
-      "log_loss": 1.2295242271,
-      "brier_score": 0.6741235124,
-      "ranked_probability_score": 0.2497599808
+      "n_matches": 552,
+      "log_loss": 1.1894130216,
+      "brier_score": 0.6585481852,
+      "ranked_probability_score": 0.239089582
     }
   ]
 }
