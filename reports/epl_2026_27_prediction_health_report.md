@@ -1,8 +1,8 @@
 # Prediction Health Report
 
-Generated: 2026-11-14T14:25:23.300446+00:00
+Generated: 2026-11-15T21:37:42.861033+00:00
 
-**0 failures, 7 warnings, 23 informational** (out of 30 findings).
+**4 failures, 7 warnings, 23 informational** (out of 34 findings).
 
 | Severity | Section | League | Finding |
 |---|---|---|---|
@@ -17,15 +17,19 @@ Generated: 2026-11-14T14:25:23.300446+00:00
 | INFO | 1. Internal consistency | ligue_1 | all 306 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
 | INFO | 3. Calibration / accuracy drift | ligue_1 | 90 completed matches scored: accuracy=56.7%, multiclass Brier=0.569 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | INFO | 1. Internal consistency | nba | all 1200 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
+| FAIL | 2. Freshness & provenance | nba | 8 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): NBA2627_W04_401909980_NewOrleansPelicans_DenverNuggets, NBA2627_W04_401909981_ClevelandCavaliers_DallasMavericks, NBA2627_W04_401909983_MemphisGrizzlies_BrooklynNets, NBA2627_W04_401909984_MinnesotaTimberwolves_ChicagoBulls, NBA2627_W04_401909982_MiamiHeat_DetroitPistons ... |
 | INFO | 3. Calibration / accuracy drift | nba | 183 completed matches scored: accuracy=74.9%, multiclass Brier=0.339 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | WARN | 3. Calibration / accuracy drift | nba | 3 high-confidence (>=70%) miss(es): NBA2627_W02_401909895_PortlandTrailBlazers_MemphisGrizzlies (predicted home_win @74%, actual away_win); NBA2627_W02_401909911_OrlandoMagic_WashingtonWizards (predicted home_win @74%, actual away_win); NBA2627_W02_401909913_DallasMavericks_SacramentoKings (predicted home_win @74%, actual away_win) |
 | INFO | 1. Internal consistency | ncaab | all 5414 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
+| FAIL | 2. Freshness & provenance | ncaab | 88 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): NCAAB2627_W02_401924720_CornellBigRed_UNCGreensboroSpartans, NCAAB2627_W02_401919004_AkronZips_TulaneGreenWave, NCAAB2627_W02_401923303_MaineBlackBears_DrexelDragons, NCAAB2627_W02_401920074_GeorgeMasonPatriots_BradleyBraves, NCAAB2627_W02_401919847_TexasTechRedRaiders_StonehillSkyhawks ... |
 | INFO | 3. Calibration / accuracy drift | ncaab | 546 completed matches scored: accuracy=84.6%, multiclass Brier=0.222 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | WARN | 3. Calibration / accuracy drift | ncaab | 28 high-confidence (>=70%) miss(es): NCAAB2627_W01_401920982_VillanovaWildcats_NotreDameFightingIrish (predicted home_win @76%, actual away_win); NCAAB2627_W01_401909771_IowaStateCyclones_MemphisTigers (predicted home_win @89%, actual away_win); NCAAB2627_W01_401911261_St.BonaventureBonnies_YoungstownStatePenguins (predicted home_win @76%, actual away_win); NCAAB2627_W01_401910998_CoastalCarolinaChanticleers_EasternMichiganEagles (predicted home_win @76%, actual away_win); NCAAB2627_W01_401923269_BryantBulldogs_SienaSaints (predicted away_win @76%, actual home_win) ... |
 | INFO | 1. Internal consistency | ncaaf | all 761 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
+| FAIL | 2. Freshness & provenance | ncaaf | 56 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): NCAAF2627_W11_401858296_MiamiHurricanes_DukeBlueDevils, NCAAF2627_W11_401858301_SMUMustangs_WakeForestDemonDeacons, NCAAF2627_W11_401858300_NCStateWolfpack_SyracuseOrange, NCAAF2627_W11_401856859_IowaStateCyclones_CincinnatiBearcats, NCAAF2627_W11_401858522_OhioStateBuckeyes_NorthwesternWildcats ... |
 | INFO | 3. Calibration / accuracy drift | ncaaf | 573 completed matches scored: accuracy=68.8%, multiclass Brier=0.350 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | WARN | 3. Calibration / accuracy drift | ncaaf | 14 high-confidence (>=70%) miss(es): NCAAF2627_W01_401858423_RutgersScarletKnights_MassachusettsMinutemen (predicted home_win @92%, actual away_win); NCAAF2627_W01_401856772_TulsaGoldenHurricane_OklahomaStateCowboys (predicted away_win @74%, actual home_win); NCAAF2627_W02_401864571_EastCarolinaPirates_AppStateMountaineers (predicted home_win @74%, actual away_win); NCAAF2627_W02_401860884_TexasStateBobcats_UTSARoadrunners (predicted home_win @74%, actual away_win); NCAAF2627_W03_401856691_SouthCarolinaGamecocks_MississippiStateBulldogs (predicted home_win @80%, actual away_win) ... |
 | INFO | 1. Internal consistency | nfl | all 272 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
+| FAIL | 2. Freshness & provenance | nfl | 11 match(es) still 'scheduled' with kickoff already in the past (pipeline hasn't picked up the result): NFL2627_W10_2026_10_NE_DET, NFL2627_W10_2026_10_KC_ATL, NFL2627_W10_2026_10_HOU_CLE, NFL2627_W10_2026_10_MIN_GB, NFL2627_W10_2026_10_MIA_IND ... |
 | INFO | 3. Calibration / accuracy drift | nfl | 137 completed matches scored: accuracy=72.3%, multiclass Brier=0.428 (lower is better, 0=perfect, 0.667=uniform guessing) |
 | WARN | 3. Calibration / accuracy drift | nfl | 7 high-confidence (>=70%) miss(es): NFL2627_W01_2026_01_ARI_LAC (predicted home_win @75%, actual away_win); NFL2627_W02_2026_02_CAR_ATL (predicted home_win @75%, actual away_win); NFL2627_W02_2026_02_NO_BAL (predicted home_win @75%, actual away_win); NFL2627_W03_2026_03_ATL_GB (predicted home_win @75%, actual away_win); NFL2627_W04_2026_04_NE_BUF (predicted home_win @75%, actual away_win) ... |
 | INFO | 1. Internal consistency | serie_a | all 380 rows pass every consistency check (probability sums, score/result agreement, completed/scheduled result presence) |
