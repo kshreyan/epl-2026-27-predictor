@@ -1,6 +1,6 @@
 {
   "league": "nba",
-  "generated_at": "2026-11-19T09:22:13+00:00",
+  "generated_at": "2026-11-19T14:50:13+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 30,
@@ -25,7 +25,7 @@
       "prob_seed_6": 0.0561,
       "prob_seed_7": 0.0363,
       "prob_seed_8": 0.0187,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -45,7 +45,7 @@
       "prob_seed_6": 0.0572,
       "prob_seed_7": 0.0358,
       "prob_seed_8": 0.0175,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -65,7 +65,7 @@
       "prob_seed_6": 0.0602,
       "prob_seed_7": 0.0402,
       "prob_seed_8": 0.0199,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -85,7 +85,7 @@
       "prob_seed_6": 0.1367,
       "prob_seed_7": 0.1049,
       "prob_seed_8": 0.0766,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -105,7 +105,7 @@
       "prob_seed_6": 0.1277,
       "prob_seed_7": 0.1088,
       "prob_seed_8": 0.073,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -125,7 +125,7 @@
       "prob_seed_6": 0.1459,
       "prob_seed_7": 0.1155,
       "prob_seed_8": 0.0956,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -145,7 +145,7 @@
       "prob_seed_6": 0.1359,
       "prob_seed_7": 0.1493,
       "prob_seed_8": 0.1201,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -165,7 +165,7 @@
       "prob_seed_6": 0.1017,
       "prob_seed_7": 0.1298,
       "prob_seed_8": 0.1408,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -185,7 +185,7 @@
       "prob_seed_6": 0.0536,
       "prob_seed_7": 0.075,
       "prob_seed_8": 0.1055,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -205,7 +205,7 @@
       "prob_seed_6": 0.0457,
       "prob_seed_7": 0.0661,
       "prob_seed_8": 0.0996,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -225,7 +225,7 @@
       "prob_seed_6": 0.0321,
       "prob_seed_7": 0.0522,
       "prob_seed_8": 0.0857,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -245,7 +245,7 @@
       "prob_seed_6": 0.0225,
       "prob_seed_7": 0.038,
       "prob_seed_8": 0.0628,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -265,7 +265,7 @@
       "prob_seed_6": 0.0175,
       "prob_seed_7": 0.029,
       "prob_seed_8": 0.0482,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -285,7 +285,7 @@
       "prob_seed_6": 0.006,
       "prob_seed_7": 0.0152,
       "prob_seed_8": 0.0275,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -305,7 +305,7 @@
       "prob_seed_6": 0.0012,
       "prob_seed_7": 0.0039,
       "prob_seed_8": 0.0085,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -325,7 +325,7 @@
       "prob_seed_6": 0.0597,
       "prob_seed_7": 0.042,
       "prob_seed_8": 0.0249,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -345,7 +345,7 @@
       "prob_seed_6": 0.0745,
       "prob_seed_7": 0.0585,
       "prob_seed_8": 0.0416,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -365,7 +365,7 @@
       "prob_seed_6": 0.0813,
       "prob_seed_7": 0.0644,
       "prob_seed_8": 0.0487,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -385,7 +385,7 @@
       "prob_seed_6": 0.1035,
       "prob_seed_7": 0.0828,
       "prob_seed_8": 0.0639,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -405,7 +405,7 @@
       "prob_seed_6": 0.1129,
       "prob_seed_7": 0.1103,
       "prob_seed_8": 0.0946,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -425,7 +425,7 @@
       "prob_seed_6": 0.1179,
       "prob_seed_7": 0.1176,
       "prob_seed_8": 0.1073,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -445,7 +445,7 @@
       "prob_seed_6": 0.1155,
       "prob_seed_7": 0.1106,
       "prob_seed_8": 0.1064,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -465,7 +465,7 @@
       "prob_seed_6": 0.1089,
       "prob_seed_7": 0.1176,
       "prob_seed_8": 0.1156,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -485,7 +485,7 @@
       "prob_seed_6": 0.0852,
       "prob_seed_7": 0.1011,
       "prob_seed_8": 0.1193,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -505,7 +505,7 @@
       "prob_seed_6": 0.061,
       "prob_seed_7": 0.0821,
       "prob_seed_8": 0.1151,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -525,7 +525,7 @@
       "prob_seed_6": 0.0594,
       "prob_seed_7": 0.079,
       "prob_seed_8": 0.1042,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -545,7 +545,7 @@
       "prob_seed_6": 0.0146,
       "prob_seed_7": 0.0242,
       "prob_seed_8": 0.0355,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -565,7 +565,7 @@
       "prob_seed_6": 0.004,
       "prob_seed_7": 0.0081,
       "prob_seed_8": 0.0155,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -585,7 +585,7 @@
       "prob_seed_6": 0.0013,
       "prob_seed_7": 0.0014,
       "prob_seed_8": 0.0057,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     },
     {
@@ -605,7 +605,7 @@
       "prob_seed_6": 0.0003,
       "prob_seed_7": 0.0003,
       "prob_seed_8": 0.0017,
-      "generated_at": "2026-11-19T09:04:38+00:00",
+      "generated_at": "2026-11-19T14:50:09+00:00",
       "model_version": "0.1.0-phase1"
     }
   ]
