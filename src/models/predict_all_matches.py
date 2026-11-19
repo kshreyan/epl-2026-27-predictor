@@ -369,6 +369,7 @@ def predict_fixtures(
             }
 
         market_blend_applied = False
+        blended = None
         fixture_odds = match_odds_by_id.get(fx["match_id"])
         if ctx.get("market_blend_significant") and fixture_odds is not None:
             model_tuple = (calibrated["home_win"], calibrated["draw"], calibrated["away_win"])
@@ -378,8 +379,15 @@ def predict_fixtures(
                 fixture_odds["away_implied_probability_no_vig"],
             )
             bh, bd, ba = log_odds_average([model_tuple, market_tuple])
-            calibrated = {"home_win": bh, "draw": bd, "away_win": ba}
+            blended = {"home_win": bh, "draw": bd, "away_win": ba}
             market_blend_applied = True
+        # Never overwrite `calibrated` itself -- it's the real model-only
+        # value written to the *_model_only columns below. `effective`
+        # is whichever of the two a downstream pick should actually act
+        # on (the blended probability when a real blend happened, the
+        # same calibrated dict otherwise) -- same discipline
+        # predict_team_sport_matches.py already holds itself to.
+        effective = blended if blended is not None else calibrated
 
         pred_ij = max(
             ((i, j) for i in range(matrix.shape[0]) for j in range(matrix.shape[1])),
@@ -421,18 +429,18 @@ def predict_fixtures(
             away_cover_prob = 1.0 - home_cover_prob
             handicap_blend_applied = True
 
-        confidence = max(calibrated.values())
+        confidence = max(effective.values())
         upset_risk = round(1 - confidence, 4)
 
         # A single, explicit pick per market -- whichever side each
-        # market's own (blend-aware, since the variables above already
-        # hold the blended probability when a blend was applied)
-        # probability favors. moneyline_pick uses the aggregated 1X2
-        # probabilities directly, not predicted_result (the single most
-        # likely exact scoreline), since those can genuinely disagree
-        # in a close match and the aggregated probability is the
-        # correct basis for a 1X2 pick.
-        moneyline_pick_value = moneyline_pick(calibrated["home_win"], calibrated["draw"], calibrated["away_win"], home, away)
+        # market's own (blend-aware -- `effective` holds the blended
+        # probability when a blend was applied, the same calibrated
+        # dict otherwise) probability favors. moneyline_pick uses the
+        # aggregated 1X2 probabilities directly, not predicted_result
+        # (the single most likely exact scoreline), since those can
+        # genuinely disagree in a close match and the aggregated
+        # probability is the correct basis for a 1X2 pick.
+        moneyline_pick_value = moneyline_pick(effective["home_win"], effective["draw"], effective["away_win"], home, away)
         btts_pick_value = btts_pick(btts_yes)
         totals_pick_value = totals_pick(over_prob, total_line)
         spread_pick_value = spread_pick(home_cover_prob, handicap_line, home, away)
@@ -459,7 +467,9 @@ def predict_fixtures(
             "dc_raw_home_win_prob": round(raw_h, 4),
             "dc_raw_draw_prob": round(raw_d, 4),
             "dc_raw_away_win_prob": round(raw_a, 4),
-            "home_win_prob_market_integrated": "", "draw_prob_market_integrated": "", "away_win_prob_market_integrated": "",
+            "home_win_prob_market_integrated": round(blended["home_win"], 4) if blended is not None else "",
+            "draw_prob_market_integrated": round(blended["draw"], 4) if blended is not None else "",
+            "away_win_prob_market_integrated": round(blended["away_win"], 4) if blended is not None else "",
             "top_10_scorelines_model_only_json": json.dumps(top10),
             "top_10_scorelines_market_integrated_json": "",
             "btts_yes_prob_model_only": round(btts_yes, 4), "btts_no_prob_model_only": round(btts_no, 4),
@@ -470,7 +480,7 @@ def predict_fixtures(
             "handicap_line_model_only": handicap_line,
             "home_cover_prob_model_only": round(home_cover_prob, 4), "away_cover_prob_model_only": round(away_cover_prob, 4),
             "handicap_blend_applied": handicap_blend_applied, "spread_pick": spread_pick_value,
-            "market_available": False, "closing_market_available": False,
+            "market_available": fixture_odds is not None, "closing_market_available": False,
             "market_blend_applied": market_blend_applied,
             "squad_data_available": False, "injury_data_available": False, "lineup_data_available": False,
             "home_key_absences_count": "", "away_key_absences_count": "",
