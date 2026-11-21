@@ -1,6 +1,6 @@
 {
   "league": "la_liga",
-  "generated_at": "2026-11-20T14:30:14+00:00",
+  "generated_at": "2026-11-21T08:06:32+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 380,
@@ -1923,7 +1923,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_121_DeportivoAlav\u00e9s_RCDeportivo",
@@ -1939,7 +1939,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_122_AthleticClub_RCDEspanyoldeBarcelona",
@@ -1955,7 +1955,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_123_FCBarcelona_VillarrealCF",
@@ -1971,7 +1971,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_124_GetafeCF_Atl\u00e9ticodeMadrid",
@@ -1987,7 +1987,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_125_LevanteUD_ElcheCF",
@@ -2003,7 +2003,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_126_CAOsasuna_M\u00e1lagaCF",
@@ -2019,7 +2019,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_127_R.RacingClub_RealSociedad",
@@ -2035,7 +2035,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_128_RayoVallecano_ValenciaCF",
@@ -2051,7 +2051,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_129_RealMadrid_CeltaVigo",
@@ -2067,7 +2067,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW13_130_SevillaFC_RealBetis",
@@ -2083,7 +2083,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_131_RealBetis_RayoVallecano",
@@ -2099,7 +2099,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_132_CeltaVigo_VillarrealCF",
@@ -2115,7 +2115,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_133_RCDeportivo_FCBarcelona",
@@ -2131,7 +2131,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_134_ElcheCF_Atl\u00e9ticodeMadrid",
@@ -2147,7 +2147,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_135_RCDEspanyoldeBarcelona_GetafeCF",
@@ -2163,7 +2163,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_136_LevanteUD_R.RacingClub",
@@ -2179,7 +2179,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_137_M\u00e1lagaCF_AthleticClub",
@@ -2195,7 +2195,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_138_RealMadrid_DeportivoAlav\u00e9s",
@@ -2211,7 +2211,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_139_RealSociedad_SevillaFC",
@@ -2227,7 +2227,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW14_140_ValenciaCF_CAOsasuna",
@@ -2243,7 +2243,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_141_DeportivoAlav\u00e9s_RCDEspanyoldeBarcelona",
@@ -2259,7 +2259,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_142_AthleticClub_RealMadrid",
@@ -2275,7 +2275,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_143_Atl\u00e9ticodeMadrid_RealBetis",
@@ -2291,7 +2291,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_144_FCBarcelona_CeltaVigo",
@@ -2307,7 +2307,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_145_GetafeCF_ValenciaCF",
@@ -2323,7 +2323,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_146_CAOsasuna_ElcheCF",
@@ -2339,7 +2339,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_147_R.RacingClub_RCDeportivo",
@@ -2355,7 +2355,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_148_RayoVallecano_LevanteUD",
@@ -2371,7 +2371,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_149_SevillaFC_M\u00e1lagaCF",
@@ -2387,7 +2387,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW15_150_VillarrealCF_RealSociedad",
@@ -2403,7 +2403,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_151_Atl\u00e9ticodeMadrid_ValenciaCF",
@@ -2419,7 +2419,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_152_RealBetis_R.RacingClub",
@@ -2435,7 +2435,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_153_RCDeportivo_AthleticClub",
@@ -2451,7 +2451,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_154_ElcheCF_SevillaFC",
@@ -2467,7 +2467,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_155_RCDEspanyoldeBarcelona_CeltaVigo",
@@ -2483,7 +2483,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_156_LevanteUD_DeportivoAlav\u00e9s",
@@ -2499,7 +2499,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_157_M\u00e1lagaCF_FCBarcelona",
@@ -2515,7 +2515,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_158_RealMadrid_CAOsasuna",
@@ -2531,7 +2531,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_159_RealSociedad_GetafeCF",
@@ -2547,7 +2547,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW16_160_VillarrealCF_RayoVallecano",
@@ -2563,7 +2563,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_161_DeportivoAlav\u00e9s_ElcheCF",
@@ -2579,7 +2579,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_162_AthleticClub_RealBetis",
@@ -2595,7 +2595,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_163_CeltaVigo_Atl\u00e9ticodeMadrid",
@@ -2611,7 +2611,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_164_RCDeportivo_RealMadrid",
@@ -2627,7 +2627,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_165_FCBarcelona_RealSociedad",
@@ -2643,7 +2643,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_166_GetafeCF_LevanteUD",
@@ -2659,7 +2659,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_167_CAOsasuna_VillarrealCF",
@@ -2675,7 +2675,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_168_RayoVallecano_M\u00e1lagaCF",
@@ -2691,7 +2691,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_169_SevillaFC_R.RacingClub",
@@ -2707,7 +2707,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW17_170_ValenciaCF_RCDEspanyoldeBarcelona",
@@ -2723,7 +2723,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_171_RealBetis_DeportivoAlav\u00e9s",
@@ -2739,7 +2739,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_172_CeltaVigo_RCDeportivo",
@@ -2755,7 +2755,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_173_RCDEspanyoldeBarcelona_FCBarcelona",
@@ -2771,7 +2771,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_174_LevanteUD_ValenciaCF",
@@ -2787,7 +2787,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_175_M\u00e1lagaCF_ElcheCF",
@@ -2803,7 +2803,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_176_R.RacingClub_AthleticClub",
@@ -2819,7 +2819,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_177_RayoVallecano_Atl\u00e9ticodeMadrid",
@@ -2835,7 +2835,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_178_RealMadrid_GetafeCF",
@@ -2851,7 +2851,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_179_RealSociedad_CAOsasuna",
@@ -2867,7 +2867,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW18_180_VillarrealCF_SevillaFC",
@@ -2883,7 +2883,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_181_DeportivoAlav\u00e9s_RealSociedad",
@@ -2899,7 +2899,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_182_AthleticClub_VillarrealCF",
@@ -2915,7 +2915,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_183_Atl\u00e9ticodeMadrid_R.RacingClub",
@@ -2931,7 +2931,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_184_RCDeportivo_RayoVallecano",
@@ -2947,7 +2947,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_185_ElcheCF_GetafeCF",
@@ -2963,7 +2963,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_186_RCDEspanyoldeBarcelona_RealBetis",
@@ -2979,7 +2979,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_187_CAOsasuna_FCBarcelona",
@@ -2995,7 +2995,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_188_RealMadrid_LevanteUD",
@@ -3011,7 +3011,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_189_SevillaFC_CeltaVigo",
@@ -3027,7 +3027,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW19_190_ValenciaCF_M\u00e1lagaCF",
@@ -3043,7 +3043,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_191_Atl\u00e9ticodeMadrid_RealSociedad",
@@ -3059,7 +3059,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_192_RealBetis_RCDeportivo",
@@ -3075,7 +3075,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_193_CeltaVigo_ValenciaCF",
@@ -3091,7 +3091,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_194_FCBarcelona_ElcheCF",
@@ -3107,7 +3107,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_195_GetafeCF_AthleticClub",
@@ -3123,7 +3123,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_196_LevanteUD_RCDEspanyoldeBarcelona",
@@ -3139,7 +3139,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_197_M\u00e1lagaCF_RealMadrid",
@@ -3155,7 +3155,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_198_R.RacingClub_CAOsasuna",
@@ -3171,7 +3171,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_199_RayoVallecano_SevillaFC",
@@ -3187,7 +3187,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW20_200_VillarrealCF_DeportivoAlav\u00e9s",
@@ -3203,7 +3203,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_201_DeportivoAlav\u00e9s_FCBarcelona",
@@ -3219,7 +3219,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_202_AthleticClub_LevanteUD",
@@ -3235,7 +3235,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_203_RCDeportivo_Atl\u00e9ticodeMadrid",
@@ -3251,7 +3251,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_204_ElcheCF_RayoVallecano",
@@ -3267,7 +3267,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_205_RCDEspanyoldeBarcelona_VillarrealCF",
@@ -3283,7 +3283,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_206_GetafeCF_CAOsasuna",
@@ -3299,7 +3299,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_207_R.RacingClub_CeltaVigo",
@@ -3315,7 +3315,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_208_RealMadrid_RealBetis",
@@ -3331,7 +3331,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_209_RealSociedad_M\u00e1lagaCF",
@@ -3347,7 +3347,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW21_210_ValenciaCF_SevillaFC",
@@ -3363,7 +3363,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_211_Atl\u00e9ticodeMadrid_RCDEspanyoldeBarcelona",
@@ -3379,7 +3379,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_212_RealBetis_ElcheCF",
@@ -3395,7 +3395,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_213_CeltaVigo_GetafeCF",
@@ -3411,7 +3411,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_214_FCBarcelona_ValenciaCF",
@@ -3427,7 +3427,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_215_LevanteUD_RealSociedad",
@@ -3443,7 +3443,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_216_M\u00e1lagaCF_DeportivoAlav\u00e9s",
@@ -3459,7 +3459,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_217_CAOsasuna_RCDeportivo",
@@ -3475,7 +3475,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_218_RayoVallecano_RealMadrid",
@@ -3491,7 +3491,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_219_SevillaFC_AthleticClub",
@@ -3507,7 +3507,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW22_220_VillarrealCF_R.RacingClub",
@@ -3523,7 +3523,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_221_DeportivoAlav\u00e9s_CeltaVigo",
@@ -3539,7 +3539,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_222_AthleticClub_CAOsasuna",
@@ -3555,7 +3555,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_223_RealBetis_SevillaFC",
@@ -3571,7 +3571,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_224_RCDeportivo_M\u00e1lagaCF",
@@ -3587,7 +3587,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_225_ElcheCF_LevanteUD",
@@ -3603,7 +3603,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_226_RCDEspanyoldeBarcelona_RayoVallecano",
@@ -3619,7 +3619,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_227_FCBarcelona_Atl\u00e9ticodeMadrid",
@@ -3635,7 +3635,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_228_GetafeCF_VillarrealCF",
@@ -3651,7 +3651,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_229_RealSociedad_RealMadrid",
@@ -3667,7 +3667,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW23_230_ValenciaCF_R.RacingClub",
@@ -3683,7 +3683,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_231_CeltaVigo_RayoVallecano",
@@ -3699,7 +3699,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_232_ElcheCF_RCDeportivo",
@@ -3707,7 +3707,7 @@
       "away_team": "RC Deportivo",
       "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.46 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
-      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.00 expected goals).",
+      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.99 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.291, low-score correlation rho=-0.051.",
       "market_disagreement_explanation": "No real market odds available for this fixture yet -- model-only prediction.",
       "squad_injury_explanation": "Established club vs promoted club; no verified injury/lineup feed connected, so squad_injury factors are not incorporated (see data_quality_notes).",
@@ -3715,7 +3715,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_233_LevanteUD_M\u00e1lagaCF",
@@ -3731,7 +3731,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_234_CAOsasuna_Atl\u00e9ticodeMadrid",
@@ -3747,7 +3747,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_235_R.RacingClub_GetafeCF",
@@ -3763,7 +3763,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_236_RealMadrid_AthleticClub",
@@ -3779,7 +3779,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_237_RealSociedad_RealBetis",
@@ -3795,7 +3795,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_238_SevillaFC_RCDEspanyoldeBarcelona",
@@ -3811,7 +3811,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_239_ValenciaCF_DeportivoAlav\u00e9s",
@@ -3827,7 +3827,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW24_240_VillarrealCF_FCBarcelona",
@@ -3843,7 +3843,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_241_DeportivoAlav\u00e9s_R.RacingClub",
@@ -3859,7 +3859,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_242_AthleticClub_CeltaVigo",
@@ -3875,7 +3875,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_243_Atl\u00e9ticodeMadrid_ElcheCF",
@@ -3891,7 +3891,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_244_RCDeportivo_RealSociedad",
@@ -3907,7 +3907,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_245_RCDEspanyoldeBarcelona_CAOsasuna",
@@ -3923,7 +3923,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_246_FCBarcelona_LevanteUD",
@@ -3939,7 +3939,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_247_M\u00e1lagaCF_RealBetis",
@@ -3955,7 +3955,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_248_RayoVallecano_GetafeCF",
@@ -3971,7 +3971,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_249_SevillaFC_RealMadrid",
@@ -3987,7 +3987,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW25_250_VillarrealCF_ValenciaCF",
@@ -4003,7 +4003,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_251_AthleticClub_FCBarcelona",
@@ -4019,7 +4019,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_252_RealBetis_VillarrealCF",
@@ -4035,7 +4035,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_253_CeltaVigo_RCDEspanyoldeBarcelona",
@@ -4051,7 +4051,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_254_GetafeCF_DeportivoAlav\u00e9s",
@@ -4067,7 +4067,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_255_LevanteUD_RCDeportivo",
@@ -4083,7 +4083,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_256_M\u00e1lagaCF_Atl\u00e9ticodeMadrid",
@@ -4099,7 +4099,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_257_CAOsasuna_SevillaFC",
@@ -4115,7 +4115,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_258_R.RacingClub_RayoVallecano",
@@ -4131,7 +4131,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_259_RealMadrid_ValenciaCF",
@@ -4147,7 +4147,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW26_260_RealSociedad_ElcheCF",
@@ -4163,7 +4163,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_261_DeportivoAlav\u00e9s_AthleticClub",
@@ -4179,7 +4179,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_262_Atl\u00e9ticodeMadrid_CeltaVigo",
@@ -4195,7 +4195,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_263_RCDeportivo_GetafeCF",
@@ -4211,7 +4211,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_264_ElcheCF_M\u00e1lagaCF",
@@ -4227,7 +4227,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_265_RCDEspanyoldeBarcelona_R.RacingClub",
@@ -4243,7 +4243,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_266_FCBarcelona_RealBetis",
@@ -4259,7 +4259,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_267_RayoVallecano_CAOsasuna",
@@ -4275,7 +4275,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_268_SevillaFC_RealSociedad",
@@ -4291,7 +4291,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_269_ValenciaCF_LevanteUD",
@@ -4307,7 +4307,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW27_270_VillarrealCF_RealMadrid",
@@ -4323,7 +4323,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_271_DeportivoAlav\u00e9s_SevillaFC",
@@ -4339,7 +4339,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_272_AthleticClub_ValenciaCF",
@@ -4355,7 +4355,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_273_RealBetis_LevanteUD",
@@ -4371,7 +4371,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_274_ElcheCF_VillarrealCF",
@@ -4387,7 +4387,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_275_FCBarcelona_RCDeportivo",
@@ -4403,7 +4403,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_276_GetafeCF_RealSociedad",
@@ -4419,7 +4419,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_277_M\u00e1lagaCF_RayoVallecano",
@@ -4435,7 +4435,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_278_CAOsasuna_CeltaVigo",
@@ -4451,7 +4451,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_279_R.RacingClub_Atl\u00e9ticodeMadrid",
@@ -4467,7 +4467,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW28_280_RealMadrid_RCDEspanyoldeBarcelona",
@@ -4483,7 +4483,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_281_Atl\u00e9ticodeMadrid_GetafeCF",
@@ -4499,7 +4499,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_282_CeltaVigo_RealMadrid",
@@ -4515,7 +4515,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_283_RCDEspanyoldeBarcelona_AthleticClub",
@@ -4531,7 +4531,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_284_LevanteUD_CAOsasuna",
@@ -4547,7 +4547,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_285_R.RacingClub_RealBetis",
@@ -4563,7 +4563,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_286_RayoVallecano_FCBarcelona",
@@ -4579,7 +4579,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_287_RealSociedad_DeportivoAlav\u00e9s",
@@ -4595,7 +4595,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_288_SevillaFC_ElcheCF",
@@ -4611,7 +4611,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_289_ValenciaCF_RCDeportivo",
@@ -4627,7 +4627,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW29_290_VillarrealCF_M\u00e1lagaCF",
@@ -4643,7 +4643,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_291_AthleticClub_R.RacingClub",
@@ -4659,7 +4659,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_292_RealBetis_CeltaVigo",
@@ -4675,7 +4675,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_293_RCDeportivo_VillarrealCF",
@@ -4691,7 +4691,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_294_ElcheCF_DeportivoAlav\u00e9s",
@@ -4707,7 +4707,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_295_FCBarcelona_SevillaFC",
@@ -4723,7 +4723,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_296_GetafeCF_RCDEspanyoldeBarcelona",
@@ -4739,7 +4739,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_297_LevanteUD_RayoVallecano",
@@ -4755,7 +4755,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_298_M\u00e1lagaCF_CAOsasuna",
@@ -4771,7 +4771,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_299_RealMadrid_Atl\u00e9ticodeMadrid",
@@ -4787,7 +4787,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW30_300_RealSociedad_ValenciaCF",
@@ -4803,7 +4803,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_301_DeportivoAlav\u00e9s_RealBetis",
@@ -4819,7 +4819,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_302_Atl\u00e9ticodeMadrid_LevanteUD",
@@ -4835,7 +4835,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_303_CeltaVigo_ElcheCF",
@@ -4851,7 +4851,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_304_RCDEspanyoldeBarcelona_M\u00e1lagaCF",
@@ -4867,7 +4867,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_305_CAOsasuna_RealMadrid",
@@ -4883,7 +4883,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_306_R.RacingClub_FCBarcelona",
@@ -4899,7 +4899,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_307_RayoVallecano_RealSociedad",
@@ -4915,7 +4915,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_308_SevillaFC_RCDeportivo",
@@ -4931,7 +4931,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_309_ValenciaCF_GetafeCF",
@@ -4947,7 +4947,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW31_310_VillarrealCF_AthleticClub",
@@ -4963,7 +4963,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_311_DeportivoAlav\u00e9s_RayoVallecano",
@@ -4979,7 +4979,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_312_Atl\u00e9ticodeMadrid_SevillaFC",
@@ -4995,7 +4995,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_313_RealBetis_AthleticClub",
@@ -5011,7 +5011,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_314_RCDeportivo_CeltaVigo",
@@ -5027,7 +5027,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_315_ElcheCF_CAOsasuna",
@@ -5043,7 +5043,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_316_FCBarcelona_RCDEspanyoldeBarcelona",
@@ -5059,7 +5059,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_317_GetafeCF_RealMadrid",
@@ -5075,7 +5075,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_318_LevanteUD_VillarrealCF",
@@ -5091,7 +5091,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_319_M\u00e1lagaCF_ValenciaCF",
@@ -5107,7 +5107,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW32_320_RealSociedad_R.RacingClub",
@@ -5123,7 +5123,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_321_AthleticClub_RCDeportivo",
@@ -5139,7 +5139,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_322_CeltaVigo_FCBarcelona",
@@ -5155,7 +5155,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_323_RCDEspanyoldeBarcelona_RealSociedad",
@@ -5171,7 +5171,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_324_GetafeCF_RealBetis",
@@ -5187,7 +5187,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_325_CAOsasuna_DeportivoAlav\u00e9s",
@@ -5203,7 +5203,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_326_R.RacingClub_M\u00e1lagaCF",
@@ -5219,13 +5219,13 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_327_RealMadrid_ElcheCF",
       "home_team": "Real Madrid",
       "away_team": "Elche CF",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.73 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.72 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.70 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.291, low-score correlation rho=-0.051.",
@@ -5235,7 +5235,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_328_SevillaFC_LevanteUD",
@@ -5251,7 +5251,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_329_ValenciaCF_RayoVallecano",
@@ -5267,7 +5267,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW33_330_VillarrealCF_Atl\u00e9ticodeMadrid",
@@ -5283,7 +5283,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_331_Atl\u00e9ticodeMadrid_DeportivoAlav\u00e9s",
@@ -5299,7 +5299,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_332_RealBetis_ValenciaCF",
@@ -5315,7 +5315,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_333_CeltaVigo_SevillaFC",
@@ -5331,7 +5331,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_334_RCDeportivo_R.RacingClub",
@@ -5347,7 +5347,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_335_ElcheCF_RCDEspanyoldeBarcelona",
@@ -5363,7 +5363,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_336_FCBarcelona_CAOsasuna",
@@ -5379,7 +5379,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_337_LevanteUD_RealMadrid",
@@ -5395,7 +5395,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_338_M\u00e1lagaCF_GetafeCF",
@@ -5411,7 +5411,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_339_RayoVallecano_VillarrealCF",
@@ -5427,7 +5427,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW34_340_RealSociedad_AthleticClub",
@@ -5443,7 +5443,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_341_DeportivoAlav\u00e9s_LevanteUD",
@@ -5459,7 +5459,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_342_AthleticClub_M\u00e1lagaCF",
@@ -5475,7 +5475,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_343_RealBetis_RCDEspanyoldeBarcelona",
@@ -5491,7 +5491,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_344_GetafeCF_ElcheCF",
@@ -5507,7 +5507,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_345_CAOsasuna_RealSociedad",
@@ -5523,7 +5523,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_346_R.RacingClub_SevillaFC",
@@ -5539,7 +5539,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_347_RayoVallecano_RCDeportivo",
@@ -5555,7 +5555,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_348_RealMadrid_FCBarcelona",
@@ -5571,7 +5571,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_349_ValenciaCF_Atl\u00e9ticodeMadrid",
@@ -5587,7 +5587,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW35_350_VillarrealCF_CeltaVigo",
@@ -5603,7 +5603,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_351_Atl\u00e9ticodeMadrid_RayoVallecano",
@@ -5619,7 +5619,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_352_RCDeportivo_DeportivoAlav\u00e9s",
@@ -5635,7 +5635,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_353_ElcheCF_AthleticClub",
@@ -5651,7 +5651,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_354_RCDEspanyoldeBarcelona_ValenciaCF",
@@ -5667,7 +5667,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_355_LevanteUD_GetafeCF",
@@ -5683,7 +5683,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_356_M\u00e1lagaCF_CeltaVigo",
@@ -5699,7 +5699,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_357_CAOsasuna_RealBetis",
@@ -5715,7 +5715,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_358_RealMadrid_R.RacingClub",
@@ -5731,7 +5731,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_359_RealSociedad_FCBarcelona",
@@ -5747,7 +5747,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW36_360_SevillaFC_VillarrealCF",
@@ -5763,7 +5763,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_361_DeportivoAlav\u00e9s_RealMadrid",
@@ -5779,7 +5779,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_362_Atl\u00e9ticodeMadrid_AthleticClub",
@@ -5795,7 +5795,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_363_CeltaVigo_RealSociedad",
@@ -5811,7 +5811,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_364_RCDeportivo_RCDEspanyoldeBarcelona",
@@ -5827,7 +5827,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_365_FCBarcelona_M\u00e1lagaCF",
@@ -5843,7 +5843,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_366_R.RacingClub_LevanteUD",
@@ -5859,7 +5859,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_367_RayoVallecano_RealBetis",
@@ -5875,7 +5875,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_368_SevillaFC_GetafeCF",
@@ -5891,7 +5891,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_369_ValenciaCF_ElcheCF",
@@ -5907,7 +5907,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW37_370_VillarrealCF_CAOsasuna",
@@ -5923,7 +5923,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_371_AthleticClub_RayoVallecano",
@@ -5939,7 +5939,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_372_RealBetis_Atl\u00e9ticodeMadrid",
@@ -5955,7 +5955,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_373_ElcheCF_R.RacingClub",
@@ -5971,7 +5971,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_374_RCDEspanyoldeBarcelona_DeportivoAlav\u00e9s",
@@ -5987,7 +5987,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_375_GetafeCF_FCBarcelona",
@@ -6003,7 +6003,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_376_LevanteUD_CeltaVigo",
@@ -6019,7 +6019,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_377_M\u00e1lagaCF_SevillaFC",
@@ -6035,7 +6035,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_378_CAOsasuna_ValenciaCF",
@@ -6051,7 +6051,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_379_RealMadrid_RCDeportivo",
@@ -6067,7 +6067,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see la_liga_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     },
     {
       "match_id": "LALIGA2627_MW38_380_RealSociedad_VillarrealCF",
@@ -6083,7 +6083,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent La Liga history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:48+00:00"
+      "generated_at": "2026-11-21T08:03:45+00:00"
     }
   ]
 }

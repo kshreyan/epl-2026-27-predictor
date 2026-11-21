@@ -1,6 +1,6 @@
 {
   "league": "serie_a",
-  "generated_at": "2026-11-20T14:30:14+00:00",
+  "generated_at": "2026-11-21T08:06:32+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 380,
@@ -1779,7 +1779,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_115_Lazio_Lecce",
@@ -1795,7 +1795,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_119_Parma_Roma",
@@ -1811,7 +1811,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_118_Napoli_Torino",
@@ -1827,7 +1827,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_120_Sassuolo_Genoa",
@@ -1843,7 +1843,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_116_Milan_Frosinone",
@@ -1859,7 +1859,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_112_Bologna_Udinese",
@@ -1875,7 +1875,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_111_Atalanta_Internazionale",
@@ -1891,7 +1891,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_117_Monza_Fiorentina",
@@ -1907,7 +1907,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW12_114_Juventus_Venezia",
@@ -1923,7 +1923,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_121_Cagliari_Milan",
@@ -1939,7 +1939,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_122_Como_Juventus",
@@ -1955,7 +1955,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_123_Frosinone_Parma",
@@ -1971,7 +1971,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_124_Internazionale_Genoa",
@@ -1987,7 +1987,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_125_Lecce_Atalanta",
@@ -2003,7 +2003,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_126_Roma_Monza",
@@ -2019,7 +2019,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_127_Sassuolo_Napoli",
@@ -2035,7 +2035,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_128_Torino_Lazio",
@@ -2051,7 +2051,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_129_Udinese_Fiorentina",
@@ -2067,7 +2067,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW13_130_Venezia_Bologna",
@@ -2083,7 +2083,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_131_Bologna_Roma",
@@ -2099,7 +2099,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_132_Fiorentina_Cagliari",
@@ -2115,7 +2115,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_133_Frosinone_Internazionale",
@@ -2131,7 +2131,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_134_Genoa_Torino",
@@ -2147,7 +2147,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_135_Juventus_Udinese",
@@ -2163,7 +2163,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_136_Lazio_Atalanta",
@@ -2179,7 +2179,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_137_Milan_Parma",
@@ -2195,7 +2195,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_138_Monza_Como",
@@ -2211,7 +2211,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_139_Napoli_Lecce",
@@ -2227,7 +2227,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW14_140_Venezia_Sassuolo",
@@ -2243,7 +2243,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_141_Atalanta_Genoa",
@@ -2259,7 +2259,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_142_Cagliari_Venezia",
@@ -2275,7 +2275,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_143_Como_Bologna",
@@ -2291,7 +2291,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_144_Internazionale_Torino",
@@ -2307,7 +2307,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_145_Juventus_Monza",
@@ -2323,7 +2323,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_146_Lazio_Roma",
@@ -2339,7 +2339,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_147_Lecce_Sassuolo",
@@ -2355,7 +2355,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_148_Napoli_Milan",
@@ -2371,7 +2371,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_149_Parma_Fiorentina",
@@ -2387,7 +2387,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW15_150_Udinese_Frosinone",
@@ -2403,7 +2403,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_151_Atalanta_Napoli",
@@ -2419,7 +2419,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_152_Fiorentina_Bologna",
@@ -2435,7 +2435,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_153_Frosinone_Lazio",
@@ -2451,7 +2451,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_154_Genoa_Udinese",
@@ -2467,7 +2467,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_155_Lecce_Internazionale",
@@ -2483,7 +2483,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_156_Milan_Como",
@@ -2499,7 +2499,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_157_Roma_Juventus",
@@ -2515,7 +2515,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_158_Sassuolo_Parma",
@@ -2531,7 +2531,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_159_Torino_Cagliari",
@@ -2547,7 +2547,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW16_160_Venezia_Monza",
@@ -2563,7 +2563,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_161_Bologna_Juventus",
@@ -2579,7 +2579,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_162_Cagliari_Genoa",
@@ -2595,7 +2595,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_163_Como_Lecce",
@@ -2611,7 +2611,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_164_Fiorentina_Lazio",
@@ -2627,7 +2627,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_165_Internazionale_Sassuolo",
@@ -2643,7 +2643,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_166_Monza_Milan",
@@ -2659,7 +2659,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_167_Parma_Napoli",
@@ -2675,7 +2675,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_168_Roma_Frosinone",
@@ -2691,7 +2691,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_169_Torino_Venezia",
@@ -2707,7 +2707,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW17_170_Udinese_Atalanta",
@@ -2723,7 +2723,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_171_Atalanta_Como",
@@ -2739,7 +2739,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_172_Frosinone_Bologna",
@@ -2755,7 +2755,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_173_Genoa_Monza",
@@ -2771,7 +2771,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_174_Juventus_Torino",
@@ -2787,7 +2787,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_175_Lazio_Internazionale",
@@ -2803,7 +2803,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_176_Lecce_Parma",
@@ -2819,7 +2819,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_177_Milan_Fiorentina",
@@ -2835,7 +2835,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_178_Napoli_Cagliari",
@@ -2851,7 +2851,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_179_Sassuolo_Udinese",
@@ -2867,7 +2867,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW18_180_Venezia_Roma",
@@ -2883,7 +2883,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_181_Bologna_Genoa",
@@ -2899,7 +2899,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_182_Cagliari_Sassuolo",
@@ -2915,7 +2915,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_183_Como_Lazio",
@@ -2931,7 +2931,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_184_Fiorentina_Lecce",
@@ -2947,7 +2947,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_185_Internazionale_Juventus",
@@ -2963,7 +2963,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_186_Monza_Frosinone",
@@ -2979,7 +2979,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_187_Parma_Venezia",
@@ -2995,7 +2995,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_188_Roma_Milan",
@@ -3011,7 +3011,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_189_Torino_Atalanta",
@@ -3027,7 +3027,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW19_190_Udinese_Napoli",
@@ -3043,7 +3043,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_191_Atalanta_Roma",
@@ -3059,7 +3059,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_192_Cagliari_Como",
@@ -3075,7 +3075,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_193_Juventus_Genoa",
@@ -3091,7 +3091,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_194_Lazio_Bologna",
@@ -3107,7 +3107,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_195_Lecce_Udinese",
@@ -3123,7 +3123,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_196_Milan_Torino",
@@ -3139,7 +3139,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_197_Napoli_Fiorentina",
@@ -3155,7 +3155,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_198_Parma_Internazionale",
@@ -3171,7 +3171,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_199_Sassuolo_Monza",
@@ -3187,7 +3187,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW20_200_Venezia_Frosinone",
@@ -3203,7 +3203,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_201_Bologna_Atalanta",
@@ -3219,7 +3219,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_202_Como_Napoli",
@@ -3235,7 +3235,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_203_Fiorentina_Sassuolo",
@@ -3251,7 +3251,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_204_Frosinone_Milan",
@@ -3267,7 +3267,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_205_Genoa_Parma",
@@ -3283,7 +3283,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_206_Internazionale_Venezia",
@@ -3291,7 +3291,7 @@
       "away_team": "Venezia",
       "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=3.38 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
-      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.50 expected goals).",
+      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.51 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.097, low-score correlation rho=0.003.",
       "market_disagreement_explanation": "No real market odds available for this fixture yet -- model-only prediction.",
       "squad_injury_explanation": "Established club vs promoted club; no verified injury/lineup feed connected, so squad_injury factors are not incorporated (see data_quality_notes).",
@@ -3299,7 +3299,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_207_Juventus_Cagliari",
@@ -3315,7 +3315,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_208_Lecce_Torino",
@@ -3331,7 +3331,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_209_Monza_Lazio",
@@ -3347,7 +3347,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW21_210_Roma_Udinese",
@@ -3363,7 +3363,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_211_Atalanta_Fiorentina",
@@ -3379,7 +3379,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_212_Cagliari_Parma",
@@ -3395,7 +3395,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_213_Genoa_Lecce",
@@ -3411,7 +3411,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_214_Lazio_Venezia",
@@ -3427,7 +3427,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_215_Milan_Juventus",
@@ -3443,7 +3443,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_216_Monza_Roma",
@@ -3459,7 +3459,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_217_Napoli_Internazionale",
@@ -3475,7 +3475,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_218_Sassuolo_Como",
@@ -3491,7 +3491,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_219_Torino_Frosinone",
@@ -3507,7 +3507,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW22_220_Udinese_Bologna",
@@ -3523,7 +3523,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_221_Atalanta_Lazio",
@@ -3539,7 +3539,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_222_Bologna_Milan",
@@ -3555,7 +3555,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_223_Como_Monza",
@@ -3571,7 +3571,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_224_Fiorentina_Udinese",
@@ -3587,7 +3587,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_225_Internazionale_Cagliari",
@@ -3603,7 +3603,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_226_Juventus_Sassuolo",
@@ -3619,7 +3619,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_227_Lecce_Napoli",
@@ -3635,7 +3635,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_228_Parma_Frosinone",
@@ -3651,7 +3651,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_229_Roma_Torino",
@@ -3667,7 +3667,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW23_230_Venezia_Genoa",
@@ -3683,7 +3683,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_231_Bologna_Como",
@@ -3699,7 +3699,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_232_Cagliari_Lazio",
@@ -3715,7 +3715,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_233_Frosinone_Fiorentina",
@@ -3731,7 +3731,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_234_Genoa_Atalanta",
@@ -3747,7 +3747,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_235_Internazionale_Milan",
@@ -3763,7 +3763,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_236_Monza_Lecce",
@@ -3779,7 +3779,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_237_Napoli_Juventus",
@@ -3795,7 +3795,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_238_Roma_Parma",
@@ -3811,7 +3811,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_239_Torino_Sassuolo",
@@ -3827,7 +3827,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW24_240_Udinese_Venezia",
@@ -3843,7 +3843,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_241_Atalanta_Monza",
@@ -3859,7 +3859,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_242_Como_Torino",
@@ -3875,7 +3875,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_243_Fiorentina_Internazionale",
@@ -3891,7 +3891,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_244_Juventus_Bologna",
@@ -3907,7 +3907,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_245_Lazio_Napoli",
@@ -3923,7 +3923,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_246_Lecce_Frosinone",
@@ -3939,7 +3939,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_247_Milan_Genoa",
@@ -3955,7 +3955,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_248_Sassuolo_Roma",
@@ -3971,7 +3971,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_249_Udinese_Parma",
@@ -3987,7 +3987,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW25_250_Venezia_Cagliari",
@@ -4003,7 +4003,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_251_Bologna_Lecce",
@@ -4019,7 +4019,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_252_Cagliari_Udinese",
@@ -4035,7 +4035,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_253_Como_Milan",
@@ -4051,7 +4051,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_254_Frosinone_Napoli",
@@ -4067,7 +4067,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_255_Genoa_Lazio",
@@ -4083,7 +4083,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_256_Internazionale_Atalanta",
@@ -4099,7 +4099,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_257_Monza_Juventus",
@@ -4115,7 +4115,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_258_Parma_Sassuolo",
@@ -4131,7 +4131,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_259_Roma_Venezia",
@@ -4147,7 +4147,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW26_260_Torino_Fiorentina",
@@ -4163,7 +4163,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_261_Atalanta_Torino",
@@ -4179,7 +4179,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_262_Fiorentina_Venezia",
@@ -4195,7 +4195,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_263_Juventus_Roma",
@@ -4211,7 +4211,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_264_Lazio_Frosinone",
@@ -4227,7 +4227,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_265_Lecce_Como",
@@ -4243,7 +4243,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_266_Milan_Cagliari",
@@ -4259,7 +4259,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_267_Monza_Genoa",
@@ -4275,7 +4275,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_268_Napoli_Parma",
@@ -4291,7 +4291,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_269_Sassuolo_Bologna",
@@ -4307,7 +4307,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW27_270_Udinese_Internazionale",
@@ -4323,7 +4323,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_271_Bologna_Napoli",
@@ -4339,7 +4339,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_272_Cagliari_Fiorentina",
@@ -4355,7 +4355,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_273_Como_Udinese",
@@ -4371,7 +4371,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_274_Frosinone_Monza",
@@ -4387,7 +4387,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_275_Genoa_Roma",
@@ -4403,7 +4403,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_276_Lazio_Juventus",
@@ -4419,7 +4419,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_277_Milan_Sassuolo",
@@ -4435,7 +4435,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_278_Parma_Lecce",
@@ -4451,7 +4451,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_279_Torino_Internazionale",
@@ -4467,7 +4467,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW28_280_Venezia_Atalanta",
@@ -4483,7 +4483,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_281_Atalanta_Milan",
@@ -4499,7 +4499,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_282_Fiorentina_Genoa",
@@ -4515,7 +4515,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_283_Internazionale_Frosinone",
@@ -4531,7 +4531,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_284_Juventus_Como",
@@ -4547,7 +4547,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_285_Monza_Bologna",
@@ -4563,7 +4563,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_286_Napoli_Venezia",
@@ -4579,7 +4579,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_287_Parma_Lazio",
@@ -4595,7 +4595,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_288_Roma_Lecce",
@@ -4611,7 +4611,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_289_Sassuolo_Cagliari",
@@ -4627,7 +4627,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW29_290_Udinese_Torino",
@@ -4643,7 +4643,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_291_Cagliari_Napoli",
@@ -4659,7 +4659,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_292_Como_Fiorentina",
@@ -4675,7 +4675,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_293_Frosinone_Udinese",
@@ -4691,7 +4691,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_294_Genoa_Internazionale",
@@ -4707,7 +4707,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_295_Lecce_Lazio",
@@ -4723,7 +4723,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_296_Milan_Monza",
@@ -4739,7 +4739,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_297_Roma_Bologna",
@@ -4755,7 +4755,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_298_Sassuolo_Atalanta",
@@ -4771,7 +4771,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_299_Torino_Juventus",
@@ -4787,7 +4787,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW30_300_Venezia_Parma",
@@ -4795,7 +4795,7 @@
       "away_team": "Parma",
       "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=0.73 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
-      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.16 expected goals).",
+      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.15 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.097, low-score correlation rho=0.003.",
       "market_disagreement_explanation": "No real market odds available for this fixture yet -- model-only prediction.",
       "squad_injury_explanation": "Promoted club vs established club; no verified injury/lineup feed connected, so squad_injury factors are not incorporated (see data_quality_notes).",
@@ -4803,7 +4803,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_301_Bologna_Venezia",
@@ -4819,7 +4819,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_302_Cagliari_Atalanta",
@@ -4835,7 +4835,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_303_Fiorentina_Milan",
@@ -4851,7 +4851,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_304_Frosinone_Genoa",
@@ -4867,7 +4867,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_305_Internazionale_Roma",
@@ -4883,7 +4883,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_306_Juventus_Lecce",
@@ -4899,7 +4899,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_307_Lazio_Torino",
@@ -4915,13 +4915,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_308_Napoli_Sassuolo",
       "home_team": "Napoli",
       "away_team": "Sassuolo",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.18 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.17 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.94 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.097, low-score correlation rho=0.003.",
@@ -4931,7 +4931,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_309_Parma_Como",
@@ -4947,7 +4947,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW31_310_Udinese_Monza",
@@ -4963,7 +4963,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_311_Atalanta_Udinese",
@@ -4979,7 +4979,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_312_Bologna_Cagliari",
@@ -4995,13 +4995,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_313_Como_Frosinone",
       "home_team": "Como",
       "away_team": "Frosinone",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.30 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.29 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.07 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.097, low-score correlation rho=0.003.",
@@ -5011,7 +5011,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_314_Fiorentina_Parma",
@@ -5027,7 +5027,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_315_Milan_Napoli",
@@ -5043,7 +5043,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_316_Monza_Internazionale",
@@ -5059,7 +5059,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_317_Roma_Lazio",
@@ -5075,7 +5075,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_318_Sassuolo_Lecce",
@@ -5091,7 +5091,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_319_Torino_Genoa",
@@ -5107,7 +5107,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW32_320_Venezia_Juventus",
@@ -5123,7 +5123,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_321_Cagliari_Monza",
@@ -5139,7 +5139,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_322_Frosinone_Roma",
@@ -5155,7 +5155,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_323_Genoa_Sassuolo",
@@ -5171,7 +5171,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_324_Internazionale_Bologna",
@@ -5187,7 +5187,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_325_Juventus_Fiorentina",
@@ -5203,7 +5203,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_326_Lazio_Como",
@@ -5219,7 +5219,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_327_Lecce_Milan",
@@ -5235,7 +5235,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_328_Napoli_Udinese",
@@ -5251,7 +5251,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_329_Parma_Atalanta",
@@ -5267,7 +5267,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW33_330_Venezia_Torino",
@@ -5283,7 +5283,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_331_Atalanta_Juventus",
@@ -5299,7 +5299,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_332_Bologna_Fiorentina",
@@ -5315,7 +5315,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_333_Como_Internazionale",
@@ -5331,7 +5331,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_334_Lecce_Cagliari",
@@ -5347,7 +5347,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_335_Milan_Lazio",
@@ -5363,7 +5363,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_336_Monza_Venezia",
@@ -5379,7 +5379,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_337_Roma_Napoli",
@@ -5395,7 +5395,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_338_Sassuolo_Frosinone",
@@ -5411,7 +5411,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_339_Torino_Parma",
@@ -5427,7 +5427,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW34_340_Udinese_Genoa",
@@ -5443,7 +5443,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_341_Fiorentina_Roma",
@@ -5459,7 +5459,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_342_Frosinone_Atalanta",
@@ -5475,7 +5475,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_343_Genoa_Cagliari",
@@ -5491,7 +5491,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_344_Internazionale_Lecce",
@@ -5507,7 +5507,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_345_Lazio_Sassuolo",
@@ -5523,7 +5523,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_346_Napoli_Monza",
@@ -5539,7 +5539,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_347_Parma_Milan",
@@ -5555,7 +5555,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_348_Torino_Bologna",
@@ -5571,7 +5571,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_349_Udinese_Juventus",
@@ -5587,7 +5587,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW35_350_Venezia_Como",
@@ -5603,7 +5603,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_351_Bologna_Frosinone",
@@ -5619,7 +5619,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_352_Cagliari_Torino",
@@ -5635,7 +5635,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_353_Como_Atalanta",
@@ -5651,7 +5651,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_354_Juventus_Internazionale",
@@ -5667,7 +5667,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_355_Lazio_Udinese",
@@ -5683,7 +5683,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_356_Lecce_Fiorentina",
@@ -5699,7 +5699,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_357_Milan_Roma",
@@ -5715,7 +5715,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_358_Monza_Parma",
@@ -5731,7 +5731,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_359_Napoli_Genoa",
@@ -5747,7 +5747,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW36_360_Sassuolo_Venezia",
@@ -5755,7 +5755,7 @@
       "away_team": "Venezia",
       "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.93 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
-      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.87 expected goals).",
+      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.88 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.097, low-score correlation rho=0.003.",
       "market_disagreement_explanation": "No real market odds available for this fixture yet -- model-only prediction.",
       "squad_injury_explanation": "Established club vs promoted club; no verified injury/lineup feed connected, so squad_injury factors are not incorporated (see data_quality_notes).",
@@ -5763,7 +5763,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_361_Atalanta_Lecce",
@@ -5779,7 +5779,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_362_Fiorentina_Monza",
@@ -5795,7 +5795,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_363_Frosinone_Cagliari",
@@ -5811,7 +5811,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_364_Genoa_Bologna",
@@ -5827,7 +5827,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_365_Internazionale_Lazio",
@@ -5843,7 +5843,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_366_Parma_Juventus",
@@ -5859,7 +5859,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_367_Roma_Como",
@@ -5875,7 +5875,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_368_Torino_Napoli",
@@ -5891,7 +5891,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_369_Udinese_Sassuolo",
@@ -5907,7 +5907,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW37_370_Venezia_Milan",
@@ -5923,7 +5923,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_371_Bologna_Parma",
@@ -5939,7 +5939,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_372_Cagliari_Roma",
@@ -5955,7 +5955,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_373_Como_Genoa",
@@ -5971,7 +5971,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_374_Juventus_Frosinone",
@@ -5987,7 +5987,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_375_Lazio_Fiorentina",
@@ -6003,7 +6003,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_376_Lecce_Venezia",
@@ -6019,7 +6019,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_377_Milan_Udinese",
@@ -6035,7 +6035,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_378_Monza_Torino",
@@ -6051,7 +6051,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see serie_a_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_379_Napoli_Atalanta",
@@ -6067,7 +6067,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     },
     {
       "match_id": "SERIEA2627_MW38_380_Sassuolo_Internazionale",
@@ -6083,7 +6083,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Serie A history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:21:14+00:00"
+      "generated_at": "2026-11-21T08:04:00+00:00"
     }
   ]
 }

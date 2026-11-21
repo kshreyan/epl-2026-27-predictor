@@ -1,6 +1,6 @@
 {
   "league": "epl",
-  "generated_at": "2026-11-20T14:30:14+00:00",
+  "generated_at": "2026-11-21T08:06:32+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
   "record_count": 380,
@@ -1609,7 +1609,7 @@
       "match_id": "EPL2627_MW11_101_AFCBournemouth_NottinghamForest",
       "home_team": "AFC Bournemouth",
       "away_team": "Nottingham Forest",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.56 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.55 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.10 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -1619,13 +1619,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_102_AstonVilla_Sunderland",
       "home_team": "Aston Villa",
       "away_team": "Sunderland",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.70 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.69 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.95 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -1635,7 +1635,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_103_Brentford_Everton",
@@ -1651,7 +1651,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_104_Chelsea_LeedsUnited",
@@ -1667,7 +1667,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_105_CoventryCity_CrystalPalace",
@@ -1683,7 +1683,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_106_HullCity_Brighton&HoveAlbion",
@@ -1699,7 +1699,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_107_Liverpool_ManchesterUnited",
@@ -1715,7 +1715,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_108_ManchesterCity_Fulham",
@@ -1731,7 +1731,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_109_NewcastleUnited_Arsenal",
@@ -1747,7 +1747,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW11_110_TottenhamHotspur_IpswichTown",
@@ -1763,7 +1763,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_111_Arsenal_ManchesterCity",
@@ -1779,7 +1779,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_112_Brighton&HoveAlbion_NewcastleUnited",
@@ -1795,7 +1795,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_113_CrystalPalace_HullCity",
@@ -1811,7 +1811,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_114_Everton_Liverpool",
@@ -1827,7 +1827,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_115_Fulham_AFCBournemouth",
@@ -1843,7 +1843,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_116_IpswichTown_AstonVilla",
@@ -1859,7 +1859,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_117_LeedsUnited_CoventryCity",
@@ -1875,7 +1875,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_118_ManchesterUnited_Brentford",
@@ -1891,7 +1891,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_119_NottinghamForest_Chelsea",
@@ -1907,7 +1907,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW12_120_Sunderland_TottenhamHotspur",
@@ -1923,7 +1923,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_121_AFCBournemouth_Brighton&HoveAlbion",
@@ -1939,7 +1939,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_122_AstonVilla_Everton",
@@ -1955,7 +1955,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_123_Brentford_Arsenal",
@@ -1971,7 +1971,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_124_Chelsea_CrystalPalace",
@@ -1987,13 +1987,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_125_CoventryCity_IpswichTown",
       "home_team": "Coventry City",
       "away_team": "Ipswich Town",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.91 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.90 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Scoreline entropy 3.24 nats; teams of similar fitted strength.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.56 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -2003,7 +2003,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_126_HullCity_NottinghamForest",
@@ -2019,7 +2019,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_127_Liverpool_Sunderland",
@@ -2035,7 +2035,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_128_ManchesterCity_LeedsUnited",
@@ -2051,7 +2051,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_129_NewcastleUnited_ManchesterUnited",
@@ -2067,7 +2067,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW13_130_TottenhamHotspur_Fulham",
@@ -2083,7 +2083,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_131_AFCBournemouth_HullCity",
@@ -2099,7 +2099,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_132_AstonVilla_CrystalPalace",
@@ -2115,7 +2115,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_133_Brentford_ManchesterCity",
@@ -2131,7 +2131,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_134_Chelsea_Liverpool",
@@ -2147,7 +2147,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_135_Everton_Fulham",
@@ -2163,7 +2163,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_136_LeedsUnited_IpswichTown",
@@ -2171,7 +2171,7 @@
       "away_team": "Ipswich Town",
       "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.36 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
-      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.88 expected goals).",
+      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.87 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
       "market_disagreement_explanation": "No real market odds available for this fixture yet -- model-only prediction.",
       "squad_injury_explanation": "Established club vs promoted club; no verified injury/lineup feed connected, so squad_injury factors are not incorporated (see data_quality_notes).",
@@ -2179,7 +2179,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_137_ManchesterUnited_CoventryCity",
@@ -2195,13 +2195,13 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_138_NewcastleUnited_Sunderland",
       "home_team": "Newcastle United",
       "away_team": "Sunderland",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.65 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.64 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.99 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -2211,7 +2211,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_139_NottinghamForest_Brighton&HoveAlbion",
@@ -2227,7 +2227,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW14_140_TottenhamHotspur_Arsenal",
@@ -2243,7 +2243,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_141_Arsenal_AFCBournemouth",
@@ -2259,7 +2259,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_142_Brighton&HoveAlbion_Everton",
@@ -2275,7 +2275,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_143_CoventryCity_AstonVilla",
@@ -2291,7 +2291,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_144_CrystalPalace_ManchesterUnited",
@@ -2307,7 +2307,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_145_Fulham_Brentford",
@@ -2323,7 +2323,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_146_HullCity_TottenhamHotspur",
@@ -2339,7 +2339,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_147_IpswichTown_NewcastleUnited",
@@ -2347,7 +2347,7 @@
       "away_team": "Newcastle United",
       "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.27 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
-      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=2.42 expected goals).",
+      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=2.41 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
       "market_disagreement_explanation": "No real market odds available for this fixture yet -- model-only prediction.",
       "squad_injury_explanation": "Promoted club vs established club; no verified injury/lineup feed connected, so squad_injury factors are not incorporated (see data_quality_notes).",
@@ -2355,7 +2355,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_148_Liverpool_LeedsUnited",
@@ -2371,7 +2371,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_149_ManchesterCity_Chelsea",
@@ -2387,7 +2387,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW15_150_Sunderland_NottinghamForest",
@@ -2403,7 +2403,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_151_AFCBournemouth_CoventryCity",
@@ -2419,7 +2419,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_152_Arsenal_ManchesterUnited",
@@ -2435,7 +2435,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_153_Brentford_NewcastleUnited",
@@ -2451,7 +2451,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_154_Brighton&HoveAlbion_IpswichTown",
@@ -2467,7 +2467,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_155_Chelsea_AstonVilla",
@@ -2483,7 +2483,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_156_LeedsUnited_Fulham",
@@ -2499,7 +2499,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_157_Liverpool_TottenhamHotspur",
@@ -2515,7 +2515,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_158_ManchesterCity_HullCity",
@@ -2531,7 +2531,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_159_NottinghamForest_Everton",
@@ -2547,7 +2547,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW16_160_Sunderland_CrystalPalace",
@@ -2563,7 +2563,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_161_AstonVilla_LeedsUnited",
@@ -2579,7 +2579,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_162_CoventryCity_Chelsea",
@@ -2595,7 +2595,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_163_CrystalPalace_Arsenal",
@@ -2611,7 +2611,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_164_Everton_Sunderland",
@@ -2627,7 +2627,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_165_Fulham_Brighton&HoveAlbion",
@@ -2643,7 +2643,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_166_HullCity_Liverpool",
@@ -2659,7 +2659,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_167_IpswichTown_Brentford",
@@ -2675,7 +2675,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_168_ManchesterUnited_NottinghamForest",
@@ -2691,7 +2691,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_169_NewcastleUnited_ManchesterCity",
@@ -2707,7 +2707,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW17_170_TottenhamHotspur_AFCBournemouth",
@@ -2723,7 +2723,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_171_AstonVilla_Liverpool",
@@ -2739,7 +2739,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_172_CoventryCity_Brentford",
@@ -2755,7 +2755,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_173_CrystalPalace_AFCBournemouth",
@@ -2771,7 +2771,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_174_Everton_ManchesterCity",
@@ -2787,7 +2787,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_175_Fulham_Arsenal",
@@ -2803,7 +2803,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_176_HullCity_LeedsUnited",
@@ -2819,13 +2819,13 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_177_IpswichTown_Chelsea",
       "home_team": "Ipswich Town",
       "away_team": "Chelsea",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.22 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.21 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=2.62 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -2835,7 +2835,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_178_ManchesterUnited_Sunderland",
@@ -2851,7 +2851,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_179_NewcastleUnited_NottinghamForest",
@@ -2867,7 +2867,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW18_180_TottenhamHotspur_Brighton&HoveAlbion",
@@ -2883,7 +2883,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_181_AFCBournemouth_AstonVilla",
@@ -2899,7 +2899,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_182_Arsenal_IpswichTown",
@@ -2915,7 +2915,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_183_Brentford_CrystalPalace",
@@ -2931,7 +2931,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_184_Brighton&HoveAlbion_ManchesterUnited",
@@ -2947,7 +2947,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_185_Chelsea_NewcastleUnited",
@@ -2963,7 +2963,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_186_LeedsUnited_Everton",
@@ -2979,7 +2979,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_187_Liverpool_CoventryCity",
@@ -2995,7 +2995,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_188_ManchesterCity_TottenhamHotspur",
@@ -3011,7 +3011,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_189_NottinghamForest_Fulham",
@@ -3027,7 +3027,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW19_190_Sunderland_HullCity",
@@ -3043,7 +3043,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_191_Arsenal_Brentford",
@@ -3051,7 +3051,7 @@
       "away_team": "Brentford",
       "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.86 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
-      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.72 expected goals).",
+      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.73 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
       "market_disagreement_explanation": "No real market odds available for this fixture yet -- model-only prediction.",
       "squad_injury_explanation": "Established club vs established club; no verified injury/lineup feed connected, so squad_injury factors are not incorporated (see data_quality_notes).",
@@ -3059,7 +3059,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_192_Brighton&HoveAlbion_AFCBournemouth",
@@ -3075,7 +3075,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_193_CrystalPalace_Chelsea",
@@ -3091,7 +3091,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_194_Everton_AstonVilla",
@@ -3107,7 +3107,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_195_Fulham_TottenhamHotspur",
@@ -3123,7 +3123,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_196_IpswichTown_CoventryCity",
@@ -3139,7 +3139,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_197_LeedsUnited_ManchesterCity",
@@ -3155,7 +3155,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_198_ManchesterUnited_NewcastleUnited",
@@ -3171,7 +3171,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_199_NottinghamForest_HullCity",
@@ -3187,7 +3187,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW20_200_Sunderland_Liverpool",
@@ -3203,13 +3203,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_201_AFCBournemouth_IpswichTown",
       "home_team": "AFC Bournemouth",
       "away_team": "Ipswich Town",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.94 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=2.93 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=0.96 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -3219,7 +3219,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_202_AstonVilla_ManchesterUnited",
@@ -3235,7 +3235,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_203_Brentford_Brighton&HoveAlbion",
@@ -3251,7 +3251,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_204_Chelsea_Sunderland",
@@ -3267,7 +3267,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_205_CoventryCity_Everton",
@@ -3283,7 +3283,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_206_HullCity_Arsenal",
@@ -3299,7 +3299,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_207_Liverpool_CrystalPalace",
@@ -3315,7 +3315,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_208_ManchesterCity_NottinghamForest",
@@ -3331,7 +3331,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_209_NewcastleUnited_Fulham",
@@ -3347,7 +3347,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW21_210_TottenhamHotspur_LeedsUnited",
@@ -3363,7 +3363,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_211_Arsenal_NewcastleUnited",
@@ -3379,7 +3379,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_212_Brighton&HoveAlbion_ManchesterCity",
@@ -3395,7 +3395,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_213_CrystalPalace_TottenhamHotspur",
@@ -3411,7 +3411,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_214_Everton_Brentford",
@@ -3427,7 +3427,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_215_Fulham_AstonVilla",
@@ -3443,7 +3443,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_216_IpswichTown_HullCity",
@@ -3459,7 +3459,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_217_LeedsUnited_Chelsea",
@@ -3475,7 +3475,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_218_ManchesterUnited_Liverpool",
@@ -3491,7 +3491,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_219_NottinghamForest_AFCBournemouth",
@@ -3507,7 +3507,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW22_220_Sunderland_CoventryCity",
@@ -3523,7 +3523,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_221_AFCBournemouth_Fulham",
@@ -3539,13 +3539,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_222_AstonVilla_IpswichTown",
       "home_team": "Aston Villa",
       "away_team": "Ipswich Town",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=3.03 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=3.02 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.00 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -3555,7 +3555,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_223_Brentford_ManchesterUnited",
@@ -3571,7 +3571,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_224_Chelsea_NottinghamForest",
@@ -3587,7 +3587,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_225_CoventryCity_LeedsUnited",
@@ -3603,7 +3603,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_226_HullCity_CrystalPalace",
@@ -3619,7 +3619,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_227_Liverpool_Everton",
@@ -3635,7 +3635,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_228_ManchesterCity_Arsenal",
@@ -3651,7 +3651,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_229_NewcastleUnited_Brighton&HoveAlbion",
@@ -3667,7 +3667,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW23_230_TottenhamHotspur_Sunderland",
@@ -3683,7 +3683,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_231_Arsenal_Liverpool",
@@ -3699,7 +3699,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_232_Brighton&HoveAlbion_HullCity",
@@ -3715,7 +3715,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_233_CrystalPalace_CoventryCity",
@@ -3731,7 +3731,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_234_Everton_NewcastleUnited",
@@ -3747,7 +3747,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_235_Fulham_ManchesterCity",
@@ -3763,7 +3763,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_236_IpswichTown_TottenhamHotspur",
@@ -3779,7 +3779,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_237_LeedsUnited_AFCBournemouth",
@@ -3795,7 +3795,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_238_ManchesterUnited_Chelsea",
@@ -3811,7 +3811,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_239_NottinghamForest_Brentford",
@@ -3827,7 +3827,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW24_240_Sunderland_AstonVilla",
@@ -3843,7 +3843,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_241_AstonVilla_AFCBournemouth",
@@ -3859,7 +3859,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_242_CoventryCity_Liverpool",
@@ -3875,7 +3875,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_243_CrystalPalace_Brentford",
@@ -3891,7 +3891,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_244_Everton_LeedsUnited",
@@ -3907,7 +3907,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_245_Fulham_NottinghamForest",
@@ -3923,7 +3923,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_246_HullCity_Sunderland",
@@ -3939,7 +3939,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_247_IpswichTown_Arsenal",
@@ -3955,7 +3955,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_248_ManchesterUnited_Brighton&HoveAlbion",
@@ -3971,7 +3971,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_249_NewcastleUnited_Chelsea",
@@ -3987,13 +3987,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW25_250_TottenhamHotspur_ManchesterCity",
       "home_team": "Tottenham Hotspur",
       "away_team": "Manchester City",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.08 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.07 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.89 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -4003,13 +4003,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_251_AFCBournemouth_CrystalPalace",
       "home_team": "AFC Bournemouth",
       "away_team": "Crystal Palace",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.93 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.92 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Model does not see this as a close match.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.02 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -4019,7 +4019,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_252_Arsenal_Fulham",
@@ -4035,7 +4035,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_253_Brentford_CoventryCity",
@@ -4051,7 +4051,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_254_Brighton&HoveAlbion_TottenhamHotspur",
@@ -4067,7 +4067,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_255_Chelsea_IpswichTown",
@@ -4083,7 +4083,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_256_LeedsUnited_AstonVilla",
@@ -4099,7 +4099,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_257_Liverpool_HullCity",
@@ -4115,7 +4115,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_258_ManchesterCity_NewcastleUnited",
@@ -4131,7 +4131,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_259_NottinghamForest_ManchesterUnited",
@@ -4147,7 +4147,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW26_260_Sunderland_Everton",
@@ -4163,13 +4163,13 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_261_AstonVilla_Chelsea",
       "home_team": "Aston Villa",
       "away_team": "Chelsea",
-      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.74 expected goals) plus home advantage.",
+      "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.73 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Scoreline entropy 3.16 nats; teams of similar fitted strength.",
       "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.50 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
@@ -4179,7 +4179,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_262_CoventryCity_AFCBournemouth",
@@ -4195,7 +4195,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_263_CrystalPalace_Sunderland",
@@ -4203,7 +4203,7 @@
       "away_team": "Sunderland",
       "top_factors_favoring_home": "Dixon-Coles attack/defense edge (lambda=1.27 expected goals) plus home advantage.",
       "top_factors_favoring_draw": "Scoreline entropy 2.79 nats; teams of similar fitted strength.",
-      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.08 expected goals).",
+      "top_factors_favoring_away": "Dixon-Coles attack/defense edge (mu=1.09 expected goals).",
       "top_factors_affecting_scoreline": "Fitted home advantage log-coefficient=0.195, low-score correlation rho=-0.058.",
       "market_disagreement_explanation": "No real market odds available for this fixture yet -- model-only prediction.",
       "squad_injury_explanation": "Established club vs established club; no verified injury/lineup feed connected, so squad_injury factors are not incorporated (see data_quality_notes).",
@@ -4211,7 +4211,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_264_Everton_NottinghamForest",
@@ -4227,7 +4227,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_265_Fulham_LeedsUnited",
@@ -4243,7 +4243,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_266_HullCity_ManchesterCity",
@@ -4259,7 +4259,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_267_IpswichTown_Brighton&HoveAlbion",
@@ -4275,7 +4275,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_268_ManchesterUnited_Arsenal",
@@ -4291,7 +4291,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_269_NewcastleUnited_Brentford",
@@ -4307,7 +4307,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW27_270_TottenhamHotspur_Liverpool",
@@ -4323,7 +4323,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_271_AFCBournemouth_TottenhamHotspur",
@@ -4339,7 +4339,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_272_Arsenal_CrystalPalace",
@@ -4355,7 +4355,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_273_Brentford_IpswichTown",
@@ -4371,7 +4371,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_274_Brighton&HoveAlbion_Fulham",
@@ -4387,7 +4387,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_275_Chelsea_CoventryCity",
@@ -4403,7 +4403,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_276_LeedsUnited_HullCity",
@@ -4419,7 +4419,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_277_Liverpool_AstonVilla",
@@ -4435,7 +4435,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_278_ManchesterCity_Everton",
@@ -4451,7 +4451,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_279_NottinghamForest_NewcastleUnited",
@@ -4467,7 +4467,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW28_280_Sunderland_ManchesterUnited",
@@ -4483,7 +4483,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_281_AFCBournemouth_NewcastleUnited",
@@ -4499,7 +4499,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_282_AstonVilla_HullCity",
@@ -4515,7 +4515,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_283_Chelsea_Arsenal",
@@ -4531,7 +4531,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_284_CoventryCity_ManchesterCity",
@@ -4547,7 +4547,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_285_CrystalPalace_Fulham",
@@ -4563,7 +4563,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_286_LeedsUnited_Brighton&HoveAlbion",
@@ -4579,7 +4579,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_287_Liverpool_IpswichTown",
@@ -4595,7 +4595,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_288_ManchesterUnited_Everton",
@@ -4611,7 +4611,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_289_Sunderland_Brentford",
@@ -4627,7 +4627,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW29_290_TottenhamHotspur_NottinghamForest",
@@ -4643,7 +4643,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_291_Arsenal_Sunderland",
@@ -4659,7 +4659,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_292_Brentford_AFCBournemouth",
@@ -4675,7 +4675,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_293_Brighton&HoveAlbion_CoventryCity",
@@ -4691,7 +4691,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_294_Everton_TottenhamHotspur",
@@ -4707,7 +4707,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_295_Fulham_Liverpool",
@@ -4723,7 +4723,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_296_HullCity_Chelsea",
@@ -4739,7 +4739,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_297_IpswichTown_CrystalPalace",
@@ -4755,7 +4755,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_298_ManchesterCity_ManchesterUnited",
@@ -4771,7 +4771,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_299_NewcastleUnited_LeedsUnited",
@@ -4787,7 +4787,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW30_300_NottinghamForest_AstonVilla",
@@ -4803,7 +4803,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_301_AFCBournemouth_ManchesterCity",
@@ -4819,7 +4819,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_302_AstonVilla_Brighton&HoveAlbion",
@@ -4835,7 +4835,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_303_Chelsea_Fulham",
@@ -4851,7 +4851,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_304_CoventryCity_Arsenal",
@@ -4867,7 +4867,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_305_CrystalPalace_Everton",
@@ -4883,7 +4883,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_306_LeedsUnited_NottinghamForest",
@@ -4899,7 +4899,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_307_Liverpool_NewcastleUnited",
@@ -4915,7 +4915,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_308_ManchesterUnited_HullCity",
@@ -4931,7 +4931,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_309_Sunderland_IpswichTown",
@@ -4947,7 +4947,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW31_310_TottenhamHotspur_Brentford",
@@ -4963,7 +4963,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_311_Arsenal_AstonVilla",
@@ -4979,7 +4979,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_312_Brentford_LeedsUnited",
@@ -4995,7 +4995,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_313_Brighton&HoveAlbion_Chelsea",
@@ -5011,7 +5011,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_314_Everton_AFCBournemouth",
@@ -5027,7 +5027,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_315_Fulham_Sunderland",
@@ -5043,7 +5043,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_316_HullCity_CoventryCity",
@@ -5059,7 +5059,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_317_IpswichTown_ManchesterUnited",
@@ -5075,7 +5075,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_318_ManchesterCity_CrystalPalace",
@@ -5091,7 +5091,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_319_NewcastleUnited_TottenhamHotspur",
@@ -5107,7 +5107,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW32_320_NottinghamForest_Liverpool",
@@ -5123,7 +5123,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_321_AFCBournemouth_Arsenal",
@@ -5139,7 +5139,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_322_AstonVilla_CoventryCity",
@@ -5155,7 +5155,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_323_Brentford_Fulham",
@@ -5171,7 +5171,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_324_Chelsea_ManchesterCity",
@@ -5187,7 +5187,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_325_Everton_Brighton&HoveAlbion",
@@ -5203,7 +5203,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_326_LeedsUnited_Liverpool",
@@ -5219,7 +5219,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_327_ManchesterUnited_CrystalPalace",
@@ -5235,7 +5235,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_328_NewcastleUnited_IpswichTown",
@@ -5251,7 +5251,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_329_NottinghamForest_Sunderland",
@@ -5267,7 +5267,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW33_330_TottenhamHotspur_HullCity",
@@ -5283,7 +5283,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_331_Arsenal_TottenhamHotspur",
@@ -5299,7 +5299,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_332_Brighton&HoveAlbion_NottinghamForest",
@@ -5315,7 +5315,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_333_CoventryCity_ManchesterUnited",
@@ -5331,7 +5331,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_334_CrystalPalace_AstonVilla",
@@ -5347,7 +5347,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_335_Fulham_Everton",
@@ -5363,7 +5363,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_336_HullCity_AFCBournemouth",
@@ -5379,7 +5379,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_337_IpswichTown_LeedsUnited",
@@ -5395,7 +5395,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_338_Liverpool_Chelsea",
@@ -5411,7 +5411,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_339_ManchesterCity_Brentford",
@@ -5427,7 +5427,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW34_340_Sunderland_NewcastleUnited",
@@ -5443,7 +5443,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_341_AFCBournemouth_ManchesterUnited",
@@ -5459,7 +5459,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_342_Brentford_AstonVilla",
@@ -5475,7 +5475,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_343_Brighton&HoveAlbion_Sunderland",
@@ -5491,7 +5491,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_344_Everton_HullCity",
@@ -5507,7 +5507,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_345_Fulham_IpswichTown",
@@ -5523,7 +5523,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_346_LeedsUnited_Arsenal",
@@ -5539,7 +5539,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_347_ManchesterCity_Liverpool",
@@ -5555,7 +5555,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_348_NewcastleUnited_CoventryCity",
@@ -5571,7 +5571,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_349_NottinghamForest_CrystalPalace",
@@ -5587,7 +5587,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW35_350_TottenhamHotspur_Chelsea",
@@ -5603,7 +5603,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_351_Arsenal_NottinghamForest",
@@ -5619,7 +5619,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_352_AstonVilla_NewcastleUnited",
@@ -5635,7 +5635,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_353_Chelsea_Everton",
@@ -5651,7 +5651,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_354_CoventryCity_TottenhamHotspur",
@@ -5667,7 +5667,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_355_CrystalPalace_Brighton&HoveAlbion",
@@ -5683,7 +5683,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_356_HullCity_Fulham",
@@ -5699,7 +5699,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_357_IpswichTown_ManchesterCity",
@@ -5715,7 +5715,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_358_Liverpool_Brentford",
@@ -5731,7 +5731,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_359_ManchesterUnited_LeedsUnited",
@@ -5747,7 +5747,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW36_360_Sunderland_AFCBournemouth",
@@ -5763,7 +5763,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_361_AFCBournemouth_Chelsea",
@@ -5779,7 +5779,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_362_Brentford_HullCity",
@@ -5795,7 +5795,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_363_Brighton&HoveAlbion_Liverpool",
@@ -5811,7 +5811,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_364_Everton_Arsenal",
@@ -5827,7 +5827,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_365_Fulham_CoventryCity",
@@ -5843,7 +5843,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_366_LeedsUnited_Sunderland",
@@ -5859,7 +5859,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_367_ManchesterCity_AstonVilla",
@@ -5875,7 +5875,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_368_NewcastleUnited_CrystalPalace",
@@ -5891,7 +5891,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_369_NottinghamForest_IpswichTown",
@@ -5907,7 +5907,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW37_370_TottenhamHotspur_ManchesterUnited",
@@ -5923,7 +5923,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_371_Arsenal_Brighton&HoveAlbion",
@@ -5939,7 +5939,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_372_AstonVilla_TottenhamHotspur",
@@ -5955,7 +5955,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_373_Chelsea_Brentford",
@@ -5971,7 +5971,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_374_CoventryCity_NottinghamForest",
@@ -5987,7 +5987,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_375_CrystalPalace_LeedsUnited",
@@ -6003,7 +6003,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_376_HullCity_NewcastleUnited",
@@ -6019,7 +6019,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_377_IpswichTown_Everton",
@@ -6035,7 +6035,7 @@
       "uncertainty_explanation": "Promoted-club opponent: wide team-strength uncertainty (see epl_2026_27_dynamic_team_strength.csv).",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_378_Liverpool_AFCBournemouth",
@@ -6051,7 +6051,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_379_ManchesterUnited_Fulham",
@@ -6067,7 +6067,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     },
     {
       "match_id": "EPL2627_MW38_380_Sunderland_ManchesterCity",
@@ -6083,7 +6083,7 @@
       "uncertainty_explanation": "Both clubs have substantial recent Premier League history informing this estimate.",
       "data_quality_notes": "data_quality_score=0.2 (market/injury/lineup/squad-transfer feeds unavailable).",
       "model_version": "0.1.0-phase1",
-      "generated_at": "2026-11-19T09:20:32+00:00"
+      "generated_at": "2026-11-21T08:03:35+00:00"
     }
   ]
 }
