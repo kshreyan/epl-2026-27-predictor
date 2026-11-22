@@ -1,6 +1,6 @@
 # NCAAB Calibration Report
 
-Generated: 2026-11-15T16:17:55+00:00
+Generated: 2026-11-22T17:16:27+00:00
 
 Calibration method: **isotonic** (isotonic regression per outcome class, fit on 27461 real backtest games; minimum 500 real samples required).
 
