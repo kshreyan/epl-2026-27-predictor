@@ -1,9 +1,9 @@
 {
   "league": "ligue_1",
-  "generated_at": "2026-11-22T13:43:50+00:00",
+  "generated_at": "2026-11-23T16:41:53+00:00",
   "model_version": "0.1.0-phase1",
   "season": "2026-27",
-  "record_count": 72,
+  "record_count": 63,
   "status": "real",
   "note": "model_* is the raw (uncalibrated) Dixon-Coles probability; market_* is the real, de-vigged market-consensus probability. Sorted by max_class_disagreement descending.",
   "data": [
@@ -92,18 +92,6 @@
       "max_class_disagreement": 0.1409
     },
     {
-      "match_id": "LIGUE12627_MW12_104_LeMansFC_LOSCLille",
-      "home_team": "Le Mans FC",
-      "away_team": "LOSC Lille",
-      "model_home_win_prob": 0.1505,
-      "model_draw_prob": 0.2344,
-      "model_away_win_prob": 0.6151,
-      "market_home_win_prob": 0.2417,
-      "market_draw_prob": 0.2693,
-      "market_away_win_prob": 0.489,
-      "max_class_disagreement": 0.1261
-    },
-    {
       "match_id": "LIGUE12627_MW07_062_RCStrasbourgAlsace_ParisSaint-Germain",
       "home_team": "RC Strasbourg Alsace",
       "away_team": "Paris Saint-Germain",
@@ -138,18 +126,6 @@
       "market_draw_prob": 0.1916,
       "market_away_win_prob": 0.1433,
       "max_class_disagreement": 0.1065
-    },
-    {
-      "match_id": "LIGUE12627_MW12_106_OGCNice_EstacTroyes",
-      "home_team": "OGC Nice",
-      "away_team": "Estac Troyes",
-      "model_home_win_prob": 0.6713,
-      "model_draw_prob": 0.2177,
-      "model_away_win_prob": 0.1109,
-      "market_home_win_prob": 0.565,
-      "market_draw_prob": 0.2346,
-      "market_away_win_prob": 0.2004,
-      "max_class_disagreement": 0.1063
     },
     {
       "match_id": "LIGUE12627_MW06_051_OGCNice_RCStrasbourgAlsace",
@@ -296,18 +272,6 @@
       "max_class_disagreement": 0.0784
     },
     {
-      "match_id": "LIGUE12627_MW12_103_HavreAthleticClub_RCStrasbourgAlsace",
-      "home_team": "Havre Athletic Club",
-      "away_team": "RC Strasbourg Alsace",
-      "model_home_win_prob": 0.2625,
-      "model_draw_prob": 0.2435,
-      "model_away_win_prob": 0.494,
-      "market_home_win_prob": 0.3283,
-      "market_draw_prob": 0.2551,
-      "market_away_win_prob": 0.4166,
-      "max_class_disagreement": 0.0774
-    },
-    {
       "match_id": "LIGUE12627_MW07_057_LeMansFC_ToulouseFC",
       "home_team": "Le Mans FC",
       "away_team": "Toulouse FC",
@@ -392,18 +356,6 @@
       "max_class_disagreement": 0.0588
     },
     {
-      "match_id": "LIGUE12627_MW12_100_AngersSCO_RCLens",
-      "home_team": "Angers SCO",
-      "away_team": "RC Lens",
-      "model_home_win_prob": 0.1676,
-      "model_draw_prob": 0.2458,
-      "model_away_win_prob": 0.5867,
-      "market_home_win_prob": 0.2247,
-      "market_draw_prob": 0.2415,
-      "market_away_win_prob": 0.5337,
-      "max_class_disagreement": 0.0571
-    },
-    {
       "match_id": "LIGUE12627_MW06_048_LOSCLille_HavreAthleticClub",
       "home_team": "LOSC Lille",
       "away_team": "Havre Athletic Club",
@@ -428,18 +380,6 @@
       "max_class_disagreement": 0.0558
     },
     {
-      "match_id": "LIGUE12627_MW12_107_ParisSaint-Germain_FCLorient",
-      "home_team": "Paris Saint-Germain",
-      "away_team": "FC Lorient",
-      "model_home_win_prob": 0.7147,
-      "model_draw_prob": 0.1837,
-      "model_away_win_prob": 0.1016,
-      "market_home_win_prob": 0.7696,
-      "market_draw_prob": 0.1461,
-      "market_away_win_prob": 0.0843,
-      "max_class_disagreement": 0.0549
-    },
-    {
       "match_id": "LIGUE12627_MW11_093_FCLorient_StadeRennaisFC",
       "home_team": "FC Lorient",
       "away_team": "Stade Rennais FC",
@@ -462,18 +402,6 @@
       "market_draw_prob": 0.1876,
       "market_away_win_prob": 0.6532,
       "max_class_disagreement": 0.0535
-    },
-    {
-      "match_id": "LIGUE12627_MW12_102_StadeBrestois29_ParisFC",
-      "home_team": "Stade Brestois 29",
-      "away_team": "Paris FC",
-      "model_home_win_prob": 0.3588,
-      "model_draw_prob": 0.2626,
-      "model_away_win_prob": 0.3787,
-      "market_home_win_prob": 0.3064,
-      "market_draw_prob": 0.2722,
-      "market_away_win_prob": 0.4214,
-      "max_class_disagreement": 0.0524
     },
     {
       "match_id": "LIGUE12627_MW11_097_ParisFC_AngersSCO",
@@ -558,30 +486,6 @@
       "market_draw_prob": 0.2773,
       "market_away_win_prob": 0.37,
       "max_class_disagreement": 0.0447
-    },
-    {
-      "match_id": "LIGUE12627_MW12_105_OlympiqueLyonnais_ASMonaco",
-      "home_team": "Olympique Lyonnais",
-      "away_team": "AS Monaco",
-      "model_home_win_prob": 0.4621,
-      "model_draw_prob": 0.2506,
-      "model_away_win_prob": 0.2873,
-      "market_home_win_prob": 0.4177,
-      "market_draw_prob": 0.2677,
-      "market_away_win_prob": 0.3146,
-      "max_class_disagreement": 0.0444
-    },
-    {
-      "match_id": "LIGUE12627_MW12_108_ToulouseFC_StadeRennaisFC",
-      "home_team": "Toulouse FC",
-      "away_team": "Stade Rennais FC",
-      "model_home_win_prob": 0.4165,
-      "model_draw_prob": 0.2404,
-      "model_away_win_prob": 0.3432,
-      "market_home_win_prob": 0.3735,
-      "market_draw_prob": 0.2615,
-      "market_away_win_prob": 0.365,
-      "max_class_disagreement": 0.043
     },
     {
       "match_id": "LIGUE12627_MW05_044_ParisFC_RCStrasbourgAlsace",
@@ -846,18 +750,6 @@
       "market_draw_prob": 0.2423,
       "market_away_win_prob": 0.2369,
       "max_class_disagreement": 0.0115
-    },
-    {
-      "match_id": "LIGUE12627_MW12_101_AJAuxerre_OlympiquedeMarseille",
-      "home_team": "AJ Auxerre",
-      "away_team": "Olympique de Marseille",
-      "model_home_win_prob": 0.2429,
-      "model_draw_prob": 0.2314,
-      "model_away_win_prob": 0.5257,
-      "market_home_win_prob": 0.246,
-      "market_draw_prob": 0.2397,
-      "market_away_win_prob": 0.5143,
-      "max_class_disagreement": 0.0114
     },
     {
       "match_id": "LIGUE12627_MW06_047_RCLens_OlympiqueLyonnais",
