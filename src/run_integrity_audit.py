@@ -126,9 +126,28 @@ def run_checks() -> None:
             "No future-data leakage: every prediction's generated_at is at or before that match's kickoff_utc",
             bool((preds["generated_at"] <= preds["kickoff_utc"]).all()),
         )
+        # Since the live odds feed was connected, market_available is True
+        # on fixtures that genuinely had real odds; the invariant is that
+        # the market flags and columns never contradict each other. These
+        # two checks are the ones that would have caught the pre-1b4467f
+        # mislabel (blend applied, market_available False, blended values
+        # filed under *_model_only).
+        blend_applied = preds["market_blend_applied"] == True  # noqa: E712
+        market_available = preds["market_available"] == True  # noqa: E712
         check(
-            "Market odds are used only when verified real: market_available is False on every row (no real odds feed connected in Phase 1/2)",
-            bool((preds["market_available"] == False).all()),  # noqa: E712
+            "Market odds are used only when verified real: every row with market_blend_applied=True also has market_available=True",
+            bool((~blend_applied | market_available).all()),
+            f"{int((blend_applied & ~market_available).sum())} contradicting rows; "
+            f"{int(market_available.sum())} rows with real odds, {int(blend_applied.sum())} blended",
+        )
+        integrated_cols = ["home_win_prob_market_integrated", "draw_prob_market_integrated", "away_win_prob_market_integrated"]
+        integrated_present = preds[integrated_cols].notna().all(axis=1)
+        integrated_sums = preds[integrated_cols].sum(axis=1)
+        check(
+            "Market-integrated 1X2 probabilities are populated exactly where a market blend was applied (blank elsewhere) and sum to 1",
+            bool((integrated_present == blend_applied).all()
+                 and (integrated_sums[integrated_present].sub(1.0).abs() < 1e-3).all()),
+            f"{int((integrated_present != blend_applied).sum())} mismatched rows",
         )
         check(
             "Model-only and market-integrated outputs are clearly separated (market-integrated columns are blank, not duplicated model-only values, while market is unavailable)",

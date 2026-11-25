@@ -26,6 +26,7 @@ from -- same reasoning applies, avoided for consistency.
 from __future__ import annotations
 
 import sys
+import time
 from pathlib import Path
 
 import requests
@@ -45,6 +46,37 @@ ESPN_SPORT_PATH = {
 # so this real /standings?group=X path is used for both).
 COLLEGE_DIVISION_GROUP = {"ncaaf": "80", "ncaab": "50"}
 HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+# ESPN's site API intermittently drops single requests (confirmed: the
+# 2026-11-21 weekly run died on one TLSV1_ALERT_INTERNAL_ERROR out of
+# ~130 per-team schedule calls for NCAAF, taking every later league's
+# update down with it). Transient network/TLS failures and 429/5xx are
+# retried with exponential backoff; a 4xx other than 429 is a real
+# answer and is raised immediately, as is the last failure once
+# retries run out -- never swallowed into an empty result.
+RETRY_ATTEMPTS = 5
+RETRY_BACKOFF_SECONDS = 2.0
+RETRYABLE_STATUS = {429, 500, 502, 503, 504}
+
+
+def espn_get(url: str, params: dict | None = None, *, _sleep=time.sleep) -> requests.Response:
+    """requests.get against ESPN with retry; returns a 2xx response or raises."""
+    for attempt in range(1, RETRY_ATTEMPTS + 1):
+        try:
+            resp = requests.get(url, params=params, headers=HEADERS, timeout=30)
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as exc:  # SSLError is a ConnectionError
+            if attempt == RETRY_ATTEMPTS:
+                raise
+            reason = type(exc).__name__
+        else:
+            if resp.status_code not in RETRYABLE_STATUS or attempt == RETRY_ATTEMPTS:
+                resp.raise_for_status()
+                return resp
+            reason = f"HTTP {resp.status_code}"
+        delay = RETRY_BACKOFF_SECONDS * 2 ** (attempt - 1)
+        print(f"ESPN request failed ({reason}), retry {attempt}/{RETRY_ATTEMPTS - 1} in {delay:.0f}s: {url}", file=sys.stderr)
+        _sleep(delay)
+    raise AssertionError("unreachable")
 
 
 def fetch_real_college_conferences(league_id: str) -> dict[str, list[dict]]:
@@ -66,11 +98,10 @@ def fetch_real_college_conferences(league_id: str) -> dict[str, list[dict]]:
     sports -- fetched fresh every call."""
     sport_path = ESPN_SPORT_PATH[league_id]
     group = COLLEGE_DIVISION_GROUP[league_id]
-    resp = requests.get(
+    resp = espn_get(
         f"https://site.api.espn.com/apis/v2/sports/{sport_path}/standings",
-        params={"group": group}, headers=HEADERS, timeout=30,
+        params={"group": group},
     )
-    resp.raise_for_status()
     root = resp.json()
 
     def _collect(node: dict) -> list[dict]:
@@ -98,11 +129,10 @@ def fetch_real_teams(league_id: str) -> list[dict]:
         seen: dict[str, dict] = {t["id"]: t for t in teams}  # a handful of teams appear in more than one conference feed some seasons (e.g. independents); de-duplicate by real team id
         return list(seen.values())
     sport_path = ESPN_SPORT_PATH[league_id]
-    resp = requests.get(
+    resp = espn_get(
         f"https://site.api.espn.com/apis/site/v2/sports/{sport_path}/teams",
-        params={"limit": 50}, headers=HEADERS, timeout=30,
+        params={"limit": 50},
     )
-    resp.raise_for_status()
     teams = resp.json()["sports"][0]["leagues"][0]["teams"]
     return [{"id": t["team"]["id"], "display_name": t["team"]["displayName"]} for t in teams]
 
@@ -139,11 +169,10 @@ def fetch_real_season_games(league_id: str, season: int) -> list[dict]:
 
     games: dict[str, dict] = {}
     for t in teams:
-        resp = requests.get(
+        resp = espn_get(
             f"https://site.api.espn.com/apis/site/v2/sports/{sport_path}/teams/{t['id']}/schedule",
-            params={"season": season}, headers=HEADERS, timeout=30,
+            params={"season": season},
         )
-        resp.raise_for_status()
         events = resp.json().get("events", [])
         for ev in events:
             if ev.get("seasonType", {}).get("type") != 2:
