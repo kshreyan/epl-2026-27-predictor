@@ -15,7 +15,6 @@ pipeline to lock) keeps this real limitation explicit and keeps
 collect_fixtures.py's shared CSV schema unchanged for every league.
 
 Run: python -m src.data_collection.fetch_continental_cup_live_results --league ucl
-(also accepts uel)
 """
 from __future__ import annotations
 
@@ -71,6 +70,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

@@ -35,7 +35,6 @@ them without overfitting to noise, same discipline as every other
 thin-sample competition in this project.
 
 Run: python -m src.evaluation.backtest_continental_cup --league ucl
-(also accepts uel)
 """
 from __future__ import annotations
 
@@ -244,6 +243,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

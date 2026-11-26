@@ -14,10 +14,8 @@ const RISK_LABEL_COLOR: Record<string, string> = {
 // -- the push (lose by exactly threshold) and fail (lose by more than
 // threshold) segments are what actually separates a +threshold pick
 // from a normal moneyline/spread pick, so those stay visually distinct.
-// Soccer/UEFA (`lose_1_prob` present) buckets by discrete goal margin;
-// NFL/NBA (no discrete goal-margin concept -- a continuous points
-// margin instead, see compute_margin_survival_team_sport.py) falls
-// back to the same real p_cover/p_push/p_fail every row already
+// Buckets by discrete goal margin when `lose_1_prob` is present, else
+// falls back to the same real p_cover/p_push/p_fail every row already
 // carries, labeled at this row's own real threshold.
 export function MarginBar({ row }: { row: MarginSurvivalRow }) {
   const t = row.threshold

@@ -66,49 +66,26 @@ jobs:
       - name: Run fast test suite (safety check before touching real data)
         run: python -m pytest tests/ -q -m "not slow"
 
-      # Fixtures refreshed BEFORE odds below: each real match_id is
-      # derived from that real source's own real game id, so refreshing
-      # fixtures first (not after) means the odds step always joins
-      # against the real match_ids that are actually on disk today, not
-      # a stale set from a prior run.
-      # A league whose fetch still fails after espn_api's own retries is
-      # isolated, not fatal: its previous on-disk fixtures/results are
-      # left untouched (the collectors only write after a full fetch), so
-      # every other league still updates. The failure is recorded and the
-      # job is failed at the very end (see "Fail if any league's data
-      # refresh failed") -- on 2026-11-21 a single NCAAF TLS error here
-      # stopped all 11 leagues from updating.
-      - name: Refresh NFL/NBA/NCAA Football/NCAA Basketball fixtures
-        run: |
-          failed=""
-          python -m src.data_collection.collect_nflverse || failed="$failed nfl"
-          for league in nba ncaaf ncaab; do
-            python -m src.data_collection.collect_espn_schedule --league "$league" || failed="$failed $league"
-          done
-          if [ -n "$failed" ]; then
-            echo "::error::Fixture refresh failed for:$failed -- keeping their previous data, continuing with the rest"
-            echo "REFRESH_FAILURES=$failed" >> "$GITHUB_ENV"
-          fi
-
       # One iteration per active league (config/leagues.yaml) -- adding a
       # new league there needs no workflow change, just adding its id to
       # this list. "epl" alone reproduces exactly what this step always did.
       - name: Refresh live match odds
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        # collect_odds exits non-zero when The Odds API call fails (bad or
+        # A league whose refresh fails is isolated, not fatal: collect_odds
+        # exits non-zero when The Odds API call fails (bad or
         # deactivated key, exhausted monthly credits) and leaves that
         # league's last real odds file untouched; record it and carry on
         # (model-only predictions are a supported mode), failing the job
         # at the end so a dead key can't go unnoticed again.
         run: |
           failed=""
-          for league in epl la_liga serie_a bundesliga ligue_1 ucl uel nfl nba ncaaf ncaab; do
+          for league in epl la_liga serie_a bundesliga ligue_1 ucl; do
             python -m src.data_collection.collect_odds --league "$league" || failed="$failed odds:$league"
           done
           if [ -n "$failed" ]; then
             echo "::error::Odds refresh failed for:$failed -- kept each league's previous real odds"
-            echo "REFRESH_FAILURES=${REFRESH_FAILURES:-}$failed" >> "$GITHUB_ENV"
+            echo "REFRESH_FAILURES=$failed" >> "$GITHUB_ENV"
           fi
 
       - name: Run weekly auto-update
@@ -117,60 +94,24 @@ jobs:
             python -m src.weekly_auto_update --league "$league"
           done
 
-      # UCL/UEL (see predict_continental_cup_matches.py): no matchweek-
-      # lock/refit mechanism exists for these yet (unlike
-      # weekly_auto_update.py above) -- every run just re-fetches
-      # whatever real league-phase results fixturedownload.com has and
-      # recomputes fresh, the same "not gated on a lock" pattern the +2
-      # engine below already uses. A genuine no-op on content (same
-      # predictions) on a day no real result changed. UECL and Nations
-      # League removed 2026-11-14 -- this source has no deeper real
-      # history for either, unlike UCL/UEL.
-      - name: Refresh UEFA competition predictions
+      # UCL (see predict_continental_cup_matches.py): no matchweek-lock/
+      # refit mechanism exists for it yet (unlike weekly_auto_update.py
+      # above) -- every run re-fetches whatever real league-phase results
+      # fixturedownload.com has and recomputes fresh. A genuine no-op on
+      # content on a day no real result changed. UEL removed 2026-11-26,
+      # UECL and Nations League 2026-11-14.
+      - name: Refresh UEFA Champions League predictions
         run: |
-          for league in ucl uel; do
-            python -m src.data_collection.fetch_continental_cup_live_results --league "$league"
-            python -m src.models.predict_continental_cup_matches --league "$league"
-            python -m src.models.compute_margin_survival_continental --league "$league"
-          done
-
-      # NFL/NBA/NCAA Football/NCAA Basketball (see
-      # predict_team_sport_matches.py): same "no lock, just recompute
-      # fresh" pattern as the UEFA club competitions above (real
-      # fixtures already refreshed above, see "Refresh NFL/NBA/NCAA
-      # Football/NCAA Basketball fixtures").
-      - name: Refresh NFL/NBA/NCAA Football/NCAA Basketball predictions
-        run: |
-          for league in nfl nba ncaaf ncaab; do
-            python -m src.models.predict_team_sport_matches --league "$league"
-            python -m src.models.compute_margin_survival_team_sport --league "$league"
-          done
-
-      # The season simulation (simulate_team_sport_season.py) is real
-      # but not cheap (NBA's ~20s for 10,000 trials over ~1,200
-      # remaining real games; NCAA Football also fetches its real
-      # conference groupings live from ESPN every run, see
-      # espn_api.fetch_real_college_conferences()) -- still run daily,
-      # same cadence as everything else here. NCAA Basketball is
-      # deliberately NOT included: the real NCAA Tournament field is
-      # committee-selected (NET rankings, quad wins, not a standings
-      # formula) -- arguably even more subjective than NCAA Football's
-      # committee-selected CFP, which this project already refuses to
-      # fabricate a substitute for (see that module's docstring) -- so
-      # no equivalent at-large/seeding simulation is built for NCAAB
-      # either, consistent with that same real precedent.
-      - name: Refresh NFL/NBA/NCAA Football season simulation
-        run: |
-          for league in nfl nba ncaaf; do
-            python -m src.simulation.simulate_team_sport_season --league "$league"
-          done
+          python -m src.data_collection.fetch_continental_cup_live_results --league ucl
+          python -m src.models.predict_continental_cup_matches --league ucl
+          python -m src.models.compute_margin_survival_continental --league ucl
 
       - name: Rebuild dashboard JSON
         run: python -m src.dashboard.build_dashboard_json
 
       # +2 Margin Survival Engine (Phase 1, domestic leagues -- see
-      # compute_margin_survival.py's module docstring -- plus UCL/UEL/
-      # UECL, recomputed just above). Run daily like the odds refresh
+      # compute_margin_survival.py's module docstring -- plus UCL,
+      # recomputed just above). Run daily like the odds refresh
       # above, not gated on a matchweek lock: this uses whatever
       # predictions are currently published, and its "recent real
       # matches" historical-tail window is date-based, so it can shift

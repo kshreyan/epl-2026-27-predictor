@@ -38,7 +38,6 @@ scripts' own, separate decision -- this collector's only job is making
 the real data available, unfiltered.
 
 Run: python -m src.data_collection.collect_continental_cup_historical --league ucl
-(also accepts uel)
 """
 from __future__ import annotations
 
@@ -60,30 +59,17 @@ SOURCE_NAME = "fixturedownload.com"
 # each competition -- confirmed live (HTTP 200 vs 404) across a wide
 # range of candidate years before picking these, not assumed from when
 # each competition itself started.
-EARLIEST_SEASON_YEAR = {"ucl": 2017, "uel": 2019}
+EARLIEST_SEASON_YEAR = {"ucl": 2017}
 LATEST_SEASON_YEAR = 2025  # -> real 2025-26, the current season's most recent prior cycle
 
 # Confirmed real, individually-investigated exceptions to "every row in
 # a concluded historical season has a real score" -- NOT a general
 # escape hatch (an unexpected unscored row outside this set still
 # raises below, exactly as before).
-KNOWN_UNSCORED_MATCH_NUMBERS = {
-    # 2019-20 Europa League Round-of-16 first leg, scheduled 2020-03-12,
-    # the exact date UEFA competitions shut down for COVID-19;
-    # fixturedownload.com's feed kept these two stale, never-played
-    # placeholder rows rather than removing them once UEFA restructured
-    # the rest of that season into condensed single-leg matches at
-    # neutral venues in August 2020 (confirmed: Sevilla did play, and
-    # eliminate, Roma for real that season, just not as this row's
-    # two-legged tie).
-    ("uel", 2019, 179): "Sevilla v Roma",
-    ("uel", 2019, 181): "Internazionale v Getafe",
-    # 2021-22 Europa League Round-of-16, both legs (2022-03-10 and
-    # -03-17): UEFA expelled every Russian club from its competitions
-    # following the February 2022 invasion of Ukraine, mid-tie; RB
-    # Leipzig advanced by walkover without playing either leg.
-    ("uel", 2021, 115): "Leipzig v Spartak Moskva",
-    ("uel", 2021, 125): "Spartak Moskva v Leipzig",
+KNOWN_UNSCORED_MATCH_NUMBERS: dict[tuple[str, int, int], str] = {
+    # (league_id, season_year, match_number): "Home v Away". Empty since
+    # UEL's removal (2026-11-26) -- its four COVID/2022-expulsion
+    # entries were the only ones; no UCL season has needed one.
 }
 
 
@@ -238,6 +224,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

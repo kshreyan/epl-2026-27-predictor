@@ -385,8 +385,7 @@ def predict_fixtures(
         # value written to the *_model_only columns below. `effective`
         # is whichever of the two a downstream pick should actually act
         # on (the blended probability when a real blend happened, the
-        # same calibrated dict otherwise) -- same discipline
-        # predict_team_sport_matches.py already holds itself to.
+        # same calibrated dict otherwise).
         effective = blended if blended is not None else calibrated
 
         pred_ij = max(
