@@ -258,3 +258,29 @@ def test_run_update_survives_a_real_predictions_csv_with_all_blank_actual_column
     assert (completed_on_disk["status"] == "completed").all()
     assert completed_on_disk["actual_result"].isin(["home_win", "draw", "away_win"]).all()
     assert result["run_id"]
+
+
+@pytest.mark.slow
+def test_run_update_keeps_existing_prediction_for_kicked_off_unresulted_fixture(tmp_paths, synthetic_matchweek1_results):
+    """A fixture whose kickoff has passed but whose result isn't in yet
+    must keep its existing prediction -- regenerating it would postdate
+    kickoff (real incident 2026-11-23: EPL Brentford v Everton, which then
+    failed test_no_future_leakage and blocked every later daily run).
+    A fixture still in the future is re-predicted as normal."""
+    _seed_ledger_pre_kickoff(tmp_paths, synthetic_matchweek1_results)
+    run_update(matchweek=1, results_path=synthetic_matchweek1_results, paths=tmp_paths)
+    preds = pd.read_csv(tmp_paths.predictions)
+    kickoffs = pd.to_datetime(preds["kickoff_utc"], utc=True, format="ISO8601")
+    now = pd.Timestamp.now(tz="UTC")
+    past_id = preds.loc[(preds["status"] == "scheduled") & (kickoffs < now), "match_id"].iloc[0]
+    future_id = preds.loc[kickoffs > now + pd.Timedelta(days=1), "match_id"].iloc[-1]
+    marker = "2000-01-01T00:00:00+00:00"
+    preds.loc[preds["match_id"].isin([past_id, future_id]), "generated_at"] = marker
+    preds.to_csv(tmp_paths.predictions, index=False)
+
+    run_update(matchweek=1, results_path=synthetic_matchweek1_results, paths=tmp_paths)
+    after = pd.read_csv(tmp_paths.predictions).set_index("match_id")
+    assert after.loc[past_id, "generated_at"] == marker
+    assert after.loc[past_id, "status"] == "scheduled"
+    assert after.loc[future_id, "generated_at"] != marker
+    assert after.index.is_unique and len(after) == len(preds)

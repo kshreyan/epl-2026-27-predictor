@@ -336,7 +336,27 @@ def run_update(
         updated_existing.loc[idx, "actual_result"] = row["result"]
 
     kept_existing = updated_existing[updated_existing["match_id"].isin(completed_ids)] if not updated_existing.empty else updated_existing
-    final_predictions = pd.concat([kept_existing, weekly_predictions], ignore_index=True)
+
+    # A not-yet-completed fixture whose kickoff has already passed (its
+    # real result just hasn't reached the results feed yet, or it was
+    # postponed and its new date hasn't been resynced) keeps its last
+    # existing prediction -- a prediction generated now would postdate
+    # kickoff (caught 2026-11-23: EPL Brentford v Everton, re-predicted
+    # two days after its 2026-11-21 kickoff, failed
+    # test_no_future_leakage and blocked every later daily run). Only
+    # rows that already exist are frozen; a fixture with no earlier
+    # prediction at all still gets one, so nothing silently disappears.
+    fresh_predictions = weekly_predictions
+    frozen_existing = updated_existing.iloc[0:0]
+    if not updated_existing.empty and not weekly_predictions.empty:
+        kicked_off = pd.to_datetime(weekly_predictions["kickoff_utc"], utc=True, format="ISO8601") <= pd.Timestamp(generated_at)
+        frozen_ids = (set(weekly_predictions.loc[kicked_off, "match_id"]) & set(updated_existing["match_id"])) - completed_ids
+        if frozen_ids:
+            fresh_predictions = weekly_predictions[~weekly_predictions["match_id"].isin(frozen_ids)]
+            frozen_existing = updated_existing[updated_existing["match_id"].isin(frozen_ids)]
+            print(f"Kept the existing pre-kickoff prediction for {len(frozen_ids)} kicked-off fixture(s) still awaiting a result: "
+                  f"{sorted(frozen_ids)}")
+    final_predictions = pd.concat([kept_existing, frozen_existing, fresh_predictions], ignore_index=True)
     final_predictions = final_predictions.sort_values(["matchweek", "kickoff_utc"]).reset_index(drop=True)
     paths.predictions.parent.mkdir(parents=True, exist_ok=True)
     final_predictions.to_csv(paths.predictions, index=False)

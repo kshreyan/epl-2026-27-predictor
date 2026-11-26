@@ -215,6 +215,24 @@ def fetch_real_odds(fetch_ts: str, league_id: str, odds_api_url: str, fixtures_p
     return rows_by_key, None
 
 
+ODDS_FETCH_FAILED_EXIT_CODE = 3
+
+
+def _count_existing_real_rows(path: Path) -> int:
+    if not path.exists():
+        return 0
+    with open(path, newline="", encoding="utf-8") as f:
+        return sum(1 for r in csv.DictReader(f) if r.get("is_real_data") == "True")
+
+
+def _write_rows(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=OUTPUT_COLUMNS)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def main(league_id: str = "epl") -> None:
     cfg = load_league_config(league_id)
     fixtures_path = REPO_ROOT / "data" / "raw" / league_path(league_id, "2026_27_fixtures.csv")
@@ -233,10 +251,23 @@ def main(league_id: str = "epl") -> None:
         print(f"ODDS_API_KEY configured -- fetching live {cfg.display_name} {ODDS_API_MARKETS} odds from {odds_api_url} ...")
         rows_by_key, error = fetch_real_odds(fetch_ts, league_id, odds_api_url, fixtures_path)
         if error:
-            print(f"WARNING: The Odds API request failed ({error}) -- falling back to unavailable sentinel rows. "
-                  f"This is not a fabrication risk: we simply don't overwrite real odds with fake ones on failure.")
+            # Keep the last real snapshot rather than blanking it: on
+            # 2026-11-22 a deactivated key turned every league's real
+            # odds into sentinels in one run. Each kept row still carries
+            # its own real odds_timestamp, so its age stays visible
+            # downstream. Exit non-zero so the workflow records the
+            # failure (REFRESH_FAILURES) instead of it passing silently.
+            existing_real = _count_existing_real_rows(output_path)
+            if existing_real:
+                print(f"WARNING: The Odds API request failed ({error}) -- keeping the existing "
+                      f"{existing_real} real odds rows in {output_path.name} untouched (not overwriting real odds on failure).")
+                sys.exit(ODDS_FETCH_FAILED_EXIT_CODE)
+            print(f"WARNING: The Odds API request failed ({error}) and no earlier real odds exist -- "
+                  f"writing unavailable sentinel rows.")
             rows = [sentinel_row(fx, mt, fetch_ts, f"API request failed: {error}") for fx in fixtures for mt in MARKET_TYPES]
-            real_count = 0
+            _write_rows(output_path, rows)
+            print(f"Wrote {len(rows)} rows (0 real) to {output_path}")
+            sys.exit(ODDS_FETCH_FAILED_EXIT_CODE)
         else:
             rows = []
             real_count = 0
@@ -253,12 +284,7 @@ def main(league_id: str = "epl") -> None:
             print(f"Got real odds for {len(covered_fixtures)} fixtures ({real_count} bookmaker/market rows across "
                   f"{ODDS_API_MARKETS}); {len(fixtures) - len(covered_fixtures)} fixtures have no market posted yet.")
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=OUTPUT_COLUMNS)
-        writer.writeheader()
-        writer.writerows(rows)
-
+    _write_rows(output_path, rows)
     print(f"Wrote {len(rows)} rows ({real_count} real) to {output_path}")
 
     log_data_version(

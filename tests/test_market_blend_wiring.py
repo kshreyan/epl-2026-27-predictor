@@ -61,15 +61,23 @@ def test_blend_applies_only_to_fixtures_with_real_market_odds(real_ctx):
     pred_rows, _ = predict_fixtures(fixtures_df, ctx, df_clean, model_cfg, "test_mode", generated_at, "test_run", match_odds_by_id)
     by_id = {r["match_id"]: r for r in pred_rows}
 
+    with_odds = by_id["with_odds"]
+    assert with_odds["market_available"] is True
     if ctx["market_blend_significant"]:
-        assert by_id["with_odds"]["market_blend_applied"] is True
+        assert with_odds["market_blend_applied"] is True
         # The extreme away-favoring market price must have pulled the
-        # published probability meaningfully toward away -- not left it
-        # exactly at the model-only value.
-        assert by_id["with_odds"]["away_win_prob_model_only"] > 0.30
+        # published (market-integrated) probability meaningfully toward
+        # away -- while the model-only column keeps the model's own,
+        # un-blended value (the pre-1b4467f bug filed the blend there).
+        assert with_odds["away_win_prob_market_integrated"] > 0.30
+        assert with_odds["away_win_prob_market_integrated"] > with_odds["away_win_prob_model_only"] + 0.05
+        integrated = [with_odds[f"{o}_prob_market_integrated"] for o in ("home_win", "draw", "away_win")]
+        assert abs(sum(integrated) - 1.0) < 1e-3
     else:
-        assert by_id["with_odds"]["market_blend_applied"] is False
+        assert with_odds["market_blend_applied"] is False
+        assert with_odds["away_win_prob_market_integrated"] == ""
 
     # No real odds were supplied for this fixture -- must never be blended,
     # regardless of whether the blend is globally significant.
     assert by_id["no_odds"]["market_blend_applied"] is False
+    assert by_id["no_odds"]["market_available"] is False

@@ -1,10 +1,11 @@
 match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
-EPL2627_MW11_106_HullCity_Brighton&HoveAlbion,11,Hull City,Brighton & Hove Albion,home_win,0.2155,0.2155,0.2863,0.4983,1.5348,2026-11-23T16:38:18+00:00
-EPL2627_MW11_108_ManchesterCity_Fulham,11,Manchester City,Fulham,draw,0.2511,0.6224,0.2511,0.1266,1.3819,2026-11-23T16:38:18+00:00
-EPL2627_MW11_109_NewcastleUnited_Arsenal,11,Newcastle United,Arsenal,draw,0.2687,0.2031,0.2687,0.5281,1.3142,2026-11-23T16:38:18+00:00
-EPL2627_MW11_104_Chelsea_LeedsUnited,11,Chelsea,Leeds United,away_win,0.2695,0.4648,0.2657,0.2695,1.3112,2026-11-23T16:38:18+00:00
-EPL2627_MW11_102_AstonVilla_Sunderland,11,Aston Villa,Sunderland,draw,0.2769,0.5328,0.2769,0.1903,1.2841,2026-11-23T16:38:18+00:00
-EPL2627_MW11_105_CoventryCity_CrystalPalace,11,Coventry City,Crystal Palace,home_win,0.3128,0.3128,0.2594,0.4278,1.1622,2026-11-23T16:38:18+00:00
-EPL2627_MW11_101_AFCBournemouth_NottinghamForest,11,AFC Bournemouth,Nottingham Forest,home_win,0.4608,0.4608,0.2677,0.2715,0.7748,2026-11-23T16:38:18+00:00
-EPL2627_MW11_107_Liverpool_ManchesterUnited,11,Liverpool,Manchester United,home_win,0.5282,0.5282,0.2636,0.2083,0.6383,2026-11-23T16:38:18+00:00
-EPL2627_MW11_110_TottenhamHotspur_IpswichTown,11,Tottenham Hotspur,Ipswich Town,home_win,0.6628,0.6628,0.2024,0.1348,0.4113,2026-11-23T16:38:18+00:00
+EPL2627_MW11_106_HullCity_Brighton&HoveAlbion,11,Hull City,Brighton & Hove Albion,home_win,0.2155,0.2155,0.2863,0.4983,1.5348,2026-11-25T19:58:09+00:00
+EPL2627_MW11_108_ManchesterCity_Fulham,11,Manchester City,Fulham,draw,0.2511,0.6224,0.2511,0.1266,1.3819,2026-11-25T19:58:09+00:00
+EPL2627_MW11_109_NewcastleUnited_Arsenal,11,Newcastle United,Arsenal,draw,0.2687,0.2031,0.2687,0.5281,1.3142,2026-11-25T19:58:09+00:00
+EPL2627_MW11_104_Chelsea_LeedsUnited,11,Chelsea,Leeds United,away_win,0.2695,0.4648,0.2657,0.2695,1.3112,2026-11-25T19:58:09+00:00
+EPL2627_MW11_102_AstonVilla_Sunderland,11,Aston Villa,Sunderland,draw,0.2769,0.5328,0.2769,0.1903,1.2841,2026-11-25T19:58:09+00:00
+EPL2627_MW11_105_CoventryCity_CrystalPalace,11,Coventry City,Crystal Palace,home_win,0.3128,0.3128,0.2594,0.4278,1.1622,2026-11-25T19:58:09+00:00
+EPL2627_MW11_103_Brentford_Everton,11,Brentford,Everton,home_win,0.4608,0.4608,0.2677,0.2715,0.7748,2026-11-25T19:58:09+00:00
+EPL2627_MW11_101_AFCBournemouth_NottinghamForest,11,AFC Bournemouth,Nottingham Forest,home_win,0.4608,0.4608,0.2677,0.2715,0.7748,2026-11-25T19:58:09+00:00
+EPL2627_MW11_107_Liverpool_ManchesterUnited,11,Liverpool,Manchester United,home_win,0.5282,0.5282,0.2636,0.2083,0.6383,2026-11-25T19:58:09+00:00
+EPL2627_MW11_110_TottenhamHotspur_IpswichTown,11,Tottenham Hotspur,Ipswich Town,home_win,0.6628,0.6628,0.2024,0.1348,0.4113,2026-11-25T19:58:09+00:00

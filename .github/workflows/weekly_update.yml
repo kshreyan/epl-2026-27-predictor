@@ -71,12 +71,24 @@ jobs:
       # fixtures first (not after) means the odds step always joins
       # against the real match_ids that are actually on disk today, not
       # a stale set from a prior run.
+      # A league whose fetch still fails after espn_api's own retries is
+      # isolated, not fatal: its previous on-disk fixtures/results are
+      # left untouched (the collectors only write after a full fetch), so
+      # every other league still updates. The failure is recorded and the
+      # job is failed at the very end (see "Fail if any league's data
+      # refresh failed") -- on 2026-11-21 a single NCAAF TLS error here
+      # stopped all 11 leagues from updating.
       - name: Refresh NFL/NBA/NCAA Football/NCAA Basketball fixtures
         run: |
-          python -m src.data_collection.collect_nflverse
+          failed=""
+          python -m src.data_collection.collect_nflverse || failed="$failed nfl"
           for league in nba ncaaf ncaab; do
-            python -m src.data_collection.collect_espn_schedule --league "$league"
+            python -m src.data_collection.collect_espn_schedule --league "$league" || failed="$failed $league"
           done
+          if [ -n "$failed" ]; then
+            echo "::error::Fixture refresh failed for:$failed -- keeping their previous data, continuing with the rest"
+            echo "REFRESH_FAILURES=$failed" >> "$GITHUB_ENV"
+          fi
 
       # One iteration per active league (config/leagues.yaml) -- adding a
       # new league there needs no workflow change, just adding its id to
@@ -84,10 +96,20 @@ jobs:
       - name: Refresh live match odds
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        # collect_odds exits non-zero when The Odds API call fails (bad or
+        # deactivated key, exhausted monthly credits) and leaves that
+        # league's last real odds file untouched; record it and carry on
+        # (model-only predictions are a supported mode), failing the job
+        # at the end so a dead key can't go unnoticed again.
         run: |
+          failed=""
           for league in epl la_liga serie_a bundesliga ligue_1 ucl uel nfl nba ncaaf ncaab; do
-            python -m src.data_collection.collect_odds --league "$league"
+            python -m src.data_collection.collect_odds --league "$league" || failed="$failed odds:$league"
           done
+          if [ -n "$failed" ]; then
+            echo "::error::Odds refresh failed for:$failed -- kept each league's previous real odds"
+            echo "REFRESH_FAILURES=${REFRESH_FAILURES:-}$failed" >> "$GITHUB_ENV"
+          fi
 
       - name: Run weekly auto-update
         run: |
@@ -178,3 +200,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run deploy.yml
+
+      - name: Fail if any league's data refresh failed
+        if: env.REFRESH_FAILURES != ''
+        run: |
+          echo "::error::Every other league was updated and committed, but these kept stale data:${REFRESH_FAILURES}"
+          exit 1

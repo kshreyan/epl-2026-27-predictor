@@ -1,10 +1,11 @@
 match_id,matchweek,home_team,away_team,actual_result,predicted_probability_of_actual_outcome,home_win_prob,draw_prob,away_win_prob,surprise_log_loss,generated_at
-LALIGA2627_MW13_122_AthleticClub_RCDEspanyoldeBarcelona,13,Athletic Club,RCD Espanyol de Barcelona,away_win,0.1998,0.5165,0.2837,0.1998,1.6104,2026-11-23T16:38:46+00:00
-LALIGA2627_MW13_128_RayoVallecano_ValenciaCF,13,Rayo Vallecano,Valencia CF,away_win,0.283,0.406,0.3109,0.283,1.2623,2026-11-23T16:38:46+00:00
-LALIGA2627_MW13_130_SevillaFC_RealBetis,13,Sevilla FC,Real Betis,draw,0.3031,0.3505,0.3031,0.3464,1.1937,2026-11-23T16:38:46+00:00
-LALIGA2627_MW13_127_R.RacingClub_RealSociedad,13,R. Racing Club,Real Sociedad,home_win,0.3198,0.3198,0.2698,0.4104,1.1401,2026-11-23T16:38:46+00:00
-LALIGA2627_MW13_124_GetafeCF_AtléticodeMadrid,13,Getafe CF,Atlético de Madrid,away_win,0.4813,0.2065,0.3122,0.4813,0.7313,2026-11-23T16:38:46+00:00
-LALIGA2627_MW13_121_DeportivoAlavés_RCDeportivo,13,Deportivo Alavés,RC Deportivo,home_win,0.5015,0.5015,0.2898,0.2086,0.6902,2026-11-23T16:38:46+00:00
-LALIGA2627_MW13_126_CAOsasuna_MálagaCF,13,CA Osasuna,Málaga CF,home_win,0.5707,0.5707,0.2532,0.1761,0.5609,2026-11-23T16:38:46+00:00
-LALIGA2627_MW13_123_FCBarcelona_VillarrealCF,13,FC Barcelona,Villarreal CF,home_win,0.7194,0.7194,0.1692,0.1114,0.3293,2026-11-23T16:38:46+00:00
-LALIGA2627_MW13_129_RealMadrid_CeltaVigo,13,Real Madrid,Celta Vigo,home_win,0.7423,0.7423,0.1593,0.0984,0.298,2026-11-23T16:38:46+00:00
+LALIGA2627_MW13_122_AthleticClub_RCDEspanyoldeBarcelona,13,Athletic Club,RCD Espanyol de Barcelona,away_win,0.1998,0.5165,0.2837,0.1998,1.6104,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_128_RayoVallecano_ValenciaCF,13,Rayo Vallecano,Valencia CF,away_win,0.283,0.406,0.3109,0.283,1.2623,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_125_LevanteUD_ElcheCF,13,Levante UD,Elche CF,draw,0.2896,0.4504,0.2896,0.2599,1.2393,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_130_SevillaFC_RealBetis,13,Sevilla FC,Real Betis,draw,0.3031,0.3505,0.3031,0.3464,1.1937,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_127_R.RacingClub_RealSociedad,13,R. Racing Club,Real Sociedad,home_win,0.3198,0.3198,0.2698,0.4104,1.1401,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_124_GetafeCF_AtléticodeMadrid,13,Getafe CF,Atlético de Madrid,away_win,0.4813,0.2065,0.3122,0.4813,0.7313,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_121_DeportivoAlavés_RCDeportivo,13,Deportivo Alavés,RC Deportivo,home_win,0.5015,0.5015,0.2898,0.2086,0.6902,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_126_CAOsasuna_MálagaCF,13,CA Osasuna,Málaga CF,home_win,0.5707,0.5707,0.2532,0.1761,0.5609,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_123_FCBarcelona_VillarrealCF,13,FC Barcelona,Villarreal CF,home_win,0.7194,0.7194,0.1692,0.1114,0.3293,2026-11-25T19:59:06+00:00
+LALIGA2627_MW13_129_RealMadrid_CeltaVigo,13,Real Madrid,Celta Vigo,home_win,0.7423,0.7423,0.1593,0.0984,0.298,2026-11-25T19:59:06+00:00
