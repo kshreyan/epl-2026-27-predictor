@@ -6,11 +6,10 @@ LEAN +2 candidates.
 
 Covers the 5 domestic leagues with a real, backtested, PRIMARY Dixon-
 Coles fit (see src/models/compute_margin_survival.py's module
-docstring) plus UCL/UEL/UECL (see compute_margin_survival_continental.py's
-module docstring) -- built on request even though those three
-competitions' own real backtest found Dixon-Coles clearly weaker than
-Elo, their actual moneyline model; every row for those three says so
-plainly in engine_note/why_text. Every row carries a `verdict` (PICK
+docstring) plus UCL (see compute_margin_survival_continental.py's
+module docstring) -- built on request even though UCL's own real
+backtest found Dixon-Coles clearly weaker than Elo, its actual
+moneyline model; every UCL row says so plainly in engine_note/why_text. Every row carries a `verdict` (PICK
 +2 / LEAN +2 / PASS) that combines absolute blowout risk with real
 market price where one exists -- most fixtures have no real market
 posted yet (bookmakers only post close to kickoff), so most verdicts
@@ -32,29 +31,18 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.dashboard.build_dashboard_json import _to_records, _write_json  # noqa: E402
 from src.leagues import load_league_config  # noqa: E402
 from src.models.compute_margin_survival import MARGIN_SURVIVAL_LEAGUE_IDS  # noqa: E402
-from src.models.compute_margin_survival_team_sport import MARGIN_THRESHOLD  # noqa: E402
-from src.models.point_margin_model import should_use_point_margin_model  # noqa: E402
 from src.utils.versioning import MODEL_VERSION, now_utc_iso  # noqa: E402
 
 OUT_DIR = REPO_ROOT / "data" / "outputs"
 TOP20_SIZE = 20
 
-# UCL/UEL/UECL (see compute_margin_survival_continental.py's module
-# docstring): built on request despite the real backtest finding Elo
-# clearly beats Dixon-Coles for all three competitions' own moneyline
-# prediction -- unlike the 5 domestic leagues above, the Dixon-Coles
+# UCL (see compute_margin_survival_continental.py's module docstring):
+# built on request despite the real backtest finding Elo clearly beats
+# Dixon-Coles for its own moneyline prediction -- unlike the 5 domestic leagues above, the Dixon-Coles
 # surface this reads from is NOT this league's primary/best-validated
 # model, just the weaker of two real models tested. engine_note below
 # is written per-league so this distinction is never glossed over.
-CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl", "uel"]
-
-# NFL/NBA/NCAA Football (see compute_margin_survival_team_sport.py's
-# module docstring): a sport-correct equivalent, not soccer's "+2
-# goals" ported literally -- each league's own real threshold is
-# anchored to its own real research/backtested margin distribution,
-# never a borrowed number (see that module's docstring for the real
-# per-league reasoning).
-TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS = ["nfl", "nba", "ncaaf", "ncaab"]
+CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS = ["ucl"]
 
 
 # Pick Moneyline's real-standings gate below. Both brackets started as
@@ -80,15 +68,9 @@ def _live_predictions(league_id: str) -> pd.DataFrame:
     match_id -- this is the one file in each league's pipeline that is
     reliably kept in sync with real results (status flips to
     "completed" and actual_home_goals/actual_away_goals get filled in
-    as real games conclude). The raw per-sport fixtures.csv that
-    compute_margin_survival_team_sport.py reads its own "status"/"date"
-    columns from is NOT reliably updated this way for the 4 points-
-    format team sports -- confirmed directly this session: NCAA
-    Football's raw fixtures.csv still marks literally every one of its
-    761 rows "scheduled", including ones from Week 1 (early September)
-    that have obviously already been played by late October. Anything
-    that needs to know whether a match has REALLY already happened
-    must use this file, never margin_survival's own status/date."""
+    as real games conclude). Anything that needs to know whether a
+    match has REALLY already happened must use this file, never a raw
+    fixtures.csv's own status column."""
     path = OUT_DIR / f"{league_id}_2026_27_match_predictions.csv"
     if not path.exists():
         return pd.DataFrame(columns=["status", "date", "home_team", "away_team", "actual_home_goals", "actual_away_goals"])
@@ -100,13 +82,11 @@ def _real_current_standings(preds: pd.DataFrame, league_id: str) -> pd.DataFrame
     real completed results (status == "completed",
     actual_home_goals/actual_away_goals) in `preds` (see
     _live_predictions above) -- the same already-collected real data
-    (football-data.co.uk / ESPN / nflverse, per league) this entire
-    pipeline already treats as authoritative, never a
-    separate external standings lookup. Ranked by points-per-game
-    (goal-difference tiebreak) for single_table/swiss leagues, win
-    percentage (point-diff tiebreak) for the 4 points-format team
-    sports -- mid-season-fair either way, not raw totals, so a team
-    that has simply played fewer games isn't penalized for it."""
+    (football-data.co.uk / fixturedownload.com, per league) this entire
+    pipeline already treats as authoritative, never a separate external
+    standings lookup. Ranked by points-per-game (goal-difference
+    tiebreak) -- mid-season-fair, not raw totals, so a team that has
+    simply played fewer games isn't penalized for it."""
     if preds.empty:
         return pd.DataFrame(columns=["team", "rank", "n_teams", "played"])
     completed = preds[preds["status"] == "completed"].dropna(subset=["actual_home_goals", "actual_away_goals"])
@@ -127,11 +107,10 @@ def _real_current_standings(preds: pd.DataFrame, league_id: str) -> pd.DataFrame
         bump(row["home_team"], row["actual_home_goals"], row["actual_away_goals"])
         bump(row["away_team"], row["actual_away_goals"], row["actual_home_goals"])
 
-    is_points_format = league_id in TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS
     rows = [
         {
             "team": team,
-            "sort_key": (s["wins"] / s["played"] if is_points_format else s["points"] / s["played"]),
+            "sort_key": s["points"] / s["played"],
             "diff": s["diff"],
             "played": s["played"],
         }
@@ -184,8 +163,7 @@ def _flag_pick_moneyline(df: pd.DataFrame, table: pd.DataFrame, preds: pd.DataFr
     scan for the compound signal wherever it currently holds, not a
     near-term-only shortlist. "Upcoming" is read from `preds` (the
     live-tracked predictions file), NOT from df's own status/matchweek
-    -- see _live_predictions' docstring for why those can be stale for
-    the 4 points-format team sports."""
+    -- see _live_predictions' docstring."""
     flags = pd.Series(False, index=df.index)
     if preds.empty:
         return flags
@@ -218,12 +196,8 @@ def _flag_pick_moneyline(df: pd.DataFrame, table: pd.DataFrame, preds: pd.DataFr
 
 def _confidence(row: pd.Series) -> str:
     team_n, opponent_n = row.get("team_history_n_matches"), row.get("opponent_history_n_matches")
-    # NFL/NBA/NCAA Football margin survival (compute_margin_survival_
-    # team_sport.py) does not compute a real historical-tail factor
-    # (team_history_n_matches/opponent_history_n_matches are always
-    # null for these leagues -- a real, disclosed limitation, not a
-    # bug). .get() treats a missing column the same honest way as a
-    # null one. "low" is the honest answer either way, not a crash.
+    # .get() treats a missing column the same honest way as a null
+    # one: "low" confidence, not a crash.
     if pd.isna(team_n) or pd.isna(opponent_n):
         return "low"
     n_min = min(team_n, opponent_n)
@@ -260,23 +234,6 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
             "verdicts with real caution. Each row's verdict (PICK +2 / LEAN +2 / PASS) gates on absolute "
             "blowout risk first, then breaks ties with real market price where one currently exists."
         )
-    elif league_id in TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS:
-        threshold = MARGIN_THRESHOLD[league_id]
-        same_model_note = (
-            "the same point-margin model used for this league's own moneyline prediction"
-            if should_use_point_margin_model(league_id) else
-            "NOT the same model as this league's moneyline prediction, which is Elo-only -- the real backtest "
-            f"found Elo beats the point-margin model here (see reports/{league_id}_model_selection_report.md). "
-            "Treat these verdicts with real caution"
-        )
-        engine_note = (
-            f"Every team in every game: P_cover/P_push/P_fail read off a real fitted Normal margin "
-            f"distribution (not a discrete scoreline grid -- there isn't one for this model), at this "
-            f"league's own real blowout threshold (lose by more than {threshold} points) -- see "
-            f"reports/{league_id}_model_selection_report.md for how that threshold was derived. Uses "
-            f"{same_model_note}. Each row's verdict (PICK +{threshold} / LEAN +{threshold} / PASS) gates on "
-            "absolute blowout risk first, then breaks ties with real market price where one currently exists."
-        )
     else:
         engine_note = (
             "Every team in every match, every gameweek: P_cover/P_push/P_fail read directly off the same "
@@ -298,9 +255,7 @@ def build_league_margin_survival_json(league_id: str) -> pd.DataFrame:
 
 
 def _verdict_rank(verdict: str) -> int:
-    """Ranks by verdict TIER, not the exact string -- "PICK +2" (soccer),
-    "PICK +14" (NFL), and "PICK +20" (NBA) are all the same tier here,
-    just at each league's own real tag (see
+    """Ranks by verdict TIER, not the exact string (see
     compute_margin_survival.py's verdict())."""
     if verdict.startswith("PICK "):
         return 0
@@ -346,9 +301,8 @@ def build_top20(all_leagues: dict[str, pd.DataFrame]) -> None:
         "view": "best_verdict",
         "note": (
             "Ranked by verdict first (Pick before Lean -- Pass is excluded here), then by real price "
-            "value where a real market exists, then by lowest blowout risk. Each league's own verdict is at "
-            "its own real threshold (+2 goals for soccer/UEFA, +14 points for NFL, +20 for NBA, "
-            "+21 for NCAA Football -- see each row's own `threshold` field). The verdict pill on each row "
+            "value where a real market exists, then by lowest blowout risk. Every league's verdict is at "
+            "the same +2-goal threshold (see each row's own `threshold` field). The verdict pill on each row "
             "already synthesizes risk and price -- this is not a separate signal, and still not advice."
         ),
         "record_count": len(combined),
@@ -409,7 +363,7 @@ def build_pick_moneyline_board(all_leagues: dict[str, pd.DataFrame]) -> None:
 def main() -> None:
     all_leagues = {
         lid: build_league_margin_survival_json(lid)
-        for lid in MARGIN_SURVIVAL_LEAGUE_IDS + CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS + TEAM_SPORT_MARGIN_SURVIVAL_LEAGUE_IDS
+        for lid in MARGIN_SURVIVAL_LEAGUE_IDS + CONTINENTAL_CUP_MARGIN_SURVIVAL_LEAGUE_IDS
     }
     build_top20(all_leagues)
     build_pick_moneyline_board(all_leagues)

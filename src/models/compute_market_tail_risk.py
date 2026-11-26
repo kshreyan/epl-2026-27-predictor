@@ -9,9 +9,7 @@ THRESHOLD and RISK_LABELS below are NOT guessed or borrowed from
 soccer's/NFL's/NBA's own numbers, or from each other -- every single
 market's own row here is that market's own real backtested value (see
 each market's own reports/{market_id}_tail_risk_backtest_report.md,
-all real-backtested 2026-11-05), hardcoded the same way
-compute_margin_survival_team_sport.py hardcodes NFL/NBA/NCAA
-Football's own real backtested MARGIN_THRESHOLD/RISK_LABELS -- re-run
+all real-backtested 2026-11-05), hardcoded -- re-run
 a market's own backtest and update ITS OWN row if its real underlying
 distribution moves meaningfully; never copy another market's numbers.
 

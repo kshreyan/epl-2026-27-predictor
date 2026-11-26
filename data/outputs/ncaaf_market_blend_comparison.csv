@@ -1,2 +1,0 @@
-devig_method,primary_model_column,n_matches,model_log_loss,blend_log_loss,ci_low,ci_high,blend_significant,season_wins,n_seasons,generated_at
-multiplicative,elo_home_win,22,0.54571,0.5285,-0.04108,0.073,False,1,1,2026-11-14T12:03:12+00:00

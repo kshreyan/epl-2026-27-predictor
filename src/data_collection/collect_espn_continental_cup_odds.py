@@ -2,19 +2,16 @@
 a UEFA club competition's most recent complete real season (2025-26),
 from ESPN's real soccer scoreboard + game-summary endpoints
 (site.api.espn.com/.../soccer/{espn_slug}/...) -- confirmed directly
-this session: ESPN carries real UCL/UEL odds (DraftKings-sourced
-pickcenter, with a real open/close distinction, same shape as
-collect_espn_nba_game_detail.py's real NBA source) even though no
-football-data.co.uk coverage exists for either competition (see
+this session: ESPN carries real UCL odds (DraftKings-sourced
+pickcenter, with a real open/close distinction) even though no
+football-data.co.uk coverage exists for it (see
 market_blend_model.py's docstring -- that remains true; this is a
 different, until-now-unchecked real source, not a reversal of it).
 
-Scoped to ONE real season, same deliberate-scope-limit discipline as
-collect_espn_ncaaf_odds.py and collect_espn_nba_game_detail.py (one
-real recent cycle, not all historical seasons) -- a real UCL/UEL
-season only has 33/20 distinct real league-phase+knockout matchdays,
-so this uses the per-date scoreboard endpoint (fine at this scale),
-not espn_api.py's per-team-schedule endpoint.
+Scoped to ONE real season (one real recent cycle, not all historical
+seasons) -- a real UCL season only has 33 distinct real league-phase+
+knockout matchdays, so this uses the per-date scoreboard endpoint
+(fine at this scale).
 
 Matches each real ESPN event to this project's own real match_id
 (from fixturedownload.com's historical_matches.csv) by (date,
@@ -22,11 +19,10 @@ home_team, away_team) -- both team names normalized through this
 competition's own canonical table -- never by team-name alone: the
 Ligue 1 double-counting incident (see fetch_live_results.py) is the
 exact real reason date is part of the key here too, even though no
-repeat-fixture collision is currently known in a single UCL/UEL
+repeat-fixture collision is currently known in a single UCL
 season. Raises on any genuine ambiguity rather than guessing.
 
 Run: python -m src.data_collection.collect_espn_continental_cup_odds --league ucl
-(also accepts uel)
 """
 from __future__ import annotations
 
@@ -44,7 +40,7 @@ from src.utils.versioning import log_data_version, now_utc_iso  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SOURCE_NAME = "site.api.espn.com (game summary)"
-ESPN_SLUG = {"ucl": "uefa.champions", "uel": "uefa.europa"}
+ESPN_SLUG = {"ucl": "uefa.champions"}
 MOST_RECENT_SEASON = "2025-26"
 SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={date}"
 SUMMARY_URL = "https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/summary?event={event_id}"
@@ -153,6 +149,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

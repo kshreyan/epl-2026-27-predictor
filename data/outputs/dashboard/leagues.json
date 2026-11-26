@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T20:03:22+00:00",
+  "generated_at": "2026-11-26T20:13:14+00:00",
   "leagues": [
     {
       "league_id": "bundesliga",
@@ -26,30 +26,6 @@
       "format": "single_table"
     },
     {
-      "league_id": "nba",
-      "display_name": "NBA",
-      "country": "United States",
-      "format": "points"
-    },
-    {
-      "league_id": "ncaab",
-      "display_name": "NCAA Basketball",
-      "country": "United States",
-      "format": "points"
-    },
-    {
-      "league_id": "ncaaf",
-      "display_name": "NCAA Football",
-      "country": "United States",
-      "format": "points"
-    },
-    {
-      "league_id": "nfl",
-      "display_name": "NFL",
-      "country": "United States",
-      "format": "points"
-    },
-    {
       "league_id": "serie_a",
       "display_name": "Serie A",
       "country": "Italy",
@@ -58,12 +34,6 @@
     {
       "league_id": "ucl",
       "display_name": "UEFA Champions League",
-      "country": "Europe",
-      "format": "swiss"
-    },
-    {
-      "league_id": "uel",
-      "display_name": "UEFA Europa League",
       "country": "Europe",
       "format": "swiss"
     }

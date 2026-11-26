@@ -20,9 +20,8 @@ function ProbBar({ home, draw, away }: { home: number; draw: number; away: numbe
 }
 
 function PickChip({ label, value }: { label: string; value: string }) {
-  // A real market with no real concept for this league (e.g. BTTS for
-  // NFL/NBA -- dropped, not faked, see predict_team_sport_matches.py)
-  // arrives as an empty string -- skip the chip entirely rather than
+  // A market with no real value for this match arrives as an empty
+  // string -- skip the chip entirely rather than
   // show a label with nothing next to it.
   if (!value) return null
   return (
@@ -133,11 +132,9 @@ function MatchRow({
           <div className="space-y-2 text-[11px] md:col-span-2">
             <h3 className="text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">Other markets</h3>
             <div className="tnum grid grid-cols-1 gap-3 sm:grid-cols-3">
-              {/* No real "both teams to score" concept for NFL/NBA
-                  (dropped, not faked -- see predict_team_sport_matches.py);
-                  btts_pick arrives empty for those leagues, so the whole
-                  card is skipped rather than showing 0.0%/0.0% as if it
-                  were real data. */}
+              {/* btts_pick arrives empty when there is no real BTTS
+                  value, so the whole card is skipped rather than
+                  showing 0.0%/0.0% as if it were real data. */}
               {match.btts_pick && (
                 <div className="border border-[var(--color-border)] p-2">
                   <div className="mb-1 flex items-center justify-between text-[10px] uppercase tracking-wide text-[var(--color-text-faint)]">

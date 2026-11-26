@@ -28,7 +28,6 @@ with real ESPN odds collected), same honest "1/1 seasons" caveat NBA's
 own market blend already carries.
 
 Run: python -m src.evaluation.backtest_continental_cup_market_blend --league ucl
-(also accepts uel)
 """
 from __future__ import annotations
 
@@ -52,7 +51,6 @@ from src.utils.versioning import log_experiment, make_run_metadata, now_utc_iso 
 # to generalize from one competition to the other.
 PRIMARY_MODEL_COLUMNS = {
     "ucl": ("dc_home_win", "dc_draw", "dc_away_win"),
-    "uel": ("elo_home_win", "elo_draw", "elo_away_win"),
 }
 
 
@@ -177,6 +175,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)

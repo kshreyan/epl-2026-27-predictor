@@ -9,59 +9,28 @@
 # football_data_code, fixturedownload.com for fixturedownload_slug, The
 # Odds API's /v4/sports/ endpoint for odds_api_sport_key.
 #
-# UEFA Champions League, Europa League, and Conference League (added
-# 2026-10-19): `format: swiss` -- a single 36-team table with a REAL
-# PARTIAL schedule (each team plays 8 (UCL/UEL) or 6 (UECL) of the
+# UEFA Champions League (added 2026-10-19): `format: swiss` -- a single
+# 36-team table with a REAL PARTIAL schedule (each team plays 8 of the
 # other 35, not a full round-robin), so no expected-table/races/
-# season-simulation dashboard is built for them (see
+# season-simulation dashboard is built for it (see
 # single_table_league_ids()). The knockout bracket that follows the
-# league phase (playoff round -> Round of 16 -> Final) is explicitly
-# OUT OF SCOPE -- it isn't drawn until the league phase ends, fixture
-# download's current-season feed doesn't include it, and this pipeline
-# has no two-legged-tie/bracket simulation. Match predictions and (only
-# where each competition's own real backtest supports it -- see
-# reports/{league}_model_selection_report.md) +2 Margin Survival cover
-# the 144/144/108 real league-phase matches only.
+# league phase is explicitly OUT OF SCOPE -- it isn't drawn until the
+# league phase ends, fixturedownload's current-season feed doesn't
+# include it, and this pipeline has no two-legged-tie/bracket
+# simulation. Match predictions and (only where its own real backtest
+# supports it -- see reports/ucl_model_selection_report.md) +2 Margin
+# Survival cover the 144 real league-phase matches only.
 #
-# NFL, NBA, and NCAA Football (re-added 2026-10-28, after a prior
-# removal on 2026-10-26; NHL was part of that re-addition too but was
-# removed again on 2026-10-29 at the user's request): `format: points`
-# -- real American team sports, scored in points not goals. No
-# fixturedownload_slug/football_data_code (neither source covers
-# these). NFL's real fixtures/historical/EPA data comes from nflverse
-# (richer than ESPN's site API -- real closing lines, weather, rest
-# days, QB names already included); NBA/NCAA Football still use ESPN's
-# public site API (site.api.espn.com) via collect_espn_schedule.py/
-# collect_espn_historical.py, not collect_fixtures.py, since
-# stats.nba.com/nba_api was unreachable (bot-protected) from this
-# project's environment when re-verified. The Dixon-Coles/Poisson
-# scoreline grid (scoreline_models.py) does not fit NFL/NBA/NCAAF's
-# scoring scale -- src/models/point_margin_model.py (Elo + a real
-# fitted margin-of-victory regression) is the baseline these sports'
-# own real backtest compares against newer heavy-stack candidates
-# (LightGBM, Bayesian/Laplace ratings -- see
-# reports/{league}_model_selection_report.md for which one actually
-# won). NCAA Football's real FBS conference groupings are fetched live from
-# ESPN's own standings endpoint at build time, not hardcoded (conference
-# realignment is a real recurring event in college sports); NCAA
-# Football has no real playoff-seeding FORMULA (the 12-team CFP is
-# committee-selected, not standings math) -- its season simulation
-# reports real conference win-loss projections, bowl-eligibility
-# probability, and a model-derived CFP-seeding approximation explicitly
-# labeled as such, never a claim to predict the real committee's picks.
-# UFC was also re-requested but intentionally left out of this
-# re-addition's scope (not a team sport, needs its own bespoke
-# infrastructure -- see the prior removal's rationale if re-adding it
-# later).
-#
-# MLS and UEFA Nations League were previously supported here (bespoke
-# collectors/Elo-only models, `format: groups`/`single_table` with a
-# playoff_zone_size override) and were removed, along with their site
-# pages and dashboard JSON, after a prediction-health audit found their
-# results weren't being kept current by the daily automation (see
-# reports/epl_2026_27_prediction_health_report.md) -- re-adding either
-# needs its own data-collection/weekly-refresh wiring, not just a
-# config entry.
+# Removed leagues (re-adding any of them needs its own collectors and
+# daily-refresh wiring, not just a config entry):
+# - UEFA Europa League, NFL, NBA, NCAA Football and NCAA Basketball were
+#   removed in full on 2026-11-26 at the user's request, leaving the five
+#   big European domestic leagues plus the Champions League.
+# - UEFA Conference League and Nations League: removed 2026-11-14 (too
+#   little real history on the only source).
+# - MLS: removed after a prediction-health audit found its results
+#   weren't being kept current by the daily automation.
+# - NHL and UFC: removed 2026-10-29 / 2026-10-26.
 leagues:
   - league_id: epl
     display_name: Premier League
@@ -123,64 +92,3 @@ leagues:
     match_id_prefix: UCL
     format: swiss
     expected_fixture_count: 144
-
-  - league_id: uel
-    display_name: UEFA Europa League
-    country: Europe
-    fixturedownload_slug: europa-league
-    odds_api_sport_key: soccer_uefa_europa_league
-    timezone: UTC
-    n_teams: 36
-    match_id_prefix: UEL
-    format: swiss
-    expected_fixture_count: 144
-
-  - league_id: nfl
-    display_name: NFL
-    country: United States
-    odds_api_sport_key: americanfootball_nfl
-    timezone: America/New_York
-    n_teams: 32
-    match_id_prefix: NFL
-    format: points
-
-  - league_id: nba
-    display_name: NBA
-    country: United States
-    odds_api_sport_key: basketball_nba
-    timezone: America/New_York
-    n_teams: 30
-    match_id_prefix: NBA
-    format: points
-
-  - league_id: ncaaf
-    display_name: NCAA Football
-    country: United States
-    odds_api_sport_key: americanfootball_ncaaf
-    timezone: America/New_York
-    # Real, live FBS team count -- confirmed via ESPN's own standings
-    # feed, re-verified at re-addition time, not assumed from the prior
-    # build. collect_espn_schedule.py sanity-checks against a wide
-    # band, not exact equality, since this roster genuinely isn't fixed
-    # the way NFL/NBA's is -- see espn_api.py's
-    # fetch_real_season_games().
-    n_teams: 138
-    match_id_prefix: NCAAF
-    format: points
-
-  - league_id: ncaab
-    display_name: NCAA Basketball
-    country: United States
-    odds_api_sport_key: basketball_ncaab
-    timezone: America/New_York
-    # Real, live Division I team count -- confirmed via ESPN's own
-    # standings feed this session (365 teams via standings?group=50,
-    # 362 via the generic /teams roster endpoint -- the same small real
-    # discrepancy NCAA Football's FBS count already has). Like NCAAF,
-    # this roster isn't a fixed closed set (real D1 reclassification is
-    # a recurring event) -- collect_espn_schedule.py sanity-checks
-    # against a wide band (350-375), not exact equality -- see
-    # espn_api.py's fetch_real_season_games().
-    n_teams: 365
-    match_id_prefix: NCAAB
-    format: points

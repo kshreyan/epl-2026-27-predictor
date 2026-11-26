@@ -34,21 +34,17 @@ class LeagueConfig:
     # season position/promotion/relegation makes sense for -- everything
     # this registry originally modeled. "swiss": a single combined table
     # with a PARTIAL schedule -- each team plays only some of the other
-    # teams, not a full round-robin (e.g. UEFA Champions/Europa/
-    # Conference League's 36-team league phase, 8 or 6 games each) --
+    # teams, not a full round-robin (e.g. the UEFA Champions League's
+    # 36-team league phase, 8 games each) --
     # table/races/season-simulation dashboard building does not apply
     # and must not run for these; see single_table_league_ids() below.
-    # "points" (NFL, NBA, NCAA Football -- re-added 2026-10-28
-    # after a prior full removal on 2026-10-26): real American team
-    # sports, scored in points not goals -- see config/leagues.yaml's
-    # note for the real data sources and model each one uses.
     format: str = "single_table"
     # None for a competition fixturedownload.com genuinely has no real
-    # coverage for (e.g. American team sports) -- collect_fixtures.py/
+    # coverage for -- collect_fixtures.py/
     # collect_continental_cup_historical.py are hard-coupled to this
     # source and simply do not run for such a league; a bespoke
-    # collector (e.g. collect_espn_schedule.py) supplies its real
-    # fixtures instead. Never a placeholder/guessed slug.
+    # collector would have to supply its real fixtures instead. Never
+    # a placeholder/guessed slug.
     fixturedownload_slug: str | None = None
     # None for a competition football-data.co.uk genuinely has no real
     # coverage for (e.g. international competitions) -- collect_
@@ -78,8 +74,8 @@ class LeagueConfig:
     # check assumes a full double round-robin (n_teams*(n_teams-1)) --
     # correct for every "single_table" league so far. An override
     # supplies the real expected count for a "swiss"-format league's
-    # partial schedule (e.g. 36 teams x 8 games / 2 = 144 for UEFA
-    # Champions/Europa League, x6 = 108 for the Conference League) so
+    # partial schedule (e.g. 36 teams x 8 games / 2 = 144 for the UEFA
+    # Champions League) so
     # the check still catches a genuinely wrong/incomplete real feed
     # instead of being silently skipped.
     expected_fixture_count: int | None = None

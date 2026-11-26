@@ -1,5 +1,5 @@
 """Rolling-origin backtest for the markets tail-risk engine -- the
-same real, walk-forward discipline backtest_team_sport.py uses, on a
+same real, walk-forward discipline the sports backtests use, on a
 genuinely different prediction target: not "who wins", but "how
 likely is this instrument to realize a return worse than a real
 adverse threshold over a fixed horizon" (the +2 Margin Survival
@@ -24,8 +24,7 @@ P(5-day return < -threshold) against the REAL realized 5-day return
 that actually happened. The real adverse threshold itself, and the
 real risk-tier cutoffs, are BOTH derived from this real backtest's own
 pooled distribution -- never borrowed from soccer's or another
-market's numbers, same discipline NFL/NBA/NHL/NCAA Football's own
-real-percentile-derived +2-equivalent thresholds used.
+market's numbers.
 
 Run: python -m src.evaluation.backtest_market_tail_risk --market us_equities
 """

@@ -40,7 +40,6 @@ CI crosses zero) -- re-checked fresh every run, same "no evidence, no
 blend" discipline as everywhere else in this project.
 
 Run: python -m src.models.predict_continental_cup_matches --league ucl
-(also accepts uel)
 """
 from __future__ import annotations
 
@@ -143,8 +142,7 @@ def should_apply_market_blend(league_id: str) -> bool:
     significant edge from blending the model with the real market --
     never assumed. Defaults to False (model-only) if that backtest
     hasn't been run yet, the same "no evidence, no blend" discipline
-    predict_team_sport_matches.py and market_blend_model.py already
-    established."""
+    market_blend_model.py already established."""
     path = REPO_ROOT / "data" / "outputs" / f"{league_id}_market_blend_comparison.csv"
     if not path.exists():
         return False
@@ -165,11 +163,10 @@ def load_market_odds(odds_path: Path) -> dict[str, dict]:
             if not row["current_home_odds"] or not row["current_draw_odds"] or not row["current_away_odds"]:
                 continue
             home_odds, draw_odds, away_odds = float(row["current_home_odds"]), float(row["current_draw_odds"]), float(row["current_away_odds"])
-            # Same real anomaly confirmed for NCAAB/NCAAF (see
-            # predict_team_sport_matches.load_market_odds): a real
-            # decimal odds of exactly 1.0 from one bookmaker is
-            # mathematically impossible -- skip this row (not yet seen
-            # for UCL/UEL, but the same real_odds.csv schema/source,
+            # A real anomaly seen from this same source for other
+            # sports: a decimal odds of exactly 1.0 from one bookmaker
+            # is mathematically impossible -- skip this row (not yet
+            # seen for UCL, but the same real_odds.csv schema/source,
             # so the same defense applies here too) and let a later
             # real bookmaker row for this match_id be used instead.
             if home_odds <= 1.0 or draw_odds <= 1.0 or away_odds <= 1.0:
@@ -371,6 +368,6 @@ def main(league_id: str) -> None:
 if __name__ == "__main__":
     import argparse
     _parser = argparse.ArgumentParser()
-    _parser.add_argument("--league", required=True, choices=["ucl", "uel"], dest="league_id")
+    _parser.add_argument("--league", required=True, choices=["ucl"], dest="league_id")
     _args = _parser.parse_args()
     main(league_id=_args.league_id)
