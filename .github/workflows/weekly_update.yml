@@ -21,16 +21,21 @@ name: Weekly auto-update after each gameweek
 # explicitly dispatches deploy.yml itself as its last step whenever it
 # committed something, rather than relying on the push trigger to do it.
 #
-# Also refreshes live match odds every run (ODDS_API_KEY repo secret,
-# 1 credit/call, well under the free tier's 500/month at daily cadence)
-# -- this keeps data/raw/epl_2026_27_real_odds.csv current even on days
-# nothing else changes, so the scoring baseline in
-# reports/epl_2026_27_model_report.md "Market comparison" doesn't go
-# stale the way it would if odds were only ever fetched manually.
+# Also refreshes live match odds (ODDS_API_KEY repo secret) -- but only
+# on Fridays (UTC), ahead of each weekend's fixtures: one refresh costs
+# ~54 credits across the 6 leagues, so a daily refresh (~1,600/month)
+# blows through the free tier's 500/month, while weekly (~240/month)
+# fits. Every other day reuses the last real odds on disk. A manual run
+# can force a refresh with the "refresh_odds" input.
 on:
   schedule:
     - cron: "0 6 * * *" # daily, 06:00 UTC -- safe because most days are a no-op
   workflow_dispatch:
+    inputs:
+      refresh_odds:
+        description: "Refresh live odds even if today isn't Friday (uses ~54 Odds API credits)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -69,7 +74,22 @@ jobs:
       # One iteration per active league (config/leagues.yaml) -- adding a
       # new league there needs no workflow change, just adding its id to
       # this list. "epl" alone reproduces exactly what this step always did.
+      # Fridays only (see the note at the top) -- GitHub often starts the
+      # 06:00 UTC schedule hours late, but never late enough to slip
+      # into Saturday, so the UTC weekday of the actual run is what
+      # gates this.
+      - name: Check whether to refresh odds today
+        id: odds_day
+        run: |
+          if [ "$(date -u +%u)" = "5" ] || [ "${{ inputs.refresh_odds }}" = "true" ]; then
+            echo "refresh=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Not Friday (UTC) -- keeping the last real odds on disk."
+            echo "refresh=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Refresh live match odds
+        if: steps.odds_day.outputs.refresh == 'true'
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         # A league whose refresh fails is isolated, not fatal: collect_odds
