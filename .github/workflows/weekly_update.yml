@@ -22,18 +22,20 @@ name: Weekly auto-update after each gameweek
 # committed something, rather than relying on the push trigger to do it.
 #
 # Also refreshes live match odds (ODDS_API_KEY repo secret) -- but only
-# on Fridays (UTC), ahead of each weekend's fixtures: one refresh costs
-# ~54 credits across the 6 leagues, so a daily refresh (~1,600/month)
-# blows through the free tier's 500/month, while weekly (~240/month)
-# fits. Every other day reuses the last real odds on disk. A manual run
-# can force a refresh with the "refresh_odds" input.
+# once a week per league, ahead of its matches: the 5 domestic leagues
+# on Fridays (UTC, before the weekend), the Champions League on Mondays
+# (UTC, before its Tuesday/Wednesday matchdays). A refresh of all 6
+# leagues costs ~54 credits, so a daily refresh (~1,600/month) blows
+# through the free tier's 500/month, while weekly (~240/month) fits.
+# Every other day reuses each league's last real odds on disk. A
+# manual run can force a refresh of all 6 with the "refresh_odds" input.
 on:
   schedule:
     - cron: "0 6 * * *" # daily, 06:00 UTC -- safe because most days are a no-op
   workflow_dispatch:
     inputs:
       refresh_odds:
-        description: "Refresh live odds even if today isn't Friday (uses ~54 Odds API credits)"
+        description: "Refresh odds for all 6 leagues regardless of weekday (uses ~54 Odds API credits)"
         type: boolean
         default: false
 
@@ -74,22 +76,28 @@ jobs:
       # One iteration per active league (config/leagues.yaml) -- adding a
       # new league there needs no workflow change, just adding its id to
       # this list. "epl" alone reproduces exactly what this step always did.
-      # Fridays only (see the note at the top) -- GitHub often starts the
-      # 06:00 UTC schedule hours late, but never late enough to slip
-      # into Saturday, so the UTC weekday of the actual run is what
-      # gates this.
-      - name: Check whether to refresh odds today
+      # Domestic leagues on Fridays, UCL on Mondays (see the note at the
+      # top) -- GitHub often starts the 06:00 UTC schedule hours late, but
+      # never late enough to slip into the next day, so the UTC weekday
+      # of the actual run is what gates this.
+      - name: Pick which leagues' odds to refresh today
         id: odds_day
         run: |
-          if [ "$(date -u +%u)" = "5" ] || [ "${{ inputs.refresh_odds }}" = "true" ]; then
-            echo "refresh=true" >> "$GITHUB_OUTPUT"
+          weekday="$(date -u +%u)"  # 1 = Monday ... 5 = Friday
+          if [ "${{ inputs.refresh_odds }}" = "true" ]; then
+            leagues="epl la_liga serie_a bundesliga ligue_1 ucl"
+          elif [ "$weekday" = "5" ]; then
+            leagues="epl la_liga serie_a bundesliga ligue_1"
+          elif [ "$weekday" = "1" ]; then
+            leagues="ucl"
           else
-            echo "Not Friday (UTC) -- keeping the last real odds on disk."
-            echo "refresh=false" >> "$GITHUB_OUTPUT"
+            leagues=""
+            echo "Not Friday or Monday (UTC) -- keeping every league's last real odds on disk."
           fi
+          echo "leagues=$leagues" >> "$GITHUB_OUTPUT"
 
       - name: Refresh live match odds
-        if: steps.odds_day.outputs.refresh == 'true'
+        if: steps.odds_day.outputs.leagues != ''
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         # A league whose refresh fails is isolated, not fatal: collect_odds
@@ -100,7 +108,7 @@ jobs:
         # at the end so a dead key can't go unnoticed again.
         run: |
           failed=""
-          for league in epl la_liga serie_a bundesliga ligue_1 ucl; do
+          for league in ${{ steps.odds_day.outputs.leagues }}; do
             python -m src.data_collection.collect_odds --league "$league" || failed="$failed odds:$league"
           done
           if [ -n "$failed" ]; then
